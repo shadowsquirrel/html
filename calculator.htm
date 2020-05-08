@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="css/calculator.css">
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <title>Page Title</title>
+</head>
+<body>
+
+    <div class = 'all'>
+        <div id = 'top' class = 'top'>
+            <pre>
+                z
+                z
+                z
+                z
+                z GENERAL STAGE AND GAME INFORMATION
+                z
+                z
+                z
+                z
+            </pre>
+        </div>
+
+
+
+        <div  class = 'bottom'>
+
+            <div id = 'left' class = 'left'>
+
+                <div id = 'formulas' class = 'formulas'>
+                    <pre>
+                        z
+                        z
+                        z
+                        z
+                        z FORMULAS
+                        z
+                        z
+                        z
+                        z
+                        z
+                        z
+                        z
+                        z
+
+                    </pre>
+                </div>
+
+                <div id = 'calculator' class = 'calculator'>
+
+                    <div id = 'yourGroup' class = 'yourGroup'>
+                        <pre>
+                            z
+                            z
+                            z
+                            z
+                            z YOUR GROUP
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+
+                        </pre>
+
+                        <pre>
+                            z
+                            z
+                            z
+                            z
+                            z OPPOSING GROUP
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+
+                        </pre>
+                        <pre>
+                            z
+                            z
+                            z
+                            z
+                            z YOUR GROUP
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+
+                        </pre>
+
+                        <pre>
+                            z
+                            z
+                            z
+                            z
+                            z OPPOSING GROUP
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+
+                        </pre>
+                    </div>
+
+                    <div id = 'graphics' class = 'graphics'>
+                        <div id = 'probabilityPie' class = 'piechart'></div>
+                        <div id = 'helpBar' class = 'helpbarchart'></div>
+                        <div id = 'saboBar' class = 'sabobarchart'></div>
+
+                    </div>
+
+                    <div id = 'opposingGroup' class = 'opposingGroup'>
+                        <pre>
+                            z
+                            z
+                            z
+                            z
+                            z OPPOSING GROUP
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+
+                        </pre>
+
+                        <pre>
+                            z
+                            z
+                            z
+                            z
+                            z OPPOSING GROUP
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+
+                        </pre>
+                        <pre>
+                            z
+                            z
+                            z
+                            z
+                            z YOUR GROUP
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+
+                        </pre>
+
+                        <pre>
+                            z
+                            z
+                            z
+                            z
+                            z OPPOSING GROUP
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+                            z
+
+                        </pre>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+            <div class = 'right'>
+
+                <div id = 'info' class = 'info'>
+                    <pre>
+                        z
+                        z
+                        z
+                        z
+                        z STAGE SPECIFIC REQUIRED VARIABLE INFO
+                        z
+                        z
+                        z
+                        z
+                    </pre>
+                </div>
+                <div class = 'decision'>
+
+                    <pre>
+                        z
+                        z
+                        z
+                        z
+                        z ACTUAL DECISION SECTION
+                        z
+                        z
+                        z
+                        z
+                    </pre>
+                </div>
+                <pre>
+                    z
+                    z
+                    z
+                    z
+                    z LEFT OVER SECTION NOT YET ALLOCATED
+                    z
+                    z
+                    z
+                    z
+                </pre>
+            </div>
+
+        </div>
+
+    </div>
+
+
+        <script src="js/calculator.js"></script>
+
+</body>
+</html>
+
+
+
+
+<!--
+    <div id = 'calculator' class='calculator'>
+        <div class="f">
+            <h4> Other Followers' Average</h4>
+            <br>
+            <br>
+            <br>
+            <input type="range" min="-100" max="100" value="0" class="vSlider" id="hisSaboHelpSlider">
+            <br>
+            <br>
+            <br>
+            <br>
+            <pre>Help: <span id="hisHelpDecision"></span>   Sabotage: <span id="hisSaboDecision"></span></pre>
+        </div>
+
+        <div><pre>    </pre></div>
+
+        <div class="l">
+            <h4> Leader </h4>
+            <input type="range" min="0" max="1000" value="0" class="hSlider" id="myLeaderEffortSlider">
+            <p>Effort: <span id="myLeaderEffortDecision"></span> </p>
+        </div>
+
+
+        <div><pre>   </pre></div>
+
+        <div id = 'probabilityPie' class = 'piechart'></div>
+        <div id = 'probabilityBar' class = 'barchart'></div>
+
+        <div><pre>  </pre></div>
+
+        <div class="ol">
+            <h4> Opposing Leader </h4>
+            <input type="range" min="0" max="1000" value="0" class="h2Slider" id="hisLeaderEffortSlider">
+            <p>Effort: <span id="hisLeaderEffortDecision"></span> </p>
+        </div>
+
+        <div><pre>     </pre></div>
+
+        <div class="of">
+            <h4> Other Followers' Average</h4>
+            <br>
+            <br>
+            <br>
+            <input type="range" min="-100" max="100" value="0" class="vSlider" id="theirSaboHelpSlider">
+            <br>
+            <br>
+            <br>
+            <br>
+            <pre>Help: <span id="theirHelpDecision"></span>   Sabotage: <span id="theirSaboDecision"></span></pre>
+        </div>
+
+    </div> -->

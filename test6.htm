@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/test6.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <title>Page Title</title>
+</head>
+<body>
+
+
+
+        <div id = 'mycalculator' class='calculator'>
+            <div class="f">
+                <h4> Other Followers' Average</h4>
+                <br>
+                <br>
+                <br>
+                <input type="range" min="-100" max="100" value="0" class="vSlider" id="hisSaboHelpSlider">
+                <br>
+                <br>
+                <br>
+                <br>
+                <pre>Help: <span id="hisHelpDecision"></span>   Sabotage: <span id="hisSaboDecision"></span></pre>
+            </div>
+
+            <div><pre>    </pre></div>
+
+            <div class="l">
+                <h4> Leader </h4>
+                <input type="range" min="0" max="1000" value="0" class="hSlider" id="myLeaderEffortSlider">
+                <p>Effort: <span id="myLeaderEffortDecision"></span> </p>
+            </div>
+
+
+            <div><pre>   </pre></div>
+
+            <div id = 'probabilityPie' class = 'piechart'></div>
+            <div id = 'probabilityBar' class = 'barchart'></div>
+
+            <div><pre>  </pre></div>
+
+            <div class="ol">
+                <h4> Opposing Leader </h4>
+                <input type="range" min="0" max="1000" value="0" class="h2Slider" id="hisLeaderEffortSlider">
+                <p>Effort: <span id="hisLeaderEffortDecision"></span> </p>
+            </div>
+
+            <div><pre>     </pre></div>
+
+            <div class="of">
+                <h4> Other Followers' Average</h4>
+                <br>
+                <br>
+                <br>
+                <input type="range" min="-100" max="100" value="0" class="vSlider" id="theirSaboHelpSlider">
+                <br>
+                <br>
+                <br>
+                <br>
+                <pre>Help: <span id="theirHelpDecision"></span>   Sabotage: <span id="theirSaboDecision"></span></pre>
+            </div>
+
+        </div>
+
+
+
+
+    <div class = 'decision'>
+        <button id = 'calculatorButton' class = 'title'> Hypothetical Case Calculator </button>
+        <h2> Your Decision </h2>
+        <input type="range" min="-100" max="100" value="0" class="dSlider" id="mySaboHelpSlider">
+        <pre>Help: <span id="myHelpDecision"></span>  Sabotage: <span id="mySaboDecision"></span></pre>
+        <p> Chance to proceed to followers' competition to become the new leader  %</p>
+        <p> Your payoff from this stage <span id='payoff'></span></p>
+    </div>
+
+<button id = 'pbButton' class = 'title'> Pie/Bar </button>
+
+
+
+
+    <div class = 'prob' style='font-size: 30px;'><span id='pwin'></span> %</div>
+
+
+
+
+
+    <script src="js/test6.js"></script>
+</body>
+</html>
