@@ -49,9 +49,9 @@
 .left
 {
     background-color: black;
-    flex-grow: 1;
+    /* flex-grow: 0; */
+    flex-shrink: 4;
     max-width: 100%;
-    width: 40%;
     transition: 1s;
     display: flex;
     flex-direction: column;
@@ -62,7 +62,8 @@
 .formulas
 {
     background-color: gray;
-    flex-grow: 0;
+    /* flex-grow: 0; */
+    flex-shrink: 4;
     height: 100%;
     transition: 1s;
 }
@@ -74,41 +75,71 @@
 .calculator
 {
     background-color: orange;
-    flex-grow: 10;
+    flex-shrink: 1;
+    display: flex;
+    flex-direction: column;
+
+}
+.leaderSection
+{
     display: flex;
 }
-.yourGroup{
+.yourGroup1{
     justify-content: center;
-    flex-grow:2;
     display: flex;
     flex-direction: column;
     background-color: blue;
-
+    align-items: center;
 }
-.graphics
+.lhSlider
+{
+    width: 170px;
+}
+.graphics1
 {
     justify-content: center;
-    flex-grow:1;
     display: flex;
     flex-direction: column;
     background-color: white;
+    align-items: center;
+    width: 160px;
 }
-
-.opposingGroup
-{
-    justify-content: center;
-    flex-grow:2;
-    display: flex;
-    flex-direction: column;
-    background-color: red;
-}
-
-
 .piechart
 {
     opacity: 1;
     position: static;
     transition: 0.5s;
+
+}
+.opposingGroup1
+{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    align-items: center;
+}
+
+.followerSection
+{
+display: flex;
+}
+.yourGroup2{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    background-color: blue;
+    align-items: center;
+
+
+}
+.graphics2
+{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
 }
 .helpbarchart
 {
@@ -126,6 +157,14 @@
     border: 5px solid black;
 }
 
+.opposingGroup2
+{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+}
+
 
 .vSlider
 {
@@ -141,7 +180,7 @@
 .right
 {
     background-color: lightblue;
-    flex-grow: 2;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
 }

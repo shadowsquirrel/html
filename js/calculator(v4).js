@@ -21,9 +21,9 @@ updatePie = function(a) {
     }];
 
     var layout = {
-        height: 150,
+        height: 120,
         width: 150,
-        title: 'Probability to Win',
+        // title: 'Probability to Win',
         font:{
             size: 10
         },
@@ -49,19 +49,19 @@ updateBarHelp = function(a,b) {
         x: ['Opposing Group', 'Your Group'],
         type: 'bar',
         sort: false,
-        //hoverinfo: 'none',
+        hoverinfo: 'none',
         automargin: true,
         showlegend: false,
         marker:{
             color: ['rgb(180,180,255)', 'rgb(255,180,180)']
         },
-        text: [x.toFixed(2), y.toFixed(2)],
-        textposition: 'auto'
+        //text: [x.toFixed(2), y.toFixed(2)],
+        //textposition: 'auto'
     }];
 
     var layout = {
         barmode: 'group',
-        height: 150,
+        height: 110,
         width: 150,
         // title: 'Total Help',
         margin: {"t": 0, "b": 0, "l": 0, "r": 0},
@@ -75,30 +75,30 @@ updateBarHelp = function(a,b) {
     Plotly.react('helpBar', data, layout, {displayModeBar: false});
 }
 updateBarSabo = function(a, b) {
-    x = a;
-    y = b;
+    x = b;
+    y = a;
     if(typeof(x) === 'undefined') x = 0;
     if(typeof(y) === 'undefined') y = 0;
 
     var data = [{
-        y: [y, x], //[x, y],
+        y: [x, y], //[y, x],
         x: ['Opposing Group', 'Your Group'],
         type: 'bar',
         sort: false,
-        //hoverinfo: 'none',
+        hoverinfo: 'none',
         automargin: true,
         showlegend: false,
         marker:{
             color: ['rgb(255,180,180)', 'rgb(180,180,255)']
             //color: ['rgb(180,180,255)', 'rgb(255,180,180)']
         },
-        text: [x.toFixed(2), y.toFixed(2)],
-        textposition: 'auto'
+        //text: [x.toFixed(2), y.toFixed(2)],
+        //textposition: 'auto'
     }];
 
     var layout = {
         barmode: 'group',
-        height: 150,
+        height: 110,
         width: 150,
         // title: 'Total Sabotage',
         margin: {"t": 0, "b": 0, "l": 0, "r": 0},
@@ -208,7 +208,7 @@ hisLeaderEffortSlider.oninput = function() {
 }
 
 
-//  ALL OPPOSING FOLLOWERS
+// all OPPOSING FOLLOWERS
 var theirSaboHelpSlider = document.getElementById("theirSaboHelpSlider");
 var theirSaboOutputDisplay = document.getElementById('theirSaboDecision');
 var theirHelpOutputDisplay = document.getElementById('theirHelpDecision');

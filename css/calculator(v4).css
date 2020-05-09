@@ -49,8 +49,8 @@
 .left
 {
     background-color: black;
-    /* flex-grow: 1; */
-    flex-shrink: 1;
+    /* flex-grow: 0; */
+    flex-shrink: 4;
     max-width: 100%;
     transition: 1s;
     display: flex;
@@ -63,7 +63,7 @@
 {
     background-color: gray;
     /* flex-grow: 0; */
-    flex-shrink: 1;
+    flex-shrink: 4;
     height: 100%;
     transition: 1s;
 }
@@ -75,18 +75,97 @@
 .calculator
 {
     background-color: orange;
-    /* flex-grow: 1; */
     flex-shrink: 1;
+    display: flex;
+    text-align: center;
+    /* width: 20%; */
 }
+
+.yourGroup{
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(180,180,255);
+    align-items: center;
+
+}
+
+.lhSlider
+{
+    width: 200px;
+    /* transform:rotate(-25deg); */
+}
+.l2hSlider
+{
+    width: 200px;
+    transform:rotate(180deg);
+    /* transform:rotate(205deg); */
+}
+.graphics
+{
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    width: 160px;
+}
+.opposingGroup
+{
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255,180,180);
+    align-items: center;
+}
+
 .piechart
 {
     opacity: 1;
     position: static;
     transition: 0.5s;
+
+}
+.helpbarchart
+{
+    opacity: 1;
+    position: static;
+    transition: 0.5s;
+    /* border: 5px solid black; */
+}
+.sabobarchart
+{
+    opacity: 1;
+    position: static;
+    transition: 0.5s;
+    transform: rotate(180deg);
+    /* border: 5px solid black; */
+}
+.vSliders
+{
+    display: flex;
+    flex-direction: column;
+    transform:rotate(270deg);
 }
 
 
+.vSlider1
+{
+    width: 150px;
+}
 
+.vSlider2
+{
+    width: 150px;
+}
+.mySlider
+{
+    width: 150px;
+    opacity: 0.3;
+}
+.mySlider:hover{
+
+}
 
 
 /**************************************************************/
@@ -106,7 +185,7 @@
 .info
 {
     background-color: purple;
-    /* flex-grow: 0; */
+    flex-grow: 0;
     height: 250px;
     transition: 0.5s;
 }
@@ -117,5 +196,13 @@
 .decision
 {
     background-color: violet;
-    flex-grow: 1;
+    flex-grow: 3;
+}
+
+
+
+
+.hidden
+{
+    display:none;
 }

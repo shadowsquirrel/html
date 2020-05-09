@@ -56,150 +56,71 @@
 
                 <div id = 'calculator' class = 'calculator'>
 
-                    <div id = 'yourGroup' class = 'yourGroup'>
-                        <pre>
-                            z
-                            z
-                            z
-                            z
-                            z YOUR GROUP
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
+                    <div id = 'leaderSecion' class = 'leaderSection'>
 
-                        </pre>
+                        <div id = 'yourGroup1' class = 'yourGroup1'>
 
-                        <pre>
-                            z
-                            z
-                            z
-                            z
-                            z OPPOSING GROUP
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
+                            <h4> Leader </h4>
+                            <input type="range" min="0" max="1000" value="0" class="lhSlider" id="myLeaderEffortSlider">
+                            <p>Effort: <span id="myLeaderEffortDecision"></span> </p>
 
-                        </pre>
-                        <pre>
-                            z
-                            z
-                            z
-                            z
-                            z YOUR GROUP
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
+                        </div>
 
-                        </pre>
+                        <div id = 'graphics1' class = 'graphics1'>
 
-                        <pre>
-                            z
-                            z
-                            z
-                            z
-                            z OPPOSING GROUP
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
+                            <div id = 'probabilityPie' class = 'piechart'></div>
 
-                        </pre>
-                    </div>
+                        </div>
 
-                    <div id = 'graphics' class = 'graphics'>
-                        <div id = 'probabilityPie' class = 'piechart'></div>
-                        <div id = 'helpBar' class = 'helpbarchart'></div>
-                        <div id = 'saboBar' class = 'sabobarchart'></div>
+                        <div id = 'opposingGroup1' class = 'opposingGroup1'>
+
+                            <h4> Opposing Leader </h4>
+                            <input type="range" min="0" max="1000" value="0" class="h2Slider" id="hisLeaderEffortSlider">
+                            <p>Effort: <span id="hisLeaderEffortDecision"></span> </p>
+
+                        </div>
 
                     </div>
 
-                    <div id = 'opposingGroup' class = 'opposingGroup'>
-                        <pre>
-                            z
-                            z
-                            z
-                            z
-                            z OPPOSING GROUP
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
+                    <div id = 'followerSecion' class = 'followerSection'>
 
-                        </pre>
+                        <div id = 'yourGroup2' class = 'yourGroup2'>
 
-                        <pre>
-                            z
-                            z
-                            z
-                            z
-                            z OPPOSING GROUP
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
+                            <h4> Other Followers' Average</h4>
+                            <br>
+                            <br>
+                            <br>
+                            <input type="range" min="-100" max="100" value="0" class="vSlider" id="hisSaboHelpSlider">
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <pre>Help: <span id="hisHelpDecision"></span>   Sabotage: <span id="hisSaboDecision"></span></pre>
 
-                        </pre>
-                        <pre>
-                            z
-                            z
-                            z
-                            z
-                            z YOUR GROUP
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
+                        </div>
 
-                        </pre>
+                        <div id = 'graphics2' class = 'graphics2'>
+                            <div id = 'helpBar' class = 'helpbarchart'></div>
+                            <div id = 'saboBar' class = 'sabobarchart'></div>
+                        </div>
 
-                        <pre>
-                            z
-                            z
-                            z
-                            z
-                            z OPPOSING GROUP
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
-                            z
+                        <div id = 'opposingGroup2' class = 'opposingGroup2'>
+                            <div class="of">
+                                <h4> Opponent Followers' Average</h4>
+                                <br>
+                                <br>
+                                <br>
+                                <input type="range" min="-100" max="100" value="0" class="vSlider" id="theirSaboHelpSlider">
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <pre>Help: <span id="theirHelpDecision"></span>   Sabotage: <span id="theirSaboDecision"></span></pre>
+                            </div>
+                        </div>
 
-                        </pre>
                     </div>
+
 
 
 

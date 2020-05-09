@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="css/calculator(v2).css">
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <title>Page Title</title>
+</head>
+<body>
+
+    <div class = 'all'>
+        <div id = 'top' class = 'top'>
+            <pre>
+                z
+                z
+                z
+                z
+                z GENERAL STAGE AND GAME INFORMATION
+                z
+                z
+                z
+                z
+            </pre>
+        </div>
+
+
+
+        <div  class = 'bottom'>
+
+            <div id = 'left' class = 'left'>
+
+                <div id = 'formulas' class = 'formulas'>
+                    <pre>
+                        z
+                        z
+                        z
+                        z
+                        z FORMULAS
+                        z
+                        z
+                        z
+                        z
+                        z
+                        z
+                        z
+                        z
+
+                    </pre>
+                </div>
+
+                <div id = 'calculator' class = 'calculator'>
+
+                    <div id = 'yourGroup' class = 'yourGroup'>
+                        <div class="l">
+                            <h3> Leader </h3>
+                            <input type="range" min="0" max="1000" value="0" class="lhSlider" id="myLeaderEffortSlider">
+                            <p>Effort: <span id="myLeaderEffortDecision"></span> </p>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+
+                        <div class="f">
+                            <hr>
+                            <pre>Total Help: <span id="ourTotalHelpDecision"></span></pre>
+                            <pre>Total Sabotage: <span id="ourTotalSaboDecision"></span></pre>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+
+                            <input type="range" min="-100" max="100" value="0" class="vSlider" id="hisSaboHelpSlider">
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <h4>Other Followers'</h4>
+                            <h4>Average</h4>
+                            <pre>Help: <span id="hisHelpDecision"></span>   Sabotage: <span id="hisSaboDecision"></span></pre>
+
+                        </div>
+                    </div>
+
+                    <div id = 'graphics' class = 'graphics'>
+                        <br>
+                        <div id = 'probabilityPie' class = 'piechart'></div>
+                        <br>
+
+                        <p>-------------</p>
+
+
+                        <div id = 'sbgraphics' class = 'sbgraphics'>
+                            <h4>Total Help </h4>
+                            <div id = 'helpBar' class = 'helpbarchart'></div>
+                            <div id = 'saboBar' class = 'sabobarchart'></div>
+                            <h4>Total Sabotage </h4>
+                            <br>
+                        </div>
+                    </div>
+
+
+
+                    <div id = 'opposingGroup' class = 'opposingGroup'>
+                        <div class="ol">
+                            <h4> Opposing Leader </h4>
+                            <input type="range" min="0" max="1000" value="0" class="lhSlider" id="hisLeaderEffortSlider">
+                            <p>Effort: <span id="hisLeaderEffortDecision"></span> </p>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="of">
+                            <hr>
+                            <pre>Total Help: <span id="theirTotalHelpDecision"></span></pre>
+                            <pre>Total Sabotage: <span id="theirTotalSaboDecision"></span></pre>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            
+                            <input type="range" min="-100" max="100" value="0" class="vSlider" id="theirSaboHelpSlider">
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <h4>Opponent Followers'</h4>
+                            <h4>Average</h4>
+                            <pre>Help: <span id="theirHelpDecision"></span>   Sabotage: <span id="theirSaboDecision"></span></pre>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class = 'right'>
+
+                <div id = 'info' class = 'info'>
+                    <pre>
+                        z
+                        z
+                        z
+                        z
+                        z STAGE SPECIFIC REQUIRED VARIABLE INFO
+                        z
+                        z
+                        z
+                        z
+                    </pre>
+                </div>
+                <div class = 'decision'>
+                    <h2> Your Decision </h2>
+                    <input type="range" min="-100" max="100" value="0" class="dSlider" id="mySaboHelpSlider">
+                    <pre>Help: <span id="myHelpDecision"></span>  Sabotage: <span id="mySaboDecision"></span></pre>
+                </div>
+                <pre>
+                    z
+                    z
+                    z
+                    z
+                    z LEFT OVER SECTION NOT YET ALLOCATED
+                    z
+                    z
+                    z
+                    z
+                </pre>
+            </div>
+
+        </div>
+
+    </div>
+
+
+        <script src="js/calculator.js"></script>
+
+</body>
+</html>

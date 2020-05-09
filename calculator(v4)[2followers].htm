@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="css/calculator(v4)[2followers].css">
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <title>Page Title</title>
+</head>
+<body>
+
+    <div class = 'all'>
+        <div id = 'top' class = 'top'>
+            <pre>
+                z
+                z
+                z
+                z
+                z GENERAL STAGE AND GAME INFORMATION
+                z
+                z
+                z
+                z
+            </pre>
+        </div>
+
+
+
+        <div  class = 'bottom'>
+
+            <div id = 'left' class = 'left'>
+
+                <div id = 'formulas' class = 'formulas'>
+                    <pre>
+                        z
+                        z
+                        z
+                        z
+                        z FORMULAS
+                        z
+                        z
+                        z
+                        z
+                        z
+                        z
+                        z
+                        z
+
+                    </pre>
+                </div>
+
+                <div id = 'calculator' class = 'calculator'>
+
+                    <div id = 'yourGroup' class = 'yourGroup'>
+                        <h3 style = 'color: rgb(33, 83, 213);'><u>Your Group</u></h3>
+                        <div class="l">
+
+                            <p> Leader </p>
+                            <input type="range" min="0" max="1000" value="0" class="lhSlider" id="myLeaderEffortSlider">
+                            <p>Effort: <span id="myLeaderEffortDecision"></span> </p>
+                            <br>
+                            <hr>
+                        </div>
+
+
+                        <br style="line-height: 10px" />
+                        <div class="f">
+                            <pre>Total Help: <span id="ourTotalHelpDecision"></span></pre>
+                            <br>
+                            <br>
+                            <br>
+                            <div class = 'vSliders'>
+                                <input type="range" min="-100" max="100" value="0" class="mySlider" id="mySaboHelpSlider2">
+                                <input type="range" min="-100" max="100" value="0" class="vSlider1" id="hisSaboHelpSlider">
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <pre>Total Sabotage: <span id="ourTotalSaboDecision"></span></pre>
+                        </div>
+                    </div>
+
+                    <div id = 'graphics' class = 'graphics'>
+                        <h4>Probability to Win</h4>
+                        <div id = 'probabilityPie' class = 'piechart'></div>
+                        <br>
+                        <br style="line-height: 10px" />
+                        <div id = 'sbgraphics' class = 'sbgraphics'>
+                            <h4>Total Help </h4>
+                            <div id = 'helpBar' class = 'helpbarchart'></div>
+                            <div id = 'saboBar' class = 'sabobarchart'></div>
+                            <h4>Total Sabotage </h4>
+                            <br>
+                        </div>
+                    </div>
+
+
+
+                    <div id = 'opposingGroup' class = 'opposingGroup'>
+                        <h3 style = 'color: rgba(213, 33, 33, 0.81);'>
+                            <u>Opposing Group</u></h3>
+                        <div class="ol">
+                            <p> Leader </p>
+                            <input type="range" min="0" max="1000" value="0" class="l2hSlider" id="hisLeaderEffortSlider">
+                            <p>Effort: <span id="hisLeaderEffortDecision"></span> </p>
+                            <br>
+                            <hr>
+                        </div>
+
+
+                        <br style="line-height: 10px" />
+                        <div class="of">
+                            <pre>Total Help: <span id="theirTotalHelpDecision"></span></pre>
+                            <br>
+                            <br>
+                            <br>
+                            <div class = 'vSliders'>
+                                <input type="range" min="-100" max="100" value="0" class="vSlider2" id="theirSaboHelpSlider1">
+                                <input type="range" min="-100" max="100" value="0" class="vSlider2" id="theirSaboHelpSlider2">
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <pre>Total Sabotage: <span id="theirTotalSaboDecision"></span></pre>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class = 'right'>
+
+                <div id = 'info' class = 'info'>
+                    <pre>
+                        z
+                        z
+                        z
+                        z
+                        z STAGE SPECIFIC REQUIRED VARIABLE INFO
+                        z
+                        z
+                        z
+                        z
+                    </pre>
+                </div>
+                <div class = 'decision'>
+
+                    <div class = 'input'>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <h2> Your Decision </h2>
+                        <br>
+                        <br>
+                        <br>
+                        <input type="range" min="-100" max="100" value="0" class="dSlider" id="mySaboHelpSlider">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <pre>Help: <span id="myHelpDecision"></span>  Sabotage: <span id="mySaboDecision"></span></pre>
+                    </div>
+
+                    <div class = 'outcomes'>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <h2> TODO </h2>
+                        <p>
+                            payoffs
+                            payoffs
+                        </p>
+                    </div>
+
+
+
+                </div>
+                <pre>
+
+                    SB TODO: -sync your decision slide and opac slide
+                             -display number on each slide button
+                             -have the option to move opponent slide together (default option should be this)
+
+                </pre>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+        <script src="js/calculator(v4)[2followers].js"></script>
+
+</body>
+</html>

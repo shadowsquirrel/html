@@ -49,9 +49,9 @@
 .left
 {
     background-color: black;
-    /* flex-grow: 1; */
-    flex-shrink: 1;
-    max-width: 100%;
+    /* flex-grow: 0; */
+    flex-shrink: 4;
+    width: 55%;
     transition: 1s;
     display: flex;
     flex-direction: column;
@@ -63,7 +63,7 @@
 {
     background-color: gray;
     /* flex-grow: 0; */
-    flex-shrink: 1;
+    flex-shrink: 4;
     height: 100%;
     transition: 1s;
 }
@@ -75,17 +75,88 @@
 .calculator
 {
     background-color: orange;
-    /* flex-grow: 1; */
     flex-shrink: 1;
+    display: flex;
+    text-align: center;
 }
+
+.yourGroup{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(180,180,255);
+    align-items: center;
+
+}
+
+.lhSlider
+{
+    width: 170px;
+}
+.graphics
+{
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    width: 160px;
+}
+.opposingGroup
+{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255,180,180);
+    align-items: center;
+    width: 100%;
+}
+
 .piechart
 {
     opacity: 1;
     position: static;
     transition: 0.5s;
+
+}
+.helpbarchart
+{
+    opacity: 1;
+    position: static;
+    transition: 0.5s;
+    /* border: 5px solid black; */
+}
+.sabobarchart
+{
+    opacity: 1;
+    position: static;
+    transition: 0.5s;
+    transform: rotate(180deg);
+    /* border: 5px solid black; */
 }
 
+.sliders
+{
+    display: flex;
+    flex-direction: column;
+    transform:rotate(270deg);
+}
+.newSlider
+{
+    display: flex;
+}
+.sliderValues
+{
+    display: flex;
+    flex-direction: column;
+    transform:rotate(90deg);
+}
+.vSlider
+{
+    width: 150px;
 
+    /* transform:rotate(270deg); */
+}
 
 
 
@@ -106,7 +177,7 @@
 .info
 {
     background-color: purple;
-    /* flex-grow: 0; */
+    flex-grow: 0;
     height: 250px;
     transition: 0.5s;
 }
@@ -117,5 +188,5 @@
 .decision
 {
     background-color: violet;
-    flex-grow: 1;
+    flex-grow: 3;
 }
