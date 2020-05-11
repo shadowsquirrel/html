@@ -539,7 +539,7 @@ var updatePwin = function(efo, oefo, h, s, oh, os) {
 ////////////////////////////////////////////////////////////////////////////////
 
 
-var stagesButton = document.getElementById('test')
+var stagesButton = document.getElementById('test');
 
 var b = 0;
 
@@ -566,6 +566,17 @@ stagesButton.onclick = function() {
 
 
     b = 1 - b;
+}
+
+var formulasButton = document.getElementById('test2');
+var c = 0;
+formulasButton.onclick = function() {
+    var k;
+    k = (c===0) ? '100%' : 0;
+
+    document.getElementById('formulas').style.height = k;
+
+    c = 1 - c;
 }
 
 

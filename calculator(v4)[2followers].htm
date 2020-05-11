@@ -192,17 +192,15 @@
 
                     <div id = 'yourGroup' class = 'yourGroup'>
                         <h3 style = 'color: rgb(33, 83, 213);'><u>Your Group</u></h3>
+                        <br>
+                        <br>
                         <div class="l">
-
                             <p> Leader </p>
                             <input type="range" min="0" max="1000" value="0" class="sl lhSlider" id="myLeaderEffortSlider" name = 'test'>
-                            <output for="test" onforminput="value = test.value;"></output>
                             <p>Effort: <span id="myLeaderEffortDecision"></span> </p>
                             <br>
                             <hr>
                         </div>
-
-
                         <br style="line-height: 10px" />
                         <div class="f">
                             <br style="line-height: 10px" />
@@ -216,7 +214,7 @@
                                     <span class = 'sideNumbers' id="mhelp"></span>
                                 </div>
                                 <input type="range" min="-100" max="100" value="0" class="slm mySlider" id="mySaboHelpSlider2">
-                                <br />
+                                <br>
                                 <div class = 'sliderInput'>
                                     <span class = 'sideNumbers' id="sabo1"></span>
                                     <span class = 'sideNumbers' id="help1"></span>
@@ -230,11 +228,18 @@
                         </div>
                     </div>
 
+
                     <div id = 'graphics' class = 'graphics'>
+                        <br>
+                        <br>
+                        <br>
                         <h4>Probability to Win</h4>
+                        <br>
                         <div id = 'probabilityPie' class = 'piechart'></div>
                         <div id = 'sbgraphics' class = 'sbgraphics'>
-                            <br />
+                            <br>
+                            <br>
+                            <br>
                             <h4>Total Help </h4>
                             <div id = 'helpBar' class = 'helpbarchart'></div>
                             <div id = 'saboBar' class = 'sabobarchart'></div>
@@ -246,8 +251,9 @@
 
 
                     <div id = 'opposingGroup' class = 'opposingGroup'>
-                        <h3 style = 'color: rgba(213, 33, 33, 0.81);'>
-                            <u>Opposing Group</u></h3>
+                        <h3 style = 'color: rgba(213, 33, 33, 0.81);'><u>Opposing Group</u></h3>
+                            <br>
+                            <br>
                             <div class="ol">
                                 <p> Leader </p>
                                 <input type="range" min="0" max="1000" value="0" class="sl l2hSlider" id="hisLeaderEffortSlider">
@@ -255,8 +261,6 @@
                                 <br>
                                 <hr>
                             </div>
-
-
                             <br style="line-height: 10px" />
                             <div class="of">
                                 <br style="line-height: 10px" />
@@ -295,6 +299,7 @@
 
                 <div class = 'right'>
                     <button id = 'test'>Stages</button>
+                    <button id = 'test2'>Formulas</button>
 
 
                     <div id = 'info' class = 'info'>
