@@ -132,6 +132,10 @@ updateBarSabo(0, 0);
 var myHelp, mySabo, hisSabo, hisHelp, theirSabo1, theirHelp1, theirSabo2, theirHelp2;
 var myEffort, hisEffort, ourTotalSabo, ourTotalHelp, theirTotalSabo, theirTotalHelp;
 
+//initialize values
+theirTotalSabo = 0;
+theirTotalHelp = 0;
+
 var ourTotalHelpDisplay = document.getElementById('ourTotalHelpDecision');
 var ourTotalSaboDisplay = document.getElementById('ourTotalSaboDecision');
 var theirTotalHelpDisplay = document.getElementById('theirTotalHelpDecision');
@@ -162,8 +166,8 @@ mySaboHelpSlider2.oninput = function() {
 
         ourTotalSabo = u2z(hisSabo) + u2z(mySabo);
         ourTotalHelp = u2z(hisHelp) + u2z(myHelp);
-        theirTotalSabo = u2z(theirSabo1) + u2z(theirSabo2);
-        theirTotalHelp = u2z(theirHelp1) + u2z(theirHelp2);
+        // theirTotalSabo = u2z(theirSabo1) + u2z(theirSabo2);
+        // theirTotalHelp = u2z(theirHelp1) + u2z(theirHelp2);
 
         ourTotalHelpDisplay.innerHTML = ourTotalHelp;
         ourTotalSaboDisplay.innerHTML = ourTotalSabo;
@@ -185,8 +189,8 @@ mySaboHelpSlider2.oninput = function() {
 
         ourTotalSabo = u2z(hisSabo) + u2z(mySabo);
         ourTotalHelp = u2z(hisHelp) + u2z(myHelp);
-        theirTotalSabo = u2z(theirSabo1) + u2z(theirSabo2);
-        theirTotalHelp = u2z(theirHelp1) + u2z(theirHelp2);
+        // theirTotalSabo = u2z(theirSabo1) + u2z(theirSabo2);
+        // theirTotalHelp = u2z(theirHelp1) + u2z(theirHelp2);
 
         ourTotalHelpDisplay.innerHTML = ourTotalHelp;
         ourTotalSaboDisplay.innerHTML = ourTotalSabo;
@@ -197,6 +201,7 @@ mySaboHelpSlider2.oninput = function() {
         updateBarSabo(ourTotalSabo, theirTotalSabo);
         updatePie(updatePwin(myEffort, hisEffort, ourTotalHelp, ourTotalSabo, theirTotalHelp, theirTotalSabo));
     }
+
 }
 
 
@@ -220,8 +225,9 @@ hisSaboHelpSlider.oninput = function() {
 
         ourTotalSabo = u2z(hisSabo) + u2z(mySabo);
         ourTotalHelp = u2z(hisHelp) + u2z(myHelp);
-        theirTotalSabo = u2z(theirSabo1) + u2z(theirSabo2);
-        theirTotalHelp = u2z(theirHelp1) + u2z(theirHelp2);
+        // theirTotalSabo = u2z(theirSabo1) + u2z(theirSabo2);
+        // theirTotalHelp = u2z(theirHelp1) + u2z(theirHelp2);
+        //console.log(ourTotalHelp+' '+ ourTotalSabo + ' ' + theirTotalHelp + ' ' + theirTotalSabo);
 
         ourTotalHelpDisplay.innerHTML = ourTotalHelp;
         ourTotalSaboDisplay.innerHTML = ourTotalSabo;
@@ -241,8 +247,8 @@ hisSaboHelpSlider.oninput = function() {
 
         ourTotalSabo = u2z(hisSabo) + u2z(mySabo);
         ourTotalHelp = u2z(hisHelp) + u2z(myHelp);
-        theirTotalSabo = u2z(theirSabo1) + u2z(theirSabo2);
-        theirTotalHelp = u2z(theirHelp1) + u2z(theirHelp2);
+        // theirTotalSabo = u2z(theirSabo1) + u2z(theirSabo2);
+        // theirTotalHelp = u2z(theirHelp1) + u2z(theirHelp2);
 
         ourTotalHelpDisplay.innerHTML = ourTotalHelp;
         ourTotalSaboDisplay.innerHTML = ourTotalSabo;
@@ -253,6 +259,7 @@ hisSaboHelpSlider.oninput = function() {
         updateBarSabo(ourTotalSabo, theirTotalSabo);
         updatePie(updatePwin(myEffort, hisEffort, ourTotalHelp, ourTotalSabo, theirTotalHelp, theirTotalSabo));
     }
+
 }
 
 
@@ -424,6 +431,7 @@ theirSaboHelpSlider2.oninput = function() {
         updateBarSabo(ourTotalSabo, theirTotalSabo);
         updatePie(updatePwin(myEffort, hisEffort, ourTotalHelp, ourTotalSabo, theirTotalHelp, theirTotalSabo));
     }
+
 }
 
 
@@ -448,8 +456,9 @@ mySaboHelpSlider.oninput = function() {
 
         ourTotalSabo = u2z(hisSabo) + u2z(mySabo);
         ourTotalHelp = u2z(hisHelp) + u2z(myHelp);
-        theirTotalSabo = u2z(theirSabo1) + u2z(theirSabo2);
-        theirTotalHelp = u2z(theirHelp1) + u2z(theirHelp2);
+        // theirTotalSabo = u2z(theirSabo1) + u2z(theirSabo2);
+        // theirTotalHelp = u2z(theirHelp1) + u2z(theirHelp2);
+
 
         ourTotalHelpDisplay.innerHTML = ourTotalHelp;
         ourTotalSaboDisplay.innerHTML = ourTotalSabo;
@@ -471,8 +480,8 @@ mySaboHelpSlider.oninput = function() {
 
         ourTotalSabo = u2z(hisSabo) + u2z(mySabo);
         ourTotalHelp = u2z(hisHelp) + u2z(myHelp);
-        theirTotalSabo = u2z(theirSabo1) + u2z(theirSabo2);
-        theirTotalHelp = u2z(theirHelp1) + u2z(theirHelp2);
+        // theirTotalSabo = u2z(theirSabo1) + u2z(theirSabo2);
+        // theirTotalHelp = u2z(theirHelp1) + u2z(theirHelp2);
 
         ourTotalHelpDisplay.innerHTML = ourTotalHelp;
         ourTotalSaboDisplay.innerHTML = ourTotalSabo;
@@ -483,6 +492,7 @@ mySaboHelpSlider.oninput = function() {
         updateBarSabo(ourTotalSabo, theirTotalSabo);
         updatePie(updatePwin(myEffort, hisEffort, ourTotalHelp, ourTotalSabo, theirTotalHelp, theirTotalSabo));
     }
+
 }
 
 
@@ -813,6 +823,7 @@ $(document).ready(function() {
     ////////////////////////////////////////////////////////////////////////////
 
     // I will get infinite loops of one change calling the other change
+    // 'Maximum call stack size exceeded error'
     // So I came up with  x and y switches to turn of the releted listener
     // Note for 4 slider case I will need x,y,x,w and turn all to 1 exept
     // the one that needs to listen.
