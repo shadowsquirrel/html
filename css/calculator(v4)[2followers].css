@@ -31,6 +31,7 @@
     /* border: solid red 3px; */
     /* max-height: 130px; */
     /* max-height: 30% */
+    justify-content: center;
 }
 .box
 {
@@ -351,10 +352,6 @@ used with jquery to add and remove as a class*/
     width: 150px;
     opacity: 0.2;
 }
-.dSlider
-{
-    opacity: 1;
-}
 
 
 /******* General Slider Manipulations *******/
@@ -416,7 +413,7 @@ used with jquery to add and remove as a class*/
 {
     background-color: purple;
     flex-grow: 0;
-    height: 250px;
+    /* height: 150px; */
     transition: 0.5s;
 }
 
@@ -430,6 +427,7 @@ used with jquery to add and remove as a class*/
     flex-grow: 3;
     justify-content:flex-start;
     border: 5px solid black;
+    transition: 0.5s;
 }
 .outcomes
 {
@@ -438,6 +436,7 @@ used with jquery to add and remove as a class*/
     flex-grow: 1;
     float:left;
     border: 5px solid black;
+    transition: 0.5s;
 }
 .input
 {
@@ -448,6 +447,7 @@ used with jquery to add and remove as a class*/
 }
 .dSlider
 {
-    width: 150px;
+    width: 300px;
     transform:rotate(270deg);
+    opacity: 1;
 }
