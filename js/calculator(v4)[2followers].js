@@ -46,14 +46,18 @@ updateBarHelp = function(a,b) {
 
     var data = [{
         y: [x, y],
-        x: ['Opposing Group', 'Your Group'],
+        name: ['Opposing Group', 'Your Group'],
         type: 'bar',
         sort: false,
         hoverinfo: 'none',
         automargin: true,
         showlegend: false,
         marker:{
-            color: ['rgb(180,180,255)', 'rgb(255,180,180)']
+            color: ['rgb(180,180,255)', 'rgb(255,180,180)'],
+            line: {
+                color: 'rgb(5, 90, 255)',
+                width: 1.5
+            }
         },
         //text: [x.toFixed(2), y.toFixed(2)],
         //textposition: 'auto'
@@ -89,8 +93,12 @@ updateBarSabo = function(a, b) {
         automargin: true,
         showlegend: false,
         marker:{
-            color: ['rgb(255,180,180)', 'rgb(180,180,255)']
-            //color: ['rgb(180,180,255)', 'rgb(255,180,180)']
+            color: ['rgb(255,180,180)', 'rgb(180,180,255)'],
+            //color: ['rgb(180,180,255)', 'rgb(255,180,180)'],
+            line: {
+                color: 'rgb(255, 5, 5)',
+                width: 1.5
+            }
         },
         //text: [x.toFixed(2), y.toFixed(2)],
         //textposition: 'auto'
@@ -134,7 +142,7 @@ var theirTotalSaboDisplay = document.getElementById('theirTotalSaboDecision');
 //  OTHER FOLLOWER
 var hisSaboHelpSlider = document.getElementById("hisSaboHelpSlider");
 
-hisSaboHelpSlider.oninput = function() {
+hisSaboHelpSlider.onchange = function() {
     hisSaboHelpInput = hisSaboHelpSlider.value;
     if(hisSaboHelpInput <= 0) {
         hisSabo = parseFloat(-hisSaboHelpInput);
@@ -181,7 +189,7 @@ var myLeaderEffortSlider = document.getElementById("myLeaderEffortSlider");
 var myLeaderOutputDisplay = document.getElementById('myLeaderEffortDecision');
 myLeaderOutputDisplay.innerHTML = 0;
 
-myLeaderEffortSlider.oninput = function() {
+myLeaderEffortSlider.onchange = function() {
 
     myLeaderEffortInput = myLeaderEffortSlider.value;
 
@@ -201,7 +209,7 @@ var hisLeaderEffortSlider = document.getElementById("hisLeaderEffortSlider");
 var hisLeaderOutputDisplay = document.getElementById('hisLeaderEffortDecision');
 hisLeaderOutputDisplay.innerHTML = 0;
 
-hisLeaderEffortSlider.oninput = function() {
+hisLeaderEffortSlider.onchange = function() {
 
     hisLeaderEffortInput = hisLeaderEffortSlider.value;
 
@@ -216,7 +224,7 @@ hisLeaderEffortSlider.oninput = function() {
 // OPPOSING FOLLOWER 1
 var theirSaboHelpSlider1 = document.getElementById("theirSaboHelpSlider1");
 
-theirSaboHelpSlider1.oninput = function() {
+theirSaboHelpSlider1.onchange = function() {
 
     theirSaboHelpInput1 = theirSaboHelpSlider1.value;
 
@@ -262,7 +270,7 @@ theirSaboHelpSlider1.oninput = function() {
 // OPPOSING FOLLOWER 2
 var theirSaboHelpSlider2 = document.getElementById("theirSaboHelpSlider2");
 
-theirSaboHelpSlider2.oninput = function() {
+theirSaboHelpSlider2.onchange = function() {
     theirSaboHelpInput2 = theirSaboHelpSlider2.value;
     if(theirSaboHelpInput2 <= 0) {
         theirSabo2 = parseFloat(-theirSaboHelpInput2);
@@ -311,7 +319,7 @@ mySaboOutputDisplay.innerHTML = 0;
 
 var mySaboHelpSlider = document.getElementById("mySaboHelpSlider");
 
-mySaboHelpSlider.oninput = function() {
+mySaboHelpSlider.onchange = function() {
     mySaboHelpInput = mySaboHelpSlider.value;
     if(mySaboHelpInput <= 0) {
         mySabo = parseFloat(-mySaboHelpInput);
@@ -389,3 +397,359 @@ var updatePwin = function(efo, oefo, h, s, oh, os) {
     //pwinDisplay.innerHTML = pwin;
     return pwinGraphics;
 }
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////  STAGES / INFO SECTION ////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+
+var stagesButton = document.getElementById('test')
+
+var b = 0;
+
+stagesButton.onclick = function() {
+
+    var k, l, m;
+
+    k = (b === 1) ? '450px' : '0';
+    l = (b === 1) ? '' : 'none';
+    m = (b === 1) ? '1' : '0';
+
+
+    document.getElementById("top").style.height = k;
+
+
+    document.getElementById("boxes").style.display = l;
+    document.getElementById("box").style.display = l;
+    document.getElementById("boxSmall").style.display = l;
+    document.getElementById("arrow").style.display = l;
+    document.getElementById("arrowBox").style.display = l;
+    document.getElementById("doubleBoxes").style.display = l;
+    document.getElementById("stageInfos").style.display = l;
+
+
+
+    b = 1 - b;
+}
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// JQUERY /////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+$(document).ready(function() {
+
+    ////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////// HOVER STAGES //////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+
+
+
+    $('.s1b').hover(
+        function() {
+            $('.s6bw, .s5bw, .s4bw, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            $('.s2a, .s3a, .s4aw, .s5aw, .s6aw').css({'opacity':'0.3'});
+            $('.s6bl, .s5bl, .s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            $('.s2a, .s3a, .s44al, .s4al, .s5al, .s6al').css({'opacity':'0.3'});
+
+            $('.s1b').css({'opacity': '1', 'border': 'solid green 2px', 'color': 'black'});
+        },
+        function() {
+            //$('s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+        }
+    );
+    $('.s2b').hover(
+        function() {
+            $('.s6bw, .s5bw, .s4bw, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            $('.s2a, .s3a, .s4aw, .s5aw, .s6aw').css({'opacity':'0.3'});
+            $('.s6bl, .s5bl, .s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            $('.s2a, .s3a, .s44al, .s4al, .s5al, .s6al').css({'opacity':'0.3'});
+
+            $('.s2b').css({'opacity': '1', 'border': 'solid green 2px', 'color': 'black'});
+            $('.s2a').css('opacity','1');
+            $('.s1b').css({'opacity':'1', 'border': 'solid yellow 3px', 'color': 'yellow'});
+        },
+        function() {
+            // $('.s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            // $('.s2a').css({'opacity':'0.3'});
+        }
+    );
+    $('.s3b').hover(
+        function() {
+            $('.s6bw, .s5bw, .s4bw, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            $('.s2a, .s3a, .s4aw, .s5aw, .s6aw').css({'opacity':'0.3'});
+            $('.s6bl, .s5bl, .s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            $('.s2a, .s3a, .s44al, .s4al, .s5al, .s6al').css({'opacity':'0.3'});
+
+            $('.s3b').css({'opacity': '1', 'border': 'solid green 2px', 'color': 'black'});
+            $('.s3a').css('opacity','1');
+            $('.s2b, .s1b').css({'opacity':'1', 'border': 'solid yellow 3px', 'color': 'yellow'});
+            $('.s2a').css('opacity','1');
+
+        },
+        function() {
+            // $('.s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            // $('.s2a, .s3a').css({'opacity':'0.3'});
+        }
+    );
+    $('.s4bw').hover(
+        function() {
+            $('.s6bw, .s5bw, .s4bw, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            $('.s2a, .s3a, .s4aw, .s5aw, .s6aw').css({'opacity':'0.3'});
+            $('.s6bl, .s5bl, .s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            $('.s2a, .s3a, .s44al, .s4al, .s5al, .s6al').css({'opacity':'0.3'});
+
+            $('.s4bw').css({'opacity': '1', 'border': 'solid green 2px', 'color': 'black'});
+            $('.s4aw').css('opacity','1');
+            $('.s3b, .s2b, .s1b').css({'opacity':'1', 'border': 'solid yellow 3px', 'color': 'yellow'});
+            $('.s3a, .s2a').css('opacity','1');
+
+        },
+        function() {
+            // $('.s4bw, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            // $('.s2a, .s3a, .s4aw').css({'opacity':'0.3'});
+        }
+    );
+    $('.s4bl').hover(
+        function() {
+            $('.s6bw, .s5bw, .s4bw, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            $('.s2a, .s3a, .s4aw, .s5aw, .s6aw').css({'opacity':'0.3'});
+            $('.s6bl, .s5bl, .s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            $('.s2a, .s3a, .s44al, .s4al, .s5al, .s6al').css({'opacity':'0.3'});
+
+            $('.s4bl').css({'opacity': '1', 'border': 'solid green 2px', 'color': 'black'});
+            $('.s4al').css('opacity','1');
+            $('.s3b, .s2b, .s1b').css({'opacity':'1', 'border': 'solid yellow 3px', 'color': 'yellow'});
+            $('.s3a, .s2a').css('opacity','1');
+
+        },
+        function() {
+            // $('.s4bl, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            // $('.s2a, .s3a, .s4al').css({'opacity':'0.3'});
+        }
+    );
+    $('.s44bl').hover(
+        function() {
+            $('.s6bw, .s5bw, .s4bw, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            $('.s2a, .s3a, .s4aw, .s5aw, .s6aw').css({'opacity':'0.3'});
+            $('.s6bl, .s5bl, .s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            $('.s2a, .s3a, .s44al, .s4al, .s5al, .s6al').css({'opacity':'0.3'});
+
+            $('.s44bl').css({'opacity': '1', 'border': 'solid green 2px', 'color': 'black'});
+            $('.s44al').css('opacity','1');
+            $('.s4bl, .s3b, .s2b, .s1b').css({'opacity':'1', 'border': 'solid yellow 3px', 'color': 'yellow'});
+            $('.s4al, .s3a, .s2a').css('opacity','1');
+
+        },
+        function() {
+            // $('.s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            // $('.s2a, .s3a, .s4al, .s44al').css({'opacity':'0.3'});
+        }
+    );
+    $('.s5bw').hover(
+        function() {
+            $('.s6bw, .s5bw, .s4bw, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            $('.s2a, .s3a, .s4aw, .s5aw, .s6aw').css({'opacity':'0.3'});
+            $('.s6bl, .s5bl, .s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            $('.s2a, .s3a, .s44al, .s4al, .s5al, .s6al').css({'opacity':'0.3'});
+
+            $('.s5bw').css({'opacity': '1', 'border': 'solid green 2px', 'color': 'black'});
+            $('.s5aw').css('opacity','1');
+            $('.s4bw, .s3b, .s2b, .s1b').css({'opacity':'1', 'border': 'solid yellow 3px', 'color': 'yellow'});
+            $('.s4aw, .s3a, .s2a').css('opacity','1');
+
+        },
+        function() {
+            // $('.s5bw, .s4bw, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            // $('.s2a, .s3a, .s4aw, .s5aw').css({'opacity':'0.3'});
+        }
+    );
+    $('.s5bl').hover(
+        function() {
+            $('.s6bw, .s5bw, .s4bw, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            $('.s2a, .s3a, .s4aw, .s5aw, .s6aw').css({'opacity':'0.3'});
+            $('.s6bl, .s5bl, .s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            $('.s2a, .s3a, .s44al, .s4al, .s5al, .s6al').css({'opacity':'0.3'});
+
+            $('.s5bl').css({'opacity': '1', 'border': 'solid green 2px', 'color': 'black'});
+            $('.s5al').css('opacity','1');
+            $('.s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity':'1', 'border': 'solid yellow 3px', 'color': 'yellow'});
+            $('.s44al, .s4al, .s3a, .s2a').css('opacity','1');
+
+        },
+        function() {
+            // $('.s5bl, .s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            // $('.s2a, .s3a, .s4al, .s44al, .s5al').css({'opacity':'0.3'});
+        }
+    );
+    $('.s6bw').hover(
+        function() {
+            $('.s6bl, .s5bl, .s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            $('.s2a, .s3a, .s44al, .s4al, .s5al, .s6al').css({'opacity':'0.3'});
+
+            $('.s6bw').css({'opacity': '1', 'border': 'solid green 2px', 'color': 'black'});
+            $('.s6aw').css('opacity','1');
+            $('.s5bw, .s4bw, .s3b, .s2b, .s1b').css({'opacity':'1', 'border': 'solid yellow 3px', 'color': 'yellow'});
+            $('.s5aw, .s4aw, .s3a, .s2a').css('opacity','1');
+
+        },
+        function() {
+            // $('.s6bw, .s5bw, .s4bw, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            // $('.s2a, .s3a, .s4aw, .s5aw, .s6aw').css({'opacity':'0.3'});
+        }
+    );
+    $('.s6bl').hover(
+        function() {
+            $('.s6bw, .s5bw, .s4bw, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            $('.s2a, .s3a, .s4aw, .s5aw, .s6aw').css({'opacity':'0.3'});
+
+
+            $('.s6bl').css({'opacity': '1', 'border': 'solid green 2px', 'color': 'black'});
+            $('.s6al').css('opacity','1');
+            $('.s5bl, .s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity':'1', 'border': 'solid yellow 3px', 'color': 'yellow'});
+            $('.s5al, .s44al, .s4al, .s3a, .s2a').css('opacity','1');
+
+        },
+        function() {
+            //$('.s6bl, .s5bl, .s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
+            //$('.s2a, .s3a, .s44al, .s4al, .s5al, .s6al').css({'opacity':'0.3'});
+        }
+    );
+
+    ////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////// HOVER SLIDES //////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    $('.dSlider').hover(
+        function() {
+            $('.slm').css({'background':'red'});
+            $('.slm').addClass('blackthumb1');
+            $('.mySlider').css({'opacity':'1'});
+
+        },
+        function() {
+            $('.slm').css({'background':'black'});
+            $('.slm').removeClass('blackthumb1');
+            $('.mySlider').css({'opacity':'0.3'});
+        }
+    )
+
+    $('.mySlider').hover(
+        function() {
+            $('.slm').css({'background':'red'});
+            $('.slm').addClass('blackthumb1');
+            $('.mySlider').css({'opacity':'1'});
+
+        },
+        function() {
+            $('.slm').css({'background':'black'});
+            $('.slm').removeClass('blackthumb1');
+            $('.mySlider').css({'opacity':'0.3'});
+        }
+    )
+
+
+
+
+    var bundled, obundled;
+    obundled = 1;
+
+    if(obundled === 1) {
+        $('.os').hover(
+            function() {
+                $('.os').css({'background':'black'});
+                $('.os').addClass('orangethumb1');
+                $('.os').addClass('orangethumb2');
+
+
+            },
+            function() {
+                $('.os').css({'background':'#d3d3d3', 'color':'black'});
+                $('.os').removeClass('orangethumb1');
+                $('.os').removeClass('orangethumb2');
+
+            }
+        )
+    }
+
+
+
+
+    ////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////// SYNC SLIDES ///////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+
+    // I will get infinite loops of one change calling the other change
+    // So I came up with  x and y switches to turn of the releted listener
+    // Note for 4 slider case I will need x,y,x,w and turn all to 1 exept
+    // the one that needs to listen.
+    var x = 0;
+    var y = 0;
+
+
+    $("#mySaboHelpSlider").on("change", function(){
+        y = 1;
+        if(x === 0) {
+            var mySliderDecision = this.value;
+
+            $("#mySaboHelpSlider2").prop("value", mySliderDecision);
+            $("#mySaboHelpSlider2").change();
+        }
+        y = 0;
+    });
+
+    $("#mySaboHelpSlider2").on("change", function(){
+        x = 1;
+        if(y === 0) {
+            var mySliderDecision2 = this.value;
+
+            $("#mySaboHelpSlider").prop("value", mySliderDecision2);
+            $("#mySaboHelpSlider").change();
+        }
+        x = 0;
+    });
+
+
+    $("#theirSaboHelpSlider1").on("change", function(){
+        y = 1;
+        if(x === 0){
+            //$("#theirSaboHelpSlider2").off('change');
+            var theirSliderDecision1 = this.value;
+
+            $("#theirSaboHelpSlider2").prop("value", theirSliderDecision1);
+            $("#theirSaboHelpSlider2").change();
+            //$("#theirSaboHelpSlider2").on('change');
+        }
+        y = 0;
+    });
+
+
+    $("#theirSaboHelpSlider2").on("change", function(){
+        x = 1;
+        if(y === 0){
+            //$("#theirSaboHelpSlider1").off('change');
+            var theirSliderDecision2 = this.value;
+
+            $("#theirSaboHelpSlider1").prop("value", theirSliderDecision2);
+            $("#theirSaboHelpSlider1").change();
+            //$("#theirSaboHelpSlider1").on('change');
+        }
+        x = 0;
+    });
+
+
+
+});
