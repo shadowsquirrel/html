@@ -139,14 +139,84 @@ var theirTotalSaboDisplay = document.getElementById('theirTotalSaboDecision');
 
 // OUR GROUP
 
+// OUR DECISION IN THE CALCULATOR
+var mySaboOutputDisplay2 = document.getElementById('msabo');
+var myHelpOutputDisplay2 = document.getElementById('mhelp');
+myHelpOutputDisplay2.innerHTML = 0;
+mySaboOutputDisplay2.innerHTML = 0;
+var mySaboOutputDisplay = document.getElementById('mySaboDecision');
+var myHelpOutputDisplay = document.getElementById('myHelpDecision');
+
+var mySaboHelpSlider2 = document.getElementById("mySaboHelpSlider2");
+
+mySaboHelpSlider2.oninput = function() {
+    mySaboHelpInput = mySaboHelpSlider2.value;
+    if(mySaboHelpInput <= 0) {
+        mySabo = parseFloat(-mySaboHelpInput);
+        myHelp = 0;
+
+        mySaboOutputDisplay2.innerHTML = mySabo;
+        myHelpOutputDisplay2.innerHTML = myHelp;
+        mySaboOutputDisplay.innerHTML = mySabo;
+        myHelpOutputDisplay.innerHTML = myHelp;
+
+        ourTotalSabo = u2z(hisSabo) + u2z(mySabo);
+        ourTotalHelp = u2z(hisHelp) + u2z(myHelp);
+        theirTotalSabo = u2z(theirSabo1) + u2z(theirSabo2);
+        theirTotalHelp = u2z(theirHelp1) + u2z(theirHelp2);
+
+        ourTotalHelpDisplay.innerHTML = ourTotalHelp;
+        ourTotalSaboDisplay.innerHTML = ourTotalSabo;
+        theirTotalHelpDisplay.innerHTML = theirTotalHelp;
+        theirTotalSaboDisplay.innerHTML = theirTotalSabo;
+
+        updateBarHelp(ourTotalHelp, theirTotalHelp);
+        updateBarSabo(ourTotalSabo, theirTotalSabo);
+        updatePie(updatePwin(myEffort, hisEffort, ourTotalHelp, ourTotalSabo, theirTotalHelp, theirTotalSabo));
+    }
+    if(mySaboHelpInput >= 0) {
+        mySabo = 0;
+        myHelp = parseFloat(mySaboHelpInput);
+
+        myHelpOutputDisplay2.innerHTML = myHelp;
+        mySaboOutputDisplay2.innerHTML = mySabo;
+        mySaboOutputDisplay.innerHTML = mySabo;
+        myHelpOutputDisplay.innerHTML = myHelp;
+
+        ourTotalSabo = u2z(hisSabo) + u2z(mySabo);
+        ourTotalHelp = u2z(hisHelp) + u2z(myHelp);
+        theirTotalSabo = u2z(theirSabo1) + u2z(theirSabo2);
+        theirTotalHelp = u2z(theirHelp1) + u2z(theirHelp2);
+
+        ourTotalHelpDisplay.innerHTML = ourTotalHelp;
+        ourTotalSaboDisplay.innerHTML = ourTotalSabo;
+        theirTotalHelpDisplay.innerHTML = theirTotalHelp;
+        theirTotalSaboDisplay.innerHTML = theirTotalSabo;
+
+        updateBarHelp(ourTotalHelp, theirTotalHelp);
+        updateBarSabo(ourTotalSabo, theirTotalSabo);
+        updatePie(updatePwin(myEffort, hisEffort, ourTotalHelp, ourTotalSabo, theirTotalHelp, theirTotalSabo));
+    }
+}
+
+
+
 //  OTHER FOLLOWER
 var hisSaboHelpSlider = document.getElementById("hisSaboHelpSlider");
+document.getElementById('sabo1').innerHTML = 0;
+document.getElementById('help1').innerHTML = 0;
 
-hisSaboHelpSlider.onchange = function() {
+hisSaboHelpSlider.oninput = function() {
     hisSaboHelpInput = hisSaboHelpSlider.value;
+    var saboSide = document.getElementById('sabo1');
+    var helpSide = document.getElementById('help1');
+
     if(hisSaboHelpInput <= 0) {
         hisSabo = parseFloat(-hisSaboHelpInput);
         hisHelp = 0;
+
+        saboSide.innerHTML = hisSabo;
+        helpSide.innerHTML = hisHelp;
 
         ourTotalSabo = u2z(hisSabo) + u2z(mySabo);
         ourTotalHelp = u2z(hisHelp) + u2z(myHelp);
@@ -165,6 +235,9 @@ hisSaboHelpSlider.onchange = function() {
     if(hisSaboHelpInput >= 0) {
         hisSabo = 0;
         hisHelp = parseFloat(hisSaboHelpInput);
+
+        saboSide.innerHTML = hisSabo;
+        helpSide.innerHTML = hisHelp;
 
         ourTotalSabo = u2z(hisSabo) + u2z(mySabo);
         ourTotalHelp = u2z(hisHelp) + u2z(myHelp);
@@ -189,7 +262,7 @@ var myLeaderEffortSlider = document.getElementById("myLeaderEffortSlider");
 var myLeaderOutputDisplay = document.getElementById('myLeaderEffortDecision');
 myLeaderOutputDisplay.innerHTML = 0;
 
-myLeaderEffortSlider.onchange = function() {
+myLeaderEffortSlider.oninput = function() {
 
     myLeaderEffortInput = myLeaderEffortSlider.value;
 
@@ -209,7 +282,7 @@ var hisLeaderEffortSlider = document.getElementById("hisLeaderEffortSlider");
 var hisLeaderOutputDisplay = document.getElementById('hisLeaderEffortDecision');
 hisLeaderOutputDisplay.innerHTML = 0;
 
-hisLeaderEffortSlider.onchange = function() {
+hisLeaderEffortSlider.oninput = function() {
 
     hisLeaderEffortInput = hisLeaderEffortSlider.value;
 
@@ -223,19 +296,32 @@ hisLeaderEffortSlider.onchange = function() {
 
 // OPPOSING FOLLOWER 1
 var theirSaboHelpSlider1 = document.getElementById("theirSaboHelpSlider1");
+document.getElementById('osabo1').innerHTML = 0;
+document.getElementById('ohelp1').innerHTML = 0;
 
-theirSaboHelpSlider1.onchange = function() {
+theirSaboHelpSlider1.oninput = function() {
 
+    var saboSide = document.getElementById('osabo1');
+    var helpSide = document.getElementById('ohelp1');
+    var saboSide2 = document.getElementById('osabo2');
+    var helpSide2 = document.getElementById('ohelp2');
     theirSaboHelpInput1 = theirSaboHelpSlider1.value;
 
     if(theirSaboHelpInput1 <= 0) {
         theirSabo1 = parseFloat(-theirSaboHelpInput1);
         theirHelp1 = 0;
 
+        saboSide.innerHTML = theirSabo1;
+        helpSide.innerHTML = theirHelp1;
+        saboSide2.innerHTML = theirSabo1;
+        helpSide2.innerHTML = theirHelp1;
+
         ourTotalSabo = u2z(hisSabo) + u2z(mySabo);
         ourTotalHelp = u2z(hisHelp) + u2z(myHelp);
-        theirTotalSabo = u2z(theirSabo1) + u2z(theirSabo2);
-        theirTotalHelp = u2z(theirHelp1) + u2z(theirHelp2);
+        // theirTotalSabo = u2z(theirSabo1) + u2z(theirSabo2);
+        // theirTotalHelp = u2z(theirHelp1) + u2z(theirHelp2);
+        theirTotalSabo = u2z(theirSabo1) * 2;
+        theirTotalHelp = u2z(theirHelp1) * 2;
 
         ourTotalHelpDisplay.innerHTML = ourTotalHelp;
         ourTotalSaboDisplay.innerHTML = ourTotalSabo;
@@ -251,10 +337,17 @@ theirSaboHelpSlider1.onchange = function() {
         theirSabo1 = 0;
         theirHelp1 = parseFloat(theirSaboHelpInput1);
 
+        saboSide.innerHTML = theirSabo1;
+        helpSide.innerHTML = theirHelp1;
+        saboSide2.innerHTML = theirSabo1;
+        helpSide2.innerHTML = theirHelp1;
+
         ourTotalSabo = u2z(hisSabo) + u2z(mySabo);
         ourTotalHelp = u2z(hisHelp) + u2z(myHelp);
-        theirTotalSabo = u2z(theirSabo1) + u2z(theirSabo2);
-        theirTotalHelp = u2z(theirHelp1) + u2z(theirHelp2);
+        // theirTotalSabo = u2z(theirSabo1) + u2z(theirSabo2);
+        // theirTotalHelp = u2z(theirHelp1) + u2z(theirHelp2);
+        theirTotalSabo = u2z(theirSabo1) * 2;
+        theirTotalHelp = u2z(theirHelp1) * 2;
 
         ourTotalHelpDisplay.innerHTML = ourTotalHelp;
         ourTotalSaboDisplay.innerHTML = ourTotalSabo;
@@ -269,17 +362,33 @@ theirSaboHelpSlider1.onchange = function() {
 
 // OPPOSING FOLLOWER 2
 var theirSaboHelpSlider2 = document.getElementById("theirSaboHelpSlider2");
+document.getElementById('osabo2').innerHTML = 0;
+document.getElementById('ohelp2').innerHTML = 0;
 
-theirSaboHelpSlider2.onchange = function() {
+theirSaboHelpSlider2.oninput = function() {
+
+    var saboSide = document.getElementById('osabo2');
+    var helpSide = document.getElementById('ohelp2');
+    var saboSide2 = document.getElementById('osabo1');
+    var helpSide2 = document.getElementById('ohelp1');
     theirSaboHelpInput2 = theirSaboHelpSlider2.value;
+
     if(theirSaboHelpInput2 <= 0) {
         theirSabo2 = parseFloat(-theirSaboHelpInput2);
         theirHelp2 = 0;
 
+        saboSide.innerHTML = theirSabo2;
+        helpSide.innerHTML = theirHelp2;
+        saboSide2.innerHTML = theirSabo2;
+        helpSide2.innerHTML = theirHelp2;
+
         ourTotalSabo = u2z(hisSabo) + u2z(mySabo);
         ourTotalHelp = u2z(hisHelp) + u2z(myHelp);
-        theirTotalSabo = u2z(theirSabo1) + u2z(theirSabo2);
-        theirTotalHelp = u2z(theirHelp1) + u2z(theirHelp2);
+        // theirTotalSabo = u2z(theirSabo1) + u2z(theirSabo2);
+        // theirTotalHelp = u2z(theirHelp1) + u2z(theirHelp2);
+        theirTotalSabo = u2z(theirSabo2) * 2;
+        theirTotalHelp = u2z(theirHelp2) * 2;
+
 
         ourTotalHelpDisplay.innerHTML = ourTotalHelp;
         ourTotalSaboDisplay.innerHTML = ourTotalSabo;
@@ -294,10 +403,17 @@ theirSaboHelpSlider2.onchange = function() {
         theirSabo2 = 0;
         theirHelp2 = parseFloat(theirSaboHelpInput2);
 
+        saboSide.innerHTML = theirSabo2;
+        helpSide.innerHTML = theirHelp2;
+        saboSide2.innerHTML = theirSabo2;
+        helpSide2.innerHTML = theirHelp2;
+
         ourTotalSabo = u2z(hisSabo) + u2z(mySabo);
         ourTotalHelp = u2z(hisHelp) + u2z(myHelp);
-        theirTotalSabo = u2z(theirSabo1) + u2z(theirSabo2);
-        theirTotalHelp = u2z(theirHelp1) + u2z(theirHelp2);
+        // theirTotalSabo = u2z(theirSabo1) + u2z(theirSabo2);
+        // theirTotalHelp = u2z(theirHelp1) + u2z(theirHelp2);
+        theirTotalSabo = u2z(theirSabo2) * 2;
+        theirTotalHelp = u2z(theirHelp2) * 2;
 
         ourTotalHelpDisplay.innerHTML = ourTotalHelp;
         ourTotalSaboDisplay.innerHTML = ourTotalSabo;
@@ -312,14 +428,14 @@ theirSaboHelpSlider2.onchange = function() {
 
 
 //ACTUAL DECISION (SAME AS HYPO CALCULATOR DECISION)
-var mySaboOutputDisplay = document.getElementById('mySaboDecision');
-var myHelpOutputDisplay = document.getElementById('myHelpDecision');
+// var mySaboOutputDisplay = document.getElementById('mySaboDecision');
+// var myHelpOutputDisplay = document.getElementById('myHelpDecision');
 myHelpOutputDisplay.innerHTML = 0;
 mySaboOutputDisplay.innerHTML = 0;
 
 var mySaboHelpSlider = document.getElementById("mySaboHelpSlider");
 
-mySaboHelpSlider.onchange = function() {
+mySaboHelpSlider.oninput = function() {
     mySaboHelpInput = mySaboHelpSlider.value;
     if(mySaboHelpInput <= 0) {
         mySabo = parseFloat(-mySaboHelpInput);
@@ -327,6 +443,8 @@ mySaboHelpSlider.onchange = function() {
 
         mySaboOutputDisplay.innerHTML = mySabo;
         myHelpOutputDisplay.innerHTML = myHelp;
+        mySaboOutputDisplay2.innerHTML = mySabo;
+        myHelpOutputDisplay2.innerHTML = myHelp;
 
         ourTotalSabo = u2z(hisSabo) + u2z(mySabo);
         ourTotalHelp = u2z(hisHelp) + u2z(myHelp);
@@ -348,6 +466,8 @@ mySaboHelpSlider.onchange = function() {
 
         myHelpOutputDisplay.innerHTML = myHelp;
         mySaboOutputDisplay.innerHTML = mySabo;
+        mySaboOutputDisplay2.innerHTML = mySabo;
+        myHelpOutputDisplay2.innerHTML = myHelp;
 
         ourTotalSabo = u2z(hisSabo) + u2z(mySabo);
         ourTotalHelp = u2z(hisHelp) + u2z(myHelp);
