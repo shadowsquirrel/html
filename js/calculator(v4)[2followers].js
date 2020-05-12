@@ -547,9 +547,9 @@ stagesButton.onclick = function() {
 
     var k, l, m;
 
-    k = (b === 1) ? '600px' : '0';
+    k = (b === 1) ? '615px' : '0';
     l = (b === 1) ? '' : 'none';
-    
+
 
     document.getElementById("top").style.height = k;
 
