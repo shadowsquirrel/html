@@ -547,10 +547,9 @@ stagesButton.onclick = function() {
 
     var k, l, m;
 
-    k = (b === 1) ? '450px' : '0';
+    k = (b === 1) ? '600px' : '0';
     l = (b === 1) ? '' : 'none';
-    m = (b === 1) ? '1' : '0';
-
+    
 
     document.getElementById("top").style.height = k;
 
@@ -606,8 +605,10 @@ $(document).ready(function() {
             $('.s2a, .s3a, .s4aw, .s5aw, .s6aw').css({'opacity':'0.3'});
             $('.s6bl, .s5bl, .s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
             $('.s2a, .s3a, .s44al, .s4al, .s5al, .s6al').css({'opacity':'0.3'});
+            $('#stage1, #stage2, #stage3, #s3lost, #s3won, #stage4').css({'opacity':'0','position':'absolute'});
 
-            $('.s1b').css({'opacity': '1', 'border': 'solid green 2px', 'color': 'black'});
+            $('.s1b').css({'opacity': '1', 'border': 'solid green 3px', 'color': 'black'});
+            $('#stage1').css({'opacity':'1', 'position':'static'});
         },
         function() {
             //$('s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
@@ -619,10 +620,12 @@ $(document).ready(function() {
             $('.s2a, .s3a, .s4aw, .s5aw, .s6aw').css({'opacity':'0.3'});
             $('.s6bl, .s5bl, .s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
             $('.s2a, .s3a, .s44al, .s4al, .s5al, .s6al').css({'opacity':'0.3'});
+            $('#stage1, #stage2, #stage3, #s3lost, #s3won, #stage4').css({'opacity':'0','position':'absolute'});
 
-            $('.s2b').css({'opacity': '1', 'border': 'solid green 2px', 'color': 'black'});
+            $('.s2b').css({'opacity': '1', 'border': 'solid green 3px', 'color': 'black'});
             $('.s2a').css('opacity','1');
             $('.s1b').css({'opacity':'1', 'border': 'solid yellow 3px', 'color': 'yellow'});
+            $('#stage2').css({'opacity':'1', 'position':'static'});
         },
         function() {
             // $('.s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
@@ -635,11 +638,13 @@ $(document).ready(function() {
             $('.s2a, .s3a, .s4aw, .s5aw, .s6aw').css({'opacity':'0.3'});
             $('.s6bl, .s5bl, .s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
             $('.s2a, .s3a, .s44al, .s4al, .s5al, .s6al').css({'opacity':'0.3'});
+            $('#stage1, #stage2, #stage3, #s3lost, #s3won, #stage4').css({'opacity':'0','position':'absolute'});
 
-            $('.s3b').css({'opacity': '1', 'border': 'solid green 2px', 'color': 'black'});
+            $('.s3b').css({'opacity': '1', 'border': 'solid green 3px', 'color': 'black'});
             $('.s3a').css('opacity','1');
             $('.s2b, .s1b').css({'opacity':'1', 'border': 'solid yellow 3px', 'color': 'yellow'});
             $('.s2a').css('opacity','1');
+            $('#stage3').css({'opacity':'1', 'position':'static'});
 
         },
         function() {
@@ -652,12 +657,13 @@ $(document).ready(function() {
             $('.s6bw, .s5bw, .s4bw, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
             $('.s2a, .s3a, .s4aw, .s5aw, .s6aw').css({'opacity':'0.3'});
             $('.s6bl, .s5bl, .s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
-            $('.s2a, .s3a, .s44al, .s4al, .s5al, .s6al').css({'opacity':'0.3'});
+            $('#stage1, #stage2, #stage3, #s3lost, #s3won, #stage4').css({'opacity':'0','position':'absolute'});
 
-            $('.s4bw').css({'opacity': '1', 'border': 'solid green 2px', 'color': 'black'});
+            $('.s4bw').css({'opacity': '1', 'border': 'solid green 3px', 'color': 'black'});
             $('.s4aw').css('opacity','1');
             $('.s3b, .s2b, .s1b').css({'opacity':'1', 'border': 'solid yellow 3px', 'color': 'yellow'});
             $('.s3a, .s2a').css('opacity','1');
+            $('#s3won').css({'opacity':'1', 'position':'static'});
 
         },
         function() {
@@ -670,12 +676,13 @@ $(document).ready(function() {
             $('.s6bw, .s5bw, .s4bw, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
             $('.s2a, .s3a, .s4aw, .s5aw, .s6aw').css({'opacity':'0.3'});
             $('.s6bl, .s5bl, .s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
-            $('.s2a, .s3a, .s44al, .s4al, .s5al, .s6al').css({'opacity':'0.3'});
+            $('#stage1, #stage2, #stage3, #s3lost, #s3won, #stage4').css({'opacity':'0','position':'absolute'});
 
-            $('.s4bl').css({'opacity': '1', 'border': 'solid green 2px', 'color': 'black'});
+            $('.s4bl').css({'opacity': '1', 'border': 'solid green 3px', 'color': 'black'});
             $('.s4al').css('opacity','1');
             $('.s3b, .s2b, .s1b').css({'opacity':'1', 'border': 'solid yellow 3px', 'color': 'yellow'});
             $('.s3a, .s2a').css('opacity','1');
+            $('#s3lost').css({'opacity':'1', 'position':'static'});
 
         },
         function() {
@@ -688,13 +695,13 @@ $(document).ready(function() {
             $('.s6bw, .s5bw, .s4bw, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
             $('.s2a, .s3a, .s4aw, .s5aw, .s6aw').css({'opacity':'0.3'});
             $('.s6bl, .s5bl, .s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
-            $('.s2a, .s3a, .s44al, .s4al, .s5al, .s6al').css({'opacity':'0.3'});
+            $('#stage1, #stage2, #stage3, #s3lost, #s3won, #stage4').css({'opacity':'0','position':'absolute'});
 
-            $('.s44bl').css({'opacity': '1', 'border': 'solid green 2px', 'color': 'black'});
+            $('.s44bl').css({'opacity': '1', 'border': 'solid green 3px', 'color': 'black'});
             $('.s44al').css('opacity','1');
             $('.s4bl, .s3b, .s2b, .s1b').css({'opacity':'1', 'border': 'solid yellow 3px', 'color': 'yellow'});
             $('.s4al, .s3a, .s2a').css('opacity','1');
-
+            $('#stage4').css({'opacity':'1', 'position':'static'});
         },
         function() {
             // $('.s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
@@ -708,7 +715,7 @@ $(document).ready(function() {
             $('.s6bl, .s5bl, .s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
             $('.s2a, .s3a, .s44al, .s4al, .s5al, .s6al').css({'opacity':'0.3'});
 
-            $('.s5bw').css({'opacity': '1', 'border': 'solid green 2px', 'color': 'black'});
+            $('.s5bw').css({'opacity': '1', 'border': 'solid green 3px', 'color': 'black'});
             $('.s5aw').css('opacity','1');
             $('.s4bw, .s3b, .s2b, .s1b').css({'opacity':'1', 'border': 'solid yellow 3px', 'color': 'yellow'});
             $('.s4aw, .s3a, .s2a').css('opacity','1');
@@ -726,7 +733,7 @@ $(document).ready(function() {
             $('.s6bl, .s5bl, .s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
             $('.s2a, .s3a, .s44al, .s4al, .s5al, .s6al').css({'opacity':'0.3'});
 
-            $('.s5bl').css({'opacity': '1', 'border': 'solid green 2px', 'color': 'black'});
+            $('.s5bl').css({'opacity': '1', 'border': 'solid green 3px', 'color': 'black'});
             $('.s5al').css('opacity','1');
             $('.s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity':'1', 'border': 'solid yellow 3px', 'color': 'yellow'});
             $('.s44al, .s4al, .s3a, .s2a').css('opacity','1');
@@ -742,7 +749,7 @@ $(document).ready(function() {
             $('.s6bl, .s5bl, .s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity': '0.3', 'border': 'solid white 3px', 'color':'white'});
             $('.s2a, .s3a, .s44al, .s4al, .s5al, .s6al').css({'opacity':'0.3'});
 
-            $('.s6bw').css({'opacity': '1', 'border': 'solid green 2px', 'color': 'black'});
+            $('.s6bw').css({'opacity': '1', 'border': 'solid green 3px', 'color': 'black'});
             $('.s6aw').css('opacity','1');
             $('.s5bw, .s4bw, .s3b, .s2b, .s1b').css({'opacity':'1', 'border': 'solid yellow 3px', 'color': 'yellow'});
             $('.s5aw, .s4aw, .s3a, .s2a').css('opacity','1');
@@ -759,7 +766,7 @@ $(document).ready(function() {
             $('.s2a, .s3a, .s4aw, .s5aw, .s6aw').css({'opacity':'0.3'});
 
 
-            $('.s6bl').css({'opacity': '1', 'border': 'solid green 2px', 'color': 'black'});
+            $('.s6bl').css({'opacity': '1', 'border': 'solid green 3px', 'color': 'black'});
             $('.s6al').css('opacity','1');
             $('.s5bl, .s44bl, .s4bl, .s3b, .s2b, .s1b').css({'opacity':'1', 'border': 'solid yellow 3px', 'color': 'yellow'});
             $('.s5al, .s44al, .s4al, .s3a, .s2a').css('opacity','1');
