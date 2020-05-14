@@ -1,11 +1,11 @@
 updateBar1 = function(a) {
-    x = a;
+    var x = a;
     if(typeof(x) === 'undefined') x = 0;
-    if(typeof(y) === 'undefined') y = 0;
 
     var myLabel = x > 0 ? x : -x;
     var myColor = x > 0 ? 'rgb(180,180,255)' : 'rgb(255,180,180)';
     var myLineColor = x > 0 ? 'rgb(5, 90, 255)' : 'rgb(255, 5, 5)';
+    var myTextPosition = myLabel > 82 ? 'inside' : 'outside';
 
     var data = [{
         y: [x],
@@ -25,10 +25,11 @@ updateBar1 = function(a) {
         text: [myLabel],
         textfont: {
             // color: 'rgb(255, 255, 255)'
+            size: '22'
         },
-        textposition: 'auto'
+        // textposition: 'auto'
 
-        // textposition: 'outside'
+        textposition: myTextPosition
     }];
 
     var layout = {
@@ -59,13 +60,13 @@ slider1.oninput = function() {
 
 
 updateBar2 = function(a) {
-    x = a;
+    var x = a;
     if(typeof(x) === 'undefined') x = 0;
-    if(typeof(y) === 'undefined') y = 0;
 
     var myLabel = x > 0 ? x : -x;
     var myColor = x > 0 ? 'rgb(180,180,255)' : 'rgb(255,180,180)';
     var myLineColor = x > 0 ? 'rgb(5, 90, 255)' : 'rgb(255, 5, 5)';
+    var myTextPosition = myLabel > 82 ? 'inside' : 'outside';
 
     var data = [{
         y: [x],
@@ -85,10 +86,11 @@ updateBar2 = function(a) {
         text: [myLabel],
         textfont: {
             // color: 'rgb(255, 255, 255)'
+            size: '22'
         },
-        textposition: 'auto'
+        // textposition: 'auto'
 
-        // textposition: 'outside'
+        textposition: myTextPosition
     }];
 
     var layout = {
