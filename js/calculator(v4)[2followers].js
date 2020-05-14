@@ -448,7 +448,7 @@ mySaboHelpSlider.oninput = function() {
     if(mySaboHelpInput <= 0) {
         mySabo = parseFloat(-mySaboHelpInput);
         myHelp = 0;
-
+        console.log('inside js');
         mySaboOutputDisplay.innerHTML = mySabo;
         myHelpOutputDisplay.innerHTML = myHelp;
         mySaboOutputDisplay2.innerHTML = mySabo;
@@ -848,17 +848,18 @@ $(document).ready(function() {
     var x = 0;
     var y = 0;
 
-
-    $("#mySaboHelpSlider").on("change", function(){
+    var temp = $("#mySaboHelpSlider")[0];
+    temp.oninput = function(){
         y = 1;
+
         if(x === 0) {
-            var mySliderDecision = this.value;
+            var mySliderDecision = temp.value;
 
             $("#mySaboHelpSlider2").prop("value", mySliderDecision);
             $("#mySaboHelpSlider2").change();
         }
         y = 0;
-    });
+    };
 
     $("#mySaboHelpSlider2").on("change", function(){
         x = 1;

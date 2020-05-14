@@ -23,7 +23,7 @@
     background-color: rgb(0, 0, 0);
     justify-content: flex-start;
     background-image: linear-gradient(black,lightgray);
-    background-image:
+    border: solid black 3px;
 }
 .boxes
 {
@@ -324,9 +324,9 @@
 {
     -webkit-appearance: none;
     appearance: none;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
+    width: 10px;
+    height: 20px;
+    /* border-radius: 50%; */
     background: black;
     cursor: pointer;
     opacity: 1;
@@ -391,9 +391,9 @@ used with jquery to add and remove as a class*/
 {
     -webkit-appearance: none;
     appearance: none;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
+    width: 10px;
+    height: 20px;
+    /* border-radius: 50%; */
     background: gray;
     cursor: pointer;
     opacity: 1;
