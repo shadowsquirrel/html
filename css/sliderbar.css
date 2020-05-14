@@ -11,18 +11,26 @@
 .all{
     margin-top: 20%;
     margin-bottom: 20%;
-    display: flex;
-    flex-direction: column;
+
     height:600px;
     width: 300px;
+
+    display:flex;
+    justify-content:center;
     /* border: 5px solid black; */
+
+}
+.sliderbar{
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    /* position: relative; */
 }
 
 .bar
 {
     z-index:1;
-    position: absolute;
+    position: relative;
     /* border: 5px solid black; */
     height:300px;
     width: 30px;
@@ -37,7 +45,7 @@
     height:30px;
     width: 200px;
     margin-left: -85px;
-    margin-bottom: 500px;
+    /* margin-top: 48px; */
 
 }
 
