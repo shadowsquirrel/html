@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <link rel="stylesheet" href="css/calculator(v4)[2followers].css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+    <title>Page Title</title>
+</head>
+<body>
+
+
+    <div class = 'all'>
+        <!-- ////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////// TOP //////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////// -->
+        <div id = 'top' class = 'top'>
+
+            <!-- ////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////
+            /////////////////////////// BOX GRAPHICS ///////////////////////////
+            ////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////////////// -->
+
+            <div id = 'boxes' class = 'boxes'>
+
+                <!-- ////////////////////////////////////////////////////////////////
+                /////////////////////////// STAGE 1 ////////////////////////////
+                //////////////////////////////////////////////////////////////// -->
+                <div id = 'box' class = 'box s1b' name = 's1box'>
+                    <p>STAGE 1</p>
+                </div>
+                <div id = 'arrowBox' class = 'arrowBox'>
+                    <svg height="210" width="500">
+                        <defs>
+                            <marker id="markerArrow" markerWidth="13" markerHeight="13" refX="2" refY="6" orient="auto">
+                                <path d="M2,2 L2,11 L10,6 L2,2"  style="fill: white;"/>
+                            </marker>
+                            <marker id="markerArrow2" markerWidth="13" markerHeight="13" refX="2" refY="6" orient="auto">
+                                <path d="M2,2 L2,11 L10,6 L2,2"  style="fill: red;"/>
+                            </marker>
+                        </defs>
+                        <line x1="10" y1="25" x2="80" y2="25" class="arrow s2a" id ='arrow' />
+                    </svg>
+                </div>
+                <!-- ////////////////////////////////////////////////////////////////
+                /////////////////////////// STAGE 2 ////////////////////////////
+                //////////////////////////////////////////////////////////////// -->
+                <div id = 'box' class = 'box s2b' name = 's2box'>
+                    <p>STAGE 2</p>
+                    <svg height="210" width="500">
+                        <line x1="60" y1="35" x2="60" y2="25" class='youarehere'/>
+                    </svg>
+                </div>
+                <div id = 'arrowBox' class = 'arrowBox'>
+                    <svg height="210" width="500">
+                        <line x1="10" y1="25" x2="80" y2="25" class="arrow s3a" id ='arrow' />
+                    </svg>
+                </div>
+                <!-- ////////////////////////////////////////////////////////////////
+                /////////////////////////// STAGE 3 ////////////////////////////
+                //////////////////////////////////////////////////////////////// -->
+                <div id = 'box' class = 'box s3b'>
+                    <p>STAGE 3</p>
+                    <svg height="210" width="500">
+                        <line x1="60" y1="35" x2="60" y2="25" class='youarehere'/>
+                    </svg>
+                </div>
+                <div id = 'arrowBox' class = 'arrowBox'>
+                    <svg height="210" width="500">
+
+                        <line x1="10" y1="25" x2="80" y2="25" class="arrow s4aw" id ='arrow' />
+                        <line x1="10" y1="25" x2="80" y2="90" class="arrow s4al" id ='arrow' />
+                    </svg>
+                </div>
+                <!-- ////////////////////////////////////////////////////////////////
+                /////////////////////////// STAGE 3.5 //////////////////////////
+                //////////////////////////////////////////////////////////////// -->
+                <div class = 'doubleBoxes' id = 'doubleBoxes'>
+                    <div id = 'boxSmall' class = 'box small s4bw'>
+                        <p>LEADER WON</p>
+                    </div>
+                    <svg height="35" width="70">
+                        <line x1="60" y1="30" x2="60" y2="20" class='youarehere'/>
+                    </svg>
+                    <!-- <br /> -->
+                    <div id = 'boxSmall' class = 'box small s4bl'>
+                        <p>LEADER LOST</p>
+                    </div>
+
+                </div>
+                <div id = 'arrowBox' class = 'arrowBox'>
+                    <svg height="210" width="500">
+                        <line x1="10" y1="25" x2="305" y2="25" class="arrow s5aw" id ='arrow' />
+                        <line x1="10" y1="100" x2="80" y2="100" class="arrow s44al" id ='arrow' />
+                    </svg>
+                </div>
+                <!-- ////////////////////////////////////////////////////////////////
+                /////////////////////////// STAGE 4 ////////////////////////////
+                //////////////////////////////////////////////////////////////// -->
+                <div class = 'doubleBoxes' id = 'doubleBoxes'>
+                    <div id = 'boxSmall' class = 'box small' style = 'opacity:0;'>
+                        <p></p>
+                    </div>
+                    <br />
+                    <div id = 'boxSmall' class = 'box small s44bl'>
+                        <p>STAGE 4</p>
+                    </div>
+                    <svg height="35" width="70">
+                        <line x1="60" y1="35" x2="60" y2="25" class='youarehere'/>
+                    </svg>
+                </div>
+                <div id = 'arrowBox' class = 'arrowBox'>
+                    <svg height="210" width="500">
+                        <line x1="10" y1="100" x2="80" y2="100" class="arrow s5al" id ='arrow' />
+                    </svg>
+                </div>
+                <!-- ////////////////////////////////////////////////////////////////
+                /////////////////////////// STAGE 5 ////////////////////////////
+                //////////////////////////////////////////////////////////////// -->
+                <div class = 'doubleBoxes' id = 'doubleBoxes'>
+                    <div id = 'boxSmall' class = 'box small s5bw'>
+                        <p>STAGE 5</p>
+                    </div>
+                    <br />
+                    <div id = 'boxSmall' class = 'box small s5bl'>
+                        <p>STAGE 5</p>
+                    </div>
+                    <svg height="35" width="70">
+                        <line x1="60" y1="35" x2="60" y2="25" class='youarehere'/>
+                    </svg>
+                </div>
+                <div id = 'arrowBox' class = 'arrowBox'>
+                    <svg height="210" width="500">
+                        <line x1="10" y1="25" x2="80" y2="25" class="arrow s6aw" id ='arrow' />
+                        <line x1="10" y1="100" x2="80" y2="100" class="arrow s6al" id ='arrow' />
+                    </svg>
+                </div>
+                <!-- ////////////////////////////////////////////////////////////////
+                /////////////////////////// STAGE 6 ////////////////////////////
+                //////////////////////////////////////////////////////////////// -->
+                <div class = 'doubleBoxes' id = 'doubleBoxes'>
+                    <div id = 'boxSmall' class = 'box small s6bw'>
+                        <p>STAGE 6</p>
+                    </div>
+                    <br />
+                    <div id = 'boxSmall' class = 'box small s6bl'>
+                        <p>STAGE 6</p>
+                    </div>
+                    <svg height="35" width="70">
+                        <line x1="60" y1="35" x2="60" y2="25" class='youarehere'/>
+                    </svg>
+                </div>
+
+            </div>
+
+            <!-- ////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////
+            ////////////////////////// STAGE INFOS /////////////////////////////
+            ////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////////////// -->
+
+            <div id = 'stageInfos' class = 'stageInfos'>
+
+                <div id = 'stage1' class = 'sinfo'>
+                    <div class = 'title'>
+                        <h2> STAGE 1 </h2>
+                        <h3 class = 'dirtyyellow'>Assignement of Roles</h3>
+                    </div>
+                    <div class = 'text regular'>
+                        <br />
+                        <br />
+                        <p>You will be randomly assigned: </p>
+                        <p>-To the role of leader of follower </p>
+                        <p>-To a group of 2(4) followers and 1 leader </p>
+                        <p>-To an opposing group with the same size and composition as yours</p>
+                    </div>
+                </div>
+
+                <div id = 'stage2' class = 'sinfo'>
+                    <div class = 'title'>
+                        <h2> STAGE 2 </h2>
+                        <h3 class = 'dirtyyellow'>Followers' Sabotage or Help Decision I</h3>
+                    </div>
+                    <br />
+                    <div class = 'text regular' style = 'text-align: center;'>
+                        <br />
+                        <br />
+                        <p>Each follower of each group decides on the level of sabotage or help to his leader</p>
+                    </div>
+                </div>
+
+                <div id = 'stage3' class = 'sinfo'>
+                    <div class = 'title'>
+                        <h2> STAGE 3 </h2>
+                        <h3 class = 'dirtyyellow'>Leaders' Contest I</h3>
+                    </div>
+                    <br />
+                    <div class = 'text regular'>
+                        <br />
+                        <br />
+                        <p>Leaders are informed on the decision of both groups' followers.</p>
+                        <p>Leaders compete in a leaders' contest by investing tokens.</p>
+                        <p>
+                            Each token will worth more or less depending on the level of help or sabotage received by her followers.
+                        </p>
+                    </div>
+                </div>
+
+                <div id = 's3won' class = 'sinfo'>
+                    <div class = 'title'>
+                        <h2> If the leader <span class = 'dirtyyellow'>wins</span> in Stage 3</h2>
+                        <h3>Stage 4 does <span class = 'dirtyyellow'>NOT</span> occur</h3>
+                    </div>
+                    <br />
+                    <div class = 'text largest'>
+                        <br />
+                        <br />
+                        <div class = 'sidebyside'>
+                            <div class = 'ltext'>
+                                <p class = subtitle>Each Follower:</p>
+                                <p>-<strong>Loses</strong> the amount of tokens invested in sabotage or help.</p>
+                                <p>-<strong>Continues</strong> the game as a <strong>follower</strong> and proceeds to <strong>Stage 5</strong>.</p>
+                            </div>
+                            <div class = 'rtext'>
+                                <p class = subtitle>Leader</p>
+                                <p>-<strong>Receives</strong> 1000 tokens and <strong>loses</strong> the amount of tokens invested in the Leaders' Contest I</p>
+                                <p>-<strong>Continues</strong> as the <strong>leader</strong> of the group and proceeds to <strong>Stage 6</strong>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id = 's3lost' class = 'sinfo'>
+                    <div class = 'title'>
+                        <h2> If the leader <span class = 'dirtyyellow'>loses</span> in Stage 3</h2>
+                        <h3>Stage 4 <span class = 'dirtyyellow'>occurs</span>.</h3>
+                    </div>
+                    <br />
+                    <div class = 'text larger'>
+                        <br />
+                        <br />
+                        <div class = 'sidebyside'>
+                            <div class = 'ltext'>
+                                <p class = 'subtitle'>Each Follower:</p>
+                                <p>-<strong>Loses</strong> the amount of tokens invested in sabotage or help.</p>
+                                <p><strong>Gets the chance to become the new leader.</strong></p>
+                            </div>
+
+                            <div class = 'rtext'>
+                                <p class = 'subtitle'>Leader:</p>
+                                <p>-<strong>Loses</strong> the amount of tokens invested in the Leaders' Contest I</p>
+                                <p>-<strong>Loses</strong> her role as the leader, <strong>becomes a follower</strong> and proceeds to <strong>Stage 5</strong>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id = 'stage4' class = 'sinfo'>
+                    <div class = 'title'>
+                        <h2> STAGE 4</h2>
+                        <h3 class = 'dirtyyellow'>Followers' Contest</h3>
+                    </div>
+                    <br />
+                    <div class = 'text larger' style = 'text-align: center;'>
+                        <br />
+                        <br />
+                        <p>Occurs only for the followers of the leader who lost in Stage 3</p>
+                        <p>Followers compete in a contest by investing tokens for the new leadership position of their group</p>
+                        <br />
+                        <div class = 'sidebyside' style = 'text-align: left;'>
+                            <div class = 'ltext'>
+                                <p class = 'subtitle'>If a follower loses</p>
+                                <p>-<strong>Loses</strong> the amount of tokens invested in the contest.</p>
+                                <p><strong>Continues</strong> as a follower and proceeds to <strong>Stage 5</strong>.</p>
+                            </div>
+                            <br />
+                            <br />
+                            <br />
+                            <div class = 'rtext'>
+                                <p class = 'subtitle'>if a follower wins</p>
+                                <p>-<strong>Loses</strong> the amount of tokens invested in the contest</p>
+                                <p>-<strong>Becomes</strong> the new leader of her group </strong> and proceeds to <strong>Stage 6</strong>.</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    <!--
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    /////////////////////////////// BOTTOM /////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////// -->
+    <div  class = 'bottom'>
+
+        <div id = 'left' class = 'left'>
+
+            <div id = 'formulas' class = 'formulas'>
+                <pre>
+                    z
+                    z
+                    z
+                    z
+                    z FORMULAS
+                    z
+                    z
+                    z
+                    z
+                    z
+                    z
+                    z
+                    z
+
+                </pre>
+            </div>
+
+            <div id = 'calculator' class = 'calculator'>
+
+                <div id = 'yourGroup' class = 'yourGroup'>
+                    <h3 style = 'color: rgb(33, 83, 213);'><u>Your Group</u></h3>
+                    <br>
+                    <br>
+                    <div class="l">
+                        <p> Leader </p>
+                        <input type="range" min="0" max="1000" value="0" class="sl lhSlider" id="myLeaderEffortSlider" name = 'test'>
+                        <p>Effort: <span id="myLeaderEffortDecision"></span> </p>
+                        <br>
+                        <hr>
+                    </div>
+                    <br style="line-height: 10px" />
+                    <div class="f">
+                        <br style="line-height: 10px" />
+                        <pre class = 'shoutputtext'>Total Help: <span id="ourTotalHelpDecision"></span></pre>
+                        <br>
+                        <br>
+                        <br>
+                        <div class = 'vSliders'>
+                            <div class = 'sliderInput'>
+                                <span class = 'sideNumbers' id="msabo"></span>
+                                <span class = 'sideNumbers' id="mhelp"></span>
+                            </div>
+                            <input type="range" min="-100" max="100" value="0" class="slm mySlider" id="mySaboHelpSlider2">
+                            <br>
+                            <div class = 'sliderInput'>
+                                <span class = 'sideNumbers' id="sabo1"></span>
+                                <span class = 'sideNumbers' id="help1"></span>
+                            </div>
+                            <input type="range" min="-100" max="100" value="0" class="sl vSlider1" id="hisSaboHelpSlider">
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <pre class = 'shoutputtext'>Total Sabotage: <span id="ourTotalSaboDecision"></span></pre>
+                    </div>
+                </div>
+
+
+                <div id = 'graphics' class = 'graphics'>
+                    <br>
+                    <br>
+                    <br>
+                    <h4>Probability to Win</h4>
+                    <br>
+                    <div id = 'probabilityPie' class = 'piechart'></div>
+                    <div id = 'sbgraphics' class = 'sbgraphics'>
+                        <br>
+                        <br>
+                        <br>
+                        <h4>Total Help </h4>
+                        <div id = 'helpBar' class = 'helpbarchart'></div>
+                        <div id = 'saboBar' class = 'sabobarchart'></div>
+                        <h4>Total Sabotage </h4>
+                        <br>
+                    </div>
+                </div>
+
+
+
+                <div id = 'opposingGroup' class = 'opposingGroup'>
+                    <h3 style = 'color: rgba(213, 33, 33, 0.81);'><u>Opposing Group</u></h3>
+                    <br>
+                    <br>
+                    <div class="ol">
+                        <p> Leader </p>
+                        <input type="range" min="0" max="1000" value="0" class="sl l2hSlider" id="hisLeaderEffortSlider">
+                        <p>Effort: <span id="hisLeaderEffortDecision"></span> </p>
+                        <br>
+                        <hr>
+                    </div>
+                    <br style="line-height: 10px" />
+                    <div class="of">
+                        <br style="line-height: 10px" />
+                        <pre class = 'shoutputtext'>Total Help: <span id="theirTotalHelpDecision"></span></pre>
+                        <br>
+                        <br>
+                        <br>
+                        <div class = 'vSliders'>
+                            <div class = 'sliderInput'>
+                                <span class = 'sideNumbers' id="osabo1"></span>
+                                <span class = 'sideNumbers' id="ohelp1"></span>
+                            </div>
+                            <input type="range" min="-100" max="100" value="0" class="sl vSlider2 os" id="theirSaboHelpSlider1">
+                            <br>
+                            <div class = 'sliderInput'>
+                                <span class = 'sideNumbers' id="osabo2"></span>
+                                <span class = 'sideNumbers' id="ohelp2"></span>
+                            </div>
+                            <input type="range" min="-100" max="100" value="0" class="sl vSlider2 os" id="theirSaboHelpSlider2">
+                            <!-- <br>
+                            <input type="range" min="-100" max="100" value="0" class="sl vSlider2 os" id="theirSaboHelpSlider2">
+                            <br>
+                            <input type="range" min="-100" max="100" value="0" class="sl vSlider2 os" id="theirSaboHelpSlider2"> -->
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <pre class = 'shoutputtext'>Total Sabotage: <span id="theirTotalSaboDecision"></span></pre>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class = 'right'>
+            <button id = 'test'>Stages</button>
+            <button id = 'test2'>Formulas</button>
+
+
+            <div id = 'info' class = 'info'>
+                <pre>
+                    z
+                    z
+                    z
+                    z
+                    z STAGE SPECIFIC REQUIRED VARIABLE INFO
+                    z
+                    z
+                    z
+                    z
+                </pre>
+            </div>
+            <div class = 'decision'>
+
+                <div class = 'input'>
+
+                    <br>
+                    <h2> Your Decision </h2>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <input type="range" min="-100" max="100" value="0" class=" slm dSlider" id="mySaboHelpSlider">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <pre>Help: <span id="myHelpDecision"></span>  Sabotage: <span id="mySaboDecision"></span></pre>
+                </div>
+
+                <div class = 'outcomes'>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <h2> TODO </h2>
+                    <p>
+                        payoffs
+                        payoffs
+                    </p>
+                </div>
+
+
+
+            </div>
+            <!-- <pre>
+
+            SB TODO: -sync your decision slide and opac slide
+            -display number on each slide button
+            -have the option to move opponent slide together (default option should be this)
+            -same option for our group other followers
+        </pre> -->
+
+    </div>
+
+</div>
+
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="js/calculator(v4)[2followers].js"></script>
+
+</body>
+</html>

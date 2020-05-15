@@ -1,0 +1,528 @@
+.all
+{
+    display: flex;
+    flex-direction: column;
+}
+/******************************************************************************/
+/******************************************************************************/
+/******************************************************************************/
+/******************************************************************************/
+/******************************** TOP SECTION *********************************/
+/******************************************************************************/
+/******************************************************************************/
+/******************************************************************************/
+/******************************************************************************/
+.top
+{
+    flex-grow: 1;
+    height: 615px;
+    width: 100%;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(0, 0, 0);
+    justify-content: flex-start;
+    background-image: linear-gradient(black,lightgray);
+    border: solid black 3px;
+}
+.boxes
+{
+    display: flex;
+    flex-grow: 1;
+    /* background-color: lightgray; */
+    /* border: solid red 3px; */
+    /* max-height: 130px; */
+    /* max-height: 30% */
+    justify-content: center;
+    font-weight: bold;
+
+}
+.box
+{
+    height: 50px;
+    width: 120px;
+    background-color: gray;
+    border: solid white 3px;
+    opacity: 0.3;
+    text-align: center;
+    color: white;
+    /* transition: 0.15s;
+    transition-delay: 0.35s; */
+    transition: 0.5s
+}
+
+.youarehere
+{
+    stroke: red;
+    stroke-width: 2;
+    marker-end:url(#markerArrow2);
+    opacity: 1;
+}
+.arrow
+{
+    stroke:white;
+    stroke-width:1;
+    marker-end:url(#markerArrow);
+    text-align: center;
+    opacity: 0.3;
+    /* transition: 0.15s;
+    transition-delay: 0.35s; */
+    transition: 0.5s;
+}
+
+
+.arrowBox
+{
+    /* border: solid black 3px; */
+    height: 110px;
+    width: 100px;
+
+}
+
+.doubleBoxes
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.stageInfos
+{
+    flex-grow:5;
+    /* background-color: lightgray; */
+    min-height: 450px;
+    display: flex;
+    justify-content: center;
+
+
+}
+.sinfo
+{
+    opacity: 0;
+    transition: 0.5s;
+    position: absolute;
+    }
+.title
+{
+
+    text-align: center;
+    height: 70px;
+    color: black;
+    text-shadow: 1px 1px 3px gray;
+    /* border: 5px solid black; */
+}
+.text
+{
+    /* border: 5px solid black; */
+
+    min-height: 200px;
+    /* line-height: 200px; */
+
+    justify-content: center;
+    font-size: 18px;
+}
+.regular
+{
+    width: 600px;
+}
+.larger
+{
+    width: 1200px;
+}
+.largest
+{
+    width: 1300px;
+}
+.sidebyside
+{
+    display: flex;
+    justify-content:space-around;
+}
+
+/* .yellow
+{
+    color: rgb(237, 235, 49);
+    font-weight: bold;
+
+} */
+
+.dirtyyellow
+{
+    text-shadow: 1px 1px 3px rgb(190, 189, 85);
+    color: black;
+}
+.subtitle
+{
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+/******************************************************************************/
+/******************************************************************************/
+/******************************************************************************/
+/******************************************************************************/
+/***************************** BOTTOM SECTION *********************************/
+/******************************************************************************/
+/******************************************************************************/
+/******************************************************************************/
+/******************************************************************************/
+.bottom
+{
+    display: flex;
+    flex-grow: 4;
+
+}
+
+
+/**************************************************************/
+/**************************************************************/
+/********************* BOTTOM LEFT SECTION ********************/
+/**************************************************************/
+/**************************************************************/
+.left
+{
+    background-color: black;
+    /* flex-grow: 0; */
+    flex-shrink: 4;
+    max-width: 100%;
+    transition: 1s;
+    display: flex;
+    flex-direction: column;
+}
+/*****************************************/
+/******* FORMULAS & BELIEF SECTION *******/
+/*****************************************/
+.formulas
+{
+    background-color: gray;
+    /* flex-grow: 0; */
+    flex-shrink: 4;
+    height: 0;
+    transition: 1s;
+}
+
+
+/*****************************************/
+/*********** CALCULATOR SECTION **********/
+/*****************************************/
+.calculator
+{
+    background-color: orange;
+    /* flex-shrink: 1; */
+    flex-grow: 1;
+    display: flex;
+    text-align: center;
+
+    /* width: 20%; */
+}
+.yourGroup{
+    /* justify-content: flex-start; */
+    justify-content:center;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(180,180,255);
+    align-items: center;
+
+}
+/* .l
+{
+     border: 5px solid black;
+}
+.f
+{
+     border: 5px solid black;
+} */
+
+.graphics
+{
+    /* justify-content: flex-start; */
+    justify-content:center;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    width: 160px;
+}
+.opposingGroup
+{
+    /* justify-content: flex-start; */
+    justify-content:center;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255,180,180);
+    align-items: center;
+}
+
+/************** CHARTS **************/
+/************** CHARTS **************/
+/************** CHARTS **************/
+/************** CHARTS **************/
+.piechart
+{
+    opacity: 1;
+    position: static;
+    transition: 0.5s;
+
+}
+.helpbarchart
+{
+    opacity: 1;
+    position: static;
+    transition: 0.5s;
+    /* border: 5px solid black; */
+}
+.sabobarchart
+{
+    opacity: 1;
+    position: static;
+    transition: 0.5s;
+    transform: rotate(180deg);
+}
+/************** OUTPUT *************/
+/************** OUTPUT *************/
+/************** OUTPUT *************/
+/************** OUTPUT *************/
+.sliderInput
+{
+    display: flex;
+    justify-content: space-between;
+}
+.sideNumbers
+{
+    transform: rotate(90deg);
+    text-align: center;
+    font-size:10px;
+}
+.shoutputtext
+{
+    font-size:16px;
+    font-weight: bold
+}
+
+
+/************** SLIDERS *************/
+/************** SLIDERS *************/
+/************** SLIDERS *************/
+/************** SLIDERS *************/
+
+
+/**** Sliders for other followers ****/
+/**** Sliders for other followers ****/
+.sl
+{
+    -webkit-appearance: none;
+    appearance: none;
+    background: #d3d3d3;
+    height: 5px;
+    opacity: 1;
+    transition: 0.15s;
+
+}
+.sl::-webkit-slider-thumb
+{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 20px;
+    /* border-radius: 50%; */
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.15s;
+}
+.sl::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.15s;
+}
+.sl:focus {
+    outline: none;
+}
+.sl:hover{
+    opacity:1;
+    background: black;
+    transition: 0.15s;
+}
+.sl:hover::-webkit-slider-thumb{
+    opacity:1;
+    background: orange;
+    transition: 0.15s;
+}
+.sl:hover::-moz-range-thumb{
+    opacity:1;
+    background: orange;
+    transition: 0.15s;
+}
+
+/* a trick to bundle hover for slider thumbs
+used with jquery to add and remove as a class*/
+.orangethumb1::-webkit-slider-thumb{
+    background: orange;
+    opacity:1;
+    transition: 0.15s;
+}
+
+.orangethumb2::-moz-range-thumb{
+    background: orange;
+    opacity:1;
+    transition: 0.15s;
+}
+
+
+/************ Sliders for me *************/
+/************ Sliders for me *************/
+.slm
+{
+    -webkit-appearance: none;
+    appearance: none;
+    background: black;
+    height: 5px;
+    opacity: 1;
+    transition: 0.15s;
+
+}
+.slm::-webkit-slider-thumb
+{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 20px;
+    /* border-radius: 50%; */
+    background: gray;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.15s;
+}
+.slm::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: gray;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.15s;
+}
+.slm:focus {
+    outline: none;
+}
+.blackthumb1::-webkit-slider-thumb{
+    background: black;
+    opacity:1;
+    transition: 0.15s;
+}
+
+.blackthumb2::-moz-range-thumb{
+    background: black;
+    opacity:1;
+    transition: 0.15s;
+}
+.mySlider
+{
+    width: 150px;
+    opacity: 0.2;
+}
+
+
+/******* General Slider Manipulations *******/
+/******* General Slider Manipulations *******/
+
+.lhSlider
+{
+    width: 200px;
+}
+.l2hSlider
+{
+    width: 200px;
+    transform:rotate(180deg);
+}
+.vSliders
+{
+    display: flex;
+    flex-direction: column;
+    transform:rotate(270deg);
+
+}
+.vSlider1
+{
+    width: 150px;
+}
+
+.vSlider2
+{
+    width: 150px;
+    /* border: 5px solid black; */
+}
+
+
+/************** SWITCHES *************/
+/************** SWITCHES *************/
+/************** SWITCHES *************/
+/************** SWITCHES *************/
+
+
+
+
+
+
+/**************************************************************/
+/********************* BOTTOM RIGHT SECTION *******************/
+/**************************************************************/
+.right
+{
+    background-color: lightblue;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/*****************************************/
+/************** INFO SECTION *************/
+/*****************************************/
+.info
+{
+    background-color: purple;
+    flex-grow: 0;
+    /* height: 150px; */
+    transition: 0.5s;
+}
+
+/*****************************************/
+/************ DECISION SECTION ***********/
+/*****************************************/
+.decision
+{
+    display: flex;
+    background-color: white;
+    flex-grow: 3;
+    justify-content:flex-start;
+    border: 5px solid black;
+    transition: 0.5s;
+}
+.outcomes
+{
+    text-align: center;
+    align-items: center;
+    flex-grow: 1;
+    float:left;
+    border: 5px solid black;
+    transition: 0.5s;
+}
+.input
+{
+    text-align: center;
+    align-items: center;
+    flex-grow: 1;
+    border: 5px solid black;
+}
+.dSlider
+{
+    width: 300px;
+    transform:rotate(270deg);
+    opacity: 1;
+}
