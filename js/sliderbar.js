@@ -177,7 +177,7 @@ updateBar = function(a, barId, lighter) {
 
     var layout = {
         barmode: 'group',
-        height: 250,//300
+        height: 245,//300
         width: 80,
         // title: 'Total Help',
         margin: {"t": 20, "b": 25, "l": 25, "r": 25},
