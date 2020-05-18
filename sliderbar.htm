@@ -17,7 +17,7 @@
     <div class = 'wrap'>
 
         <div class = 'all'>
-            <div class = sinfo>
+            <div class = 'sinfo'>
                 <pre>
                     STAGE INFO SECTION
                     z
@@ -27,20 +27,23 @@
                     z
                     z
                 </pre>
+                <!-- <div class = 'sliderbarleader'>
+                    <input type='range' min = '0' max = '500' class = 'lslider' id = 'lSlider1' />
+                    <div id = 'barl' class = 'lbar'></div>
+                </div> -->
+
             </div>
             <div class = 'calculator'>
                 <div class = 'group'>
                     <h6>YOUR GROUP</h6>
+                    <div class = 'sliderbarleader left'>
+                        <input type='range' min = '0' max = '500' class = 'lslider' value = '0' id = 'lSlider1' />
+                        <div id = 'barl' class = 'lbar'></div>
+                    </div>
 
-                    <pre>
-                        z
-                        z
-                        z
-                        z
-                        z
-                        z
-                        z
-                    </pre>
+                    <h6 class = 'left_followers'>Followers</h6>
+
+                    <h7 class = 'you'> You </h7>
 
                     <div class = 'slidebargroup left'>
 
@@ -50,64 +53,68 @@
                         </div>
 
                         <div class = 'sliderbar'>
-                            <input type='range' min = '-100' max = '100' class = 'vertical slider g1' id = 'vSlider2' />
+                            <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'vSlider2' />
                             <div id = 'bar2' class = 'bar l'></div>
                         </div>
 
                         <div class = 'sliderbar'>
-                            <input type='range' min = '-100' max = '100' class = 'vertical slider g1' id = 'vSlider3' />
+                            <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'vSlider3' />
                             <div id = 'bar3' class = 'bar l'></div>
                         </div>
 
                         <div class = 'sliderbar'>
-                            <input type='range' min = '-100' max = '100' class = 'vertical slider g1' id = 'vSlider4' />
+                            <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'vSlider4' />
                             <div id = 'bar4' class = 'bar'></div>
                         </div>
+
                     </div>
 
 
                 </div>
 
                 <div class = 'graphics'>
-                    <h6>Probability to Win</h6>
-                    <div class = 'pie' id = 'pie'></div>
-                    <h6>Total Help </h6>
-                    <div id = 'helpBar' class = 'helpbar'></div>
-                    <div id = 'saboBar' class = 'sabobar'></div>
-                    <h6>Total Sabotage </h6>
+                    <div class = 'piewrap'>
+                        <h6>Probability to Win</h6>
+                        <div class = 'pie' id = 'pie'></div>
+                    </div>
+
+                    <div class = 'helpsabobars'>
+                        <h6>Total Help </h6>
+                        <div id = 'helpBar' class = 'helpbar'></div>
+                        <div id = 'saboBar' class = 'sabobar'></div>
+                        <h6>Total Sabotage </h6>
+                    </div>
+
                 </div>
                 <div class = 'group'>
                     <h6>OPPOSING GROUP</h6>
+                    <div class = 'sliderbarleader lright'>
+                        <input type='range' min = '0' max = '500' class = 'lslider' value = '0' id = 'olSlider1' />
+                        <div id = 'obarl' class = 'lbar'></div>
+                    </div>
 
-                    <pre>
-                        z
-                        z
-                        z
-                        z
-                        z
-                        z
-                        z
-                    </pre>
+
+                    <h6 class = 'right_followers'>Followers</h6>
 
                     <div class = 'slidebargroup right'>
 
                         <div class = 'sliderbar'>
-                            <input type='range' min = '-100' max = '100' class = 'vertical slider g2' id = 'ovSlider1' />
+                            <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider1' />
                             <div id = 'obar1' class = 'bar l'></div>
                         </div>
 
                         <div class = 'sliderbar'>
-                            <input type='range' min = '-100' max = '100' class = 'vertical slider g2' id = 'ovSlider2' />
+                            <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider2' />
                             <div id = 'obar2' class = 'bar l'></div>
                         </div>
 
                         <div class = 'sliderbar'>
-                            <input type='range' min = '-100' max = '100' class = 'vertical slider g2' id = 'ovSlider3' />
+                            <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider3' />
                             <div id = 'obar3' class = 'bar l'></div>
                         </div>
 
                         <div class = 'sliderbar'>
-                            <input type='range' min = '-100' max = '100' class = 'vertical slider g2' id = 'ovSlider4' />
+                            <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider4' />
                             <div id = 'obar4' class = 'bar'></div>
                         </div>
 
@@ -118,18 +125,16 @@
             </div>
             <div class = decision>
                 <div class = input>
-                    <pre>
-                        z
-                        DECISION SLIDER HERE
-                        z
-                    </pre>
+                    <h5 class = 'decisiontitle'>Your Decision</h5>
+                    <div class = 'sliderbard'>
+                        <input type='range' min = '-100' max = '100' class = 'dslider' value = '0' id = 'dSlider' />
+                        <div id = 'bard' class = 'dbar'></div>
+                    </div>
                 </div>
                 <div class = dinfo>
-                    <pre>
-                        z
-                        PAYOFF INFORMATION HERE
-                        z
-                    </pre>
+                    <p>
+                        Payoff information will be here
+                    </p>
                 </div>
             </div>
 
