@@ -1,0 +1,43 @@
+.wrap
+{
+    display: flex;
+/*
+    width: 100%;
+    height: 600px; */
+    justify-content: center;
+    margin-left: 90px;
+}
+
+
+.all{
+    /* margin-top: 20%;
+    margin-bottom: 20%;
+
+    height:300px;
+    width: 300px; */
+
+    display:flex;
+    flex-direction: column;
+    /* justify-content:center; */
+    /* border: 5px solid black; */
+
+
+}
+.sinfo{
+    flex-grow: 1;
+}
+.sinfotext
+{
+
+}
+.s2infographics
+{
+    display:flex;
+    flex-direction: row;
+}
+
+.s2g1
+{
+    display: flex;
+    flex-direction: column;
+}

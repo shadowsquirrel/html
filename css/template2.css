@@ -1,0 +1,687 @@
+.wrap
+{
+    display: flex;
+/*
+    width: 100%;
+    height: 600px; */
+    justify-content: center;
+    /* margin-left: 90px; */
+    /* border: 5px solid black; */
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.all{
+    /* margin-top: 20%;
+    margin-bottom: 20%;
+
+    height:300px;
+    width: 300px; */
+
+    display:flex;
+    flex-direction: column;
+    margin-left: 15%;
+    margin-right: 15%;
+    /* justify-content:center; */
+    /* border: 5px solid black; */
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.sinfo{
+    flex-grow: 1;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.calculator
+{
+    text-align: center;
+    /* position: sticky; */
+    /* top: -90px; */
+    display: flex;
+    flex-direction: column;
+    /* background-color: gray; */
+    flex-grow:5;
+     /* border: 5px solid black; */
+}
+.topsection
+{
+    display:flex;
+    flex-direction: row;
+}
+.leadergroupleft
+{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+.leadergraphics
+{
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+}
+.leadergroupright
+{
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+.middlesection
+{
+    display:flex;
+}
+.efficiencyBar
+{
+    margin-left: 10px;
+}
+.bottomsection
+{
+    display:flex;
+    flex-direction: row;
+}
+.followergroupleft
+{
+    display: flex;
+    flex-direction: column;
+}
+.followergraphics
+{
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+.followergroupright
+{
+    display: flex;
+    flex-direction: column;
+        margin-left: 50px;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/* .graphics
+{
+    display:flex;
+    flex-direction: column;
+    flex-grow:1;
+    text-align: center;
+    margin-right: 45px;
+ } */
+/************************************************/
+/************************************************/
+/* class to contain the pie graph and its title*/
+.piewrap
+{
+    position: sticky;
+    top: 0;
+    margin-top: -30px;
+    /* border: 5px solid black; */
+}
+/************************************************/
+.pie
+{
+    display: flex;
+    justify-content: center;
+}
+/************************************************/
+/* class to contain both help and sabo bar plots */
+.helpsabobars
+{
+    /* margin-top: 180px; */
+    margin-top: 70px;
+    position: sticky;
+    top: 150px;
+    /* border: 5px solid black; */
+}
+.helpbar
+{
+    display: flex;
+    justify-content: center;
+
+    /* margin-right: 45px; */
+    /* position: sticky;
+    top: 180px; */
+}
+.sabobar
+{
+    display: flex;
+    justify-content: center;
+    /* margin-right: 45px; */
+    /* margin-top: 120px; */
+    /* transform: rotate(180deg); */
+    /* position: sticky;
+    top: 250px; */
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/* .group
+{
+    display:flex;
+    flex-direction: column;
+    flex-grow:1;
+    text-align: center;
+} */
+/************************************************/
+/* Simple text classes*/
+.right_followers
+{
+    /* margin-right: 50px; */
+}
+
+.left_followers
+{
+    /* margin-left: -50px; */
+}
+
+.you
+{
+    /* margin-left: -355px; */
+    /* margin-bottom: 5px; */
+}
+/************************************************/
+/************************************************/
+/* Slider + bar classes for followers and leader*/
+/************************************************/
+/*class to containt slider + bar*/
+.sliderbarleader
+{
+    position: sticky;
+    top: 0px;
+    display:flex;
+    justify-content: center;
+}
+/* adjustment for left side leader we didn't have one for right side leader*/
+/*subclass of sliderbarleader*/
+.lright
+{
+    /* margin-right: 40px; */
+}
+.lbar
+{
+    z-index:0;
+    position: relative;
+}
+/************************************************/
+.lslider
+{
+    z-index: 1;
+    position: absolute;
+    -webkit-appearance: none;
+    appearance: none;
+    background: gray;
+    opacity: 0.3;
+    transition: 0.5s;
+    transition-delay: 0.15s;
+
+    /*Setup Large*/
+    width: 356px;
+    margin-top: 35px;
+    margin-left:-1px;
+    /* background: black; */
+    height: 2px;
+}
+/************************************************/
+.lslider::-webkit-slider-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 31px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.5s;
+    transition-delay: 0.15s;
+    margin-top: -1px;
+}
+.lslider::-moz-range-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 30px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.5s;
+    transition-delay: 0.25s;
+}
+.lslider:focus
+{
+    outline: none;
+}
+/************************************************/
+.lslider:hover
+{
+    opacity:1;
+    background:gray;
+
+    /*Setup Large*/
+    margin-top: 45px;
+    background:black;
+}
+.lslider:hover::-webkit-slider-thumb
+{
+    /*Setup Large*/
+    height: 47px;
+    margin-top: 0px;
+    /* width: 5px; */
+}
+.lslider:hover::-moz-range-thumb
+{
+    height: 47px;
+    /* width: 5px; */
+}
+/************************************************/
+/************************************************/
+/************* Followers Slider + Bar ***********/
+/************************************************/
+/************************************************/
+/*additional parent class to contain all followers slider + bar*/
+.slidebargroup
+{
+    /* position: sticky;
+    top: 150px; */
+    display:flex;
+    justify-content: center;
+}
+/*adjustment for both follower groups*/
+/*subclass of sliderbargroup*/
+.left
+{
+    /* margin-right: 50px; */
+}
+.right
+{
+    /* margin-right: 50px; */
+    margin-top: 25px;
+}
+
+
+/************************************************/
+/* class to contain the bar and the slider for followers*/
+.sliderbar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+/************************************************/
+.bar
+{
+    z-index:0;
+    position: relative;
+    transition: 5s; /* Does it even have an effect??? */
+
+    /*Setup Compact*/
+    /* height:300px;
+    width: 30px;
+    margin-top: -42px; */
+
+    /*Setup Large*/
+    height:450px
+    margin-top: -50px;
+
+    /*Setup Super Large*/
+    /* height:550px
+    margin-top: -60px; */
+}
+/*Some left space for the axis for the slider+bar setup*/
+.l
+{
+    margin-right: 22px;
+}
+/************************************************/
+/* VERTICAL AND SLIDER ARE BOTH FOR SLIDER*/
+/* SLIDER IS USED FOR COSMETICS AND VERTICAL FOR POSITIONING*/
+.vertical
+{
+    z-index: 1;
+    position: absolute;
+    transform:rotate(270deg);
+    height:15px;
+
+    /*Setup Compact*/
+    /* width: 200px;
+    margin-left: -60px;
+    margin-top: -56px; */
+
+    /*Setup Large*/
+    width: 356px;
+    margin-left: -138px;
+    margin-top: -3px;
+
+    /*Setup Super Large*/
+    /* width: 510px;
+    margin-left: -215px;
+    margin-top: -3px; */
+}
+.slider
+{
+    -webkit-appearance: none;
+    appearance: none;
+    background: gray;
+    opacity: 0.3;
+    transition: 0.5s;
+    transition-delay: 0.25s;
+
+    /*Setup Compact*/
+    /* height: 3px; */
+
+    /*Setup Large*/
+    /* background: black; */
+    height: 2px;
+
+    /*Setup Super Large*/
+    /* height: 6px; */
+}
+/************************************************/
+.slider::-webkit-slider-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 25px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.5s;
+    transition-delay: 0.25s;
+}
+.slider::-moz-range-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 30px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.5s;
+    transition-delay: 0.25s;
+}
+.slider:focus
+{
+    outline: none;
+}
+/************************************************/
+/************************************************/
+.slider:hover
+{
+    opacity:1;
+    background:gray;
+
+    /*Setup Compact*/
+    /* margin-left: -50px; */
+
+    /*Setup Large*/
+    margin-left: -125px;
+    background:black;
+    /* border: 3px solid gray; */
+
+    /*Setup Super Large*/
+    /* margin-left: -202px; */
+}
+/************************************************/
+.slider:hover::-webkit-slider-thumb
+{
+    /*Setup Compact*/
+    /* margin-top: -20px; */
+
+    /*Setup Large*/
+    margin-top: 0px;
+    height: 52px;
+    /* width: 5px; */
+
+    /*Setup Super Large*/
+    /* margin-top: -24px; */
+}
+.slider:hover::-moz-range-thumb
+{
+    /*Setup Compact*/
+    /* margin-top: -20px; */
+
+    /*Setup Large*/
+    margin-top: 0px;
+    height: 52px;
+    /* width: 5px; */
+
+    /*Setup Super Large*/
+    /* margin-top: -24px; */
+}
+/************************************************/
+.newSlider::-webkit-slider-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 30px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.5s;
+    transition-delay: 0.25s;
+
+    /*Setup Compact*/
+    /* margin-top: -20px; */
+
+    /*Setup Large*/
+    margin-top: 0px;
+    height: 52px;
+
+    /*Setup Super Large*/
+    /* margin-top: -23px; */
+}
+.newSlider::-moz-range-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 30px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.5s;
+    transition-delay: 0.25s;
+
+    /*Setup Compact*/
+    /* margin-top: -20px; */
+
+    /*Setup Large*/
+    margin-top: -22px;
+    height: 25px;
+    width: 5px;
+
+    /*Setup Super Large*/
+    /* margin-top: -23px; */
+}
+/************************************************/
+.newnewSlider::-webkit-slider-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 30px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.5s;
+    transition-delay: 0.25s;
+
+    /*Setup Compact*/
+    /* margin-top: -20px; */
+
+    /*Setup Large*/
+    margin-top: -26px;
+    height: 25px;
+
+    /*Setup Super Large*/
+    /* margin-top: -23px; */
+}
+.newnewSlider::-moz-range-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 30px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.5s;
+    transition-delay: 0.25s;
+
+    /*Setup Compact*/
+    /* margin-top: -20px; */
+
+    /*Setup Large*/
+    margin-top: -22px;
+    height: 25px;
+
+    /*Setup Super Large*/
+    /* margin-top: -23px; */
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.decision
+{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.input
+{
+    margin-top: -30px;
+    margin-left: 39px;
+    text-align: center;
+    /* height: 100px; */
+    flex-grow:1;
+    /* border: 5px solid black; */
+}
+.decisiontitle
+{
+    margin-left: -40px;
+}
+/*************************************************/
+/*************************************************/
+/** Slider + bar classes for followers decision **/
+/*************************************************/
+/*leader*/
+.sliderbard
+{
+    display:flex;
+    justify-content: center;
+    margin-left: -40px;
+    /* border: 5px solid black; */
+}
+.dbar
+{
+    z-index:0;
+    position: relative;
+}
+/************************************************/
+.dslider
+{
+    z-index: 1;
+    position: absolute;
+    -webkit-appearance: none;
+    appearance: none;
+    background: gray;
+    opacity: 0.3;
+    transition: 0.5s;
+    transition-delay: 0.15s;
+
+    /*Setup Large*/
+    width: 970px;
+    margin-top: 35px;
+    margin-left:-1px;
+    /* background: black; */
+    height: 2px;
+}
+/************************************************/
+.dslider::-webkit-slider-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 31px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.5s;
+    transition-delay: 0.15s;
+    margin-top: -1px;
+}
+.dslider::-moz-range-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 30px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.5s;
+    transition-delay: 0.25s;
+}
+.dslider:focus
+{
+    outline: none;
+}
+/************************************************/
+.dslider:hover
+{
+    opacity:1;
+    background:gray;
+
+    /*Setup Large*/
+    margin-top: 45px;
+    background:black;
+}
+.dslider:hover::-webkit-slider-thumb
+{
+    /*Setup Large*/
+    height: 55px;
+    margin-top: 0px;
+    /* width: 5px; */
+}
+.dslider:hover::-moz-range-thumb
+{
+    height: 47px;
+    /* width: 5px; */
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.dinfo
+{
+    text-align: center;
+    height: 100px;
+    flex-grow:1;
+    /* border: 5px solid black; */
+}
