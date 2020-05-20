@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <link rel="stylesheet" href="css/template3.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+    <title>Page Title</title>
+</head>
+<body>
+
+    <div class = 'wrap'>
+
+        <div class = 'all'>
+            <div class = 'sinfo'>
+                <pre>
+                    STAGE INFO SECTION
+                    z
+                    z
+                    z
+                    z
+                    z
+                    z
+                </pre>
+                <!-- <div class = 'sliderbarleader'>
+                    <input type='range' min = '0' max = '500' class = 'lslider' id = 'lSlider1' />
+                    <div id = 'barl' class = 'lbar'></div>
+                </div> -->
+
+            </div>
+
+
+
+
+            <div class = 'calculator'>
+
+                <div class = 'topsection'>
+
+                    <div class = 'leadergroupleft'>
+                        <h6>YOUR GROUP</h6>
+                        <br />
+                        <br />
+                        <h6>Leader</h6>
+                        <div class = 'sliderbarleader left'>
+                            <input type='range' min = '0' max = '500' class = 'lslider' value = '0' id = 'lSlider1' />
+                            <div id = 'barl' class = 'lbar'></div>
+                        </div>
+                    </div>
+
+                    <div class = 'leadergraphics'>
+                        <div class = 'piewrap'>
+                            <h6>Probability to Win</h6>
+                            <div class = 'pie' id = 'pie'></div>
+                        </div>
+                    </div>
+
+                    <div class = 'leadergroupright'>
+                        <h6>OPPOSING GROUP</h6>
+                        <br />
+                        <br />
+                        <h6>Leader</h6>
+                        <div class = 'sliderbarleader lright'>
+                            <input type='range' min = '0' max = '500' class = 'lslider' value = '0' id = 'olSlider1' />
+                            <div id = 'obarl' class = 'lbar'></div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class = 'bottomsection'>
+
+                    <div class = 'followergroupleft'>
+                        <h6 class = 'left_followers'>Followers</h6>
+                        <h7 class = 'you'> You </h7>
+                        <div class = 'slidebargroup left'>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'vSlider1' />
+                                <div id = 'bar1' class = 'bar l'></div>
+                            </div>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'vSlider2' />
+                                <div id = 'bar2' class = 'bar l'></div>
+                            </div>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'vSlider3' />
+                                <div id = 'bar3' class = 'bar l'></div>
+                            </div>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'vSlider4' />
+                                <div id = 'bar4' class = 'bar'></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class = 'followergraphics'>
+                        <h6>Efficiency Ratio</h6>
+                        <div class = 'graphics'>
+                            <div class = 'efficiencyPie' id = 'efficiencyPie'></div>
+                        </div>
+                    </div>
+
+                    <div class = 'followergroupright'>
+                        <h6 class = 'right_followers'>Followers</h6>
+                        <div class = 'slidebargroup right'>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider1' />
+                                <div id = 'obar1' class = 'bar l'></div>
+                            </div>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider2' />
+                                <div id = 'obar2' class = 'bar l'></div>
+                            </div>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider3' />
+                                <div id = 'obar3' class = 'bar l'></div>
+                            </div>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider4' />
+                                <div id = 'obar4' class = 'bar'></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+            <div class = decision>
+                <div class = input>
+                    <h5 class = 'decisiontitle'>Your Decision</h5>
+                    <div class = 'sliderbard'>
+                        <input type='range' min = '-100' max = '100' class = 'dslider' value = '0' id = 'dSlider' />
+                        <div id = 'bard' class = 'dbar'></div>
+                    </div>
+                </div>
+                <div class = dinfo>
+                    <p>
+                        Payoff information will be here
+                    </p>
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="js/template3.js"></script>
+
+</body>
+</html>
