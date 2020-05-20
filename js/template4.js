@@ -378,18 +378,6 @@ var updateBarDecision = function(a, barId, axisOn) {
 }
 
 
-updateBarDecision(0, 'bard', true);
-
-
-var dslider = document.getElementById('dSlider');
-dslider.oninput = function() {
-    value1 = parseFloat(dslider.value);
-    s1 = value1 >= 0 ? 0 : -value1;
-    h1 = value1 >= 0 ? value1 : 0;
-    updateBarDecision(value1, 'bard', true);
-}
-
-
 var updateEfficiencyPie = function(efi1, efi2){
 
     if((efi1 / efi2) > 1){
@@ -448,6 +436,164 @@ var updateEfficiencyPie = function(efi1, efi2){
     Plotly.react('efficiencyPie', data, layout, {displayModeBar: false});
 }
 
+
+// logistic(val1), logistic(val2)
+var logistic = function(val) {
+  var L = 240;
+  var m = 120;
+  var k1 = 0.05;
+  var k2 = 0.01;
+  val = 240 * val;
+
+  var val1;
+  val1 = L / (1 + Math.exp(-k1 * (val - m)));
+  val12 =  L / (1 + Math.exp(-k2 * (val - m)));
+  var val2 = (Math.abs(val12 - m) / 240) + 0.5;
+  val1 = Math.floor(val1);
+  var result = [val1, val2];
+  return result;
+}
+
+var myColor = function(val){
+    console.log('hsla(' + val[0] +',100%, 37%, ' + val[1] +')');
+    return ('hsla(' + val[0] +',100%, 37%, ' + val[1] +')');
+
+}
+
+var updateStrengthBar = function(efi1, efi2) {
+
+    var val1 = efi1 / (efi1 + efi2);
+    var val2 = efi2 / (efi1 + efi2);
+
+    var leader1 = [{
+        x: [1],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        cliponaxis: false,
+        marker: {
+          color: myColor(logistic(val1)),
+      },
+    }];
+
+    var leader2 = [{
+        x: [1],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        cliponaxis: false,
+        marker: {
+          color: myColor(logistic(val2)),
+      },
+    }];
+
+
+    var layout = {
+        barmode: 'group',
+        height: 10,
+        width: 380,
+        margin: {"t": 0, "b": 0, "l": 0, "r": 0},
+        xaxis: {
+            fixedrange: true,
+            autorange: false,
+            range: [0,1],
+            showline: false,
+            showgrid: false,
+            showticklabels: false,
+        },
+        yaxis: {
+            ticks: '',
+            layer: 'below traces',
+            fixedrange: true,
+            showline: false,
+            showgrid: false,
+            showticklabels: false,
+        },
+    };
+
+
+
+    Plotly.react('efficiencyBar1', leader1, layout, {displayModeBar: false});
+    Plotly.react('efficiencyBar2', leader2, layout, {displayModeBar: false});
+}
+
+var updateStrengthText = function(efi1, efi2) {
+    var val1 = efi1 / (efi1 + efi2);
+    var val2 = efi2 / (efi1 + efi2);
+
+    var degree1;
+    var position1;
+    var degree2;
+    var position2;
+
+    if(val1 > val2) {
+        position1 = 'advantage';
+        position2 = 'disadvantage';
+        if(efi1/efi2 < 1.1) {
+            degree1 = degree2 = ' has no significant ';
+        }
+        if(efi1/efi2 <= 1.5 && efi1/efi2 >= 1.1) {
+            degree1 = degree2 = ' slightly ';
+        }
+        if(efi1/efi2 > 1.5 && efi1/efi2 < 5) {
+            degree1 = degree2 = ' ';
+        }
+        if(efi1/efi2 >= 5 && efi1/efi2 < 10) {
+            degree1 = degree2 = ' strongly ';
+        }
+        if(efi1/efi2 >= 10) {
+            degree1 = degree2 = ' extremely ';
+        }
+    }
+
+    if(val1 === val2){
+        same
+    }
+
+
+    if(val1 < val2) {
+        position2 = 'advantage';
+        position1 = 'disadvantage';
+        if(efi2/efi1 < 1.1) {
+            degree1 = degree2 = ' has no significant ';
+        }
+        if(efi2/efi1 <= 1.5  && efi2/efi1 >= 1.1) {
+            degree1 = degree2 = ' slightly ';
+        }
+        if(efi2/efi1 > 1.5 && efi1/efi2 < 5) {
+            degree1 = degree2 = ' ';
+        }
+        if(efi2/efi1 >= 5 && efi1/efi2 < 10) {
+            degree1 = degree2 = ' strongly ';
+        }
+        if(efi2/efi1 >= 10) {
+            degree1 = degree2 = ' extremely ';
+        }
+    }
+
+    if(val1 !== val2) {
+        var string1 = degree1 + position1;
+        var string2 = degree2 + position2;
+        document.getElementById('advtxt1').innerHTML = string1;
+        document.getElementById('advtxt2').innerHTML = string2;
+    }
+    if(val1 === val2){
+        var same = ' has no advantage or disadvantage'
+        document.getElementById('advtxt1').innerHTML = same;
+        document.getElementById('advtxt2').innerHTML = same;
+
+    }
+
+
+
+
+}
 
 //VARIABLES AND GRAPHICS INITIATIONS
 
@@ -541,12 +687,14 @@ var updateAll = function() {
     updatePwin();
     updatePie(pwin);
     updateEfficiencyPie(efi, oefi);
+    updateStrengthBar(efi, oefi);
+    updateStrengthText(efi, oefi);
 }
 
 updateAll();
 
 
-
+updateStrengthText(1, 1);
 // Slider-bar initiations
 // DECISION SLIDER - BAR
 var dslider = document.getElementById('dSlider');
