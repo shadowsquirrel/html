@@ -431,17 +431,18 @@ var leader1 = {
   automargin: true,
   showlegend: false,
   marker: {
-    color: myColor(logistic(val1)),
-    line: {
-        color: 'black',
-        width: 1,
-    }
+    // color: myColor(logistic(val1)),
+    color: 'rgb(160, 160, 160)',
+    // line: {
+    //     color: 'black',
+    //     width: 1,
+    // }
   },
   text: myText,
   textposition: 'inside',
   insidetextanchor: 'middle',
   textfont: {
-      // color: myTextFont,
+      color: 'white',
       size: '8'
   },
 };
@@ -456,11 +457,12 @@ var leader2 = {
   automargin: true,
   showlegend: false,
     marker: {
-    color: myColor(logistic(val2)),
-    line: {
-        color: 'black',
-        width: 1,
-    }
+    // color: myColor(logistic(val2)),
+    color: 'rgb(225, 225, 225)',
+    // line: {
+    //     color: 'black',
+    //     width: 1,
+    // }
   },
    text: myText2,
   textposition: 'inside',
