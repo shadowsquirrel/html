@@ -1,4 +1,4 @@
-updatePie = function(a) {
+var updatePie = function(a) {
 
     var val1 = efi / (efi + oefi);
     var val2 = oefi / (efi + oefi);
@@ -46,8 +46,7 @@ updatePie = function(a) {
     Plotly.react('pie', data, layout, {displayModeBar: false});
 }
 
-
-updateBarHelp = function(a,b) {
+var updateBarHelp = function(a,b) {
     x = a;
     y = b;
     if(typeof(x) === 'undefined') x = 0;
@@ -95,7 +94,7 @@ updateBarHelp = function(a,b) {
     Plotly.react('helpBar', data, layout, {displayModeBar: false});
 }
 
-updateBarSabo = function(a, b) {
+var updateBarSabo = function(a, b) {
     // console.log(a + ', ' + b);
     x = -a;
     y = -b;
@@ -143,8 +142,7 @@ updateBarSabo = function(a, b) {
     Plotly.react('saboBar', data, layout, {displayModeBar: false});
 }
 
-
-updateBar = function(a, barId, lighter, axisOn) {
+var updateBar = function(a, barId, lighter, axisOn) {
     var x = a;
     if(typeof(x) === 'undefined') x = 0;
 
@@ -233,10 +231,6 @@ updateBar = function(a, barId, lighter, axisOn) {
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
 
-
-
-
-
 var updateBarLeader = function(e, barId, ourSide, axisOn) {
     var val1 = efi / (efi + oefi);
     var val2 = oefi / (efi + oefi);
@@ -308,7 +302,6 @@ var updateBarLeader = function(e, barId, ourSide, axisOn) {
 
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
-
 
 var updateBarDecision = function(a, barId, axisOn) {
     var y = a;
@@ -392,7 +385,6 @@ var updateBarDecision = function(a, barId, axisOn) {
 
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
-
 
 var logistic = function(val) {
   var L = 240;
@@ -705,19 +697,6 @@ var syncBars = function(value, group) {
         updateBarDecision(value, 'bard', false);
     }
 }
-
-// updateBarColor = function(barId, ourSide) {
-//
-//     var val1 = efi / (efi + oefi);
-//     var val2 = oefi / (efi + oefi);
-//     var mColor = ourSide ? myColor(logistic(val1)) : myColor(logistic(val2));
-//     console.log(ourSide);
-// console.log(mColor);
-//     var update = {
-//         'marker.color' : 'black'
-//     };
-//     Plotly.restyle(barId, update);
-// }
 
 
 updateBarYAxis = function(barId, axisSwitch) {

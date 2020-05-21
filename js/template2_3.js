@@ -1,8 +1,8 @@
-updatePie = function(a) {
+var updatePie = function(a) {
 
-    var val1 = efi / (efi + oefi);
-    var val2 = oefi / (efi + oefi);
-    var mColor = [myColor(logistic(val2)), myColor(logistic(val1))];
+    // var val1 = efi / (efi + oefi);
+    // var val2 = oefi / (efi + oefi);
+    // var mColor = [myColor(logistic(val2)), myColor(logistic(val1))];
 
     x = a;
     y = 1-a;
@@ -23,12 +23,12 @@ updatePie = function(a) {
         hoverinfo: 'percent+label',
         automargin: true,
         marker:{
-            // colors: ['rgb(225, 225, 225)', 'rgb(160, 160, 160)']
-            colors: mColor,
-            line: {
-                color: 'black',
-                width: 1,
-            }
+            colors: ['rgb(225, 225, 225)', 'rgb(160, 160, 160)']
+            // colors: mColor,
+            // line: {
+            //     color: 'black',
+            //     width: 1,
+            // }
         }
     }];
 
@@ -46,8 +46,7 @@ updatePie = function(a) {
     Plotly.react('pie', data, layout, {displayModeBar: false});
 }
 
-
-updateBarHelp = function(a,b) {
+var updateBarHelp = function(a,b) {
     x = a;
     y = b;
     if(typeof(x) === 'undefined') x = 0;
@@ -95,7 +94,7 @@ updateBarHelp = function(a,b) {
     Plotly.react('helpBar', data, layout, {displayModeBar: false});
 }
 
-updateBarSabo = function(a, b) {
+var updateBarSabo = function(a, b) {
     // console.log(a + ', ' + b);
     x = -a;
     y = -b;
@@ -143,8 +142,7 @@ updateBarSabo = function(a, b) {
     Plotly.react('saboBar', data, layout, {displayModeBar: false});
 }
 
-
-updateBar = function(a, barId, lighter, axisOn) {
+var updateBar = function(a, barId, lighter, axisOn) {
     var x = a;
     if(typeof(x) === 'undefined') x = 0;
 
@@ -233,18 +231,14 @@ updateBar = function(a, barId, lighter, axisOn) {
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
 
-
-
-
-
 var updateBarLeader = function(e, barId, ourSide, axisOn) {
-    var val1 = efi / (efi + oefi);
-    var val2 = oefi / (efi + oefi);
+    // var val1 = efi / (efi + oefi);
+    // var val2 = oefi / (efi + oefi);
     var y = e;
     if(typeof(x) === 'undefined') x = 0;
 
-    // var myColor = ourSide ? 'rgb(160, 160, 160)' : 'rgb(225, 225, 225)';
-    var mColor = ourSide ? myColor(logistic(val1)) : myColor(logistic(val2));
+    var mColor = ourSide ? 'rgb(160, 160, 160)' : 'rgb(225, 225, 225)';
+    // var mColor = ourSide ? myColor(logistic(val1)) : myColor(logistic(val2));
     // var myLabel = x > 0 ? x : -x;
     // var myTextPosition = (x >= 0 || x === -100) ? 'outside' : 'inside';
     // var myTextFont = (x < 0 && x > -100 && !lighter) ? 'white' : 'black';
@@ -308,7 +302,6 @@ var updateBarLeader = function(e, barId, ourSide, axisOn) {
 
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
-
 
 var updateBarDecision = function(a, barId, axisOn) {
     var y = a;
@@ -392,7 +385,6 @@ var updateBarDecision = function(a, barId, axisOn) {
 
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
-
 
 var logistic = function(val) {
   var L = 240;
@@ -590,12 +582,12 @@ var leader1 = {
   automargin: true,
   showlegend: false,
   marker: {
-    color: myColor(logistic(val1)),
-    // color: 'rgb(160, 160, 160)',
-    line: {
-        color: 'black',
-        width: 1,
-    }
+    // color: myColor(logistic(val1)),
+    color: 'rgb(160, 160, 160)',
+    // line: {
+    //     color: 'black',
+    //     width: 1,
+    // }
   },
   text: myText,
   textposition: 'inside',
@@ -616,12 +608,12 @@ var leader2 = {
   automargin: true,
   showlegend: false,
     marker: {
-    color: myColor(logistic(val2)),
-    // color: 'rgb(225, 225, 225)',
-    line: {
-        color: 'black',
-        width: 1,
-    }
+    // color: myColor(logistic(val2)),
+    color: 'rgb(225, 225, 225)',
+    // line: {
+    //     color: 'black',
+    //     width: 1,
+    // }
   },
    text: myText2,
   textposition: 'inside',
@@ -706,19 +698,6 @@ var syncBars = function(value, group) {
     }
 }
 
-// updateBarColor = function(barId, ourSide) {
-//
-//     var val1 = efi / (efi + oefi);
-//     var val2 = oefi / (efi + oefi);
-//     var mColor = ourSide ? myColor(logistic(val1)) : myColor(logistic(val2));
-//     console.log(ourSide);
-// console.log(mColor);
-//     var update = {
-//         'marker.color' : 'black'
-//     };
-//     Plotly.restyle(barId, update);
-// }
-
 
 updateBarYAxis = function(barId, axisSwitch) {
     var update = {
@@ -760,8 +739,8 @@ var updateAll = function() {
     updateBarSabo(ts, ots);
     updatePwin();
     updatePie(pwin);
-    updateBarLeader(efo, 'barl', 1, false);
-    updateBarLeader(oefo, 'obarl', 0, false);
+    // updateBarLeader(efo, 'barl', 1, false);
+    // updateBarLeader(oefo, 'obarl', 0, false);
     updateEfficiencyBar(efi, oefi);
     updateStrengthBar(efi, oefi);
     updateStrengthText(efi, oefi);

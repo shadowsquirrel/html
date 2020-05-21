@@ -5,7 +5,8 @@
     width: 100%;
     height: 600px; */
     justify-content: center;
-    margin-left: 90px;
+    /* margin-left: 90px; */
+    /* border: 5px solid black; */
 }
 /************************************************/
 /************************************************/
@@ -22,6 +23,8 @@
 
     display:flex;
     flex-direction: column;
+    margin-left: 15%;
+    margin-right: 15%;
     /* justify-content:center; */
     /* border: 5px solid black; */
 }
@@ -39,33 +42,123 @@
 /************************************************/
 .calculator
 {
-    /* position: sticky;
-    top: -220px; */
+    text-align: center;
+    /* position: sticky; */
+    /* top: -90px; */
     display: flex;
+    flex-direction: column;
     /* background-color: gray; */
     flex-grow:5;
-     /* border: 5px solid black; */
+     /* border: 5px solid black;
+     position: sticky;
+     top: 0px; */
+}
+.topsection
+{
+    z-index: 2;
+    /* position: sticky;
+    top: 0; */
+    display:flex;
+    flex-direction: row;
+}
+.bottomsection
+{
+    z-index: 0;
+    display:flex;
+    flex-direction: row;
+}
+.decision
+{
+    /* position: relative;
+    top: 900px; */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.efficiencyBar1
+{
+    margin-top: -20px;
+    margin-left: 30px;
+    z-index:0;
+    cursor: none;
+}
+.efficiencyBar2
+{
+    margin-top: -20px;
+    margin-left: 30px;
+    z-index:0;
+    cursor: none;
+}
+.advantagetext
+{
+    z-index:1;
+    margin-left: -10px;
+}
+.leadergroupleft
+{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+.leadergraphics
+{
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+}
+.leadergroupright
+{
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+
+.efficiencyBar
+{
+    margin-left: -20px;
+    margin-top: 10px;
+}
+.bottomsection
+{
+    display:flex;
+    flex-direction: row;
+}
+.followergroupleft
+{
+    display: flex;
+    flex-direction: column;
+}
+.followergraphics
+{
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+.followergroupright
+{
+    display: flex;
+    flex-direction: column;
+        margin-left: 50px;
 }
 /************************************************/
 /************************************************/
 /************************************************/
-.graphics
+/* .graphics
 {
     display:flex;
     flex-direction: column;
     flex-grow:1;
     text-align: center;
     margin-right: 45px;
-     /* border: 5px solid black; */
-
- }
+ } */
 /************************************************/
 /************************************************/
+/* class to contain the pie graph and its title*/
 .piewrap
 {
-    /* position: sticky;
-    top: 0; */
-    margin-top: 20px;
+    position: sticky;
+    top: 0;
+    margin-top: 40px;
     /* border: 5px solid black; */
 }
 /************************************************/
@@ -75,22 +168,13 @@
     justify-content: center;
 }
 /************************************************/
-.effiBarwrap
+/* class to contain both help and sabo bar plots */
+.helpsabobars
 {
     /* margin-top: 180px; */
-    /* position: sticky; */
-    /* top: 200px; */
-    margin-top: 30px;
-    /* border: 5px solid black; */
-}
-/************************************************/
-/* class to contain both help and sabo bar plots */
-.helpsabobarsWrap
-{
-    margin-top: 90px;
-    /* margin-top: 90px;
-    position: sticky; */
-    /* top: 260px; */
+    margin-top: 105px;
+    position: sticky;
+    top: 150px;
     /* border: 5px solid black; */
 }
 .helpbar
@@ -115,68 +199,52 @@
 /************************************************/
 /************************************************/
 /************************************************/
-.group
+/* .group
 {
     display:flex;
     flex-direction: column;
     flex-grow:1;
     text-align: center;
-    /* background-color: yellow; */
-     /* border: 5px solid black; */
-
-}
+} */
 /************************************************/
 /* Simple text classes*/
 .right_followers
 {
-    margin-right: 50px;
+    /* margin-right: 50px; */
 }
 
 .left_followers
 {
-    margin-left: -50px;
+    /* margin-left: -50px; */
 }
 
 .you
 {
-    margin-left: -355px;
-    margin-bottom: 5px;
+    margin-left: -305px;
+    /* margin-bottom: 5px;*/
 }
 /************************************************/
 /************************************************/
 /* Slider + bar classes for followers and leader*/
 /************************************************/
-/*leader*/
+/*class to containt slider + bar*/
 .sliderbarleader
 {
-    /* position: sticky;
-    top: 0px; */
+    position: sticky;
+    top: 0px;
     display:flex;
     justify-content: center;
+}
+/* adjustment for left side leader we didn't have one for right side leader*/
+/*subclass of sliderbarleader*/
+.lright
+{
+    /* margin-right: 40px; */
 }
 .lbar
 {
     z-index:0;
     position: relative;
-}
-.efficiencyBar1
-{
-    margin-top: -20px;
-    margin-left: 30px;
-    z-index:0;
-    cursor: none;
-}
-.efficiencyBar2
-{
-    margin-top: -20px;
-    margin-left: 30px;
-    z-index:0;
-    cursor: none;
-}
-.advantagetext
-{
-    z-index:1;
-    margin-left: -50px;
 }
 /************************************************/
 .lslider
@@ -189,7 +257,6 @@
     opacity: 0.3;
     transition: 0.5s;
     transition-delay: 0.15s;
-    cursor: pointer;
 
     /*Setup Large*/
     width: 356px;
@@ -257,6 +324,7 @@
 /************* Followers Slider + Bar ***********/
 /************************************************/
 /************************************************/
+/*additional parent class to contain all followers slider + bar*/
 .slidebargroup
 {
     /* position: sticky;
@@ -264,20 +332,21 @@
     display:flex;
     justify-content: center;
 }
+/*adjustment for both follower groups*/
+/*subclass of sliderbargroup*/
 .left
 {
-    margin-right: 50px;
+    /* margin-right: 50px; */
 }
 .right
 {
-    margin-right: 50px;
+    /* margin-right: 50px; */
     margin-top: 25px;
 }
-.lright
-{
-    margin-right: 40px;
-}
+
+
 /************************************************/
+/* class to contain the bar and the slider for followers*/
 .sliderbar{
     display: flex;
     flex-direction: column;
@@ -303,7 +372,7 @@
     /* height:550px
     margin-top: -60px; */
 }
-/*Some left space for the axis*/
+/*Some left space for the axis for the slider+bar setup*/
 .l
 {
     margin-right: 22px;
@@ -341,7 +410,6 @@
     opacity: 0.3;
     transition: 0.5s;
     transition-delay: 0.25s;
-    cursor: pointer;
 
     /*Setup Compact*/
     /* height: 3px; */
@@ -442,7 +510,6 @@
     opacity: 1;
     transition: 0.5s;
     transition-delay: 0.25s;
-    cursor: pointer;
 
     /*Setup Compact*/
     /* margin-top: -20px; */
@@ -530,23 +597,15 @@
 /************************************************/
 /************************************************/
 /************************************************/
-.invisible
-{
-    height: 1px;
-}
-.decision
-{
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: -900px;
-}
+
 /************************************************/
 /************************************************/
 /************************************************/
 /************************************************/
 .input
 {
+    margin-top: -30px;
+    margin-left: 39px;
     text-align: center;
     /* height: 100px; */
     flex-grow:1;
@@ -555,9 +614,6 @@
 .decisiontitle
 {
     margin-left: -40px;
-    z-index: -1;
-    margin-top: -120px;
-
 }
 /*************************************************/
 /*************************************************/
@@ -587,7 +643,6 @@
     opacity: 0.3;
     transition: 0.5s;
     transition-delay: 0.15s;
-    cursor: pointer;
 
     /*Setup Large*/
     width: 970px;

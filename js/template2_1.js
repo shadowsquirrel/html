@@ -1,8 +1,8 @@
-updatePie = function(a) {
+var updatePie = function(a) {
 
-    var val1 = efi / (efi + oefi);
-    var val2 = oefi / (efi + oefi);
-    var mColor = [myColor(logistic(val2)), myColor(logistic(val1))];
+    // var val1 = efi / (efi + oefi);
+    // var val2 = oefi / (efi + oefi);
+    // var mColor = [myColor(logistic(val2)), myColor(logistic(val1))];
 
     x = a;
     y = 1-a;
@@ -23,12 +23,12 @@ updatePie = function(a) {
         hoverinfo: 'percent+label',
         automargin: true,
         marker:{
-            // colors: ['rgb(225, 225, 225)', 'rgb(160, 160, 160)']
-            colors: mColor,
-            line: {
-                color: 'black',
-                width: 1,
-            }
+            colors: ['rgb(225, 225, 225)', 'rgb(160, 160, 160)']
+            // colors: mColor,
+            // line: {
+            //     color: 'black',
+            //     width: 1,
+            // }
         }
     }];
 
@@ -46,8 +46,7 @@ updatePie = function(a) {
     Plotly.react('pie', data, layout, {displayModeBar: false});
 }
 
-
-updateBarHelp = function(a,b) {
+var updateBarHelp = function(a,b) {
     x = a;
     y = b;
     if(typeof(x) === 'undefined') x = 0;
@@ -95,7 +94,7 @@ updateBarHelp = function(a,b) {
     Plotly.react('helpBar', data, layout, {displayModeBar: false});
 }
 
-updateBarSabo = function(a, b) {
+var updateBarSabo = function(a, b) {
     // console.log(a + ', ' + b);
     x = -a;
     y = -b;
@@ -143,8 +142,7 @@ updateBarSabo = function(a, b) {
     Plotly.react('saboBar', data, layout, {displayModeBar: false});
 }
 
-
-updateBar = function(a, barId, lighter, axisOn) {
+var updateBar = function(a, barId, lighter, axisOn) {
     var x = a;
     if(typeof(x) === 'undefined') x = 0;
 
@@ -233,18 +231,14 @@ updateBar = function(a, barId, lighter, axisOn) {
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
 
-
-
-
-
 var updateBarLeader = function(e, barId, ourSide, axisOn) {
-    var val1 = efi / (efi + oefi);
-    var val2 = oefi / (efi + oefi);
+    // var val1 = efi / (efi + oefi);
+    // var val2 = oefi / (efi + oefi);
     var y = e;
     if(typeof(x) === 'undefined') x = 0;
 
-    // var myColor = ourSide ? 'rgb(160, 160, 160)' : 'rgb(225, 225, 225)';
-    var mColor = ourSide ? myColor(logistic(val1)) : myColor(logistic(val2));
+    var mColor = ourSide ? 'rgb(160, 160, 160)' : 'rgb(225, 225, 225)';
+    // var mColor = ourSide ? myColor(logistic(val1)) : myColor(logistic(val2));
     // var myLabel = x > 0 ? x : -x;
     // var myTextPosition = (x >= 0 || x === -100) ? 'outside' : 'inside';
     // var myTextFont = (x < 0 && x > -100 && !lighter) ? 'white' : 'black';
@@ -308,7 +302,6 @@ var updateBarLeader = function(e, barId, ourSide, axisOn) {
 
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
-
 
 var updateBarDecision = function(a, barId, axisOn) {
     var y = a;
@@ -394,266 +387,6 @@ var updateBarDecision = function(a, barId, axisOn) {
 }
 
 
-var logistic = function(val) {
-  var L = 240;
-  var m = 120;
-  var k1 = 0.05;
-  var k2 = 0.01;
-  val = 240 * val;
-
-  var val1;
-  val1 = L / (1 + Math.exp(-k1 * (val - m)));
-  val12 =  L / (1 + Math.exp(-k2 * (val - m)));
-  var val2 = (Math.abs(val12 - m) / 240) + 0.5;
-  val1 = Math.floor(val1);
-  var result = [val1, val2];
-  return result;
-}
-
-var myColor = function(val){
-    return ('hsla(' + val[0] +',100%, 37%, ' + val[1] +')');
-
-}
-
-var upperBound = function(val, upperBound) {
-    val = (val >= upperBound) ? upperBound : val;
-    return val;
-}
-
-var lowerBound = function(val, lowerBound) {
-    val = (val <= lowerBound) ? lowerBound : val;
-    return val;
-}
-
-var updateStrengthBar = function(efi1, efi2) {
-
-    var val1 = efi1 / (efi1 + efi2);
-    var val2 = efi2 / (efi1 + efi2);
-
-    var leader1 = [{
-        x: [1],
-        type: 'bar',
-        orientation: 'h',
-        sort: false,
-        hoverinfo: 'none',
-        automargin: true,
-        showlegend: false,
-        cliponaxis: false,
-        marker: {
-          color: myColor(logistic(val1)),
-      },
-    }];
-
-    var leader2 = [{
-        x: [1],
-        type: 'bar',
-        orientation: 'h',
-        sort: false,
-        hoverinfo: 'none',
-        automargin: true,
-        showlegend: false,
-        cliponaxis: false,
-        marker: {
-          color: myColor(logistic(val2)),
-      },
-    }];
-
-
-    var layout = {
-        barmode: 'group',
-        height: 10,
-        width: 350,
-        margin: {"t": 0, "b": 0, "l": 0, "r": 0},
-        xaxis: {
-            fixedrange: true,
-            autorange: false,
-            range: [0,1],
-            showline: false,
-            showgrid: false,
-            showticklabels: false,
-        },
-        yaxis: {
-            ticks: '',
-            layer: 'below traces',
-            fixedrange: true,
-            showline: false,
-            showgrid: false,
-            showticklabels: false,
-        },
-    };
-
-
-
-    Plotly.react('efficiencyBar1', leader1, layout, {displayModeBar: false});
-    Plotly.react('efficiencyBar2', leader2, layout, {displayModeBar: false});
-}
-
-var updateStrengthText = function(efi1, efi2) {
-    var val1 = efi1 / (efi1 + efi2);
-    var val2 = efi2 / (efi1 + efi2);
-
-    var degree1;
-    var position1;
-    var degree2;
-    var position2;
-
-    if(val1 > val2) {
-        position1 = 'advantaged';
-        position2 = 'disadvantaged';
-        if(efi1/efi2 < 1.1) {
-            degree1 = degree2 = ' has no significant ';
-        }
-        if(efi1/efi2 <= 1.5 && efi1/efi2 >= 1.1) {
-            degree1 = degree2 = ' slightly ';
-        }
-        if(efi1/efi2 > 1.5 && efi1/efi2 < 5) {
-            degree1 = degree2 = ' ';
-        }
-        if(efi1/efi2 >= 5 && efi1/efi2 < 10) {
-            degree1 = degree2 = ' strongly ';
-        }
-        if(efi1/efi2 >= 10) {
-            degree1 = degree2 = ' extremely ';
-        }
-    }
-
-
-    if(val1 < val2) {
-        position2 = 'advantage';
-        position1 = 'disadvantage';
-        if(efi2/efi1 < 1.1) {
-            degree1 = degree2 = ' has no significant ';
-        }
-        if(efi2/efi1 <= 1.5  && efi2/efi1 >= 1.1) {
-            degree1 = degree2 = ' slightly ';
-        }
-        if(efi2/efi1 > 1.5 && efi1/efi2 < 5) {
-            degree1 = degree2 = ' ';
-        }
-        if(efi2/efi1 >= 5 && efi1/efi2 < 10) {
-            degree1 = degree2 = ' strongly ';
-        }
-        if(efi2/efi1 >= 10) {
-            degree1 = degree2 = ' extremely ';
-        }
-    }
-
-    if(val1 !== val2) {
-        var string1 = degree1 + position1;
-        var string2 = degree2 + position2;
-        document.getElementById('advtxt1').innerHTML = string1;
-        document.getElementById('advtxt2').innerHTML = string2;
-    }
-    if(val1 === val2){
-        var same = ' has no advantage or disadvantage'
-        document.getElementById('advtxt1').innerHTML = same;
-        document.getElementById('advtxt2').innerHTML = same;
-
-    }
-
-
-
-
-}
-
-var updateEfficiencyBar = function(efi1, efi2) {
-
-    var val1 = efi1 / (efi1 + efi2);
-    var val2 = efi2 / (efi1 + efi2);
-
-  if((efi1 / efi2) > 1){
-    var myText = (val1 >= 0.99) ? '100+' : (efi1 / efi2).toFixed(2);
-  } else {
-    myText = 1;
-  }
-
-   if((efi1 / efi2) < 1){
-    var myText2 = (val2 >= 0.99) ? '100+' : (efi2 / efi1).toFixed(2);
-  } else {
-    myText2 = 1;
-  }
-
-
-
-  val1 = upperBound(val1, 0.95);
-  val2 = upperBound(val2, 0.95);
-  val1 = lowerBound(val1, 0.05);
-  val2 = lowerBound(val2, 0.05);
-
-var leader1 = {
-  y: ['group 1'],
-  x: [val1],
-  type: 'bar',
-  orientation: 'h',
-  sort: false,
-  hoverinfo: 'none',
-  automargin: true,
-  showlegend: false,
-  marker: {
-    color: myColor(logistic(val1)),
-    // color: 'rgb(160, 160, 160)',
-    line: {
-        color: 'black',
-        width: 1,
-    }
-  },
-  text: myText,
-  textposition: 'inside',
-  insidetextanchor: 'middle',
-  textfont: {
-      color: 'white',
-      size: '8'
-  },
-};
-
-var leader2 = {
-  y: ['group 1'],
-  x: [val2],
-  type: 'bar',
-  orientation: 'h',
-  sort: false,
-  hoverinfo: 'none',
-  automargin: true,
-  showlegend: false,
-    marker: {
-    color: myColor(logistic(val2)),
-    // color: 'rgb(225, 225, 225)',
-    line: {
-        color: 'black',
-        width: 1,
-    }
-  },
-   text: myText2,
-  textposition: 'inside',
-  insidetextanchor: 'middle',
-  textfont: {
-      // color: myTextFont,
-      size: '8'
-  },
-};
-
-var data = [leader1, leader2];
-
-var layout = {
-  barmode: 'stack',
-  height: 25,
-  width: 200,
-  margin: {"t": 0, "b": 0, "l": 0, "r": 0},
-  xaxis: {
-    fixedrange: true,
-    autorange: false,
-    range: [0,1],
-    showline: false,
-    showgrid: false,
-    showticklabels: false,
-},
-
-};
-
-Plotly.react('efficiencyBar', data, layout, {displayModeBar: false});
-}
-
-
 
 //VARIABLES AND GRAPHICS INITIATIONS
 
@@ -706,19 +439,6 @@ var syncBars = function(value, group) {
     }
 }
 
-// updateBarColor = function(barId, ourSide) {
-//
-//     var val1 = efi / (efi + oefi);
-//     var val2 = oefi / (efi + oefi);
-//     var mColor = ourSide ? myColor(logistic(val1)) : myColor(logistic(val2));
-//     console.log(ourSide);
-// console.log(mColor);
-//     var update = {
-//         'marker.color' : 'black'
-//     };
-//     Plotly.restyle(barId, update);
-// }
-
 
 updateBarYAxis = function(barId, axisSwitch) {
     var update = {
@@ -760,13 +480,6 @@ var updateAll = function() {
     updateBarSabo(ts, ots);
     updatePwin();
     updatePie(pwin);
-    updateBarLeader(efo, 'barl', 1, false);
-    updateBarLeader(oefo, 'obarl', 0, false);
-    updateEfficiencyBar(efi, oefi);
-    updateStrengthBar(efi, oefi);
-    updateStrengthText(efi, oefi);
-    // updateBarColor('obarl', 0);
-    // updateBarColor('barl', 1);
 }
 
 updateAll();

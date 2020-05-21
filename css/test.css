@@ -15,28 +15,44 @@
 
     height:300px;
     width: 300px; */
-
+    text-align: center;
     display:flex;
     flex-direction: column;
     /* justify-content:center; */
-    /* border: 5px solid black; */
+    border: 5px solid black;
 
 
 }
 .sinfo{
     flex-grow: 1;
+    border: 5px solid black;
 }
 .sinfotext
 {
-
+border: 5px solid black;
+}
+.sinfographics
+{
+    display: flex;
+    flex-direction: row;
 }
 .s2infographics
 {
+    display: flex;
+    flex-direction: column;
+}
+.s2graphics
+{
+    border: 5px solid black;
     display:flex;
     flex-direction: row;
 }
-
 .s2g1
+{
+    display: flex;
+    flex-direction: column;
+}
+.s2barmain
 {
     display: flex;
     flex-direction: column;

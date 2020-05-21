@@ -61,7 +61,7 @@ updateBarHelp = function(a,b) {
 
     var layout = {
         barmode: 'group',
-        height: 110,
+        height: 60,
         width: 150,
         // title: 'Total Help',
         margin: {"t": 20, "b": 0, "l": 0, "r": 0},
@@ -110,7 +110,7 @@ updateBarSabo = function(a, b) {
 
     var layout = {
         barmode: 'group',
-        height: 110,
+        height: 60,
         width: 150,
         // title: 'Total Sabotage',
         margin: {"t": 0, "b": 20, "l": 0, "r": 0},
@@ -418,7 +418,8 @@ var updateEfficiencyPie = function(efi1, efi2){
         textinfo: 'text',
         automargin: true,
         marker:{
-            colors: ['rgb(225, 225, 225)', 'rgb(160, 160, 160)']
+            colors: ['rgb(225, 225, 225)', 'rgb(160, 160, 160)'],
+            // colors: [ myColor(logistic(val1)), myColor(logistic(val2))],
         }
     }];
 
@@ -455,7 +456,6 @@ var logistic = function(val) {
 }
 
 var myColor = function(val){
-    console.log('hsla(' + val[0] +',100%, 37%, ' + val[1] +')');
     return ('hsla(' + val[0] +',100%, 37%, ' + val[1] +')');
 
 }
@@ -497,7 +497,7 @@ var updateStrengthBar = function(efi1, efi2) {
     var layout = {
         barmode: 'group',
         height: 10,
-        width: 380,
+        width: 350,
         margin: {"t": 0, "b": 0, "l": 0, "r": 0},
         xaxis: {
             fixedrange: true,
@@ -533,8 +533,8 @@ var updateStrengthText = function(efi1, efi2) {
     var position2;
 
     if(val1 > val2) {
-        position1 = 'advantage';
-        position2 = 'disadvantage';
+        position1 = 'advantaged';
+        position2 = 'disadvantaged';
         if(efi1/efi2 < 1.1) {
             degree1 = degree2 = ' has no significant ';
         }
@@ -593,6 +593,53 @@ var updateStrengthText = function(efi1, efi2) {
 
 
 
+}
+
+
+updateEffectiveEffort = function() {
+    var efefoText = (efefo < 10) ? efefo.toFixed(2) : efefo.toFixed(0);
+    var oefefoText = (oefefo < 10) ? oefefo.toFixed(2) : oefefo.toFixed(0);
+    console.log(efefo + '' + oefefo);
+    var data = [{
+        y: [efefo, oefefo],
+        name: ['Opposing Group', 'Your Group'],
+        type: 'bar',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker:{
+            color: ['gray', 'lightgray'],
+                },
+        text: [efefoText, oefefoText],
+        textposition: 'outside',
+        cliponaxis: false,
+    }];
+
+    var layout = {
+        barmode: 'group',
+        height: 60,
+        width: 150,
+        // title: 'Total Help',
+        margin: {"t": 20, "b": 0, "l": 0, "r": 0},
+        yaxis: {
+            fixedrange: false,
+            autorange: true,
+            range: [0,500]
+        },
+        xaxis: {
+            fixedrange: true,
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+        },
+        bargap: 0.1,
+        // paper_bgcolor: 'white',
+        // plot_bgcolor: 'white'
+    };
+
+    Plotly.react('effibar', data, layout, {displayModeBar: false});
 }
 
 //VARIABLES AND GRAPHICS INITIATIONS
@@ -682,13 +729,14 @@ var updatePwin = function() {
 
 var updateAll = function() {
     updateTotal();
-    // updateBarHelp(th, oth);
-    // updateBarSabo(ts, ots);
+    updateBarHelp(th, oth);
+    updateBarSabo(ts, ots);
     updatePwin();
     updatePie(pwin);
-    updateEfficiencyPie(efi, oefi);
+    // updateEfficiencyPie(efi, oefi);
     updateStrengthBar(efi, oefi);
     updateStrengthText(efi, oefi);
+    updateEffectiveEffort();
 }
 
 updateAll();
