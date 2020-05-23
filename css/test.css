@@ -10,50 +10,32 @@
 
 
 .all{
-    /* margin-top: 20%;
-    margin-bottom: 20%;
-
-    height:300px;
-    width: 300px; */
-    text-align: center;
     display:flex;
     flex-direction: column;
-    /* justify-content:center; */
-    border: 5px solid black;
+    justify-content:center;
+    /* border: 5px solid black; */
+}
 
-
-}
-.sinfo{
-    flex-grow: 1;
-    border: 5px solid black;
-}
-.sinfotext
-{
-border: 5px solid black;
-}
-.sinfographics
-{
-    display: flex;
-    flex-direction: row;
-}
-.s2infographics
-{
-    display: flex;
-    flex-direction: column;
-}
-.s2graphics
-{
-    border: 5px solid black;
+.canvasarrow{
+    /* border: 5px solid black; */
     display:flex;
-    flex-direction: row;
-}
-.s2g1
-{
-    display: flex;
     flex-direction: column;
+    /* justify-content: center; */
 }
-.s2barmain
+.mywheel
 {
-    display: flex;
-    flex-direction: column;
+    z-index:0;
+    /* border: 5px solid black; */
+    position: relative;
+    /* margin-left: 60px; */
+}
+.arrow
+{
+    width:50px;
+    height:50px;
+    z-index:1;
+    position: absolute;
+    transform:rotate(180deg);
+    margin-left:224px;
+    margin-top: 23px;
 }

@@ -1,253 +1,99 @@
 
 
-updateBarHelp = function(a, b, c, d, barId, ourGroup, me, newLeader) {
-    x = a;
-    y = b;
-    z = c;
-    w = d;
 
-    var lightblue = 'rgb(200,200,255)';
-    var blue = 'rgb(140, 140, 255)';
 
-    var ourColor = ourGroup ? blue : lightblue;
 
-    colorArray = ['', '', '', ''];
-    colorWidth = [0, 0, 0, 0];
-    if (me!==-1) {
-        colorArray[me] = 'black';
-        colorWidth[me] = 3;
-    }
-    if(newLeader!==-1) {
-        colorArray[newLeader] = 'purple'
-        colorWidth[newLeader] = 3;
-    }
 
-    var data = [
+
+
+
+var a = 100*Math.random();
+var b = 100-a;
+
+let theWheel = new Winwheel({
+    'canvasId': 'fuckyea',
+    'numSegments': 4,
+    'outerRadius': 200, // controls the size of the theWheel
+    // 'innerRadius': 100, //makes a donut
+    // 'centerX': 500,  // By default wheel goes in center of canvas, move to left side.
+    // 'centerY': 500,
+    'textOrientation' : 'vertical',    // Set orientation. horizontal, vertical, curved.
+    // 'textOrientation' : 'curved',
+    'textFontFamily'  : 'Courier',     // Monospace font best for vertical and curved.
+    // 'textFontSize'    : 10,
+    // 'textAlignment'  : 'Center',         // Set alignment: inner, outer, center.
+    // 'textMargin'     : 15,
+    // 'textDirection': 'reversed',
+    'rotationAngle':Math.random()*360,
+
+    'segments':
+    [
+        // Define segments. The moreInfo property is not a standard parameter of segments
+        // but because JavaScript is loosely typed if I want moreInfo property I can add it.
         {
-            y: [x, y, z, w],
-            name: ['Follower 1', 'Follower 2', 'Follower 3', 'Follower 4'],
-            type: 'bar',
-            sort: false,
-            hoverinfo: 'name',
-            automargin: true,
-            showlegend: false,
-            marker:{
-                color: ourColor,
-                line: {
-                    color: colorArray,
-                    width: colorWidth,
-                }
-            },
-            text: [x, y, z, w],
-            textposition: 'outside',
-            textfont: {
-                size: '11'
-            },
-            cliponaxis: false,
-            opacity: 1,
-        }
-    ];
-
-    var layout = {
-        barmode: 'group',
-        height: 80,
-        width: 100,
-        margin: {"t": 20, "b": 0, "l": 0, "r": 0},
-        yaxis: {
-            fixedrange: true,
-            autorange: false,
-            range: [0,100]
+            'fillStyle' : 'gray',
+            'textFillStyle': 'white',
+            'text'      : '',
+            'size'      : winwheelPercentToDegrees(a),   // Note use of winwheelPercentToDegrees()
+            'moreInfo'  : '<p>Data 1 is the biggest slice of the pie at 45% for this year!</p>'
         },
-        xaxis: {
-            fixedrange: true,
-            showline: false,
-            showgrid: false,
-            ticks: '',
-            showticklabels: false,
-        },
-        bargap: 0.25,
-    };
-
-    Plotly.react(barId, data, layout, {displayModeBar: false});
-}
-
-updateBarTotalHelp = function(a, b, barId) {
-    x = a;
-    y = b;
-
-    var lightblue = 'rgb(200,200,255)';
-    var blue = 'rgb(140, 140, 255)';
-
-    var data = [
         {
-            y: [x, y],
-            name: ['Group 1', 'Group 2'],
-            type: 'bar',
-            sort: false,
-            hoverinfo: 'name',
-            automargin: true,
-            showlegend: false,
-            marker:{
-                color: [blue, lightblue],
-            },
-            text: [x, y],
-            textposition: 'outside',
-            textfont: {
-                size: '11'
-            },
-            cliponaxis: false,
-            opacity: 1,
-        }
-    ];
-
-    var layout = {
-        barmode: 'group',
-        height: 80,
-        width: 100,
-        margin: {"t": 20, "b": 0, "l": 0, "r": 0},
-        yaxis: {
-            fixedrange: true,
-            autorange: false,
-            range: [0,400]
+            'fillStyle' : 'lightgray',
+            'textFillStyle': 'black',
+            'text'      : '',
+            'size'      : winwheelPercentToDegrees(b),
+            'moreInfo'  : '<p>Data 2 is selling well making up 20% of our sales.</p>',
+            // 'textAlignment':'inner'
         },
-        xaxis: {
-            fixedrange: true,
-            showline: false,
-            showgrid: false,
-            ticks: '',
-            showticklabels: false,
-        },
-        bargap: 0.25,
-    };
-
-    Plotly.react(barId, data, layout, {displayModeBar: false});
-}
-
-
-
-
-updateBarSabo = function(a, b, c, d, barId, ourGroup, me, newLeader) {
-    x = -a;
-    y = -b;
-    z = -c;
-    w = -d;
-
-    var lightred = 'rgb(255,200,200)';
-    var red = 'rgb(255 140, 140)';
-    var ourColor = ourGroup ? red : lightred;
-
-    colorArray = ['', '', '', ''];
-    colorWidth = [0, 0, 0, 0];
-    if (me!==-1) {
-        colorArray[me] = 'black';
-        colorWidth[me] = 3;
+        // {
+        //     'fillStyle' : '#7de6ef',
+        //     'text'      : 'Follower 3 \n10%',
+        //     'size'      : winwheelPercentToDegrees(5),
+        //     'moreInfo'  : '<p>Data 3 only making up 5% of our sales.</p>',
+        //     // 'textAlignment':'outer',
+        //     // 'textMargin': '300'
+        // },
+        // {
+        //     'fillStyle' : '#e7706f',
+        //     'text'      : 'Follower 4 \n30%',
+        //     'size'      : winwheelPercentToDegrees(30),
+        //     'moreInfo'  : '<p>Data 4 was a strong performer of the last year at 30% of sales.</p>'
+        // }
+    ],
+    // 'pointerGuide' :        // Turn pointer guide on.
+    // {
+    //     'display'     : true,
+    //     'strokeStyle' : 'red',
+    //     'lineWidth'   : 3
+    // },
+    'animation' :                   // Note animation properties passed in constructor parameters.
+    {
+        'type'     : 'spinToStop',  // Type of animation.
+        // 'type': 'spinAndBack',
+        'duration' : 5,             // How long the animation is to take in seconds.
+        'spins'    : 25,             // The number of complete 360 degree rotations the wheel is to do.
+        // Remember to do something after the animation has finished specify callback function.
+        // 'callbackFinished' : 'yo()',
     }
-    if(newLeader!==-1) {
-        colorArray[newLeader] = 'purple'
-        colorWidth[newLeader] = 3;
-    }
+});
 
-
-    var data = [{
-        y: [x, y, z, w],
-        name: ['Follower 1', 'Follower 2', 'Follower 3', 'Follower 4'],
-        type: 'bar',
-        sort: false,
-        hoverinfo: 'none',
-        automargin: true,
-        showlegend: false,
-        marker:{
-            color: ourColor,
-            line: {
-                color: colorArray,
-                width: colorWidth,
-            }
-        },
-        text: [x, y, z, w],
-        textposition: 'outside',
-        cliponaxis: false,
-    }];
-
-    var layout = {
-        barmode: 'group',
-        height: 80,
-        width: 100,
-        margin: {"t": 0, "b": 20, "l": 0, "r": 0},
-        yaxis: {
-            fixedrange: true,
-            autorange: false,
-            range: [-100,0]
-        },
-        xaxis: {
-            fixedrange: true,
-            showline: false,
-            showgrid: false,
-            ticks: '',
-            showticklabels: false,
-        },
-        bargap: 0.25,
-    };
-
-    Plotly.react(barId, data, layout, {displayModeBar: false});
+var yo = function() {
+    console.log('Yooooooooo');
+    let winningSegmentNumber = theWheel.getIndicatedSegmentNumber();
+    theWheel.segments[winningSegmentNumber].fillStyle = 'yellow';
+    theWheel.draw();
+    // theWheel.startAnimation();
 }
 
-updateBarTotalSabo = function(a, b, barId) {
-    x = -a;
-    y = -b;
+theWheel.segments[3].fillStyle = 'red';
+// theWheel.segments[3].textFontSize = 40;
+theWheel.segments[3].textFontWeight = 'bolder';
+theWheel.draw();
 
-    var lightred = 'rgb(255,200,200)';
-    var red = 'rgb(255 140, 140)';
+mybutton = document.getElementById('turn');
 
-
-
-    var data = [{
-        y: [x, y],
-        name: ['Group 1', 'Group 2'],
-        type: 'bar',
-        sort: false,
-        hoverinfo: 'none',
-        automargin: true,
-        showlegend: false,
-        marker:{
-            color: [red, lightred],
-            },
-        text: [x, y],
-        textposition: 'outside',
-        cliponaxis: false,
-    }];
-
-    var layout = {
-        barmode: 'group',
-        height: 80,
-        width: 100,
-        margin: {"t": 0, "b": 20, "l": 0, "r": 0},
-        yaxis: {
-            fixedrange: true,
-            autorange: false,
-            range: [-400,0]
-        },
-        xaxis: {
-            fixedrange: true,
-            showline: false,
-            showgrid: false,
-            ticks: '',
-            showticklabels: false,
-        },
-        bargap: 0.25,
-    };
-
-    Plotly.react(barId, data, layout, {displayModeBar: false});
+mybutton.onclick = function() {
+    var stopAt = theWheel.getRandomForSegment(1);
+    theWheel.animation.stopAngle = stopAt;
+    theWheel.startAnimation();
 }
-
-
-
-
-// updateBarHelp(a, b, c, d, barId, ourGroup, me, newLeader)
-updateBarHelp(20, 30, 50, 10, 's2helpbarg1', true, 2, 0);
-updateBarSabo(20, 30, 50, 10, 's2sabobarg1', true, 2, 0);
-
-updateBarTotalHelp(110, 250, 's2totalhelpbar');
-updateBarTotalSabo(110, 250, 's2totalsabobar');
-
-updateBarHelp(90, 80, 70, 10, 's2helpbarg2', false, -1, -1);
-updateBarSabo(90, 80, 70, 10, 's2sabobarg2', false, -1, -1);

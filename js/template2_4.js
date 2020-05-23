@@ -275,8 +275,6 @@ var updateBarLeader = function(e, barId, ourSide, axisOn) {
             autorange: false,
             range: [0,500],
             layer: 'below traces',
-            fixedrange: true,
-
             tickfont: {
                 size: 10,
             },
@@ -307,7 +305,7 @@ var updateBarDecision = function(a, barId, axisOn) {
     var y = a;
     if(typeof(y) === 'undefined') y = 0;
 
-    colors = ['rgb(120,120,255)',  'rgb(255,120,120)'];
+    var colors = ['rgb(120,120,255)',  'rgb(255,120,120)'];
 
     var myLabel = y > 0 ? y : -y;
     // var myColor = y > 0 ? 'rgb(180,180,255)' : 'rgb(255,180,180)';
@@ -358,7 +356,6 @@ var updateBarDecision = function(a, barId, axisOn) {
             autorange: false,
             range: [-100,100],
             layer: 'below traces',
-            fixedrange: true,
             ticks:'',
             tickfont: {
                 size: 10,
@@ -393,7 +390,7 @@ var logistic = function(val) {
   var k2 = 0.01;
   val = 240 * val;
 
-  var val1;
+  var val1, val12;
   val1 = L / (1 + Math.exp(-k1 * (val - m)));
   val12 =  L / (1 + Math.exp(-k2 * (val - m)));
   var val2 = (Math.abs(val12 - m) / 240) + 0.5;
@@ -699,7 +696,7 @@ var syncBars = function(value, group) {
 }
 
 
-updateBarYAxis = function(barId, axisSwitch) {
+var updateBarYAxis = function(barId, axisSwitch) {
     var update = {
         'yaxis.showgrid': axisSwitch,
         'yaxis.showticklabels': axisSwitch
@@ -708,7 +705,7 @@ updateBarYAxis = function(barId, axisSwitch) {
 }
 
 
-updateBarXAxis = function(barId, axisSwitch) {
+var updateBarXAxis = function(barId, axisSwitch) {
     var update = {
         'xaxis.showgrid': axisSwitch,
         'xaxis.showticklabels': axisSwitch
@@ -820,6 +817,7 @@ lslider1.oninput = function() {
     efo = lvalue;
     updateBarLeader(lvalue, 'barl', 1, true);
     updateAll();
+    updateBarXAxis('barl', true);
 }
 
 //Followers
@@ -880,6 +878,7 @@ olslider1.oninput = function() {
     oefo = olvalue;
     updateBarLeader(olvalue, 'obarl', 0, true);
     updateAll();
+    updateBarXAxis('obarl', true);
 }
 
 //Followers

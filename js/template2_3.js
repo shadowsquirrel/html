@@ -4,8 +4,8 @@ var updatePie = function(a) {
     // var val2 = oefi / (efi + oefi);
     // var mColor = [myColor(logistic(val2)), myColor(logistic(val1))];
 
-    x = a;
-    y = 1-a;
+    var x = a;
+    var y = 1-a;
     if(typeof(x) === 'undefined') x = 0;
     if(typeof(y) === 'undefined') y = 0;
     if((x + y) === 0) {
@@ -47,8 +47,8 @@ var updatePie = function(a) {
 }
 
 var updateBarHelp = function(a,b) {
-    x = a;
-    y = b;
+    var x = a;
+    var y = b;
     if(typeof(x) === 'undefined') x = 0;
     if(typeof(y) === 'undefined') y = 0;
 
@@ -62,7 +62,7 @@ var updateBarHelp = function(a,b) {
         showlegend: false,
         marker:{
             color: ['rgb(140, 140, 255)', 'rgb(200,200,255)'],
-                },
+        },
         text: [x, y],
         textposition: 'outside',
         cliponaxis: false,
@@ -70,8 +70,8 @@ var updateBarHelp = function(a,b) {
 
     var layout = {
         barmode: 'group',
-        height: 110,
-        width: 150,
+        height: 160, //110,
+        width: 190, //150,
         // title: 'Total Help',
         margin: {"t": 20, "b": 0, "l": 0, "r": 0},
         yaxis: {
@@ -119,8 +119,8 @@ var updateBarSabo = function(a, b) {
 
     var layout = {
         barmode: 'group',
-        height: 110,
-        width: 150,
+        height: 160,//110,
+        width: 190,//150,
         // title: 'Total Sabotage',
         margin: {"t": 0, "b": 20, "l": 0, "r": 0},
         yaxis: {
@@ -387,19 +387,27 @@ var updateBarDecision = function(a, barId, axisOn) {
 }
 
 var logistic = function(val) {
-  var L = 240;
-  var m = 120;
-  var k1 = 0.05;
-  var k2 = 0.01;
-  val = 240 * val;
+    var L = 240;
+    var m = 120;
+    var k1 = 0.05;
+    var k2 = 0.01;
+    val = 240 * val;
 
-  var val1;
-  val1 = L / (1 + Math.exp(-k1 * (val - m)));
-  val12 =  L / (1 + Math.exp(-k2 * (val - m)));
-  var val2 = (Math.abs(val12 - m) / 240) + 0.5;
-  val1 = Math.floor(val1);
-  var result = [val1, val2];
-  return result;
+    var val1;
+    val1 = L / (1 + Math.exp(-k1 * (val - m)));
+    val12 =  L / (1 + Math.exp(-k2 * (val - m)));
+    var val2 = (Math.abs(val12 - m) / 240) + 0.5;
+    val1 = Math.floor(val1);
+    var result = [val1, val2];
+    return result;
+}
+
+var logistic2 = function(val , k) {
+    var L = 1;
+    var m = 0.5;
+    var result;
+    result= L / (1 + Math.exp(-k * (val - m)));
+    return result;
 }
 
 var myColor = function(val){
@@ -417,6 +425,7 @@ var lowerBound = function(val, lowerBound) {
     return val;
 }
 
+
 var updateStrengthBar = function(efi1, efi2) {
 
     var val1 = efi1 / (efi1 + efi2);
@@ -432,8 +441,8 @@ var updateStrengthBar = function(efi1, efi2) {
         showlegend: false,
         cliponaxis: false,
         marker: {
-          color: myColor(logistic(val1)),
-      },
+            color: myColor(logistic(val1)),
+        },
     }];
 
     var leader2 = [{
@@ -446,8 +455,8 @@ var updateStrengthBar = function(efi1, efi2) {
         showlegend: false,
         cliponaxis: false,
         marker: {
-          color: myColor(logistic(val2)),
-      },
+            color: myColor(logistic(val2)),
+        },
     }];
 
 
@@ -553,96 +562,90 @@ var updateEfficiencyBar = function(efi1, efi2) {
     var val1 = efi1 / (efi1 + efi2);
     var val2 = efi2 / (efi1 + efi2);
 
-  if((efi1 / efi2) > 1){
-    var myText = (val1 >= 0.99) ? '100+' : (efi1 / efi2).toFixed(2);
-  } else {
-    myText = 1;
-  }
+    if((efi1 / efi2) > 1){
+        var myText = (val1 >= 0.99) ? '100+' : (efi1 / efi2).toFixed(2);
+    } else {
+        myText = 1;
+    }
 
-   if((efi1 / efi2) < 1){
-    var myText2 = (val2 >= 0.99) ? '100+' : (efi2 / efi1).toFixed(2);
-  } else {
-    myText2 = 1;
-  }
+    if((efi1 / efi2) < 1){
+        var myText2 = (val2 >= 0.99) ? '100+' : (efi2 / efi1).toFixed(2);
+    } else {
+        myText2 = 1;
+    }
 
 
+    val1 = logistic2(val1, 5);
+    val2 = 1 - val1;
+    // val1 = upperBound(val1, 0.98);
+    // val2 = upperBound(val2, 0.98);
+    // val1 = lowerBound(val1, 0.02);
+    // val2 = lowerBound(val2, 0.02);
+    // console.log('before: ' + val1 + ', ' + val2);
+    // console.log('after: ' + val1 + ', ' + val2);
 
-  val1 = upperBound(val1, 0.95);
-  val2 = upperBound(val2, 0.95);
-  val1 = lowerBound(val1, 0.05);
-  val2 = lowerBound(val2, 0.05);
 
-var leader1 = {
-  y: ['group 1'],
-  x: [val1],
-  type: 'bar',
-  orientation: 'h',
-  sort: false,
-  hoverinfo: 'none',
-  automargin: true,
-  showlegend: false,
-  marker: {
-    // color: myColor(logistic(val1)),
-    color: 'rgb(160, 160, 160)',
-    // line: {
-    //     color: 'black',
-    //     width: 1,
-    // }
-  },
-  text: myText,
-  textposition: 'inside',
-  insidetextanchor: 'middle',
-  textfont: {
-      color: 'white',
-      size: '8'
-  },
-};
+    var leader1 = {
+        y: ['group 1'],
+        x: [val1],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker: {
+            color: 'rgb(160, 160, 160)',
+        },
+        text: myText,
+        textposition: 'inside',
+        insidetextanchor: 'middle',
+        textfont: {
+            color: 'white',
+            size: '10'
+        },
+    };
 
-var leader2 = {
-  y: ['group 1'],
-  x: [val2],
-  type: 'bar',
-  orientation: 'h',
-  sort: false,
-  hoverinfo: 'none',
-  automargin: true,
-  showlegend: false,
-    marker: {
-    // color: myColor(logistic(val2)),
-    color: 'rgb(225, 225, 225)',
-    // line: {
-    //     color: 'black',
-    //     width: 1,
-    // }
-  },
-   text: myText2,
-  textposition: 'inside',
-  insidetextanchor: 'middle',
-  textfont: {
-      // color: myTextFont,
-      size: '8'
-  },
-};
+    var leader2 = {
+        y: ['group 1'],
+        x: [val2],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker: {
+            color: 'rgb(225, 225, 225)',
+        },
+        text: myText2,
+        textposition: 'inside',
+        insidetextanchor: 'middle',
+        textfont: {
+            size: '10'
+        },
+    };
 
-var data = [leader1, leader2];
+    var data = [leader1, leader2];
 
-var layout = {
-  barmode: 'stack',
-  height: 25,
-  width: 200,
-  margin: {"t": 0, "b": 0, "l": 0, "r": 0},
-  xaxis: {
-    fixedrange: true,
-    autorange: false,
-    range: [0,1],
-    showline: false,
-    showgrid: false,
-    showticklabels: false,
-},
+    var layout = {
+        barmode: 'stack',
+        height: 25,
+        width: 1000,
+        // width: 200,
+        margin: {"t": 0, "b": 0, "l": 0, "r": 0},
+        xaxis: {
+            fixedrange: true,
+            autorange: false,
+            range: [0,1],
+            showline: false,
+            showgrid: false,
+            showticklabels: false,
+        },
 
-};
+    };
 
-Plotly.react('efficiencyBar', data, layout, {displayModeBar: false});
+    Plotly.react('efficiencyBar', data, layout, {displayModeBar: false});
 }
 
 
@@ -660,7 +663,7 @@ os1 = os2 = os3 = os4 = oh1 = oh2 = oh3 = oh4 = ots = oth = 0;
 
 // leader global variables
 var efo, efi, efefo, oefo, oefi, oefefo, pwin;
-efo = oefo = 0;
+efo = oefo = 1;
 efi = oefi = 1;
 
 var syncValues = function(hValue, sValue, group){
@@ -699,7 +702,7 @@ var syncBars = function(value, group) {
 }
 
 
-updateBarYAxis = function(barId, axisSwitch) {
+var updateBarYAxis = function(barId, axisSwitch) {
     var update = {
         'yaxis.showgrid': axisSwitch,
         'yaxis.showticklabels': axisSwitch
@@ -708,7 +711,7 @@ updateBarYAxis = function(barId, axisSwitch) {
 }
 
 
-updateBarXAxis = function(barId, axisSwitch) {
+var updateBarXAxis = function(barId, axisSwitch) {
     var update = {
         'xaxis.showgrid': axisSwitch,
         'xaxis.showticklabels': axisSwitch
@@ -761,7 +764,7 @@ updateBarDecision(0, 'bard', false);
 // YOUR GROUP INITIATION
 // leader
 var lslider1 = document.getElementById('lSlider1');
-var lvalue = 0;
+var lvalue = 1;
 updateBarLeader(lvalue, 'barl', 1, false);
 // followers
 var slider1 = document.getElementById('vSlider1');
@@ -780,7 +783,7 @@ updateBar(value4, 'bar4', 0, false);
 // OPPOSING GROUP INITIATION
 // leader
 var olslider1 = document.getElementById('olSlider1');
-var olvalue = 0;
+var olvalue = 1;
 updateBarLeader(olvalue, 'obarl', 0, false);
 // followers
 var oslider1 = document.getElementById('ovSlider1');

@@ -25,6 +25,7 @@
     flex-direction: column;
     margin-left: 15%;
     margin-right: 15%;
+    text-align: center;
     /* justify-content:center; */
     /* border: 5px solid black; */
 }
@@ -33,9 +34,200 @@
 /************************************************/
 /************************************************/
 /************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
 .sinfo{
     flex-grow: 1;
+    /* justify-content: center; */
+    /* border: 5px solid black; */
+    /* width:900px; */
+    /* background-color: gray; */
+    margin-bottom: 90px;
 }
+.sinfotitle
+{
+    margin-bottom: 50px;
+}
+.sinfotextandgraphics
+{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+.sinfotext
+{
+    font-weight:500;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    /* text-align: center; */
+    flex-grow: 1;
+    /* border: 5px solid black; */
+    /* max-width: 500px; */
+
+}
+.sinfographics
+{
+    margin-bottom: 50px;
+    margin-top: 0px;
+    flex-grow: 1;
+    /* position:absolute; */
+    /* opacity:0.1; */
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    /* border: 5px solid black; */
+
+}
+
+.s2infographics
+{
+    /* margin-top: 50px; */
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    margin-left: 20px;
+    /* margin-right: 20px; */
+    /* border: 5px solid black; */
+}
+.s3infographics
+{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    justify-content:space-between;
+    /* border: 5px solid black; */
+}
+.s4infographics
+{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    margin-left: 20px;
+    /* border: 5px solid black; */
+}
+
+.borderlegend
+{
+    display: flex;
+    flex-direction: row;
+
+}
+.newleader
+{
+    border: 2px solid red;
+    width:90px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+.youare
+{
+    border: 2px solid blue;
+    width:30px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.s2infotitle
+{
+
+    /* border: 5px solid black; */
+    /* margin-top: -10px; */
+}
+.s2graphics
+{
+    /* border: 5px solid black; */
+    margin-top: 20px;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.s2g1
+{
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+}
+.s2barmain
+{
+    display: flex;
+    flex-direction: column;
+}
+.s3infotitle
+{
+    /* margin-top: -5px; */
+}
+.s3graphics
+{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+    /* border: 5px solid black; */
+}
+.s3pie
+{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    /* border: 5px solid black; */
+}
+.efiefo
+{
+    display:flex;
+    flex-direction: column;
+}
+.s3efobar
+{
+    display: flex;
+    /* border: 5px solid black; */
+    justify-content: center;
+    /* margin-top: 15px; */
+}
+.s3efibar
+{
+    display: flex;
+    /* border: 5px solid black; */
+    justify-content: center;
+    /* margin-top: 15px; */
+}
+
+
+
+.s4pie
+{
+    display: flex;
+    justify-content: center;
+    /* border: 5px solid black; */
+}
+
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
 /************************************************/
 /************************************************/
 /************************************************/
@@ -53,10 +245,25 @@
      /* position: sticky;
      top: 0px; */
 }
+.leftmaintitle
+{
+    margin-left: -105px;
+}
+.rightmaintitle
+{
+margin-right: -135px;
+}
+.titlesection
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 .topsection
 {
-    /* z-index: 2;
-    position: sticky;
+    margin-top: 20px;
+    /* z-index: 2;*/
+    /* position: sticky;
     top: 0; */
     display:flex;
     flex-direction: row;
@@ -64,7 +271,9 @@
 }
 .middlesection
 {
-    /* position: sticky;
+    /* margin-top: 20px; */
+    /* z-index:1;
+    position: sticky;
     top: 185px; */
     /* justify-content: center; */
     display:flex;
@@ -74,32 +283,35 @@
 
     /* border: 5px solid black; */
 }
-.efficiencyBarWrap
-{
-    display:flex;
-    justify-content: center;
-    flex-grow: 1;
-}
-.efficiencyBar
-{
-    margin-left: 0px;
-    margin-top: 0px;
-    justify-content: center;
-}
 .bottomsection
 {
-    z-index: 0;
+
+    /* position: sticky;
+    top: 200px; */
     display:flex;
     flex-direction: row;
     /* border: 5px solid black; */
 }
 .decision
 {
-    /* position: relative;
-    top: 900px; */
+    /* position: sticky;
+    top:3000px; */
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+}
+.efficiencyBarWrap
+{
+    /* margin-bottom: 20px; */
+    position: sticky;
+    top: 0;
+    display:flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+.efficiencyBar
+{
+    justify-content: center;
 }
 .efficiencyBar1
 {
@@ -174,7 +386,7 @@
 {
     position: sticky;
     top: 0;
-    margin-top: 40px;
+    margin-top: 0px;
     margin-left: 20px;
     /* border: 5px solid black; */
 }
@@ -617,13 +829,21 @@
 /************************************************/
 /************************************************/
 /************************************************/
-
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
 /************************************************/
 /************************************************/
 /************************************************/
 /************************************************/
 .input
 {
+
     margin-top: -20px;
     margin-left: 39px;
     text-align: center;

@@ -4,6 +4,8 @@
 
 
     <link rel="stylesheet" href="css/test.css">
+    <script src='js/Winwheel.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -14,61 +16,24 @@
 </head>
 <body>
 
+
     <div class = 'wrap'>
 
         <div class = 'all'>
-            <div class = sinfo>
 
-                <div class = sinfotitle>
-                    <h5>STAGE 5</h5>
-                </div>
-                <div class = sinfographics>
-
-
-                    <div class = s2infographics>
-                        <h6>STAGE 2</h6>
-                        <span class = s2graphics>
-                            <span class = 's2g1'>
-                                <h7>Group 1</h7>
-                                <span id = 's2helpbarg1'></span>
-                                <span id = 's2sabobarg1'></span>
-                            </span>
-                            <pre> </pre>
-                            <span id = 's2barmain'>
-                                <h7>1 vs 2</h7>
-                                <span id = 's2totalhelpbar'></span>
-                                <span id = 's2totalsabobar'></span>
-                            </span>
-                            <pre> </pre>
-                            <span class = 's2g1'>
-                                <h7>Group 2</h7>
-                                <span id = 's2helpbarg2'></span>
-                                <span id = 's2sabobarg2'></span>
-                            </span>
-                        </span>
-                    </div>
-
-                    <div class = s3infographics>
-                        <h6>STAGE 3</h6>
-                        <span id = 's3pie'></span>
-                    </div>
-
-                    <div class = s4infographics>
-                        <span id = 's4bar'></span>
-                        <span id = 's4pie'></span>
-                    </div>
-
-                </div>
-
+            <div id='canvasarrow' class='canvasarrow'>
+                <canvas id='fuckyea' class='mywheel' width='500' height='500'>
+                    Canvas not supported, use another browser.
+                </canvas>
+                <img id="arrow" class='arrow' src="images/arrow.png" alt="V" />
             </div>
 
 
 
 
 
-
-
         </div>
+        <button id=turn></button>
 
     </div>
 
