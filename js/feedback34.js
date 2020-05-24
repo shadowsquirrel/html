@@ -1096,6 +1096,9 @@ var update = function(beliefSwitch) {
 
 
 update(false);
+var stopAt = theWheel.getRandomForSegment(1);
+theWheel.animation.stopAngle = stopAt;
+theWheel.startAnimation();
 
 var bbSwitch = 1;
 beliefButton.onclick = function() {
