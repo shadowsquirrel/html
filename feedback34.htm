@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <link rel="stylesheet" href="css/feedback34.css">
+    <script src='js/Winwheel.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+    <title>Page Title</title>
+</head>
+<body>
+
+
+    <div class = 'wrap'>
+
+        <div class = 'all'>
+            <button id=beliefbutton>Beliefs</button>
+            <div class='firstpart'>
+                <div class='s3feedback'>
+                    <div class='s3feedbacktitle'>
+                        <h6>STAGE 3</h6>
+                    </div>
+                    <div class='s3feedbackgraphics'>
+                        <div class='wheelwrap'>
+                            <div class='wheelofcontest' id='wheelofcontest'>
+                                <div id='canvasarrow' class='canvasarrow'>
+                                    <canvas id='mywheel' class='mywheel' width='150' height='150'>
+                                        Canvas not supported, use another browser.
+                                    </canvas>
+                                    <img id="arrow" class='arrow' src="images/arrow.png" alt="V" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class='s3pies'>
+                            <div class='s3actualpie' id='s3actualpie'>
+
+                            </div>
+                            <!-- <div class='s3beliefpie' id='s3beliefpie'>
+
+                            </div> -->
+                        </div>
+                        <div class='s3bars'>
+                            <div class='s3effortbeliefbars' id='s3effortbeliefbars'>
+
+                            </div>
+                            <div class='s3actualefficiencybar' id='s3actualefficiencybar'>
+
+                            </div>
+                            <!-- <div class='s3beliefefficiencybar' id='s3beliefefficiencybar'>
+
+                            </div> -->
+                        </div>
+                    </div>
+
+
+                    <div class='borderlegend'>
+                        <span class = beliefs>Beliefs</span>
+                        <span class = actual>Actual Decision</span>
+                    </div>
+                </div>
+
+
+                <div class='s2feedback'>
+                    <div class = s2maintitle>
+                        <h6>STAGE 2</h6>
+                    </div>
+                    <div class='s2actualdecision'>
+                        <!-- <div class = s2actualtitle>
+                            <h6>Actual Decision</h6>
+                        </div> -->
+                        <div class = s2feedbackgraphics>
+                            <div class = 'g1'>
+                                <h7>Group 1</h7>
+                                <div id = 'helpbarg1'></div>
+                                <div id = 'sabobarg1'></div>
+                            </div>
+                            <pre> </pre>
+                            <div id = 'totalbars'>
+                                <h7>Total</h7>
+                                <div id = 'helpbartotal'></div>
+                                <div id = 'sabobartotal'></div>
+                            </div>
+                            <pre> </pre>
+                            <div class = 'g2'>
+                                <h7>Group 2</h7>
+                                <div id = 'helpbarg2'></div>
+                                <div id = 'sabobarg2'></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class='s2beliefs'>
+                        <div class = s2belieftitle>
+                            <h6>Beliefs</h6>
+                        </div>
+                        <div class='s2beliefbars'>
+                            <div class='bg1'>
+                                <h7>Your Group</h7>
+                                <h7>Average of Other Followers</h7>
+                                <div id = 'avghelpbeliefbarg1'></div>
+                                <div id = 'avgsabobeliefbarg1'></div>
+                            </div>
+                            <div class='bg2'>
+                                <h7>Opposing Group</h7>
+                                <h7>Average of All Followers</h7>
+                                <div id = 'avghelpbeliefbarg2'></div>
+                                <div id = 'avgsabobeliefbarg2'></div>
+                            </div>
+                        </div>
+                        <div class='borderlegend'>
+                            <span class = beliefs>Beliefs</span>
+                            <span class = actual>Actual Decision</span>
+                        </div>
+                    </div> -->
+
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="js/feedback34.js"></script>
+
+</body>
+</html>

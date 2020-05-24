@@ -83,86 +83,157 @@
 /************************************************/
 /************************************************/
 /************************************************/
-.sinfo{
-    flex-grow: 1;
-    /* justify-content: center; */
-    /* border: 5px solid black; */
-    /* width:900px; */
-    /* background-color: gray; */
-    margin-bottom: 90px;
-}
-.sinfotitle
+.firstpart
 {
-    margin-bottom: 50px;
-}
-.sinfotextandgraphics
-{
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-
-}
-.sinfotext
-{
-    font-weight:500;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    /* text-align: center; */
-    flex-grow: 1;
-    /* border: 5px solid black; */
-    /* max-width: 500px; */
-
-}
-.sinfographics
-{
-    margin-bottom: 50px;
-    margin-top: 0px;
-    flex-grow: 1;
-    /* position:absolute; */
-    /* opacity:0.1; */
-    display: flex;
+    display:flex;
     flex-direction: row;
-    justify-content:space-evenly;
+}
+/************** STAGE 3 *************/
+/************** STAGE 3 *************/
+/************** STAGE 3 *************/
+/************** STAGE 3 *************/
+/************** STAGE 3 *************/
+.s3feedback
+{
+    border: 5px solid black;
+    display:flex;
+    flex-direction: column;
+}
+.s3feedbackgraphics
+{
+    display:flex;
+    flex-direction: row;
+}
+.wheelwrap
+{
+    display:flex;
+}
+.canvasarrow{
     /* border: 5px solid black; */
+    display:flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    width: 150px;
+    height: 150px;
+}
+.mywheel
+{
+    z-index:0;
+    /* border: 5px solid black; */
+    position: relative;
+}
+.arrow
+{
+    width:30px;
+    height:30px;
+    z-index:1;
+    position: absolute;
+    transform:rotate(180deg);
+    margin-left:59.5px;
+    margin-top: 5px;
+}
+.s3pies
+{
+    display:flex;
+    flex-direction:column;
+}
+.s3actualpie
+{
 
 }
+.s3beliefpie
+{
 
-.s2infographics
-{
-    /* margin-top: 50px; */
-    display: flex;
-    flex-direction: column;
-    justify-content:space-between;
-    margin-left: 20px;
-    /* margin-right: 20px; */
-    /* border: 5px solid black; */
 }
-.s3infographics
+.s3bars
 {
-    display: flex;
-    flex-direction: column;
-    margin-left: 20px;
-    justify-content:space-between;
-    /* border: 5px solid black; */
+    display:flex;
+    flex-direction:column;
 }
-.s4infographics
+/************** STAGE 2 *************/
+/************** STAGE 2 *************/
+/************** STAGE 2 *************/
+/************** STAGE 2 *************/
+/************** STAGE 2 *************/
+.s2feedback
 {
-    display: flex;
+    border: 5px solid black;
+    display:flex;
     flex-direction: column;
-    justify-content:space-between;
-    margin-left: 20px;
-    /* border: 5px solid black; */
 }
+.s2maintitle
+{
 
+}
+/*********** actual decision **********/
+/*********** actual decision **********/
+/*********** actual decision **********/
+/*********** actual decision **********/
+.s2actualdecision
+{
+    display:flex;
+    flex-direction: column;
+}
+.s2actualtitle
+{
+
+}
+/******** actual decision graphics *******/
+/******** actual decision graphics *******/
+/******** actual decision graphics *******/
+.s2feedbackgraphics
+{
+    display:flex;
+    flex-direction: row;
+}
+.g1
+{
+    display:flex;
+    flex-direction: column;
+}
+.totalbars
+{
+    display:flex;
+    flex-direction: column;
+}
+.g2
+{
+    display:flex;
+    flex-direction: column;
+}
+/************** Beliefs *************/
+/************** Beliefs *************/
+/************** Beliefs *************/
+/************** Beliefs *************/
+.s2beliefs
+{
+    display: flex;
+    flex-direction: column;
+}
+.s2beliefbars
+{
+    display:flex;
+    flex-direction:row;
+}
+.bg1
+{
+    display:flex;
+    flex-direction: column;
+}
+.bg2
+{
+    display:flex;
+    flex-direction: column;
+}
+/*********** legend **********/
+/*********** legend **********/
+/*********** legend **********/
 .borderlegend
 {
     display: flex;
     flex-direction: row;
-
 }
-.newleader
+.beliefs
 {
     border: 2px solid purple;
     width:90px;
@@ -170,81 +241,10 @@
     font-weight: bold;
     margin-right: 5px;
 }
-.youare
+.actual
 {
     border: 2px solid green;
     width:30px;
     font-size: 14px;
     font-weight: bold;
-}
-.s2infotitle
-{
-
-    /* border: 5px solid black; */
-    /* margin-top: -10px; */
-}
-.s2graphics
-{
-    /* border: 5px solid black; */
-    margin-top: 20px;
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-}
-.s2g1
-{
-    display: flex;
-    /* justify-content: center; */
-    flex-direction: column;
-}
-.s2barmain
-{
-    display: flex;
-    flex-direction: column;
-}
-.s3infotitle
-{
-    /* margin-top: -5px; */
-}
-.s3graphics
-{
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 50px;
-    /* border: 5px solid black; */
-}
-.s3pie
-{
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    /* border: 5px solid black; */
-}
-.efiefo
-{
-    display:flex;
-    flex-direction: column;
-}
-.s3efobar
-{
-    display: flex;
-    /* border: 5px solid black; */
-    justify-content: center;
-    /* margin-top: 15px; */
-}
-.s3efibar
-{
-    display: flex;
-    /* border: 5px solid black; */
-    justify-content: center;
-    /* margin-top: 15px; */
-}
-
-
-
-.s4pie
-{
-    display: flex;
-    justify-content: center;
-    /* border: 5px solid black; */
 }

@@ -15,12 +15,12 @@ var updateBarHelpInfo = function(a, b, c, d, barId, ourGroup, me, newLeader) {
     var colorArray = ['', '', '', ''];
     var colorWidth = [0, 0, 0, 0];
     if (me!==-1) {
-        colorArray[me] = 'blue';
-        colorWidth[me] = 2;
+        colorArray[me] = 'green';
+        colorWidth[me] = 3;
     }
     if(newLeader!==-1) {
-        colorArray[newLeader] = 'red'
-        colorWidth[newLeader] = 2;
+        colorArray[newLeader] = 'purple'
+        colorWidth[newLeader] = 3;
     }
 
     var data = [
@@ -140,12 +140,12 @@ var updateBarSaboInfo = function(a, b, c, d, barId, ourGroup, me, newLeader) {
     var colorArray = ['', '', '', ''];
     var colorWidth = [0, 0, 0, 0];
     if (me!==-1) {
-        colorArray[me] = 'blue';
-        colorWidth[me] = 2;
+        colorArray[me] = 'green';
+        colorWidth[me] = 3;
     }
     if(newLeader!==-1) {
-        colorArray[newLeader] = 'red'
-        colorWidth[newLeader] = 2;
+        colorArray[newLeader] = 'purple'
+        colorWidth[newLeader] = 3;
     }
 
 
@@ -262,7 +262,7 @@ var updatePieInfo = function(a, barId, ourLeaderWon) {
 
     var data = [{
         values: [y, x],
-        labels: ['Other Leader', 'Your Leader'],
+        labels: ['Opposing Leader', 'Your Leader'],
         // textfont: {
         //     color: ['black', 'white'],
         // },
@@ -278,6 +278,7 @@ var updatePieInfo = function(a, barId, ourLeaderWon) {
     }];
 
     var layout = {
+        autosize: false,
         height: 200,
         width: 200,
         font:{
@@ -498,8 +499,8 @@ var updateS4Info = function(a,b,c,d, barId, winner, me) {
     textArray[winner] = 'Winner';
     textArray[me] = 'You';
 
-    colorArray[winner] = 'red';
-    colorArray[me] = 'blue';
+    colorArray[winner] = 'purple';
+    colorArray[me] = 'green';
 
     colorWidth[winner] = 2;
     colorWidth[me] = 2;
@@ -529,6 +530,7 @@ var updateS4Info = function(a,b,c,d, barId, winner, me) {
     var layout = {
         height: 200,
         width: 200,
+        autosize:false,
         font:{
             size: 14
         },
@@ -688,31 +690,6 @@ updateBarEffortInfo(info.efo, info.oefo, 's3efobar')
 updateEfficiencyBarInfo(info.efi(), info.oefi(), 's3efibar');
 
 updateS4Info(info.e1, info.e2, info.e3, info.e4, 's4pie', 1, 2);
-
-
-
-// var sinfoButton = document.getElementById('sinfographicsbutton');
-// console.log(sinfoButton);
-// var sinfoButtonSwitch = 1;
-// sinfoButton.onlick = function() {
-//     console.log('yooo');
-//     console.log(sinfoButtonSwitch);
-//     var w, o, p;
-//     p = sinfoButtonSwitch ? 'absolute' : 'static';
-//     o = sinfoButtonSwitch ? 0 : 1;
-//     w = sinfoButtonSwitch ? '0px' : '';
-//     document.getElementById("sinfographics").style.opacity = o;
-//     document.getElementById("sinfographics").style.width = w;
-//     document.getElementById("sinfographics").style.position = p;
-//     sinfoButtonSwitch = 1 - sinfoButtonSwitch;
-//     console.log(sinfoButtonSwitch);
-// }
-
-
-
-
-
-
 
 
 

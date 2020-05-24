@@ -1,0 +1,41 @@
+.wrap
+{
+    display: flex;
+/*
+    width: 100%;
+    height: 600px; */
+    justify-content: center;
+    margin-left: 90px;
+}
+
+
+.all{
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    /* border: 5px solid black; */
+}
+
+.canvasarrow{
+    border: 5px solid black;
+    display:flex;
+    flex-direction: column;
+    /* justify-content: center; */
+}
+.mywheel
+{
+    z-index:0;
+    /* border: 5px solid black; */
+    position: relative;
+    /* margin-left: 60px; */
+}
+.arrow
+{
+    width:30px;
+    height:30px;
+    z-index:1;
+    position: absolute;
+    transform:rotate(180deg);
+    margin-left:84.5px;
+    margin-top: 22px;
+}

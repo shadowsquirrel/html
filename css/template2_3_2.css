@@ -127,7 +127,7 @@
 }
 .newleader
 {
-    border: 2px solid red;
+    border: 2px solid purple;
     width:90px;
     font-size: 14px;
     font-weight: bold;
@@ -135,7 +135,7 @@
 }
 .youare
 {
-    border: 2px solid blue;
+    border: 2px solid green;
     width:30px;
     font-size: 14px;
     font-weight: bold;
