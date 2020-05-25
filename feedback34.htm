@@ -20,108 +20,123 @@
     <div class = 'wrap'>
 
         <div class = 'all'>
-            <button id=beliefbutton>Beliefs</button>
-            <div class='firstpart'>
-                <div class='s3feedback'>
-                    <div class='s3feedbacktitle'>
-                        <h6>STAGE 3</h6>
-                    </div>
-                    <div class='s3feedbackgraphics'>
-                        <div class='wheelwrap'>
-                            <div class='wheelofcontest' id='wheelofcontest'>
+            <div class='firstpartwrap'>
+                <button class=beliefbutton id=beliefbutton>Beliefs</button>
+                <div class='firstpart'>
+                    <div class='feedbackresult'>
+                        <div class='resulttitle'>
+                            <h6>RESULT</h6>
+                        </div>
+                        <div class='s3dynamic'>
+                            <br />
+                            <div class='wheelwrap'>
+                                <img id="arrow" class='arrow' src="images/arrow.png" alt="V" />
                                 <div id='canvasarrow' class='canvasarrow'>
-                                    <canvas id='mywheel' class='mywheel' width='150' height='150'>
+                                    <canvas id='mywheel' class='mywheel' width='250' height='250'>
                                         Canvas not supported, use another browser.
                                     </canvas>
-                                    <img id="arrow" class='arrow' src="images/arrow.png" alt="V" />
                                 </div>
                             </div>
                         </div>
-                        <div class='s3pies'>
-                            <div class='s3actualpie' id='s3actualpie'>
-
-                            </div>
-                            <!-- <div class='s3beliefpie' id='s3beliefpie'>
-
-                            </div> -->
-                        </div>
-                        <div class='s3bars'>
-                            <div class='s3effortbeliefbars' id='s3effortbeliefbars'>
-
-                            </div>
-                            <div class='s3actualefficiencybar' id='s3actualefficiencybar'>
-
-                            </div>
-                            <!-- <div class='s3beliefefficiencybar' id='s3beliefefficiencybar'>
-
-                            </div> -->
+                        <div class='s3resultsubtext'>
+                            <p>Your Leader Won!</p>
                         </div>
                     </div>
 
-
-                    <div class='borderlegend'>
-                        <span class = beliefs>Beliefs</span>
-                        <span class = actual>Actual Decision</span>
-                    </div>
-                </div>
-
-
-                <div class='s2feedback'>
-                    <div class = s2maintitle>
-                        <h6>STAGE 2</h6>
-                    </div>
-                    <div class='s2actualdecision'>
-                        <!-- <div class = s2actualtitle>
-                            <h6>Actual Decision</h6>
-                        </div> -->
-                        <div class = s2feedbackgraphics>
-                            <div class = 'g1'>
-                                <h7>Group 1</h7>
-                                <div id = 'helpbarg1'></div>
-                                <div id = 'sabobarg1'></div>
+                    <div class='s3feedback'>
+                        <div class='s3feedbacktitle'>
+                            <div class='s3maintitle'>
+                                <h6>STAGE 3</h6>
                             </div>
-                            <pre> </pre>
-                            <div id = 'totalbars'>
-                                <h7>Total</h7>
-                                <div id = 'helpbartotal'></div>
-                                <div id = 'sabobartotal'></div>
+                        </div>
+                        <div class='s3feedbackgraphics'>
+                            <div class='s3static'>
+                                <div class='s3statictitle'>
+                                    <h7>LEADERS' CONTEST</h7>
+                                </div>
+                                <div class='s3staticgraphics'>
+                                    <div class='piewrap'>
+                                        <div class='s3pie' id='s3pie'></div>
+                                    </div>
+                                    <div class='s3bars'>
+                                        <div class='s3effortbars' id='s3effortbars'></div>
+                                        <div class='s3efficiencybar' id='s3efficiencybar'></div>
+                                    </div>
+                                </div>
                             </div>
-                            <pre> </pre>
-                            <div class = 'g2'>
-                                <h7>Group 2</h7>
-                                <div id = 'helpbarg2'></div>
-                                <div id = 'sabobarg2'></div>
+                        </div>
+                        <div class='s3subtexts' id='s3subtexts'>
+                            <div class='s3subtexttitle'>
+                                <h7 style='font-weight: bolder;'>YOUR BELIEFS' ERROR MARGIN IN PERCENTAGES</h7>
+                            </div>
+                            <div class='s3subtextinfo'>
+                                <div class='yourgroupbelief'>
+                                    <h8 style='background-color:black; color:white; text-align:center; font-weight: bolder;'>Your Group</h8>
+                                    <br />
+                                    <p style='font-size:14px;'>Leader's Investment: +30%</p>
+                                    <p style='font-size:14px;'>Followers' Sabotage: +180%</p>
+                                    <p style='font-size:14px;'>Followers' Help: 0%</p>
+                                </div>
+                                <div class='othergroupbelief'>
+                                    <h8 style='background-color:yellow; color:black; text-align:center; font-weight: bolder;'>Opposing Group</h8>
+                                    <br />
+                                    <p style='font-size:14px;'>Leader's Investment: -70%</p>
+                                    <p style='font-size:14px;'>Followers' Sabotage: +15%</p>
+                                    <p style='font-size:14px;'>Follower's Help: -50%</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- <div class='s2beliefs'>
-                        <div class = s2belieftitle>
-                            <h6>Beliefs</h6>
+                    <div class='s2feedback'>
+                        <div class = s2maintitle>
+                            <h6>STAGE 2</h6>
                         </div>
-                        <div class='s2beliefbars'>
-                            <div class='bg1'>
-                                <h7>Your Group</h7>
-                                <h7>Average of Other Followers</h7>
-                                <div id = 'avghelpbeliefbarg1'></div>
-                                <div id = 'avgsabobeliefbarg1'></div>
+                        <div class = s2subtitle>
+                            <h7>FOLLOWERS' HELP/SABOTAGE DECISION</h7>
+                        </div>
+                        <div class = s2subsubtitle>
+                            <h8 style='margin-left:30px;'>Your Group</h8>
+                            <h8 style='margin-left:30px;'>Opposing Group</h8>
+                        </div>
+                        <div class='s2decision'>
+                            <div class = s2feedbackgraphics>
+                                <div class = 'g1'>
+                                    <div id = 'helpbarg1'></div>
+                                    <div id = 'sabobarg1'></div>
+                                </div>
+                                <pre>  </pre>
+                                <div id = 'totalbars'>
+                                    <div id = 'helpbartotal'></div>
+                                    <div id = 'sabobartotal'></div>
+                                </div>
+                                <pre>  </pre>
+                                <div class = 'g2'>
+                                    <div id = 'helpbarg2'></div>
+                                    <div id = 'sabobarg2'></div>
+                                </div>
                             </div>
-                            <div class='bg2'>
-                                <h7>Opposing Group</h7>
-                                <h7>Average of All Followers</h7>
-                                <div id = 'avghelpbeliefbarg2'></div>
-                                <div id = 'avgsabobeliefbarg2'></div>
+                            <div class='boxtext'>
+                                <div class='youbox'></div>
+                                <p style='font-size:14px;'>Your Decision</p>
                             </div>
                         </div>
-                        <div class='borderlegend'>
-                            <span class = beliefs>Beliefs</span>
-                            <span class = actual>Actual Decision</span>
+                        <div class='belieflegend' id='belieflegend'>
+                            <div class='boxtext'>
+                                <div class='yourgroupbox'></div>
+                                <p style='font-size:14px;'>Your Belief on Your Group</p>
+                            </div>
+                            <div class='boxtext'>
+                                <div class='othergroupbox'></div>
+                                <p style='font-size:14px;'>Your Belief on Opposing Group</p>
+                            </div>
                         </div>
-                    </div> -->
-
+                    </div>
 
                 </div>
             </div>
+            <h7>LEADERS' CONTEST</h7>
+            <h7>LEADERS' CONTEST</h7>
+
 
 
 
@@ -136,8 +151,8 @@
 
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="js/feedback34.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="js/feedback34.js"></script>
 
 </body>
 </html>

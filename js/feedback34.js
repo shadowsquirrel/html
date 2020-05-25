@@ -234,8 +234,8 @@ var b = 100-a;
 
 let theWheel = new Winwheel({
     'canvasId': 'mywheel',
-    'numSegments': 4,
-    'outerRadius': 55, // controls the size of the theWheel
+    'numSegments': 2,
+    'outerRadius': 85, // controls the size of the theWheel
     'textOrientation' : 'vertical',    // Set orientation. horizontal, vertical, curved.
     // 'textOrientation' : 'curved',
     'textFontFamily'  : 'Courier',     // Monospace font best for vertical and curved.
@@ -269,8 +269,8 @@ let theWheel = new Winwheel({
     'animation' :
     {
         'type'     : 'spinToStop',
-        'duration' : 5,
-        'spins'    : 25,
+        'duration' : 10,
+        'spins'    : 50,
         // Remember to do something after the animation has finished specify callback function.
         // 'callbackFinished' : 'yo()',
     }
@@ -301,7 +301,7 @@ let theWheel = new Winwheel({
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-var updateHelpBar = function(a, b, c, d, barId, ourGroup, me, newLeader) {
+var updateHelpBar = function(a, b, c, d, barId, ourGroup, me) {
     var x = a;
     var y = b;
     var z = c;
@@ -317,10 +317,6 @@ var updateHelpBar = function(a, b, c, d, barId, ourGroup, me, newLeader) {
     if (me!==-1) {
         colorArray[me] = 'green';
         colorWidth[me] = 3;
-    }
-    if(newLeader!==-1) {
-        colorArray[newLeader] = 'purple'
-        colorWidth[newLeader] = 3;
     }
 
     var data = [
@@ -369,7 +365,7 @@ var updateHelpBar = function(a, b, c, d, barId, ourGroup, me, newLeader) {
             showticklabels: false,
             // tickangle: -90,
         },
-        bargap: 0.25,
+        bargap: 0.1,
     };
 
     Plotly.react(barId, data, layout, {displayModeBar: false});
@@ -420,10 +416,11 @@ var updateTotalHelpBar = function(a, b, barId, beliefSwitch, ba, bb) {
             marker:{
                 // color: ['rgb(235, 255, 140)', 'rgb(235,255,200)'],
                 // color: ['rgb(140, 160, 0)', 'rgb(205, 225, 0)'],
-                color: [ 'rgb(255, 255, 0)', 'rgb(255, 255, 200)'],
+                // color: [ 'rgb(255, 255, 0)', 'rgb(255, 255, 200)'],
+                color: ['black', 'rgb(255, 255, 0)'],
                 line: {
                     color: ['rgb(140, 140, 255)', 'rgb(200,200,255)'],
-                    width: 3,
+                    width: 2,
                 }
             },
             text: [bx, by],
@@ -455,8 +452,8 @@ var updateTotalHelpBar = function(a, b, barId, beliefSwitch, ba, bb) {
             ticks: '',
             showticklabels: false,
         },
-        bargap: 0.25,
-        bargroupgap: 0.01
+        bargap: 0.1,
+        bargroupgap: 0
     };
     var data = [actual];
 
@@ -467,7 +464,7 @@ var updateTotalHelpBar = function(a, b, barId, beliefSwitch, ba, bb) {
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
 
-var updateSaboBar = function(a, b, c, d, barId, ourGroup, me, newLeader) {
+var updateSaboBar = function(a, b, c, d, barId, ourGroup, me) {
     var x = -a;
     var y = -b;
     var z = -c;
@@ -480,13 +477,10 @@ var updateSaboBar = function(a, b, c, d, barId, ourGroup, me, newLeader) {
     var colorArray = ['', '', '', ''];
     var colorWidth = [0, 0, 0, 0];
     if (me!==-1) {
-        colorArray[me] = 'green';
+        colorArray[me] = 'lightgreen';
         colorWidth[me] = 3;
     }
-    if(newLeader!==-1) {
-        colorArray[newLeader] = 'purple'
-        colorWidth[newLeader] = 3;
-    }
+
 
 
     var data = [{
@@ -495,7 +489,6 @@ var updateSaboBar = function(a, b, c, d, barId, ourGroup, me, newLeader) {
         type: 'bar',
         sort: false,
         hoverinfo: 'none',
-        // hovertemplate: ['New Leader', '', 'You', ''],
         automargin: true,
         showlegend: false,
         marker:{
@@ -531,7 +524,7 @@ var updateSaboBar = function(a, b, c, d, barId, ourGroup, me, newLeader) {
             ticks: '',
             showticklabels: false,
         },
-        bargap: 0.25,
+        bargap: 0.1,
     };
 
     Plotly.react(barId, data, layout, {displayModeBar: false});
@@ -584,10 +577,11 @@ var updateTotalSaboBar = function(a, b, barId, beliefSwitch, ba, bb) {
         marker:{
             // color: ['rgb(255, 235, 140)', 'rgb(255,235,200)'],
             // color: ['rgb(160, 160, 0)', 'rgb(225, 225, 0)'],
-            color: [ 'rgb(255, 255, 0)', 'rgb(255, 255, 200)'],
+            // color: [ 'rgb(255, 255, 0)', 'rgb(255, 255, 200)'],
+            color: ['black', 'rgb(255, 255, 0)'],
             line: {
                 color: ['rgb(255, 140, 140)', 'rgb(255,200,200)'],
-                width: 3,
+                width: 2,
             }
         },
         text: [ba, bb],
@@ -615,8 +609,8 @@ var updateTotalSaboBar = function(a, b, barId, beliefSwitch, ba, bb) {
             ticks: '',
             showticklabels: false,
         },
-        bargap: 0.25,
-        bargroupgap: 0.01
+        bargap: 0.1,
+        bargroupgap: 0
     };
 
     var data = [actual];
@@ -631,10 +625,14 @@ var updatePie = function(a, barId, ourLeaderWon, showBeliefs, ba) {
 
     var x = a;
     var y = 1-a;
+    var actualOpacity = 1;
+
 
     if(showBeliefs) {
         var bx = ba;
         var by = 1-ba;
+        var beliefOpacity = 1;
+        actualOpacity = 0.5;
     }
 
 
@@ -658,8 +656,13 @@ var updatePie = function(a, barId, ourLeaderWon, showBeliefs, ba) {
         sort: false,
         hoverinfo: 'percent+label',
         automargin: true,
+        opacity:actualOpacity,
         marker:{
             colors: ['rgb(225, 225, 225)', 'rgb(160, 160, 160)'],
+            line: {
+                color: 'black',
+                width: 1,
+            }
         }
     };
 
@@ -677,21 +680,30 @@ var updatePie = function(a, barId, ourLeaderWon, showBeliefs, ba) {
             hoverinfo: 'percent+label',
             automargin: true,
             marker:{
-                colors: ['rgb(255, 255, 0)', 'rgb(190, 190, 0)'],
+                // colors: ['rgb(255, 255, 0)', 'rgb(190, 190, 0)'],
+                colors: ['rgb(255, 255, 0)', 'black'],
+                line: {
+                    color: 'black',
+                    width: 1,
+                }
             },
             domain: {
                 x: [0.15, 0.85],
                 y: [0.15, 0.85]
             },
-            opacity:0.7,
+            opacity:beliefOpacity,
         }
     }
 
 
     var layout = {
         autosize: false,
-        height: 200,
-        width: 200,
+        title: 'Probability to Win',
+        "titlefont": {
+            "size": 14,
+        },
+        height: 250,//200,
+        width: 250,//200,
         font:{
             size: 14
         },
@@ -831,7 +843,8 @@ var updateEfficiencyBar = function(efi1, efi2, barId, beliefSwitch, befi1, befi2
             fixedrange: true,
             cliponaxis: false,
             marker: {
-                color: 'rgb(190, 190, 0)',
+                // color: 'rgb(190, 190, 0)',
+                color: 'black',
             },
             text: bmyText,
             textposition: 'inside',
@@ -865,10 +878,10 @@ var updateEfficiencyBar = function(efi1, efi2, barId, beliefSwitch, befi1, befi2
         };
     }
 
-    var myHeight = 60;
+    var myHeight = 48//60;
 
     if(beliefSwitch) {
-        myHeight = 100;
+        myHeight = 80//60;
     }
 
     var data = [leader1, leader2];
@@ -907,7 +920,7 @@ var updateEfficiencyBar = function(efi1, efi2, barId, beliefSwitch, befi1, befi2
             showgrid: false,
             showticklabels: false,
         },
-        // bargap: 0,
+        bargap: 0.05,
 
     };
 
@@ -953,7 +966,8 @@ var updateEffortBar = function(efo, oefo, barId, beliefSwitch, befo, boefo) {
                     automargin: true,
                     showlegend: false,
                     marker:{
-                        color: ['rgb(190, 190, 0)', 'rgb(255, 255, 0)'],
+                        // color: ['rgb(190, 190, 0)', 'rgb(255, 255, 0)'],
+                        color: ['black', 'rgb(255, 255, 0)'],
                     },
                     text: [bx, by],
                     textposition: 'outside',
@@ -965,7 +979,7 @@ var updateEffortBar = function(efo, oefo, barId, beliefSwitch, befo, boefo) {
                 };
         }
 
-        var myWidth = 160;
+        var myWidth = 220;//160;
         // if(beliefSwitch) {
         //     myWidth = 280;
         // }
@@ -973,7 +987,7 @@ var updateEffortBar = function(efo, oefo, barId, beliefSwitch, befo, boefo) {
     var layout = {
         title: "Token's Invested",
         titlefont: {
-            size: 16,
+            size: 14,
         },
         // title:{
         //     text:  "Token's Invested",
@@ -1002,7 +1016,7 @@ var updateEffortBar = function(efo, oefo, barId, beliefSwitch, befo, boefo) {
             ticks: '',
             showticklabels: false,
         },
-        bargap: 0.1,
+        bargap: 0.25,
     };
 
     var data = [actual];
@@ -1089,9 +1103,9 @@ var update = function(beliefSwitch) {
     updateHelpBar(info.oh1, info.oh2, info.oh3, info.oh4, 'helpbarg2', false, -1, -1);
     updateSaboBar(info.os1, info.os2, info.os3, info.os4,'sabobarg2', false, -1, -1);
 
-    updatePie(info.pwin(), 's3actualpie', false, beliefSwitch, info.beliefs.pwin());
-    updateEffortBar(info.efo, info.oefo, 's3effortbeliefbars', beliefSwitch, info.beliefs.efo, info.beliefs.oefo);
-    updateEfficiencyBar(info.efi(), info.oefi(), 's3actualefficiencybar', beliefSwitch, info.beliefs.efi(), info.beliefs.oefi());
+    updatePie(info.pwin(), 's3pie', false, beliefSwitch, info.beliefs.pwin());
+    updateEffortBar(info.efo, info.oefo, 's3effortbars', beliefSwitch, info.beliefs.efo, info.beliefs.oefo);
+    updateEfficiencyBar(info.efi(), info.oefi(), 's3efficiencybar', beliefSwitch, info.beliefs.efi(), info.beliefs.oefi());
 }
 
 
@@ -1100,10 +1114,44 @@ var stopAt = theWheel.getRandomForSegment(1);
 theWheel.animation.stopAngle = stopAt;
 theWheel.startAnimation();
 
-var bbSwitch = 1;
+
+var showBeliefs = function() {
+    update(true);
+    document.getElementById("belieflegend").style.opacity = 1;
+    document.getElementById('belieflegend').style.maxHeight = '100%';
+    document.getElementById("s3subtexts").style.opacity = 1;
+    document.getElementById('s3subtexts').style.maxHeight = '100%';
+}
+
+var hideBeliefs = function() {
+    update(false);
+    document.getElementById("belieflegend").style.opacity = 0;
+    document.getElementById('belieflegend').style.maxHeight = '0px';
+    document.getElementById("s3subtexts").style.opacity = 0;
+    document.getElementById('s3subtexts').style.maxHeight = '0px';
+
+    document.getElementById("beliefbutton").style.opacity = 1;
+}
+
+
+
+setTimeout("showBeliefs()", 2000);
+setTimeout("hideBeliefs()", 6000);
+
+
+
+var bbSwitch = 0;
 beliefButton.onclick = function() {
     var on = bbSwitch ? true : false;
+    var o = bbSwitch ? 1 : 0;
+    var h = bbSwitch ? '100%' : '0px';
     update(on)
+
+    document.getElementById("belieflegend").style.opacity = o;
+    document.getElementById('belieflegend').style.maxHeight = h;
+    document.getElementById("s3subtexts").style.opacity = o;
+    document.getElementById('s3subtexts').style.maxHeight = h;
+
     bbSwitch = 1 - bbSwitch;
 }
 /*

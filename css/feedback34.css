@@ -95,60 +95,110 @@
 /************** STAGE 3 *************/
 .s3feedback
 {
-    border: 5px solid black;
+    /* border: 5px solid black; */
     display:flex;
     flex-direction: column;
 }
+.s3feedbacktitle
+{
+    display: flex;
+    flex-direction: row;
+}
+.resulttitle
+{
+    flex-grow: 1;
+}
+.s3maintitle
+{
+    flex-grow:2;
+}
 .s3feedbackgraphics
+{
+    display:flex;
+    flex-direction: row;
+    /* border: 5px solid black; */
+}
+.s3dynamic
+{
+    display:flex;
+    flex-direction: column;
+}
+
+.s3static
+{
+    display:flex;
+    flex-direction: column;
+}
+.s3staticgraphics
 {
     display:flex;
     flex-direction: row;
 }
 .wheelwrap
 {
-    display:flex;
+    /* display:flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* border: 5px solid black; */
+
 }
 .canvasarrow{
     /* border: 5px solid black; */
     display:flex;
     flex-direction: column;
-    /* justify-content: center; */
-    width: 150px;
-    height: 150px;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+
 }
 .mywheel
 {
-    z-index:0;
     /* border: 5px solid black; */
+    z-index:0;
     position: relative;
 }
 .arrow
 {
+    /* border: 5px solid black; */
     width:30px;
     height:30px;
     z-index:1;
     position: absolute;
     transform:rotate(180deg);
-    margin-left:59.5px;
-    margin-top: 5px;
+    margin-left:-15.5px;
+    margin-top:25px;
 }
-.s3pies
+.piewrap
 {
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-.s3actualpie
+.s3pie
 {
+    /* border: 5px solid black; */
+}
 
-}
-.s3beliefpie
-{
-
-}
 .s3bars
 {
+    /* border: 5px solid black; */
     display:flex;
     flex-direction:column;
+}
+.s3effortbars
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* margin-right: 100px; */
+    /* border: 5px solid black; */
+}
+.s3efficiencybar
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* border: 5px solid black; */
 }
 /************** STAGE 2 *************/
 /************** STAGE 2 *************/
@@ -157,7 +207,8 @@
 /************** STAGE 2 *************/
 .s2feedback
 {
-    border: 5px solid black;
+    /* border: 5px solid black; */
+    margin-left: 20px;
     display:flex;
     flex-direction: column;
 }
@@ -169,7 +220,7 @@
 /*********** actual decision **********/
 /*********** actual decision **********/
 /*********** actual decision **********/
-.s2actualdecision
+.s2decision
 {
     display:flex;
     flex-direction: column;
@@ -177,6 +228,12 @@
 .s2actualtitle
 {
 
+}
+.s2subsubtitle
+{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-evenly; */
 }
 /******** actual decision graphics *******/
 /******** actual decision graphics *******/
@@ -201,50 +258,83 @@
     display:flex;
     flex-direction: column;
 }
-/************** Beliefs *************/
-/************** Beliefs *************/
-/************** Beliefs *************/
-/************** Beliefs *************/
-.s2beliefs
+/*********** Belief Error **********/
+/*********** Belief Error **********/
+/*********** Belief Error **********/
+.s3subtexts
 {
+    /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
+    margin-right:-100px;
+    opacity: 0;//1;
+    transition:1s;
+    max-height: 0px;
+    /* transition-delay: 1s; */
 }
-.s2beliefbars
+.s3subtextinfo
 {
+    text-align: left;
     display:flex;
-    flex-direction:row;
-}
-.bg1
-{
-    display:flex;
-    flex-direction: column;
-}
-.bg2
-{
-    display:flex;
-    flex-direction: column;
-}
-/*********** legend **********/
-/*********** legend **********/
-/*********** legend **********/
-.borderlegend
-{
-    display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
 }
-.beliefs
+.yourgroupbelief
 {
-    border: 2px solid purple;
-    width:90px;
-    font-size: 14px;
-    font-weight: bold;
+    display:flex;
+    flex-direction: column;
+}
+.othergroupbelief
+{
+    display:flex;
+    flex-direction: column;
+}
+/*********** legend **********/
+/*********** legend **********/
+/*********** legend **********/
+.beliefbutton
+{
+    opacity: 0;
+}
+.belieflegend
+{
+    /* border: 1px solid black; */
+    /* margin-top: 40px; */
+    display: flex;
+    flex-direction: column;
+    opacity: 0;//1;
+    transition:1s;
+    max-height: 0px;
+    transition:0.5s;
+}
+.boxtext
+{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.youbox
+{
+    margin-top: 5px;
     margin-right: 5px;
+    height:15px;
+    width:15px;
+    border: 3px solid lightgreen;
 }
-.actual
+.yourgroupbox
 {
-    border: 2px solid green;
-    width:30px;
-    font-size: 14px;
-    font-weight: bold;
+    margin-top: 5px;
+    margin-right: 5px;
+    height:15px;
+    width:15px;
+    background-color: black;
+}
+.othergroupbox
+{
+    margin-top: 5px;
+    margin-right: 5px;
+    height:15px;
+    width:15px;
+    border: 1px solid black;
+    background-color: yellow;
 }
