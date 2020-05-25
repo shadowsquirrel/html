@@ -11,10 +11,18 @@
 var onezero = function() {
     return (Math.random() >= 0.5) ? 1 : 0;
 }
+
+var generateS4winner = function() {
+    var temp = [false, false, false, false];
+    var index = Math.ceil(Math.random() * 4) - 1;
+    temp[index] = true;
+    return temp;
+}
 var sw = [onezero(), onezero(), onezero(), onezero()];
 var osw = [onezero(), onezero(), onezero(), onezero()];
 var bsw = [onezero(), onezero(), onezero(), onezero()];
 var bosw = [onezero(), onezero(), onezero(), onezero()];
+
 var d = {
     s2:
     {
@@ -56,7 +64,8 @@ var d = {
     s3:
     {
         efo: parseFloat((Math.random()*500).toFixed(0)),
-        oefo:  parseFloat((Math.random()*500).toFixed(0))
+        oefo:  parseFloat((Math.random()*500).toFixed(0)),
+        yourLeaderWon: false,
     },
     s4:
     {
@@ -64,6 +73,7 @@ var d = {
         f2: parseFloat((Math.random()*400).toFixed(0)),
         f3: parseFloat((Math.random()*400).toFixed(0)),
         f4: parseFloat((Math.random()*400).toFixed(0)),
+        hasWon: generateS4winner(), //will be an array!
     },
     beliefs:
     {
@@ -272,7 +282,7 @@ let theWheel = new Winwheel({
         'duration' : 10,
         'spins'    : 50,
         // Remember to do something after the animation has finished specify callback function.
-        // 'callbackFinished' : 'yo()',
+        'callbackFinished' : 'next()',
     }
 });
 /*
@@ -300,6 +310,12 @@ let theWheel = new Winwheel({
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+var beliefMargin = function(actual, belief) {
+    var sign = (actual > belief) ? '-' : '+';
+    var diff = Math.abs(actual - belief)
+    // var percentDiff = ((diff / actual) * 100).toFixed(0);
+    return (sign+diff);
+}
 
 var updateHelpBar = function(a, b, c, d, barId, ourGroup, me) {
     var x = a;
@@ -433,7 +449,7 @@ var updateTotalHelpBar = function(a, b, barId, beliefSwitch, ba, bb) {
         };
     }
 
-
+// console.log(beliefMargin(x,bx)+', ' +beliefMargin(y,by));
 
     var layout = {
         barmode: 'group',
@@ -1094,14 +1110,22 @@ var updateS4Pie = function(a,b,c,d, barId, winner, me) {
 var beliefButton = document.getElementById('beliefbutton');
 
 var update = function(beliefSwitch) {
-    updateHelpBar(info.h1, info.h2, info.h3, info.h4, 'helpbarg1', true, 2, 0);
-    updateSaboBar(info.s1, info.s2, info.s3, info.s4, 'sabobarg1', true, 2, 0);
+    updateHelpBar(info.h1, info.h2, info.h3, info.h4, 'helpbarg1', true, 2);
+    updateSaboBar(info.s1, info.s2, info.s3, info.s4, 'sabobarg1', true, 2);
 
     updateTotalHelpBar(info.th(), info.oth(), 'helpbartotal', beliefSwitch, info.beliefs.th(), info.beliefs.oth());
     updateTotalSaboBar(info.ts(), info.ots(), 'sabobartotal', beliefSwitch, info.beliefs.ts(), info.beliefs.ots());
 
-    updateHelpBar(info.oh1, info.oh2, info.oh3, info.oh4, 'helpbarg2', false, -1, -1);
-    updateSaboBar(info.os1, info.os2, info.os3, info.os4,'sabobarg2', false, -1, -1);
+    /*
+    me gets a number if you are follower 1 it gets follower 1 for instance
+    if we are drawing the opposing group then it should be set to -1
+    similarly newLeader gets a number if the new leader is follower 2
+    then it gets 2 again if there is no new leader in your group then
+    it shoult be set to 1
+    ourgroup is a boolean to determine the light or dark color scheme of the bars
+    */
+    updateHelpBar(info.oh1, info.oh2, info.oh3, info.oh4, 'helpbarg2', false);
+    updateSaboBar(info.os1, info.os2, info.os3, info.os4,'sabobarg2', false);
 
     updatePie(info.pwin(), 's3pie', false, beliefSwitch, info.beliefs.pwin());
     updateEffortBar(info.efo, info.oefo, 's3effortbars', beliefSwitch, info.beliefs.efo, info.beliefs.oefo);
@@ -1110,11 +1134,13 @@ var update = function(beliefSwitch) {
 
 
 update(false);
-var stopAt = theWheel.getRandomForSegment(1);
+
+var resultIndex = d.s3.yourLeaderWon ? 1 : 2;
+var stopAt = theWheel.getRandomForSegment(resultIndex);
 theWheel.animation.stopAngle = stopAt;
 theWheel.startAnimation();
 
-
+/*
 var showBeliefs = function() {
     update(true);
     document.getElementById("belieflegend").style.opacity = 1;
@@ -1132,15 +1158,14 @@ var hideBeliefs = function() {
 
     document.getElementById("beliefbutton").style.opacity = 1;
 }
+*/
 
 
-
-setTimeout("showBeliefs()", 2000);
-setTimeout("hideBeliefs()", 6000);
-
+// setTimeout("showBeliefs()", 2000);
+// setTimeout("hideBeliefs()", 6000);
 
 
-var bbSwitch = 0;
+var bbSwitch = 1;
 beliefButton.onclick = function() {
     var on = bbSwitch ? true : false;
     var o = bbSwitch ? 1 : 0;
@@ -1149,47 +1174,25 @@ beliefButton.onclick = function() {
 
     document.getElementById("belieflegend").style.opacity = o;
     document.getElementById('belieflegend').style.maxHeight = h;
-    document.getElementById("s3subtexts").style.opacity = o;
-    document.getElementById('s3subtexts').style.maxHeight = h;
+    // document.getElementById("s3subtexts").style.opacity = o;
+    // document.getElementById('s3subtexts').style.maxHeight = h;
 
     bbSwitch = 1 - bbSwitch;
 }
-/*
-me gets a number if you are follower 1 it gets follower 1 for instance
-if we are drawing the opposing group then it should be set to -1
-similarly newLeader gets a number if the new leader is follower 2
-then it gets 2 again if there is no new leader in your group then
-it shoult be set to 1
-ourgroup is a boolean to determine the light or dark color scheme of the bars
-*/
+
+var showResults = function() {
+    var display = document.getElementById('resulttext');
+    display.innerHTML = d.s3.yourLeaderWon ? 'Your Leader Won.' : 'Your Leader lost. \nPlease scroll down for Stage 4 results.';
+
+}
+
+var displayStage4 = function() {
+    document.getElementById('secondpart').style.opacity = 1;
+    document.getElementById('secondpart').style.position = 'static';
+}
 
 
-// STAGE 2
-
-
-// ACTUAL DECISION
-// updateHelpBar(info.h1, info.h2, info.h3, info.h4, 'helpbarg1', true, 2, 0);
-// updateSaboBar(info.s1, info.s2, info.s3, info.s4, 'sabobarg1', true, 2, 0);
-//
-// updateTotalHelpBar(info.th(), info.oth(), 'helpbartotal');
-// updateTotalSaboBar(info.ts(), info.ots(), 'sabobartotal');
-//
-// updateHelpBar(info.oh1, info.oh2, info.oh3, info.oh4, 'helpbarg2', false, -1, -1);
-// updateSaboBar(info.os1, info.os2, info.os3, info.os4,'sabobarg2', false, -1, -1);
-
-// BELIEFS
-
-//Your Group
-// updateTotalHelpBar(info.th(), info.oth(), 'avghelpbeliefbarg1');
-// updateTotalSaboBar(info.ts(), info.ots(), 'avgsabobeliefbarg1');
-//Opposing Group
-// updateTotalHelpBar(info.th(), info.oth(), 'avghelpbeliefbarg2');
-// updateTotalSaboBar(info.ts(), info.ots(), 'avgsabobeliefbarg2');
-
-// updatePie(info.pwin(), 's3actualpie', false, true, info.beliefs.pwin());
-// updateActualPie(info.pwin(), 's3beliefpie', false);
-// updateEffortBar(info.efo, info.oefo, 's3effortbeliefbars');
-// updateActualEfficiencyBar(info.efi(), info.oefi(), 's3actualefficiencybar');
-// updateActualEfficiencyBar(info.efi(), info.oefi(), 's3beliefefficiencybar');
-//
-// updateS4(info.e1, info.e2, info.e3, info.e4, 's4pie', 1, 2);
+var next = function() {
+    showResults();
+    displayStage4();
+}

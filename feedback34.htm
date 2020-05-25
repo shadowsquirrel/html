@@ -39,10 +39,9 @@
                             </div>
                         </div>
                         <div class='s3resultsubtext'>
-                            <p>Your Leader Won!</p>
+                            <span id=resulttext></span>
                         </div>
                     </div>
-
                     <div class='s3feedback'>
                         <div class='s3feedbacktitle'>
                             <div class='s3maintitle'>
@@ -65,25 +64,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class='s3subtexts' id='s3subtexts'>
-                            <div class='s3subtexttitle'>
-                                <h7 style='font-weight: bolder;'>YOUR BELIEFS' ERROR MARGIN IN PERCENTAGES</h7>
+                        <div class='s3subtextinfo' id='belieflegend'>
+                            <div class='boxtext'>
+                                <div class='yourgroupbox'></div>
+                                <p style='font-size:14px;'>Your Belief on Your Group</p>
                             </div>
-                            <div class='s3subtextinfo'>
-                                <div class='yourgroupbelief'>
-                                    <h8 style='background-color:black; color:white; text-align:center; font-weight: bolder;'>Your Group</h8>
-                                    <br />
-                                    <p style='font-size:14px;'>Leader's Investment: +30%</p>
-                                    <p style='font-size:14px;'>Followers' Sabotage: +180%</p>
-                                    <p style='font-size:14px;'>Followers' Help: 0%</p>
-                                </div>
-                                <div class='othergroupbelief'>
-                                    <h8 style='background-color:yellow; color:black; text-align:center; font-weight: bolder;'>Opposing Group</h8>
-                                    <br />
-                                    <p style='font-size:14px;'>Leader's Investment: -70%</p>
-                                    <p style='font-size:14px;'>Followers' Sabotage: +15%</p>
-                                    <p style='font-size:14px;'>Follower's Help: -50%</p>
-                                </div>
+                            <div class='boxtext'>
+                                <div class='othergroupbox'></div>
+                                <p style='font-size:14px;'>Your Belief on Opposing Group</p>
                             </div>
                         </div>
                     </div>
@@ -95,8 +83,8 @@
                             <h7>FOLLOWERS' HELP/SABOTAGE DECISION</h7>
                         </div>
                         <div class = s2subsubtitle>
-                            <h8 style='margin-left:30px;'>Your Group</h8>
-                            <h8 style='margin-left:30px;'>Opposing Group</h8>
+                            <h8 style='margin-left:40px;'>Your Group</h8>
+                            <h8 style='margin-left:80px;'>Opposing Group</h8>
                         </div>
                         <div class='s2decision'>
                             <div class = s2feedbackgraphics>
@@ -115,28 +103,59 @@
                                     <div id = 'sabobarg2'></div>
                                 </div>
                             </div>
-                            <div class='boxtext'>
+                            <div class='s2boxtext'>
                                 <div class='youbox'></div>
                                 <p style='font-size:14px;'>Your Decision</p>
                             </div>
                         </div>
-                        <div class='belieflegend' id='belieflegend'>
-                            <div class='boxtext'>
-                                <div class='yourgroupbox'></div>
-                                <p style='font-size:14px;'>Your Belief on Your Group</p>
-                            </div>
-                            <div class='boxtext'>
-                                <div class='othergroupbox'></div>
-                                <p style='font-size:14px;'>Your Belief on Opposing Group</p>
+                    </div>
+                </div>
+            </div>
+            <div class='secondpart' id='secondpart'>
+                <div class='feedbackresult'>
+                    <div class='resulttitle2'>
+                        <h6>RESULT</h6>
+                    </div>
+                    <div class='s4dynamic'>
+                        <br />
+                        <div class='wheelwrap2'>
+                            <img id="arrow2" class='arrow2' src="images/arrow.png" alt="V" />
+                            <div id='canvasarrow2' class='canvasarrow2'>
+                                <canvas id='mywheel2' class='mywheel2' width='250' height='250'>
+                                    Canvas not supported, use another browser.
+                                </canvas>
                             </div>
                         </div>
                     </div>
+                    <div class='s4resultsubtext'>
+                        <span id=resulttext2></span>
+                    </div>
+                </div>
 
+                <div class='s4feedback'>
+                    <div class='s4feedbacktitle'>
+                        <div class='s4maintitle'>
+                            <h6>STAGE 4</h6>
+                        </div>
+                    </div>
+                    <div class='s4feedbackgraphics'>
+                        <div class='s4static'>
+                            <div class='s4statictitle'>
+                                <h7>FOLLOWERS' CONTEST</h7>
+                            </div>
+                            <div class='s4staticgraphics'>
+                                <div class='piewrap2'>
+                                    <div class='s4pie' id='s4pie'></div>
+                                </div>
+                                <div class='s4bars'>
+                                    <div class='s4effortbars' id='s4effortbars'></div>
+                                    <div class='s4efficiencybar' id='s4efficiencybar'></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <h7>LEADERS' CONTEST</h7>
-            <h7>LEADERS' CONTEST</h7>
-
 
 
 
