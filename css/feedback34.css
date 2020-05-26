@@ -341,6 +341,7 @@
     margin-right: 5px;
     height:15px;
     width:15px;
+    opacity:0.6;
     background-color: black;
 }
 .othergroupbox
@@ -350,6 +351,7 @@
     height:15px;
     width:15px;
     border: 1px solid black;
+    opacity:0.6;
     background-color: yellow;
 }
 /************************************************/
