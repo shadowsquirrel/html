@@ -128,6 +128,7 @@
 {
     display:flex;
     flex-direction: column;
+    /* border: 5px solid black; */
 }
 .s3staticgraphics
 {
@@ -173,6 +174,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* border: 5px solid black; */
 }
 .s3pie
 {
@@ -302,17 +304,7 @@
 {
     /* opacity: 0; */
 }
-.belieflegend
-{
-    /* border: 1px solid black; */
-    /* margin-top: 40px; */
-    display: flex;
-    flex-direction: column;
-    opacity: 0;//1;
-    transition:1s;
-    max-height: 0px;
-    transition:0.5s;
-}
+
 .boxtext
 {
     display:flex;
@@ -354,6 +346,14 @@
     opacity:0.6;
     background-color: yellow;
 }
+.s3resultsubtext
+{
+    font-size: 18px;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px'
+}
 /************************************************/
 /************************************************/
 /************************************************/
@@ -377,16 +377,27 @@
 /************** STAGE 4 *************/
 /************** STAGE 4 *************/
 /************** STAGE 4 *************/
+.secondpartwrap
+{
+    position: absolute;
+    opacity: 0;
+}
 .secondpart
 {
-    position: static;
-    opacity: 1;
+
+    margin-top: 30px;
     display:flex;
     flex-direction: row;
+    transition: 1s;
+}
+.s4feedbackresult
+{
+    /* margin-top:20px; */
+    /* border: 5px solid black; */
 }
 .s4feedback
 {
-    border: 5px solid black;
+    /* border: 5px solid black; */
     display:flex;
     flex-direction: column;
 }
@@ -407,30 +418,34 @@
 {
     display:flex;
     flex-direction: row;
-    border: 5px solid black;
+    /* border: 5px solid black; */
 }
 .s4dynamic
 {
     display:flex;
     flex-direction: column;
+    /* border: 5px solid black; */
+    margin-top:35px;
 }
 
 .s4static
 {
     display:flex;
     flex-direction: column;
+    /* border: 5px solid black; */
 }
 .s4staticgraphics
 {
     display:flex;
     flex-direction: row;
 }
-.wheelwrap
+.wheelwrap2
 {
     /* display:flex; */
     /* flex-direction: column; */
     /* justify-content: center; */
     /* border: 5px solid black; */
+
 
 }
 .canvasarrow2{
@@ -464,6 +479,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* border: 5px solid black; */
 }
 .s4pie
 {
@@ -491,3 +507,39 @@
     justify-content: center;
     /* border: 5px solid black; */
 }
+.s4resultsubtext
+{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+
+    font-size: 18px;
+    font-weight: bolder;
+    margin-top: 30px;
+    margin-bottom: 30px'
+
+}
+/* .s4subtextinfo
+{
+
+    opacity: 0;
+    text-align: left;
+    display:flex;
+    flex-direction: column;
+    justify-content:flex-end;
+    transition: 0.5s;
+
+}
+.boxtext2wrap
+{
+
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+}
+.boxtext
+{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+} */

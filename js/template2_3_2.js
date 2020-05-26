@@ -15,11 +15,11 @@ var updateBarHelpInfo = function(a, b, c, d, barId, ourGroup, me, newLeader) {
     var colorArray = ['', '', '', ''];
     var colorWidth = [0, 0, 0, 0];
     if (me!==-1) {
-        colorArray[me] = 'green';
+        colorArray[me] = 'lightgreen';
         colorWidth[me] = 3;
     }
     if(newLeader!==-1) {
-        colorArray[newLeader] = 'purple'
+        colorArray[newLeader] = 'indigo';
         colorWidth[newLeader] = 3;
     }
 
@@ -140,11 +140,11 @@ var updateBarSaboInfo = function(a, b, c, d, barId, ourGroup, me, newLeader) {
     var colorArray = ['', '', '', ''];
     var colorWidth = [0, 0, 0, 0];
     if (me!==-1) {
-        colorArray[me] = 'green';
+        colorArray[me] = 'lightgreen';
         colorWidth[me] = 3;
     }
     if(newLeader!==-1) {
-        colorArray[newLeader] = 'purple'
+        colorArray[newLeader] = 'indigo';
         colorWidth[newLeader] = 3;
     }
 
@@ -486,9 +486,11 @@ var updateS4Info = function(a,b,c,d, barId, winner, me) {
     var z = c;
     var w = d;
 
-    if((x + y) === 0) {
+    if((x + y + z + w) === 0) {
         x = 1;
         y = 1;
+        z = 1;
+        w = 1;
     }
 
     var textArray = ['', '', '', '']
@@ -499,14 +501,13 @@ var updateS4Info = function(a,b,c,d, barId, winner, me) {
     textArray[winner] = 'Winner';
     textArray[me] = 'You';
 
-    colorArray[winner] = 'purple';
-    colorArray[me] = 'green';
+    colorArray[winner] = 'indigo';
+    colorArray[me] = 'lightgreen';
 
     colorWidth[winner] = 2;
     colorWidth[me] = 2;
 
-    labelArray[me] = labelArray[me];
-    labelArray[winner] = labelArray[winner];
+
 
     var data = [{
         values: [x, y, z, w],
