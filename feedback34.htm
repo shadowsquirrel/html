@@ -15,15 +15,14 @@
     <title>Page Title</title>
 </head>
 <body>
-
-
+    <div class='upperbar'>
+        <button class=beliefbutton id=beliefbutton>Beliefs</button>
+    </div>
     <div class = 'wrap'>
-
         <div class = 'all'>
             <div class='firstpartwrap'>
-                <button class=beliefbutton id=beliefbutton>Beliefs</button>
                 <div class='firstpart'>
-                    <div class='s3feedbackresult'>
+                    <div class='s3result'>
                         <div class='resulttitle'>
                             <h6>RESULT</h6>
                         </div>
@@ -38,9 +37,9 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class='s3resultsubtext'>
-                            <span id=resulttext></span>
-                        </div> -->
+                        <h5>
+                            <span id='s3shortresult' class='s3shortresult'></span>
+                        </h5>
                     </div>
                     <div class='s3feedback'>
                         <div class='s3feedbacktitle'>
@@ -64,7 +63,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class='s3subtextinfo' id='belieflegend'>
+                        <div class='belieflegend' id='belieflegend'>
                             <div class='boxtext'>
                                 <div class='yourgroupbox'></div>
                                 <p style='font-size:14px;'>Your Belief on Your Group</p>
@@ -111,11 +110,34 @@
                     </div>
                 </div>
             </div>
-            <div class='s3resultsubtext'>
+            <div class='s3resulttext'>
                 <span id=resulttext></span>
             </div>
+
+            <div class='s3s4payoffinfohwrap2' id='s3s4payoffinfohwrap2'>
+                <div class='s3s4payoffinfo2'>
+                    <div class='investcosttitle2'>
+                        <h5>Your Investment</h5>
+                        <h5>Cost</h5>
+                    </div>
+
+                    <div class='payoffresults2'>
+                        <div class='stagecolumn2'>
+                            <h6 style='margin-bottom: 30px;'>Stage 2</h6>
+                            <!-- <hr class='hline2'/> -->
+                            <h6>TOTAL</h6>
+                        </div>
+                        <div class='numbercolumn2'>
+                            <h7 style='margin-bottom: 20px;'><span id='stage2cost2'></span></h7>
+                            <!-- <hr class='hline2' /> -->
+                            <h7><span id='totalcost2'></span></h7>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
             <div class='secondpartwrap' id='secondpartwrap'>
-                <button class=beliefbutton id=beliefbutton2>Beliefs</button>
                 <div class='secondpart' id='secondpart'>
                     <div class='s4feedbackresult'>
                         <div class='resulttitle2'>
@@ -132,8 +154,8 @@
                                 </div>
                             </div>
                         </div>
+                        <h5><span id='s4shortresult' class='s4shortresult'></span></h5>
                     </div>
-
                     <div class='s4feedback'>
                         <div class='s4feedbacktitle'>
                             <div class='s4maintitle'>
@@ -145,46 +167,54 @@
                                 <div class='s4statictitle'>
                                     <h7>FOLLOWERS' CONTEST</h7>
                                 </div>
-                                <div class='s4staticgraphics'>
-                                    <div class='piewrap2'>
-                                        <div class='s4pie' id='s4pie'></div>
-                                    </div>
-                                    <div class='s4bars'>
-                                        <div class='s4effortbars' id='s4effortbars'></div>
-                                        <div class='s4efficiencybar' id='s4efficiencybar'></div>
-                                    </div>
-                                    <!-- <div class='s4subtextinfo' id='belieflegend2'>
-                                        <div class='boxtext2wrap'>
-                                            <div class='boxtext2'>
-                                                <div class='yourgroupbox'></div>
-                                                <p style='font-size:14px;'>Your Belief on Your Group</p>
-                                            </div>
-                                            <div class='boxtext2'>
-                                                <div class='othergroupbox'></div>
-                                                <p style='font-size:14px;'>Your Belief on Opposing Group</p>
-                                            </div>
+                                <div class='s4staticwrap'>
+                                    <div class='s4staticgraphics'>
+                                        <div class='piewrap2'>
+                                            <div class='s4pie' id='s4pie'></div>
                                         </div>
-                                    </div> -->
+                                        <div class='s4bars'>
+                                            <div class='s4effortbars' id='s4effortbars'></div>
+                                            <div class='s4efficiencybar' id='s4efficiencybar'></div>
+                                        </div>
+                                        <div class='s3s4payoffinfo' id='s3s4payoffinfo'>
+
+                                        </div>
+                                    </div>
+
+                                    <div class='s3s4payoffinfohwrap'>
+                                        <div class='s3s4payoffinfo'>
+                                            <div class='investcosttitle'>
+                                                <h6>Your Investment Costs</h6>
+                                            </div>
+
+                                            <div class='payoffresults'>
+                                                <div class='stagecolumn'>
+                                                    <h6>Stage 2</h6>
+                                                    <h6>Stage 4</h6>
+                                                    <hr class='hline'/>
+                                                    <h6>TOTAL</h6>
+                                                </div>
+                                                <div class='numbercolumn'>
+                                                    <h7><span id='stage2cost'></span></h7>
+                                                    <h7><span id='stage4cost'></span></h7>
+                                                    <hr class='hline' />
+                                                    <h7><span id='totalcost'></span></h7>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class='s4resultsubtext'>
-                        <span id=resulttext2></span>
-                    </div> -->
                 </div>
-
             </div>
-            <div class='s4resultsubtext'>
+            <div class='s4resulttext'>
                 <span id=resulttext2></span>
             </div>
-
-
-
-
         </div>
-
-
     </div>
 
 
