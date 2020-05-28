@@ -1266,6 +1266,8 @@ var updateEfficiencyBar = function(efi1, efi2) {
     var val1 = efi1 / (efi1 + efi2);
     var val2 = efi2 / (efi1 + efi2);
 
+
+
     if((efi1 / efi2) > 1){
         var myText = (val1 >= 0.99) ? '100+' : (efi1 / efi2).toFixed(2);
     } else {
@@ -1281,6 +1283,12 @@ var updateEfficiencyBar = function(efi1, efi2) {
 
     val1 = logistic2(val1, 5);
     val2 = 1 - val1;
+
+    var gapSize = 0.1;
+    val1 = val1 - gapSize/2;
+    val2 = val2 - gapSize/2;
+
+
     // val1 = upperBound(val1, 0.98);
     // val2 = upperBound(val2, 0.98);
     // val1 = lowerBound(val1, 0.02);
@@ -1300,6 +1308,29 @@ var updateEfficiencyBar = function(efi1, efi2) {
         showlegend: false,
         marker: {
             color: 'rgb(160, 160, 160)',
+            // color: 'rgb(80, 80, 80)',
+        },
+        text: myText,
+        textposition: 'inside',
+        insidetextanchor: 'middle',
+        textfont: {
+            color: 'white',
+            size: '10'
+        },
+    };
+
+
+    var gap = {
+        y: ['group 1'],
+        x: [gapSize],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker: {
+            color: 'white',
         },
         text: myText,
         textposition: 'inside',
@@ -1321,6 +1352,7 @@ var updateEfficiencyBar = function(efi1, efi2) {
         showlegend: false,
         marker: {
             color: 'rgb(225, 225, 225)',
+             // color: 'rgb(160, 160, 160)',
         },
         text: myText2,
         textposition: 'inside',
@@ -1330,7 +1362,7 @@ var updateEfficiencyBar = function(efi1, efi2) {
         },
     };
 
-    var data = [leader1, leader2];
+    var data = [leader1, gap, leader2];
 
     var layout = {
         barmode: 'stack',

@@ -72,7 +72,7 @@ var d = {
     {
         efo: parseFloat((Math.random()*500).toFixed(0)),
         oefo:  parseFloat((Math.random()*500).toFixed(0)),
-        yourLeaderWon: (Math.random() > 0.5) ? true : false,
+        yourLeaderWon: false, //(Math.random() > 0.5) ? true : false,
     },
     s4:
     {
@@ -291,7 +291,7 @@ let theWheel = new Winwheel({
     {
         'type'     : 'spinToStop',
         'duration' : 3,
-        'spins'    : 15,
+        'spins'    : 30,
         'callbackFinished' : 'next()',
     }
 });
@@ -352,8 +352,8 @@ let theWheel2 = new Winwheel({
     'animation' :
     {
         'type'     : 'spinToStop',
-        'duration' : 3,
-        'spins'    : 15,
+        'duration' : 5,
+        'spins'    : 50,
         'callbackFinished' : 'showResults2()',
     }
 });
@@ -402,13 +402,13 @@ var updateHelpBar = function(a, b, c, d, barId, ourGroup, me, beliefSwitch, ba, 
             var temp = myText[me];
             myText = ['', '', ''];
             myText.splice(me, 0, temp);
-            myOpacity = 0.5;//[0.45, 0.45, 0.45];
+            myOpacity = 1;//[0.45, 0.45, 0.45];
             //myOpacity.splice(me, 0, 1);
         } else {
             beliefData = [ba, bb, bc, bd];
             beliefText = [ba, bb, bc, bd];
             myText = ['', '', '', ''];
-            myOpacity = 0.5;//[0.45, 0.45, 0.45, 0.45];
+            myOpacity = 1;//[0.45, 0.45, 0.45, 0.45];
         }
     }
 
@@ -457,7 +457,7 @@ var updateHelpBar = function(a, b, c, d, barId, ourGroup, me, beliefSwitch, ba, 
                 color:'black',
             },
             cliponaxis: false,
-            opacity: 0.7,
+            opacity: 1,
         };
     }
 
@@ -502,7 +502,7 @@ var updateTotalHelpBar = function(a, b, barId, beliefSwitch, ba, bb) {
         var bx = ba;
         var by = bb;
         myText = ['', ''];
-        myOpacity = 0.5;
+        myOpacity = 1;
     }
 
     var lightblue = 'rgb(200,200,255)';
@@ -540,6 +540,10 @@ var updateTotalHelpBar = function(a, b, barId, beliefSwitch, ba, bb) {
             showlegend: false,
             marker:{
                 color: ['black', 'yellow'],
+                line: {
+                    color: [blue, lightblue],
+                    width: 1,
+                }
             },
             text: [bx, by],
             textposition: 'outside',
@@ -547,7 +551,7 @@ var updateTotalHelpBar = function(a, b, barId, beliefSwitch, ba, bb) {
                 size: '14'
             },
             cliponaxis: false,
-            opacity: 0.7,
+            opacity: 1,
         };
     }
 
@@ -611,14 +615,14 @@ var updateSaboBar = function(a, b, c, d, barId, ourGroup, me, beliefSwitch, ba, 
             var temp = myText[me];
             myText = ['', '', ''];
             myText.splice(me, 0, temp);
-            myOpacity = 0.5;//[0.45, 0.45, 0.45];
+            myOpacity = 1;//[0.45, 0.45, 0.45];
             //myOpacity.splice(me, 0, 1);
 
         } else {
             beliefData = [-ba, -bb, -bc, -bd];
             beliefText = [ba, bb, bc, bd];
             myText = ['', '', '', ''];
-            myOpacity = 0.5;//[0.45, 0.45, 0.45, 0.45];
+            myOpacity = 1;//[0.45, 0.45, 0.45, 0.45];
         }
     }
 
@@ -667,7 +671,7 @@ var updateSaboBar = function(a, b, c, d, barId, ourGroup, me, beliefSwitch, ba, 
                 color:'black',
             },
             cliponaxis: false,
-            opacity: 0.7,
+            opacity: 1,
         }
     }
 
@@ -710,7 +714,7 @@ var updateTotalSaboBar = function(a, b, barId, beliefSwitch, ba, bb) {
     if(beliefSwitch) {
         var bx = -ba;
         var by = -bb;
-        myOpacity = 0.5;
+        myOpacity = 1;
         myText = ['', ''];
     }
 
@@ -749,6 +753,10 @@ var updateTotalSaboBar = function(a, b, barId, beliefSwitch, ba, bb) {
         showlegend: false,
         marker:{
             color: ['black', 'rgb(255, 255, 0)'],
+            line: {
+                color: [red, lightred],
+                width: 1,
+            }
         },
         text: [ba, bb],
         textfont: {
@@ -756,7 +764,7 @@ var updateTotalSaboBar = function(a, b, barId, beliefSwitch, ba, bb) {
         },
         textposition: 'outside',
         cliponaxis: false,
-        opacity:0.7,
+        opacity:1,
     };
 
     var layout = {
@@ -797,8 +805,8 @@ var updatePie = function(a, barId, showBeliefs, ba) {
     if(showBeliefs) {
         var bx = ba;
         var by = 1-ba;
-        var beliefOpacity = 0.85;
-        actualOpacity = 0.65;
+        var beliefOpacity = 1;
+        actualOpacity = 1;
     }
 
     if((x + y) === 0) {
@@ -1006,7 +1014,7 @@ var updateEfficiencyBar = function(efi1, efi2, barId, beliefSwitch, befi1, befi2
                 color: 'white',
                 size: '14'
             },
-            opacity: 0.7,
+            opacity: 1,
         };
 
         var bleader2 = {
@@ -1029,7 +1037,7 @@ var updateEfficiencyBar = function(efi1, efi2, barId, beliefSwitch, befi1, befi2
             textfont: {
                 size: '14'
             },
-            opacity: 0.7,
+            opacity: 1,
         };
     }
 
@@ -1087,7 +1095,7 @@ var updateEffortBar = function(efo, oefo, barId, beliefSwitch, befo, boefo) {
     if(beliefSwitch) {
         var bx = befo;
         var by = boefo;
-        myOpacity = 0.7;
+        myOpacity = 1;
         myText = ['', ''];
     }
 
@@ -1133,7 +1141,7 @@ var updateEffortBar = function(efo, oefo, barId, beliefSwitch, befo, boefo) {
                 size: '14'
             },
             cliponaxis: false,
-            opacity: 0.7,
+            opacity: 1,
         };
     }
 
@@ -1184,15 +1192,18 @@ var updateS4Pie = function(a,b,c,d, barId, me, showBeliefs, ba, bb, bc) {
     var w = d;
     var actualData = [x, y, z, w];
     var actualOpacity = 1;
+    var actualColors = ['rgb(225, 225, 225)', 'rgb(160, 160, 160)', 'rgb(100, 100, 100)', 'rgb(40, 40, 40)'];
+    var beliefColors = ['rgb(255, 255, 0)', 'rgb(210, 210, 0)', 'rgb(170, 170, 0)', 'rgb(125, 125, 0)'];
 
     if(showBeliefs) {
         var bx = ba;
         var by = bb;
         var bz = bc;
-        var beliefOpacity = 0.9;
-        actualOpacity = 0.65;
+        var beliefOpacity = 1;
+        actualOpacity = 1;
         var beliefData = [bx, by, bz];
         beliefData.splice(me, 0, actualData[me]);
+        beliefColors.splice(me, 1, actualColors[me]);
     }
 
     if((x + y + z + w) === 0) {
@@ -1223,7 +1234,7 @@ var updateS4Pie = function(a,b,c,d, barId, me, showBeliefs, ba, bb, bc) {
         hoverinfo: 'percent+label',
         automargin: true,
         marker:{
-            colors: ['rgb(225, 225, 225)', 'rgb(160, 160, 160)', 'rgb(100, 100, 100)', 'rgb(40, 40, 40)'],
+            colors: actualColors,
             line: {
                 color: colorArray,
                 width: colorWidth,
@@ -1242,7 +1253,7 @@ var updateS4Pie = function(a,b,c,d, barId, me, showBeliefs, ba, bb, bc) {
         hoverinfo: 'percent+label',
         automargin: true,
         marker:{
-            colors: ['rgb(225, 225, 0)', 'rgb(160, 160, 0)', 'rgb(100, 100, 0)', 'rgb(40, 40, 0)'],
+            colors: beliefColors,
             line: {
                 color: colorArray,
                 width: colorWidth,
@@ -1287,12 +1298,13 @@ var updateS4EffortBar = function(a,b,c,d, barId, me, showBeliefs, ba, bb, bc) {
     var y = b;
     var z = c;
     var w = d;
+    var hoverTag = ['f1', 'f2', 'f3', 'f4'];
     var actualData = [x, y, z, w];
     var myText = [x, y, z, w];
     var temp = myText[me];
     var myOpacity = 1;
     var actualColors = ['rgb(225, 225, 225)', 'rgb(160, 160, 160)', 'rgb(100, 100, 100)', 'rgb(40, 40, 40)'];
-    var beliefColors = ['rgb(225, 225, 0)', 'rgb(160, 160, 0)', 'rgb(100, 100, 0)', 'rgb(40, 40, 0)'];
+    var beliefColors = ['rgb(255, 255, 0)', 'rgb(210, 210, 0)', 'rgb(170, 170, 0)', 'rgb(125, 125, 0)'];
     var actualXPosition = [1, 2, 3, 4];
     var beliefXPosition = [1.15, 2.15, 3.15, 4.15];
 
@@ -1307,7 +1319,7 @@ var updateS4EffortBar = function(a,b,c,d, barId, me, showBeliefs, ba, bb, bc) {
         var bz = bc;
         var beliefData = [bx, by, bz];
         beliefData.splice(me, 0, actualData[me]);
-        myOpacity = 0.5;
+        myOpacity = 1;
         myText = ['', '', ''];
         myText.splice(me, 0, temp);
         beliefColors.splice(me, 1, actualColors[me]);
@@ -1317,9 +1329,10 @@ var updateS4EffortBar = function(a,b,c,d, barId, me, showBeliefs, ba, bb, bc) {
     var actual = {
         y: actualData,
         x: actualXPosition,
+        myname: ['f1', 'f2', 'f3', 'f4'],
         type: 'bar',
         sort: false,
-        hoverinfo: 'none',
+        // hovertemplate: '<extra>{fullData.myname}</extra>',
         automargin: true,
         showlegend: false,
         marker:{
@@ -1360,7 +1373,7 @@ var updateS4EffortBar = function(a,b,c,d, barId, me, showBeliefs, ba, bb, bc) {
                 size: '14'
             },
             cliponaxis: false,
-            opacity: 0.8,
+            opacity: 1,
         };
     }
 
@@ -1509,7 +1522,7 @@ var updateS4EfficiencyBar = function(barId, beliefSwitch) {
             fixedrange: true,
             cliponaxis: false,
             marker: {
-                color: 'rgb(40, 40, 0)',
+                color: 'rgb(125, 125, 0)',
             },
             text: 1,
             textposition: 'inside',
@@ -1532,7 +1545,7 @@ var updateS4EfficiencyBar = function(barId, beliefSwitch) {
             fixedrange: true,
             cliponaxis: false,
             marker: {
-                color: 'rgb(100, 100, 0)',
+                color: 'rgb(170, 170, 0)',
             },
             text: 1,
             textposition: 'inside',
@@ -1554,7 +1567,7 @@ var updateS4EfficiencyBar = function(barId, beliefSwitch) {
             fixedrange: true,
             cliponaxis: false,
             marker: {
-                color: 'rgb(160, 160, 0)',
+                color: 'rgb(210, 210, 0)',
             },
             text: 1,
             textposition: 'inside',
@@ -1577,7 +1590,7 @@ var updateS4EfficiencyBar = function(barId, beliefSwitch) {
             fixedrange: true,
             cliponaxis: false,
             marker: {
-                color: 'rgb(225, 225, 0)',
+                color: 'rgb(255, 255, 0)',
             },
             text: 1,
             textposition: 'inside',
@@ -1646,7 +1659,9 @@ var updateS4EfficiencyBar = function(barId, beliefSwitch) {
 
 
 // STAGE 2 AND 3 GRAPHICS AND ANIMATION
+var animationCounter = 0;
 var update = function(beliefSwitch) {
+    console.log('we are inside update1?');
     updateHelpBar(info.h1, info.h2, info.h3, info.h4, 'helpbarg1', true, info.me, beliefSwitch, info.beliefs.h1, info.beliefs.h2, info.beliefs.h3);
     updateSaboBar(info.s1, info.s2, info.s3, info.s4, 'sabobarg1', true, info.me, beliefSwitch, info.beliefs.s1, info.beliefs.s2, info.beliefs.s3);
 
@@ -1661,10 +1676,14 @@ var update = function(beliefSwitch) {
     updateEffortBar(info.efo, info.oefo, 's3effortbars', beliefSwitch, info.beliefs.efo, info.beliefs.oefo);
     updateEfficiencyBar(info.efi(), info.oefi(), 's3efficiencybar', beliefSwitch, info.beliefs.efi(), info.beliefs.oefi());
 
-    var resultIndex = d.s3.yourLeaderWon ? 1 : 2;
-    var stopAt = theWheel.getRandomForSegment(resultIndex);
-    theWheel.animation.stopAngle = stopAt;
-    theWheel.startAnimation();
+    if(animationCounter===0) {
+        var resultIndex = d.s3.yourLeaderWon ? 1 : 2;
+        var stopAt = theWheel.getRandomForSegment(resultIndex);
+        theWheel.animation.stopAngle = stopAt;
+        theWheel.startAnimation();
+        animationCounter = 1 + animationCounter;
+    }
+
 }
 
 
@@ -1681,7 +1700,7 @@ beliefButton.onclick = function() {
 
     document.getElementById("belieflegend").style.opacity = o;
     document.getElementById('belieflegend').style.maxHeight = h;
-
+    document.getElementById('hidewrap').style.opacity = o;
     bbSwitch = 1 - bbSwitch;
 }
 
@@ -1693,8 +1712,9 @@ var showStage4 = !d.s3.yourLeaderWon;
 // Called by the stage 3 wheel once it stops
 var next = function() {
     showResults();
+    console.log('are we getting inside next more then we should?');
     if(showStage4) {
-        setTimeout("displayStage4()", 1500);
+        setTimeout("displayStage4()", 2000);
     }
 }
 
@@ -1702,31 +1722,35 @@ var next = function() {
 // EXPLAINS THE STAGE 3 RESULTS IN TEXT
 var showResults = function() {
     var display = document.getElementById('s3shortresult');
-    var largeDisplay = document.getElementById('resulttext');
-
     var shortResult = d.s3.yourLeaderWon ? 'Your Leader Won.' : 'Your Leader Lost.';
-
-    var winScenario = 'Your leader maintains her '
-    + 'leadership position. <br> You and other followers continue their role as '
-    + 'followers and proceed to Stage 5.';
-
-    var loseScenario = 'Your Leader lost her '
-    + 'leadership position. <br> Proceeding to Stage 4 Followers\' Contest '
-    + 'to determine the new leader of your group.';
-
     display.innerHTML = shortResult;
-    largeDisplay.innerHTML = d.s3.yourLeaderWon ? winScenario : loseScenario;
+    setTimeout('showResultsDelayed1()', 1000);
+}
 
-    if(d.s3.yourLeaderWon) {
-        var displayPayoff = document.getElementById('s3s4payoffinfohwrap2');
-        displayPayoff.style.opacity = 1;
-        displayPayoff.style.position = 'static';
-        var s2Payoff = document.getElementById('stage2cost2');
-        var totalPayoff = document.getElementById('totalcost2');
-        s2Payoff.innerHTML = info.sarray[d.me] + info.harray[d.me];
-        totalPayoff.innerHTML = info.sarray[d.me] + info.harray[d.me];
-    }
+var showResultsDelayed1 = function() {
+        var largeDisplay = document.getElementById('resulttext');
+        var winScenario = 'Your leader maintains her '
+        + 'leadership position. <br> You and other followers continue their role as '
+        + 'followers and proceed to Stage 5.';
 
+        var loseScenario = 'Your Leader lost her '
+        + 'leadership position. <br> Proceeding to Stage 4 Followers\' Contest '
+        + 'to determine the new leader of your group.';
+        largeDisplay.innerHTML = d.s3.yourLeaderWon ? winScenario : loseScenario;
+
+        if(d.s3.yourLeaderWon) {
+            setTimeout('showResultsDelayed2()', 1000);
+        }
+}
+
+var showResultsDelayed2 = function() {
+    var displayPayoff = document.getElementById('s3s4payoffinfohwrap2');
+    displayPayoff.style.opacity = 1;
+    displayPayoff.style.position = 'static';
+    var s2Payoff = document.getElementById('stage2cost2');
+    var totalPayoff = document.getElementById('totalcost2');
+    s2Payoff.innerHTML = info.sarray[d.me] + info.harray[d.me];
+    totalPayoff.innerHTML = info.sarray[d.me] + info.harray[d.me];
 }
 
 var displayStage4 = function() {
@@ -1738,6 +1762,12 @@ var displayStage4 = function() {
     updatePayoffs();
     // If Beliefs are displayed, turn it off to sync belief displays of both sections
     update(false);
+    // $(document).scrollTop($('.s4static').height());
+    $('html, body').animate({
+        scrollTop: $('.s4static').height()
+    }, 1000);
+
+    // $('html, body').animate("$(document).scrollTop($('.s4static').height())", 1000);
 
     // Identify the new leader based on the info passed through emit
     var resultIndex2 = d.s4.hasWon.indexOf(true);
@@ -1749,6 +1779,7 @@ var displayStage4 = function() {
 }
 
 var update2= function(beliefSwitch2) {
+    console.log('we are inside update2?');
     updateS4Pie(info.e1, info.e2, info.e3, info.e4, 's4pie', info.me, beliefSwitch2, info.beliefs.e1, info.beliefs.e2, info.beliefs.e3)
     updateS4EffortBar(info.e1, info.e2, info.e3, info.e4, 's4effortbars', info.me, beliefSwitch2, info.beliefs.e1, info.beliefs.e2, info.beliefs.e3)
     updateS4EfficiencyBar('s4efficiencybar', beliefSwitch2);
@@ -1763,15 +1794,14 @@ var updatePayoffs = function() {
     s2c.innerHTML = info.sarray[d.me] + info.harray[d.me];
     s4c.innerHTML = info.earray[d.me];
     tc.innerHTML = info.sarray[d.me] + info.harray[d.me] + info.earray[d.me];
-    // window.scrollBy(0,1000);
 }
 
 var showResults2 = function() {
     var resultIndex2 = d.s4.hasWon.indexOf(true) + 1;
     var display = document.getElementById('s4shortresult');
     var largeDisplay = document.getElementById('resulttext2');
-    console.log(info.me);
-    console.log(d.s4.hasWon.indexOf(true));
+    // console.log(info.me);
+    // console.log(d.s4.hasWon.indexOf(true));
     if(info.me === d.s4.hasWon.indexOf(true)) {
         var shortResultText = 'You won!';
         var resultText = 'You are the new leader of your group! <br>'
@@ -1791,6 +1821,18 @@ var showResults2 = function() {
     }
     display.innerHTML = shortResultText;
     largeDisplay.innerHTML = resultText;
+    // $(document).scrollTop($('.resulttext2').scrollTop());
+    // $(document).scrollTop($('.s4static').height());
+    // $('html, body').animate({
+    //     scrollTop: $('.resulttext2').get(0).scrollHeight()
+    // }, 1000);
+
+    // $('html, body').animate("$(document).scrollTop($('.resulttext2').height())", 1000);
+
+
+    $('html, body').animate({
+        scrollTop: $(document).height()
+    }, 2000);
 }
 
 
@@ -1802,6 +1844,6 @@ update(false);
 
 
 // FOR DEBUGGING
-// setTimeout('showResults()', 250);
-// setTimeout('displayStage4()', 500);
-// setTimeout('showResults2()', 750);
+setTimeout('showResults()', 250);
+setTimeout('displayStage4()', 500);
+setTimeout('showResults2()', 750);
