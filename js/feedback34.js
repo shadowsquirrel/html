@@ -1844,6 +1844,6 @@ update(false);
 
 
 // FOR DEBUGGING
-setTimeout('showResults()', 250);
-setTimeout('displayStage4()', 500);
-setTimeout('showResults2()', 750);
+// setTimeout('showResults()', 250);
+// setTimeout('displayStage4()', 500);
+// setTimeout('showResults2()', 750);
