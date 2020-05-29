@@ -1,0 +1,704 @@
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.wrap
+{
+    display: flex;
+/*
+    width: 100%;
+    height: 600px; */
+    justify-content: center;
+    /* margin-left: 90px; */
+    /* border: 5px solid black; */
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.upperbar
+{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    background-color: black;
+    position:sticky;
+    top:0;
+    z-index: 2;
+    height:40px;
+
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.all{
+    /* margin-top: 20%;
+    margin-bottom: 20%;
+
+    height:300px;
+    width: 300px; */
+
+    display:flex;
+    flex-direction: column;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+    /* text-align: left; */
+    /* justify-content:center; */
+    /* border: 5px solid black; */
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.sinfo{
+    flex-grow: 1;
+    /* justify-content: center; */
+    /* border: 5px solid black; */
+    /* width:900px; */
+    /* background-color: gray; */
+    padding-bottom: 30px;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.sinfotitle
+{
+    margin-bottom: 50px;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.sinfotext
+{
+    font-weight:500;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    /* text-align: center; */
+    flex-grow: 1;
+    /* border: 5px solid black; */
+    /* max-width: 500px; */
+
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.calculator
+{
+    text-align: center;
+    /* position: sticky; */
+    /* top: -90px; */
+    display: flex;
+    flex-direction: column;
+    /* background-color: gray; */
+    flex-grow:5;
+     /* border: 5px solid black; */
+     /* position: sticky;
+     top: 0px; */
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.titlesection
+{
+    z-index:1;
+    background-color: white;
+    /* top:40px;
+    position: sticky; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+.leftmaintitle
+{
+    margin-left: -105px;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+.rightmaintitle
+{
+margin-right: -135px;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.topsection
+{
+
+    /* position: sticky;
+    top: 200px; */
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* border: 5px solid black; */
+}
+/************************************************/
+/************************************************/
+/************************************************/
+.followergroupleft
+{
+    display: flex;
+    flex-direction: column;
+}
+/************************************************/
+/************************************************/
+.left_title
+{
+    /* margin-left: -50px; */
+}
+.lftitle
+{
+    margin-top: 20px;
+}
+/************************************************/
+.s2g1
+{
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+.followermiddlegraphics
+{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+/************************************************/
+/************************************************/
+.totalbargraphics
+{
+    padding-top: 23px;
+ }
+ /************************************************/
+ /************************************************/
+ /************************************************/
+.followergroupright
+{
+    display: flex;
+    flex-direction: column;
+}
+/* Simple text classes*/
+.right_title
+{
+    /* margin-right: 50px; */
+}
+.rftitle
+{
+    margin-top: 20px;
+}
+/************************************************/
+.s2g2
+{
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/*********** legend **********/
+/*********** legend **********/
+/*********** legend **********/
+
+.belieflegend
+{
+    margin-top: 0px;
+    padding-left: 20px;
+    /* margin-left: -10px; */
+    /* opacity: 1; */
+    /* max-height: 0px; */
+    text-align: left;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    transition: 0.5s;
+}
+.boxtext
+{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.helplegbox
+{
+    margin-top: 3px;
+    margin-right: 5px;
+    height:15px;
+    width:15px;
+    border: 1px solid black;
+    opacity:1;
+    background: linear-gradient(90deg, rgb(140, 140, 255) 0%, rgb(200,200,255) 100%);
+}
+.sabolegbox
+{
+    margin-top: 3px;
+    margin-right: 5px;
+    height:15px;
+    width:15px;
+    border: 1px solid black;
+    opacity:1;
+    background: linear-gradient(90deg, rgb(255, 140, 140) 0%, rgb(255,200,200) 100%);
+}
+ /************************************************/
+ /************************************************/
+ /************************************************/
+ /************************************************/
+.middlesection
+{
+    /* margin-top: 0px; */
+    display:flex;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+.efficiencyBarWrap
+{
+    /* margin-bottom: 20px; */
+    position: sticky;
+    top: 0;
+    display:flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+/************************************************/
+/************************************************/
+.efficiencyBar
+{
+    justify-content: center;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.bottomsection
+{
+    position: sticky;
+    top: 90px
+    margin-top: 20px;
+    /* z-index: 2;*/
+    /* position: sticky;
+    top: 0; */
+    display:flex;
+    flex-direction: row;
+    /* border: 5px solid black; */
+}
+/************************************************/
+/************************************************/
+/************************************************/
+.leadergroupleft
+{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    padding-top: 40px;
+}
+.advantagetext
+{
+    z-index:1;
+    margin-left: -10px;
+}
+.efficiencyColorLeft
+{
+    margin-top: -20px;
+    margin-left: 30px;
+    z-index:0;
+    cursor: none;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+.piegraphics
+{
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+}
+/************************************************/
+/************************************************/
+/* class to contain the pie graph and its title*/
+.piewrap
+{
+    position: sticky;
+    top: 0;
+    padding-left: 30px;
+    /* border: 5px solid black; */
+}
+/************************************************/
+.pie
+{
+    display: flex;
+    justify-content: center;
+
+}
+/************************************************/
+/************************************************/
+/************************************************/
+.leadergroupright
+{
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+    padding-top: 40px;
+}
+/************************************************/
+/************************************************/
+.efficiencyColorRight
+{
+    margin-top: -20px;
+    padding-left: 30px;
+    z-index:0;
+    cursor: none;
+}
+
+/************************************************/
+/************************************************/
+/* Slider + bar classes for followers and leader*/
+/************************************************/
+/*class to containt slider + bar*/
+.sliderbarleader
+{
+    position: sticky;
+    top: 0px;
+    display:flex;
+    justify-content: center;
+}
+/* adjustment for left side leader we didn't have one for right side leader*/
+/*subclass of sliderbarleader*/
+.left
+{
+    /* margin-right: 50px; */
+}
+.lright
+{
+    /* margin-right: 40px; */
+}
+.lbar
+{
+    z-index:0;
+    position: relative;
+}
+/************************************************/
+.lslider
+{
+    z-index: 1;
+    position: absolute;
+    -webkit-appearance: none;
+    appearance: none;
+    background: gray;
+    opacity: 0.3;
+    transition: 0.35s;
+    /* transition-delay: 0.15s; */
+
+    /*Setup Large*/
+    width: 356px;
+    margin-top: 35px;
+    margin-left:-1px;
+    /* background: black; */
+    height: 2px;
+}
+/************************************************/
+.lslider::-webkit-slider-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 31px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.35s;
+    /* transition-delay: 0.15s; */
+    margin-top: -1px;
+}
+.lslider::-moz-range-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 30px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.35s;
+    /* transition-delay: 0.25s; */
+}
+.lslider:focus
+{
+    outline: none;
+}
+/************************************************/
+.lslider:hover
+{
+    opacity:1;
+    background:gray;
+
+    /*Setup Large*/
+    margin-top: 45px;
+    background:black;
+}
+.lslider:hover::-webkit-slider-thumb
+{
+    /*Setup Large*/
+    height: 47px;
+    margin-top: 0px;
+    /* width: 5px; */
+}
+.lslider:hover::-moz-range-thumb
+{
+    height: 47px;
+    /* width: 5px; */
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.decision
+{
+    /* position: sticky;
+    top:3000px; */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+.input
+{
+
+    margin-top: -20px;
+    margin-left: 39px;
+    text-align: center;
+    /* height: 100px; */
+    flex-grow:1;
+    /* border: 5px solid black; */
+}
+/************************************************/
+/************************************************/
+.decisiontitle
+{
+    margin-left: -40px;
+}
+/*************************************************/
+/*************************************************/
+/** Slider + bar classes for followers decision **/
+/*************************************************/
+/*leader*/
+.sliderbard
+{
+    display:flex;
+    justify-content: center;
+    margin-left: -40px;
+    /* border: 5px solid black; */
+}
+/************************************************/
+.dbar
+{
+    z-index:0;
+    position: relative;
+}
+/************************************************/
+.dslider
+{
+    z-index: 1;
+    position: absolute;
+    -webkit-appearance: none;
+    appearance: none;
+    background: gray;
+    opacity: 0.3;
+    transition: 0.35s;
+    /* transition-delay: 0.15s; */
+
+    /*Setup Large*/
+    width: 1035px;
+    margin-top: 35px;
+    margin-left:-1px;
+    /* background: black; */
+    height: 2px;
+}
+/************************************************/
+.dslider::-webkit-slider-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 31px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.35s;
+    /* transition-delay: 0.15s; */
+    margin-top: -1px;
+}
+.dslider::-moz-range-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 31px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.35s;
+    /* transition-delay: 0.15s; */
+    margin-top: -1px;
+}
+.dslider:focus
+{
+    outline: none;
+}
+/************************************************/
+.dslider:hover
+{
+    opacity:1;
+    background:gray;
+
+    /*Setup Large*/
+    margin-top: 45px;
+    background:black;
+}
+.dslider:hover::-webkit-slider-thumb
+{
+    height: 55px;
+    margin-top: 0px;
+}
+.dslider:hover::-moz-range-thumb
+{
+    height: 55px;
+    margin-top: 0px;
+}
+.newdSlider::-webkit-slider-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 31px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.35s;
+    /* transition-delay: 0.15s; */
+    margin-top: -1px;
+
+    /*Setup*/
+    margin-top: -22px;
+    height: 24px;
+    width: 3px;
+}
+.newdSlider::-moz-range-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 31px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.35s;
+    /* transition-delay: 0.15s; */
+    margin-top: -1px;
+
+    /*Setup*/
+    margin-top: -22px;
+    height: 24px;
+    width: 3px;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+.dinfo
+{
+    text-align: center;
+    padding-bottom: 10px;
+    flex-grow:1;
+
+}
+/* .outcomes
+{
+    font-weight: 500;
+} */
+.mytable
+{
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-right: 50px;
+}
+.sidecolumn
+{
+    /* border: 5px solid black; */
+    padding-top: 45px;
+    padding-right: 5px;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    font-weight: 800;
+
+}
+.maincolumn
+{
+    /* border: 5px solid black; */
+    padding-left: 100px;
+    display:flex;
+    flex-direction: column;
+
+}
+.titlerow
+{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    font-weight: 800;
+}
+.row
+{
+    /* border: 5px solid black; */
+    display: flex;
+    flex-direction: row;
+}
+.roww2
+{
+    /* border: 5px solid black; */
+    margin-top: -10px;
+    margin-left: -15px;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+}

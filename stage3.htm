@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <link rel="stylesheet" href="css/stage3.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+    <title>Page Title</title>
+</head>
+<body>
+    <div class='upperbar'>
+        <button class=multibutton id=multibutton>Alternate</button>
+    </div>
+    <div class = 'wrap'>
+
+        <div class = 'all'>
+
+            <div class = 'sinfo'>
+
+                <div class = sinfotitle>
+                    <h3>STAGE 3</h3>
+                </div>
+
+                <div class = sinfotext>
+                    <p style='font-size: 22px; margin-bottom: 50px;'> You are the Leader of your Group</p>
+                </div>
+
+                <div class = sinfotext>
+                    <p>
+                        Please make an investment decision to compete against the opposing leader.
+                    </p>
+                    <p>
+                        Below is the graphical summary of both groups' followers' sabotage and help decisions
+                    </p>
+                    <p>
+                        Based on these decisions, relative power and advantage/disadvantage of the leaders are calculated and graphically presented underneat.
+                    </p>
+                    <p>
+                        You can use the graphical calculator to consider a possible investment level for you and the opposing leader,
+                        and observe your probability to win
+
+                    </p>
+                    <p>
+                        Your decision slider and a reminder of your possible payoffs depending on your decisions are located underneat the calculator.
+                    </p>
+                    <p>
+                        Your decision slider and your decision on the calculator are synchronized: any changes you make to one will immediately affect the other.
+                    </p>
+                </div>
+
+
+            </div>
+
+
+
+
+            <div class = 'calculator'>
+                <div class = 'titlesection'>
+                    <h5 class = leftmaintitle>YOUR GROUP</h5>
+                    <h5 class = 'rightmaintitle'>OPPOSING GROUP</h5>
+                </div>
+
+                <div class='belieflegend' id='belieflegend'>
+                    <div class='boxtext'>
+                        <div class='helplegbox'></div>
+                        <p style='font-size:12px;'>Help</p>
+                    </div>
+                    <div class='boxtext'>
+                        <div class='sabolegbox'></div>
+                        <p style='font-size:12px;'>Sabotage</p>
+                    </div>
+                </div>
+
+                <div class = 'topsection'>
+
+                    <div class = 'followergroupleft'>
+                        <h6 class = 'left_title lftitle'>Followers</h6>
+                        <div class = 's2g1'>
+                            <div id = 's2helpbarg1'></div>
+                            <div id = 's2sabobarg1'></div>
+                        </div>
+                    </div>
+
+                    <div class = 'followermiddlegraphics'>
+                        <div class = 'totalbargraphics'>
+                            <div id = 's2barmain'>
+                                <h7>Aggregate</h7>
+                                <div id = 's2totalhelpbar'></div>
+                                <div id = 's2totalsabobar'></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class = 'followergroupright'>
+                        <h6 class = 'right_title rftitle'>Followers</h6>
+                        <div class = 's2g2'>
+                            <div id = 's2helpbarg2'></div>
+                            <div id = 's2sabobarg2'></div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class = 'middlesection'>
+                    <!-- <h6>Leaders' Relative Power Bar</h6> -->
+                    <div class = 'efficiencyBarWrap'>
+                        <div id = 'efficiencyBar' class = 'efficiencyBar'></div>
+                    </div>
+
+                </div>
+
+                <div class = 'bottomsection'>
+
+                    <div class = 'leadergroupleft'>
+                        <h6 class = 'left_title'>Leader (You)</h6>
+                        <p><span class = 'advantagetext' id = 'advtxt1'></span></p>
+                        <div id = 'efficiencyColorLeft' class = 'efficiencyColorLeft'></div>
+                        <div class = 'sliderbarleader left'>
+                            <input type='range' min = '0' max = '500' class = 'lslider' value = '1' id = 'lSlider1' />
+                            <div id = 'barl' class = 'lbar'></div>
+                        </div>
+                    </div>
+
+                    <div class = 'piegraphics'>
+                        <div class = 'piewrap'>
+                            <h6>Probability to Win</h6>
+                            <div class = 'pie' id = 'pie'></div>
+                        </div>
+                    </div>
+
+                    <div class = 'leadergroupright'>
+                        <h6  class = 'right_title'>Leader</h6>
+                        <p><span class = 'advantagetext' id = 'advtxt2'></span></p>
+                        <div id = 'efficiencyColorRight' class = 'efficiencyColorRight'></div>
+                        <div class = 'sliderbarleader lright'>
+                            <input type='range' min = '0' max = '500' class = 'lslider' value = '1' id = 'olSlider1' />
+                            <div id = 'obarl' class = 'lbar'></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class = decision>
+                    <div class = input>
+                        <h5 class = 'decisiontitle'>Your Decision</h5>
+                        <div class = 'sliderbard'>
+                            <input type='range' min = '0' max = '500' class = 'dslider' value = '0' id = 'dSlider' />
+                            <div id = 'bard' class = 'dbar'></div>
+                        </div>
+                    </div>
+                    <div class = dinfo>
+                        <p>
+                            Your Investment cost is <span id=payoff class='outcomes'>0 token</span>.
+                        </p>
+
+                        <div class=mytable>
+                            <div class=sidecolumn>
+                                <p>Prize</p>
+                                <p>Net Payoff</p>
+                                <p>Role</p>
+                            </div>
+                            <div class=maincolumn>
+                                <div class=titlerow>
+                                    <p>Win</p>
+                                    <pre>                                       </pre>
+                                    <p>Lose</p>
+                                </div>
+                                <div class=row>
+                                    <p>1000 tokens</p>
+                                    <pre>                                   </pre>
+                                    <p>0 token</p>
+                                </div>
+                                <div class=row>
+                                    <p><span id=winnetpayoff class='outcomes'></span></p>
+                                    <pre>                                   </pre>
+                                    <p><span id=losenetpayoff class='outcomes'></span></p>
+                                </div>
+                                <div class=row>
+                                    <p>Maintain your Leadership Position</p>
+                                    <pre>               </pre>
+                                    <p>Lose your leadership, Become a Follower</p>
+                                </div>
+                                <div class=roww2>
+                                    <p>Proceed to Stage 6</p>
+                                    <pre>                             </pre>
+                                    <p>Proceed to Stage 5</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="js/stage3.js"></script>
+
+</body>
+</html>

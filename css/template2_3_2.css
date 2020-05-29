@@ -487,8 +487,8 @@ margin-right: -135px;
     appearance: none;
     background: gray;
     opacity: 0.3;
-    transition: 0.5s;
-    transition-delay: 0.15s;
+    transition: 0.35s;
+    /* transition-delay: 0.15s; */
 
     /*Setup Large*/
     width: 356px;
@@ -508,8 +508,8 @@ margin-right: -135px;
     background: black;
     cursor: pointer;
     opacity: 1;
-    transition: 0.5s;
-    transition-delay: 0.15s;
+    transition: 0.35s;
+    /* transition-delay: 0.15s; */
     margin-top: -1px;
 }
 .lslider::-moz-range-thumb
@@ -522,8 +522,8 @@ margin-right: -135px;
     background: black;
     cursor: pointer;
     opacity: 1;
-    transition: 0.5s;
-    transition-delay: 0.25s;
+    transition: 0.35s;
+    /* transition-delay: 0.25s; */
 }
 .lslider:focus
 {
@@ -640,8 +640,8 @@ margin-right: -135px;
     appearance: none;
     background: gray;
     opacity: 0.3;
-    transition: 0.5s;
-    transition-delay: 0.25s;
+    transition: 0.35s;
+    /* transition-delay: 0.25s; */
 
     /*Setup Compact*/
     /* height: 3px; */
@@ -664,8 +664,8 @@ margin-right: -135px;
     background: black;
     cursor: pointer;
     opacity: 1;
-    transition: 0.5s;
-    transition-delay: 0.25s;
+    transition: 0.35s;
+    /* transition-delay: 0.15s; */
 }
 .slider::-moz-range-thumb
 {
@@ -677,8 +677,8 @@ margin-right: -135px;
     background: black;
     cursor: pointer;
     opacity: 1;
-    transition: 0.5s;
-    transition-delay: 0.25s;
+    transition: 0.35s;
+    /* transition-delay: 0.25s; */
 }
 .slider:focus
 {
@@ -740,8 +740,8 @@ margin-right: -135px;
     background: black;
     cursor: pointer;
     opacity: 1;
-    transition: 0.5s;
-    transition-delay: 0.25s;
+    transition: 0.35s;
+    /* transition-delay: 0.25s; */
 
     /*Setup Compact*/
     /* margin-top: -20px; */
@@ -763,8 +763,8 @@ margin-right: -135px;
     background: black;
     cursor: pointer;
     opacity: 1;
-    transition: 0.5s;
-    transition-delay: 0.25s;
+    transition: 0.35s;
+    /* transition-delay: 0.25s; */
 
     /*Setup Compact*/
     /* margin-top: -20px; */
@@ -788,8 +788,8 @@ margin-right: -135px;
     background: black;
     cursor: pointer;
     opacity: 1;
-    transition: 0.5s;
-    transition-delay: 0.25s;
+    transition: 0.35s;
+    /* transition-delay: 0.25s; */
 
     /*Setup Compact*/
     /* margin-top: -20px; */
@@ -811,8 +811,8 @@ margin-right: -135px;
     background: black;
     cursor: pointer;
     opacity: 1;
-    transition: 0.5s;
-    transition-delay: 0.25s;
+    transition: 0.35s;
+    /* transition-delay: 0.25s; */
 
     /*Setup Compact*/
     /* margin-top: -20px; */
@@ -881,8 +881,8 @@ margin-right: -135px;
     appearance: none;
     background: gray;
     opacity: 0.3;
-    transition: 0.5s;
-    transition-delay: 0.15s;
+    transition: 0.35s;
+    /* transition-delay: 0.15s; */
 
     /*Setup Large*/
     width: 970px;
@@ -902,8 +902,8 @@ margin-right: -135px;
     background: black;
     cursor: pointer;
     opacity: 1;
-    transition: 0.5s;
-    transition-delay: 0.15s;
+    transition: 0.35s;
+    /* transition-delay: 0.15s; */
     margin-top: -1px;
 }
 .dslider::-moz-range-thumb
@@ -916,8 +916,8 @@ margin-right: -135px;
     background: black;
     cursor: pointer;
     opacity: 1;
-    transition: 0.5s;
-    transition-delay: 0.25s;
+    transition: 0.35s;
+    /* transition-delay: 0.25s; */
 }
 .dslider:focus
 {
