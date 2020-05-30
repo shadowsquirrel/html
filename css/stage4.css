@@ -1,0 +1,687 @@
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.wrap
+{
+    display: flex;
+/*
+    width: 100%;
+    height: 600px; */
+    justify-content: center;
+    /* margin-left: 90px; */
+    /* border: 5px solid black; */
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.upperbar
+{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    background-color: black;
+    position:sticky;
+    top:0;
+    z-index: 2;
+    height:40px;
+
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.all{
+    /* margin-top: 20%;
+    margin-bottom: 20%;
+
+    height:300px;
+    width: 300px; */
+
+    display:flex;
+    flex-direction: column;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+    /* text-align: left; */
+    /* justify-content:center; */
+    /* border: 5px solid black; */
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.sinfo{
+    flex-grow: 1;
+    /* justify-content: center; */
+    /* border: 5px solid black; */
+    /* width:900px; */
+    /* background-color: gray; */
+    padding-bottom: 30px;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.sinfotitle
+{
+    margin-bottom: 50px;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.sinfotext
+{
+    font-weight:500;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    /* text-align: center; */
+    flex-grow: 1;
+    /* border: 5px solid black; */
+    /* max-width: 500px; */
+
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.calculator
+{
+    text-align: center;
+    /* position: sticky; */
+    /* top: -90px; */
+    display: flex;
+    flex-direction: column;
+    /* background-color: gray; */
+    flex-grow:5;
+     /* border: 5px solid black; */
+     /* position: sticky;
+     top: 0px; */
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.titlesection
+{
+    z-index:1;
+    background-color: white;
+    /* top:40px;
+    position: sticky; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+.leftmaintitle
+{
+    margin-left: -135px;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+.rightmaintitle
+{
+margin-right: -205px;
+display:flex;
+flex-direction: column;
+
+}
+
+
+/************************************************/
+/************************************************/
+/************************************************/
+.efficiencyBarWrap
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* margin-right: 100px; */
+    /* border: 5px solid black; */
+}
+/************************************************/
+/************************************************/
+.efficiency
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* border: 5px solid black; */
+}
+
+.effortbars
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* margin-right: 100px; */
+    /* border: 5px solid black; */
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.bottomsection
+{
+    position: sticky;
+    top: 90px
+    margin-top: 20px;
+    /* z-index: 2;*/
+    /* position: sticky;
+    top: 0; */
+    display:flex;
+    flex-direction: row;
+    /* border: 5px solid black; */
+}
+/************************************************/
+/************************************************/
+/************************************************/
+.leftsection
+{
+    display:flex;
+    flex-direction: column;
+}
+.followergroupleft
+{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    padding-top: 20px;
+}
+.advantagetext
+{
+    z-index:1;
+    margin-left: -10px;
+}
+.efficiencyColorLeft
+{
+    margin-top: -20px;
+    margin-left: 30px;
+    z-index:0;
+    cursor: none;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+.efficiencyBarWrap
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* margin-right: 100px; */
+    /* border: 5px solid black; */
+}
+/************************************************/
+/************************************************/
+.efficiency
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* border: 5px solid black; */
+}
+
+.effortbars
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* margin-right: 100px; */
+    /* border: 5px solid black; */
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.piegraphics
+{
+    display: flex;
+    flex-direction: column;
+    /* border: 5px solid black; */
+    justify-content: center;
+}
+/************************************************/
+/************************************************/
+/* class to contain the pie graph and its title*/
+.piewrap
+{
+    padding-left: 30px;
+    /* border: 5px solid black; */
+}
+/************************************************/
+.pie
+{
+    display: flex;
+    justify-content: center;
+
+}
+/************************************************/
+/************************************************/
+/************************************************/
+.otherfollowers
+{
+    display: flex;
+    flex-direction: column;
+
+}
+.followersgroupright
+{
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+    /* padding-top: 40px; */
+}
+.firstone
+{
+    padding-top:20px;
+}
+/************************************************/
+/************************************************/
+.efficiencyColorRight
+{
+    margin-top: -20px;
+    padding-left: 30px;
+    z-index:0;
+    cursor: none;
+}
+
+/************************************************/
+/************************************************/
+/* Slider + bar classes for followers and leader*/
+/************************************************/
+/*class to containt slider + bar*/
+.sliderbarleader
+{
+    position: sticky;
+    top: 0px;
+    display:flex;
+    justify-content: center;
+}
+/* adjustment for left side leader we didn't have one for right side leader*/
+/*subclass of sliderbarleader*/
+.left
+{
+    /* margin-right: 50px; */
+}
+.lright
+{
+    /* margin-right: 40px; */
+}
+.lbar
+{
+    z-index:0;
+    position: relative;
+}
+/************************************************/
+.lslider
+{
+    z-index: 1;
+    position: absolute;
+    -webkit-appearance: none;
+    appearance: none;
+    background: gray;
+    opacity: 0.3;
+    transition: 0.35s;
+    /* transition-delay: 0.15s; */
+
+    /*Setup Large*/
+    width: 356px;
+    margin-top: 35px;
+    margin-left:-1px;
+    /* background: black; */
+    height: 2px;
+}
+/************************************************/
+.lslider::-webkit-slider-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 31px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.35s;
+    /* transition-delay: 0.15s; */
+    margin-top: -1px;
+}
+.lslider::-moz-range-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 30px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.35s;
+    /* transition-delay: 0.25s; */
+}
+.lslider:focus
+{
+    outline: none;
+}
+/************************************************/
+.lslider:hover
+{
+    opacity:1;
+    background:gray;
+
+    /*Setup Large*/
+    margin-top: 45px;
+    background:black;
+}
+.lslider:hover::-webkit-slider-thumb
+{
+    /*Setup Large*/
+    height: 47px;
+    margin-top: 0px;
+    /* width: 5px; */
+}
+.lslider:hover::-moz-range-thumb
+{
+    height: 47px;
+    /* width: 5px; */
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.decision
+{
+    /* position: sticky;
+    top:3000px; */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+.input
+{
+
+    margin-top: -20px;
+    margin-left: 39px;
+    text-align: center;
+    /* height: 100px; */
+    flex-grow:1;
+    /* border: 5px solid black; */
+}
+/************************************************/
+/************************************************/
+.decisiontitle
+{
+    margin-left: -40px;
+}
+/*************************************************/
+/*************************************************/
+/** Slider + bar classes for followers decision **/
+/*************************************************/
+/*leader*/
+.sliderbard
+{
+    display:flex;
+    justify-content: center;
+    margin-left: -40px;
+    /* border: 5px solid black; */
+}
+/************************************************/
+.dbar
+{
+    z-index:0;
+    position: relative;
+}
+/************************************************/
+.dslider
+{
+    z-index: 1;
+    position: absolute;
+    -webkit-appearance: none;
+    appearance: none;
+    background: gray;
+    opacity: 0.3;
+    transition: 0.35s;
+    /* transition-delay: 0.15s; */
+
+    /*Setup Large*/
+    width: 1035px;
+    margin-top: 35px;
+    margin-left:-1px;
+    /* background: black; */
+    height: 2px;
+}
+/************************************************/
+.dslider::-webkit-slider-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 31px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.35s;
+    /* transition-delay: 0.15s; */
+    margin-top: -1px;
+}
+.dslider::-moz-range-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 31px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.35s;
+    /* transition-delay: 0.15s; */
+    margin-top: -1px;
+}
+.dslider:focus
+{
+    outline: none;
+}
+/************************************************/
+.dslider:hover
+{
+    opacity:1;
+    background:gray;
+
+    /*Setup Large*/
+    margin-top: 45px;
+    background:black;
+}
+.dslider:hover::-webkit-slider-thumb
+{
+    height: 55px;
+    margin-top: 0px;
+}
+.dslider:hover::-moz-range-thumb
+{
+    height: 55px;
+    margin-top: 0px;
+}
+.newdSlider::-webkit-slider-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 31px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.35s;
+    /* transition-delay: 0.15s; */
+    margin-top: -1px;
+
+    /*Setup*/
+    margin-top: -22px;
+    height: 24px;
+    width: 3px;
+}
+.newdSlider::-moz-range-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 31px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.35s;
+    /* transition-delay: 0.15s; */
+    margin-top: -1px;
+
+    /*Setup*/
+    margin-top: -22px;
+    height: 24px;
+    width: 3px;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+.dinfo
+{
+    text-align: center;
+    padding-bottom: 10px;
+    flex-grow:1;
+
+}
+/* .outcomes
+{
+    font-weight: 500;
+} */
+.mytable
+{
+    margin-top: -20px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-right: 40px;
+}
+
+.col1
+{
+    /* border: 5px solid black; */
+    display: flex;
+    flex-direction: column;
+}
+.title1
+{
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+    /* padding-right: 10px; */
+    margin-left: -40px;
+}
+.text1
+{
+    margin-top:-10px;
+    text-align: left;
+}
+.col2
+{
+    /* border: 5px solid black; */
+    display: flex;
+    flex-direction: column;
+}
+.title2
+{
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+}
+.text2
+{
+    margin-top:-10px;
+    text-align: left;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+.switchwrap
+{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.switchwrap2
+{
+    padding-top: 70px;
+    margin-right: -60px;
+}
+.switch {
+    transform: rotate(90deg);
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 17px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+
+input:checked + .slider {
+  background-color: black;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px black;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
+}

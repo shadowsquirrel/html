@@ -1332,6 +1332,7 @@ var updateS4EffortBar = function(a,b,c,d, barId, me, showBeliefs, ba, bb, bc) {
         myname: ['f1', 'f2', 'f3', 'f4'],
         type: 'bar',
         sort: false,
+        hoverinfo: 'none',
         // hovertemplate: '<extra>{fullData.myname}</extra>',
         automargin: true,
         showlegend: false,
