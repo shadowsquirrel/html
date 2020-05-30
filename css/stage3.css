@@ -61,12 +61,16 @@
 /************************************************/
 /************************************************/
 .sinfo{
+    transition: 0.35s;
     flex-grow: 1;
     /* justify-content: center; */
     /* border: 5px solid black; */
     /* width:900px; */
     /* background-color: gray; */
     padding-bottom: 30px;
+    opacity:1;
+    height:100%;
+
 }
 /************************************************/
 /************************************************/
@@ -110,6 +114,7 @@
      /* border: 5px solid black; */
      /* position: sticky;
      top: 0px; */
+     margin-top:0px;
 }
 /************************************************/
 /************************************************/
@@ -145,7 +150,7 @@ margin-right: -135px;
 /************************************************/
 .topsection
 {
-
+    transition: 0.35s;
     /* position: sticky;
     top: 200px; */
     display:flex;
@@ -237,7 +242,7 @@ margin-right: -135px;
     display:flex;
     flex-direction: row;
     justify-content: center;
-    transition: 0.5s;
+    transition: 0.35s;
 }
 .boxtext
 {

@@ -1122,13 +1122,41 @@ var setEfficiencyBar = function(efi1, efi2) {
 
 
 
-//BELIEF BUTTON
+//MULTI BUTTON
 var multiButton = document.getElementById('multibutton');
 var bbSwitch = 1;
 multiButton.onclick = function() {
     alternate = bbSwitch ? true : false;
     setEfficiencyBar(efi, oefi);
     bbSwitch = 1 - bbSwitch;
+}
+
+//MULTI BUTTON2
+var multiButton2 = document.getElementById('multibutton2');
+var bbSwitch2 = 0;
+multiButton2.onclick = function() {
+
+
+    var show = bbSwitch2 ? true : false;
+    var o = show ? 1 : 0;
+    var p = show ? '30px' : '0';
+    var h = show ? '100%' : '0';
+
+    var m = show ? '0' : '-50px';
+
+
+    document.getElementById('sinfo').style.position = p;
+    document.getElementById('sinfo').style.opacity = o;
+    document.getElementById('sinfo').style.height = h;
+    document.getElementById('topsection').style.position = p;
+    document.getElementById('topsection').style.opacity = o;
+    document.getElementById('topsection').style.height = h;
+    document.getElementById('belieflegend').style.position = p;
+    document.getElementById('belieflegend').style.opacity = o;
+    document.getElementById('belieflegend').style.height = h;
+
+    document.getElementById('calculator').style.marginTop = m
+    bbSwitch2 = 1 - bbSwitch2;
 }
 //VARIABLES AND GRAPHICS INITIATIONS
 
