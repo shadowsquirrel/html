@@ -567,6 +567,270 @@ var setEfficiencyBar = function() {
 
 
 
+////////////////////////////////////
+
+var setHelpBar = function(a, b, c, d, barId, ourGroup, me) {
+
+    var x = a;
+    var y = b;
+    var z = c;
+    var w = d;
+
+    var myOpacity = 1;//[1, 1, 1, 1];
+    var myText = [a, b, c, d];
+
+    var lightblue = 'rgb(200,200,255)';
+    var blue = 'rgb(140, 140, 255)';
+    var ourColor = ourGroup ? blue : lightblue;
+
+    var colorArray = ['', '', '', ''];
+    var colorWidth = [0, 0, 0, 0];
+    if (me!==-1) {
+        colorArray[me] = 'lightgreen';
+        colorWidth[me] = 2;
+    }
+
+
+    var actual =  {
+        y: [x, y, z, w],
+        x: [1, 2, 3, 4],
+        type: 'bar',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker:{
+            color: ourColor,
+            line: {
+                color: colorArray,
+                width: colorWidth,
+            }
+        },
+        text: myText,
+        textposition: 'outside',
+        textfont: {
+            size: '14',
+            color: colorArray,
+        },
+        cliponaxis: false,
+        opacity: myOpacity,
+    }
+
+
+    var layout = {
+        barmode: 'overlay',
+        height: 120,
+        width: 100,
+        margin: {"t": 20, "b": 0, "l": 0, "r": 0},
+        yaxis: {
+            fixedrange: true,
+            autorange: false,
+            range: [0,100]
+        },
+        xaxis: {
+            fixedrange: true,
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+        },
+        bargap: 0.2,
+        bargroupgap:0,
+    };
+
+    var data = [actual];
+
+
+    Plotly.react(barId, data, layout, {displayModeBar: false});
+}
+
+var setTotalHelpBar = function(a, b, barId) {
+
+    var x = a;
+    var y = b;
+    var myOpacity = 1;
+    var myText = [x, y];
+
+
+    var lightblue = 'rgb(200,200,255)';
+    var blue = 'rgb(140, 140, 255)';
+
+    var actual = {
+        y: [x, y],
+        x:[1,2],
+        type: 'bar',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker:{
+            color: [blue, lightblue],
+        },
+        text: myText,
+        textposition: 'outside',
+        textfont: {
+            size: '14'
+        },
+        cliponaxis: false,
+        opacity: myOpacity,
+    };
+
+    var layout = {
+        barmode: 'overlay',
+        height: 120,
+        width: 120,
+        margin: {"t": 20, "b": 0, "l": 0, "r": 0},
+        yaxis: {
+            fixedrange: true,
+            autorange: false,
+            range: [0,400]
+        },
+        xaxis: {
+            fixedrange: true,
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+        },
+        bargap: 0.3,
+        // bargroupgap: 0
+    };
+
+    var data = [actual];
+
+    Plotly.react(barId, data, layout, {displayModeBar: false});
+}
+
+var setSaboBar = function(a, b, c, d, barId, ourGroup, me) {
+
+    var x = -a;
+    var y = -b;
+    var z = -c;
+    var w = -d;
+
+    var myOpacity = 1;//[1, 1, 1, 1];
+    var myText = [a, b, c, d];
+
+    var lightred = 'rgb(255,200,200)';
+    var red = 'rgb(255 140, 140)';
+    var ourColor = ourGroup ? red : lightred;
+
+    var colorArray = ['', '', '', ''];
+    var colorWidth = [0, 0, 0, 0];
+    if (me!==-1) {
+        colorArray[me] = 'lightgreen';
+        colorWidth[me] = 2;
+    }
+
+
+    var actual = {
+        y: [x, y, z, w],
+        x: [1, 2, 3, 4],
+        type: 'bar',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker:{
+            color: ourColor,
+            line: {
+                color: colorArray,
+                width: colorWidth,
+            }
+        },
+        text: myText,
+        textfont: {
+            size: '14',
+            color: colorArray,
+        },
+        textposition: 'outside',
+        cliponaxis: false,
+        opacity: myOpacity,
+    };
+
+
+    var layout = {
+        barmode: 'overlay',
+        height: 120,
+        width: 100,
+        margin: {"t": 0, "b": 20, "l": 0, "r": 0},
+        yaxis: {
+            fixedrange: true,
+            autorange: false,
+            range: [-100,0]
+        },
+        xaxis: {
+            fixedrange: true,
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+        },
+        bargap: 0.2,
+        // bargroupgap:0,
+    };
+
+    var data = [actual];
+
+    Plotly.react(barId, data, layout, {displayModeBar: false});
+}
+
+var setTotalSaboBar = function(a, b, barId) {
+
+    var x = -a;
+    var y = -b;
+    var myOpacity = 1;
+    var myText = [a, b];
+
+
+    var lightred = 'rgb(255,200,200)';
+    var red = 'rgb(255, 140, 140)';
+
+    var actual = {
+        y: [x, y],
+        x: [1, 2],
+        type: 'bar',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker:{
+            color: [red, lightred],
+        },
+        text: myText,
+        textfont: {
+            size: '14',
+        },
+        textposition: 'outside',
+        cliponaxis: false,
+        opacity: myOpacity,
+    };
+
+    var layout = {
+        barmode: 'overlay',
+        height: 120,
+        width: 120,
+        margin: {"t": 0, "b": 20, "l": 0, "r": 0},
+        yaxis: {
+            fixedrange: true,
+            autorange: false,
+            range: [-400,0]
+        },
+        xaxis: {
+            fixedrange: true,
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+        },
+        bargap: 0.3,
+        // bargroupgap: 0
+    };
+
+    var data = [actual];
+
+    Plotly.react(barId, data, layout, {displayModeBar: false});
+}
 
 
 
@@ -892,12 +1156,25 @@ var updateEffortBar = function(a, b, c, d) {
 
 
 
-var alternate = false;
-//BELIEF BUTTON
+
+//Top BUTTON
 var multiButton = document.getElementById('multibutton');
 var bbSwitch = 1;
 multiButton.onclick = function() {
-    alternate = bbSwitch ? true : false;
+    var show = bbSwitch ? true : false;
+    var o = show ? 1 : 0;
+    var p = show ? 'static' : 'absolute';
+    var h = show ? '100%' : '0';
+    var m = show ? '50px' : '-20px';
+
+
+    // document.getElementById('hidewrap').style.position = p;
+    document.getElementById('hidewrap').style.opacity = o;
+    document.getElementById('hidewrap').style.maxHeight = h;
+    // document.getElementById('hidewrap2').style.position = p;
+    document.getElementById('hidewrap2').style.opacity = o;
+    document.getElementById('hidewrap2').style.maxHeight = h;
+    document.getElementById('sinfotitle').style.marginBottom = m
     bbSwitch = 1 - bbSwitch;
 }
 //VARIABLES AND GRAPHICS INITIATIONS
@@ -945,6 +1222,18 @@ var updateBarXAxis = function(barId, axisSwitch) {
 }
 
 var initialize = function() {
+    setHelpBar(info.h1, info.h2, info.h3, info.h4, 'helpbarg1', true, info.me);
+    setSaboBar(info.s1, info.s2, info.s3, info.s4, 'sabobarg1', true, info.me);
+
+    setTotalHelpBar(info.th(), info.oth(), 'helpbartotal');
+    setTotalSaboBar(info.ts(), info.ots(), 'sabobartotal');
+
+    // for opposing group me variable gets -1 to signal that there is no me
+    setHelpBar(info.oh1, info.oh2, info.oh3, info.oh4, 'helpbarg2', false, -1);
+    setSaboBar(info.os1, info.os2, info.os3, info.os4,'sabobarg2', false, -1);
+
+
+
     setFollowerText(info.me);
     setEfficiencyBar();
     setStrengthBar(1, 1);
