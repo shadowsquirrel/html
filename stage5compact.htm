@@ -3,7 +3,7 @@
 <head>
 
 
-    <link rel="stylesheet" href="css/template2_3_2.css">
+    <link rel="stylesheet" href="css/stage5compact.css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -15,6 +15,7 @@
 <body>
     <div class='upperbar'>
         <button class=multibutton id=multibutton>Decision Mode</button>
+        <button class=multibutton id=multibutton2>Go to <span id='buttonname'></span></button>
     </div>
     <div class = 'wrap'>
 
@@ -129,12 +130,16 @@
                         </div>
                     </div>
 
+
+
                     <div class = 'leadergraphics'>
                         <div class = 'piewrap'>
                             <h6>Probability to Win</h6>
                             <div class = 'pie' id = 'pie'></div>
                         </div>
                     </div>
+
+
 
                     <div class = 'leadergroupright'>
                         <!-- <h5>OPPOSING GROUP</h5>
@@ -164,8 +169,19 @@
                 <div class = 'bottomsection'>
 
                     <div class = 'followergroupleft'>
-                        <h6 class = 'left_title ftitle'>Followers</h6>
-                        <!-- <h7 class = 'you'> You </h7> -->
+                        <div class='titlewrap'>
+                            <h6 class = 'left_title ftitle'>Followers</h6>
+                            <div class='switchwrap'>
+                                <div class='switchwrap2'>
+                                    <label class="switch">
+                                      <input type="checkbox" id='mycheck' checked>
+                                      <span class="checkslider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+
                         <div class = 'slidebargroup left'>
                             <div class = 'sliderbar'>
                                 <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'vSlider1' />
@@ -186,6 +202,8 @@
                         </div>
                     </div>
 
+
+
                     <div class = 'followergraphics'>
 
                         <div class = 'graphics'>
@@ -200,8 +218,22 @@
                         </div>
                     </div>
 
+
+
                     <div class = 'followergroupright'>
-                        <h6 class = 'right_title ftitle'>Followers</h6>
+                        <div class='titlewrap'>
+                            <h6 class = 'right_title ftitle'>Followers</h6>
+                            <div class='switchwrap'>
+                                <div class='switchwrap2'>
+                                    <label class="switch">
+                                      <input type="checkbox" id='mycheck2' checked>
+                                      <span class="checkslider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+
                         <div class = 'slidebargroup right'>
                             <div class = 'sliderbar'>
                                 <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider1' />
@@ -252,6 +284,9 @@
 
 
 
+
+
+
         </div>
 
     </div>
@@ -262,7 +297,7 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="js/template2_3_2.js"></script>
+<script src="js/stage5compact.js"></script>
 
 </body>
 </html>

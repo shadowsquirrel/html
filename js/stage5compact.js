@@ -775,8 +775,8 @@ var updateBarHelp = function(a,b) {
 
     var layout = {
         barmode: 'group',
-        height: 160, //110,
-        width: 190, //150,
+        height: 110,
+        width: 150,
         // title: 'Total Help',
         margin: {"t": 20, "b": 0, "l": 0, "r": 0},
         yaxis: {
@@ -824,8 +824,8 @@ var updateBarSabo = function(a, b) {
 
     var layout = {
         barmode: 'group',
-        height: 160,//110,
-        width: 190,//150,
+        height: 110,
+        width: 150,
         // title: 'Total Sabotage',
         margin: {"t": 0, "b": 20, "l": 0, "r": 0},
         yaxis: {
@@ -892,10 +892,10 @@ var updateBar = function(a, barId, lighter, axisOn) {
     var layout = {
         barmode: 'group',
         // Setup Compact
-        // height: 300,
+        height: 300,
 
         // Setup Large
-        height: 400,
+        // height: 400,
 
         // Setup Super Large
         // height: 550,
@@ -914,8 +914,8 @@ var updateBar = function(a, barId, lighter, axisOn) {
                 size: 9,
             },
             tickmode: 'array',
-            tickvals: [-100, -75, -50, -40, -30, -20, -15, -10, -5, 0, 5,10, 15, 20, 30, 40, 50, 75, 100],
-            ticktext: [100, 75, 50, 40, 30, 20, 15, 10, 5, 0, 5, 10, 15, 20, 30, 40, 50, 75, 100],
+            tickvals: [-100, -75, -50, -40, -30, -20, -10, 0, 10,  20, 30, 40, 50, 75, 100],
+            ticktext: [100, 75, 50, 40, 30, 20, 10, 0, 10, 20, 30, 40, 50, 75, 100],
             showline: false,
             showgrid: axisOn,
             showticklabels: axisOn,
@@ -1284,7 +1284,7 @@ var updateEfficiencyBar = function(efi1, efi2) {
     val1 = logistic2(val1, 5);
     val2 = 1 - val1;
 
-    var gapSize = 0.1;
+    var gapSize = 0.01;
     val1 = val1 - gapSize/2;
     val2 = val2 - gapSize/2;
 
@@ -1378,13 +1378,16 @@ var updateEfficiencyBar = function(efi1, efi2) {
             showgrid: false,
             showticklabels: false,
         },
+        yaxis: {
+            fixedrange: true,
+        }
 
     };
 
     Plotly.react('efficiencyBar', data, layout, {displayModeBar: false});
 }
 
-//BUTTON
+//BUTTON1
 var multiButton = document.getElementById('multibutton');
 var bbSwitch = 0;
 multiButton.onclick = function() {
@@ -1412,6 +1415,28 @@ multiButton.onclick = function() {
     bbSwitch = 1 - bbSwitch;
 }
 
+var bName = document.getElementById('buttonname');
+bName.innerHTML = 'Decision Section';
+//
+
+//BUTTON1
+var multiButton2 = document.getElementById('multibutton2');
+var bbSwitch2 = 0;
+multiButton2.onclick = function() {
+    var bName = document.getElementById('buttonname')
+
+    if(bbSwitch2===0) {
+        bName.innerHTML = 'Info Section';
+        $('html, body').animate({scrollTop: $(document).height()}, 1000);
+    }
+
+    if(bbSwitch2===1) {
+        bName.innerHTML = 'Decision Section';
+        $('html, body').animate({scrollTop: 0}, 500);
+    }
+
+    bbSwitch2 = 1 - bbSwitch2;
+}
 
 
 //VARIABLES AND GRAPHICS INITIATIONS
@@ -1430,12 +1455,16 @@ var efo, efi, efefo, oefo, oefi, oefefo, pwin;
 efo = oefo = 1;
 efi = oefi = 1;
 
-var syncValues = function(hValue, sValue, group){
-    if(group === 'opponent') {
+var syncOurGroup = document.getElementById('mycheck').checked;
+var syncOtherGroup  = document.getElementById('mycheck2').checked;
+
+
+var syncValues = function(hValue, sValue, group, isSync, isSync2){
+    if(group === 'opponent' && isSync2) {
         oh1 = oh2 = oh3 = oh4 = hValue;
         os1 = os2 = os3 = os4 = sValue;
     }
-    if(group === 'our') {
+    if(group === 'our' && isSync) {
         // notice s1 and h1 are independent!
         h2 = h3 = h4 = hValue;
         s2 = s3 = s4 = sValue;
@@ -1447,14 +1476,15 @@ var syncValues = function(hValue, sValue, group){
 
 }
 
-var syncBars = function(value, group) {
-    if(group === 'opponent') {
+
+var syncBars = function(value, group, isSync, isSync2) {
+    if(group === 'opponent' && isSync2) {
         updateBar(value, 'obar1', 1, false);
         updateBar(value, 'obar2', 1, false);
         updateBar(value, 'obar3', 1, false);
         updateBar(value, 'obar4', 1, false);
     }
-    if(group === 'our') {
+    if(group === 'our' && isSync) {
         updateBar(value, 'bar2', 0, false);
         updateBar(value, 'bar3', 0, false);
         updateBar(value, 'bar4', 0, false);
@@ -1474,7 +1504,6 @@ var updateBarYAxis = function(barId, axisSwitch) {
     Plotly.relayout(barId, update);
 }
 
-
 var updateBarXAxis = function(barId, axisSwitch) {
     var update = {
         'xaxis.showgrid': axisSwitch,
@@ -1482,7 +1511,6 @@ var updateBarXAxis = function(barId, axisSwitch) {
     };
     Plotly.relayout(barId, update);
 }
-
 
 var updateTotal = function() {
     ts = s1 + s2 + s3 + s4;
@@ -1499,20 +1527,17 @@ var updatePwin = function() {
     pwin = ((efo + oefo) === 0) ? 0.5 : (efefo / (efefo + oefefo));
 }
 
-
 var updateAll = function() {
     updateTotal();
     updateBarHelp(th, oth);
     updateBarSabo(ts, ots);
     updatePwin();
     updatePie(pwin);
-    // updateBarLeader(efo, 'barl', 1, false);
-    // updateBarLeader(oefo, 'obarl', 0, false);
+
     updateEfficiencyBar(efi, oefi);
     updateStrengthBar(efi, oefi);
     updateStrengthText(efi, oefi);
-    // updateBarColor('obarl', 0);
-    // updateBarColor('barl', 1);
+
 }
 
 updateAll();
@@ -1570,10 +1595,13 @@ dslider.oninput = function() {
     dvalue = parseFloat(dslider.value);
     s1 = dvalue >= 0 ? 0 : -dvalue;
     h1 = dvalue >= 0 ? dvalue : 0;
-    syncBars(dvalue, 'decision');
-    updateBarXAxis('bard', true);
-    syncValues(h1, s1, 'decision');
+
+    //synching values
+    syncBars(dvalue, 'decision', syncOurGroup, syncOtherGroup);
+    syncValues(h1, s1, 'decision', syncOurGroup, syncOtherGroup);
+
     updateAll();
+    updateBarXAxis('bard', true);
 
     payoffDisplay.innerHTML = (h1 + s1) + ((h1 + s2 !== 0) ? ' tokens' : ' tokens');
     //synching sliders
@@ -1581,12 +1609,10 @@ dslider.oninput = function() {
     $('#vSlider1').change();
 }
 
-
 // YOUR GROUP
-
 //Leader
 lslider1.oninput = function() {
-    lvalue = parseFloat(lslider1.value);
+    // lvalue = parseFloat(lslider1.value);
     efo = lvalue;
     updateBarLeader(lvalue, 'barl', 1, true);
     updateAll();
@@ -1598,49 +1624,81 @@ slider1.oninput = function() {
     value1 = parseFloat(slider1.value);
     s1 = value1 >= 0 ? 0 : -value1;
     h1 = value1 >= 0 ? value1 : 0;
-    syncBars(value1, 'decision');
-    updateBarYAxis('bar1', true);
-    syncValues(h1, s1, 'decision');
+
+    //synching values
+    syncBars(value1, 'decision', syncOurGroup, syncOtherGroup);
+    syncValues(h1, s1, 'decision', syncOurGroup, syncOtherGroup);
+
     updateAll();
+    updateBarYAxis('bar1', true);
     payoffDisplay.innerHTML = (h1 + s1);
+
     //synching sliders
     $('#dSlider').prop('value', value1);
     $('#dSlider').change();
 }
+
+// Other Followers in your Group
 slider2.oninput = function() {
+    syncOurGroup = document.getElementById('mycheck').checked;
     value2 = parseFloat(slider2.value);
     s2 = value2 >= 0 ? 0 : -value2;
     h2 = value2 >= 0 ? value2 : 0;
-    syncBars(value2, 'our');
-    updateBarYAxis('bar2', true);
-    syncValues(h2, s2, 'our');
+    updateBar(value2, 'bar2', 0, false);
+
+    //synching values
+    syncBars(value2, 'our', syncOurGroup, syncOtherGroup);
+    syncValues(h2, s2, 'our', syncOurGroup, syncOtherGroup);
+
     updateAll();
+    updateBarYAxis('bar2', true);
+
     //synching sliders
-    $('#vSlider3, #vSlider4').prop('value', value2);
-    $('#vSlider3, #vSlider4').change();
+    if(syncOurGroup) {
+        $('#vSlider3, #vSlider4').prop('value', value2);
+        $('#vSlider3, #vSlider4').change();
+    }
+
 }
 slider3.oninput = function() {
+    syncOurGroup = document.getElementById('mycheck').checked;
     value3 = parseFloat(slider3.value);
     s3 = value3 >= 0 ? 0 : -value3;
     h3 = value3 >= 0 ? value3 : 0;
-    syncBars(value3, 'our');
-    updateBarYAxis('bar3', true);
-    syncValues(h3, s3, 'our');
+    updateBar(value3, 'bar3', 0, false);
+
+    //synching values
+    syncBars(value3, 'our', syncOurGroup, syncOtherGroup);
+    syncValues(h3, s3, 'our', syncOurGroup, syncOtherGroup);
+
     updateAll();
+    updateBarYAxis('bar3', true);
+
     //synching sliders
-    $('#vSlider2, #vSlider4').prop('value', value3);
-    $('#vSlider2, #vSlider4').change();
+    if(syncOurGroup) {
+        $('#vSlider2, #vSlider4').prop('value', value3);
+        $('#vSlider2, #vSlider4').change();
+    }
 }
 slider4.oninput = function() {
+    syncOurGroup = document.getElementById('mycheck').checked;
     value4 = parseFloat(slider4.value);
     s4 = value4 >= 0 ? 0 : -value4;
     h4 = value4 >= 0 ? value4 : 0;
-    syncBars(value4, 'our');
-    updateBarYAxis('bar4', true);
-    syncValues(h4, s4, 'our');
+    updateBar(value4, 'bar4', 0, false);
+
+    //synching values
+    syncBars(value4, 'our', syncOurGroup, syncOtherGroup);
+    syncValues(h4, s4, 'our', syncOurGroup, syncOtherGroup);
+
     updateAll();
-    $('#vSlider2, #vSlider3').prop('value', value4);
-    $('#vSlider2, #vSlider3').change();
+    updateBarYAxis('bar4', true);
+
+    //synching sliders
+    if(syncOurGroup) {
+        $('#vSlider2, #vSlider3').prop('value', value4);
+        $('#vSlider2, #vSlider3').change();
+    }
 }
 
 // OPPOSING GROUP
@@ -1655,341 +1713,345 @@ olslider1.oninput = function() {
 
 //Followers
 oslider1.oninput = function() {
+    syncOtherGroup = document.getElementById('mycheck2').checked;
     ovalue1 = parseFloat(oslider1.value);
     os1 = ovalue1 >= 0 ? 0 : -ovalue1;
     oh1 = ovalue1 >= 0 ? ovalue1 : 0;
-    syncBars(ovalue1, 'opponent');
-    updateBarYAxis('obar1', true);
-    syncValues(oh1, os1, 'opponent');
+    updateBar(ovalue1, 'obar1', 1, false);
+
+    //synching values
+    syncBars(ovalue1, 'opponent', syncOurGroup, syncOtherGroup);
+    syncValues(oh1, os1, 'opponent', syncOurGroup, syncOtherGroup);
+
     updateAll();
+    updateBarYAxis('obar1', true);
+
     //synching sliders
-    $('#ovSlider2, #ovSlider3, #ovSlider4').prop('value', ovalue1);
-    $('#ovSlider2, #ovSlider3, #ovSlider4').change();
+    if(syncOtherGroup) {
+        $('#ovSlider2, #ovSlider3, #ovSlider4').prop('value', ovalue1);
+        $('#ovSlider2, #ovSlider3, #ovSlider4').change();
+    }
 }
 oslider2.oninput = function() {
+    syncOtherGroup = document.getElementById('mycheck2').checked;
     ovalue2 = parseFloat(oslider2.value);
     os2 = ovalue2 >= 0 ? 0 : -ovalue2;
     oh2 = ovalue2 >= 0 ? ovalue2 : 0;
-    syncBars(ovalue2, 'opponent');
-    updateBarYAxis('obar2', true);
-    syncValues(oh2, os2, 'opponent');
+    updateBar(ovalue2, 'obar2', 1, false);
+
+    //synching values
+    syncBars(ovalue2, 'opponent', syncOurGroup, syncOtherGroup);
+    syncValues(oh2, os2, 'opponent', syncOurGroup, syncOtherGroup);
+
     updateAll();
+    updateBarYAxis('obar2', true);
+
     //synching sliders
-    $('#ovSlider1, #ovSlider3, #ovSlider4').prop('value', ovalue2);
-    $('#ovSlider1, #ovSlider3, #ovSlider4').change();
+    if(syncOtherGroup) {
+        $('#ovSlider1, #ovSlider3, #ovSlider4').prop('value', ovalue2);
+        $('#ovSlider1, #ovSlider3, #ovSlider4').change();
+    }
 }
 oslider3.oninput = function() {
+    syncOtherGroup = document.getElementById('mycheck2').checked;
     ovalue3 = parseFloat(oslider3.value);
     os3 = ovalue3 >= 0 ? 0 : -ovalue3;
     oh3 = ovalue3 >= 0 ? ovalue3 : 0;
-    syncBars(ovalue3, 'opponent');
-    updateBarYAxis('obar3', true);
-    syncValues(oh3, os3, 'opponent');
+    updateBar(ovalue3, 'obar3', 1, false);
+
+    //synching values
+    syncBars(ovalue3, 'opponent', syncOurGroup, syncOtherGroup);
+    syncValues(oh3, os3, 'opponent', syncOurGroup, syncOtherGroup);
+
     updateAll();
+    updateBarYAxis('obar3', true);
+
     //synching sliders
-    $('#ovSlider1, #ovSlider2, #ovSlider4').prop('value', ovalue3);
-    $('#ovSlider1, #ovSlider2, #ovSlider4').change();
+    if(syncOtherGroup) {
+        $('#ovSlider1, #ovSlider2, #ovSlider4').prop('value', ovalue3);
+        $('#ovSlider1, #ovSlider2, #ovSlider4').change();
+    }
 }
 oslider4.oninput = function() {
+    syncOtherGroup = document.getElementById('mycheck2').checked;
     ovalue4 = parseFloat(oslider4.value);
     os4 = ovalue4 >= 0 ? 0 : -ovalue4;
     oh4 = ovalue4 >= 0 ? ovalue4 : 0;
-    syncBars(ovalue4, 'opponent');
-    updateBarYAxis('obar4', true);
-    syncValues(oh4, os4, 'opponent');
+    updateBar(ovalue4, 'obar4', 1, false);
+
+    //synching values
+    syncBars(ovalue4, 'opponent', syncOurGroup, syncOtherGroup);
+    syncValues(oh4, os4, 'opponent', syncOurGroup, syncOtherGroup);
+
     updateAll();
+    updateBarYAxis('obar4', true);
+
     //synching sliders
-    $('#ovSlider1, #ovSlider2, #ovSlider3').prop('value', ovalue4);
-    $('#ovSlider1, #ovSlider2, #ovSlider3').change();
+    if(syncOtherGroup) {
+        $('#ovSlider1, #ovSlider2, #ovSlider3').prop('value', ovalue4);
+        $('#ovSlider1, #ovSlider2, #ovSlider3').change();
+    }
 }
 
 
 // HOVER AND FOCUSOUT EFFECT FOR XAXIS SHOWING UP
 $('#dSlider').hover(
     function() {
-        lvalue = parseFloat(lslider1.value);
         setTimeout("updateBarXAxis('bard', true)", 250);
     },
     function() {
-        lvalue = parseFloat(lslider1.value);
         setTimeout("updateBarXAxis('bard', false)", 1000);
     }
 );
 
 $('#lSlider1').hover(
     function() {
-        lvalue = parseFloat(lslider1.value);
         setTimeout("updateBarXAxis('barl', true)", 250);
     },
     function() {
-        lvalue = parseFloat(lslider1.value);
         setTimeout("updateBarXAxis('barl', false)", 500);
     }
 );
+
 $('#olSlider1').hover(
     function() {
-        olvalue = parseFloat(olslider1.value);
         setTimeout("updateBarXAxis('obarl', true)", 250);
     },
     function() {
-        olvalue = parseFloat(olslider1.value);
         setTimeout("updateBarXAxis('obarl', false)", 500);
     }
 );
 
-
 $('#vSlider1').hover(
     function() {
-        value1 = parseFloat(slider1.value);
         setTimeout("updateBarYAxis('bar1', true)", 250);
     },
     function() {
-        value1 = parseFloat(slider1.value);
         setTimeout("updateBarYAxis('bar1', false)", 500);
     }
 );
 
-
-
 $('#vSlider2').hover(
     function() {
-        value2 = parseFloat(slider2.value);
+        syncOurGroup = document.getElementById('mycheck').checked;
+        var myString;
+        if(syncOurGroup) {
+            myString = '#vSlider2, #vSlider3, #vSlider4';
+        } else { myString = '#vSlider2';}
+
         setTimeout("updateBarYAxis('bar2', true)", 250);
-        $('#vSlider2, #vSlider3, #vSlider4')
 
-        // Setup Compact
-        // .css({'background':'red', 'opacity':'1', 'margin-left': '-50px'});
+        $(myString)
+        .css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
+        if(syncOurGroup) {
+            $('#vSlider3, #vSlider4').addClass('newnewSlider');
+        }
 
-        // Setup Large
-        .css({'background':'black', 'opacity':'1', 'margin-left': '-125px'});
-
-        // Setup Super Large
-        // .css({'background':'red', 'opacity':'1', 'margin-left': '-202px'});
-
-        $('#vSlider3, #vSlider4').addClass('newnewSlider');
     },
     function() {
-        value2 = parseFloat(slider2.value);
+        syncOurGroup = document.getElementById('mycheck').checked;
+        var myString;
+        if(syncOurGroup) {
+            myString = '#vSlider2, #vSlider3, #vSlider4';
+        } else { myString = '#vSlider2';}
+
         setTimeout("updateBarYAxis('bar2', false)", 500);
+        $(myString)
+        .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-90px'});
+        if(syncOurGroup) {
+            $('#vSlider3, #vSlider4').removeClass('newnewSlider');
+        }
 
-        $('#vSlider2, #vSlider3, #vSlider4')
-
-        // Setup Compact
-        // .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-60px'});
-
-        // Setup Large
-        .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-138px'});
-
-        // Setup Super Large
-        // .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-215px'});
-
-        $('#vSlider3, #vSlider4').removeClass('newnewSlider');
     }
 );
 $('#vSlider3').hover(
     function() {
-        value3 = parseFloat(slider3.value);
+        syncOurGroup = document.getElementById('mycheck').checked;
+        var myString;
+        if(syncOurGroup) {
+            myString = '#vSlider2, #vSlider3, #vSlider4';
+        } else { myString = '#vSlider3';}
+
         setTimeout("updateBarYAxis('bar3', true)", 250);
-        $('#vSlider2, #vSlider3, #vSlider4')
+        $(myString)
+        .css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
+        if(syncOurGroup) {
+            $('#vSlider2, #vSlider4').addClass('newnewSlider');
+        }
 
-        // Setup Compact
-        // .css({'background':'red', 'opacity':'1', 'margin-left': '-50px'});
-
-        // Setup Large
-        .css({'background':'black', 'opacity':'1', 'margin-left': '-125px'});
-
-        // Setup Super Large
-        // .css({'background':'red', 'opacity':'1', 'margin-left': '-202px'});
-
-        $('#vSlider2, #vSlider3, #vSlider4').addClass('newnewSlider');
     },
     function() {
-        value3 = parseFloat(slider3.value);
+        syncOurGroup = document.getElementById('mycheck').checked;
+        var myString;
+        if(syncOurGroup) {
+            myString = '#vSlider2, #vSlider3, #vSlider4';
+        } else { myString = '#vSlider3';}
+
         setTimeout("updateBarYAxis('bar3', false)", 500);
+        $(myString)
+        .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-90px'});
+        if(syncOurGroup) {
+            $('#vSlider2, #vSlider4').removeClass('newnewSlider');
+        }
 
-        $('#vSlider2, #vSlider3, #vSlider4')
-
-        // Setup Compact
-        // .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-60px'});
-
-        // Setup Large
-        .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-138px'});
-
-        // Setup Super Large
-        // .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-215px'});
-
-        $('#vSlider2, #vSlider3, #vSlider4').removeClass('newnewSlider');
     }
 );
 $('#vSlider4').hover(
     function() {
-        value4 = parseFloat(slider4.value);
+        syncOurGroup = document.getElementById('mycheck').checked;
+        var myString;
+        if(syncOurGroup) {
+            myString = '#vSlider2, #vSlider3, #vSlider4';
+        } else { myString = '#vSlider4';}
+
         setTimeout("updateBarYAxis('bar4', true)", 250);
-        $('#vSlider2, #vSlider3, #vSlider4')
+        $(myString)
+        .css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
+        if(syncOurGroup) {
+            $('#vSlider2, #vSlider3').addClass('newnewSlider');
+        }
 
-        // Setup Compact
-        // .css({'background':'red', 'opacity':'1', 'margin-left': '-50px'});
-
-        // Setup Large
-        .css({'background':'black', 'opacity':'1', 'margin-left': '-125px'});
-
-        // Setup Super Large
-        // .css({'background':'red', 'opacity':'1', 'margin-left': '-202px'});
-
-        $('#vSlider2, #vSlider3, #vSlider4').addClass('newnewSlider');
     },
     function() {
-        value4 = parseFloat(slider4.value);
+        syncOurGroup = document.getElementById('mycheck').checked;
+        var myString;
+        if(syncOurGroup) {
+            myString = '#vSlider2, #vSlider3, #vSlider4';
+        } else { myString = '#vSlider4';}
+
         setTimeout("updateBarYAxis('bar4', false)", 500);
-        $('#vSlider2, #vSlider3, #vSlider4')
+        $(myString)
+        .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-90px'});
+        if(syncOurGroup) {
+            $('#vSlider2, #vSlider3').removeClass('newnewSlider');
+        }
 
-        // Setup Compact
-        // .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-60px'});
-
-        // Setup Large
-        .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-138px'});
-
-        // Setup Super Large
-        // .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-215px'});
-
-        $('#vSlider2, #vSlider3, #vSlider4').removeClass('newnewSlider');
     }
 );
 
 
 $('#ovSlider1').hover(
     function() {
-        ovalue1 = parseFloat(oslider1.value);
+        syncOtherGroup = document.getElementById('mycheck2').checked;
+        var myString;
+        if(syncOtherGroup) {
+            myString = '#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4';
+        } else { myString = '#ovSlider1';}
+
         setTimeout("updateBarYAxis('obar1', true)", 250);
-        $('#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4')
+        $(myString)
+        .css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
 
-        // Setup Compact
-        // .css({'background':'red', 'opacity':'1', 'margin-left': '-50px'});
-
-        // Setup Large
-        .css({'background':'black', 'opacity':'1', 'margin-left': '-125px'});
-
-        // Setup Super Large
-        // .css({'background':'red', 'opacity':'1', 'margin-left': '-202px'});
-
-        $('#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4').addClass('newnewSlider');
+        if(syncOtherGroup) {
+            $(myString).addClass('newnewSlider');
+        }
     },
     function() {
-        ovalue1 = parseFloat(oslider1.value);
+        syncOtherGroup = document.getElementById('mycheck2').checked;
+        var myString;
+        if(syncOtherGroup) {
+            myString = '#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4';
+        } else { myString = '#ovSlider1';}
+
         setTimeout("updateBarYAxis('obar1', false)", 500);
-        $('#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4')
-
-        // Setup Compact
-        // .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-60px'});
-
-        // Setup Large
-        .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-138px'});
-
-        // Setup Super Large
-        // .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-215px'});
-
-        $('#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4').removeClass('newnewSlider');
+        $(myString)
+        .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-90px'});
+        if(syncOtherGroup) {
+            $(myString).removeClass('newnewSlider');
+        }
     }
 );
 $('#ovSlider2').hover(
     function() {
-        ovalue2 = parseFloat(oslider2.value);
+        syncOtherGroup = document.getElementById('mycheck2').checked;
+        var myString;
+        if(syncOtherGroup) {
+            myString = '#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4';
+        } else { myString = '#ovSlider2';}
+
         setTimeout("updateBarYAxis('obar2', true)", 250);
-        $('#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4')
-
-        // Setup Compact
-        // .css({'background':'red', 'opacity':'1', 'margin-left': '-50px'});
-
-        // Setup Large
-        .css({'background':'black', 'opacity':'1', 'margin-left': '-125px'});
-
-        // Setup Super Large
-        // .css({'background':'red', 'opacity':'1', 'margin-left': '-202px'});
-
-        $('#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4').addClass('newnewSlider');
+        $(myString)
+        .css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
+        if(syncOtherGroup) {
+            $(myString).addClass('newnewSlider');
+        }
     },
     function() {
-        ovalue2 = parseFloat(oslider2.value);
+        syncOtherGroup = document.getElementById('mycheck2').checked;
+        var myString;
+        if(syncOtherGroup) {
+            myString = '#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4';
+        } else { myString = '#ovSlider2';}
+
         setTimeout("updateBarYAxis('obar2', false)", 500);
-        $('#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4')
-
-        // Setup Compact
-        // .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-60px'});
-
-        // Setup Large
-        .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-138px'});
-
-        // Setup Super Large
-        // .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-215px'});
-
-        $('#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4').removeClass('newnewSlider');
+        $(myString)
+        .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-90px'});
+        if(syncOtherGroup) {
+            $(myString).removeClass('newnewSlider');
+        }
     }
 );
 $('#ovSlider3').hover(
     function() {
-        ovalue3 = parseFloat(oslider3.value);
+        syncOtherGroup = document.getElementById('mycheck2').checked;
+        var myString;
+        if(syncOtherGroup) {
+            myString = '#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4';
+        } else { myString = '#ovSlider3';}
+
         setTimeout("updateBarYAxis('obar3', true)", 250);
-        $('#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4')
-
-        // Setup Compact
-        // .css({'background':'red', 'opacity':'1', 'margin-left': '-50px'});
-
-        // Setup Large
-        .css({'background':'black', 'opacity':'1', 'margin-left': '-125px'});
-
-        // Setup Super Large
-        // .css({'background':'red', 'opacity':'1', 'margin-left': '-202px'});
-
-        $('#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4').addClass('newnewSlider');
+        $(myString)
+        .css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
+        if(syncOtherGroup) {
+            $(myString).addClass('newnewSlider');
+        }
     },
     function() {
-        ovalue3 = parseFloat(oslider3.value);
+        var myString;
+        if(syncOtherGroup) {
+            myString = '#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4';
+        } else { myString = '#ovSlider3';}
+
         setTimeout("updateBarYAxis('obar3', false)", 500);
-        $('#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4')
-
-        // Setup Compact
-        // .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-60px'});
-
-        // Setup Large
-        .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-138px'});
-
-        // Setup Super Large
-        // .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-215px'});
-
-        $('#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4').removeClass('newnewSlider');
+        $(myString)
+        .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-90px'});
+        if(syncOtherGroup) {
+            $(myString).removeClass('newnewSlider');
+        }
     }
 );
 $('#ovSlider4').hover(
     function() {
-        ovalue4 = parseFloat(oslider4.value);
+        syncOtherGroup = document.getElementById('mycheck2').checked;
+        var myString;
+        if(syncOtherGroup) {
+            myString = '#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4';
+        } else { myString = '#ovSlider4';}
+
         setTimeout("updateBarYAxis('obar4', true)", 250);
-        $('#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4')
+        $(myString)
+        .css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
+        if(syncOtherGroup) {
+            $(myString).addClass('newnewSlider');
+        }
 
-        // Setup Compact
-        // .css({'background':'red', 'opacity':'1', 'margin-left': '-50px'});
-
-        // Setup Large
-        .css({'background':'black', 'opacity':'1', 'margin-left': '-125px'});
-
-        // Setup Super Large
-        // .css({'background':'red', 'opacity':'1', 'margin-left': '-202px'});
-
-        $('#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4').addClass('newnewSlider');
     },
     function() {
-        ovalue4 = parseFloat(oslider4.value);
+        syncOtherGroup = document.getElementById('mycheck2').checked;
+        var myString;
+        if(syncOtherGroup) {
+            myString = '#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4';
+        } else { myString = '#ovSlider4';}
+
         setTimeout("updateBarYAxis('obar4', false)", 500);
-        $('#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4')
-
-        // Setup Compact
-        // .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-60px'});
-
-        // Setup Large
-        .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-138px'});
-
-        // Setup Super Large
-        // .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-215px'});
-
-        $('#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4').removeClass('newnewSlider');
+        $(myString)
+        .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-90px'});
+        if(syncOtherGroup) {
+            $(myString).removeClass('newnewSlider');
+        }
     }
 );
+
+
+
+$('html, body').animate({scrollTop: 0}, 0);

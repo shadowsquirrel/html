@@ -74,8 +74,8 @@
 /************************************************/
 .sinfotitle
 {
-    /* margin-bottom: 50px; */
-    margin-bottom: -20px;
+    margin-bottom: 50px;
+    /* margin-bottom: -20px; */
     transition: 0.5s;
 }
 /************************************************/
@@ -103,10 +103,10 @@
 /************** STAGE 2 *************/
 .hidewrap
 {
-    opacity: 0;
+    opacity: 1;
     /* position: absolute; */
     transition: 0.5s;
-    max-height: 0;
+    max-height: 100%;
 }
 .s2feedback
 {
@@ -765,11 +765,10 @@ flex-direction: column;
 }
 .switchwrap2
 {
-    padding-top: 70px;
-    margin-right: -60px;
+    padding-right: 15px;
 }
 .switch {
-    transform: rotate(90deg);
+    /* transform: rotate(90deg); */
   position: relative;
   display: inline-block;
   width: 30px;
@@ -790,8 +789,8 @@ flex-direction: column;
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .1s;
-  transition: .1s;
+  -webkit-transition: .25s;
+  transition: .25s;
 }
 
 .slider:before {
@@ -818,4 +817,13 @@ input:checked + .slider:before {
   -webkit-transform: translateX(13px);
   -ms-transform: translateX(13px);
   transform: translateX(13px);
+}
+
+
+.slider.round {
+  border-radius: 20px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

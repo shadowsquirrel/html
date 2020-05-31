@@ -1132,7 +1132,7 @@ multiButton.onclick = function() {
 }
 
 //MULTI BUTTON2
-var multiButton2 = document.getElementById('multibutton2');
+var multiButton2 = document.getElementById('multibutton');
 var bbSwitch2 = 0;
 multiButton2.onclick = function() {
 
@@ -1156,6 +1156,30 @@ multiButton2.onclick = function() {
     document.getElementById('belieflegend').style.height = h;
 
     document.getElementById('calculator').style.marginTop = m
+    bbSwitch2 = 1 - bbSwitch2;
+}
+
+// MULTI BUTTON3
+var bName = document.getElementById('buttonname');
+bName.innerHTML = 'Decision Section';
+//
+
+//BUTTON1
+var multiButton2 = document.getElementById('multibutton3');
+var bbSwitch2 = 0;
+multiButton2.onclick = function() {
+    var bName = document.getElementById('buttonname')
+
+    if(bbSwitch2===0) {
+        bName.innerHTML = 'Info Section';
+        $('html, body').animate({scrollTop: $(document).height()}, 1000);
+    }
+
+    if(bbSwitch2===1) {
+        bName.innerHTML = 'Decision Section';
+        $('html, body').animate({scrollTop: 0}, 500);
+    }
+
     bbSwitch2 = 1 - bbSwitch2;
 }
 //VARIABLES AND GRAPHICS INITIATIONS
@@ -1329,3 +1353,6 @@ $('#olSlider1').hover(
         setTimeout("updateBarXAxis('obarl', false)", 500);
     }
 );
+
+
+$('html, body').animate({scrollTop: 0}, 0);

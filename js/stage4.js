@@ -1159,7 +1159,7 @@ var updateEffortBar = function(a, b, c, d) {
 
 //Top BUTTON
 var multiButton = document.getElementById('multibutton');
-var bbSwitch = 1;
+var bbSwitch = 0;
 multiButton.onclick = function() {
     var show = bbSwitch ? true : false;
     var o = show ? 1 : 0;
@@ -1176,6 +1176,27 @@ multiButton.onclick = function() {
     document.getElementById('hidewrap2').style.maxHeight = h;
     document.getElementById('sinfotitle').style.marginBottom = m
     bbSwitch = 1 - bbSwitch;
+}
+
+
+var multiButton2 = document.getElementById('multibutton3');
+var bName = document.getElementById('buttonname');
+bName.innerHTML = 'Decision Section';
+var bbSwitch2 = 0;
+multiButton2.onclick = function() {
+    var bName = document.getElementById('buttonname')
+
+    if(bbSwitch2===0) {
+        bName.innerHTML = 'Info Section';
+        $('html, body').animate({scrollTop: $(document).height()}, 1000);
+    }
+
+    if(bbSwitch2===1) {
+        bName.innerHTML = 'Decision Section';
+        $('html, body').animate({scrollTop: 0}, 500);
+    }
+
+    bbSwitch2 = 1 - bbSwitch2;
 }
 //VARIABLES AND GRAPHICS INITIATIONS
 
