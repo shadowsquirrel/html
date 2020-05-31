@@ -366,6 +366,10 @@ let theWheel2 = new Winwheel({
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+var nzt = function(val) {
+    return (val != 0) ? val : '';
+}
+
 var beliefMargin = function(actual, belief) {
     var sign = (actual > belief) ? '-' : '+';
     var diff = Math.abs(actual - belief)
@@ -380,7 +384,7 @@ var updateHelpBar = function(a, b, c, d, barId, ourGroup, me, beliefSwitch, ba, 
     var w = d;
 
     var myOpacity = 1;//[1, 1, 1, 1];
-    var myText = [a, b, c, d];
+    var myText = [nzt(a), nzt(b), nzt(c), nzt(d)];
 
     var lightblue = 'rgb(200,200,255)';
     var blue = 'rgb(140, 140, 255)';
@@ -397,7 +401,7 @@ var updateHelpBar = function(a, b, c, d, barId, ourGroup, me, beliefSwitch, ba, 
         if(ourGroup) {
             var beliefData = [ba, bb, bc];
             beliefData.splice(me, 0, 0);
-            var beliefText = [ba, bb, bc];
+            var beliefText = [nzt(ba), nzt(bb), nzt(bc)];
             beliefText.splice(me, 0, '');
             var temp = myText[me];
             myText = ['', '', ''];
@@ -406,7 +410,7 @@ var updateHelpBar = function(a, b, c, d, barId, ourGroup, me, beliefSwitch, ba, 
             //myOpacity.splice(me, 0, 1);
         } else {
             beliefData = [ba, bb, bc, bd];
-            beliefText = [ba, bb, bc, bd];
+            beliefText = [nzt(ba), nzt(bb), nzt(bc), nzt(bd)];
             myText = ['', '', '', ''];
             myOpacity = 1;//[0.45, 0.45, 0.45, 0.45];
         }
@@ -496,7 +500,7 @@ var updateTotalHelpBar = function(a, b, barId, beliefSwitch, ba, bb) {
     var x = a;
     var y = b;
     var myOpacity = 1;
-    var myText = [x, y];
+    var myText = [nzt(x), nzt(y)];
 
     if(beliefSwitch) {
         var bx = ba;
@@ -545,7 +549,7 @@ var updateTotalHelpBar = function(a, b, barId, beliefSwitch, ba, bb) {
                     width: 1,
                 }
             },
-            text: [bx, by],
+            text: [nzt(bx), nzt(by)],
             textposition: 'outside',
             textfont: {
                 size: '14'
@@ -592,8 +596,10 @@ var updateSaboBar = function(a, b, c, d, barId, ourGroup, me, beliefSwitch, ba, 
     var z = -c;
     var w = -d;
 
+    var myBargap = 0.2;
+
     var myOpacity = 1;//[1, 1, 1, 1];
-    var myText = [a, b, c, d];
+    var myText = [nzt(a), nzt(b), nzt(c), nzt(d)];
 
     var lightred = 'rgb(255,200,200)';
     var red = 'rgb(255 140, 140)';
@@ -607,10 +613,11 @@ var updateSaboBar = function(a, b, c, d, barId, ourGroup, me, beliefSwitch, ba, 
     }
 
     if(beliefSwitch) {
+        myBargap = 0.2;
         if(ourGroup) {
             var beliefData = [-ba, -bb, -bc];
             beliefData.splice(me, 0, 0);
-            var beliefText = [ba, bb, bc];
+            var beliefText = [nzt(ba), nzt(bb), nzt(bc)];
             beliefText.splice(me, 0, '');
             var temp = myText[me];
             myText = ['', '', ''];
@@ -620,7 +627,7 @@ var updateSaboBar = function(a, b, c, d, barId, ourGroup, me, beliefSwitch, ba, 
 
         } else {
             beliefData = [-ba, -bb, -bc, -bd];
-            beliefText = [ba, bb, bc, bd];
+            beliefText = [nzt(ba), nzt(bb), nzt(bc), nzt(bd)];
             myText = ['', '', '', ''];
             myOpacity = 1;//[0.45, 0.45, 0.45, 0.45];
         }
@@ -692,7 +699,7 @@ var updateSaboBar = function(a, b, c, d, barId, ourGroup, me, beliefSwitch, ba, 
             ticks: '',
             showticklabels: false,
         },
-        bargap: 0.2,
+        bargap: myBargap,
         // bargroupgap:0,
     };
 
@@ -709,7 +716,7 @@ var updateTotalSaboBar = function(a, b, barId, beliefSwitch, ba, bb) {
     var x = -a;
     var y = -b;
     var myOpacity = 1;
-    var myText = [a, b];
+    var myText = [nzt(a), nzt(b)];
 
     if(beliefSwitch) {
         var bx = -ba;
@@ -758,7 +765,7 @@ var updateTotalSaboBar = function(a, b, barId, beliefSwitch, ba, bb) {
                 width: 1,
             }
         },
-        text: [ba, bb],
+        text: [nzt(ba), nzt(bb)],
         textfont: {
             size: '14',
         },
@@ -1298,7 +1305,6 @@ var updateS4EffortBar = function(a,b,c,d, barId, me, showBeliefs, ba, bb, bc) {
     var y = b;
     var z = c;
     var w = d;
-    var hoverTag = ['f1', 'f2', 'f3', 'f4'];
     var actualData = [x, y, z, w];
     var myText = [x, y, z, w];
     var temp = myText[me];
@@ -1307,13 +1313,15 @@ var updateS4EffortBar = function(a,b,c,d, barId, me, showBeliefs, ba, bb, bc) {
     var beliefColors = ['rgb(255, 255, 0)', 'rgb(210, 210, 0)', 'rgb(170, 170, 0)', 'rgb(125, 125, 0)'];
     var actualXPosition = [1, 2, 3, 4];
     var beliefXPosition = [1.15, 2.15, 3.15, 4.15];
+    var myWidth = 320;
 
     var colorArray = ['', '', '', ''];
     var colorWidth = [0, 0, 0, 0];
-    colorArray[me] = 'lightgreen';
+    colorArray[me] = 'green';
     colorWidth[me] = 3;
 
     if(showBeliefs) {
+        myWidth = 320;
         var bx = ba;
         var by = bb;
         var bz = bc;
@@ -1378,7 +1386,7 @@ var updateS4EffortBar = function(a,b,c,d, barId, me, showBeliefs, ba, bb, bc) {
         };
     }
 
-    var myWidth = 320;
+
 
     var layout = {
         title: "Token's Invested",
@@ -1845,6 +1853,6 @@ update(false);
 
 
 // FOR DEBUGGING
-// setTimeout('showResults()', 250);
-// setTimeout('displayStage4()', 500);
-// setTimeout('showResults2()', 750);
+setTimeout('showResults()', 250);
+setTimeout('displayStage4()', 500);
+setTimeout('showResults2()', 750);

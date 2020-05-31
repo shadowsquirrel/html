@@ -655,7 +655,7 @@ var updatePie = function(a) {
         hoverinfo: 'percent+label',
         automargin: true,
         marker:{
-            colors: ['rgb(225, 225, 225)', 'rgb(160, 160, 160)']
+            colors: ['rgb(225, 225, 225)', 'rgb(80, 80, 80)']
             // colors: mColor,
             // line: {
             //     color: 'black',
@@ -678,13 +678,85 @@ var updatePie = function(a) {
     Plotly.react('pie', data, layout, {displayModeBar: false});
 }
 
+var updateEffortBar = function(a, b) {
+
+    var x = a;
+    var y = b;
+
+    var actualData = [-x, -y];
+    var myText = [a, b];
+    var temp = myText[0];
+    var myOpacity = 1;
+    var actualColors = ['rgb(40, 40, 40)', 'rgb(225, 225, 225)'];
+    var actualXPosition = [1, 2];
+
+
+
+
+    var actual = {
+        y: actualData,
+        x: actualXPosition,
+        myname: ['f1', 'f2', 'f3', 'f4'],
+        type: 'bar',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker:{
+            color: actualColors,
+        },
+        text: myText,
+        textposition: 'outside',
+        textfont: {
+            size: '14'
+        },
+        cliponaxis: false,
+        opacity: myOpacity,
+    };
+
+    var myWidth = 180;
+
+    var layout = {
+        title: "Token's Invested",
+        titlefont: {
+            size: 14,
+        },
+        barmode: 'overlay',
+        height: 160,
+        width: myWidth,
+        margin: {"t": 40, "b": 0, "l": 30, "r": 30},
+        yaxis: {
+            fixedrange: true,
+            autorange: false,
+            range: [-500,0],
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+        },
+        xaxis: {
+            fixedrange: true,
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+        },
+        // bargap: 0.1,
+        // bargroupgap: 0.5,
+    };
+
+    var data = [actual];
+
+    Plotly.react('effortbars', data, layout, {displayModeBar: false});
+}
+
 var updateBarLeader = function(e, barId, ourSide, axisOn) {
     // var val1 = efi / (efi + oefi);
     // var val2 = oefi / (efi + oefi);
     var y = e;
     if(typeof(x) === 'undefined') x = 0;
 
-    var mColor = ourSide ? 'rgb(160, 160, 160)' : 'rgb(225, 225, 225)';
+    var mColor = ourSide ? 'rgb(80, 80, 80)' : 'rgb(225, 225, 225)';
     // var mColor = ourSide ? myColor(logistic(val1)) : myColor(logistic(val2));
     // var myLabel = x > 0 ? x : -x;
     // var myTextPosition = (x >= 0 || x === -100) ? 'outside' : 'inside';
@@ -726,8 +798,8 @@ var updateBarLeader = function(e, barId, ourSide, axisOn) {
                 size: 10,
             },
             tickmode: 'array',
-            tickvals: [0, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 300, 400, 500],
-            ticktext: [0, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 300, 400, 500],
+            tickvals: [0, 25, 50, 75, 100, 125, 150, 175, 200, 250, 300, 400, 500],
+            ticktext: [0, 25, 50, 75, 100, 125, 150, 175, 200, 250, 300, 400, 500],
             tickangle: -45,
             ticks:'',
             showline: false,
@@ -1006,12 +1078,10 @@ var setEfficiencyBar = function(efi1, efi2) {
     val1 = logistic2(val1, 5);
     val2 = 1 - val1;
 
-    if(alternate){
-        var gapSize = 0.1;
-        val1 = val1 - gapSize/2;
-        val2 = val2 - gapSize/2;
-    }
 
+    var gapSize = 0.01;
+    val1 = val1 - gapSize/2;
+    val2 = val2 - gapSize/2;
 
 
 
@@ -1026,8 +1096,8 @@ var setEfficiencyBar = function(efi1, efi2) {
         automargin: true,
         showlegend: false,
         marker: {
-            color: 'rgb(160, 160, 160)',
-            // color: 'rgb(80, 80, 80)',
+            // color: 'rgb(160, 160, 160)',
+            color: 'rgb(80, 80, 80)',
         },
         text: myText,
         textposition: 'inside',
@@ -1038,28 +1108,28 @@ var setEfficiencyBar = function(efi1, efi2) {
         },
     };
 
-    if(alternate) {
-        var gap = {
-            y: ['group 1'],
-            x: [gapSize],
-            type: 'bar',
-            orientation: 'h',
-            sort: false,
-            hoverinfo: 'none',
-            automargin: true,
-            showlegend: false,
-            marker: {
-                color: 'white',
-            },
-            text: myText,
-            textposition: 'inside',
-            insidetextanchor: 'middle',
-            textfont: {
-                color: 'white',
-                size: '10'
-            },
-        };
-    }
+
+    var gap = {
+        y: ['group 1'],
+        x: [gapSize],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker: {
+            color: 'white',
+        },
+        text: myText,
+        textposition: 'inside',
+        insidetextanchor: 'middle',
+        textfont: {
+            color: 'white',
+            size: '10'
+        },
+    };
+
 
 
     var leader2 = {
@@ -1084,11 +1154,9 @@ var setEfficiencyBar = function(efi1, efi2) {
         },
     };
 
-    var data = [leader1, leader2];
 
-    if(alternate) {
-        data = [leader1, gap, leader2];
-    }
+    var data = [leader1, gap, leader2];
+
 
     var layout = {
         title:{

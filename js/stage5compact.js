@@ -1,5 +1,7 @@
 
-
+var nzt = function(val) {
+    return (val != 0) ? val : '';
+}
 
 var updateBarHelpInfo = function(a, b, c, d, barId, ourGroup, me, newLeader) {
     var x = a;
@@ -10,12 +12,14 @@ var updateBarHelpInfo = function(a, b, c, d, barId, ourGroup, me, newLeader) {
     var lightblue = 'rgb(200,200,255)';
     var blue = 'rgb(140, 140, 255)';
 
+    var my
+
     var ourColor = ourGroup ? blue : lightblue;
 
     var colorArray = ['', '', '', ''];
     var colorWidth = [0, 0, 0, 0];
     if (me!==-1) {
-        colorArray[me] = 'lightgreen';
+        colorArray[me] = 'green';
         colorWidth[me] = 3;
     }
     if(newLeader!==-1) {
@@ -40,7 +44,7 @@ var updateBarHelpInfo = function(a, b, c, d, barId, ourGroup, me, newLeader) {
                     width: colorWidth,
                 }
             },
-            text: [x , y, z, w],
+            text: [nzt(x), nzt(y), nzt(z), nzt(w)],
             textposition: 'outside',
             textfont: {
                 size: '14',
@@ -75,58 +79,6 @@ var updateBarHelpInfo = function(a, b, c, d, barId, ourGroup, me, newLeader) {
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
 
-var updateBarTotalHelpInfo = function(a, b, barId) {
-    var x = a;
-    var y = b;
-
-    var lightblue = 'rgb(200,200,255)';
-    var blue = 'rgb(140, 140, 255)';
-
-    var data = [
-        {
-            y: [x, y],
-            name: ['Group 1', 'Group 2'],
-            type: 'bar',
-            sort: false,
-            hoverinfo: 'none',
-            automargin: true,
-            showlegend: false,
-            marker:{
-                color: [blue, lightblue],
-            },
-            text: [x, y],
-            textposition: 'outside',
-            textfont: {
-                size: '14'
-            },
-            cliponaxis: false,
-            opacity: 1,
-        }
-    ];
-
-    var layout = {
-        barmode: 'group',
-        height: 120,
-        width: 100,
-        margin: {"t": 20, "b": 0, "l": 0, "r": 0},
-        yaxis: {
-            fixedrange: true,
-            autorange: false,
-            range: [0,400]
-        },
-        xaxis: {
-            fixedrange: true,
-            showline: false,
-            showgrid: false,
-            ticks: '',
-            showticklabels: false,
-        },
-        bargap: 0.25,
-    };
-
-    Plotly.react(barId, data, layout, {displayModeBar: false});
-}
-
 var updateBarSaboInfo = function(a, b, c, d, barId, ourGroup, me, newLeader) {
     var x = -a;
     var y = -b;
@@ -140,7 +92,7 @@ var updateBarSaboInfo = function(a, b, c, d, barId, ourGroup, me, newLeader) {
     var colorArray = ['', '', '', ''];
     var colorWidth = [0, 0, 0, 0];
     if (me!==-1) {
-        colorArray[me] = 'lightgreen';
+        colorArray[me] = 'green';
         colorWidth[me] = 3;
     }
     if(newLeader!==-1) {
@@ -183,6 +135,58 @@ var updateBarSaboInfo = function(a, b, c, d, barId, ourGroup, me, newLeader) {
             fixedrange: true,
             autorange: false,
             range: [-100,0]
+        },
+        xaxis: {
+            fixedrange: true,
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+        },
+        bargap: 0.25,
+    };
+
+    Plotly.react(barId, data, layout, {displayModeBar: false});
+}
+
+var updateBarTotalHelpInfo = function(a, b, barId) {
+    var x = a;
+    var y = b;
+
+    var lightblue = 'rgb(200,200,255)';
+    var blue = 'rgb(140, 140, 255)';
+
+    var data = [
+        {
+            y: [x, y],
+            name: ['Group 1', 'Group 2'],
+            type: 'bar',
+            sort: false,
+            hoverinfo: 'none',
+            automargin: true,
+            showlegend: false,
+            marker:{
+                color: [blue, lightblue],
+            },
+            text: [nzt(x), nzt(y)],
+            textposition: 'outside',
+            textfont: {
+                size: '14'
+            },
+            cliponaxis: false,
+            opacity: 1,
+        }
+    ];
+
+    var layout = {
+        barmode: 'group',
+        height: 120,
+        width: 100,
+        margin: {"t": 20, "b": 0, "l": 0, "r": 0},
+        yaxis: {
+            fixedrange: true,
+            autorange: false,
+            range: [0,400]
         },
         xaxis: {
             fixedrange: true,
@@ -502,7 +506,7 @@ var updateS4Info = function(a,b,c,d, barId, winner, me) {
     textArray[me] = 'You';
 
     colorArray[winner] = 'indigo';
-    colorArray[me] = 'lightgreen';
+    colorArray[me] = 'green';
 
     colorWidth[winner] = 2;
     colorWidth[me] = 2;
@@ -603,21 +607,7 @@ var d = {
     }
 }
 
-
 var info = {};
-// // Follower global variables for both groups
-// // your group
-// var info.s1, info.s2, info.s3, info.s4, info.h1, info.h2, info.h3, info.h4;
-// info.s1 = info.s2 = info.s3 = info.s4 = info.h1 = info.h2 = info.h3 = info.h4 = 0;
-// // opposing group
-// var info.os1, info.os2, info.os3, info.os4, info.oh1, info.oh2, info.oh3, info.oh4;
-// info.os1 = info.os2 = info.os3 = info.os4 = info.oh1 = info.oh2 = info.oh3 = info.oh4 =  0;
-//
-// // leader global variables
-// var info.efo, info.oefo;
-//
-// // follower stage 4 variables
-// var info.e1, info.e2, info.e3, info.e4;
 
 var data2Info = function() {
     info.s1 = d.s2.ourGroup.sabo.f1;
@@ -768,14 +758,14 @@ var updateBarHelp = function(a,b) {
         marker:{
             color: ['rgb(140, 140, 255)', 'rgb(200,200,255)'],
         },
-        text: [x, y],
+        text: [nzt(x), nzt(y)],
         textposition: 'outside',
         cliponaxis: false,
     }];
 
     var layout = {
         barmode: 'group',
-        height: 110,
+        height: 120,
         width: 150,
         // title: 'Total Help',
         margin: {"t": 20, "b": 0, "l": 0, "r": 0},
@@ -817,14 +807,14 @@ var updateBarSabo = function(a, b) {
         marker:{
             color: ['rgb(255,140,140)', 'rgb(255,200,200)'],
         },
-        text: [-x, -y],
+        text: [nzt(-x), nzt(-y)],
         textposition: 'outside',
         cliponaxis: false,
     }];
 
     var layout = {
         barmode: 'group',
-        height: 110,
+        height: 120,
         width: 150,
         // title: 'Total Sabotage',
         margin: {"t": 0, "b": 20, "l": 0, "r": 0},
@@ -1055,8 +1045,8 @@ var updateBarDecision = function(a, barId, axisOn) {
         // Setup Large
         height: 75,
 
-        width: 1035,
-        margin: {"t": 20, "b": 25, "l": 32, "r": 34},
+        width: 1050,
+        margin: {"t": 20, "b": 25, "l": 40, "r": 40},
         xaxis: {
             side: 'top',
             fixedrange: true,
@@ -1107,28 +1097,10 @@ var logistic = function(val) {
     return result;
 }
 
-var logistic2 = function(val , k) {
-    var L = 1;
-    var m = 0.5;
-    var result;
-    result= L / (1 + Math.exp(-k * (val - m)));
-    return result;
-}
-
 var myColor = function(val){
     return ('hsla(' + val[0] +',100%, 37%, ' + val[1] +')');
 
 }
-
-// var upperBound = function(val, upperBound) {
-//     val = (val >= upperBound) ? upperBound : val;
-//     return val;
-// }
-//
-// var lowerBound = function(val, lowerBound) {
-//     val = (val <= lowerBound) ? lowerBound : val;
-//     return val;
-// }
 
 var updateStrengthBar = function(efi1, efi2) {
 
@@ -1417,7 +1389,7 @@ multiButton.onclick = function() {
 
 var bName = document.getElementById('buttonname');
 bName.innerHTML = 'Decision Section';
-//
+
 
 //BUTTON1
 var multiButton2 = document.getElementById('multibutton2');
@@ -1476,7 +1448,6 @@ var syncValues = function(hValue, sValue, group, isSync, isSync2){
 
 }
 
-
 var syncBars = function(value, group, isSync, isSync2) {
     if(group === 'opponent' && isSync2) {
         updateBar(value, 'obar1', 1, false);
@@ -1494,7 +1465,6 @@ var syncBars = function(value, group, isSync, isSync2) {
         updateBarDecision(value, 'bard', false);
     }
 }
-
 
 var updateBarYAxis = function(barId, axisSwitch) {
     var update = {
@@ -1612,7 +1582,7 @@ dslider.oninput = function() {
 // YOUR GROUP
 //Leader
 lslider1.oninput = function() {
-    // lvalue = parseFloat(lslider1.value);
+    lvalue = parseFloat(lslider1.value);
     efo = lvalue;
     updateBarLeader(lvalue, 'barl', 1, true);
     updateAll();
@@ -1928,7 +1898,6 @@ $('#vSlider4').hover(
 
     }
 );
-
 
 $('#ovSlider1').hover(
     function() {
