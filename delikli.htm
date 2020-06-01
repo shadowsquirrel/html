@@ -33,7 +33,9 @@
                 </div>
 
                 <div class = sinfotext>
-
+                    <p>
+                        Please make an investment decision to compete against the opposing leader.
+                    </p>
                     <p>
                         Below is the graphical summary of both groups' followers' sabotage and help decisions
                     </p>
@@ -41,7 +43,15 @@
                         Based on these decisions, relative power and advantage/disadvantage of the leaders are calculated and graphically presented underneat.
                     </p>
                     <p>
-                        Please make an investment decision to compete against the opposing leader.
+                        You can use the graphical calculator to consider a possible investment level for you and the opposing leader,
+                        and observe your probability to win
+
+                    </p>
+                    <p>
+                        Your decision slider and a reminder of your possible payoffs depending on your decisions are located underneat the calculator.
+                    </p>
+                    <p>
+                        Your decision slider and your decision on the calculator are synchronized: any changes you make to one will immediately affect the other.
                     </p>
                 </div>
 
@@ -49,18 +59,6 @@
             </div>
 
             <div class='s2feedback hidewrap'  id='hidewrap2'>
-                <div class='s2boxtext'>
-                    <div class='belieflegend' id='belieflegend'>
-                        <div class='boxtext'>
-                            <div class='helplegbox'></div>
-                            <p style='font-size:12px;'>Help</p>
-                        </div>
-                        <div class='boxtext'>
-                            <div class='sabolegbox'></div>
-                            <p style='font-size:12px;'>Sabotage</p>
-                        </div>
-                    </div>
-                </div>
                 <div class = s2maintitle>
                     <h6>STAGE 2</h6>
                 </div>
@@ -80,20 +78,31 @@
                                     <div id = 'helpbarg1'></div>
                                     <div id = 'sabobarg1'></div>
                                 </div>
-                                <!-- <pre>  </pre> -->
-                                <div id = 'totalbars' class='totalbars'>
+                                <pre>  </pre>
+                                <div id = 'totalbars'>
                                     <h8>Total</h8>
                                     <div id = 'helpbartotal'></div>
                                     <div id = 'sabobartotal'></div>
                                 </div>
-                                <!-- <pre>  </pre> -->
+                                <pre>  </pre>
                                 <div class = 'g2'>
                                     <h8>Opposing Group</h8>
                                     <div id = 'helpbarg2'></div>
                                     <div id = 'sabobarg2'></div>
                                 </div>
                             </div>
-
+                            <div class='s2boxtext'>
+                                <div class='belieflegend' id='belieflegend'>
+                                    <div class='boxtext'>
+                                        <div class='helplegbox'></div>
+                                        <p style='font-size:12px;'>Help</p>
+                                    </div>
+                                    <div class='boxtext'>
+                                        <div class='sabolegbox'></div>
+                                        <p style='font-size:12px;'>Sabotage</p>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
@@ -104,10 +113,10 @@
 
 
             <div class = 'calculator' id='calculator'>
-                <!-- <div class = 'titlesection'>
+                <div class = 'titlesection'>
                     <h5 class = leftmaintitle>YOUR GROUP</h5>
                     <h5 class = 'rightmaintitle'>OPPOSING GROUP</h5>
-                </div> -->
+                </div>
 
 
 
@@ -122,81 +131,32 @@
                             <input type='range' min = '0' max = '500' class = 'lslider' value = '1' id = 'lSlider1' />
                             <div id = 'barl' class = 'lbar'></div>
                         </div>
-                        <div class=mytableleft>
-                            <div class=sidecolumn>
-                                <p>Prize</p>
-                                <p>Net Payoff</p>
-                                <p>Role</p>
-                            </div>
-                            <div class=maincolumnleft>
-                                <div class=titlerow>
-                                    <p>If You Win</p>
-                                </div>
-                                <div class=row>
-                                    <p>1000 tokens</p>
-                                </div>
-                                <div class=row>
-                                    <p><span id=winnetpayoff class='outcomes'></span></p>
-                                </div>
-                                <div class=row>
-                                    <p>Maintain your Leadership Position</p>
-                                </div>
-                                <div class=roww2>
-                                    <p>Proceed to Stage 6</p>
-                                </div>
-                            </div>
-
-                        </div>
                     </div>
 
                     <div class = 'piegraphics'>
+
                         <div class = 'piewrap'>
-                            <h6>Probability to Win</h6>
-                            <div class = 'pie' id = 'pie'></div>
-                        </div>
-                        <div class = 'efficiencyBarWrap'>
+                            <!-- <h6>Probability to Win</h6> -->
+                            <!-- <div class = 'efficiencyBarWrap'>
+
+                            </div> -->
                             <div class='effortbars' id='effortbars'></div>
                             <div id = 'efficiencyBar' class = 'efficiencyBar'></div>
+                            <div class = 'pie' id = 'pie'></div>
                         </div>
                     </div>
 
                     <div class = 'leadergroupright'>
-                        <h6  class = 'right_title'>Opposing Leader</h6>
+                        <h6  class = 'right_title'>Leader</h6>
                         <p><span class = 'advantagetext' id = 'advtxt2'></span></p>
                         <div id = 'efficiencyColorRight' class = 'efficiencyColorRight'></div>
                         <div class = 'sliderbarleader lright'>
                             <input type='range' min = '0' max = '500' class = 'lslider' value = '1' id = 'olSlider1' />
                             <div id = 'obarl' class = 'lbar'></div>
                         </div>
-                        <div class=mytableright>
-                            <div class=sidecolumn>
-                                <p>Prize</p>
-                                <p>Net Payoff</p>
-                                <p>Role</p>
-                            </div>
-                            <div class=maincolumnright>
-                                <div class=titlerow>
-                                    <p>If You Lose</p>
-                                </div>
-                                <div class=row>
-                                    <p>0 token</p>
-                                </div>
-                                <div class=row>
-                                    <p><span id=losenetpayoff class='outcomes'></span></p>
-                                </div>
-                                <div class=row>
-                                    <p>Lose your leadership, Become a Follower</p>
-                                </div>
-                                <div class=roww2>
-                                    <p>Proceed to Stage 5</p>
-                                </div>
-                            </div>
-
-                        </div>
                     </div>
 
                 </div>
-
 
 
                 <div class = decision>
@@ -212,7 +172,7 @@
                             Your Investment cost is <span id=payoff class='outcomes'>0 token</span>.
                         </p>
 
-                        <!-- <div class=mytable>
+                        <div class=mytable>
                             <div class=sidecolumn>
                                 <p>Prize</p>
                                 <p>Net Payoff</p>
@@ -246,7 +206,7 @@
                                 </div>
                             </div>
 
-                        </div> -->
+                        </div>
 
                     </div>
                 </div>

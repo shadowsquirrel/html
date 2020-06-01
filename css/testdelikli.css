@@ -189,8 +189,7 @@
 /************************************************/
 .g1
 {
-    margin-left: -30px;
-    padding-right: 70px;
+    padding-right: 50px;
     display:flex;
     flex-direction: column;
 }
@@ -199,15 +198,15 @@
 /************************************************/
 .totalbars
 {
-    padding-left: 100px;
-    padding-right: 100px;
+    display:flex;
+    flex-direction: column;
 }
 /************************************************/
 /************************************************/
 /************************************************/
 .g2
 {
-    padding-left: 70px;
+    padding-left: 50px;
     display:flex;
     flex-direction: column;
 }
@@ -223,9 +222,7 @@
     z-index: 1;
     display:flex;
     flex-direction: row;
-    padding-right: 40px;
-    margin-bottom: -30px;
-    justify-content: flex-end;
+    margin-top: -3px;
 }
 
 /*********** legend **********/
@@ -329,42 +326,13 @@ margin-right: -135px;
 /************************************************/
 /************************************************/
 /************************************************/
+
  /************************************************/
  /************************************************/
  /************************************************/
  /************************************************/
-.middlesection
-{
-    /* margin-top: 0px; */
-    display:flex;
-}
-/************************************************/
-/************************************************/
-/************************************************/
-.efficiencyBarWrap
-{
-    padding-left: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* border: 5px solid black; */
-}
-/************************************************/
-/************************************************/
-.efficiencyBar
-{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    /* border: 5px solid black; */
-}
-.effortbars
-{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    /* border: 5px solid black; */
-}
+
+
 /************************************************/
 /************************************************/
 /************************************************/
@@ -389,7 +357,7 @@ margin-right: -135px;
     display: flex;
     flex-direction: column;
     margin-left: 5px;
-    /* padding-top: 40px; */
+    padding-top: 40px;
 }
 .advantagetext
 {
@@ -403,25 +371,6 @@ margin-right: -135px;
     z-index:0;
     cursor: none;
 }
-.mytableleft
-{
-    padding-top: 25px;
-    margin-left: -60px;
-    font-size: 15px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    /* padding-right: 50px; */
-}
-.maincolumnleft
-{
-    /* border: 5px solid black; */
-    padding-left: 45px;
-    display:flex;
-    flex-direction: column;
-
-}
-.tit
 /************************************************/
 /************************************************/
 /************************************************/
@@ -436,17 +385,49 @@ margin-right: -135px;
 /* class to contain the pie graph and its title*/
 .piewrap
 {
-    position: sticky;
-    top: 0;
-    padding-left: 30px;
     /* border: 5px solid black; */
 }
 /************************************************/
 .pie
 {
-    display: flex;
-    justify-content: center;
+    position:relative;
+    /* display: flex; */
+    /* justify-content: center; */
 
+}
+/************************************************/
+/************************************************/
+/************************************************/
+.efficiencyBarWrap
+{
+
+    /* padding-left: 30px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* border: 5px solid black; */
+}
+/************************************************/
+/************************************************/
+.efficiencyBar
+{
+    margin-top: 500px;
+    position:absolute,
+    z-index:1;
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* justify-content: center; */
+    /* border: 5px solid black; */
+}
+.effortbars
+{
+    /* margin-top: 500px; */
+    position:absolute,
+    z-index:1;
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* justify-content: center; */
+    /* border: 5px solid black; */
 }
 /************************************************/
 /************************************************/
@@ -456,7 +437,7 @@ margin-right: -135px;
     display: flex;
     flex-direction: column;
     padding-left: 40px;
-    /* padding-top: 40px; */
+    padding-top: 40px;
 }
 /************************************************/
 /************************************************/
@@ -467,23 +448,7 @@ margin-right: -135px;
     z-index:0;
     cursor: none;
 }
-.mytableright
-{
-    padding-top: 25px;
-    font-size: 15px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    /* padding-right: 50px; */
-}
-.maincolumnright
-{
-    /* border: 5px solid black; */
-    padding-left: 45px;
-    display:flex;
-    flex-direction: column;
 
-}
 /************************************************/
 /************************************************/
 /* Slider + bar classes for followers and leader*/
@@ -593,7 +558,6 @@ margin-right: -135px;
 {
     /* position: sticky;
     top:3000px; */
-    padding-top: 30px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -604,8 +568,8 @@ margin-right: -135px;
 .input
 {
 
-    /* margin-top: -20px; */
-    margin-left: 30px;
+    margin-top: -20px;
+    margin-left: 39px;
     text-align: center;
     /* height: 100px; */
     flex-grow:1;
@@ -791,10 +755,9 @@ margin-right: -135px;
 {
     display: flex;
     flex-direction: row;
-    padding-bottom: 8px;
-    /* padding-left: 10px; */
+    padding-bottom: 5px;
+    padding-left: 10px;
     font-weight: 800;
-    margin-left: -12px;
 }
 .row
 {

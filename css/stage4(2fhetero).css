@@ -74,7 +74,7 @@
 /************************************************/
 .sinfotitle
 {
-    margin-bottom: 50px;
+    padding-bottom: 20px;
     /* margin-bottom: -20px; */
     transition: 0.5s;
 }
@@ -105,8 +105,8 @@
 {
     opacity: 1;
     /* position: absolute; */
-    transition: 0.5s;
-    max-height: 100%;
+    /* transition: 0.5s; */
+    /* max-height: 100%; */
 }
 .s2feedback
 {
@@ -114,8 +114,8 @@
     margin-left: 20px;
     display:flex;
     flex-direction: column;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 /************************************************/
 /************************************************/
@@ -124,7 +124,7 @@
 /************************************************/
 .s2maintitle
 {
-
+ padding-right: 30px
 }
 /************************************************/
 /************************************************/
@@ -133,7 +133,8 @@
 /************************************************/
 .s2subtitle
 {
-
+    padding-right: 30px;
+    padding-bottom: 20px;
 }
 /************************************************/
 /************************************************/
@@ -150,6 +151,7 @@
 {
     display:flex;
     flex-direction: column;
+
 
 }
 .s2subsubtitle
@@ -186,6 +188,7 @@
 /************************************************/
 .g1
 {
+    padding-right: 50px;
     display:flex;
     flex-direction: column;
 }
@@ -202,6 +205,7 @@
 /************************************************/
 .g2
 {
+    padding-left: 50px;
     display:flex;
     flex-direction: column;
 }
@@ -225,7 +229,53 @@
     margin-right: 5px;
     height:15px;
     width:15px;
-    border: 3px solid green;
+    border: 3px solid black;
+}
+
+/*********** legend **********/
+/*********** legend **********/
+/*********** legend **********/
+
+.belieflegend
+{
+    margin-top: 0px;
+    padding-left: 20px;
+    /* margin-left: -10px; */
+    /* opacity: 1; */
+    /* max-height: 0px; */
+    text-align: left;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    transition: 0.35s;
+}
+.boxtext
+{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.helplegbox
+{
+    margin-top: 3px;
+    margin-right: 5px;
+    height:15px;
+    width:15px;
+    border: 1px solid black;
+    opacity:1;
+    background: linear-gradient(90deg, rgb(140, 140, 255) 0%, rgb(200,200,255) 100%);
+}
+.sabolegbox
+{
+    margin-top: 3px;
+    margin-right: 5px;
+    height:15px;
+    width:15px;
+    border: 1px solid black;
+    opacity:1;
+    background: linear-gradient(90deg, rgb(255, 140, 140) 0%, rgb(255,200,200) 100%);
 }
 /************************************************/
 /************************************************/

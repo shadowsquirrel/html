@@ -313,7 +313,7 @@ var setEfficiencyBar = function() {
         fixedrange: true,
         cliponaxis: false,
         marker: {
-            color: 'rgb(40, 40, 40)',
+            color: 'rgb(80, 80, 80)',
         },
         text: 1,
         textposition: 'inside',
@@ -406,7 +406,7 @@ var setHelpBar = function(a, b, barId, ourGroup, me) {
     var colorArray = ['', ''];
     var colorWidth = [0, 0];
     if (me!==-1) {
-        colorArray[me] = 'green';
+        colorArray[me] = 'black';
         colorWidth[me] = 2;
     }
 
@@ -439,8 +439,8 @@ var setHelpBar = function(a, b, barId, ourGroup, me) {
 
     var layout = {
         barmode: 'overlay',
-        height: 120,
-        width: 100,
+        height: 80,
+        width: 60,
         margin: {"t": 20, "b": 0, "l": 0, "r": 0},
         yaxis: {
             fixedrange: true,
@@ -497,7 +497,7 @@ var setTotalHelpBar = function(a, b, barId) {
 
     var layout = {
         barmode: 'overlay',
-        height: 120,
+        height: 80,
         width: 120,
         margin: {"t": 20, "b": 0, "l": 0, "r": 0},
         yaxis: {
@@ -536,7 +536,7 @@ var setSaboBar = function(a, b, barId, ourGroup, me) {
     var colorArray = ['', ''];
     var colorWidth = [0, 0];
     if (me!==-1) {
-        colorArray[me] = 'green';
+        colorArray[me] = 'black';
         colorWidth[me] = 2;
     }
 
@@ -569,8 +569,8 @@ var setSaboBar = function(a, b, barId, ourGroup, me) {
 
     var layout = {
         barmode: 'overlay',
-        height: 120,
-        width: 100,
+        height: 80,
+        width: 60,
         margin: {"t": 0, "b": 20, "l": 0, "r": 0},
         yaxis: {
             fixedrange: true,
@@ -626,7 +626,7 @@ var setTotalSaboBar = function(a, b, barId) {
 
     var layout = {
         barmode: 'overlay',
-        height: 120,
+        height: 80,
         width: 120,
         margin: {"t": 0, "b": 20, "l": 0, "r": 0},
         yaxis: {
@@ -665,7 +665,7 @@ var updatePie = function(a, b, me) {
     var y = b;
     var actualData = [y, x];
     var actualOpacity = 1;
-    var actualColors = [ 'rgb(225, 225, 225)', 'rgb(40, 40, 40)'];
+    var actualColors = [ 'rgb(225, 225, 225)', 'rgb(80, 80, 80)'];
 
 
 
@@ -736,7 +736,7 @@ var updateBarFollower = function(e, barId, followerIndex, axisOn) {
     var y = e;
     if(typeof(x) === 'undefined') x = 0;
 
-    var myColors = ['rgb(40, 40, 40)', 'rgb(225, 225, 225)'];
+    var myColors = ['rgb(80, 80, 80)', 'rgb(225, 225, 225)'];
 
     var mColor = myColors[followerIndex];
 
@@ -813,7 +813,7 @@ var updateBarDecision = function(a, barId, axisOn) {
         automargin: true,
         showlegend: false,
         marker:{
-            color: 'rgb(40, 40, 40)',
+            color: 'rgb(80, 80, 80)',
             line: {
                 color: 'none',
                 width: 0
@@ -880,7 +880,7 @@ var updateEffortBar = function(a, b) {
     var myText = [x, y];
     var temp = myText[0];
     var myOpacity = 1;
-    var actualColors = ['rgb(40, 40, 40)', 'rgb(225, 225, 225)'];
+    var actualColors = ['rgb(80, 80, 80)', 'rgb(225, 225, 225)'];
     var actualXPosition = [1, 2];
 
 

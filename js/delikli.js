@@ -285,7 +285,7 @@ var updateBarHelpInfo = function(a, b, c, d, barId, ourGroup) {
 
     var layout = {
         barmode: 'group',
-        height: 60,
+        height: 80,
         width: 150,
         margin: {"t": 20, "b": 0, "l": 0, "r": 0},
         yaxis: {
@@ -337,7 +337,7 @@ var updateBarSaboInfo = function(a, b, c, d, barId, ourGroup) {
 
     var layout = {
         barmode: 'group',
-        height: 60,
+        height: 80,
         width: 150,
         margin: {"t": 0, "b": 20, "l": 0, "r": 0},
         yaxis: {
@@ -388,8 +388,8 @@ var updateBarTotalHelpInfo = function(a, b, barId) {
 
     var layout = {
         barmode: 'group',
-        height: 60,
-        width: 180,
+        height: 80,
+        width: 200,
         margin: {"t": 20, "b": 0, "l": 0, "r": 0},
         yaxis: {
             fixedrange: true,
@@ -438,8 +438,8 @@ var updateBarTotalSaboInfo = function(a, b, barId) {
 
     var layout = {
         barmode: 'group',
-        height: 60,
-        width: 180,
+        height: 80,
+        width: 200,
         margin: {"t": 0, "b": 20, "l": 0, "r": 0},
         yaxis: {
             fixedrange: true,
@@ -647,7 +647,7 @@ var updatePie = function(a) {
         y = 1;
     }
     var data = [{
-        // hole: 0.6,
+        hole: 0.6,
         values: [y, x],
         labels: ['Opposing Leader', 'Your Leader'],
         textfont: {
@@ -668,8 +668,8 @@ var updatePie = function(a) {
     }];
 
     var layout = {
-        height: 140,
-        width: 140,
+        height: 600,
+        width: 600,
         // title: 'Probability to Win',
         font:{
             size: 10
@@ -720,21 +720,21 @@ var updateEffortBar = function(a, b) {
     var myWidth = 180;
 
     var layout = {
-        title: "Token's Invested",
-        titlefont: {
-            size: 14,
-        },
-        // title:{
-        //     text:  "Token's Invested",
-        //     size: 2,
-        //     yref: 'paper',
-        //     y: 0,
-        //     yanchor: 'top',
+        // title: "Token's Invested",
+        // titlefont: {
+        //     size: 14,
         // },
+        title:{
+            text:  "Token's Invested",
+            size: 2,
+            yref: 'paper',
+            y: 0,
+            yanchor: 'top',
+        },
         barmode: 'overlay',
         height: 160,
         width: myWidth,
-        margin: {"t": 80, "b": 0, "l": 30, "r": 30},
+        margin: {"t": 40, "b": 0, "l": 30, "r": 30},
         yaxis: {
             fixedrange: true,
             autorange: false,
@@ -845,7 +845,7 @@ var updateBarDecision = function(a, barId, axisOn) {
         automargin: true,
         showlegend: false,
         marker:{
-            color: 'rgb(80, 80, 80)',
+            color: 'rgb(160, 160, 160)',
             line: {
                 color: 'none',
                 width: 0
@@ -1163,14 +1163,15 @@ var setEfficiencyBar = function(efi1, efi2) {
     var layout = {
         title:{
             text:  "Relative Power",
-            size: 1,
-            yref: 'container',
-            y: 0.15,
+            size: 2,
+            yref: 'paper',
+            y: 0,
             yanchor: 'bottom',
         },
         barmode: 'stack',
-        height: 60,
+        height: 48,
         width: 200,
+        // width: 200,
         margin: {"t": 0, "b": 20, "l": 0, "r": 0},
         xaxis: {
             fixedrange: true,
