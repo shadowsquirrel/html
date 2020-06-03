@@ -1428,7 +1428,8 @@ multiButton2.onclick = function() {
 
     if(bbSwitch2===0) {
         bName.innerHTML = 'Info Section';
-        $('html, body').animate({scrollTop: $(document).height()}, 1000);
+        var myScroll = $(document).height() - 805;
+        $('html, body').animate({scrollTop: myScroll}, 1000);
     }
 
     if(bbSwitch2===1) {
