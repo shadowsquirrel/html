@@ -1089,6 +1089,10 @@ input:checked + .checkslider:before {
     font-weight: 800;
 
 }
+.columnclass
+{
+    margin-top:-15px;
+}
 .titlerow
 {
     display: flex;
@@ -1103,12 +1107,12 @@ input:checked + .checkslider:before {
     /* border: 5px solid black; */
     display: flex;
     flex-direction: row;
-    /* margin-top: -10px; */
+    margin-top: -15px;
 }
 .roww2
 {
     /* border: 5px solid black; */
-    margin-top: -10px;
+    margin-top: -20px;
     margin-left: -15px;
     display: flex;
     flex-grow: 1;
