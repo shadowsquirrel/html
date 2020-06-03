@@ -3,20 +3,21 @@ var nzt = function(val) {
     return (val != 0) ? val : '';
 }
 
-var updateBarHelpInfo = function(a, b, barId, ourGroup, me, newLeader) {
+var updateBarHelpInfo = function(a, b, c, d, barId, ourGroup, me, newLeader) {
     var x = a;
     var y = b;
-
-    // var myData = [x,y];
+    var z = c;
+    var w = d;
+    var myData = [x,y,z,w];
     var lightblue = 'rgb(200,200,255)';
     var blue = 'rgb(140, 140, 255)';
 
-
+    var my
 
     var ourColor = ourGroup ? blue : lightblue;
 
-    var colorArray = ['', '',];
-    var colorWidth = [0, 0];
+    var colorArray = ['', '', '', ''];
+    var colorWidth = [0, 0, 0, 0];
     if (me!==-1) {
         colorArray[me] = 'green';
         colorWidth[me] = 3;
@@ -28,8 +29,9 @@ var updateBarHelpInfo = function(a, b, barId, ourGroup, me, newLeader) {
 
     var data = [
         {
-            y: [x, y],
-            x: [1, 2],
+            y: [x, y, z, w],
+            x: [1, 2, 3, 4],
+            // name: ['Follower 1 \n(New Leader)', 'Follower 2 \n(You)', 'Follower 3', 'Follower 4'],
             type: 'bar',
             sort: false,
             hoverinfo: 'none',
@@ -42,7 +44,7 @@ var updateBarHelpInfo = function(a, b, barId, ourGroup, me, newLeader) {
                     width: colorWidth,
                 }
             },
-            text: [nzt(x), nzt(y)],
+            text: [nzt(x), nzt(y), nzt(z), nzt(w)],
             textposition: 'outside',
             textfont: {
                 size: '14',
@@ -56,7 +58,7 @@ var updateBarHelpInfo = function(a, b, barId, ourGroup, me, newLeader) {
     var layout = {
         barmode: 'group',
         height: 120,
-        width: 60,
+        width: 100,
         margin: {"t": 20, "b": 0, "l": 0, "r": 0},
         yaxis: {
             fixedrange: true,
@@ -77,17 +79,18 @@ var updateBarHelpInfo = function(a, b, barId, ourGroup, me, newLeader) {
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
 
-var updateBarSaboInfo = function(a, b, barId, ourGroup, me, newLeader) {
+var updateBarSaboInfo = function(a, b, c, d, barId, ourGroup, me, newLeader) {
     var x = -a;
     var y = -b;
-
+    var z = -c;
+    var w = -d;
 
     var lightred = 'rgb(255,200,200)';
     var red = 'rgb(255 140, 140)';
     var ourColor = ourGroup ? red : lightred;
 
-    var colorArray = ['', ''];
-    var colorWidth = [0, 0];
+    var colorArray = ['', '', '', ''];
+    var colorWidth = [0, 0, 0, 0];
     if (me!==-1) {
         colorArray[me] = 'green';
         colorWidth[me] = 3;
@@ -99,11 +102,12 @@ var updateBarSaboInfo = function(a, b, barId, ourGroup, me, newLeader) {
 
 
     var data = [{
-        y: [x, y],
-        name: ['Follower 1', 'Follower 2'],
+        y: [x, y, z, w],
+        name: ['Follower 1', 'Follower 2', 'Follower 3', 'Follower 4'],
         type: 'bar',
         sort: false,
         hoverinfo: 'none',
+        // hovertemplate: ['New Leader', '', 'You', ''],
         automargin: true,
         showlegend: false,
         marker:{
@@ -113,7 +117,7 @@ var updateBarSaboInfo = function(a, b, barId, ourGroup, me, newLeader) {
                 width: colorWidth,
             }
         },
-        text: [a, b],
+        text: [a, b, c, d],
         textfont: {
             size: '14',
             color: colorArray,
@@ -125,7 +129,7 @@ var updateBarSaboInfo = function(a, b, barId, ourGroup, me, newLeader) {
     var layout = {
         barmode: 'group',
         height: 120,
-        width: 60,
+        width: 100,
         margin: {"t": 0, "b": 20, "l": 0, "r": 0},
         yaxis: {
             fixedrange: true,
@@ -177,12 +181,12 @@ var updateBarTotalHelpInfo = function(a, b, barId) {
     var layout = {
         barmode: 'group',
         height: 120,
-        width: 120,
+        width: 100,
         margin: {"t": 20, "b": 0, "l": 0, "r": 0},
         yaxis: {
             fixedrange: true,
             autorange: false,
-            range: [0,200]
+            range: [0,400]
         },
         xaxis: {
             fixedrange: true,
@@ -228,12 +232,12 @@ var updateBarTotalSaboInfo = function(a, b, barId) {
     var layout = {
         barmode: 'group',
         height: 120,
-        width: 120,
+        width: 100,
         margin: {"t": 0, "b": 20, "l": 0, "r": 0},
         yaxis: {
             fixedrange: true,
             autorange: false,
-            range: [-200,0]
+            range: [-400,0]
         },
         xaxis: {
             fixedrange: true,
@@ -479,20 +483,24 @@ var updateBarEffortInfo = function(a, b, barId) {
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
 
-var updateS4Info = function(a, b, barId, me , winner) {
+var updateS4Info = function(a,b,c,d, barId, winner, me) {
 
     var x = a;
     var y = b;
+    var z = c;
+    var w = d;
 
-    if((x + y) === 0) {
+    if((x + y + z + w) === 0) {
         x = 1;
         y = 1;
+        z = 1;
+        w = 1;
     }
 
-    var textArray = ['', '']
-    var colorArray = ['', ''];
-    var colorWidth = [0, 0];
-    var labelArray = ['Follower 1', 'Follower 2'];
+    var textArray = ['', '', '', '']
+    var colorArray = ['', '', '', ''];
+    var colorWidth = [0, 0, 0, 0];
+    var labelArray = ['Follower 1', 'Follower 2', 'Follower 3', 'Follower 4'];
 
     textArray[winner] = 'Winner';
     textArray[me] = 'You';
@@ -506,7 +514,7 @@ var updateS4Info = function(a, b, barId, me , winner) {
 
 
     var data = [{
-        values: [x, y],
+        values: [x, y, z, w],
         labels: labelArray,
         text: textArray,
         textposition: 'outside',
@@ -515,7 +523,8 @@ var updateS4Info = function(a, b, barId, me , winner) {
         hoverinfo: 'percent+label',
         automargin: true,
         marker:{
-            colors: ['rgb(225, 225, 225)', 'rgb(80, 80, 80)'],
+            colors: ['rgb(225, 225, 225)', 'rgb(160, 160, 160)', 'rgb(100, 100, 100)', 'rgb(40, 40, 40)'],
+            // colors: ['rgb(220, 220, 0)', 'rgb(80, 160, 160)', 'rgb(100, 0, 100)', 'rgb(80, 120, 40)'],
             line: {
                 color: colorArray,
                 width: colorWidth,
@@ -537,7 +546,6 @@ var updateS4Info = function(a, b, barId, me , winner) {
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
 
-
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -546,37 +554,12 @@ var updateS4Info = function(a, b, barId, me , winner) {
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-// Temporary data generation for testing
-// Random switch
 var onezero = function() {
     return (Math.random() >= 0.5) ? 1 : 0;
 }
-
-
-
-var generateMe = function() {
-    return Math.ceil(Math.random() * 2) - 1;
-}
-
-
-
-var onezero = function() {
-    return (Math.random() >= 0.5) ? 1 : 0;
-}
-
-var tempMe = generateMe();
-
-var generateS4winner = function() {
-    var temp = [true, true];
-    temp[tempMe] = false;
-    return temp;
-}
-
-var sw = [onezero(), onezero()];
-var osw = [onezero(), onezero()];
-
+var sw = [onezero(), onezero(), onezero(), onezero()];
+var osw = [onezero(), onezero(), onezero(), onezero()];
 var d = {
-    me: tempMe,
     s2:
     {
         ourGroup:
@@ -585,13 +568,15 @@ var d = {
             {
                 f1: sw[0] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
                 f2: sw[1] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-
+                f3: sw[2] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                f4: sw[3] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
             },
             sabo:
             {
                 f1: sw[0] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
                 f2: sw[1] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-
+                f3: sw[2] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                f4: sw[3] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
             }
         },
         opposingGroup:
@@ -600,69 +585,70 @@ var d = {
             {
                 f1: osw[0] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
                 f2: osw[1] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-
+                f3: osw[2] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                f4: osw[3] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
             },
             sabo:
             {
                 f1: osw[0] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
                 f2: osw[1] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-
+                f3: osw[2] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                f4: osw[3] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
             }
         }
     },
     s3:
     {
         efo: parseFloat((Math.random()*500).toFixed(0)),
-        oefo:  parseFloat((Math.random()*500).toFixed(0)),
-        yourLeaderWon: false, //(Math.random() > 0.5) ? true : false,
+        oefo:  parseFloat((Math.random()*500).toFixed(0))
     },
     s4:
     {
         f1: parseFloat((Math.random()*400).toFixed(0)),
         f2: parseFloat((Math.random()*400).toFixed(0)),
-
-        hasWon: generateS4winner(), //will be an array!
-    },
+        f3: parseFloat((Math.random()*400).toFixed(0)),
+        f4: parseFloat((Math.random()*400).toFixed(0)),
+    }
 }
 
 var info = {};
 
 var data2Info = function() {
-    info.me = d.me;
     info.s1 = d.s2.ourGroup.sabo.f1;
     info.s2 = d.s2.ourGroup.sabo.f2;
-
+    info.s3 = d.s2.ourGroup.sabo.f3;
+    info.s4 = d.s2.ourGroup.sabo.f4;
     info.h1 = d.s2.ourGroup.help.f1;
     info.h2 = d.s2.ourGroup.help.f2;
-    info.sarray = [info.s1, info.s2];
-    info.harray = [info.h1, info.h2];
-
+    info.h3 = d.s2.ourGroup.help.f3;
+    info.h4 = d.s2.ourGroup.help.f4;
     info.os1 = d.s2.opposingGroup.sabo.f1;
     info.os2 = d.s2.opposingGroup.sabo.f2;
-
+    info.os3 = d.s2.opposingGroup.sabo.f3;
+    info.os4 = d.s2.opposingGroup.sabo.f4;
     info.oh1 = d.s2.opposingGroup.help.f1;
     info.oh2 = d.s2.opposingGroup.help.f2;
-
+    info.oh3 = d.s2.opposingGroup.help.f3;
+    info.oh4 = d.s2.opposingGroup.help.f4;
     info.efo = d.s3.efo;
     info.oefo = d.s3.oefo;
-
     info.e1 = d.s4.f1;
     info.e2 = d.s4.f2;
-    info.winner = d.s4.hasWon.indexOf(true);
-    info.earray = [info.e1, info.e2];
+    info.e3 = d.s4.f3;
+    info.e4 = d.s4.f4;
 }
 
 info.ts = function() {
-    return (info.s1 + info.s2);
+    return (info.s1 + info.s2 + info.s3 + info.s4);
 }
 info.th = function() {
-    return (info.h1 + info.h2);
+    return (info.h1 + info.h2 + info.h3 + info.h4);
 }
 info.ots = function() {
-    return (info.os1 + info.os2);
+    return (info.os1 + info.os2 + info.os3 + info.os4);
 }
 info.oth = function() {
-    return (info.oh1 + info.oh2);
+    return (info.oh1 + info.oh2 + info.oh3 + info.oh4);
 }
 info.efi = function() {
     return (1 + info.th()) / (1 + info.ts());
@@ -693,20 +679,20 @@ then it gets 2 again if there is no new leader in your group then
 it shoult be set to 1
 ourgroup is a boolean to determine the light or dark color scheme of the bars
 */
-updateBarHelpInfo(info.h1, info.h2, 's2helpbarg1', true, info.me, info.winner);
-updateBarSaboInfo(info.s1, info.s2, 's2sabobarg1', true, info.me, info.winner);
+updateBarHelpInfo(info.h1, info.h2, info.h3, info.h4, 's2helpbarg1', true, 2, 0);
+updateBarSaboInfo(info.s1, info.s2, info.s3, info.s4, 's2sabobarg1', true, 2, 0);
 
 updateBarTotalHelpInfo(info.th(), info.oth(), 's2totalhelpbar');
 updateBarTotalSaboInfo(info.ts(), info.ots(), 's2totalsabobar');
 
-updateBarHelpInfo(info.oh1, info.oh2, 's2helpbarg2', false, -1, -1);
-updateBarSaboInfo(info.os1, info.os2, 's2sabobarg2', false, -1, -1);
+updateBarHelpInfo(info.oh1, info.oh2, info.oh3, info.oh4, 's2helpbarg2', false, -1, -1);
+updateBarSaboInfo(info.os1, info.os2, info.os3, info.os4,'s2sabobarg2', false, -1, -1);
 
 updatePieInfo(info.pwin(), 's3pie', false);
 updateBarEffortInfo(info.efo, info.oefo, 's3efobar')
 updateEfficiencyBarInfo(info.efi(), info.oefi(), 's3efibar');
 
-updateS4Info(info.e1, info.e2, 's4pie', info.me, info.winner);
+updateS4Info(info.e1, info.e2, info.e3, info.e4, 's4pie', 1, 2);
 
 
 
@@ -1540,6 +1526,12 @@ var updateAll = function() {
     var payoffDisplay = document.getElementById('payoff');
     payoffDisplay.innerHTML = '<strong>' + (h1 + s1) + '</strong>' + ((h1 + s2 !== 0) ? ' tokens' : ' tokens');
 
+    var loseNetPayoff = document.getElementById('losenetpayoff');
+    loseNetPayoff.innerHTML = '<strong>' + -(h1 + s1) + '</strong>' + ((h1 + s2 !== 0) ? ' tokens' : ' tokens');
+
+    var winNetPayoff = document.getElementById('winnetpayoff');
+    winNetPayoff.innerHTML = '<strong>' + -(h1 + s1) + '</strong>' + ((h1 + s2 !== 0) ? ' tokens' : ' tokens');
+
 }
 
 updateAll();
@@ -1607,6 +1599,12 @@ dslider.oninput = function() {
 
     payoffDisplay.innerHTML = '<strong>' + (h1 + s1) + '</strong>' + ((h1 + s2 !== 0) ? ' tokens' : ' tokens');
 
+    var loseNetPayoff = document.getElementById('losenetpayoff');
+    loseNetPayoff.innerHTML = '<strong>' + -(h1 + s1) + '</strong>' + ((h1 + s2 !== 0) ? ' tokens' : ' tokens');
+
+    var winNetPayoff = document.getElementById('winnetpayoff');
+    winNetPayoff.innerHTML = '<strong>' + -(h1 + s1) + '</strong>' + ((h1 + s2 !== 0) ? ' tokens' : ' tokens');
+
     //synching sliders
     $('#vSlider1').prop('value', dvalue);
     $('#vSlider1').change();
@@ -1634,7 +1632,14 @@ slider1.oninput = function() {
 
     updateAll();
     updateBarYAxis('bar1', true);
+
     payoffDisplay.innerHTML = '<strong>' + (h1 + s1) + '</strong>' + ((h1 + s2 !== 0) ? ' tokens' : ' tokens');
+
+    var loseNetPayoff = document.getElementById('losenetpayoff');
+    loseNetPayoff.innerHTML = '<strong>' + -(h1 + s1) + '</strong>' + ((h1 + s2 !== 0) ? ' tokens' : ' tokens');
+
+    var winNetPayoff = document.getElementById('winnetpayoff');
+    winNetPayoff.innerHTML = '<strong>' + -(h1 + s1) + '</strong>' + ((h1 + s2 !== 0) ? ' tokens' : ' tokens');
 
     //synching sliders
     $('#dSlider').prop('value', value1);

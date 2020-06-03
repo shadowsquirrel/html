@@ -1540,6 +1540,12 @@ var updateAll = function() {
     var payoffDisplay = document.getElementById('payoff');
     payoffDisplay.innerHTML = '<strong>' + (h1 + s1) + '</strong>' + ((h1 + s2 !== 0) ? ' tokens' : ' tokens');
 
+    var loseNetPayoff = document.getElementById('losenetpayoff');
+    loseNetPayoff.innerHTML = '<strong>' + -(h1 + s1) + '</strong>' + ((h1 + s2 !== 0) ? ' tokens' : ' tokens');
+
+    var winNetPayoff = document.getElementById('winnetpayoff');
+    winNetPayoff.innerHTML = '<strong>' + -(h1 + s1) + '</strong>' + ((h1 + s2 !== 0) ? ' tokens' : ' tokens');
+
 }
 
 updateAll();
@@ -1607,6 +1613,12 @@ dslider.oninput = function() {
 
     payoffDisplay.innerHTML = '<strong>' + (h1 + s1) + '</strong>' + ((h1 + s2 !== 0) ? ' tokens' : ' tokens');
 
+    var loseNetPayoff = document.getElementById('losenetpayoff');
+    loseNetPayoff.innerHTML = '<strong>' + -(h1 + s1) + '</strong>' + ((h1 + s2 !== 0) ? ' tokens' : ' tokens');
+
+    var winNetPayoff = document.getElementById('winnetpayoff');
+    winNetPayoff.innerHTML = '<strong>' + -(h1 + s1) + '</strong>' + ((h1 + s2 !== 0) ? ' tokens' : ' tokens');
+
     //synching sliders
     $('#vSlider1').prop('value', dvalue);
     $('#vSlider1').change();
@@ -1634,7 +1646,14 @@ slider1.oninput = function() {
 
     updateAll();
     updateBarYAxis('bar1', true);
+
     payoffDisplay.innerHTML = '<strong>' + (h1 + s1) + '</strong>' + ((h1 + s2 !== 0) ? ' tokens' : ' tokens');
+
+    var loseNetPayoff = document.getElementById('losenetpayoff');
+    loseNetPayoff.innerHTML = '<strong>' + -(h1 + s1) + '</strong>' + ((h1 + s2 !== 0) ? ' tokens' : ' tokens');
+
+    var winNetPayoff = document.getElementById('winnetpayoff');
+    winNetPayoff.innerHTML = '<strong>' + -(h1 + s1) + '</strong>' + ((h1 + s2 !== 0) ? ' tokens' : ' tokens');
 
     //synching sliders
     $('#dSlider').prop('value', value1);
@@ -1827,7 +1846,7 @@ $('#dSlider').hover(
     },
     function() {
         setTimeout("updateBarXAxis('bard', false)", 1000);
-        $('.yourdecisiontext, .leftmaintitle').css({'font-weight':'200', 'font-size':'17px'});
+        $('.yourdecisiontext').css({'font-weight':'200', 'font-size':'17px'});
         $('#dSlider').css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
         $('#vSlider1')
         .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-90px'});

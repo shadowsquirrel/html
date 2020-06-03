@@ -1067,3 +1067,86 @@ input:checked + .checkslider:before {
 .checkslider.round:before {
   border-radius: 50%;
 }
+
+
+/***************************************/
+.mytablewrap
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: -70px;
+}
+.sidecolumn
+{
+    /* border: 5px solid black; */
+    padding-top: 45px;
+    padding-right: 5px;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    font-weight: 800;
+
+}
+.titlerow
+{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 8px;
+    /* padding-left: 10px; */
+    font-weight: 800;
+    margin-left: -12px;
+}
+.row
+{
+    /* border: 5px solid black; */
+    display: flex;
+    flex-direction: row;
+    /* margin-top: -10px; */
+}
+.roww2
+{
+    /* border: 5px solid black; */
+    margin-top: -10px;
+    margin-left: -15px;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+}
+.mytableleft
+{
+    padding-top: 25px;
+    margin-left: -60px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* padding-right: 50px; */
+}
+.maincolumnleft
+{
+    /* border: 5px solid black; */
+    padding-left: 45px;
+    display:flex;
+    flex-direction: column;
+
+}
+.mytableright
+{
+    margin-right: -50px;
+    padding-top: 25px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* padding-right: 50px; */
+}
+.maincolumnright
+{
+    /* border: 5px solid black; */
+    padding-left: 45px;
+    display:flex;
+    flex-direction: column;
+
+}
