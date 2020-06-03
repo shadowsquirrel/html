@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-
-    <link rel="stylesheet" href="css/stage5compact.css">
+    <link rel="stylesheet" href="css/stage5(2f).css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
-
-
     <title>Page Title</title>
 </head>
 <body>
+
     <div class='upperbar'>
         <button class=multibutton id=multibutton>Decision Mode</button>
         <button class=multibutton id=multibutton2>Go to <span id='buttonname'></span></button>
@@ -42,19 +39,19 @@
                             <h6 class = s2infotitle>STAGE 2</h6>
                             <div class = s2graphics>
                                 <div class = 's2g1'>
-                                    <h7>Group 1</h7>
+                                    <h7>Your Group</h7>
                                     <div id = 's2helpbarg1'></div>
                                     <div id = 's2sabobarg1'></div>
                                 </div>
-                                <pre> </pre>
+                                <pre>   </pre>
                                 <div id = 's2barmain'>
                                     <h7>Total</h7>
                                     <div id = 's2totalhelpbar'></div>
                                     <div id = 's2totalsabobar'></div>
                                 </div>
-                                <pre> </pre>
+                                <pre>    </pre>
                                 <div class = 's2g1'>
-                                    <h7>Group 2</h7>
+                                    <h7 style='margin-left:-10px;'>Other Group</h7>
                                     <div id = 's2helpbarg2'></div>
                                     <div id = 's2sabobarg2'></div>
                                 </div>
@@ -67,6 +64,7 @@
 
                         <div class = s3infographics>
                             <h6 class = 's3infotitle'>STAGE 3</h6>
+                            <h10 class = 's3infotitle' style='margin-top: -45px;'>(Your leader lost)</h10>
                             <div class = 's3graphics'>
                                 <div id = 's3pie' class = 's3pie'></div>
                                 <div class='efiefo'>
@@ -80,6 +78,7 @@
 
                         <div class = s4infographics>
                             <h6>STAGE 4</h6>
+                            <h10 style='margin-top: -50px;'>(You lost)</h10>
                             <div id = 's4pie' class = 's4pie'></div>
                             <div class='borderlegend'>
                                 <span class = newleader2>New Leader</span>
@@ -104,9 +103,6 @@
 
 
             </div>
-
-
-
 
             <div class = 'calculator' id='calculator'>
                 <div class = 'titlesection'>
@@ -258,7 +254,8 @@
 
                 <div class = decision>
                     <div class = input>
-                        <h5 class = 'decisiontitle'>Your Decision</h5>
+                        <h6 class='yourdecisiontext closertotop'>YOUR DECISION</h6>
+                        <!-- <h5 class = 'decisiontitle'>Your Decision</h5> -->
                         <div class = 'sliderbard'>
                             <input type='range' min = '-100' max = '100' class = 'dslider' value = '0' id = 'dSlider' />
                             <div id = 'bard' class = 'dbar'></div>
@@ -274,30 +271,12 @@
 
             </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
 
     </div>
 
-
-
-
-
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="js/stage5compact.js"></script>
+<script src="js/stage5(2f).js"></script>
 
 </body>
 </html>

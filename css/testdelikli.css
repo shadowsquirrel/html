@@ -385,12 +385,14 @@ margin-right: -135px;
 /* class to contain the pie graph and its title*/
 .piewrap
 {
-    /* border: 5px solid black; */
+    border: 5px solid black;
 }
 /************************************************/
 .pie
 {
-    position:relative;
+    z-index: 0;
+    position:absolute;
+    margin-right: 50px;
     /* display: flex; */
     /* justify-content: center; */
 
@@ -402,18 +404,20 @@ margin-right: -135px;
 {
 
     /* padding-left: 30px; */
+
     display: flex;
     flex-direction: column;
     justify-content: center;
+
     /* border: 5px solid black; */
 }
 /************************************************/
 /************************************************/
 .efficiencyBar
 {
-    margin-top: 500px;
-    position:absolute,
-    z-index:1;
+    z-index:2;
+    /* margin-top: 500px; */
+    position:relative,
     /* display: flex; */
     /* flex-direction: row; */
     /* justify-content: center; */
@@ -422,8 +426,8 @@ margin-right: -135px;
 .effortbars
 {
     /* margin-top: 500px; */
-    position:absolute,
-    z-index:1;
+    position:relative,
+    z-index:2;
     /* display: flex; */
     /* flex-direction: row; */
     /* justify-content: center; */

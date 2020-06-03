@@ -951,27 +951,6 @@ var updateEffortBar = function(a, b) {
 
 
 //Top BUTTON
-var multiButton = document.getElementById('multibutton');
-var bbSwitch = 0;
-multiButton.onclick = function() {
-    var show = bbSwitch ? true : false;
-    var o = show ? 1 : 0;
-    var p = show ? 'static' : 'absolute';
-    var h = show ? '100%' : '0';
-    var m = show ? '50px' : '-20px';
-
-
-    // document.getElementById('hidewrap').style.position = p;
-    document.getElementById('hidewrap').style.opacity = o;
-    document.getElementById('hidewrap').style.maxHeight = h;
-    // document.getElementById('hidewrap2').style.position = p;
-    document.getElementById('hidewrap2').style.opacity = o;
-    document.getElementById('hidewrap2').style.maxHeight = h;
-    document.getElementById('sinfotitle').style.marginBottom = m
-    bbSwitch = 1 - bbSwitch;
-}
-
-
 var multiButton2 = document.getElementById('multibutton3');
 var bName = document.getElementById('buttonname');
 bName.innerHTML = 'Decision Section';

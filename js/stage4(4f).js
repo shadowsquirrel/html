@@ -13,27 +13,23 @@ var onezero = function() {
 }
 
 var generateS4winner = function() {
-    var temp = [false, false];
-    var index = Math.ceil(Math.random() * 2) - 1;
+    var temp = [false, false, false, false];
+    var index = Math.ceil(Math.random() * 4) - 1;
     temp[index] = true;
     return temp;
 }
 
-var generateMeStrong = function() {
-    return (Math.random() > 0.5) ? true : false;
-}
-
 var generateMe = function() {
-    return Math.ceil(Math.random() * 2) - 1;
+    return Math.ceil(Math.random() * 4) - 1;
 }
 
 var tempMe = generateMe();
-
-var sw = [onezero(), onezero()];
-var osw = [onezero(), onezero()];
+var sw = [onezero(), onezero(), onezero(), onezero()];
+var osw = [onezero(), onezero(), onezero(), onezero()];
+var bsw = [onezero(), onezero(), onezero(), onezero()];
+var bosw = [onezero(), onezero(), onezero(), onezero()];
 
 var d = {
-    meStrong: generateMeStrong(),
     me: tempMe,
     s2:
     {
@@ -43,11 +39,15 @@ var d = {
             {
                 f1: sw[0] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
                 f2: sw[1] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                f3: sw[2] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                f4: sw[3] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
             },
             sabo:
             {
                 f1: sw[0] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
                 f2: sw[1] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                f3: sw[2] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                f4: sw[3] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
             }
         },
         opposingGroup:
@@ -56,11 +56,15 @@ var d = {
             {
                 f1: osw[0] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
                 f2: osw[1] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                f3: osw[2] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                f4: osw[3] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
             },
             sabo:
             {
                 f1: osw[0] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
                 f2: osw[1] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                f3: osw[2] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                f4: osw[3] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
             }
         }
     },
@@ -74,50 +78,130 @@ var d = {
     {
         f1: parseFloat((Math.random()*400).toFixed(0)),
         f2: parseFloat((Math.random()*400).toFixed(0)),
+        f3: parseFloat((Math.random()*400).toFixed(0)),
+        f4: parseFloat((Math.random()*400).toFixed(0)),
         hasWon: generateS4winner(), //will be an array!
     },
+    beliefs:
+    {
+        s2:
+        {
+            ourGroup:
+            {
+                help:
+                {
+                    f1: bsw[0] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                    f2: bsw[1] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                    f3: bsw[2] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                    f4: bsw[3] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                },
+                sabo:
+                {
+                    f1: bsw[0] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                    f2: bsw[1] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                    f3: bsw[2] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                    f4: bsw[3] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                }
+            },
+            opposingGroup:
+            {
+                help:
+                {
+                    f1: bosw[0] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                    f2: bosw[1] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                    f3: bosw[2] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                    f4: bosw[3] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                },
+                sabo:
+                {
+                    f1: bosw[0] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                    f2: bosw[1] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                    f3: bosw[2] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                    f4: bosw[3] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                }
+            }
+        },
+        s3:
+        {
+            efo: parseFloat((Math.random()*500).toFixed(0)),
+            oefo:  parseFloat((Math.random()*500).toFixed(0)),
+        },
+        s4:
+        {
+            f1: parseFloat((Math.random()*400).toFixed(0)),
+            f2: parseFloat((Math.random()*400).toFixed(0)),
+            f3: parseFloat((Math.random()*400).toFixed(0)),
+            f4: parseFloat((Math.random()*400).toFixed(0)),
+        }
+    }
 }
 
 var info = {};
 info.beliefs = {};
 
 var data2Info = function() {
-    info.meStrong = d.meStrong,
     info.me = d.me;
     info.s1 = d.s2.ourGroup.sabo.f1;
     info.s2 = d.s2.ourGroup.sabo.f2;
-
+    info.s3 = d.s2.ourGroup.sabo.f3;
+    info.s4 = d.s2.ourGroup.sabo.f4;
     info.h1 = d.s2.ourGroup.help.f1;
     info.h2 = d.s2.ourGroup.help.f2;
-
-    info.sarray = [info.s1, info.s2];
-    info.harray = [info.h1, info.h2];
-
+    info.h3 = d.s2.ourGroup.help.f3;
+    info.h4 = d.s2.ourGroup.help.f4;
+    info.sarray = [info.s1, info.s2, info.s3, info.s4];
+    info.harray = [info.h1, info.h2, info.h3, info.h4];
     info.os1 = d.s2.opposingGroup.sabo.f1;
     info.os2 = d.s2.opposingGroup.sabo.f2;
-
+    info.os3 = d.s2.opposingGroup.sabo.f3;
+    info.os4 = d.s2.opposingGroup.sabo.f4;
     info.oh1 = d.s2.opposingGroup.help.f1;
     info.oh2 = d.s2.opposingGroup.help.f2;
-
+    info.oh3 = d.s2.opposingGroup.help.f3;
+    info.oh4 = d.s2.opposingGroup.help.f4;
     info.efo = d.s3.efo;
     info.oefo = d.s3.oefo;
     info.e1 = d.s4.f1;
     info.e2 = d.s4.f2;
+    info.e3 = d.s4.f3;
+    info.e4 = d.s4.f4;
+    info.earray = [info.e1, info.e2, info.e3, info.e4];
 
-    info.earray = [info.e1, info.e2];
+    info.beliefs.s1 = d.beliefs.s2.ourGroup.sabo.f1;
+    info.beliefs.s2 = d.beliefs.s2.ourGroup.sabo.f2;
+    info.beliefs.s3 = d.beliefs.s2.ourGroup.sabo.f3;
+    info.beliefs.s4 = d.beliefs.s2.ourGroup.sabo.f4;
+    info.beliefs.h1 = d.beliefs.s2.ourGroup.help.f1;
+    info.beliefs.h2 = d.beliefs.s2.ourGroup.help.f2;
+    info.beliefs.h3 = d.beliefs.s2.ourGroup.help.f3;
+    info.beliefs.h4 = d.beliefs.s2.ourGroup.help.f4;
+    info.beliefs.os1 = d.beliefs.s2.opposingGroup.sabo.f1;
+    info.beliefs.os2 = d.beliefs.s2.opposingGroup.sabo.f2;
+    info.beliefs.os3 = d.beliefs.s2.opposingGroup.sabo.f3;
+    info.beliefs.os4 = d.beliefs.s2.opposingGroup.sabo.f4;
+    info.beliefs.oh1 = d.beliefs.s2.opposingGroup.help.f1;
+    info.beliefs.oh2 = d.beliefs.s2.opposingGroup.help.f2;
+    info.beliefs.oh3 = d.beliefs.s2.opposingGroup.help.f3;
+    info.beliefs.oh4 = d.beliefs.s2.opposingGroup.help.f4;
+    info.beliefs.efo = d.beliefs.s3.efo;
+    info.beliefs.oefo = d.beliefs.s3.oefo;
+    info.beliefs.e1 = d.beliefs.s4.f1;
+    info.beliefs.e2 = d.beliefs.s4.f2;
+    info.beliefs.e3 = d.beliefs.s4.f3;
+    info.beliefs.e4 = d.beliefs.s4.f4;
 }
 
 info.ts = function() {
-    return (info.s1 + info.s2);
+    return (info.s1 + info.s2 + info.s3 + info.s4);
 }
 info.th = function() {
-    return (info.h1 + info.h2);
+    return (info.h1 + info.h2 + info.h3 + info.h4);
 }
 info.ots = function() {
-    return (info.os1 + info.os2);
+    return (info.os1 + info.os2 + info.os3 + info.os4);
 }
 info.oth = function() {
-    return (info.oh1 + info.oh2);
+    return (info.oh1 + info.oh2 + info.oh3 + info.oh4);
 }
 info.efi = function() {
     return (1 + info.th()) / (1 + info.ts());
@@ -130,7 +214,34 @@ info.pwin = function() {
 }
 
 
+
+info.beliefs.ts = function() {
+    return (info.beliefs.s1 + info.beliefs.s2 + info.beliefs.s3 + info.beliefs.s4);
+}
+info.beliefs.th = function() {
+    return (info.beliefs.h1 + info.beliefs.h2 + info.beliefs.h3 + info.beliefs.h4);
+}
+info.beliefs.ots = function() {
+    return (info.beliefs.os1 + info.beliefs.os2 + info.beliefs.os3 + info.beliefs.os4);
+}
+info.beliefs.oth = function() {
+    return (info.beliefs.oh1 + info.beliefs.oh2 + info.beliefs.oh3 + info.beliefs.oh4);
+}
+info.beliefs.efi = function() {
+    return (1 + info.beliefs.th()) / (1 + info.beliefs.ts());
+}
+info.beliefs.oefi = function() {
+    return (1 + info.beliefs.oth()) / (1 + info.beliefs.ots());
+}
+info.beliefs.pwin = function() {
+    return (info.beliefs.efo * info.beliefs.efi()) / ((info.beliefs.efo * info.beliefs.efi()) + (info.beliefs.oefo * info.beliefs.oefi()) );
+}
+
 data2Info();
+
+
+
+
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -142,16 +253,23 @@ data2Info();
 ////////////////////////////////////////////////////////////////////////////////
 
 var setFollowerText = function(me) {
-    var followersTag = [0, 1];
+
+    var followersTag = [0, 1 , 2, 3];
     followersTag.splice(info.me, 1);
     var otherFollowers = followersTag;
     var youFollowerText = document.getElementById('youfollower');
     var f1text = document.getElementById('otherfollower1');
+    var f2text = document.getElementById('otherfollower2');
+    var f3text = document.getElementById('otherfollower3');
     var maintagdisplay = document.getElementById('maintagdisplay');
 
     maintagdisplay.innerHTML = 'Follower ' + (me + 1);
     youFollowerText.innerHTML = 'Follower ' + (me + 1) + ' ';
     f1text.innerHTML = 'Follower ' + (otherFollowers[0] + 1);
+    f2text.innerHTML = 'Follower ' + (otherFollowers[1] + 1);
+    f3text.innerHTML = 'Follower ' + (otherFollowers[2] + 1);
+
+
 }
 
 var logistic = function(val) {
@@ -236,12 +354,14 @@ var setStrengthBar = function(efi1, efi2) {
 
     Plotly.react('efficiencyColoryou', leader1, layout, {displayModeBar: false});
     Plotly.react('efficiencyColorf1', leader2, layout, {displayModeBar: false});
+    Plotly.react('efficiencyColorf2', leader2, layout, {displayModeBar: false});
+    Plotly.react('efficiencyColorf3', leader2, layout, {displayModeBar: false});
 }
 
 var setStrengthText = function(efi1, efi2) {
     var val1 = efi1 / (efi1 + efi2);
     var val2 = efi2 / (efi1 + efi2);
-    console.log(val1 + ', ' + val2);
+
     var degree1;
     var position1;
     var degree2;
@@ -291,13 +411,16 @@ var setStrengthText = function(efi1, efi2) {
     if(val1 !== val2) {
         var string1 = degree1 + position1;
         var string2 = degree2 + position2;
-        document.getElementById('advtxt1you').innerHTML = string1;
-        document.getElementById('advtxt2f1').innerHTML = string2;
+        document.getElementById('advtxt1').innerHTML = string1;
+        document.getElementById('advtxt2').innerHTML = string2;
     }
     if(val1 === val2){
         var same = ' has no advantage or disadvantage'
         document.getElementById('advtxt1you').innerHTML = same;
         document.getElementById('advtxt2f1').innerHTML = same;
+        document.getElementById('advtxt2f2').innerHTML = same;
+        document.getElementById('advtxt2f3').innerHTML = same;
+
     }
 
 
@@ -306,14 +429,11 @@ var setStrengthText = function(efi1, efi2) {
 }
 
 // Need to modify it for other treatments
-var setEfficiencyBar = function(meStrong) {
+var setEfficiencyBar = function() {
 
-    var myx, ox;
-    myx = meStrong ? 3 : 1;
-    ox = meStrong ? 1 : 3;
     var f1 = {
         y: ['group 1'],
-        x: [myx],
+        x: [1],
         type: 'bar',
         orientation: 'h',
         sort: false,
@@ -323,9 +443,9 @@ var setEfficiencyBar = function(meStrong) {
         fixedrange: true,
         cliponaxis: false,
         marker: {
-            color: 'rgb(80, 80, 80)',
+            color: 'rgb(40, 40, 40)',
         },
-        text: myx,
+        text: 1,
         textposition: 'inside',
         insidetextanchor: 'middle',
         textfont: {
@@ -336,7 +456,52 @@ var setEfficiencyBar = function(meStrong) {
 
     var f2 = {
         y: ['group 1'],
-        x: [ox],
+        x: [1],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        fixedrange: true,
+        cliponaxis: false,
+        marker: {
+            color: 'rgb(100, 100, 100)',
+        },
+        text: 1,
+        textposition: 'inside',
+        insidetextanchor: 'middle',
+        textfont: {
+            size: '14'
+        },
+    };
+
+    var f3 = {
+        y: ['group 1'],
+        x: [1],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        fixedrange: true,
+        cliponaxis: false,
+        marker: {
+            color: 'rgb(160, 160, 160)',
+        },
+        text: 1,
+        textposition: 'inside',
+        insidetextanchor: 'middle',
+        textfont: {
+            color: 'white',
+            size: '14'
+        },
+    };
+
+    var f4 = {
+        y: ['group 1'],
+        x: [1],
         type: 'bar',
         orientation: 'h',
         sort: false,
@@ -348,7 +513,7 @@ var setEfficiencyBar = function(meStrong) {
         marker: {
             color: 'rgb(225, 225, 225)',
         },
-        text: ox,
+        text: 1,
         textposition: 'inside',
         insidetextanchor: 'middle',
         textfont: {
@@ -356,9 +521,15 @@ var setEfficiencyBar = function(meStrong) {
         },
     };
 
+
+
     var myHeight = 48//60;
 
-    var data = [f1, f2];
+
+
+    var data = [f1, f4, f3, f2];
+
+
 
     var layout = {
         title:{
@@ -371,7 +542,7 @@ var setEfficiencyBar = function(meStrong) {
         hoverinfo: 'none',
         barmode: 'stack',
         height: myHeight,//60
-        width: 200,
+        width: 270,
         margin: {"t": 0, "b": 20, "l": 0, "r": 0},
         xaxis: {
             fixedrange: true,
@@ -394,27 +565,29 @@ var setEfficiencyBar = function(meStrong) {
     Plotly.react('efficiency', data, layout, {displayModeBar: false});
 }
 
-////////////////////////////////////
 
+
+////////////////////////////////////
 var nzt = function(val) {
     return (val != 0) ? val : '';
 }
 
-var setHelpBar = function(a, b, barId, ourGroup, me) {
+var setHelpBar = function(a, b, c, d, barId, ourGroup, me) {
 
     var x = a;
     var y = b;
-
+    var z = c;
+    var w = d;
 
     var myOpacity = 1;//[1, 1, 1, 1];
-    var myText = [nzt(a), nzt(b)];
+    var myText = [nzt(a), nzt(b), nzt(c), nzt(d)];
 
     var lightblue = 'rgb(200,200,255)';
     var blue = 'rgb(140, 140, 255)';
     var ourColor = ourGroup ? blue : lightblue;
 
-    var colorArray = ['', ''];
-    var colorWidth = [0, 0];
+    var colorArray = ['', '', '', ''];
+    var colorWidth = [0, 0, 0, 0];
     if (me!==-1) {
         colorArray[me] = 'black';
         colorWidth[me] = 2;
@@ -422,8 +595,8 @@ var setHelpBar = function(a, b, barId, ourGroup, me) {
 
 
     var actual =  {
-        y: [x, y],
-        x: [1, 2],
+        y: [x, y, z, w],
+        x: [1, 2, 3, 4],
         type: 'bar',
         sort: false,
         hoverinfo: 'none',
@@ -449,8 +622,8 @@ var setHelpBar = function(a, b, barId, ourGroup, me) {
 
     var layout = {
         barmode: 'overlay',
-        height: 80,
-        width: 60,
+        height: 120,
+        width: 100,
         margin: {"t": 20, "b": 0, "l": 0, "r": 0},
         yaxis: {
             fixedrange: true,
@@ -507,7 +680,7 @@ var setTotalHelpBar = function(a, b, barId) {
 
     var layout = {
         barmode: 'overlay',
-        height: 80,
+        height: 120,
         width: 120,
         margin: {"t": 20, "b": 0, "l": 0, "r": 0},
         yaxis: {
@@ -531,20 +704,22 @@ var setTotalHelpBar = function(a, b, barId) {
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
 
-var setSaboBar = function(a, b, barId, ourGroup, me) {
+var setSaboBar = function(a, b, c, d, barId, ourGroup, me) {
 
     var x = -a;
     var y = -b;
+    var z = -c;
+    var w = -d;
 
     var myOpacity = 1;//[1, 1, 1, 1];
-    var myText = [nzt(a), nzt(b)];
+    var myText = [nzt(a), nzt(b), nzt(c), nzt(d)];
 
     var lightred = 'rgb(255,200,200)';
     var red = 'rgb(255 140, 140)';
     var ourColor = ourGroup ? red : lightred;
 
-    var colorArray = ['', ''];
-    var colorWidth = [0, 0];
+    var colorArray = ['', '', '', ''];
+    var colorWidth = [0, 0, 0, 0];
     if (me!==-1) {
         colorArray[me] = 'black';
         colorWidth[me] = 2;
@@ -552,8 +727,8 @@ var setSaboBar = function(a, b, barId, ourGroup, me) {
 
 
     var actual = {
-        y: [x, y],
-        x: [1, 2],
+        y: [x, y, z, w],
+        x: [1, 2, 3, 4],
         type: 'bar',
         sort: false,
         hoverinfo: 'none',
@@ -579,8 +754,8 @@ var setSaboBar = function(a, b, barId, ourGroup, me) {
 
     var layout = {
         barmode: 'overlay',
-        height: 80,
-        width: 60,
+        height: 120,
+        width: 100,
         margin: {"t": 0, "b": 20, "l": 0, "r": 0},
         yaxis: {
             fixedrange: true,
@@ -636,7 +811,7 @@ var setTotalSaboBar = function(a, b, barId) {
 
     var layout = {
         barmode: 'overlay',
-        height: 80,
+        height: 120,
         width: 120,
         margin: {"t": 0, "b": 20, "l": 0, "r": 0},
         yaxis: {
@@ -660,6 +835,11 @@ var setTotalSaboBar = function(a, b, barId) {
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
 
+
+
+
+
+
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -669,25 +849,29 @@ var setTotalSaboBar = function(a, b, barId) {
 ////////////////////////////////////////////////////////////////////////////////
 
 // first argument is always the observant subject
-var updatePie = function(a, b, me, meStrong) {
+var updatePie = function(a, b, c, d, me) {
 
-    var x = meStrong ? (3 * a) : a;
-    var y = meStrong ? b : (3 * b);
-    var actualData = [y, x];
+    var x = a;
+    var y = b;
+    var z = c;
+    var w = d;
+    var actualData = [x, y, z, w];
     var actualOpacity = 1;
-    var actualColors = [ 'rgb(225, 225, 225)', 'rgb(80, 80, 80)'];
+    var actualColors = ['rgb(40, 40, 40)', 'rgb(225, 225, 225)', 'rgb(160, 160, 160)', 'rgb(100, 100, 100)'];
 
 
 
-    if((x + y) === 0) {
+    if((x + y + z + w) === 0) {
         x = 1;
         y = 1;
+        z = 1;
+        w = 1;
     }
 
-    var textArray = ['', '']
-    var colorArray = ['black', 'black'];
-    var colorWidth = [1, 1];
-    var labelArray = [ 'Follower 2', 'Follower 1'];
+    var textArray = ['', '', '', '']
+    var colorArray = ['black', 'black', 'black', 'black'];
+    var colorWidth = [1, 1, 1, 1];
+    var labelArray = ['Follower 1', 'Follower 2', 'Follower 3', 'Follower 4'];
     // rearrange the label array so that observent subject is the first one
 
     var myLabel = labelArray[me];
@@ -697,20 +881,26 @@ var updatePie = function(a, b, me, meStrong) {
     labelArray.splice(0, 0, myLabel);
 
 
-    // textArray[1] = 'You';
+    textArray[0] = 'You';
+    colorArray[0] = 'yellow';//'lightgreen';
+    colorWidth[0] = 3;
 
 
     var actual = {
-        values: [y, x],
+        values: [x, y, z, w],
         labels: labelArray,
         text: textArray,
-        // textposition: 'outside',
+        textposition: 'outside',
         type: 'pie',
         sort: false,
         hoverinfo: 'percent+label',
         automargin: true,
         marker:{
             colors: actualColors,
+            line: {
+                color: colorArray,
+                width: colorWidth,
+            }
         },
         opacity: actualOpacity,
     };
@@ -723,14 +913,14 @@ var updatePie = function(a, b, me, meStrong) {
         //     size: 2,
         //     yref: 'paper',
         //     yanchor: 'top',
-        //     y:1,
+        //     y:2,
         // },
-        height: 140,//200,
-        width: 140,//200,
+        height: 310,//200,
+        width: 250,//200,
         font:{
-            size: 12
+            size: 14
         },
-        margin: {"t": 0, "b": 0, "l": 0, "r": 0},
+        margin: {"t": 40, "b": 40, "l": 40, "r": 40},
         showlegend: false,
     };
 
@@ -746,9 +936,13 @@ var updateBarFollower = function(e, barId, followerIndex, axisOn) {
     var y = e;
     if(typeof(x) === 'undefined') x = 0;
 
-    var myColors = ['rgb(80, 80, 80)', 'rgb(225, 225, 225)'];
+    var myColors = ['rgb(40, 40, 40)', 'rgb(225, 225, 225)', 'rgb(160, 160, 160)', 'rgb(100, 100, 100)'];
 
     var mColor = myColors[followerIndex];
+    // var mColor = ourSide ? myColor(logistic(val1)) : myColor(logistic(val2));
+    // var myLabel = x > 0 ? x : -x;
+    // var myTextPosition = (x >= 0 || x === -100) ? 'outside' : 'inside';
+    // var myTextFont = (x < 0 && x > -100 && !lighter) ? 'white' : 'black';
 
     var data = [{
         x: [y],
@@ -793,7 +987,7 @@ var updateBarFollower = function(e, barId, followerIndex, axisOn) {
             showline: false,
             showgrid: axisOn,
             showticklabels: axisOn,
-            gridcolor: "rgb(202, 202, 202)",
+            gridcolor: "rgb(207, 202, 202)",
         },
         yaxis: {
             ticks: '',
@@ -823,7 +1017,7 @@ var updateBarDecision = function(a, barId, axisOn) {
         automargin: true,
         showlegend: false,
         marker:{
-            color: 'rgb(80, 80, 80)',
+            color: 'rgb(40, 40, 40)',
             line: {
                 color: 'none',
                 width: 0
@@ -836,7 +1030,7 @@ var updateBarDecision = function(a, barId, axisOn) {
         textanchor: 'right',
         textposition: 'outside',
         cliponaxis: false,
-    }];
+            }];
 
     var layout = {
         barmode: 'group',
@@ -881,29 +1075,30 @@ var updateBarDecision = function(a, barId, axisOn) {
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
 
-var updateEffortBar = function(a, b) {
+var updateEffortBar = function(a, b, c, d) {
 
     var x = a;
     var y = b;
-
-    var actualData = [x, y];
-    var myText = [x, y];
+    var z = c;
+    var w = d;
+    var hoverTag = ['f1', 'f2', 'f3', 'f4'];
+    var actualData = [x, y, z, w];
+    var myText = [x, y, z, w];
     var temp = myText[0];
     var myOpacity = 1;
-    var actualColors = ['rgb(80, 80, 80)', 'rgb(225, 225, 225)'];
-    var actualXPosition = [1, 2];
+    var actualColors = ['rgb(40, 40, 40)', 'rgb(225, 225, 225)', 'rgb(160, 160, 160)', 'rgb(100, 100, 100)'];
+    var actualXPosition = [1, 2, 3, 4];
 
 
-    var colorArray = ['', ''];
-    var colorWidth = [0, 0];
+    var colorArray = ['', '', '', ''];
+    var colorWidth = [0, 0, 0, 0];
     colorArray[0] = 'yellow';//'lightgreen';
     colorWidth[0] = 3;
 
     var actual = {
         y: actualData,
         x: actualXPosition,
-        myname: ['f1', 'f2'],
-        // width: [0.3, 0.9],
+        myname: ['f1', 'f2', 'f3', 'f4'],
         type: 'bar',
         sort: false,
         hoverinfo: 'none',
@@ -911,6 +1106,10 @@ var updateEffortBar = function(a, b) {
         showlegend: false,
         marker:{
             color: actualColors,
+            line: {
+                color: colorArray,
+                width: colorWidth,
+            }
         },
         text: myText,
         textposition: 'outside',
@@ -921,19 +1120,17 @@ var updateEffortBar = function(a, b) {
         opacity: myOpacity,
     };
 
-
+    var myWidth = 320;
 
     var layout = {
         title: "Token's Invested",
         titlefont: {
-            size: 16,
+            size: 14,
         },
-
-
         barmode: 'overlay',
-        height: 150,
-        width: 200,
-        margin: {"t": 60, "b": 0, "l": 30, "r": 30},
+        height: 220,
+        width: myWidth,
+        margin: {"t": 40, "b": 0, "l": 30, "r": 30},
         yaxis: {
             fixedrange: true,
             autorange: false,
@@ -950,7 +1147,7 @@ var updateEffortBar = function(a, b) {
             ticks: '',
             showticklabels: false,
         },
-        bargap: 0.3,
+        // bargap: 0.1,
         // bargroupgap: 0.5,
     };
 
@@ -961,8 +1158,9 @@ var updateEffortBar = function(a, b) {
 
 
 
-//Top BUTTON
 
+
+//Top BUTTON
 var multiButton2 = document.getElementById('multibutton3');
 var bName = document.getElementById('buttonname');
 bName.innerHTML = 'Decision Section';
@@ -988,17 +1186,34 @@ multiButton2.onclick = function() {
 
 
 // leader global variables
-var e1, e2;
-e1 = e2 = 0;
+var e1, e2, e3, e4;
+e1 = e2 = e3 = e4 = 0;
 
 
-var syncValues = function(eValue) {
-    e1 = eValue;
+var syncValues = function(eValue, syncMe, othersAreGrouped) {
+    if(syncMe) {
+        e1 = eValue;
+    } else {
+        if(othersAreGrouped) {
+            e2 = e3 = e4 = eValue;
+        }
+    }
+
 }
 
-var syncBars = function(value) {
-    updateBarFollower(value, 'mybar', 0, false);
-    updateBarDecision(value, 'bard', false);
+var syncBars = function(value, syncMe, othersAreGrouped) {
+
+    // Condition for future switch button for bundling or not
+    if(othersAreGrouped) {
+        updateBarFollower(value, 'barf1', 0, false);
+        updateBarFollower(value, 'barf2', 0, false);
+        updateBarFollower(value, 'barf3', 0, false);
+    }
+
+    if(syncMe) {
+        updateBarFollower(value, 'mybar', 0, false);
+        updateBarDecision(value, 'bard', false);
+    }
 }
 
 var updateBarXAxis = function(barId, axisSwitch) {
@@ -1010,46 +1225,48 @@ var updateBarXAxis = function(barId, axisSwitch) {
 }
 
 var initialize = function() {
-    setHelpBar(info.h1, info.h2, 'helpbarg1', true, info.me);
-    setSaboBar(info.s1, info.s2, 'sabobarg1', true, info.me);
+    setHelpBar(info.h1, info.h2, info.h3, info.h4, 'helpbarg1', true, info.me);
+    setSaboBar(info.s1, info.s2, info.s3, info.s4, 'sabobarg1', true, info.me);
 
     setTotalHelpBar(info.th(), info.oth(), 'helpbartotal');
     setTotalSaboBar(info.ts(), info.ots(), 'sabobartotal');
 
     // for opposing group me variable gets -1 to signal that there is no me
-    setHelpBar(info.oh1, info.oh2, 'helpbarg2', false, -1);
-    setSaboBar(info.os1, info.os2, 'sabobarg2', false, -1);
+    setHelpBar(info.oh1, info.oh2, info.oh3, info.oh4, 'helpbarg2', false, -1);
+    setSaboBar(info.os1, info.os2, info.os3, info.os4,'sabobarg2', false, -1);
 
 
 
     setFollowerText(info.me);
-    setEfficiencyBar(info.meStrong);
-    var sArray = info.meStrong ? [3,1] : [1,3];
-    setStrengthBar(sArray[0], sArray[1]);
-    setStrengthText(sArray[0], sArray[1]);
+    setEfficiencyBar();
+    setStrengthBar(1, 1);
+    setStrengthText(1, 1);
 
     updateBarFollower(0, 'mybar', 0, false);
     updateBarDecision(0, 'bard', false);
 
     updateBarFollower(0, 'barf1', 1, false);
-
+    updateBarFollower(0, 'barf2', 2, false);
+    updateBarFollower(0, 'barf3', 3, false);
 
     //first element always the actual subject
-    updatePie(0, 0, info.me, info.meStrong);
-    updateEffortBar(0, 0)
+    updatePie(0, 0, 0, 0, info.me);
+    updateEffortBar(0, 0, 0, 0)
 
     var payoffDisplay = document.getElementById('payoff');
     payoffDisplay.innerHTML = '<strong>' + (e1)  + '</strong>' + ((e1 > 1) ? ' tokens' : ' token');
 }
 
 var updateAll = function() {
-    updatePie(e1, e2, info.me, info.meStrong);
-    updateEffortBar(e1, e2);
+    updatePie(e1, e2, e3, e4, info.me);
+    updateEffortBar(e1, e2, e3, e4);
 
     updateBarFollower(e1, 'mybar', 0, false)
     updateBarDecision(e1, 'dSlider', false);
 
     updateBarFollower(e2, 'barf1', 1, false)
+    updateBarFollower(e3, 'barf2', 2, false)
+    updateBarFollower(e4, 'barf3', 3, false)
 
     var payoffDisplay = document.getElementById('payoff');
     payoffDisplay.innerHTML = '<strong>' + (e1)  + '</strong>' + ((e1 > 1) ? ' tokens' : ' token');
@@ -1067,40 +1284,57 @@ updateBarDecision(0, 'bard', false);
 
 
 // YOUR GROUP INITIATION
+// leader
 var fslider1 = document.getElementById('fSlider1');
 var fvalue = 0;
 updateBarFollower(fvalue, 'mybar', 0, false);
+// followers
 
 
 // OTHER FOLLOWERS INITIATION
+// leader
 var ofslider1 = document.getElementById('ofSlider1');
 var ofvalue1 = 0;
 updateBarFollower(ofvalue1, 'barf1', 1, false);
+
+var ofslider2 = document.getElementById('ofSlider2');
+var ofvalue2 = 0;
+updateBarFollower(ofvalue2, 'barf2', 2, false);
+
+var ofslider3 = document.getElementById('ofSlider3');
+var ofvalue3 = 0;
+updateBarFollower(ofvalue3, 'barf3', 3, false);
+
+
+// to be assigned through switch
+var ofSync = document.getElementById('mycheck').checked;
+
 
 
 //DECISION
 dslider.oninput = function() {
     dvalue = parseFloat(dslider.value);
     e1 = dvalue
-    syncBars(dvalue);
-    syncValues(dvalue);
+    syncBars(dvalue, true, ofSync);
+    syncValues(dvalue, true, ofSync);
     updateAll();
     updateBarXAxis('bard', true);
     //synching sliders
     $('#fSlider1').prop('value', dvalue);
     $('#fSlider1').change();
-
 }
 
 
+
 // CALCULATOR
+
 
 //me (follower)
 fslider1.oninput = function() {
     fvalue = parseFloat(fslider1.value);
     e1 = fvalue;
-    syncBars(fvalue);
-    syncValues(fvalue);
+    syncBars(fvalue, true, ofSync);
+    syncValues(fvalue, true, ofSync);
     updateAll();
     updateBarXAxis('mybar', true);
     //synching sliders
@@ -1108,41 +1342,78 @@ fslider1.oninput = function() {
     $('#dSlider').change();
 }
 
+
 //other follower 1
 ofslider1.oninput = function() {
+    ofSync = document.getElementById('mycheck').checked;
     ofvalue1 = parseFloat(ofslider1.value);
     e2 = ofvalue1;
+    syncBars(ofvalue1, false, ofSync);
+    syncValues(ofvalue1, false, ofSync);
     updateAll();
     updateBarXAxis('barf1', true);
+    if(ofSync) {
+        $('#ofSlider2, #ofSlider3').prop('value', ofvalue1);
+        $('#ofSlider2, #ofSlider3').change();
+    }
 }
+
+//other follower 2
+ofslider2.oninput = function() {
+    ofSync = document.getElementById('mycheck').checked;
+    ofvalue2 = parseFloat(ofslider2.value);
+    e3 = ofvalue2;
+    syncBars(ofvalue2, false, ofSync);
+    syncValues(ofvalue2, false, ofSync);
+    updateAll();
+    updateBarXAxis('barf2', true);
+    if(ofSync) {
+        $('#ofSlider1, #ofSlider3').prop('value', ofvalue2);
+        $('#ofSlider1, #ofSlider3').change();
+    }
+}
+
+//other follower 3
+ofslider3.oninput = function() {
+    ofSync = document.getElementById('mycheck').checked;
+    ofvalue3 = parseFloat(ofslider3.value);
+    e4 = ofvalue3;
+    syncBars(ofvalue3, false, ofSync);
+    syncValues(ofvalue3, false, ofSync);
+    updateAll();
+    updateBarXAxis('barf3', true);
+    if(ofSync) {
+        $('#ofSlider2, #ofSlider1').prop('value', ofvalue3);
+        $('#ofSlider2, #ofSlider1').change();
+    }
+}
+
+
 
 // HOVER AND FOCUSOUT EFFECT FOR XAXIS SHOWING UP
 $('#dSlider').hover(
     function() {
         setTimeout("updateBarXAxis('bard', true)", 250);
-        $('.yourdecisiontext, .leftmaintitle').css({'font-weight':'700', 'font-size':'17px'});
         $('#fSlider1, #dSlider').css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
         $('#fSlider1').addClass('newdSlider');
     },
     function() {
         setTimeout("updateBarXAxis('bard', false)", 1000);
-        $('.yourdecisiontext, .leftmaintitle').css({'font-weight':'200', 'font-size':'17px'});
         $('#fSlider1, #dSlider').css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
         $('#fSlider1').removeClass('newdSlider');
 
     }
 );
 
+
 $('#fSlider1').hover(
     function() {
         setTimeout("updateBarXAxis('mybar', true)", 250);
-        $('.yourdecisiontext, .leftmaintitle').css({'font-weight':'700', 'font-size':'17px'});
         $('#dSlider, #fSlider1').css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
         $('#dSlider').addClass('newdSlider');
     },
     function() {
         setTimeout("updateBarXAxis('mybar', false)", 500);
-        $('.yourdecisiontext, .leftmaintitle').css({'font-weight':'200', 'font-size':'17px'});
         $('#dSlider, #fSlider1').css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
         $('#dSlider').removeClass('newdSlider');
     }
@@ -1151,17 +1422,100 @@ $('#fSlider1').hover(
 
 $('#ofSlider1').hover(
     function() {
+        ofSync = document.getElementById('mycheck').checked;
+        var myString;
+        if(ofSync) {
+            myString = '#ofSlider1, #ofSlider2, #ofSlider3';
+        } else {
+            myString = '#ofSlider1';
+        }
         setTimeout("updateBarXAxis('barf1', true)", 250);
-        $('.rightmaintitletext').css({'font-weight':'700', 'font-size':'18px', 'color':'black'});
-        $('.rightsubtitletext').css({'opacity':'1', 'font-weight':'500'});
-        $('#ofSlider1')
+        $(myString)
         .css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
+        if(ofSync) {
+            $('#ofSlider2, #ofSlider3').addClass('newdSlider');
+        }
+
     },
     function() {
+        ofSync = document.getElementById('mycheck').checked;
+        var myString;
+        if(ofSync) {
+            myString = '#ofSlider1, #ofSlider2, #ofSlider3';
+        } else {
+            myString = '#ofSlider1';
+        }
         setTimeout("updateBarXAxis('barf1', false)", 500);
-        $('.rightmaintitletext').css({'font-weight':'200', 'font-size':'18px', 'color':'black'});
-        $('.rightsubtitletext').css({'opacity':'0.2', 'font-weight':'normal'});
-        $('#ofSlider1')
+
+        $(myString)
         .css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
+        if(ofSync) {
+            $('#ofSlider2, #ofSlider3').removeClass('newdSlider');
+        }
+
+    }
+);
+$('#ofSlider2').hover(
+    function() {
+        ofSync = document.getElementById('mycheck').checked;
+        var myString;
+        if(ofSync) {
+            myString = '#ofSlider1, #ofSlider2, #ofSlider3';
+        } else {
+            myString = '#ofSlider2';
+        }
+        setTimeout("updateBarXAxis('barf2', true)", 250);
+        $(myString)
+        .css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
+        if(ofSync) {
+            $('#ofSlider1, #ofSlider2, #ofSlider3').addClass('newdSlider');
+        }
+    },
+    function() {
+        ofSync = document.getElementById('mycheck').checked;
+        var myString;
+        if(ofSync) {
+            myString = '#ofSlider1, #ofSlider2, #ofSlider3';
+        } else {
+            myString = '#ofSlider2';
+        }
+        setTimeout("updateBarXAxis('barf2', false)", 500);
+        $(myString)
+        .css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
+        if(ofSync) {
+            $('#ofSlider1, #ofSlider2, #ofSlider3').removeClass('newdSlider');
+        }
+    }
+);
+$('#ofSlider3').hover(
+    function() {
+        ofSync = document.getElementById('mycheck').checked;
+        var myString;
+        if(ofSync) {
+            myString = '#ofSlider1, #ofSlider2, #ofSlider3';
+        } else {
+            myString = '#ofSlider3';
+        }
+        setTimeout("updateBarXAxis('barf3', true)", 250);
+        $(myString)
+        .css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
+        if(ofSync) {
+            $('#ofSlider1, #ofSlider2, #ofSlider3').addClass('newdSlider');
+        }
+    },
+    function() {
+        ofSync = document.getElementById('mycheck').checked;
+        var myString;
+        if(ofSync) {
+            myString = '#ofSlider1, #ofSlider2, #ofSlider3';
+        } else {
+            myString = '#ofSlider3';
+        }
+        setTimeout("updateBarXAxis('barf3', false)", 500);
+        $(myString)
+        .css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
+        if(ofSync) {
+            $('#ofSlider1, #ofSlider2, #ofSlider3').removeClass('newdSlider');
+        }
     }
 );

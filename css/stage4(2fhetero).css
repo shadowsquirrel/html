@@ -316,20 +316,47 @@
 {
     /* margin-left: -135px; */
     padding-bottom: 20px;
+    font-weight: 200;
+    font-size: 17px;
+    transition: font-weight .2s ease-in-out;
+    /* text-shadow: 0px 0px 0px black; */
+
+}
+.yourdecisiontext
+{
+    margin-top: -10px;
 }
 /************************************************/
 /************************************************/
 /************************************************/
 .rightmaintitle
 {
-/* margin-right: -205px; */
-padding-left: 50px;
-padding-bottom: 20px;
-display:flex;
-flex-direction: column;
-
+    padding-left: 50px;
+    padding-bottom: 20px;
+    display:flex;
+    flex-direction: column;
 }
+.rightmaintitletext
+{
+    color: black;
+    font-weight: 200;
+    font-size: 18px;
+    transition: font-weight .2s ease-in-out;
+    /* text-shadow: 0px 0px 0px black; */
 
+    /* transition-delay: 0.15s; */
+}
+.rightsubtitletext
+{
+    font-size: 14px;
+    opacity: 0.2;
+    transition-property: opacity, font-weight;
+    transition-duration: 0.35s, 0.2s;
+    transition-timing-function: ease-in-out, ease-in-out;
+    /* transition: opacity.2s ease-in-out; */
+    /* transition: font-weight 1s ease-in-out, opacity .2s ease-in-out; */
+    font-weight: normal;
+}
 /************************************************/
 /************************************************/
 /************************************************/
@@ -572,7 +599,7 @@ flex-direction: column;
 .input
 {
 
-    margin-top: -20px;
+    /* margin-top: -20px; */
     margin-left: 39px;
     text-align: center;
     /* height: 100px; */
@@ -659,7 +686,7 @@ flex-direction: column;
 .dslider:hover
 {
     opacity:1;
-    background:gray;
+    /* background:gray; */
 
     /*Setup Large*/
     margin-top: 45px;
@@ -718,10 +745,36 @@ flex-direction: column;
 /************************************************/
 .dinfo
 {
+    margin-top: -5px;
     text-align: center;
     padding-bottom: 10px;
     flex-grow:1;
 
+}
+.yourdecisiontext
+{
+    font-weight: 200;
+    font-size: 18px;
+    transition: font-weight .2s ease-in-out;
+    margin-top: -2px;
+
+}
+.closertotop
+{
+    margin-top: -8px;
+}
+
+.yourdecisiontext3
+{
+    font-weight: 200;
+    font-size: 18px;
+    transition: font-weight .2s ease-in-out;
+    margin-top: -2px;
+
+}
+.closertotop3
+{
+    margin-top: -8px;
 }
 /* .outcomes
 {
@@ -740,6 +793,7 @@ flex-direction: column;
 .col1
 {
     /* border: 5px solid black; */
+    padding-top: 30px;
     display: flex;
     flex-direction: column;
 }
@@ -753,23 +807,27 @@ flex-direction: column;
 }
 .text1
 {
+    padding-left: 50px;
     margin-top:-10px;
     text-align: left;
 }
 .col2
 {
+    padding-top: 30px;
     /* border: 5px solid black; */
     display: flex;
     flex-direction: column;
 }
 .title2
 {
+
     font-size: 17px;
     font-weight: 600;
     text-align: center;
 }
 .text2
 {
+    padding-left: 80px;
     margin-top:-10px;
     text-align: left;
 }

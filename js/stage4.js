@@ -589,7 +589,7 @@ var setHelpBar = function(a, b, c, d, barId, ourGroup, me) {
     var colorArray = ['', '', '', ''];
     var colorWidth = [0, 0, 0, 0];
     if (me!==-1) {
-        colorArray[me] = 'lightgreen';
+        colorArray[me] = 'black';
         colorWidth[me] = 2;
     }
 
@@ -721,7 +721,7 @@ var setSaboBar = function(a, b, c, d, barId, ourGroup, me) {
     var colorArray = ['', '', '', ''];
     var colorWidth = [0, 0, 0, 0];
     if (me!==-1) {
-        colorArray[me] = 'green';
+        colorArray[me] = 'black';
         colorWidth[me] = 2;
     }
 

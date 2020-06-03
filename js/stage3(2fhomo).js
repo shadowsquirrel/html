@@ -5,7 +5,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
 // Temporary data generation for testing
 // Random switch
 var onezero = function() {
@@ -24,10 +23,10 @@ var generateMe = function() {
 }
 
 var tempMe = generateMe();
-var sw = [onezero(), onezero(), onezero(), onezero()];
-var osw = [onezero(), onezero(), onezero(), onezero()];
-var bsw = [onezero(), onezero(), onezero(), onezero()];
-var bosw = [onezero(), onezero(), onezero(), onezero()];
+var sw = [onezero(), onezero()];
+var osw = [onezero(), onezero()];
+var bsw = [onezero(), onezero()];
+var bosw = [onezero(), onezero()];
 
 var d = {
     me: tempMe,
@@ -39,15 +38,11 @@ var d = {
             {
                 f1: sw[0] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
                 f2: sw[1] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-                f3: sw[2] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-                f4: sw[3] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
             },
             sabo:
             {
                 f1: sw[0] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
                 f2: sw[1] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-                f3: sw[2] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-                f4: sw[3] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
             }
         },
         opposingGroup:
@@ -56,15 +51,11 @@ var d = {
             {
                 f1: osw[0] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
                 f2: osw[1] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-                f3: osw[2] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-                f4: osw[3] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
             },
             sabo:
             {
                 f1: osw[0] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
                 f2: osw[1] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-                f3: osw[2] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-                f4: osw[3] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
             }
         }
     },
@@ -74,66 +65,7 @@ var d = {
         oefo:  parseFloat((Math.random()*500).toFixed(0)),
         yourLeaderWon: false, //(Math.random() > 0.5) ? true : false,
     },
-    s4:
-    {
-        f1: parseFloat((Math.random()*400).toFixed(0)),
-        f2: parseFloat((Math.random()*400).toFixed(0)),
-        f3: parseFloat((Math.random()*400).toFixed(0)),
-        f4: parseFloat((Math.random()*400).toFixed(0)),
-        hasWon: generateS4winner(), //will be an array!
-    },
-    beliefs:
-    {
-        s2:
-        {
-            ourGroup:
-            {
-                help:
-                {
-                    f1: bsw[0] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-                    f2: bsw[1] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-                    f3: bsw[2] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-                    f4: bsw[3] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-                },
-                sabo:
-                {
-                    f1: bsw[0] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-                    f2: bsw[1] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-                    f3: bsw[2] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-                    f4: bsw[3] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-                }
-            },
-            opposingGroup:
-            {
-                help:
-                {
-                    f1: bosw[0] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-                    f2: bosw[1] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-                    f3: bosw[2] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-                    f4: bosw[3] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-                },
-                sabo:
-                {
-                    f1: bosw[0] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-                    f2: bosw[1] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-                    f3: bosw[2] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-                    f4: bosw[3] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-                }
-            }
-        },
-        s3:
-        {
-            efo: parseFloat((Math.random()*500).toFixed(0)),
-            oefo:  parseFloat((Math.random()*500).toFixed(0)),
-        },
-        s4:
-        {
-            f1: parseFloat((Math.random()*400).toFixed(0)),
-            f2: parseFloat((Math.random()*400).toFixed(0)),
-            f3: parseFloat((Math.random()*400).toFixed(0)),
-            f4: parseFloat((Math.random()*400).toFixed(0)),
-        }
-    }
+
 }
 
 var info = {};
@@ -143,65 +75,33 @@ var data2Info = function() {
     info.me = d.me;
     info.s1 = d.s2.ourGroup.sabo.f1;
     info.s2 = d.s2.ourGroup.sabo.f2;
-    info.s3 = d.s2.ourGroup.sabo.f3;
-    info.s4 = d.s2.ourGroup.sabo.f4;
+
     info.h1 = d.s2.ourGroup.help.f1;
     info.h2 = d.s2.ourGroup.help.f2;
-    info.h3 = d.s2.ourGroup.help.f3;
-    info.h4 = d.s2.ourGroup.help.f4;
-    info.sarray = [info.s1, info.s2, info.s3, info.s4];
-    info.harray = [info.h1, info.h2, info.h3, info.h4];
+
+    info.sarray = [info.s1, info.s2];
+    info.harray = [info.h1, info.h2];
     info.os1 = d.s2.opposingGroup.sabo.f1;
     info.os2 = d.s2.opposingGroup.sabo.f2;
-    info.os3 = d.s2.opposingGroup.sabo.f3;
-    info.os4 = d.s2.opposingGroup.sabo.f4;
+
     info.oh1 = d.s2.opposingGroup.help.f1;
     info.oh2 = d.s2.opposingGroup.help.f2;
-    info.oh3 = d.s2.opposingGroup.help.f3;
-    info.oh4 = d.s2.opposingGroup.help.f4;
+
     info.efo = d.s3.efo;
     info.oefo = d.s3.oefo;
-    info.e1 = d.s4.f1;
-    info.e2 = d.s4.f2;
-    info.e3 = d.s4.f3;
-    info.e4 = d.s4.f4;
-    info.earray = [info.e1, info.e2, info.e3, info.e4];
-
-    info.beliefs.s1 = d.beliefs.s2.ourGroup.sabo.f1;
-    info.beliefs.s2 = d.beliefs.s2.ourGroup.sabo.f2;
-    info.beliefs.s3 = d.beliefs.s2.ourGroup.sabo.f3;
-    info.beliefs.s4 = d.beliefs.s2.ourGroup.sabo.f4;
-    info.beliefs.h1 = d.beliefs.s2.ourGroup.help.f1;
-    info.beliefs.h2 = d.beliefs.s2.ourGroup.help.f2;
-    info.beliefs.h3 = d.beliefs.s2.ourGroup.help.f3;
-    info.beliefs.h4 = d.beliefs.s2.ourGroup.help.f4;
-    info.beliefs.os1 = d.beliefs.s2.opposingGroup.sabo.f1;
-    info.beliefs.os2 = d.beliefs.s2.opposingGroup.sabo.f2;
-    info.beliefs.os3 = d.beliefs.s2.opposingGroup.sabo.f3;
-    info.beliefs.os4 = d.beliefs.s2.opposingGroup.sabo.f4;
-    info.beliefs.oh1 = d.beliefs.s2.opposingGroup.help.f1;
-    info.beliefs.oh2 = d.beliefs.s2.opposingGroup.help.f2;
-    info.beliefs.oh3 = d.beliefs.s2.opposingGroup.help.f3;
-    info.beliefs.oh4 = d.beliefs.s2.opposingGroup.help.f4;
-    info.beliefs.efo = d.beliefs.s3.efo;
-    info.beliefs.oefo = d.beliefs.s3.oefo;
-    info.beliefs.e1 = d.beliefs.s4.f1;
-    info.beliefs.e2 = d.beliefs.s4.f2;
-    info.beliefs.e3 = d.beliefs.s4.f3;
-    info.beliefs.e4 = d.beliefs.s4.f4;
 }
 
 info.ts = function() {
-    return (info.s1 + info.s2 + info.s3 + info.s4);
+    return (info.s1 + info.s2);
 }
 info.th = function() {
-    return (info.h1 + info.h2 + info.h3 + info.h4);
+    return (info.h1 + info.h2);
 }
 info.ots = function() {
-    return (info.os1 + info.os2 + info.os3 + info.os4);
+    return (info.os1 + info.os2);
 }
 info.oth = function() {
-    return (info.oh1 + info.oh2 + info.oh3 + info.oh4);
+    return (info.oh1 + info.oh2);
 }
 info.efi = function() {
     return (1 + info.th()) / (1 + info.ts());
@@ -213,33 +113,7 @@ info.pwin = function() {
     return (info.efo * info.efi()) / ((info.efo * info.efi()) + (info.oefo * info.oefi()) );
 }
 
-
-
-info.beliefs.ts = function() {
-    return (info.beliefs.s1 + info.beliefs.s2 + info.beliefs.s3 + info.beliefs.s4);
-}
-info.beliefs.th = function() {
-    return (info.beliefs.h1 + info.beliefs.h2 + info.beliefs.h3 + info.beliefs.h4);
-}
-info.beliefs.ots = function() {
-    return (info.beliefs.os1 + info.beliefs.os2 + info.beliefs.os3 + info.beliefs.os4);
-}
-info.beliefs.oth = function() {
-    return (info.beliefs.oh1 + info.beliefs.oh2 + info.beliefs.oh3 + info.beliefs.oh4);
-}
-info.beliefs.efi = function() {
-    return (1 + info.beliefs.th()) / (1 + info.beliefs.ts());
-}
-info.beliefs.oefi = function() {
-    return (1 + info.beliefs.oth()) / (1 + info.beliefs.ots());
-}
-info.beliefs.pwin = function() {
-    return (info.beliefs.efo * info.beliefs.efi()) / ((info.beliefs.efo * info.beliefs.efi()) + (info.beliefs.oefo * info.beliefs.oefi()) );
-}
-
 data2Info();
-
-
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -250,11 +124,9 @@ data2Info();
 var nzt = function(val) {
     return (val != 0) ? val : '';
 }
-var updateBarHelpInfo = function(a, b, c, d, barId, ourGroup) {
+var updateBarHelpInfo = function(a, b, barId, ourGroup) {
     var x = a;
     var y = b;
-    var z = c;
-    var w = d;
     var lightblue = 'rgb(200,200,255)';
     var blue = 'rgb(140, 140, 255)';
 
@@ -262,8 +134,8 @@ var updateBarHelpInfo = function(a, b, c, d, barId, ourGroup) {
 
     var data = [
         {
-            y: [x, y, z, w],
-            x: [1, 2, 3, 4],
+            y: [x, y],
+            x: [1, 2],
             // name: ['Follower 1 \n(New Leader)', 'Follower 2 \n(You)', 'Follower 3', 'Follower 4'],
             type: 'bar',
             sort: false,
@@ -273,7 +145,7 @@ var updateBarHelpInfo = function(a, b, c, d, barId, ourGroup) {
             marker:{
                 color: ourColor,
                     },
-            text: [nzt(x), nzt(y), nzt(z), nzt(w)],
+            text: [nzt(x), nzt(y)],
             textposition: 'outside',
             textfont: {
                 size: '14',
@@ -286,7 +158,7 @@ var updateBarHelpInfo = function(a, b, c, d, barId, ourGroup) {
     var layout = {
         barmode: 'group',
         height: 60,
-        width: 150,
+        width: 75,
         margin: {"t": 20, "b": 0, "l": 0, "r": 0},
         yaxis: {
             fixedrange: true,
@@ -306,18 +178,16 @@ var updateBarHelpInfo = function(a, b, c, d, barId, ourGroup) {
 
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
-var updateBarSaboInfo = function(a, b, c, d, barId, ourGroup) {
+var updateBarSaboInfo = function(a, b, barId, ourGroup) {
     var x = -a;
     var y = -b;
-    var z = -c;
-    var w = -d;
     var lightred = 'rgb(255,200,200)';
     var red = 'rgb(255 140, 140)';
     var ourColor = ourGroup ? red : lightred;
 
     var data = [{
-        y: [x, y, z, w],
-        name: ['Follower 1', 'Follower 2', 'Follower 3', 'Follower 4'],
+        y: [x, y],
+        name: ['Follower 1', 'Follower 2'],
         type: 'bar',
         sort: false,
         hoverinfo: 'none',
@@ -326,7 +196,7 @@ var updateBarSaboInfo = function(a, b, c, d, barId, ourGroup) {
         marker:{
             color: ourColor,
             },
-        text: [nzt(a), nzt(b), nzt(c), nzt(d)],
+        text: [nzt(a), nzt(b)],
         textfont: {
             size: '14',
 
@@ -338,7 +208,7 @@ var updateBarSaboInfo = function(a, b, c, d, barId, ourGroup) {
     var layout = {
         barmode: 'group',
         height: 60,
-        width: 150,
+        width: 75,
         margin: {"t": 0, "b": 20, "l": 0, "r": 0},
         yaxis: {
             fixedrange: true,
@@ -394,7 +264,7 @@ var updateBarTotalHelpInfo = function(a, b, barId) {
         yaxis: {
             fixedrange: true,
             autorange: false,
-            range: [0,400]
+            range: [0,200]
         },
         xaxis: {
             fixedrange: true,
@@ -444,7 +314,7 @@ var updateBarTotalSaboInfo = function(a, b, barId) {
         yaxis: {
             fixedrange: true,
             autorange: false,
-            range: [-400,0]
+            range: [-200,0]
         },
         xaxis: {
             fixedrange: true,
@@ -467,161 +337,16 @@ var logistic2 = function(val , k) {
     return result;
 }
 
-
-
-
-
-// Temporary data generation for testing
-// Random switch
-var onezero = function() {
-    return (Math.random() >= 0.5) ? 1 : 0;
-}
-var sw = [onezero(), onezero(), onezero(), onezero()];
-var osw = [onezero(), onezero(), onezero(), onezero()];
-var d = {
-    s2:
-    {
-        ourGroup:
-        {
-            help:
-            {
-                f1: sw[0] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-                f2: sw[1] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-                f3: sw[2] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-                f4: sw[3] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-            },
-            sabo:
-            {
-                f1: sw[0] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-                f2: sw[1] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-                f3: sw[2] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-                f4: sw[3] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-            }
-        },
-        opposingGroup:
-        {
-            help:
-            {
-                f1: osw[0] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-                f2: osw[1] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-                f3: osw[2] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-                f4: osw[3] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-            },
-            sabo:
-            {
-                f1: osw[0] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-                f2: osw[1] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-                f3: osw[2] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-                f4: osw[3] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-            }
-        }
-    },
-    s3:
-    {
-        efo: parseFloat((Math.random()*500).toFixed(0)),
-        oefo:  parseFloat((Math.random()*500).toFixed(0))
-    },
-    s4:
-    {
-        f1: parseFloat((Math.random()*400).toFixed(0)),
-        f2: parseFloat((Math.random()*400).toFixed(0)),
-        f3: parseFloat((Math.random()*400).toFixed(0)),
-        f4: parseFloat((Math.random()*400).toFixed(0)),
-    }
-}
-
-
-var info = {};
-// // Follower global variables for both groups
-// // your group
-// var info.s1, info.s2, info.s3, info.s4, info.h1, info.h2, info.h3, info.h4;
-// info.s1 = info.s2 = info.s3 = info.s4 = info.h1 = info.h2 = info.h3 = info.h4 = 0;
-// // opposing group
-// var info.os1, info.os2, info.os3, info.os4, info.oh1, info.oh2, info.oh3, info.oh4;
-// info.os1 = info.os2 = info.os3 = info.os4 = info.oh1 = info.oh2 = info.oh3 = info.oh4 =  0;
-//
-// // leader global variables
-// var info.efo, info.oefo;
-//
-// // follower stage 4 variables
-// var info.e1, info.e2, info.e3, info.e4;
-
-var data2Info = function() {
-    info.s1 = d.s2.ourGroup.sabo.f1;
-    info.s2 = d.s2.ourGroup.sabo.f2;
-    info.s3 = d.s2.ourGroup.sabo.f3;
-    info.s4 = d.s2.ourGroup.sabo.f4;
-    info.h1 = d.s2.ourGroup.help.f1;
-    info.h2 = d.s2.ourGroup.help.f2;
-    info.h3 = d.s2.ourGroup.help.f3;
-    info.h4 = d.s2.ourGroup.help.f4;
-    info.os1 = d.s2.opposingGroup.sabo.f1;
-    info.os2 = d.s2.opposingGroup.sabo.f2;
-    info.os3 = d.s2.opposingGroup.sabo.f3;
-    info.os4 = d.s2.opposingGroup.sabo.f4;
-    info.oh1 = d.s2.opposingGroup.help.f1;
-    info.oh2 = d.s2.opposingGroup.help.f2;
-    info.oh3 = d.s2.opposingGroup.help.f3;
-    info.oh4 = d.s2.opposingGroup.help.f4;
-    info.efo = d.s3.efo;
-    info.oefo = d.s3.oefo;
-    info.e1 = d.s4.f1;
-    info.e2 = d.s4.f2;
-    info.e3 = d.s4.f3;
-    info.e4 = d.s4.f4;
-}
-
-info.ts = function() {
-    return (info.s1 + info.s2 + info.s3 + info.s4);
-}
-info.th = function() {
-    return (info.h1 + info.h2 + info.h3 + info.h4);
-}
-info.ots = function() {
-    return (info.os1 + info.os2 + info.os3 + info.os4);
-}
-info.oth = function() {
-    return (info.oh1 + info.oh2 + info.oh3 + info.oh4);
-}
-info.efi = function() {
-    return (1 + info.th()) / (1 + info.ts());
-}
-info.oefi = function() {
-    return (1 + info.oth()) / (1 + info.ots());
-}
-info.pwin = function() {
-    return (info.efo * info.efi()) / ((info.efo * info.efi()) + (info.oefo * info.oefi()) );
-}
-
-
-data2Info();
-
-/*
-me gets a number if you are follower 1 it gets follower 1 for instance
-if we are drawing the opposing group then it should be set to -1
-similarly newLeader gets a number if the new leader is follower 2
-then it gets 2 again if there is no new leader in your group then
-it shoult be set to 1
-ourgroup is a boolean to determine the light or dark color scheme of the bars
-*/
-updateBarHelpInfo(info.h1, info.h2, info.h3, info.h4, 'helpbarg1', true);
-updateBarSaboInfo(info.s1, info.s2, info.s3, info.s4, 'sabobarg1', true);
+updateBarHelpInfo(info.h1, info.h2, 'helpbarg1', true);
+updateBarSaboInfo(info.s1, info.s2, 'sabobarg1', true);
 // updateBarSaboInfo(100,100,100,100, 's2sabobarg1', true, 2, 0);
 
 updateBarTotalHelpInfo(info.th(), info.oth(), 'helpbartotal');
 updateBarTotalSaboInfo(info.ts(), info.ots(), 'sabobartotal');
 // updateBarTotalSaboInfo(400, 400, 's2totalsabobar');
 
-updateBarHelpInfo(info.oh1, info.oh2, info.oh3, info.oh4, 'helpbarg2', false);
-updateBarSaboInfo(info.os1, info.os2, info.os3, info.os4,'sabobarg2', false);
-
-// updatePieInfo(info.pwin(), 's3pie', false);
-// updateBarEffortInfo(info.efo, info.oefo, 's3efobar')
-// updateEfficiencyBarInfo(info.efi(), info.oefi(), 's3efibar');
-//
-// updateS4Info(info.e1, info.e2, info.e3, info.e4, 's4pie', 1, 2);
-
-
+updateBarHelpInfo(info.oh1, info.oh2, 'helpbarg2', false);
+updateBarSaboInfo(info.os1, info.os2, 'sabobarg2', false);
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -630,8 +355,6 @@ updateBarSaboInfo(info.os1, info.os2, info.os3, info.os4,'sabobarg2', false);
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
-
 var updatePie = function(a) {
 
     // var val1 = efi / (efi + oefi);

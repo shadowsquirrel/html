@@ -3,7 +3,7 @@
 <head>
 
 
-    <link rel="stylesheet" href="css/stage4(2fhetero).css">
+    <link rel="stylesheet" href="css/stage4(4f).css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -17,7 +17,9 @@
         <button class=multibutton id=multibutton3>Go to <span id='buttonname'></span></button>
     </div>
     <div class = 'wrap'>
+
         <div class = 'all'>
+
             <div class = 'sinfo'>
 
                 <div class = sinfotitle id=sinfotitle>
@@ -32,6 +34,20 @@
                 </div>
 
                 <div class='s2feedback hidewrap'  id='hidewrap2'>
+                    <div class='s2boxtext'>
+                        <div class='youbox'></div>
+                        <p style='font-size:14px;'>Your Decision</p>
+                        <div class='belieflegend' id='belieflegend'>
+                            <div class='boxtext'>
+                                <div class='helplegbox'></div>
+                                <p style='font-size:12px;'>Help</p>
+                            </div>
+                            <div class='boxtext'>
+                                <div class='sabolegbox'></div>
+                                <p style='font-size:12px;'>Sabotage</p>
+                            </div>
+                        </div>
+                    </div>
                     <div class = s2maintitle>
                         <h6>STAGE 2</h6>
                     </div>
@@ -51,31 +67,16 @@
                                         <div id = 'helpbarg1'></div>
                                         <div id = 'sabobarg1'></div>
                                     </div>
-                                    <pre>  </pre>
+                                    <!-- <pre>  </pre> -->
                                     <div id = 'totalbars'>
-                                        <h8>Total</h8>
                                         <div id = 'helpbartotal'></div>
                                         <div id = 'sabobartotal'></div>
                                     </div>
-                                    <pre>  </pre>
+                                    <!-- <pre>  </pre> -->
                                     <div class = 'g2'>
                                         <h8>Opposing Group</h8>
                                         <div id = 'helpbarg2'></div>
                                         <div id = 'sabobarg2'></div>
-                                    </div>
-                                </div>
-                                <div class='s2boxtext'>
-                                    <div class='youbox'></div>
-                                    <p style='font-size:14px;'>Your Decision</p>
-                                    <div class='belieflegend' id='belieflegend'>
-                                        <div class='boxtext'>
-                                            <div class='helplegbox'></div>
-                                            <p style='font-size:12px;'>Help</p>
-                                        </div>
-                                        <div class='boxtext'>
-                                            <div class='sabolegbox'></div>
-                                            <p style='font-size:12px;'>Sabotage</p>
-                                        </div>
                                     </div>
                                 </div>
 
@@ -86,16 +87,15 @@
 
                 </div>
 
-                <div class = sinfotext>
-
+                <div class='sinfotext limited'>
                     <p>
                         Please make an investment decision to compete against the other followers for the new leadership position of your Group.
                     </p>
                 </div>
 
 
-
-                <!-- <div class = sinfotext>
+<!--
+                <div class = sinfotext>
                     <p>
                         You can use the graphical calculator to consider a possible investment level for you and the opposing followers,
                         and observe your probability to win
@@ -113,17 +113,34 @@
 
 
             </div>
+
+
+
+
             <div class = 'calculator'>
                 <div class = 'titlesection'>
-
-
+                    <h5 class = leftmaintitle>YOU</h5>
+                    <div class='rightmaintitle'>
+                        <h5>OTHER FOLLOWERS</h5>
+                        <div class='switchwrap'>
+                            <div class='switchwrap2'>
+                                <label class="switch">
+                                  <input type="checkbox" id='mycheck' checked>
+                                  <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
+
+
+
+
                 <div class = 'bottomsection'>
                     <div class='leftsection'>
-                        <h6 class = leftmaintitle>YOU</h6>
                         <div class = 'followergroupleft'>
-                            <h6 class = 'left_title'> <span id='youfollower'></span></h6>
+                            <h6 class = 'left_title'> <span id='youfollower'></span>(You)</h6>
                             <p><span class = 'advantagetext' id = 'advtxt1you'></span></p>
                             <div id = 'efficiencyColoryou' class = 'efficiencyColorLeft'></div>
                             <div class = 'sliderbarleader left'>
@@ -131,32 +148,24 @@
                                 <div id = 'mybar' class = 'lbar'></div>
                             </div>
                         </div>
-                        <h6 class='yourdecisiontext'>YOUR DECISION</h6>
-                        <div class=col1>
-                            <div class=title1>
-                                <p>If You Win</p>
-                            </div>
-                            <div class='text1'>
-                                <p>You become the new Leader of your Group</p>
-                                <p style='margin-top:-12px;'>Proceed to Stage 6 to compete for 1000 tokens</p>
-                            </div>
+                        <div class = 'efficiencyBarWrap'>
+                            <div class='effortbars' id='effortbars'></div>
+                            <div id = 'efficiency' class = 'efficiency'></div>
                         </div>
+
                     </div>
+
+
                     <div class = 'piegraphics'>
                         <div class = 'piewrap'>
                             <h6>Probability to Win</h6>
                             <div class = 'pie' id = 'pie'></div>
                         </div>
-                        <div class = 'efficiencyBarWrap'>
-                            <div class='effortbars' id='effortbars'></div>
-                            <div id = 'efficiency' class = 'efficiency'></div>
-                        </div>
                     </div>
+
+
+
                     <div class='otherfollowers'>
-                        <div class='rightmaintitle'>
-                            <h6 class='rightmaintitletext'>OTHER FOLLOWER</h6>
-                            <h13 class='rightsubtitletext'>HYPOTHETICAL</h13>
-                        </div>
                         <div class = 'followersgroupright firstone'>
                             <h6  class = 'right_title'><span id='otherfollower1'></span></h6>
                             <p><span class = 'advantagetext' id = 'advtxt2f1'></span></p>
@@ -166,23 +175,32 @@
                                 <div id = 'barf1' class = 'lbar'></div>
                             </div>
                         </div>
-                        <div class=col2>
-                            <div class=title2>
-                                <p>If You Lose</p>
+                        <div class = 'followersgroupright'>
+                            <h6  class = 'right_title'><span id='otherfollower2'></span></h6>
+                            <p><span class = 'advantagetext' id = 'advtxt2f2'></span></p>
+                            <div id = 'efficiencyColorf2' class = 'efficiencyColorRight'></div>
+                            <div class = 'sliderbarleader lright'>
+                                <input type='range' min = '0' max = '400' class = 'lslider' value = '1' id = 'ofSlider2' />
+                                <div id = 'barf2' class = 'lbar'></div>
                             </div>
-                            <div class='text2'>
-                                <p>You continue as a follower in your Group</p>
-                                <p style='margin-top:-12px;'>Proceed to Stage 5</p>
+                        </div>
+                        <div class = 'followersgroupright'>
+                            <h6  class = 'right_title'><span id='otherfollower3'></span></h6>
+                            <p><span class = 'advantagetext' id = 'advtxt2f3'></span></p>
+                            <div id = 'efficiencyColorf3' class = 'efficiencyColorRight'></div>
+                            <div class = 'sliderbarleader lright'>
+                                <input type='range' min = '0' max = '400' class = 'lslider' value = '1' id = 'ofSlider3' />
+                                <div id = 'barf3' class = 'lbar'></div>
                             </div>
                         </div>
                     </div>
 
 
                 </div>
+
                 <div class = decision>
                     <div class = input>
-                        <!-- <h6 class='yourdecisiontext3 closertotop3'>YOUR DECISION</h6> -->
-                        <!-- <h5 class = 'decisiontitle'>Your Decision</h5> -->
+                        <h5 class = 'decisiontitle'>Your Decision</h5>
                         <div class = 'sliderbard'>
                             <input type='range' min = '0' max = '400' class = 'dslider' value = '0' id = 'dSlider' />
                             <div id = 'bard' class = 'dbar'></div>
@@ -192,12 +210,39 @@
                         <p>
                             Your Investment cost is <span id=payoff class='outcomes'>0 token</span>.
                         </p>
-                        <h6 class='yourdecisiontext closertotop'>YOUR DECISION</h6>
 
+                        <div class=mytable>
+                            <div class=col1>
+                                <div class=title1>
+                                    <p>Win</p>
+                                </div>
+                                <div class='text1'>
+                                    <p>Become the new Leader of your Group</p>
+                                    <p style='margin-top:-12px;'>Proceed to Stage 6 to compete for 1000 tokens</p>
+                                </div>
+                            </div>
+                            <div class=col2>
+                                <div class=title2>
+                                    <p>Lose</p>
+                                </div>
+                                <div class='text2'>
+                                    <p>Continue as a follower in your Group</p>
+                                    <p style='margin-top:-12px;'>Proceed to Stage 5</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
+
+
+
+
+
             </div>
+
         </div>
+
     </div>
 
 
@@ -206,7 +251,7 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="js/stage4(2fhetero).js"></script>
+<script src="js/stage4(4f).js"></script>
 
 </body>
 </html>
