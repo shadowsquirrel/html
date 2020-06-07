@@ -276,7 +276,7 @@ let theWheel = new Winwheel({
     }
 });
 
-var pf1, pf2, pf3, pf4;
+var pf1, pf2;
 var tot = info.e1 + info.e2;
 pf1 = 100 * info.e1 / tot;
 pf2 = 100 * info.e2 / tot;

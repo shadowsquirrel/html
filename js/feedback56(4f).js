@@ -6,30 +6,59 @@
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
+/*
+ This html is only for followers. This includes leader who became a follower
+ and followers who stayed followers. So at stage 6 if your new role is leader
+ then you will be seing a slightly different page.
+*/
+
 // Temporary data generation for testing
 // Random switch
 var onezero = function() {
     return (Math.random() >= 0.5) ? 1 : 0;
 }
 
-var generateS4winner = function() {
-    var temp = [false, false, false, false];
-    var index = Math.ceil(Math.random() * 4) - 1;
-    temp[index] = true;
-    return temp;
+// 1 for leader 0 for follower
+var generateRole = function() {
+    return (Math.random() > 0.50) ? 1 : 0;
 }
+
+
 
 var generateMe = function() {
     return Math.ceil(Math.random() * 4) - 1;
 }
 
 var tempMe = generateMe();
+var myRole = generateRole()
+
+//The scenario where the follower stayed as follower
+var generateS4winner = function() {
+    var temp = [false, false, false, false];
+    var index = Math.ceil(Math.random() * 4) - 1;
+    while(tempMe === index) {
+        index = Math.ceil(Math.random() * 4) - 1;
+    }
+
+    temp[index] = true;
+
+    return temp;
+}
+
+
 var sw = [onezero(), onezero(), onezero(), onezero()];
 var osw = [onezero(), onezero(), onezero(), onezero()];
 var bsw = [onezero(), onezero(), onezero(), onezero()];
 var bosw = [onezero(), onezero(), onezero(), onezero()];
+var sw2 = [onezero(), onezero(), onezero(), onezero()];
+var osw2 = [onezero(), onezero(), onezero(), onezero()];
 
+// Under s3 we force the winner this shold be s5 and s6 but doesn't matter for now
+// This htm is built with the assumption that only followers will see it
+// Thus we have the initial assumption that all players here are followers
+// So as long as we established their initial role we are fine.
 var d = {
+    role: myRole,
     me: tempMe,
     s2:
     {
@@ -48,7 +77,8 @@ var d = {
                 f2: sw[1] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
                 f3: sw[2] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
                 f4: sw[3] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-            }
+            },
+
         },
         opposingGroup:
         {
@@ -65,14 +95,16 @@ var d = {
                 f2: osw[1] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
                 f3: osw[2] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
                 f4: osw[3] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-            }
+            },
+
         }
     },
     s3:
     {
         efo: parseFloat((Math.random()*500).toFixed(0)),
         oefo:  parseFloat((Math.random()*500).toFixed(0)),
-        yourLeaderWon: false, //(Math.random() > 0.5) ? true : false,
+        //If you were initially the leader then we force the case you became the follower
+        yourLeaderWon: ((myRole===1) ? false : ((Math.random() > 0.5) ? true : false)),
     },
     s4:
     {
@@ -81,10 +113,61 @@ var d = {
         f3: parseFloat((Math.random()*400).toFixed(0)),
         f4: parseFloat((Math.random()*400).toFixed(0)),
         hasWon: generateS4winner(), //will be an array!
+
+        of1: parseFloat((Math.random()*400).toFixed(0)),
+        of2: parseFloat((Math.random()*400).toFixed(0)),
+        of3: parseFloat((Math.random()*400).toFixed(0)),
+        of4: parseFloat((Math.random()*400).toFixed(0)),
+        ohasWon: generateS4winner(), //will be an array!
+    },
+    s5:
+    {
+        ourGroup:
+        {
+            help:
+            {
+                f1: sw2[0] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                f2: sw2[1] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                f3: sw2[2] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                f4: sw2[3] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+            },
+            sabo:
+            {
+                f1: sw2[0] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                f2: sw2[1] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                f3: sw2[2] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                f4: sw2[3] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+            },
+
+        },
+        opposingGroup:
+        {
+            help:
+            {
+                f1: osw2[0] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                f2: osw2[1] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                f3: osw2[2] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                f4: osw2[3] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+            },
+            sabo:
+            {
+                f1: osw2[0] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                f2: osw2[1] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                f3: osw2[2] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                f4: osw2[3] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+            },
+
+        }
+    },
+    s6:
+    {
+        efo: parseFloat((Math.random()*500).toFixed(0)),
+        oefo:  parseFloat((Math.random()*500).toFixed(0)),
+        yourLeaderWon: (Math.random() > 0.5) ? true : false,
     },
     beliefs:
     {
-        s2:
+        s5:
         {
             ourGroup:
             {
@@ -121,26 +204,73 @@ var d = {
                 }
             }
         },
-        s3:
+        s6:
         {
             efo: parseFloat((Math.random()*500).toFixed(0)),
             oefo:  parseFloat((Math.random()*500).toFixed(0)),
+            yourLeaderWon: (Math.random() > 0.5) ? true : false,
         },
-        s4:
-        {
-            f1: parseFloat((Math.random()*400).toFixed(0)),
-            f2: parseFloat((Math.random()*400).toFixed(0)),
-            f3: parseFloat((Math.random()*400).toFixed(0)),
-            f4: parseFloat((Math.random()*400).toFixed(0)),
-        }
     }
 }
+d.s2.ourGroup.cost = {
+    f1: d.s2.ourGroup.help.f1 + d.s2.ourGroup.sabo.f1,
+    f2: d.s2.ourGroup.help.f2 + d.s2.ourGroup.sabo.f2,
+    f3: d.s2.ourGroup.help.f3 + d.s2.ourGroup.sabo.f3,
+    f4: d.s2.ourGroup.help.f4 + d.s2.ourGroup.sabo.f4
+}
+var yo = d.s2.ourGroup.cost;
+var s2CostArray = [-yo.f1, -yo.f2, -yo.f3, -yo.f4];
+
+d.s2.opposingGroup.cost = {
+    f1: d.s2.opposingGroup.help.f1 + d.s2.opposingGroup.sabo.f1,
+    f2: d.s2.opposingGroup.help.f2 + d.s2.opposingGroup.sabo.f2,
+    f3: d.s2.opposingGroup.help.f3 + d.s2.opposingGroup.sabo.f3,
+    f4: d.s2.opposingGroup.help.f4 + d.s2.opposingGroup.sabo.f4
+}
+yo = d.s2.opposingGroup.cost;
+var os2CostArray = [-yo.f1, -yo.f2, -yo.f3, -yo.f4];
+
+d.s3.cost = {
+    myNet: d.s3.yourLeaderWon ? (1000 - d.s3.efo) : (-d.s3.efo),
+    oNet: -d.s3.oefo + (d.s3.yourLeaderWon ? 0 : 1000)
+}
+console.log(d.s3.cost.myNet);
+console.log(d.s3.cost.oNet);
+
+d.s5.ourGroup.cost = {
+    f1: d.s5.ourGroup.help.f1 + d.s5.ourGroup.sabo.f1,
+    f2: d.s5.ourGroup.help.f2 + d.s5.ourGroup.sabo.f2,
+    f3: d.s5.ourGroup.help.f3 + d.s5.ourGroup.sabo.f3,
+    f4: d.s5.ourGroup.help.f4 + d.s5.ourGroup.sabo.f4
+}
+yo = d.s5.ourGroup.cost;
+var s5CostArray = [-yo.f1, -yo.f2, -yo.f3, -yo.f4];
+
+d.s5.opposingGroup.cost = {
+    f1: d.s5.opposingGroup.help.f1 + d.s5.opposingGroup.sabo.f1,
+    f2: d.s5.opposingGroup.help.f2 + d.s5.opposingGroup.sabo.f2,
+    f3: d.s5.opposingGroup.help.f3 + d.s5.opposingGroup.sabo.f3,
+    f4: d.s5.opposingGroup.help.f4 + d.s5.opposingGroup.sabo.f4
+}
+yo = d.s5.opposingGroup.cost;
+var os5CostArray = [-yo.f1, -yo.f2, -yo.f3, -yo.f4];
+
+d.s6.cost = {
+    myNet: d.s6.yourLeaderWon ? (1000 - d.s6.efo) : (-d.s6.efo),
+    oNet: -d.s6.oefo + (d.s6.yourLeaderWon ? 0 : 1000)
+}
+console.log(d.s6.cost.myNet);
+console.log(d.s6.cost.oNet);
+
 
 var info = {};
 info.beliefs = {};
 
 var data2Info = function() {
     info.me = d.me;
+    info.role = d.role;
+
+    // STAGE 2
     info.s1 = d.s2.ourGroup.sabo.f1;
     info.s2 = d.s2.ourGroup.sabo.f2;
     info.s3 = d.s2.ourGroup.sabo.f3;
@@ -151,6 +281,14 @@ var data2Info = function() {
     info.h4 = d.s2.ourGroup.help.f4;
     info.sarray = [info.s1, info.s2, info.s3, info.s4];
     info.harray = [info.h1, info.h2, info.h3, info.h4];
+
+    info.c1 = d.s2.ourGroup.cost.f1;
+    info.c2 = d.s2.ourGroup.cost.f2;
+    info.c3 = d.s2.ourGroup.cost.f3;
+    info.c4 = d.s2.ourGroup.cost.f4;
+    info.tc = info.c1 + info.c2 + info.c3 + info.c4;
+
+
     info.os1 = d.s2.opposingGroup.sabo.f1;
     info.os2 = d.s2.opposingGroup.sabo.f2;
     info.os3 = d.s2.opposingGroup.sabo.f3;
@@ -159,38 +297,109 @@ var data2Info = function() {
     info.oh2 = d.s2.opposingGroup.help.f2;
     info.oh3 = d.s2.opposingGroup.help.f3;
     info.oh4 = d.s2.opposingGroup.help.f4;
+
+    info.oc1 = d.s2.opposingGroup.cost.f1;
+    info.oc2 = d.s2.opposingGroup.cost.f2;
+    info.oc3 = d.s2.opposingGroup.cost.f3;
+    info.oc4 = d.s2.opposingGroup.cost.f4;
+    info.otc = info.oc1 + info.oc2 + info.oc3 + info.oc4;
+
+
+    // STAGE 3
     info.efo = d.s3.efo;
     info.oefo = d.s3.oefo;
+    info.myNet = d.s3.cost.myNet;
+    info.oNet = d.s3.cost.oNet;
+    info.s3won = d.s3.yourLeaderWon;
+
+
+
+    // STAGE 4
     info.e1 = d.s4.f1;
     info.e2 = d.s4.f2;
     info.e3 = d.s4.f3;
     info.e4 = d.s4.f4;
     info.earray = [info.e1, info.e2, info.e3, info.e4];
 
-    info.beliefs.s1 = d.beliefs.s2.ourGroup.sabo.f1;
-    info.beliefs.s2 = d.beliefs.s2.ourGroup.sabo.f2;
-    info.beliefs.s3 = d.beliefs.s2.ourGroup.sabo.f3;
-    info.beliefs.s4 = d.beliefs.s2.ourGroup.sabo.f4;
-    info.beliefs.h1 = d.beliefs.s2.ourGroup.help.f1;
-    info.beliefs.h2 = d.beliefs.s2.ourGroup.help.f2;
-    info.beliefs.h3 = d.beliefs.s2.ourGroup.help.f3;
-    info.beliefs.h4 = d.beliefs.s2.ourGroup.help.f4;
-    info.beliefs.os1 = d.beliefs.s2.opposingGroup.sabo.f1;
-    info.beliefs.os2 = d.beliefs.s2.opposingGroup.sabo.f2;
-    info.beliefs.os3 = d.beliefs.s2.opposingGroup.sabo.f3;
-    info.beliefs.os4 = d.beliefs.s2.opposingGroup.sabo.f4;
-    info.beliefs.oh1 = d.beliefs.s2.opposingGroup.help.f1;
-    info.beliefs.oh2 = d.beliefs.s2.opposingGroup.help.f2;
-    info.beliefs.oh3 = d.beliefs.s2.opposingGroup.help.f3;
-    info.beliefs.oh4 = d.beliefs.s2.opposingGroup.help.f4;
-    info.beliefs.efo = d.beliefs.s3.efo;
-    info.beliefs.oefo = d.beliefs.s3.oefo;
-    info.beliefs.e1 = d.beliefs.s4.f1;
-    info.beliefs.e2 = d.beliefs.s4.f2;
-    info.beliefs.e3 = d.beliefs.s4.f3;
-    info.beliefs.e4 = d.beliefs.s4.f4;
+    info.oe1 = d.s4.of1;
+    info.oe2 = d.s4.of2;
+    info.oe3 = d.s4.of3;
+    info.oe4 = d.s4.of4;
+    info.earray = [info.oe1, info.oe2, info.oe3, info.oe4];
+    info.s4winner = d.s4.hasWon.indexOf(true);
+    info.os4winner = d.s4.ohasWon.indexOf(true);
+
+
+    // STAGE 5
+    info.s1_2 = d.s5.ourGroup.sabo.f1;
+    info.s2_2 = d.s5.ourGroup.sabo.f2;
+    info.s3_2 = d.s5.ourGroup.sabo.f3;
+    info.s4_2 = d.s5.ourGroup.sabo.f4;
+    info.h1_2 = d.s5.ourGroup.help.f1;
+    info.h2_2 = d.s5.ourGroup.help.f2;
+    info.h3_2 = d.s5.ourGroup.help.f3;
+    info.h4_2 = d.s5.ourGroup.help.f4;
+    info.sarray_2 = [info.s1_2, info.s2_2, info.s3_2, info.s4_2];
+    info.harray_2 = [info.h1_2, info.h2_2, info.h3_2, info.h4_2];
+
+    info.c1_2 = d.s5.ourGroup.cost.f1;
+    info.c2_2 = d.s5.ourGroup.cost.f2;
+    info.c3_2 = d.s5.ourGroup.cost.f3;
+    info.c4_2 = d.s5.ourGroup.cost.f4;
+    info.tc_2 = info.c1_2 + info.c2_2 + info.c3_2 + info.c4_2;
+
+    info.os1_2 = d.s5.opposingGroup.sabo.f1;
+    info.os2_2 = d.s5.opposingGroup.sabo.f2;
+    info.os3_2 = d.s5.opposingGroup.sabo.f3;
+    info.os4_2 = d.s5.opposingGroup.sabo.f4;
+    info.oh1_2 = d.s5.opposingGroup.help.f1;
+    info.oh2_2 = d.s5.opposingGroup.help.f2;
+    info.oh3_2 = d.s5.opposingGroup.help.f3;
+    info.oh4_2 = d.s5.opposingGroup.help.f4;
+
+    info.oc1_2 = d.s5.opposingGroup.cost.f1;
+    info.oc2_2 = d.s5.opposingGroup.cost.f2;
+    info.oc3_2 = d.s5.opposingGroup.cost.f3;
+    info.oc4_2 = d.s5.opposingGroup.cost.f4;
+    info.otc_2 = info.oc1_2 + info.oc2_2 + info.oc3_2 + info.oc4_2;
+
+
+    // STAGE 6
+    info.efo_2 = d.s6.efo;
+    info.oefo_2 = d.s6.oefo;
+    info.myNet_2 = d.s6.cost.myNet;
+    info.oNet_2 = d.s6.cost.oNet;
+    info.s6won = d.s6.yourLeaderWon;
+
+    // TOTAL
+
+
+    // BELIEFS
+    info.beliefs.s1 = d.beliefs.s5.ourGroup.sabo.f1;
+    info.beliefs.s2 = d.beliefs.s5.ourGroup.sabo.f2;
+    info.beliefs.s3 = d.beliefs.s5.ourGroup.sabo.f3;
+    info.beliefs.s4 = d.beliefs.s5.ourGroup.sabo.f4;
+    info.beliefs.h1 = d.beliefs.s5.ourGroup.help.f1;
+    info.beliefs.h2 = d.beliefs.s5.ourGroup.help.f2;
+    info.beliefs.h3 = d.beliefs.s5.ourGroup.help.f3;
+    info.beliefs.h4 = d.beliefs.s5.ourGroup.help.f4;
+    info.beliefs.os1 = d.beliefs.s5.opposingGroup.sabo.f1;
+    info.beliefs.os2 = d.beliefs.s5.opposingGroup.sabo.f2;
+    info.beliefs.os3 = d.beliefs.s5.opposingGroup.sabo.f3;
+    info.beliefs.os4 = d.beliefs.s5.opposingGroup.sabo.f4;
+    info.beliefs.oh1 = d.beliefs.s5.opposingGroup.help.f1;
+    info.beliefs.oh2 = d.beliefs.s5.opposingGroup.help.f2;
+    info.beliefs.oh3 = d.beliefs.s5.opposingGroup.help.f3;
+    info.beliefs.oh4 = d.beliefs.s5.opposingGroup.help.f4;
+    info.beliefs.efo = d.beliefs.s6.efo;
+    info.beliefs.oefo = d.beliefs.s6.oefo;
+
 }
 
+
+
+
+// For stages 2 and 3
 info.ts = function() {
     return (info.s1 + info.s2 + info.s3 + info.s4);
 }
@@ -213,8 +422,36 @@ info.pwin = function() {
     return (info.efo * info.efi()) / ((info.efo * info.efi()) + (info.oefo * info.oefi()) );
 }
 
+// for stages 5 and 6
+info.ts_2 = function() {
+    return (info.s1_2 + info.s2_2 + info.s3_2 + info.s4_2);
+}
+info.th_2 = function() {
+    return (info.h1_2 + info.h2_2 + info.h3_2 + info.h4_2);
+}
+info.ots_2 = function() {
+    return (info.os1_2 + info.os2_2 + info.os3_2 + info.os4_2);
+}
+info.oth_2 = function() {
+    return (info.oh1_2 + info.oh2_2 + info.oh3_2 + info.oh4_2);
+}
+info.efi_2 = function() {
+    return (1 + info.th_2()) / (1 + info.ts_2());
+}
+info.oefi_2 = function() {
+    return (1 + info.oth_2()) / (1 + info.ots_2());
+}
+info.pwin_2 = function() {
+    return (info.efo_2 * info.efi_2()) / ((info.efo_2 * info.efi_2()) + (info.oefo_2 * info.oefi_2()) );
+}
+
+// Cost calculations for various stages
 
 
+
+// Beliefs are always about the most recent stage so even though they should
+// all get _2 suffix. I won't add.
+// Beliefs data is also generated above with this mindset.
 info.beliefs.ts = function() {
     return (info.beliefs.s1 + info.beliefs.s2 + info.beliefs.s3 + info.beliefs.s4);
 }
@@ -240,6 +477,53 @@ info.beliefs.pwin = function() {
 data2Info();
 
 
+
+var k;
+var ftotal = [];
+var oftotal = [];
+var ltotal = [];
+
+for(k = 0; k < 4; k++) {
+    if(info.s3won) {
+        ftotal[k] = s2CostArray[k] + s5CostArray[k];
+        ltotal[0] = info.myNet + info.myNet_2;
+        ltotal[1] = info.oNet + os5CostArray[info.os4winner];
+        if(k !== info.os4winner) {
+            oftotal[k] = os2CostArray[k] + os5CostArray[k];
+        } else {
+            oftotal[k] = os2CostArray[k] + info.oNet_2;
+        }
+    } else {
+        oftotal[k] = os2CostArray[k] + os5CostArray[k];
+        ltotal[0] = info.myNet + s5CostArray[info.s4winner];
+        ltotal[1] = info.oNet + info.oNet_2;
+        if(k !== info.s4winner) {
+            ftotal[k] = s2CostArray[k] + s5CostArray[k];
+        } else {
+            // console.log('new leader here');
+            // console.log(s2CostArray[k]);
+            // console.log(info.myNet_2);
+            ftotal[k] = s2CostArray[k] + info.myNet_2;
+            // console.log(ftotal[k]);
+        }
+    }
+
+}
+// console.log(typeof(info.myNet));
+// console.log('followers:');
+// for(var j = 0; j<4; j++){
+//     console.log(ftotal[j]);
+// }
+// console.log('other followers:');
+// for(j = 0; j<4; j++){
+//     console.log(oftotal[j]);
+// }
+// console.log('our initial leader: ' + ltotal[0]);
+// console.log('opposing initial leader: ' + ltotal[1]);
+
+console.log('my index: ' + (tempMe + 1) + ', my role: ' + (myRole ? 'leader' : 'follower') + ', s4 winner: ' + (info.s4winner + 1));
+console.log('our team won in s3? ' + info.s3won);
+console.log('our team won in s6?' + info.s6won);
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -296,68 +580,6 @@ let theWheel = new Winwheel({
     }
 });
 
-var pf1, pf2, pf3, pf4;
-var tot = info.e1 + info.e2 + info.e3 + info.e4;
-pf1 = 100 * info.e1 / tot;
-pf2 = 100 * info.e2 / tot;
-pf3 = 100 * info.e3 / tot;
-pf4 = 100 * info.e4 / tot;
-
-let theWheel2 = new Winwheel({
-    'canvasId': 'mywheel2',
-    'numSegments': 4,
-    'outerRadius': 85, // controls the size of the theWheel
-    'textOrientation' : 'vertical',    // Set orientation. horizontal, vertical, curved.
-    // 'textOrientation' : 'curved',
-    'textFontFamily'  : 'Courier',     // Monospace font best for vertical and curved.
-    // 'textFontSize'    : 10,
-    // 'textAlignment'  : 'Center',         // Set alignment: inner, outer, center.
-    // 'textMargin'     : 15,
-    // 'textDirection': 'reversed',
-    'rotationAngle':Math.random()*360,
-
-    'segments':
-    [
-        {
-            'fillStyle' : 'rgb(225, 225, 225)',
-            'textFillStyle': 'black',
-            'text'      : '',
-            'size'      : winwheelPercentToDegrees(pf1),
-        },
-        {
-            'fillStyle' : 'rgb(160, 160, 160)',
-            'textFillStyle': 'black',
-            'text'      : '',
-            'size'      : winwheelPercentToDegrees(pf2),
-        },
-        {
-            'fillStyle' : 'rgb(100, 100, 100)',
-            'textFillStyle': 'white',
-            'text'      : '',
-            'size'      : winwheelPercentToDegrees(pf3),
-        },
-        {
-            'fillStyle' : 'rgb(40, 40, 40)',
-            'textFillStyle': 'white',
-            'text'      : '',
-            'size'      : winwheelPercentToDegrees(pf4),
-        },
-    ],
-    // 'pointerGuide' :        // Turn pointer guide on.
-    // {
-    //     'display'     : true,
-    //     'strokeStyle' : 'red',
-    //     'lineWidth'   : 3
-    // },
-    'animation' :
-    {
-        'type'     : 'spinToStop',
-        'duration' : 5,
-        'spins'    : 50,
-        'callbackFinished' : 'showResults2()',
-    }
-});
-
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -368,12 +590,6 @@ let theWheel2 = new Winwheel({
 ////////////////////////////////////////////////////////////////////////////////
 var nzt = function(val) {
     return (val != 0) ? val : '';
-}
-
-var beliefMargin = function(actual, belief) {
-    var sign = (actual > belief) ? '-' : '+';
-    var diff = Math.abs(actual - belief)
-    return (sign+diff);
 }
 
 var updateHelpBar = function(a, b, c, d, barId, ourGroup, me, beliefSwitch, ba, bb, bc, bd) {
@@ -892,16 +1108,6 @@ var updatePie = function(a, barId, showBeliefs, ba) {
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
 
-var upperBound = function(val, upperBound) {
-    val = (val >= upperBound) ? upperBound : val;
-    return val;
-}
-
-var lowerBound = function(val, lowerBound) {
-    val = (val <= lowerBound) ? lowerBound : val;
-    return val;
-}
-
 var logistic2 = function(val , k) {
     var L = 1;
     var m = 0.5;
@@ -909,8 +1115,6 @@ var logistic2 = function(val , k) {
     result= L / (1 + Math.exp(-k * (val - m)));
     return result;
 }
-
-
 
 var updateEfficiencyBar = function(efi1, efi2, barId, beliefSwitch, befi1, befi2) {
 
@@ -1192,200 +1396,250 @@ var updateEffortBar = function(efo, oefo, barId, beliefSwitch, befo, boefo) {
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
 
-var move2First = function(array, me) {
-    var temp = array[me];
-    array.splice(me, 1);
-    array.splice(0, 0, temp);
-    return array;
-}
 
-var move2Last = function(array, me) {
-    var temp = array[me];
-    array.splice(me, 1);
-    array.push(temp)
-    return array;
-}
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////     Payoff Bars    ////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
-var updateS4Pie = function(a,b,c,d, barId, me, showBeliefs, ba, bb, bc) {
+var updateS2CostBar = function(a, b, c, d, barId, ourGroup, me, myFirstRole) {
 
-    var x = a;
-    var y = b;
-    var z = c;
-    var w = d;
-    var actualOpacity = 1;
+    var x = -a;
+    var y = -b;
+    var z = -c;
+    var w = -d;
 
-    var actualData = [x, y, z, w];
-    var actualColors = ['rgb(225, 225, 225)', 'rgb(160, 160, 160)', 'rgb(100, 100, 100)', 'rgb(40, 40, 40)'];
-    var beliefColors = ['rgb(255, 255, 0)', 'rgb(210, 210, 0)', 'rgb(170, 170, 0)', 'rgb(125, 125, 0)'];
-    var labelArray = ['Follower 1', 'Follower 2', 'Follower 3', 'Follower 4'];
+    var myOpacity = 1;
+    var myText = [nzt(x), nzt(y), nzt(z), nzt(w)];
 
-    if(showBeliefs) {
-        var bx = ba;
-        var by = bb;
-        var bz = bc;
-        var beliefOpacity = 1;
-        actualOpacity = 1;
-        var beliefData = [bx, by, bz];
-        beliefData.splice(me, 0, actualData[me]);
-        beliefColors.splice(me, 1, actualColors[me]);
+    var lightorange = 'rgb(225, 225, 225)';//'rgb(255, 180, 100)';
+    var orange = 'rgb(160, 160, 160)';//'rgb(255, 130, 0)';
+    var ourColor = ourGroup ? orange : lightorange;
+    var ourColorArray = [ourColor, ourColor, ourColor, ourColor];
 
-        beliefData = move2First(beliefData, me);
-        beliefColors = move2First(beliefColors, me);
+    if(myFirstRole===0 && ourGroup) {
+        ourColorArray[me] = 'turquoise';
     }
 
-    if((x + y + z + w) === 0) {
-        x = 1;
-        y = 1;
-        z = 1;
-        w = 1;
-    }
-
-    var textArray = ['', '', '', '']
-    var colorArray = ['black', 'black', 'black', 'black'];
-    var colorWidth = [1, 1, 1, 1];
-
-
-    textArray[me] = 'You';
-    colorArray[me] = 'lightgreen';
-    colorWidth[me] = 3;
-
-    actualData = move2First(actualData, me);
-    actualColors = move2First(actualColors, me);
-    labelArray = move2First(labelArray, me);
-    textArray = move2First(textArray, me);
-    colorArray = move2First(colorArray, me);
-    colorWidth = move2First(colorWidth, me);
-
-    var actual = {
-        values: actualData,//[x, y, z, w],
-        labels: labelArray,
-        text: textArray,
+    var actual =  {
+        y: [x, y, z, w],
+        x: [1, 2, 3, 4],
+        type: 'bar',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker:{
+            color: ourColorArray,
+        },
+        text: myText,
         textposition: 'outside',
-        type: 'pie',
-        sort: false,
-        hoverinfo: 'percent+label',
-        automargin: true,
-        marker:{
-            colors: actualColors,
-            line: {
-                color: colorArray,
-                width: colorWidth,
-            }
+        textfont: {
+            size: '14',
+            color: 'black',//'red'
         },
-        opacity: actualOpacity,
-    };
-
-    var belief = {
-        values: beliefData,
-        labels: labelArray,
-        text: textArray,
-        textposition: 'inside',
-        type: 'pie',
-        sort: false,
-        hoverinfo: 'percent+label',
-        automargin: true,
-        marker:{
-            colors: beliefColors,
-            line: {
-                color: colorArray,
-                width: colorWidth,
-            }
-        },
-        domain: {
-            x: [0.15, 0.85],
-            y: [0.15, 0.85]
-        },
-        opacity:beliefOpacity,
-    };
+        cliponaxis: false,
+        opacity: myOpacity,
+    }
 
     var layout = {
-        autosize: false,
-        title: 'Probability to Win',
-        "titlefont": {
-            "size": 14,
+        height: 120,
+        width: 100,
+        margin: {"t": 20, "b": 20, "l": 0, "r": 0},
+        yaxis: {
+            fixedrange: true,
+            autorange: false,
+            range: [-100,0]
         },
-        height: 310,//200,
-        width: 250,//200,
-        font:{
-            size: 14
+        xaxis: {
+            fixedrange: true,
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
         },
-        margin: {"t": 40, "b": 40, "l": 40, "r": 40},
-        showlegend: false,
+        bargap: 0.2,
+        bargroupgap:0,
     };
 
-    var data;
+    var data = [actual];
 
-    if(showBeliefs) {
-        data = [actual, belief];
-    } else {
-        data = [actual];
-    }
 
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
 
-var updateS4EffortBar = function(a,b,c,d, barId, me, showBeliefs, ba, bb, bc) {
+var updateS2CostBarTotal = function(a, b, barId) {
 
-    var x = a;
-    var y = b;
-    var z = c;
-    var w = d;
-    var actualData = [x, y, z, w];
-    var myText = [x, y, z, w];
-    var temp = myText[me];
+    var x = -a;
+    var y = -b;
+
+
     var myOpacity = 1;
+    var myText = [nzt(x), nzt(y)];
 
-    var actualColors = ['rgb(225, 225, 225)', 'rgb(160, 160, 160)', 'rgb(100, 100, 100)', 'rgb(40, 40, 40)'];
-    var beliefColors = ['rgb(255, 255, 0)', 'rgb(210, 210, 0)', 'rgb(170, 170, 0)', 'rgb(125, 125, 0)'];
-    var actualXPosition = [1, 2, 3, 4];
-    var beliefXPosition = [1.15, 2.15, 3.15, 4.15];
-    var myWidth = 320;
+    var lightorange = 'rgb(225, 225, 225)';//'rgb(255, 180, 100)';
+    var orange = 'rgb(160, 160, 160)';//'rgb(255, 130, 0)';
 
-    var colorArray = ['', '', '', ''];
-    var colorWidth = [0, 0, 0, 0];
-    colorArray[me] = 'lightgreen';
-    colorWidth[me] = 3;
 
-    if(showBeliefs) {
-        var bx = ba;
-        var by = bb;
-        var bz = bc;
 
-        myWidth = 320;
-        myOpacity = 1;
-
-        myText = ['', '', '', ''];
-        beliefXPosition = [1.15, 2.15, 3.15, 4];
-
-        var beliefData = [bx, by, bz];
-
-        beliefData.splice(me, 0, actualData[me]);
-        beliefColors.splice(me, 1, actualColors[me]);
-        beliefData = move2Last(beliefData, me);
-        beliefColors = move2Last(beliefColors, me);
-    }
-
-    // console.log('asdadasdasdasdas');
-    // console.log(actualData[me]);
-    actualData = move2Last(actualData, me);
-    actualColors = move2Last(actualColors, me);
-    colorArray = move2Last(colorArray, me);
-    colorWidth = move2Last(colorWidth, me);
-    myText = move2Last(myText, me);
-    // console.log(actualData[3]);
-
-    var actual = {
-        y: actualData,
-        x: actualXPosition,
-        myname: ['f1', 'f2', 'f3', 'f4'],
+    var actual =  {
+        y: [x, y],
+        x: [1, 2],
         type: 'bar',
         sort: false,
         hoverinfo: 'none',
-        // hovertemplate: '<extra>{fullData.myname}</extra>',
         automargin: true,
         showlegend: false,
         marker:{
-            color: actualColors,
+            color: [orange, lightorange],
+        },
+        text: myText,
+        textposition: 'outside',
+        textfont: {
+            size: '14',
+            color: 'black',//'red'
+        },
+        cliponaxis: false,
+        opacity: myOpacity,
+    }
+
+    var layout = {
+        height: 120,
+        width: 100,
+        margin: {"t": 20, "b": 20, "l": 0, "r": 0},
+        yaxis: {
+            fixedrange: true,
+            autorange: false,
+            range: [-400,0]
+        },
+        xaxis: {
+            fixedrange: true,
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+        },
+        bargap: 0.2,
+        bargroupgap:0,
+    };
+
+    var data = [actual];
+
+
+    Plotly.react(barId, data, layout, {displayModeBar: false});
+}
+
+var updateS3CostBarTotal = function(a, b, barId, myFirstRole) {
+
+    var x = a;
+    var y = b;
+
+
+    var myOpacity = 1;
+    var myText = [nzt(a), nzt(b)];
+    var myTextColor = ['black', 'black'];
+    // myTextColor[0] = (a>0) ? 'rgb(73, 251, 53)' : 'red';
+    // myTextColor[1] = (b>0) ? 'rgb(73, 251, 53)' : 'red';
+
+    var lightpurple = 'rgb(120, 120, 120)';// 'rgba(43, 3, 138, 0.66)';
+    var purple = 'rgb(80, 80, 80)' ;//'rgb(43, 3, 138)';
+
+    var colorArray = [purple, lightpurple];
+    if(myFirstRole===1) {
+        colorArray[0] = 'turquoise';
+    }
+
+    var actual =  {
+        y: [x, y],
+        x: [1, 2],
+        type: 'bar',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker:{
+            color: colorArray,
+        },
+        text: myText,
+        textposition: 'outside',
+        textfont: {
+            size: '14',
+            color: myTextColor,
+        },
+        cliponaxis: false,
+        opacity: myOpacity,
+    }
+
+    var layout = {
+        height: 120,
+        width: 100,
+        margin: {"t": 20, "b": 20, "l": 0, "r": 0},
+        yaxis: {
+            fixedrange: true,
+            // autorange: false,
+            // range: [-1000,1000],
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+        },
+        xaxis: {
+            fixedrange: true,
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+        },
+        bargap: 0.2,
+        bargroupgap:0,
+    };
+
+    var data = [actual];
+
+
+    Plotly.react(barId, data, layout, {displayModeBar: false});
+}
+
+var updateS4CostBar = function(a, b, c, d, barId, ourGroup, me, myFirstRole, winner) {
+
+    var x = -a;
+    var y = -b;
+    var z = -c;
+    var w = -d;
+
+    var myOpacity = 1;
+    var myText = [nzt(x), nzt(y), nzt(z), nzt(w)];
+
+    var lightorange = 'rgb(225, 225, 225)';//'rgb(255, 180, 100)';
+    var orange = 'rgb(160, 160, 160)';//'rgb(255, 130, 0)';
+    var ourColor = ourGroup ? orange : lightorange;
+    var ourColorArray = [ourColor, ourColor, ourColor, ourColor];
+
+
+
+    var colorArray = ['', '', '', ''];
+    var colorWidth = [0, 0, 0, 0];
+    colorArray[winner] = ourGroup ? 'rgb(43, 3, 138)' : 'rgba(43, 3, 138, 0.66)';
+    colorWidth[winner] = 3;
+
+
+
+    if(myFirstRole===0 && ourGroup) {
+        ourColorArray[me] = 'turquoise';
+    }
+
+    var actual =  {
+        y: [x, y, z, w],
+        x: [1, 2, 3, 4],
+        type: 'bar',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker:{
+            color: ourColorArray,
             line: {
                 color: colorArray,
                 width: colorWidth,
@@ -1394,57 +1648,21 @@ var updateS4EffortBar = function(a,b,c,d, barId, me, showBeliefs, ba, bb, bc) {
         text: myText,
         textposition: 'outside',
         textfont: {
-            size: '14'
+            size: '14',
+            color: 'black', //'red'
         },
         cliponaxis: false,
         opacity: myOpacity,
-    };
-    if(showBeliefs) {
-        var belief =    {
-            y: beliefData,
-            x: beliefXPosition,
-            width: 0.8,
-            type: 'bar',
-            sort: false,
-            hoverinfo: 'none',
-            automargin: true,
-            showlegend: false,
-            marker:{
-                color: beliefColors,
-                line: {
-                    color: colorArray,
-                    width: colorWidth,
-                }
-            },
-            text: beliefData,
-            textposition: 'outside',
-            textfont: {
-                size: '14'
-            },
-            cliponaxis: false,
-            opacity: 1,
-        };
     }
 
-
-
     var layout = {
-        title: "Token's Invested",
-        titlefont: {
-            size: 14,
-        },
-        barmode: 'overlay',
-        height: 220,
-        width: myWidth,
-        margin: {"t": 40, "b": 0, "l": 30, "r": 30},
+        height: 120,
+        width: 100,
+        margin: {"t": 20, "b": 20, "l": 0, "r": 0},
         yaxis: {
             fixedrange: true,
             autorange: false,
-            range: [0,400],
-            showline: false,
-            showgrid: false,
-            ticks: '',
-            showticklabels: false,
+            range: [-400,0]
         },
         xaxis: {
             fixedrange: true,
@@ -1453,259 +1671,305 @@ var updateS4EffortBar = function(a,b,c,d, barId, me, showBeliefs, ba, bb, bc) {
             ticks: '',
             showticklabels: false,
         },
-        // bargap: 0.1,
-        // bargroupgap: 0.5,
+        bargap: 0.2,
+        bargroupgap:0,
     };
 
     var data = [actual];
 
-    if(showBeliefs) {
-        data = [actual, belief];
+
+    Plotly.react(barId, data, layout, {displayModeBar: false});
+}
+
+var updateS5CostBar = function(a, b, c, d, barId, ourGroup, me, myFirstRole, s3Won, winner) {
+
+    var x = -a;
+    var y = -b;
+    var z = -c;
+    var w = -d;
+
+    var myOpacity = 1;
+    var myText = [nzt(x), nzt(y), nzt(z), nzt(w)];
+
+    var lightorange = 'rgb(225, 225, 225)';//'rgb(255, 180, 100)';
+    var orange = 'rgb(160, 160, 160)';//'rgb(255, 130, 0)';
+    var ourColor = ourGroup ? orange : lightorange;
+    var ourColorArray = [ourColor, ourColor, ourColor, ourColor];
+
+    var colorArray = ['', '', '', ''];
+    var colorWidth = [0, 0, 0, 0];
+    if(!s3Won) {
+        ourColorArray[winner] = ourGroup ? 'rgb(80, 80, 80)'  : 'rgb(120, 120, 120)';
+        colorArray[winner] = ourGroup ? 'rgb(255, 130, 0)' : 'rgb(255, 180, 100)';
+        colorWidth[winner] = 3;
     }
 
-    Plotly.react(barId, data, layout, {displayModeBar: false});
-}
 
-var updateS4EfficiencyBar = function(barId, beliefSwitch, me) {
+    if(myRole===0 && ourGroup) {
+        ourColorArray[me] = 'turquoise';
+    }
 
-    var f1 = {
-        y: ['group 1'],
-        x: [1],
+    if(myRole===1 && ourGroup) {
+        // If I were the leader, I get new leader's old follower spot so I get
+        // winner index which represents the follower who became the new leader
+        ourColorArray[winner] = 'turquoise';
+    }
+
+    var actual =  {
+        y: [x, y, z, w],
+        x: [1, 2, 3, 4],
         type: 'bar',
-        orientation: 'h',
         sort: false,
         hoverinfo: 'none',
         automargin: true,
         showlegend: false,
-        fixedrange: true,
-        cliponaxis: false,
-        marker: {
-            color: 'rgb(40, 40, 40)',
+        marker:{
+            color: ourColorArray,
+            line: {
+                color: colorArray,
+                width: colorWidth,
+            }
         },
-        text: 1,
-        textposition: 'inside',
-        insidetextanchor: 'middle',
+        text: myText,
+        textposition: 'outside',
         textfont: {
-            color: 'white',
-            size: '14'
+            size: '14',
+            color: 'black',//'red'
         },
-    };
-
-    var f2 = {
-        y: ['group 1'],
-        x: [1],
-        type: 'bar',
-        orientation: 'h',
-        sort: false,
-        hoverinfo: 'none',
-        automargin: true,
-        showlegend: false,
-        fixedrange: true,
         cliponaxis: false,
-        marker: {
-            color: 'rgb(100, 100, 100)',
-        },
-        text: 1,
-        textposition: 'inside',
-        insidetextanchor: 'middle',
-        textfont: {
-            size: '14'
-        },
-    };
-
-    var f3 = {
-        y: ['group 1'],
-        x: [1],
-        type: 'bar',
-        orientation: 'h',
-        sort: false,
-        hoverinfo: 'none',
-        automargin: true,
-        showlegend: false,
-        fixedrange: true,
-        cliponaxis: false,
-        marker: {
-            color: 'rgb(160, 160, 160)',
-        },
-        text: 1,
-        textposition: 'inside',
-        insidetextanchor: 'middle',
-        textfont: {
-            color: 'white',
-            size: '14'
-        },
-    };
-
-    var f4 = {
-        y: ['group 1'],
-        x: [1],
-        type: 'bar',
-        orientation: 'h',
-        sort: false,
-        hoverinfo: 'none',
-        automargin: true,
-        showlegend: false,
-        fixedrange: true,
-        cliponaxis: false,
-        marker: {
-            color: 'rgb(225, 225, 225)',
-        },
-        text: 1,
-        textposition: 'inside',
-        insidetextanchor: 'middle',
-        textfont: {
-            size: '14'
-        },
-    };
-
-    // if(beliefSwitch) {
-    //     var bf1 = {
-    //         y: ['group 2'],
-    //         x: [1],
-    //         type: 'bar',
-    //         orientation: 'h',
-    //         sort: false,
-    //         hoverinfo: 'none',
-    //         automargin: true,
-    //         showlegend: false,
-    //         fixedrange: true,
-    //         cliponaxis: false,
-    //         marker: {
-    //             color: 'rgb(125, 125, 0)',
-    //         },
-    //         text: 1,
-    //         textposition: 'inside',
-    //         insidetextanchor: 'middle',
-    //         textfont: {
-    //             color: 'white',
-    //             size: '14'
-    //         },
-    //     };
-    //
-    //     var bf2 = {
-    //         y: ['group 2'],
-    //         x: [1],
-    //         type: 'bar',
-    //         orientation: 'h',
-    //         sort: false,
-    //         hoverinfo: 'none',
-    //         automargin: true,
-    //         showlegend: false,
-    //         fixedrange: true,
-    //         cliponaxis: false,
-    //         marker: {
-    //             color: 'rgb(170, 170, 0)',
-    //         },
-    //         text: 1,
-    //         textposition: 'inside',
-    //         insidetextanchor: 'middle',
-    //         textfont: {
-    //             size: '14'
-    //         },
-    //     };
-    //
-    //     var bf3 = {
-    //         y: ['group 2'],
-    //         x: [1],
-    //         type: 'bar',
-    //         orientation: 'h',
-    //         sort: false,
-    //         hoverinfo: 'none',
-    //         automargin: true,
-    //         showlegend: false,
-    //         fixedrange: true,
-    //         cliponaxis: false,
-    //         marker: {
-    //             color: 'rgb(210, 210, 0)',
-    //         },
-    //         text: 1,
-    //         textposition: 'inside',
-    //         insidetextanchor: 'middle',
-    //         textfont: {
-    //             color: 'white',
-    //             size: '14'
-    //         },
-    //     };
-    //
-    //     var bf4 = {
-    //         y: ['group 2'],
-    //         x: [1],
-    //         type: 'bar',
-    //         orientation: 'h',
-    //         sort: false,
-    //         hoverinfo: 'none',
-    //         automargin: true,
-    //         showlegend: false,
-    //         fixedrange: true,
-    //         cliponaxis: false,
-    //         marker: {
-    //             color: 'rgb(255, 255, 0)',
-    //         },
-    //         text: 1,
-    //         textposition: 'inside',
-    //         insidetextanchor: 'middle',
-    //         textfont: {
-    //             size: '14'
-    //         },
-    //     };
-    // }
-
-    var myHeight = 48//60;
-
-    // if(beliefSwitch) {
-    //     myHeight = 80//60;
-    // }
-
-    var data = [f4, f3, f2, f1];
-
-    var temp = data[me];
-    data.splice(me, 1);
-    data.push(temp);
-
-    // if(beliefSwitch) {
-    //     var bdata = [bf4, bf3, bf2, bf1];
-    //     bdata.splice(me, 1);
-    //     bdata.push(temp);
-    //     var newdata = bdata.concat(data);
-    //     // data = [bf4, bf3, bf2, bf1, f4, f3, f2, f1];
-    //     data = newdata;
-    // }
-
+        opacity: myOpacity,
+    }
 
     var layout = {
-        title:{
-            text:  "Relative Power",
-            size: 2,
-            yref: 'paper',
-            y: 0,
-            yanchor: 'top',
-        },
-        barmode: 'stack',
-        height: myHeight,//60
-        width: 270,
-        margin: {"t": 0, "b": 20, "l": 0, "r": 0},
-        xaxis: {
-            fixedrange: true,
-            autorange: false,
-            range: [0,4],
-            showline: false,
-            showgrid: false,
-            showticklabels: false,
-        },
+        height: 120,
+        width: 100,
+        margin: {"t": 20, "b": 20, "l": 0, "r": 0},
         yaxis: {
             fixedrange: true,
+            autorange: false,
+            range: [-100,0]
+        },
+        xaxis: {
+            fixedrange: true,
             showline: false,
             showgrid: false,
+            ticks: '',
             showticklabels: false,
         },
-        bargap: 0.05,
-
+        bargap: 0.2,
+        bargroupgap:0,
     };
+
+    var data = [actual];
+
 
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
 
+var updateS6CostBarTotal = function(a, b, barId, s3Won) {
 
+    var x = a;
+    var y = b;
+
+
+    var myOpacity = 1;
+    var myText = [nzt(a), nzt(b)];
+    var myTextColor = ['black', 'black'];
+    // myTextColor[0] = (a>0) ? 'rgb(73, 251, 53)' : 'red';
+    // myTextColor[1] = (b>0) ? 'rgb(73, 251, 53)' : 'red';
+
+    var lightpurple = 'rgb(120, 120, 120)';// 'rgba(43, 3, 138, 0.66)';
+    var purple = 'rgb(80, 80, 80)';//'rgb(43, 3, 138)';
+    var colorArray = [purple, lightpurple];
+
+    var lineColorArray = ['', ''];
+    var lineWidth = [0, 0];
+
+    if(!s3Won) {
+        lineColorArray[0] = 'rgb(43, 3, 138)';
+        lineWidth[0] = 2;
+        colorArray[0] = 'rgb(160, 160, 160)';
+    }
+
+    if(s3Won) {
+        lineColorArray[1] = 'rgba(43, 3, 138, 0.66)';
+        lineWidth[1] = 2;
+        colorArray[1] = 'rgb(225, 225, 225)';
+    }
+
+
+    var actual =  {
+        y: [x, y],
+        x: [1, 2],
+        type: 'bar',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker:{
+            color: colorArray,
+            line: {
+                color: lineColorArray,
+                width: lineWidth,
+            }
+        },
+        text: myText,
+        textposition: 'outside',
+        textfont: {
+            size: '14',
+            color: myTextColor,
+        },
+        cliponaxis: false,
+        opacity: myOpacity,
+    }
+
+    var layout = {
+        height: 120,
+        width: 100,
+        margin: {"t": 20, "b": 20, "l": 0, "r": 0},
+        yaxis: {
+            fixedrange: true,
+            // autorange: false,
+            // range: [-1000,1000],
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+        },
+        xaxis: {
+            fixedrange: true,
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+        },
+        bargap: 0.2,
+        bargroupgap:0,
+    };
+
+    var data = [actual];
+
+
+    Plotly.react(barId, data, layout, {displayModeBar: false});
+}
+
+var l2f = function(array) {
+    var last = array[array.length-1];
+    console.log('last element ' + last);
+    var first = array[0];
+    console.log('first element' + first);
+    array[0] = last;
+    array[array.length-1] = first;
+
+    return array;
+}
+
+var updateTotalCostBar = function(a, b, c, d, l, barId, ourGroup, me, myFirstRole, s3Won, winner) {
+
+    var x = a;
+    var y = b;
+    var z = c;
+    var w = d;
+    var v = l;
+
+    var myData = [x, y, z, w, v];
+
+    var myOpacity = 1;
+    var myText = [nzt(x), nzt(y), nzt(z), nzt(w), nzt(v)];
+    var myTextColor = 'black';
+    // for(var h = 0; h < 5; h++) {
+    //     myTextColor[h] = (myData[h] > 0) ? 'rgb(73, 251, 53)' : 'red';
+    // }
+
+
+
+    var lightorange = 'rgb(225, 225, 225)';//'rgb(255, 180, 100)';
+    var orange = 'rgb(160, 160, 160)';//'rgb(255, 130, 0)';
+    var ourColor = ourGroup ? orange : lightorange;
+    var ourLeaderColor = ourGroup ? 'rgb(80, 80, 80)' : 'rgb(120, 120, 120)'
+    var ourColorArray = [ourColor, ourColor, ourColor, ourColor, ourLeaderColor];
+
+    var lineColorArray = ['', '', '', '', ''];
+    var lineWidth = [0, 0, 0, 0, 0];
+    if(!s3Won) {
+        lineColorArray[4] = ourGroup ? 'rgb(255, 130, 0)' : 'rgb(255, 180, 100)';
+        lineWidth[4] = 3;
+        lineColorArray[winner] = ourGroup ? 'rgb(43, 3, 138)' : 'rgba(43, 3, 138, 0.66)';
+        lineWidth[winner] = 3;
+    }
+
+    if(!ourGroup) {
+        console.log('do we get in here???');
+        console.log(myData[0]);
+        myData = l2f(myData);
+        console.log(myData[0]);
+        myText = l2f(myText);
+        ourColorArray = l2f(ourColorArray);
+        lineColorArray = l2f(lineColorArray);
+        lineWidth = l2f(lineWidth);
+        myTextColor = l2f(myTextColor);
+    }
+
+    if(myRole===0 && ourGroup) {
+        ourColorArray[me] = 'turquoise';
+    }
+
+    if(myRole===1 && ourGroup) {
+        // If I were the leader, I get new leader's old follower spot so I get
+        // winner index which represents the follower who became the new leader
+        ourColorArray[4] = 'turquoise';
+    }
+
+    var actual =  {
+        y: myData,
+        x: [1, 2, 3, 4, 5],
+        type: 'bar',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker:{
+            color: ourColorArray,
+            line: {
+                color: lineColorArray,
+                width: lineWidth,
+            }
+        },
+        text: myText,
+        textposition: 'outside',
+        textfont: {
+            size: '14',
+            color: myTextColor,
+        },
+        cliponaxis: false,
+        opacity: myOpacity,
+    }
+
+    var layout = {
+        height: 180,
+        width: 150,
+        margin: {"t": 20, "b": 20, "l": 0, "r": 0},
+        yaxis: {
+            fixedrange: true,
+            // autorange: false,
+            // range: [-100,0]
+        },
+        xaxis: {
+            fixedrange: true,
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+        },
+        bargap: 0.2,
+        bargroupgap:0,
+    };
+
+    var data = [actual];
+
+
+    Plotly.react(barId, data, layout, {displayModeBar: false});
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -1720,29 +1984,59 @@ var updateS4EfficiencyBar = function(barId, beliefSwitch, me) {
 // STAGE 2 AND 3 GRAPHICS AND ANIMATION
 var animationCounter = 0;
 var update = function(beliefSwitch) {
-    console.log('we are inside update1?');
-    updateHelpBar(info.h1, info.h2, info.h3, info.h4, 'helpbarg1', true, info.me, beliefSwitch, info.beliefs.h1, info.beliefs.h2, info.beliefs.h3);
-    updateSaboBar(info.s1, info.s2, info.s3, info.s4, 'sabobarg1', true, info.me, beliefSwitch, info.beliefs.s1, info.beliefs.s2, info.beliefs.s3);
+    updateHelpBar(info.h1_2, info.h2_2, info.h3_2, info.h4_2, 'helpbarg1', true, info.me, beliefSwitch, info.beliefs.h1, info.beliefs.h2, info.beliefs.h3);
+    updateSaboBar(info.s1_2, info.s2_2, info.s3_2, info.s4_2, 'sabobarg1', true, info.me, beliefSwitch, info.beliefs.s1, info.beliefs.s2, info.beliefs.s3e);
 
     updateTotalHelpBar(info.th(), info.oth(), 'helpbartotal', beliefSwitch, info.beliefs.th(), info.beliefs.oth());
     updateTotalSaboBar(info.ts(), info.ots(), 'sabobartotal', beliefSwitch, info.beliefs.ts(), info.beliefs.ots());
 
     // for opposing group me variable gets -1 to signal that there is no me
-    updateHelpBar(info.oh1, info.oh2, info.oh3, info.oh4, 'helpbarg2', false, -1, beliefSwitch, info.beliefs.oh1, info.beliefs.oh2, info.beliefs.oh3, info.beliefs.oh4);
-    updateSaboBar(info.os1, info.os2, info.os3, info.os4,'sabobarg2', false, -1, beliefSwitch, info.beliefs.os1, info.beliefs.os2, info.beliefs.os3, info.beliefs.os4);
+    updateHelpBar(info.oh1_2, info.oh2_2, info.oh3_2, info.oh4_2, 'helpbarg2', false, -1, beliefSwitch, info.beliefs.oh1, info.beliefs.oh2, info.beliefs.oh3, info.beliefs.oh4, -1);
+    updateSaboBar(info.os1_2, info.os2_2, info.os3_2, info.os4_2,'sabobarg2', false, -1, beliefSwitch, info.beliefs.os1, info.beliefs.os2, info.beliefs.os3, info.beliefs.os4, -1);
 
-    updatePie(info.pwin(), 's3pie', beliefSwitch, info.beliefs.pwin());
-    updateEffortBar(info.efo, info.oefo, 's3effortbars', beliefSwitch, info.beliefs.efo, info.beliefs.oefo);
-    updateEfficiencyBar(info.efi(), info.oefi(), 's3efficiencybar', beliefSwitch, info.beliefs.efi(), info.beliefs.oefi());
+    updatePie(info.pwin(), 's6pie', beliefSwitch, info.beliefs.pwin());
+    updateEffortBar(info.efo_2, info.oefo_2, 's6effortbars', beliefSwitch, info.beliefs.efo, info.beliefs.oefo);
+    updateEfficiencyBar(info.efi_2(), info.oefi_2(), 's6efficiencybar', beliefSwitch, info.beliefs.efi(), info.beliefs.oefi());
 
     if(animationCounter===0) {
-        var resultIndex = d.s3.yourLeaderWon ? 1 : 2;
+        var resultIndex = d.s6.yourLeaderWon ? 1 : 2;
+        // console.log(resultIndex);
         var stopAt = theWheel.getRandomForSegment(resultIndex);
         theWheel.animation.stopAngle = stopAt;
         theWheel.startAnimation();
         animationCounter = 1 + animationCounter;
     }
+}
 
+var update2 = function() {
+    // function(a, b, c, d, barId, ourGroup, me, myFirstRole)
+
+    updateS2CostBar(info.c1, info.c2, info.c3, info.c4, 's2payoffg1', true, info.me, info.role);
+    updateS2CostBarTotal(info.tc, info.otc, 's2payofftotal');
+    updateS2CostBar(info.oc1, info.oc2, info.oc3, info.oc4, 's2payoffg2', false, -1, -1);
+    updateS3CostBarTotal(info.myNet, info.oNet, 's3payofftotal', info.role);
+
+    if(!d.s3.yourLeaderWon) {
+        updateS4CostBar(info.e1, info.e2, info.e3, info.e4, 's4payoffg1', true, info.me, info.role, info.s4winner);
+        var tempDisplay = document.getElementById('yourgroup');
+        tempDisplay.innerHTML = 'Your Group';
+        }
+    if(d.s3.yourLeaderWon) {
+        updateS4CostBar(info.oe1, info.oe2, info.oe3, info.oe4, 's4payoffg2', false, -1, -1, info.os4winner);
+        $('.rightsections4').css({'padding-left':'250px'});
+        tempDisplay = document.getElementById('othergroup');
+        tempDisplay.innerHTML = 'Opposing Group';
+    }
+
+// function(a, b, c, d, barId, ourGroup, me, myFirstRole, winner, s3Won)
+updateS5CostBar(info.c1_2, info.c2_2, info.c3_2, info.c4_2, 's5payoffg1', true, info.me, info.role, info.s3won, info.s4winner);
+updateS5CostBar(info.oc1_2, info.oc2_2, info.oc3_2, info.oc4_2, 's5payoffg2', false, info.me, info.role, !info.s3won, info.os4winner);
+updateS2CostBarTotal(info.tc_2, info.otc_2, 's5payofftotal');
+updateS6CostBarTotal(info.myNet_2, info.oNet_2, 's6payofftotal', info.s3won);
+
+// updateTotalCostBar = function(a, b, c, d, l, barId, ourGroup, me, myFirstRole, s3Won, winner)
+updateTotalCostBar(ftotal[0], ftotal[1], ftotal[2], ftotal[3], ltotal[0], 'totalpayoffg1', true, info.me, info.role, info.s3won, info.s4winner);
+updateTotalCostBar(oftotal[0], oftotal[1], oftotal[2], oftotal[3], ltotal[1], 'totalpayoffg2', false, info.me, info.role, !info.s3won, info.os4winner);
 }
 
 
@@ -1755,144 +2049,50 @@ beliefButton.onclick = function() {
     var o = showBeliefs3 ? 1 : 0;
     var h = showBeliefs3 ? '100%' : '0px';
     update(showBeliefs3);
-    update2(showBeliefs3);
 
     document.getElementById("belieflegend").style.opacity = o;
     document.getElementById('belieflegend').style.maxHeight = h;
-    document.getElementById('hidewrap').style.opacity = o;
+    // document.getElementById('hidewrap').style.opacity = o;
     bbSwitch = 1 - bbSwitch;
 }
 
-// Depending on whether your leader wins or not changes
-// updated from the begining based on the passed data
-// if your leader won, proceed to Stage 4
-var showStage4 = !d.s3.yourLeaderWon;
 
 // Called by the stage 3 wheel once it stops
+// Calls showresults()
+// If leader lost, calls displayStage4()
 var next = function() {
     showResults();
-    console.log('are we getting inside next more then we should?');
-    if(showStage4) {
-        setTimeout("displayStage4()", 2000);
-    }
+    setTimeout("displayAllPayoffs()", 2500);
 }
 
 
 // EXPLAINS THE STAGE 3 RESULTS IN TEXT
 var showResults = function() {
-    var display = document.getElementById('s3shortresult');
-    var shortResult = d.s3.yourLeaderWon ? 'Your Leader Won.' : 'Your Leader Lost.';
+    var display = document.getElementById('s6shortresult');
+
+    var shortResult = d.s6.yourLeaderWon ? 'Your Leader Won.' : 'Your Leader Lost.';
+
     display.innerHTML = shortResult;
-    setTimeout('showResultsDelayed1()', 1000);
+    setTimeout('showResultsDelayed()', 1000);
 }
 
-var showResultsDelayed1 = function() {
+var showResultsDelayed = function() {
         var largeDisplay = document.getElementById('resulttext');
-        var winScenario = 'Your leader maintains her '
-        + 'leadership position. <br> You and other followers continue their role as '
-        + 'followers and proceed to Stage 5.';
 
-        var loseScenario = 'Your Leader lost her '
-        + 'leadership position. <br> Proceeding to Stage 4 Followers\' Contest '
-        + 'to determine the new leader of your group.';
-        largeDisplay.innerHTML = d.s3.yourLeaderWon ? winScenario : loseScenario;
 
-        if(d.s3.yourLeaderWon) {
-            setTimeout('showResultsDelayed2()', 1000);
-        }
+        var allScenario = 'The game has ended. Below, you can examine the payoffs for every player and every stage.';
+
+        largeDisplay.innerHTML = allScenario;
+
 }
 
-var showResultsDelayed2 = function() {
-    var displayPayoff = document.getElementById('s3s4payoffinfohwrap2');
-    displayPayoff.style.opacity = 1;
-    displayPayoff.style.position = 'static';
-    var s2Payoff = document.getElementById('stage2cost2');
-    var totalPayoff = document.getElementById('totalcost2');
-    s2Payoff.innerHTML = info.sarray[d.me] + info.harray[d.me];
-    totalPayoff.innerHTML = info.sarray[d.me] + info.harray[d.me];
-}
 
-var displayStage4 = function() {
+var displayAllPayoffs = function() {
     document.getElementById('secondpartwrap').style.opacity = 1;
     document.getElementById('secondpartwrap').style.position = 'static';
-
-    // Show decisions made (beliefs are hidden)
-    update2(false);
-    updatePayoffs();
-    // If Beliefs are displayed, turn it off to sync belief displays of both sections
-    update(false);
-    // $(document).scrollTop($('.s4static').height());
-    $('html, body').animate({
-        scrollTop: $('.s4static').height()
-    }, 1000);
-
-    // $('html, body').animate("$(document).scrollTop($('.s4static').height())", 1000);
-
-    // Identify the new leader based on the info passed through emit
-    var resultIndex2 = d.s4.hasWon.indexOf(true);
-
-    //Wheel of Fortune animation 2
-    var stopAt2 = theWheel2.getRandomForSegment((resultIndex2+1));
-    theWheel2.animation.stopAngle = stopAt2;
-    theWheel2.startAnimation();
-}
-
-var update2= function(beliefSwitch2) {
-    console.log('we are inside update2?');
-    updateS4Pie(info.e1, info.e2, info.e3, info.e4, 's4pie', info.me, beliefSwitch2, info.beliefs.e1, info.beliefs.e2, info.beliefs.e3)
-    updateS4EffortBar(info.e1, info.e2, info.e3, info.e4, 's4effortbars', info.me, beliefSwitch2, info.beliefs.e1, info.beliefs.e2, info.beliefs.e3)
-    updateS4EfficiencyBar('s4efficiencybar', beliefSwitch2, info.me);
-
 }
 
 
-var updatePayoffs = function() {
-    var s2c = document.getElementById('stage2cost');
-    var s4c = document.getElementById('stage4cost');
-    var tc = document.getElementById('totalcost');
-    s2c.innerHTML = info.sarray[d.me] + info.harray[d.me];
-    s4c.innerHTML = info.earray[d.me];
-    tc.innerHTML = info.sarray[d.me] + info.harray[d.me] + info.earray[d.me];
-}
-
-var showResults2 = function() {
-    var resultIndex2 = d.s4.hasWon.indexOf(true) + 1;
-    var display = document.getElementById('s4shortresult');
-    var largeDisplay = document.getElementById('resulttext2');
-    // console.log(info.me);
-    // console.log(d.s4.hasWon.indexOf(true));
-    if(info.me === d.s4.hasWon.indexOf(true)) {
-        var shortResultText = 'You won!';
-        var resultText = 'You are the new leader of your group! <br>'
-        + 'Other followers and your former leader will proceed to Stage 5 '
-        + 'to determine how much to help or sabotage you.  <br>'
-        + 'You will proceed to Stage 6 for the second Leaders\' Contest '
-        + 'and wait for Stage 5 decisions to be made. <br> <br> <br>';
-    } else {
-        shortResultText = 'Follower ' + resultIndex2 + ' won.';
-        resultText = 'Follower ' + resultIndex2 + ' '
-        + 'is the new leader of your group. <br>'
-        + 'Your former leader, you and the other followers will proceed to Stage 5 '
-        + 'to determine how much to help or sabotage your new leader.  <br>'
-        + 'Your new leader (' + 'Follower ' + resultIndex2 + ') will proceed to '
-        + 'Stage 6 for the second Leaders\' Contest '
-        + 'and wait for Stage 5 decisions to be made. <br> <br> <br>';
-    }
-    display.innerHTML = shortResultText;
-    largeDisplay.innerHTML = resultText;
-    // $(document).scrollTop($('.resulttext2').scrollTop());
-    // $(document).scrollTop($('.s4static').height());
-    // $('html, body').animate({
-    //     scrollTop: $('.resulttext2').get(0).scrollHeight()
-    // }, 1000);
-
-    // $('html, body').animate("$(document).scrollTop($('.resulttext2').height())", 1000);
-
-
-    $('html, body').animate({
-        scrollTop: $(document).height()
-    }, 2000);
-}
 
 
 
@@ -1900,9 +2100,9 @@ var showResults2 = function() {
 // false represent not showing the beliefs we start without them
 // can be turned on by the beliefs button defined below
 update(false);
-
+update2();
 
 // FOR DEBUGGING
-setTimeout('showResults()', 250);
-setTimeout('displayStage4()', 500);
-setTimeout('showResults2()', 750);
+
+// setTimeout('showResults()', 250);
+// setTimeout('displayStage4()', 500);

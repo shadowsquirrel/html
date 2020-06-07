@@ -289,7 +289,7 @@
 }
 .rightmaintitle
 {
-    margin-right: -135px;
+margin-right: -135px;
 }
 .titlesection
 {
@@ -994,15 +994,7 @@
     margin-top: -2px;
 
 }
-.yourdecisiontext2
-{
-    opacity:0.3;
-    margin-left: -300px;
-    margin-top: -2px;
-    font-weight: 200;
-    font-size: 12px;
-    transition: .35s ease-in-out;
-}
+
 /************************************************/
 /************************************************/
 /************************************************/
@@ -1077,8 +1069,6 @@ input:checked + .checkslider:before {
 .checkslider.round:before {
   border-radius: 50%;
 }
-
-
 /***************************************/
 .mytablewrap
 {
@@ -1099,10 +1089,6 @@ input:checked + .checkslider:before {
     font-weight: 800;
 
 }
-.columnclass
-{
-    margin-top:-15px;
-}
 .titlerow
 {
     display: flex;
@@ -1111,6 +1097,11 @@ input:checked + .checkslider:before {
     /* padding-left: 10px; */
     font-weight: 800;
     margin-left: -12px;
+    /* margin-bottom: -10px; */
+}
+.columnclass
+{
+    margin-top:-15px;
 }
 .row
 {

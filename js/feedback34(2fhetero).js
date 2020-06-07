@@ -284,10 +284,13 @@ let theWheel = new Winwheel({
 
 var pf1, pf2;
 var ee1, ee2;
-
-ee1 = info.meStrong ? (3 * info.earray[info.me]) : (info.earray[info.me] / 3);
+var eeArray = [];
+eeArray[info.me]= info.meStrong ? (3 * info.earray[info.me]) : (info.earray[info.me] / 3);
 var oIndex = (info.me === 1) ? 0 : 1;
-ee2 = info.earray[oIndex];
+eeArray[oIndex] = info.earray[oIndex];
+
+ee2 = eeArray[1];
+ee1 = eeArray[0];
 
 var tot = ee1 + ee2;
 pf1 = 100 * ee1 / tot;
@@ -1181,7 +1184,7 @@ var move2Last = function(array, me) {
 }
 
 var updateS4Pie = function(a, b, barId, me, showBeliefs, ba, meStrong) {
-
+    console.log('You are follower' + (me+1));
     var x = a;
     var y = b;
     var actualOpacity = 1;

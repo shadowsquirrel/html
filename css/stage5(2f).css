@@ -20,7 +20,7 @@
 .wrap
 {
     display: flex;
-/*
+    /*
     width: 100%;
     height: 600px; */
     justify-content: center;
@@ -114,7 +114,6 @@
     /* border: 5px solid black; */
 
 }
-
 .s2infographics
 {
     /* margin-top: 50px; */
@@ -141,7 +140,6 @@
     margin-left: 20px;
     /* border: 5px solid black; */
 }
-
 .borderlegend
 {
     display: flex;
@@ -240,16 +238,12 @@
     justify-content: center;
     /* margin-top: 15px; */
 }
-
-
-
 .s4pie
 {
     display: flex;
     justify-content: center;
     /* border: 5px solid black; */
 }
-
 /************************************************/
 /************************************************/
 /************************************************/
@@ -289,11 +283,12 @@
 }
 .rightmaintitle
 {
-margin-right: -135px;
+    margin-right: -135px;
 }
 .titlesection
 {
     /* margin-bottom: -20px; */
+    padding-bottom: 30px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -329,6 +324,7 @@ margin-right: -135px;
     top: 200px; */
     display:flex;
     flex-direction: row;
+    justify-content: space-evenly;
     /* border: 5px solid black; */
 }
 .decision
@@ -639,6 +635,8 @@ margin-right: -135px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-right: 20px;
+    padding-left: 30px;
 }
 /************************************************/
 .bar
@@ -993,7 +991,17 @@ margin-right: -135px;
     margin-top: -2px;
 
 }
-
+.yourdecisiontext2
+{
+    opacity:0.3;
+    padding-top: 15px;
+    margin-left: -160px;
+    margin-top: -2px;
+    margin-bottom: -2px;
+    font-weight: 200;
+    font-size: 10px;
+    transition: .35s ease-in-out;
+}
 /************************************************/
 /************************************************/
 /************************************************/

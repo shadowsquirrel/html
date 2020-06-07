@@ -765,7 +765,7 @@ flex-direction: column;
 } */
 .mytable
 {
-    margin-top: -20px;
+    margin-top: -40px;
     font-size: 15px;
     display: flex;
     flex-direction: row;
@@ -778,6 +778,7 @@ flex-direction: column;
     /* border: 5px solid black; */
     display: flex;
     flex-direction: column;
+    padding-right: 200px;
 }
 .title1
 {
@@ -797,6 +798,7 @@ flex-direction: column;
     /* border: 5px solid black; */
     display: flex;
     flex-direction: column;
+    padding-left: 200px;
 }
 .title2
 {
