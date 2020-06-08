@@ -2069,9 +2069,12 @@ infoButton.onclick = function() {
             scrollTop: ($('.secondpartwrap').height())*1.65
         }, 500);
     } else {
+        // $('html, body').animate({
+        //     scrollTop: ($('.firstpartwrap').height())*0.65
+        // }, 500);
         $('html, body').animate({
-            scrollTop: ($('.firstpartwrap').height())*0.75
-        }, 500);
+            scrollTop: ($('.secondpartwrap').height())/2
+        }, 1000);
     }
 
 
