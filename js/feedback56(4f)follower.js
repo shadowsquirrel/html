@@ -321,12 +321,15 @@ var data2Info = function() {
     info.e4 = d.s4.f4;
     info.earray = [info.e1, info.e2, info.e3, info.e4];
 
+    info.s4winner = d.s4.hasWon.indexOf(true);
+
+
     info.oe1 = d.s4.of1;
     info.oe2 = d.s4.of2;
     info.oe3 = d.s4.of3;
     info.oe4 = d.s4.of4;
-    info.earray = [info.oe1, info.oe2, info.oe3, info.oe4];
-    info.s4winner = d.s4.hasWon.indexOf(true);
+    info.oearray = [info.oe1, info.oe2, info.oe3, info.oe4];
+
     info.os4winner = d.s4.ohasWon.indexOf(true);
 
 
@@ -483,27 +486,31 @@ var ftotal = [];
 var oftotal = [];
 var ltotal = [];
 
+
+
+
+
 for(k = 0; k < 4; k++) {
     if(info.s3won) {
         ftotal[k] = s2CostArray[k] + s5CostArray[k];
         ltotal[0] = info.myNet + info.myNet_2;
         ltotal[1] = info.oNet + os5CostArray[info.os4winner];
         if(k !== info.os4winner) {
-            oftotal[k] = os2CostArray[k] + os5CostArray[k];
+            oftotal[k] = os2CostArray[k] +  - info.oearray[k] + os5CostArray[k];
         } else {
-            oftotal[k] = os2CostArray[k] + info.oNet_2;
+            oftotal[k] = os2CostArray[k]  - info.oearray[k] + info.oNet_2;
         }
     } else {
         oftotal[k] = os2CostArray[k] + os5CostArray[k];
         ltotal[0] = info.myNet + s5CostArray[info.s4winner];
         ltotal[1] = info.oNet + info.oNet_2;
         if(k !== info.s4winner) {
-            ftotal[k] = s2CostArray[k] + s5CostArray[k];
+            ftotal[k] = s2CostArray[k]  - info.earray[k] + s5CostArray[k];
         } else {
             // console.log('new leader here');
             // console.log(s2CostArray[k]);
             // console.log(info.myNet_2);
-            ftotal[k] = s2CostArray[k] + info.myNet_2;
+            ftotal[k] = s2CostArray[k] - info.earray[k] + info.myNet_2;
             // console.log(ftotal[k]);
         }
     }
@@ -1987,14 +1994,14 @@ var update = function(beliefSwitch) {
     updateHelpBar(info.h1_2, info.h2_2, info.h3_2, info.h4_2, 'helpbarg1', true, info.me, beliefSwitch, info.beliefs.h1, info.beliefs.h2, info.beliefs.h3);
     updateSaboBar(info.s1_2, info.s2_2, info.s3_2, info.s4_2, 'sabobarg1', true, info.me, beliefSwitch, info.beliefs.s1, info.beliefs.s2, info.beliefs.s3e);
 
-    updateTotalHelpBar(info.th(), info.oth(), 'helpbartotal', beliefSwitch, info.beliefs.th(), info.beliefs.oth());
-    updateTotalSaboBar(info.ts(), info.ots(), 'sabobartotal', beliefSwitch, info.beliefs.ts(), info.beliefs.ots());
+    updateTotalHelpBar(info.th_2(), info.oth_2(), 'helpbartotal', beliefSwitch, info.beliefs.th(), info.beliefs.oth());
+    updateTotalSaboBar(info.ts_2(), info.ots_2(), 'sabobartotal', beliefSwitch, info.beliefs.ts(), info.beliefs.ots());
 
     // for opposing group me variable gets -1 to signal that there is no me
-    updateHelpBar(info.oh1_2, info.oh2_2, info.oh3_2, info.oh4_2, 'helpbarg2', false, -1, beliefSwitch, info.beliefs.oh1, info.beliefs.oh2, info.beliefs.oh3, info.beliefs.oh4, -1);
-    updateSaboBar(info.os1_2, info.os2_2, info.os3_2, info.os4_2,'sabobarg2', false, -1, beliefSwitch, info.beliefs.os1, info.beliefs.os2, info.beliefs.os3, info.beliefs.os4, -1);
+    updateHelpBar(info.oh1_2, info.oh2_2, info.oh3_2, info.oh4_2, 'helpbarg2', false, -1, beliefSwitch, info.beliefs.oh1, info.beliefs.oh2, info.beliefs.oh3, info.beliefs.oh4);
+    updateSaboBar(info.os1_2, info.os2_2, info.os3_2, info.os4_2,'sabobarg2', false, -1, beliefSwitch, info.beliefs.os1, info.beliefs.os2, info.beliefs.os3, info.beliefs.os4);
 
-    updatePie(info.pwin(), 's6pie', beliefSwitch, info.beliefs.pwin());
+    updatePie(info.pwin_2(), 's6pie', beliefSwitch, info.beliefs.pwin());
     updateEffortBar(info.efo_2, info.oefo_2, 's6effortbars', beliefSwitch, info.beliefs.efo, info.beliefs.oefo);
     updateEfficiencyBar(info.efi_2(), info.oefi_2(), 's6efficiencybar', beliefSwitch, info.beliefs.efi(), info.beliefs.oefi());
 
@@ -2066,7 +2073,7 @@ infoButton.onclick = function() {
     if(showInfo) {
         update2();
         $('html, body').animate({
-            scrollTop: ($('.secondpartwrap').height())*1.65
+            scrollTop: ($('.secondpartwrap').height())*1.75
         }, 500);
     } else {
         // $('html, body').animate({
