@@ -16,6 +16,7 @@
 </head>
 <body>
     <div class='upperbar'>
+        <button class=infobutton id=stageinfobutton>Stages</button>
         <button class=beliefbutton id=beliefbutton>Beliefs</button>
     </div>
     <div class = 'wrap'>
@@ -110,8 +111,10 @@
                     </div>
                 </div>
             </div>
-            <div class='s6resulttext'>
+            <div class='s6resulttext' id='s6resulttext'>
                 <span id=resulttext></span>
+                <h10 class=graphinfotext1>Below is a graphical representations of all players's net payoffs.</h10>
+                <h10 class=graphinfotext2>You can click <strong> Stages </strong> button on the right corner for stage specific net payoff information.</h10>
             </div>
 
             <div class='s5s6payoffinfohwrap2' id='s5s6payoffinfohwrap2'>
@@ -139,233 +142,219 @@
 
             <div class='secondpartwrap' id='secondpartwrap'>
                 <div class='secondpart' id='secondpart'>
-                    <div class='stagewrap'>
-                        <div class='stagetitlewrap'>
+                    <div class='stagewrap2'>
+                        <div class='stagewrap3' id='stagewrap3'>
 
-                        </div>
-                        <div class='boxwrap3'>
-                            <div class='boxtext3'>
-                                <div class='colorboxyou'></div>
-                                <p style='font-size:14px;'>You</p>
-                            </div>
-                            <div class='boxtext3'>
-                                <div class='colorboxf'></div>
-                                <p style='font-size:14px;'>Follower</p>
-                            </div>
-                            <div class='boxtext3'>
-                                <div class='colorboxl'></div>
-                                <p style='font-size:14px;'>Leader</p>
-                            </div>
-                            <div class='boxtext3'>
-                                <div class='colorboxnl'></div>
-                                <p style='font-size:14px;'>New Leader</p>
-                            </div>
-                            <div class='boxtext3'>
-                                <div class='colorboxfl'></div>
-                                <p style='font-size:14px;'>Former Leader</p>
-                            </div>
-                        </div>
-                        <div class='stageresultswrap'>
-                            <div class='stagetitle'>
-                                <h3>STAGE 2</h3>
-                                <h10>Followers'</h10>
-                                <h10>Sabotage / Help</h10>
-                            </div>
-                            <div class='stagesectionwrap'>
-                                <div class='leftsection'>
-                                    <div class='titlesection'>
-                                        <h10 class='smallertitle'>Your Group</h10>
+                            <div class='stagewrap'>
+
+                                <div class='stagetitlewrap'>
+
+                                </div>
+
+                                <div class='stageresultswrap'>
+                                    <div class='stagetitle'>
+                                        <h3>STAGE 2</h3>
+                                        <h10>Followers'</h10>
+                                        <h10>Sabotage / Help</h10>
                                     </div>
-                                    <div class='graphicssection'>
-                                        <div id='s2payoffg1'></div>
+                                    <div class='stagesectionwrap'>
+                                        <div class='leftsection'>
+                                            <div class='titlesection'>
+                                                <h10 class='smallertitle'>Your Group</h10>
+                                            </div>
+                                            <div class='graphicssection'>
+                                                <div id='s2payoffg1'></div>
+                                            </div>
+                                        </div>
+                                        <div class='middlesection invisible'>
+                                            <div class='titlesection'>
+                                                <h10 class='smallertitle'>Group Comparison</h10>
+                                            </div>
+                                            <div class='graphicssection'>
+                                                <div id='s2payofftotal'></div>
+                                            </div>
+                                        </div>
+                                        <div class='rightsection'>
+                                            <div class='titlesection'>
+                                                <h10 class='smallertitle'>Opposing Group</h10>
+                                            </div>
+                                            <div class='graphicssection'>
+                                                <div id='s2payoffg2'></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class='middlesection invisible'>
-                                    <div class='titlesection'>
-                                        <h10 class='smallertitle'>Group Comparison</h10>
+
+                                <div class='stageresultswrap closertotop'>
+                                    <div class='stagetitle'>
+                                        <h3>STAGE 3</h3>
+                                        <h10>Leaders' Contest</h10>
                                     </div>
-                                    <div class='graphicssection'>
-                                        <div id='s2payofftotal'></div>
+                                    <div class='stagesectionwrap'>
+                                        <div class='leftsection'>
+                                            <div class='titlesection'>
+
+                                            </div>
+                                            <div class='graphicssection'>
+
+                                            </div>
+                                        </div>
+                                        <div class='middlesection placemid'>
+                                            <div class='titlesection'>
+                                                <h10 class='smallertitle'>Group Comparison</h10>
+                                            </div>
+                                            <div class='graphicssection'>
+                                                <div id='s3payofftotal'></div>
+                                            </div>
+                                        </div>
+                                        <div class='rightsection'>
+                                            <div class='titlesection'>
+
+                                            </div>
+                                            <div class='graphicssection'>
+
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class='rightsection'>
-                                    <div class='titlesection'>
-                                        <h10 class='smallertitle'>Opposing Group</h10>
+
+                                <div class='stageresultswrap closertotop'>
+                                    <div class='stagetitle'>
+                                        <h3>STAGE 4</h3>
+                                        <h10>Followers' Contest</h10>
                                     </div>
-                                    <div class='graphicssection'>
-                                        <div id='s2payoffg2'></div>
+                                    <div class='stagesectionwrap'>
+                                        <div class='leftsections4'>
+                                            <div class='titlesection'>
+                                                <h10 class='smallertitle'><span id='yourgroup'></span></h10>
+                                            </div>
+                                            <div class='graphicssection '>
+                                                    <div id='s4payoffg1'></div>
+                                            </div>
+                                        </div>
+                                        <div class='middlesections4'>
+                                            <div class='titlesection'>
+
+                                            </div>
+                                            <div class='graphicssection'>
+
+                                            </div>
+                                        </div>
+                                        <div class='rightsections4'>
+                                            <div class='titlesection'>
+                                                <h10 class='smallertitle'><span id='othergroup'></span></h10>
+                                            </div>
+                                            <div class='graphicssection'>
+                                                <div id='s4payoffg2'></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
 
-
-
-                        <div class='stageresultswrap'>
-                            <div class='stagetitle'>
-                                <h3>STAGE 3</h3>
-                                <h10>Leaders' Contest</h10>
-                            </div>
-                            <div class='stagesectionwrap'>
-                                <div class='leftsection'>
-                                    <div class='titlesection'>
-
+                                <div class='stageresultswrap closertotop'>
+                                    <div class='stagetitle'>
+                                        <h3>STAGE 5</h3>
+                                        <h10>Followers'</h10>
+                                        <h10>Sabotage / Help</h10>
                                     </div>
-                                    <div class='graphicssection'>
-
+                                    <div class='stagesectionwrap'>
+                                        <div class='leftsection'>
+                                            <div class='titlesection'>
+                                                <h10 class='smallertitle'>Your Group</h10>
+                                            </div>
+                                            <div class='graphicssection'>
+                                                <div id='s5payoffg1'></div>
+                                            </div>
+                                        </div>
+                                        <div class='middlesection invisible'>
+                                            <div class='titlesection'>
+                                                <h10 class='smallertitle'>Group Comparison</h10>
+                                            </div>
+                                            <div class='graphicssection'>
+                                                <div id='s5payofftotal'></div>
+                                            </div>
+                                        </div>
+                                        <div class='rightsection'>
+                                            <div class='titlesection'>
+                                                <h10 class='smallertitle'>Opposing Group</h10>
+                                            </div>
+                                            <div class='graphicssection'>
+                                                <div id='s5payoffg2'></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class='middlesection placemid'>
-                                    <div class='titlesection'>
-                                        <h10 class='smallertitle'>Group Comparison</h10>
-                                    </div>
-                                    <div class='graphicssection'>
-                                        <div id='s3payofftotal'></div>
-                                    </div>
-                                </div>
-                                <div class='rightsection'>
-                                    <div class='titlesection'>
 
+                                <div class='stageresultswrap closertotop'>
+                                    <div class='stagetitle'>
+                                        <h3>STAGE 6</h3>
+                                        <h10>Leaders' Contest</h10>
                                     </div>
-                                    <div class='graphicssection'>
+                                    <div class='stagesectionwrap'>
+                                        <div class='leftsection'>
+                                            <div class='titlesection'>
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                            </div>
+                                            <div class='graphicssection'>
 
-                        <div class='stageresultswrap'>
-                            <div class='stagetitle'>
-                                <h3>STAGE 4</h3>
-                                <h10>Followers' Contest</h10>
-                            </div>
-                            <div class='stagesectionwrap'>
-                                <div class='leftsections4'>
-                                    <div class='titlesection'>
-                                        <h10 class='smallertitle'><span id='yourgroup'></span></h10>
-                                    </div>
-                                    <div class='graphicssection '>
-                                            <div id='s4payoffg1'></div>
-                                    </div>
-                                </div>
-                                <div class='middlesections4'>
-                                    <div class='titlesection'>
+                                            </div>
+                                        </div>
+                                        <div class='middlesection placemid'>
+                                            <div class='titlesection'>
+                                                <h10 class='smallertitle'>Group Comparison</h10>
+                                            </div>
+                                            <div class='graphicssection'>
+                                                <div id='s6payofftotal'></div>
+                                            </div>
+                                        </div>
+                                        <div class='rightsection'>
+                                            <div class='titlesection'>
 
-                                    </div>
-                                    <div class='graphicssection'>
+                                            </div>
+                                            <div class='graphicssection'>
 
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class='rightsections4'>
-                                    <div class='titlesection'>
-                                        <h10 class='smallertitle'><span id='othergroup'></span></h10>
-                                    </div>
-                                    <div class='graphicssection'>
-                                        <div id='s4payoffg2'></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class='boxwrap3'>
-                            <div class='boxtext3'>
-                                <div class='colorboxyou'></div>
-                                <p style='font-size:14px;'>You</p>
-                            </div>
-                            <div class='boxtext3'>
-                                <div class='colorboxf'></div>
-                                <p style='font-size:14px;'>Follower</p>
-                            </div>
-                            <div class='boxtext3'>
-                                <div class='colorboxl'></div>
-                                <p style='font-size:14px;'>Leader</p>
-                            </div>
-                            <div class='boxtext3'>
-                                <div class='colorboxnl'></div>
-                                <p style='font-size:14px;'>New Leader</p>
-                            </div>
-                            <div class='boxtext3'>
-                                <div class='colorboxfl'></div>
-                                <p style='font-size:14px;'>Former Leader</p>
-                            </div>
-                        </div>
-
-                        <div class='stageresultswrap'>
-                            <div class='stagetitle'>
-                                <h3>STAGE 5</h3>
-                                <h10>Followers'</h10>
-                                <h10>Sabotage / Help</h10>
-                            </div>
-                            <div class='stagesectionwrap'>
-                                <div class='leftsection'>
-                                    <div class='titlesection'>
-                                        <h10 class='smallertitle'>Your Group</h10>
-                                    </div>
-                                    <div class='graphicssection'>
-                                        <div id='s5payoffg1'></div>
-                                    </div>
-                                </div>
-                                <div class='middlesection invisible'>
-                                    <div class='titlesection'>
-                                        <h10 class='smallertitle'>Group Comparison</h10>
-                                    </div>
-                                    <div class='graphicssection'>
-                                        <div id='s5payofftotal'></div>
-                                    </div>
-                                </div>
-                                <div class='rightsection'>
-                                    <div class='titlesection'>
-                                        <h10 class='smallertitle'>Opposing Group</h10>
-                                    </div>
-                                    <div class='graphicssection'>
-                                        <div id='s5payoffg2'></div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
-
-                        <div class='stageresultswrap'>
-                            <div class='stagetitle'>
-                                <h3>STAGE 6</h3>
-                                <h10>Leaders' Contest</h10>
+                        <div class='boxwrap4 closertobottom'>
+                            <div class='boxwrap3'>
+                                <div class='boxtext3'>
+                                    <div class='colorboxyou'></div>
+                                    <p style='font-size:14px;'>You</p>
+                                </div>
+                                <div class='boxtext3'>
+                                    <div class='colorboxf'></div>
+                                    <p style='font-size:14px;'>Follower</p>
+                                </div>
+                                <div class='boxtext3'>
+                                    <div class='colorboxl'></div>
+                                    <p style='font-size:14px;'>Leader</p>
+                                </div>
                             </div>
-                            <div class='stagesectionwrap'>
-                                <div class='leftsection'>
-                                    <div class='titlesection'>
-
-                                    </div>
-                                    <div class='graphicssection'>
-
-                                    </div>
+                            <div class='boxwrap3'>
+                                <div class='boxtext3'>
+                                    <div class='colorboxnl'></div>
+                                    <p style='font-size:14px;'>New Leader</p>
                                 </div>
-                                <div class='middlesection placemid'>
-                                    <div class='titlesection'>
-                                        <h10 class='smallertitle'>Group Comparison</h10>
-                                    </div>
-                                    <div class='graphicssection'>
-                                        <div id='s6payofftotal'></div>
-                                    </div>
-                                </div>
-                                <div class='rightsection'>
-                                    <div class='titlesection'>
-
-                                    </div>
-                                    <div class='graphicssection'>
-
-                                    </div>
+                                <div class='boxtext3'>
+                                    <div class='colorboxfl'></div>
+                                    <p style='font-size:14px;'>Former Leader</p>
                                 </div>
                             </div>
                         </div>
-
-
                         <div class='stageresultswrap'>
                             <div class='stagetitle'>
                                 <h3>TOTAL</h3>
+                                <h10>Net Payoff</h10>
                             </div>
                             <div class='stagesectionwrap'>
                                 <div class='leftsection'>
                                     <div class='titlesection'>
-
+                                        <h10 class='smallertitle'>Your Group</h10>
                                     </div>
                                     <div class='graphicssection'>
                                         <div id='totalpayoffg1'></div>
@@ -381,7 +370,7 @@
                                 </div>
                                 <div class='rightsection'>
                                     <div class='titlesection'>
-
+                                        <h10 class='smallertitle2'>Opposing Group</h10>
                                     </div>
                                     <div class='graphicssection placeright'>
                                         <div id='totalpayoffg2'></div>
@@ -390,30 +379,10 @@
                             </div>
                         </div>
 
-                        <div class='boxwrap3'>
-                            <div class='boxtext3'>
-                                <div class='colorboxyou'></div>
-                                <p style='font-size:14px;'>You</p>
-                            </div>
-                            <div class='boxtext3'>
-                                <div class='colorboxf'></div>
-                                <p style='font-size:14px;'>Follower</p>
-                            </div>
-                            <div class='boxtext3'>
-                                <div class='colorboxl'></div>
-                                <p style='font-size:14px;'>Leader</p>
-                            </div>
-                            <div class='boxtext3'>
-                                <div class='colorboxnl'></div>
-                                <p style='font-size:14px;'>New Leader</p>
-                            </div>
-                            <div class='boxtext3'>
-                                <div class='colorboxfl'></div>
-                                <p style='font-size:14px;'>Former Leader</p>
-                            </div>
-                        </div>
+
 
                     </div>
+
                 </div>
             </div>
         </div>

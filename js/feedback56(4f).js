@@ -1415,7 +1415,7 @@ var updateS2CostBar = function(a, b, c, d, barId, ourGroup, me, myFirstRole) {
     var myText = [nzt(x), nzt(y), nzt(z), nzt(w)];
 
     var lightorange = 'rgb(225, 225, 225)';//'rgb(255, 180, 100)';
-    var orange = 'rgb(160, 160, 160)';//'rgb(255, 130, 0)';
+    var orange = 'rgb(225, 225, 225)';//'rgb(255, 130, 0)';
     var ourColor = ourGroup ? orange : lightorange;
     var ourColorArray = [ourColor, ourColor, ourColor, ourColor];
 
@@ -1480,7 +1480,7 @@ var updateS2CostBarTotal = function(a, b, barId) {
     var myText = [nzt(x), nzt(y)];
 
     var lightorange = 'rgb(225, 225, 225)';//'rgb(255, 180, 100)';
-    var orange = 'rgb(160, 160, 160)';//'rgb(255, 130, 0)';
+    var orange = 'rgb(225, 225, 225)';//'rgb(255, 130, 0)';
 
 
 
@@ -1613,7 +1613,7 @@ var updateS4CostBar = function(a, b, c, d, barId, ourGroup, me, myFirstRole, win
     var myText = [nzt(x), nzt(y), nzt(z), nzt(w)];
 
     var lightorange = 'rgb(225, 225, 225)';//'rgb(255, 180, 100)';
-    var orange = 'rgb(160, 160, 160)';//'rgb(255, 130, 0)';
+    var orange = 'rgb(225, 225, 225)';//'rgb(255, 130, 0)';
     var ourColor = ourGroup ? orange : lightorange;
     var ourColorArray = [ourColor, ourColor, ourColor, ourColor];
 
@@ -1692,7 +1692,7 @@ var updateS5CostBar = function(a, b, c, d, barId, ourGroup, me, myFirstRole, s3W
     var myText = [nzt(x), nzt(y), nzt(z), nzt(w)];
 
     var lightorange = 'rgb(225, 225, 225)';//'rgb(255, 180, 100)';
-    var orange = 'rgb(160, 160, 160)';//'rgb(255, 130, 0)';
+    var orange = 'rgb(225, 225, 225)';//'rgb(255, 130, 0)';
     var ourColor = ourGroup ? orange : lightorange;
     var ourColorArray = [ourColor, ourColor, ourColor, ourColor];
 
@@ -1788,7 +1788,7 @@ var updateS6CostBarTotal = function(a, b, barId, s3Won) {
     if(!s3Won) {
         lineColorArray[0] = 'rgb(43, 3, 138)';
         lineWidth[0] = 2;
-        colorArray[0] = 'rgb(160, 160, 160)';
+        colorArray[0] = 'rgb(225, 225, 225)';
     }
 
     if(s3Won) {
@@ -1884,7 +1884,7 @@ var updateTotalCostBar = function(a, b, c, d, l, barId, ourGroup, me, myFirstRol
 
 
     var lightorange = 'rgb(225, 225, 225)';//'rgb(255, 180, 100)';
-    var orange = 'rgb(160, 160, 160)';//'rgb(255, 130, 0)';
+    var orange = 'rgb(225, 225, 225)';//'rgb(255, 130, 0)';
     var ourColor = ourGroup ? orange : lightorange;
     var ourLeaderColor = ourGroup ? 'rgb(80, 80, 80)' : 'rgb(120, 120, 120)'
     var ourColorArray = [ourColor, ourColor, ourColor, ourColor, ourLeaderColor];
@@ -1946,8 +1946,8 @@ var updateTotalCostBar = function(a, b, c, d, l, barId, ourGroup, me, myFirstRol
     }
 
     var layout = {
-        height: 180,
-        width: 150,
+        height: 250,//180,
+        width: 450, //150,
         margin: {"t": 20, "b": 20, "l": 0, "r": 0},
         yaxis: {
             fixedrange: true,
@@ -2023,7 +2023,7 @@ var update2 = function() {
         }
     if(d.s3.yourLeaderWon) {
         updateS4CostBar(info.oe1, info.oe2, info.oe3, info.oe4, 's4payoffg2', false, -1, -1, info.os4winner);
-        $('.rightsections4').css({'padding-left':'250px'});
+        $('.rightsections4').css({'padding-left':'225px'});
         tempDisplay = document.getElementById('othergroup');
         tempDisplay.innerHTML = 'Opposing Group';
     }
@@ -2056,13 +2056,37 @@ beliefButton.onclick = function() {
     bbSwitch = 1 - bbSwitch;
 }
 
+// INFO BUTTON
+var infoButton = document.getElementById('stageinfobutton');
+var bbSwitch2 = 1;
+infoButton.onclick = function() {
+    var showInfo = bbSwitch2 ? true : false;
+    var o = showInfo ? 1 : 0;
+    var h = showInfo ? '100%' : '0px';
+    if(showInfo) {
+        update2();
+        $('html, body').animate({
+            scrollTop: ($('.secondpartwrap').height())*1.65
+        }, 500);
+    } else {
+        $('html, body').animate({
+            scrollTop: ($('.firstpartwrap').height())*0.75
+        }, 500);
+    }
+
+
+    document.getElementById("stagewrap3").style.opacity = o;
+    document.getElementById('stagewrap3').style.height = h;
+    bbSwitch2 = 1 - bbSwitch2;
+}
+
 
 // Called by the stage 3 wheel once it stops
 // Calls showresults()
 // If leader lost, calls displayStage4()
 var next = function() {
     showResults();
-    setTimeout("displayAllPayoffs()", 2500);
+    setTimeout("displayAllPayoffs()", 1000);
 }
 
 
@@ -2079,8 +2103,17 @@ var showResults = function() {
 var showResultsDelayed = function() {
         var largeDisplay = document.getElementById('resulttext');
 
-
-        var allScenario = 'The game has ended. Below, you can examine the payoffs for every player and every stage.';
+        var netPayoff;
+        if(myRole === 1) {
+            netPayoff = ltotal[0];
+        } else {
+            netPayoff = ftotal[tempMe];
+        }
+        document.getElementById('s6resulttext').style.opacity = 1;
+        var allScenario = 'The game has ended.'
+        + '<br><br>Your net Payoff is ' + '<strong>' + netPayoff + '</strong>';
+        // + '<br><br> Below is a graphical representations of all players\'s net payoffs.'
+        // + '<br> You can click <strong> Stages </strong> button for stage specific net payoff information.';
 
         largeDisplay.innerHTML = allScenario;
 
@@ -2090,6 +2123,12 @@ var showResultsDelayed = function() {
 var displayAllPayoffs = function() {
     document.getElementById('secondpartwrap').style.opacity = 1;
     document.getElementById('secondpartwrap').style.position = 'static';
+    document.getElementById('stageinfobutton').style.opacity = 1;
+    document.getElementById('stageinfobutton').style.zIndex = 0;
+    $('html, body').animate({
+        scrollTop: ($('.secondpartwrap').height())/5
+    }, 1000);
+
 }
 
 
