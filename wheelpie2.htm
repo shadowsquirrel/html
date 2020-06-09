@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/wheelpie2.css">
+    <script src='js/Winwheel.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <title>Page Title</title>
+</head>
+<body>
+
+    <div class='upperbar'>
+        <button class=multibutton id=multibutton>Y</button>
+        <button class=multibutton id=multibutton2>X<span id='buttonname'></span></button>
+    </div>
+    <div class = 'wrap'>
+
+        <div class = 'all'>
+
+            <div class = 'sinfo' id='sinfo'>
+
+                <div class = sinfotitle>
+                    <h3>STAGE 5</h3>
+                </div>
+
+                <div class = sinfotext>
+                    <p style='font-size: 22px; margin-bottom: 10px;'> You are Follower  <span id='whoamI'></span></p>
+
+
+                </div>
+
+                <div class ='sinfotext limited'>
+                    <p>
+                        Please make your sabotage or help decision to affect your leader's stage 6 outcome.
+                    </p>
+                    <p>
+                        You can use the below graphical tool to make your decision
+                        or simply make your decision on the decision screen located
+                        at the bottom of this screen.
+                    </p>
+                </div>
+
+
+            </div>
+
+            <div class = 'calculator' id='calculator'>
+                <!-- <div class = 'titlesection'>
+                    <h5 class = leftmaintitle>YOUR GROUP</h5>
+                    <h5 class = 'rightmaintitle'>OPPOSING GROUP</h5>
+                </div> -->
+
+                <div class = 'topsection'>
+
+                    <div class = 'leadergroupleft'>
+                        <!-- <h5>YOUR GROUP</h5>
+                        <br />
+                        <br /> -->
+                        <h6 class = 'left_ltitle'>Leader (You)</h6>
+                        <p><span class = 'advantagetext' id = 'advtxt1'></span></p>
+                        <div id = 'efficiencyBar1' class = 'efficiencyBar1'></div>
+
+                        <div class = 'sliderbarleader left'>
+                            <input type='range' min = '0' max = '500' class = 'lslider' value = '1' id = 'lSlider1' />
+                            <div id = 'barl' class = 'lbar'></div>
+                        </div>
+                    </div>
+
+
+
+                    <div class = 'leadergraphics'>
+                        <div class = 'arrowwrap'>
+                            <div class='wheelpiewrap'>
+                                <img id="arrow" class='arrow' src="images/arrow.png" alt="V" />
+                                <div id='wheelpie' class='wheelpie'>
+                                    <canvas id='mywheel' class='mywheel' width='250' height='250'>
+                                        Canvas not supported, use another browser.
+                                    </canvas>
+                                    <div class='piewrap'>
+                                        <div class='s3pie' id='pie'></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class = 'leadergroupright'>
+                        <!-- <h5>OPPOSING GROUP</h5>
+                        <br />
+                        <br /> -->
+                        <h6  class = 'right_title'>Opposing Leader</h6>
+                        <p><span class = 'advantagetext' id = 'advtxt2'></span></p>
+                        <div id = 'efficiencyBar2' class = 'efficiencyBar2'></div>
+                        <div class = 'sliderbarleader lright'>
+                            <input type='range' min = '0' max = '500' class = 'lslider' value = '1' id = 'olSlider1' />
+                            <div id = 'obarl' class = 'lbar'></div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class = 'middlesection'>
+                    <div class = 'sliderbarefi'>
+                        <input type='range' min = '-99' max = '99' class = 'efislider' value = '0' id = 'efiSlider' />
+                        <div id = 'efficiencyBar' class = 'efficiencyBar'></div>
+                    </div>
+                    <h6 style = 'z-index:1;'>Relative Power</h6>
+                </div>
+
+
+                <div class = 'bottomsection'>
+
+                    <div class = 'followergroupleft'>
+                        <div class='titlewrap'>
+                            <h6 class = 'left_title ftitle'>Followers</h6>
+                            <div class='switchwrap'>
+                                <div class='switchwrap2'>
+                                    <label class="switch">
+                                      <input type="checkbox" id='mycheck' checked>
+                                      <span class="checkslider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h6 class='yourdecisiontext2'>YOUR DECISION</h6>
+
+                        <div class = 'slidebargroup left'>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'vSlider1' />
+                                <div id = 'bar1' class = 'bar l'></div>
+                            </div>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'vSlider2' />
+                                <div id = 'bar2' class = 'bar l'></div>
+                            </div>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'vSlider3' />
+                                <div id = 'bar3' class = 'bar l'></div>
+                            </div>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'vSlider4' />
+                                <div id = 'bar4' class = 'bar'></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class = 'followergraphics'>
+
+                        <div class = 'graphics'>
+
+                            <div class = 'helpsabobars'>
+                                <h6>Total</h6>
+                                <!-- <h6>Total Help </h6> -->
+                                <div id = 'helpBar' class = 'helpbar'></div>
+                                <div id = 'saboBar' class = 'sabobar'></div>
+                                <!-- <h6>Total Sabotage </h6> -->
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class = 'followergroupright'>
+                        <div class='titlewrap'>
+                            <h6 class = 'right_title ftitle'>Followers</h6>
+                            <div class='switchwrap'>
+                                <div class='switchwrap2'>
+                                    <label class="switch">
+                                      <input type="checkbox" id='mycheck2' checked>
+                                      <span class="checkslider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class = 'slidebargroup right'>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider1' />
+                                <div id = 'obar1' class = 'bar l'></div>
+                            </div>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider2' />
+                                <div id = 'obar2' class = 'bar l'></div>
+                            </div>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider3' />
+                                <div id = 'obar3' class = 'bar l'></div>
+                            </div>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider4' />
+                                <div id = 'obar4' class = 'bar'></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class = decision>
+                    <div class = input>
+                        <h6 class='yourdecisiontext closertotop'>YOUR DECISION</h6>
+                        <!-- <h5 class = 'decisiontitle'>Your Decision</h5> -->
+                        <div class = 'sliderbard'>
+                            <input type='range' min = '-100' max = '100' class = 'dslider' value = '0' id = 'dSlider' />
+                            <div id = 'bard' class = 'dbar'></div>
+                        </div>
+                    </div>
+                    <div class = dinfo>
+                        <p>Your Investment cost is <span id=payoff>0 token</span>.</p>
+                        <div class=mytablewrap>
+                            <div class=mytableleft>
+                                <div class=sidecolumn>
+                                    <p class=columnclass>Your Prize</p>
+                                    <p class=columnclass>Net Payoff</p>
+                                    <p class=columnclass>Your Role</p>
+                                </div>
+                                <div class=maincolumnleft>
+                                    <div class=titlerow>
+                                        <p>If Your Leader Wins</p>
+                                    </div>
+                                    <div class=row>
+                                        <p><strong>0</strong> token</p>
+                                    </div>
+                                    <div class=row>
+                                        <p><span id=winnetpayoff class='outcomes'></span></p>
+                                    </div>
+                                    <div class=row>
+                                        <p><strong>Continue as a follower</strong> in your group</p>
+                                    </div>
+                                    <div class=roww2>
+                                        <p>Proceed to Stage 6</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class=mytableright>
+                                <div class=sidecolumn>
+                                    <p class=columnclass>Your Prize</p>
+                                    <p class=columnclass>Net Payoff</p>
+                                    <p class=columnclass>Your Role</p>
+                                </div>
+                                <div class=maincolumnright>
+                                    <div class=titlerow>
+                                        <p>If Your Leader Loses</p>
+                                    </div>
+                                    <div class=row>
+                                        <p><strong>0</strong> token</p>
+                                    </div>
+                                    <div class=row>
+                                        <p><span id=losenetpayoff class='outcomes'></span></p>
+                                    </div>
+                                    <div class=row>
+                                        <p><strong>Chance to become the new Leader</strong></p>
+                                    </div>
+                                    <div class=roww2>
+                                        <p>Proceed to Stage 5</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="js/wheelpie2.js"></script>
+
+</body>
+</html>
