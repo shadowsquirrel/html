@@ -668,6 +668,7 @@ var updatePie = function(a) {
     }];
 
     var layout = {
+        autosize: false,
         height: 140,
         width: 140,
         // title: 'Probability to Win',
@@ -962,7 +963,7 @@ var setStrengthBar = function(efi1, efi2) {
         barmode: 'group',
         height: 10,
         width: 350,
-        margin: {"t": 0, "b": 0, "l": 0, "r": 0},
+        margin: {"t": 6, "b": 0, "l": 0, "r": 0},
         xaxis: {
             fixedrange: true,
             autorange: false,
@@ -1222,7 +1223,7 @@ multiButton2.onclick = function() {
 // leader global variables
 var efo, oefo, efi, oefi, pwin;
 efo = oefo = 0;
-efi = oefi = 0;
+// efi = oefi = 0;
 efi = info.efi();
 oefi = info.oefi();
 
@@ -1255,15 +1256,17 @@ var winnetpayoff = document.getElementById('winnetpayoff');
 var losenetpayoff = document.getElementById('losenetpayoff');
 
 var initialize = function() {
-    updatePwin();
-    updatePie(pwin);
     updateEffortBar(efo, oefo);
+    updatePwin();
+    updatePie(1);
+    updatePie(pwin);
     setEfficiencyBar(efi, oefi);
     setStrengthBar(efi, oefi);
     setStrengthText(efi, oefi);
     payoffDisplay.innerHTML = '<strong>' + (efo)  + '</strong>' + ((efo > 1) ? ' tokens' : ' token');
     winnetpayoff.innerHTML = '<strong>' + (1000 - efo)  + '</strong>' + ' tokens';
     losenetpayoff.innerHTML = '<strong>' +  -efo  + '</strong>' + ((efo > 1) ? ' tokens' : ' token');
+    $('.cursor-pointer').css({'cursor':'default'});
 }
 
 var updateAll = function() {
@@ -1287,7 +1290,7 @@ updateBarDecision(0, 'bard', false);
 // YOUR GROUP INITIATION
 // leader
 var lslider1 = document.getElementById('lSlider1');
-var lvalue = 0;
+var lvalue = 1;
 updateBarLeader(lvalue, 'barl', 1, false);
 // followers
 
@@ -1295,7 +1298,7 @@ updateBarLeader(lvalue, 'barl', 1, false);
 // OPPOSING GROUP INITIATION
 // leader
 var olslider1 = document.getElementById('olSlider1');
-var olvalue = 0;
+var olvalue = 1;
 updateBarLeader(olvalue, 'obarl', 0, false);
 
 
@@ -1326,9 +1329,9 @@ lslider1.oninput = function() {
     syncBars(lvalue);
     updateBarXAxis('barl', true);
     updateAll();
-    payoffDisplay.innerHTML = (efo) + ((efo > 1) ? ' tokens' : ' token');
-    winnetpayoff.innerHTML = (1000 - efo) + ' tokens';
-    losenetpayoff.innerHTML = -efo + ' tokens';
+    payoffDisplay.innerHTML = '<strong>' + (efo)  + '</strong>' + ((efo > 1) ? ' tokens' : ' token');
+    winnetpayoff.innerHTML = '<strong>' + (1000 - efo) + '</strong>' + ' tokens';
+    losenetpayoff.innerHTML = '<strong>' + -efo  + '</strong>' + ((efo > 1) ? ' tokens' : ' token');
     //synching sliders
     $('#dSlider').prop('value', lvalue);
     $('#dSlider').change();
@@ -1350,12 +1353,16 @@ $('#dSlider').hover(
     function() {
         lvalue = parseFloat(lslider1.value);
         setTimeout("updateBarXAxis('bard', true)", 250);
+        $('.yourdecisiontext').css({'font-weight':'700', 'font-size':'19px'});
+        $('#lSlider1, #dSlider').css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
         $('#lSlider1, #dSlider').css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
         $('#lSlider1').addClass('newdSlider');
     },
     function() {
         lvalue = parseFloat(lslider1.value);
         setTimeout("updateBarXAxis('bard', false)", 1000);
+        $('.yourdecisiontext2').css({'font-weight':'100', 'opacity':'0.3'});
+        $('.yourdecisiontext').css({'font-weight':'200', 'font-size':'19px'});
         $('#lSlider1, #dSlider').css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
         $('#lSlider1').removeClass('newdSlider');
 
@@ -1366,12 +1373,16 @@ $('#lSlider1').hover(
     function() {
         lvalue = parseFloat(lslider1.value);
         setTimeout("updateBarXAxis('barl', true)", 250);
+        $('.yourdecisiontext2').css({'font-weight':'700', 'opacity':'1'});
+        $('.yourdecisiontext').css({'font-weight':'700', 'font-size':'19px'});
         $('#dSlider, #lSlider1').css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
         $('#dSlider').addClass('newdSlider');
     },
     function() {
         lvalue = parseFloat(lslider1.value);
         setTimeout("updateBarXAxis('barl', false)", 500);
+        $('.yourdecisiontext2').css({'font-weight':'100', 'opacity':'0.3'});
+        $('.yourdecisiontext').css({'font-weight':'200', 'font-size':'19px'});
         $('#dSlider, #lSlider1').css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
         $('#dSlider').removeClass('newdSlider');
     }
@@ -1381,10 +1392,12 @@ $('#olSlider1').hover(
     function() {
         olvalue = parseFloat(olslider1.value);
         setTimeout("updateBarXAxis('obarl', true)", 250);
+        $('.yourdecisiontext3').css({'font-weight':'700', 'opacity':'1'});
     },
     function() {
         olvalue = parseFloat(olslider1.value);
         setTimeout("updateBarXAxis('obarl', false)", 500);
+        $('.yourdecisiontext3').css({'font-weight':'100', 'opacity':'0.3'});
     }
 );
 

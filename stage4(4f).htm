@@ -16,7 +16,7 @@
     <div class='upperbar'>
         <button class=multibutton id=multibutton3>Go to <span id='buttonname'></span></button>
     </div>
-    <div class = 'wrap'>
+    <div class = 'wrap noselect'>
 
         <div class = 'all'>
 
@@ -93,31 +93,10 @@
                     </p>
                 </div>
 
-
-<!--
-                <div class = sinfotext>
-                    <p>
-                        You can use the graphical calculator to consider a possible investment level for you and the opposing followers,
-                        and observe your probability to win
-                    </p>
-                    <p>
-                        Your decision slider, your investment cost and a reminder of the possible outcomes are located underneat the calculator.
-                    </p>
-                    <p>
-                        Your decision slider and your decision on the calculator are synchronized: any changes you make to one will immediately affect the other.
-                    </p>
-                    <p>
-                        If you do not submit a decision before the time runs out. The final position and value of your decision slider will be considered as your decision.
-                    </p>
-                </div> -->
-
-
             </div>
 
-
-
-
             <div class = 'calculator'>
+
                 <div class = 'titlesection'>
                     <h5 class = leftmaintitle>YOU</h5>
                     <div class='rightmaintitle'>
@@ -130,11 +109,13 @@
                                 </label>
                             </div>
                         </div>
+                        <h6 class='yourdecisiontext3'>HYPOTHETICAL</h6>
                     </div>
 
                 </div>
 
                 <div class = 'bottomsection'>
+
                     <div class='leftsection'>
                         <div class = 'followergroupleft'>
                             <h6 class = 'left_title'> <span id='youfollower'></span>(You)</h6>
@@ -145,13 +126,12 @@
                                 <div id = 'mybar' class = 'lbar'></div>
                             </div>
                         </div>
+                        <h6 class='yourdecisiontext2'>YOUR DECISION</h6>
                         <div class = 'efficiencyBarWrap'>
                             <div class='effortbars' id='effortbars'></div>
                             <div id = 'efficiency' class = 'efficiency'></div>
                         </div>
-
                     </div>
-
 
                     <div class = 'piegraphics'>
                         <div class = 'piewrap'>
@@ -159,45 +139,44 @@
                             <div class = 'pie' id = 'pie'></div>
                         </div>
                     </div>
-
-
-
                     <div class='otherfollowers'>
-                        <div class = 'followersgroupright firstone'>
-                            <h6  class = 'right_title'><span id='otherfollower1'></span></h6>
-                            <p><span class = 'advantagetext' id = 'advtxt2f1'></span></p>
-                            <div id = 'efficiencyColorf1' class = 'efficiencyColorRight'></div>
-                            <div class = 'sliderbarleader lright'>
-                                <input type='range' min = '0' max = '400' class = 'lslider' value = '1' id = 'ofSlider1' />
-                                <div id = 'barf1' class = 'lbar'></div>
+                            <div class = 'followersgroupright firstone'>
+                                <h6  class = 'right_title'><span id='otherfollower1'></span></h6>
+                                <p><span class = 'advantagetext' id = 'advtxt2f1'></span></p>
+                                <div id = 'efficiencyColorf1' class = 'efficiencyColorRight'></div>
+                                <div class = 'sliderbarleader lright'>
+                                    <input type='range' min = '0' max = '400' class = 'lslider' value = '1' id = 'ofSlider1' />
+                                    <div id = 'barf1' class = 'lbar'></div>
+                                </div>
+                            </div>
+                            <div class = 'followersgroupright'>
+                                <h6  class = 'right_title'><span id='otherfollower2'></span></h6>
+                                <p><span class = 'advantagetext' id = 'advtxt2f2'></span></p>
+                                <div id = 'efficiencyColorf2' class = 'efficiencyColorRight'></div>
+                                <div class = 'sliderbarleader lright'>
+                                    <input type='range' min = '0' max = '400' class = 'lslider' value = '1' id = 'ofSlider2' />
+                                    <div id = 'barf2' class = 'lbar'></div>
+                                </div>
+                            </div>
+                            <div class = 'followersgroupright'>
+                                <h6  class = 'right_title'><span id='otherfollower3'></span></h6>
+                                <p><span class = 'advantagetext' id = 'advtxt2f3'></span></p>
+                                <div id = 'efficiencyColorf3' class = 'efficiencyColorRight'></div>
+                                <div class = 'sliderbarleader lright'>
+                                    <input type='range' min = '0' max = '400' class = 'lslider' value = '1' id = 'ofSlider3' />
+                                    <div id = 'barf3' class = 'lbar'></div>
+                                </div>
                             </div>
                         </div>
-                        <div class = 'followersgroupright'>
-                            <h6  class = 'right_title'><span id='otherfollower2'></span></h6>
-                            <p><span class = 'advantagetext' id = 'advtxt2f2'></span></p>
-                            <div id = 'efficiencyColorf2' class = 'efficiencyColorRight'></div>
-                            <div class = 'sliderbarleader lright'>
-                                <input type='range' min = '0' max = '400' class = 'lslider' value = '1' id = 'ofSlider2' />
-                                <div id = 'barf2' class = 'lbar'></div>
-                            </div>
-                        </div>
-                        <div class = 'followersgroupright'>
-                            <h6  class = 'right_title'><span id='otherfollower3'></span></h6>
-                            <p><span class = 'advantagetext' id = 'advtxt2f3'></span></p>
-                            <div id = 'efficiencyColorf3' class = 'efficiencyColorRight'></div>
-                            <div class = 'sliderbarleader lright'>
-                                <input type='range' min = '0' max = '400' class = 'lslider' value = '1' id = 'ofSlider3' />
-                                <div id = 'barf3' class = 'lbar'></div>
-                            </div>
-                        </div>
-                    </div>
+
+
 
 
                 </div>
 
                 <div class = decision>
                     <div class = input>
-                        <h5 class = 'decisiontitle'>Your Decision</h5>
+
                         <div class = 'sliderbard'>
                             <input type='range' min = '0' max = '400' class = 'dslider' value = '0' id = 'dSlider' />
                             <div id = 'bard' class = 'dbar'></div>
@@ -207,7 +186,7 @@
                         <p>
                             Your Investment cost is <span id=payoff class='outcomes'>0 token</span>.
                         </p>
-
+                        <h6 class='yourdecisiontext closertotop'>YOUR DECISION</h6>
                         <div class=mytable>
                             <div class=col1>
                                 <div class=title1>
@@ -231,10 +210,6 @@
                     </div>
 
                 </div>
-
-
-
-
 
             </div>
 

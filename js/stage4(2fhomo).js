@@ -206,7 +206,7 @@ var setStrengthBar = function(efi1, efi2) {
         barmode: 'group',
         height: 10,
         width: 350,
-        margin: {"t": 0, "b": 0, "l": 0, "r": 0},
+        margin: {"t": 6, "b": 0, "l": 0, "r": 0},
         xaxis: {
             fixedrange: true,
             autorange: false,
@@ -1022,6 +1022,7 @@ var initialize = function() {
 
 
     //first element always the actual subject
+    updatePie(1, 0, info.me);
     updatePie(0, 0, info.me);
     updateEffortBar(0, 0)
 
@@ -1106,11 +1107,15 @@ ofslider1.oninput = function() {
 $('#dSlider').hover(
     function() {
         setTimeout("updateBarXAxis('bard', true)", 250);
+        $('.yourdecisiontext2').css({'font-weight':'700', 'opacity':'1'});
+        $('.yourdecisiontext').css({'font-weight':'700'});
         $('#fSlider1, #dSlider').css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
         $('#fSlider1').addClass('newdSlider');
     },
     function() {
         setTimeout("updateBarXAxis('bard', false)", 1000);
+        $('.yourdecisiontext2').css({'font-weight':'100', 'opacity':'0.3'});
+        $('.yourdecisiontext').css({'font-weight':'200'});
         $('#fSlider1, #dSlider').css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
         $('#fSlider1').removeClass('newdSlider');
 
@@ -1120,11 +1125,15 @@ $('#dSlider').hover(
 $('#fSlider1').hover(
     function() {
         setTimeout("updateBarXAxis('mybar', true)", 250);
+        $('.yourdecisiontext2').css({'font-weight':'700', 'opacity':'1'});
+        $('.yourdecisiontext').css({'font-weight':'700'});
         $('#dSlider, #fSlider1').css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
         $('#dSlider').addClass('newdSlider');
     },
     function() {
         setTimeout("updateBarXAxis('mybar', false)", 500);
+        $('.yourdecisiontext2').css({'font-weight':'100', 'opacity':'0.3'});
+        $('.yourdecisiontext').css({'font-weight':'200'});
         $('#dSlider, #fSlider1').css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
         $('#dSlider').removeClass('newdSlider');
     }
@@ -1134,11 +1143,13 @@ $('#fSlider1').hover(
 $('#ofSlider1').hover(
     function() {
         setTimeout("updateBarXAxis('barf1', true)", 250);
+        $('.rightsubtitletext').css({'opacity':'1', 'font-weight':'700'});
         $('#ofSlider1')
         .css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
     },
     function() {
         setTimeout("updateBarXAxis('barf1', false)", 500);
+        $('.rightsubtitletext').css({'opacity':'0.3', 'font-weight':'100'});
         $('#ofSlider1')
         .css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
     }

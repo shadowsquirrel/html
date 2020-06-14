@@ -213,7 +213,7 @@ var setStrengthBar = function(efi1, efi2) {
         barmode: 'group',
         height: 10,
         width: 350,
-        margin: {"t": 0, "b": 0, "l": 0, "r": 0},
+        margin: {"t": 6, "b": 0, "l": 0, "r": 0},
         xaxis: {
             fixedrange: true,
             autorange: false,
@@ -308,12 +308,17 @@ var setStrengthText = function(efi1, efi2) {
 // Need to modify it for other treatments
 var setEfficiencyBar = function(meStrong) {
 
-    var myx, ox;
+    var myx, ox, myxx, oxx,gapSize;
+    gapSize = 0.1;
     myx = meStrong ? 3 : 1;
     ox = meStrong ? 1 : 3;
+
+    myxx = myx - gapSize/2;
+    oxx = ox - gapSize/2;
+
     var f1 = {
         y: ['group 1'],
-        x: [myx],
+        x: [myxx],
         type: 'bar',
         orientation: 'h',
         sort: false,
@@ -334,9 +339,29 @@ var setEfficiencyBar = function(meStrong) {
         },
     };
 
+    var gap = {
+        y: ['group 1'],
+        x: [gapSize],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker: {
+            color: 'white',
+        },
+        textposition: 'inside',
+        insidetextanchor: 'middle',
+        textfont: {
+            color: 'white',
+            size: '10'
+        },
+    };
+
     var f2 = {
         y: ['group 1'],
-        x: [ox],
+        x: [oxx],
         type: 'bar',
         orientation: 'h',
         sort: false,
@@ -358,7 +383,7 @@ var setEfficiencyBar = function(meStrong) {
 
     var myHeight = 48//60;
 
-    var data = [f1, f2];
+    var data = [f1, gap, f2];
 
     var layout = {
         title:{
@@ -1035,11 +1060,13 @@ var initialize = function() {
 
 
     //first element always the actual subject
+    updatePie(1, 0, info.me, info.meStrong);
     updatePie(0, 0, info.me, info.meStrong);
     updateEffortBar(0, 0)
 
     var payoffDisplay = document.getElementById('payoff');
     payoffDisplay.innerHTML = '<strong>' + (e1)  + '</strong>' + ((e1 > 1) ? ' tokens' : ' token');
+    $('.cursor-pointer').css({'cursor':'default'});
 }
 
 var updateAll = function() {
@@ -1120,13 +1147,15 @@ ofslider1.oninput = function() {
 $('#dSlider').hover(
     function() {
         setTimeout("updateBarXAxis('bard', true)", 250);
-        $('.yourdecisiontext, .leftmaintitle').css({'font-weight':'700', 'font-size':'17px'});
+        $('.yourdecisiontext2').css({'font-weight':'700', 'opacity':'1'});
+        $('.yourdecisiontext').css({'font-weight':'700'});
         $('#fSlider1, #dSlider').css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
         $('#fSlider1').addClass('newdSlider');
     },
     function() {
         setTimeout("updateBarXAxis('bard', false)", 1000);
-        $('.yourdecisiontext, .leftmaintitle').css({'font-weight':'200', 'font-size':'17px'});
+        $('.yourdecisiontext2').css({'font-weight':'100', 'opacity':'0.3'});
+        $('.yourdecisiontext').css({'font-weight':'200'});
         $('#fSlider1, #dSlider').css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
         $('#fSlider1').removeClass('newdSlider');
 
@@ -1136,13 +1165,15 @@ $('#dSlider').hover(
 $('#fSlider1').hover(
     function() {
         setTimeout("updateBarXAxis('mybar', true)", 250);
-        $('.yourdecisiontext, .leftmaintitle').css({'font-weight':'700', 'font-size':'17px'});
+        $('.yourdecisiontext2').css({'font-weight':'700', 'opacity':'1'});
+        $('.yourdecisiontext').css({'font-weight':'700'});
         $('#dSlider, #fSlider1').css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
         $('#dSlider').addClass('newdSlider');
     },
     function() {
         setTimeout("updateBarXAxis('mybar', false)", 500);
-        $('.yourdecisiontext, .leftmaintitle').css({'font-weight':'200', 'font-size':'17px'});
+        $('.yourdecisiontext2').css({'font-weight':'100', 'opacity':'0.3'});
+        $('.yourdecisiontext').css({'font-weight':'200'});
         $('#dSlider, #fSlider1').css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
         $('#dSlider').removeClass('newdSlider');
     }
@@ -1152,15 +1183,13 @@ $('#fSlider1').hover(
 $('#ofSlider1').hover(
     function() {
         setTimeout("updateBarXAxis('barf1', true)", 250);
-        $('.rightmaintitletext').css({'font-weight':'700', 'font-size':'18px', 'color':'black'});
-        $('.rightsubtitletext').css({'opacity':'1', 'font-weight':'500'});
+        $('.rightsubtitletext').css({'opacity':'1', 'font-weight':'700'});
         $('#ofSlider1')
         .css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
     },
     function() {
         setTimeout("updateBarXAxis('barf1', false)", 500);
-        $('.rightmaintitletext').css({'font-weight':'200', 'font-size':'18px', 'color':'black'});
-        $('.rightsubtitletext').css({'opacity':'0.2', 'font-weight':'normal'});
+        $('.rightsubtitletext').css({'opacity':'0.3', 'font-weight':'100'});
         $('#ofSlider1')
         .css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
     }

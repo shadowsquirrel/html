@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <link rel="stylesheet" href="css/feedback34(2fhomo)leader.css">
+    <script src='js/Winwheel.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+    <title>Page Title</title>
+</head>
+<body>
+    <div class='upperbar'>
+        <button class=beliefbutton id=beliefbutton>Beliefs</button>
+    </div>
+    <div class = 'wrap'>
+        <div class = 'all'>
+            <div class='firstpartwrap'>
+                <div class='firstpart'>
+                    <div class='s3result'>
+                        <div class='resulttitle'>
+                            <h6>RESULT</h6>
+                        </div>
+                        <div class='s3dynamic'>
+                            <br />
+                            <div class='wheelwrap'>
+                                <img id="arrow" class='arrow' src="images/arrow.png" alt="V" />
+                                <div id='canvasarrow' class='canvasarrow'>
+                                    <canvas id='mywheel' class='mywheel' width='250' height='250'>
+                                        Canvas not supported, use another browser.
+                                    </canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <p class=s3shortresult>
+                            <span id='s3shortresult' class='s3shortresult'></span>
+                        </p>
+                    </div>
+                    <div class='s3feedback'>
+                        <div class='s3feedbacktitle'>
+                            <div class='s3maintitle'>
+                                <h6>STAGE 3</h6>
+                            </div>
+                        </div>
+                        <div class='s3feedbackgraphics'>
+                            <div class='s3static'>
+                                <div class='s3statictitle'>
+                                    <h7>LEADERS' CONTEST</h7>
+                                </div>
+                                <div class='s3staticgraphics'>
+                                    <div class='piewrap'>
+                                        <div class='s3pie' id='s3pie'></div>
+                                    </div>
+                                    <div class='s3bars'>
+                                        <div class='s3effortbars' id='s3effortbars'></div>
+                                        <div class='s3efficiencybar' id='s3efficiencybar'></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='belieflegend' id='belieflegend'>
+                            <div class='boxtext' id='boxtext'>
+                                <div class='yourgroupbox'></div>
+                                <p style='font-size:14px;'>You</p>
+                            </div>
+                            <div class='boxtext' id='boxtext'>
+                                <div class='othergroupbox'></div>
+                                <p style='font-size:14px;'>Your Belief on the Opposing Leader</p>
+                            </div>
+                        </div>
+                        <div class='belieflegend3' id='belieflegend3'>
+                            <div class='boxtext' id='boxtext'>
+                                <div class='yourleaderbox'></div>
+                                <p style='font-size:14px;'>You</p>
+                            </div>
+                            <div class='boxtext' id='boxtext'>
+                                <div class='otherleaderbox'></div>
+                                <p style='font-size:14px;'>Opposing Leader</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='s2feedback'>
+                        <div class = s2maintitle>
+                            <h6>STAGE 2</h6>
+                        </div>
+                        <div class = s2subtitle>
+                            <h7>FOLLOWERS' HELP/SABOTAGE DECISION</h7>
+                        </div>
+                        <div class = s2subsubtitle>
+                            <h8 style='margin-left:40px;'>Your Group</h8>
+                            <h8 style='margin-left:80px;'>Opposing Group</h8>
+                        </div>
+                        <div class='s2decision'>
+                            <div class = s2feedbackgraphics>
+                                <div class = 'g1'>
+                                    <div id = 'helpbarg1'></div>
+                                    <div id = 'sabobarg1'></div>
+                                </div>
+                                <pre>  </pre>
+                                <div id = 'totalbars'>
+                                    <div id = 'helpbartotal'></div>
+                                    <div id = 'sabobartotal'></div>
+                                </div>
+                                <pre>  </pre>
+                                <div class = 'g2'>
+                                    <div id = 'helpbarg2'></div>
+                                    <div id = 'sabobarg2'></div>
+                                </div>
+                            </div>
+                            <div class = s2boxtextwrap>
+                                <div class='s2boxtext'>
+                                    <div class='sabobox'></div>
+                                    <p style='font-size:12px;'>Sabotage</p>
+                                </div>
+                                <div class='s2boxtext'>
+                                    <div class='helpbox'></div>
+                                    <p style='font-size:12px;'>Help</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class='winnerleaderresultwrap'>
+                <div class='s3resulttext'>
+                    <span id=resulttext></span>
+                </div>
+
+                <div class='s3s4payoffinfohwrap2' id='s3s4payoffinfohwrap2'>
+                    <div class='s3s4payoffinfo2'>
+                        <div class='investcosttitle2'>
+                            <p style='margin-bottom:-7px;'>Your</p>
+                            <p>Net Payoff</p>
+                            <!-- <p style='margin-top: -23px;'>Cost</p> -->
+                        </div>
+
+                        <div class='payoffresults2'>
+                            <!-- <div class='stagecolumn2'>
+                                <p style='margin-bottom: 10px;'>Stage 3</p>
+                                <hr class='hline2'/>
+                                <p>TOTAL</p>
+                            </div> -->
+                            <div class='numbercolumn2'>
+                                <p style='margin-bottom: 10px;'><span id='stage3cost2'></span></p>
+                                <!-- <hr class='hline2' /> -->
+                                <!-- <h7><span id='totalcost2'></span></h7> -->
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="js/feedback34(2fhomo)leader.js"></script>
+
+</body>
+</html>

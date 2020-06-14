@@ -14,20 +14,20 @@ var onezero = function() {
 
 var generateS4winner = function() {
     var temp = [false, false, false, false];
-    var index = Math.ceil(Math.random() * 2) - 1;
+    var index = Math.ceil(Math.random() * 4) - 1;
     temp[index] = true;
     return temp;
 }
 
 var generateMe = function() {
-    return Math.ceil(Math.random() * 2) - 1;
+    return Math.ceil(Math.random() * 4) - 1;
 }
 
 var tempMe = generateMe();
-var sw = [onezero(), onezero()];
-var osw = [onezero(), onezero()];
-var bsw = [onezero(), onezero()];
-var bosw = [onezero(), onezero()];
+var sw = [onezero(), onezero(), onezero(), onezero()];
+var osw = [onezero(), onezero(), onezero(), onezero()];
+var bsw = [onezero(), onezero(), onezero(), onezero()];
+var bosw = [onezero(), onezero(), onezero(), onezero()];
 
 var d = {
     me: tempMe,
@@ -39,13 +39,15 @@ var d = {
             {
                 f1: sw[0] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
                 f2: sw[1] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-
+                f3: sw[2] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                f4: sw[3] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
             },
             sabo:
             {
                 f1: sw[0] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
                 f2: sw[1] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-
+                f3: sw[2] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                f4: sw[3] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
             }
         },
         opposingGroup:
@@ -54,13 +56,15 @@ var d = {
             {
                 f1: osw[0] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
                 f2: osw[1] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-
+                f3: osw[2] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                f4: osw[3] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
             },
             sabo:
             {
                 f1: osw[0] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
                 f2: osw[1] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-
+                f3: osw[2] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                f4: osw[3] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
             }
         }
     },
@@ -68,13 +72,14 @@ var d = {
     {
         efo: parseFloat((Math.random()*500).toFixed(0)),
         oefo:  parseFloat((Math.random()*500).toFixed(0)),
-        yourLeaderWon: false, //(Math.random() > 0.5) ? true : false,
+        yourLeaderWon: (Math.random() > 0.5) ? true : false,
     },
     s4:
     {
         f1: parseFloat((Math.random()*400).toFixed(0)),
         f2: parseFloat((Math.random()*400).toFixed(0)),
-
+        f3: parseFloat((Math.random()*400).toFixed(0)),
+        f4: parseFloat((Math.random()*400).toFixed(0)),
         hasWon: generateS4winner(), //will be an array!
     },
     beliefs:
@@ -87,13 +92,15 @@ var d = {
                 {
                     f1: bsw[0] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
                     f2: bsw[1] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-
+                    f3: bsw[2] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                    f4: bsw[3] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
                 },
                 sabo:
                 {
                     f1: bsw[0] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
                     f2: bsw[1] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-
+                    f3: bsw[2] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                    f4: bsw[3] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
                 }
             },
             opposingGroup:
@@ -102,13 +109,15 @@ var d = {
                 {
                     f1: bosw[0] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
                     f2: bosw[1] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
-
+                    f3: bosw[2] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                    f4: bosw[3] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
                 },
                 sabo:
                 {
                     f1: bosw[0] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
                     f2: bosw[1] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
-
+                    f3: bosw[2] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                    f4: bosw[3] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
                 }
             }
         },
@@ -121,7 +130,8 @@ var d = {
         {
             f1: parseFloat((Math.random()*400).toFixed(0)),
             f2: parseFloat((Math.random()*400).toFixed(0)),
-
+            f3: parseFloat((Math.random()*400).toFixed(0)),
+            f4: parseFloat((Math.random()*400).toFixed(0)),
         }
     }
 }
@@ -133,55 +143,65 @@ var data2Info = function() {
     info.me = d.me;
     info.s1 = d.s2.ourGroup.sabo.f1;
     info.s2 = d.s2.ourGroup.sabo.f2;
-
+    info.s3 = d.s2.ourGroup.sabo.f3;
+    info.s4 = d.s2.ourGroup.sabo.f4;
     info.h1 = d.s2.ourGroup.help.f1;
     info.h2 = d.s2.ourGroup.help.f2;
-
-    info.sarray = [info.s1, info.s2];
-    info.harray = [info.h1, info.h2];
+    info.h3 = d.s2.ourGroup.help.f3;
+    info.h4 = d.s2.ourGroup.help.f4;
+    info.sarray = [info.s1, info.s2, info.s3, info.s4];
+    info.harray = [info.h1, info.h2, info.h3, info.h4];
     info.os1 = d.s2.opposingGroup.sabo.f1;
     info.os2 = d.s2.opposingGroup.sabo.f2;
-
+    info.os3 = d.s2.opposingGroup.sabo.f3;
+    info.os4 = d.s2.opposingGroup.sabo.f4;
     info.oh1 = d.s2.opposingGroup.help.f1;
     info.oh2 = d.s2.opposingGroup.help.f2;
-
+    info.oh3 = d.s2.opposingGroup.help.f3;
+    info.oh4 = d.s2.opposingGroup.help.f4;
     info.efo = d.s3.efo;
     info.oefo = d.s3.oefo;
     info.e1 = d.s4.f1;
     info.e2 = d.s4.f2;
-
-    info.earray = [info.e1, info.e2];
+    info.e3 = d.s4.f3;
+    info.e4 = d.s4.f4;
+    info.earray = [info.e1, info.e2, info.e3, info.e4];
 
     info.beliefs.s1 = d.beliefs.s2.ourGroup.sabo.f1;
     info.beliefs.s2 = d.beliefs.s2.ourGroup.sabo.f2;
-
+    info.beliefs.s3 = d.beliefs.s2.ourGroup.sabo.f3;
+    info.beliefs.s4 = d.beliefs.s2.ourGroup.sabo.f4;
     info.beliefs.h1 = d.beliefs.s2.ourGroup.help.f1;
     info.beliefs.h2 = d.beliefs.s2.ourGroup.help.f2;
-
+    info.beliefs.h3 = d.beliefs.s2.ourGroup.help.f3;
+    info.beliefs.h4 = d.beliefs.s2.ourGroup.help.f4;
     info.beliefs.os1 = d.beliefs.s2.opposingGroup.sabo.f1;
     info.beliefs.os2 = d.beliefs.s2.opposingGroup.sabo.f2;
-
+    info.beliefs.os3 = d.beliefs.s2.opposingGroup.sabo.f3;
+    info.beliefs.os4 = d.beliefs.s2.opposingGroup.sabo.f4;
     info.beliefs.oh1 = d.beliefs.s2.opposingGroup.help.f1;
     info.beliefs.oh2 = d.beliefs.s2.opposingGroup.help.f2;
-
+    info.beliefs.oh3 = d.beliefs.s2.opposingGroup.help.f3;
+    info.beliefs.oh4 = d.beliefs.s2.opposingGroup.help.f4;
     info.beliefs.efo = d.beliefs.s3.efo;
     info.beliefs.oefo = d.beliefs.s3.oefo;
     info.beliefs.e1 = d.beliefs.s4.f1;
     info.beliefs.e2 = d.beliefs.s4.f2;
-
+    info.beliefs.e3 = d.beliefs.s4.f3;
+    info.beliefs.e4 = d.beliefs.s4.f4;
 }
 
 info.ts = function() {
-    return (info.s1 + info.s2);
+    return (info.s1 + info.s2 + info.s3 + info.s4);
 }
 info.th = function() {
-    return (info.h1 + info.h2);
+    return (info.h1 + info.h2 + info.h3 + info.h4);
 }
 info.ots = function() {
-    return (info.os1 + info.os2);
+    return (info.os1 + info.os2 + info.os3 + info.os4);
 }
 info.oth = function() {
-    return (info.oh1 + info.oh2);
+    return (info.oh1 + info.oh2 + info.oh3 + info.oh4);
 }
 info.efi = function() {
     return (1 + info.th()) / (1 + info.ts());
@@ -196,16 +216,16 @@ info.pwin = function() {
 
 
 info.beliefs.ts = function() {
-    return (info.beliefs.s1 + info.beliefs.s2);
+    return (info.beliefs.s1 + info.beliefs.s2 + info.beliefs.s3 + info.beliefs.s4);
 }
 info.beliefs.th = function() {
-    return (info.beliefs.h1 + info.beliefs.h2);
+    return (info.beliefs.h1 + info.beliefs.h2 + info.beliefs.h3 + info.beliefs.h4);
 }
 info.beliefs.ots = function() {
-    return (info.beliefs.os1 + info.beliefs.os2);
+    return (info.beliefs.os1 + info.beliefs.os2 + info.beliefs.os3 + info.beliefs.os4);
 }
 info.beliefs.oth = function() {
-    return (info.beliefs.oh1 + info.beliefs.oh2);
+    return (info.beliefs.oh1 + info.beliefs.oh2 + info.beliefs.oh3 + info.beliefs.oh4);
 }
 info.beliefs.efi = function() {
     return (1 + info.beliefs.th()) / (1 + info.beliefs.ts());
@@ -271,20 +291,21 @@ let theWheel = new Winwheel({
     {
         'type'     : 'spinToStop',
         'duration' : 3,
-        'spins'    : 30,
+        'spins'    : 300,
         'callbackFinished' : 'next()',
     }
 });
 
-var pf1, pf2;
-var tot = info.e1 + info.e2;
+var pf1, pf2, pf3, pf4;
+var tot = info.e1 + info.e2 + info.e3 + info.e4;
 pf1 = 100 * info.e1 / tot;
 pf2 = 100 * info.e2 / tot;
-
+pf3 = 100 * info.e3 / tot;
+pf4 = 100 * info.e4 / tot;
 
 let theWheel2 = new Winwheel({
     'canvasId': 'mywheel2',
-    'numSegments': 2,
+    'numSegments': 4,
     'outerRadius': 85, // controls the size of the theWheel
     'textOrientation' : 'vertical',    // Set orientation. horizontal, vertical, curved.
     // 'textOrientation' : 'curved',
@@ -304,10 +325,22 @@ let theWheel2 = new Winwheel({
             'size'      : winwheelPercentToDegrees(pf1),
         },
         {
-            'fillStyle' : 'rgb(140, 140, 140)',
-            'textFillStyle': 'white',
+            'fillStyle' : 'rgb(160, 160, 160)',
+            'textFillStyle': 'black',
             'text'      : '',
             'size'      : winwheelPercentToDegrees(pf2),
+        },
+        {
+            'fillStyle' : 'rgb(100, 100, 100)',
+            'textFillStyle': 'white',
+            'text'      : '',
+            'size'      : winwheelPercentToDegrees(pf3),
+        },
+        {
+            'fillStyle' : 'rgb(40, 40, 40)',
+            'textFillStyle': 'white',
+            'text'      : '',
+            'size'      : winwheelPercentToDegrees(pf4),
         },
     ],
     // 'pointerGuide' :        // Turn pointer guide on.
@@ -337,27 +370,22 @@ var nzt = function(val) {
     return (val != 0) ? val : '';
 }
 
-var beliefMargin = function(actual, belief) {
-    var sign = (actual > belief) ? '-' : '+';
-    var diff = Math.abs(actual - belief)
-    return (sign+diff);
-}
-
-var updateHelpBar = function(a, b, barId, ourGroup, me, beliefSwitch, ba, bb) {
+var updateHelpBar = function(a, b, c, d, barId, ourGroup, me, beliefSwitch, ba, bb, bc, bd) {
 
     var x = a;
     var y = b;
-
+    var z = c;
+    var w = d;
 
     var myOpacity = 1;//[1, 1, 1, 1];
-    var myText = [nzt(a), nzt(b)];
+    var myText = [nzt(a), nzt(b), nzt(c), nzt(d)];
 
     var lightblue = 'rgb(200,200,255)';
     var blue = 'rgb(140, 140, 255)';
     var ourColor = ourGroup ? blue : lightblue;
 
-    var colorArray = ['', ''];
-    var colorWidth = [0, 0];
+    var colorArray = ['', '', '', ''];
+    var colorWidth = [0, 0, 0, 0];
     if (me!==-1) {
         colorArray[me] = 'green';
         colorWidth[me] = 2;
@@ -365,26 +393,26 @@ var updateHelpBar = function(a, b, barId, ourGroup, me, beliefSwitch, ba, bb) {
 
     if(beliefSwitch) {
         if(ourGroup) {
-            var beliefData = [ba];
+            var beliefData = [ba, bb, bc];
             beliefData.splice(me, 0, 0);
-            var beliefText = [nzt(ba)];
+            var beliefText = [nzt(ba), nzt(bb), nzt(bc)];
             beliefText.splice(me, 0, '');
             var temp = myText[me];
-            myText = [''];
+            myText = ['', '', ''];
             myText.splice(me, 0, temp);
             myOpacity = 1;//[0.45, 0.45, 0.45];
             //myOpacity.splice(me, 0, 1);
         } else {
-            beliefData = [ba, bb];
-            beliefText = [nzt(ba), nzt(bb)];
-            myText = ['', ''];
+            beliefData = [ba, bb, bc, bd];
+            beliefText = [nzt(ba), nzt(bb), nzt(bc), nzt(bd)];
+            myText = ['', '', '', ''];
             myOpacity = 1;//[0.45, 0.45, 0.45, 0.45];
         }
     }
 
     var actual =  {
-        y: [x, y],
-        x: [1, 2],
+        y: [x, y, z, w],
+        x: [1, 2, 3, 4],
         type: 'bar',
         sort: false,
         hoverinfo: 'none',
@@ -410,7 +438,7 @@ var updateHelpBar = function(a, b, barId, ourGroup, me, beliefSwitch, ba, bb) {
     if(beliefSwitch) {
         var belief = {
             y: beliefData,
-            x: [1.15, 2.15],
+            x: [1.15, 2.15, 3.15, 4.15],
             width:0.6,
             type: 'bar',
             sort: false,
@@ -555,22 +583,24 @@ var updateTotalHelpBar = function(a, b, barId, beliefSwitch, ba, bb) {
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
 
-var updateSaboBar = function(a, b, barId, ourGroup, me, beliefSwitch, ba, bb) {
+var updateSaboBar = function(a, b, c, d, barId, ourGroup, me, beliefSwitch, ba, bb, bc, bd) {
 
     var x = -a;
     var y = -b;
+    var z = -c;
+    var w = -d;
 
     var myBargap = 0.2;
 
     var myOpacity = 1;//[1, 1, 1, 1];
-    var myText = [nzt(a), nzt(b)];
+    var myText = [nzt(a), nzt(b), nzt(c), nzt(d)];
 
     var lightred = 'rgb(255,200,200)';
     var red = 'rgb(255 140, 140)';
     var ourColor = ourGroup ? red : lightred;
 
-    var colorArray = ['', ''];
-    var colorWidth = [0, 0];
+    var colorArray = ['', '', '', ''];
+    var colorWidth = [0, 0, 0, 0];
     if (me!==-1) {
         colorArray[me] = 'green';
         colorWidth[me] = 2;
@@ -579,27 +609,27 @@ var updateSaboBar = function(a, b, barId, ourGroup, me, beliefSwitch, ba, bb) {
     if(beliefSwitch) {
         myBargap = 0.2;
         if(ourGroup) {
-            var beliefData = [-ba];
+            var beliefData = [-ba, -bb, -bc];
             beliefData.splice(me, 0, 0);
-            var beliefText = [nzt(ba)];
+            var beliefText = [nzt(ba), nzt(bb), nzt(bc)];
             beliefText.splice(me, 0, '');
             var temp = myText[me];
-            myText = [''];
+            myText = ['', '', ''];
             myText.splice(me, 0, temp);
             myOpacity = 1;//[0.45, 0.45, 0.45];
             //myOpacity.splice(me, 0, 1);
 
         } else {
-            beliefData = [-ba, -bb];
-            beliefText = [nzt(ba), nzt(bb)];
-            myText = ['', ''];
+            beliefData = [-ba, -bb, -bc, -bd];
+            beliefText = [nzt(ba), nzt(bb), nzt(bc), nzt(bd)];
+            myText = ['', '', '', ''];
             myOpacity = 1;//[0.45, 0.45, 0.45, 0.45];
         }
     }
 
     var actual = {
-        y: [x, y],
-        x: [1, 2],
+        y: [x, y, z, w],
+        x: [1, 2, 3, 4],
         type: 'bar',
         sort: false,
         hoverinfo: 'none',
@@ -625,7 +655,7 @@ var updateSaboBar = function(a, b, barId, ourGroup, me, beliefSwitch, ba, bb) {
     if(beliefSwitch) {
         var belief = {
             y: beliefData,
-            x: [1.15, 2.15],
+            x: [1.15, 2.15, 3.15, 4.15],
             width:0.6,
             type: 'bar',
             sort: false,
@@ -795,7 +825,7 @@ var updatePie = function(a, barId, showBeliefs, ba) {
         automargin: true,
         opacity:actualOpacity,
         marker:{
-            colors: ['rgb(225, 225, 225)', 'rgb(160, 160, 160)'],
+            colors: ['rgb(225, 225, 225)', 'rgb(120, 120, 120)'],
             line: {
                 color: 'black',
                 width: 1,
@@ -931,7 +961,7 @@ var updateEfficiencyBar = function(efi1, efi2, barId, beliefSwitch, befi1, befi2
         fixedrange: true,
         cliponaxis: false,
         marker: {
-            color: 'rgb(160, 160, 160)',
+            color: 'rgb(120, 120, 120)',
         },
         text: myText,
         textposition: 'inside',
@@ -1081,7 +1111,7 @@ var updateEffortBar = function(efo, oefo, barId, beliefSwitch, befo, boefo) {
         automargin: true,
         showlegend: false,
         marker:{
-            color: ['rgb(160, 160, 160)', 'rgb(225, 225, 225)'],
+            color: ['rgb(120, 120, 120)', 'rgb(225, 225, 225)'],
         },
         text: myText,
         textposition: 'outside',
@@ -1166,27 +1196,30 @@ var move2First = function(array, me) {
 var move2Last = function(array, me) {
     var temp = array[me];
     array.splice(me, 1);
-    array.splice(array.length, 0, temp);
+    array.push(temp)
     return array;
 }
 
-var updateS4Pie = function(a, b, barId, me, showBeliefs, ba) {
+var updateS4Pie = function(a,b,c,d, barId, me, showBeliefs, ba, bb, bc) {
 
     var x = a;
     var y = b;
+    var z = c;
+    var w = d;
     var actualOpacity = 1;
 
-    var actualData = [x, y];
-    var actualColors = ['rgb(225, 225, 225)', 'rgb(140, 140, 140)'];
-    var beliefColors = ['rgb(255, 255, 0)', 'rgb(160, 160, 0)'];
-    var labelArray = ['Follower 1', 'Follower 2'];
-    var beliefTextColor = (me===0) ? ['black', 'white'] : ['white', 'black'];
+    var actualData = [x, y, z, w];
+    var actualColors = ['rgb(225, 225, 225)', 'rgb(160, 160, 160)', 'rgb(100, 100, 100)', 'rgb(40, 40, 40)'];
+    var beliefColors = ['rgb(255, 255, 0)', 'rgb(210, 210, 0)', 'rgb(170, 170, 0)', 'rgb(125, 125, 0)'];
+    var labelArray = ['Follower 1', 'Follower 2', 'Follower 3', 'Follower 4'];
 
     if(showBeliefs) {
         var bx = ba;
+        var by = bb;
+        var bz = bc;
         var beliefOpacity = 1;
         actualOpacity = 1;
-        var beliefData = [bx];
+        var beliefData = [bx, by, bz];
         beliefData.splice(me, 0, actualData[me]);
         beliefColors.splice(me, 1, actualColors[me]);
 
@@ -1194,14 +1227,16 @@ var updateS4Pie = function(a, b, barId, me, showBeliefs, ba) {
         beliefColors = move2First(beliefColors, me);
     }
 
-    if((x + y) === 0) {
+    if((x + y + z + w) === 0) {
         x = 1;
         y = 1;
+        z = 1;
+        w = 1;
     }
 
-    var textArray = ['', '']
-    var colorArray = ['black', 'black'];
-    var colorWidth = [1, 1];
+    var textArray = ['', '', '', '']
+    var colorArray = ['black', 'black', 'black', 'black'];
+    var colorWidth = [1, 1, 1, 1];
 
 
     textArray[me] = 'You';
@@ -1238,9 +1273,6 @@ var updateS4Pie = function(a, b, barId, me, showBeliefs, ba) {
         values: beliefData,
         labels: labelArray,
         text: textArray,
-        textfont: {
-            color: beliefTextColor,
-        },
         textposition: 'inside',
         type: 'pie',
         sort: false,
@@ -1286,72 +1318,64 @@ var updateS4Pie = function(a, b, barId, me, showBeliefs, ba) {
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
 
-var updateS4EffortBar = function(a, b, barId, me, showBeliefs, ba) {
+var updateS4EffortBar = function(a,b,c,d, barId, me, showBeliefs, ba, bb, bc) {
 
     var x = a;
     var y = b;
-    var actualData = [x, y];
-    var myText = [x, y];
+    var z = c;
+    var w = d;
+    var actualData = [x, y, z, w];
+    var myText = [x, y, z, w];
     var temp = myText[me];
     var myOpacity = 1;
 
+    var actualColors = ['rgb(225, 225, 225)', 'rgb(160, 160, 160)', 'rgb(100, 100, 100)', 'rgb(40, 40, 40)'];
+    var beliefColors = ['rgb(255, 255, 0)', 'rgb(210, 210, 0)', 'rgb(170, 170, 0)', 'rgb(125, 125, 0)'];
+    var actualXPosition = [1, 2, 3, 4];
+    var beliefXPosition = [1.15, 2.15, 3.15, 4.15];
+    var myWidth = 320;
 
-    var actualColors = ['rgb(225, 225, 225)', 'rgb(140, 140, 140)'];
-    var beliefColors = ['rgb(255, 255, 0)', 'rgb(160, 160, 0)'];
-    var actualXPosition = [1, 2];
-    var beliefXPosition = [1.15, 2.15];
-    var myWidth = 200;
-
-    var colorArray = ['', ''];
-    var colorWidth = [0, 0];
+    var colorArray = ['', '', '', ''];
+    var colorWidth = [0, 0, 0, 0];
     colorArray[me] = 'lightgreen';
     colorWidth[me] = 3;
 
-    if(me===0) {
-        actualColors.reverse();
-        actualData.reverse();
-        myText.reverse();
-        colorArray.reverse();
-        colorWidth.reverse();
-    }
-
-
     if(showBeliefs) {
-        myWidth = 200;
-        myOpacity = 0.6;
         var bx = ba;
+        var by = bb;
+        var bz = bc;
 
-        var beliefData = [bx, actualData[1]];
-        myText = ['', actualData[1]];
-        if(me===0){
-            beliefColors = ['rgb(160, 160, 0)', 'rgb(225, 225, 225)'];
-        } else {
-            beliefColors = ['rgb(255, 255, 0)', 'rgb(140, 140, 140)'];
-        }
+        myWidth = 320;
+        myOpacity = 1;
 
-        beliefXPosition = [1.15, 2];
+        myText = ['', '', '', ''];
+        beliefXPosition = [1.15, 2.15, 3.15, 4];
 
-        // var beliefData = [bx];
-        // beliefData.splice(me, 0, actualData[me]);
-        // myText = [''];
-        // myText.splice(me, 0, temp);
-        // beliefColors.splice(me, 1, actualColors[me]);
-        // beliefXPosition.splice(me, 1, actualXPosition[me]);
+        var beliefData = [bx, by, bz];
+
+        beliefData.splice(me, 0, actualData[me]);
+        beliefColors.splice(me, 1, actualColors[me]);
+        beliefData = move2Last(beliefData, me);
+        beliefColors = move2Last(beliefColors, me);
     }
 
-
-
-
-
+    // console.log('asdadasdasdasdas');
+    // console.log(actualData[me]);
+    actualData = move2Last(actualData, me);
+    actualColors = move2Last(actualColors, me);
+    colorArray = move2Last(colorArray, me);
+    colorWidth = move2Last(colorWidth, me);
+    myText = move2Last(myText, me);
+    // console.log(actualData[3]);
 
     var actual = {
         y: actualData,
         x: actualXPosition,
-        // width: 1,
-        myname: ['f1', 'f2'],
+        myname: ['f1', 'f2', 'f3', 'f4'],
         type: 'bar',
         sort: false,
         hoverinfo: 'none',
+        // hovertemplate: '<extra>{fullData.myname}</extra>',
         automargin: true,
         showlegend: false,
         marker:{
@@ -1373,7 +1397,7 @@ var updateS4EffortBar = function(a, b, barId, me, showBeliefs, ba) {
         var belief =    {
             y: beliefData,
             x: beliefXPosition,
-            width: [0.6, 0.8], //0.8 is the same size as actual
+            width: 0.8,
             type: 'bar',
             sort: false,
             hoverinfo: 'none',
@@ -1392,7 +1416,7 @@ var updateS4EffortBar = function(a, b, barId, me, showBeliefs, ba) {
                 size: '14'
             },
             cliponaxis: false,
-            opacity: 0.9,
+            opacity: 1,
         };
     }
 
@@ -1404,7 +1428,7 @@ var updateS4EffortBar = function(a, b, barId, me, showBeliefs, ba) {
             size: 14,
         },
         barmode: 'overlay',
-        height: 200,
+        height: 220,
         width: myWidth,
         margin: {"t": 40, "b": 0, "l": 30, "r": 30},
         yaxis: {
@@ -1423,7 +1447,7 @@ var updateS4EffortBar = function(a, b, barId, me, showBeliefs, ba) {
             ticks: '',
             showticklabels: false,
         },
-        // bargap: 0.2,
+        // bargap: 0.1,
         // bargroupgap: 0.5,
     };
 
@@ -1438,18 +1462,6 @@ var updateS4EffortBar = function(a, b, barId, me, showBeliefs, ba) {
 
 var updateS4EfficiencyBar = function(barId, beliefSwitch, me) {
 
-    var actualColors, beliefColors, textColors;
-
-    if(me===1) {
-        actualColors = ['rgb(140, 140, 140)', 'rgb(225, 225, 225)'];
-        beliefColors = ['rgb(140, 140, 140)', 'rgb(255, 255, 0)'];
-        textColors = ['white', 'black'];
-    } else {
-        actualColors = ['rgb(225, 225, 225)', 'rgb(140, 140, 140)'];
-        beliefColors = ['rgb(225, 225, 225)', 'rgb(160, 160, 0)'];
-        textColors = ['black', 'white'];
-    }
-
     var f1 = {
         y: ['group 1'],
         x: [1],
@@ -1462,17 +1474,61 @@ var updateS4EfficiencyBar = function(barId, beliefSwitch, me) {
         fixedrange: true,
         cliponaxis: false,
         marker: {
-            color: actualColors[0],
+            color: 'rgb(40, 40, 40)',
         },
         text: 1,
         textposition: 'inside',
         insidetextanchor: 'middle',
         textfont: {
-            color: textColors[0],
-            size: '12'
+            color: 'white',
+            size: '14'
         },
     };
 
+    var f2 = {
+        y: ['group 1'],
+        x: [1],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        fixedrange: true,
+        cliponaxis: false,
+        marker: {
+            color: 'rgb(100, 100, 100)',
+        },
+        text: 1,
+        textposition: 'inside',
+        insidetextanchor: 'middle',
+        textfont: {
+            size: '14'
+        },
+    };
+
+    var f3 = {
+        y: ['group 1'],
+        x: [1],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        fixedrange: true,
+        cliponaxis: false,
+        marker: {
+            color: 'rgb(160, 160, 160)',
+        },
+        text: 1,
+        textposition: 'inside',
+        insidetextanchor: 'middle',
+        textfont: {
+            color: 'white',
+            size: '14'
+        },
+    };
 
     var f4 = {
         y: ['group 1'],
@@ -1486,75 +1542,128 @@ var updateS4EfficiencyBar = function(barId, beliefSwitch, me) {
         fixedrange: true,
         cliponaxis: false,
         marker: {
-            color: actualColors[1],
+            color: 'rgb(225, 225, 225)',
         },
         text: 1,
         textposition: 'inside',
         insidetextanchor: 'middle',
         textfont: {
-            color: textColors[1],
-            size: '12'
+            size: '14'
         },
     };
 
-    if(beliefSwitch) {
-        var bf1 = {
-            y: ['group 2'],
-            x: [1],
-            type: 'bar',
-            orientation: 'h',
-            sort: false,
-            hoverinfo: 'none',
-            automargin: true,
-            showlegend: false,
-            fixedrange: true,
-            cliponaxis: false,
-            marker: {
-                color: beliefColors[0],
-            },
-            text: 1,
-            textposition: 'inside',
-            insidetextanchor: 'middle',
-            textfont: {
-                color: textColors[0],
-                size: '12'
-            },
-        };
+    // if(beliefSwitch) {
+    //     var bf1 = {
+    //         y: ['group 2'],
+    //         x: [1],
+    //         type: 'bar',
+    //         orientation: 'h',
+    //         sort: false,
+    //         hoverinfo: 'none',
+    //         automargin: true,
+    //         showlegend: false,
+    //         fixedrange: true,
+    //         cliponaxis: false,
+    //         marker: {
+    //             color: 'rgb(125, 125, 0)',
+    //         },
+    //         text: 1,
+    //         textposition: 'inside',
+    //         insidetextanchor: 'middle',
+    //         textfont: {
+    //             color: 'white',
+    //             size: '14'
+    //         },
+    //     };
+    //
+    //     var bf2 = {
+    //         y: ['group 2'],
+    //         x: [1],
+    //         type: 'bar',
+    //         orientation: 'h',
+    //         sort: false,
+    //         hoverinfo: 'none',
+    //         automargin: true,
+    //         showlegend: false,
+    //         fixedrange: true,
+    //         cliponaxis: false,
+    //         marker: {
+    //             color: 'rgb(170, 170, 0)',
+    //         },
+    //         text: 1,
+    //         textposition: 'inside',
+    //         insidetextanchor: 'middle',
+    //         textfont: {
+    //             size: '14'
+    //         },
+    //     };
+    //
+    //     var bf3 = {
+    //         y: ['group 2'],
+    //         x: [1],
+    //         type: 'bar',
+    //         orientation: 'h',
+    //         sort: false,
+    //         hoverinfo: 'none',
+    //         automargin: true,
+    //         showlegend: false,
+    //         fixedrange: true,
+    //         cliponaxis: false,
+    //         marker: {
+    //             color: 'rgb(210, 210, 0)',
+    //         },
+    //         text: 1,
+    //         textposition: 'inside',
+    //         insidetextanchor: 'middle',
+    //         textfont: {
+    //             color: 'white',
+    //             size: '14'
+    //         },
+    //     };
+    //
+    //     var bf4 = {
+    //         y: ['group 2'],
+    //         x: [1],
+    //         type: 'bar',
+    //         orientation: 'h',
+    //         sort: false,
+    //         hoverinfo: 'none',
+    //         automargin: true,
+    //         showlegend: false,
+    //         fixedrange: true,
+    //         cliponaxis: false,
+    //         marker: {
+    //             color: 'rgb(255, 255, 0)',
+    //         },
+    //         text: 1,
+    //         textposition: 'inside',
+    //         insidetextanchor: 'middle',
+    //         textfont: {
+    //             size: '14'
+    //         },
+    //     };
+    // }
 
-        var bf4 = {
-            y: ['group 2'],
-            x: [1],
-            type: 'bar',
-            orientation: 'h',
-            sort: false,
-            hoverinfo: 'none',
-            automargin: true,
-            showlegend: false,
-            fixedrange: true,
-            cliponaxis: false,
-            marker: {
-                color: beliefColors[1],
-            },
-            text: 1,
-            textposition: 'inside',
-            insidetextanchor: 'middle',
-            textfont: {
-                color: textColors[1],
-                size: '12'
-            },
-        };
-    }
+    var myHeight = 48//60;
 
-    var myHeight = 45;//48//60;
+    // if(beliefSwitch) {
+    //     myHeight = 80//60;
+    // }
 
-    if(beliefSwitch) {
-        myHeight = 70;//80//60;
-    }
+    var data = [f4, f3, f2, f1];
 
-    var data = [f4, f1];
-    if(beliefSwitch) {
-        data = [bf4, bf1, f4, f1];
-    }
+    var temp = data[me];
+    data.splice(me, 1);
+    data.push(temp);
+
+    // if(beliefSwitch) {
+    //     var bdata = [bf4, bf3, bf2, bf1];
+    //     bdata.splice(me, 1);
+    //     bdata.push(temp);
+    //     var newdata = bdata.concat(data);
+    //     // data = [bf4, bf3, bf2, bf1, f4, f3, f2, f1];
+    //     data = newdata;
+    // }
 
 
     var layout = {
@@ -1567,12 +1676,12 @@ var updateS4EfficiencyBar = function(barId, beliefSwitch, me) {
         },
         barmode: 'stack',
         height: myHeight,//60
-        width: 180,
+        width: 270,
         margin: {"t": 0, "b": 20, "l": 0, "r": 0},
         xaxis: {
             fixedrange: true,
             autorange: false,
-            range: [0,2],
+            range: [0,4],
             showline: false,
             showgrid: false,
             showticklabels: false,
@@ -1606,15 +1715,15 @@ var updateS4EfficiencyBar = function(barId, beliefSwitch, me) {
 var animationCounter = 0;
 var update = function(beliefSwitch) {
     console.log('we are inside update1?');
-    updateHelpBar(info.h1, info.h2, 'helpbarg1', true, info.me, beliefSwitch, info.beliefs.h1);
-    updateSaboBar(info.s1, info.s2, 'sabobarg1', true, info.me, beliefSwitch, info.beliefs.s1);
+    updateHelpBar(info.h1, info.h2, info.h3, info.h4, 'helpbarg1', true, info.me, beliefSwitch, info.beliefs.h1, info.beliefs.h2, info.beliefs.h3);
+    updateSaboBar(info.s1, info.s2, info.s3, info.s4, 'sabobarg1', true, info.me, beliefSwitch, info.beliefs.s1, info.beliefs.s2, info.beliefs.s3);
 
     updateTotalHelpBar(info.th(), info.oth(), 'helpbartotal', beliefSwitch, info.beliefs.th(), info.beliefs.oth());
     updateTotalSaboBar(info.ts(), info.ots(), 'sabobartotal', beliefSwitch, info.beliefs.ts(), info.beliefs.ots());
 
     // for opposing group me variable gets -1 to signal that there is no me
-    updateHelpBar(info.oh1, info.oh2, 'helpbarg2', false, -1, beliefSwitch, info.beliefs.oh1, info.beliefs.oh2);
-    updateSaboBar(info.os1, info.os2, 'sabobarg2', false, -1, beliefSwitch, info.beliefs.os1, info.beliefs.os2);
+    updateHelpBar(info.oh1, info.oh2, info.oh3, info.oh4, 'helpbarg2', false, -1, beliefSwitch, info.beliefs.oh1, info.beliefs.oh2, info.beliefs.oh3, info.beliefs.oh4);
+    updateSaboBar(info.os1, info.os2, info.os3, info.os4,'sabobarg2', false, -1, beliefSwitch, info.beliefs.os1, info.beliefs.os2, info.beliefs.os3, info.beliefs.os4);
 
     updatePie(info.pwin(), 's3pie', beliefSwitch, info.beliefs.pwin());
     updateEffortBar(info.efo, info.oefo, 's3effortbars', beliefSwitch, info.beliefs.efo, info.beliefs.oefo);
@@ -1638,12 +1747,13 @@ var bbSwitch = 1;
 beliefButton.onclick = function() {
     var showBeliefs3 = bbSwitch ? true : false;
     var o = showBeliefs3 ? 1 : 0;
-    var h = showBeliefs3 ? '100%' : '0px';
+    var o2 = showBeliefs3 ? 0 : 1;
+
     update(showBeliefs3);
     update2(showBeliefs3);
 
     document.getElementById("belieflegend").style.opacity = o;
-    document.getElementById('belieflegend').style.maxHeight = h;
+    document.getElementById("belieflegend3").style.opacity = o2;
     document.getElementById('hidewrap').style.opacity = o;
     bbSwitch = 1 - bbSwitch;
 }
@@ -1656,8 +1766,10 @@ var showStage4 = !d.s3.yourLeaderWon;
 // Called by the stage 3 wheel once it stops
 var next = function() {
     showResults();
+    console.log('are we getting inside next more then we should?');
     if(showStage4) {
         setTimeout("displayStage4()", 2000);
+
     }
 }
 
@@ -1667,18 +1779,21 @@ var showResults = function() {
     var display = document.getElementById('s3shortresult');
     var shortResult = d.s3.yourLeaderWon ? 'Your Leader Won.' : 'Your Leader Lost.';
     display.innerHTML = shortResult;
+    if(!d.s3.yourLeaderWon) {
+        $('.s3resulttext').css({'flex-grow':'1'});
+    }
     setTimeout('showResultsDelayed1()', 1000);
 }
 
 var showResultsDelayed1 = function() {
         var largeDisplay = document.getElementById('resulttext');
-        var winScenario = 'Your leader maintains her '
-        + 'leadership position. <br> You and other followers continue their role as '
+        var winScenario = 'Your leader <strong>maintains</strong> her '
+        + 'leadership position. <br><br> You and other followers <strong>continue your role</strong> as '
         + 'followers and proceed to Stage 5.';
 
-        var loseScenario = 'Your Leader lost her '
-        + 'leadership position. <br> Proceeding to Stage 4 Followers\' Contest '
-        + 'to determine the new leader of your group.';
+        var loseScenario = 'Your Leader <strong>lost her '
+        + 'leadership</strong> position. <br><br> <strong>Proceeding to Stage 4</strong> Followers\' Contest '
+        + '<strong>to determine the new leader</strong> of your group.';
         largeDisplay.innerHTML = d.s3.yourLeaderWon ? winScenario : loseScenario;
 
         if(d.s3.yourLeaderWon) {
@@ -1691,9 +1806,9 @@ var showResultsDelayed2 = function() {
     displayPayoff.style.opacity = 1;
     displayPayoff.style.position = 'static';
     var s2Payoff = document.getElementById('stage2cost2');
-    var totalPayoff = document.getElementById('totalcost2');
-    s2Payoff.innerHTML = info.sarray[d.me] + info.harray[d.me];
-    totalPayoff.innerHTML = info.sarray[d.me] + info.harray[d.me];
+
+    s2Payoff.innerHTML = -(info.sarray[d.me] + info.harray[d.me]);
+
 }
 
 var displayStage4 = function() {
@@ -1722,9 +1837,11 @@ var displayStage4 = function() {
 }
 
 var update2= function(beliefSwitch2) {
-    updateS4Pie(info.e1, info.e2, 's4pie', info.me, beliefSwitch2, info.beliefs.e1)
-    updateS4EffortBar(info.e1, info.e2, 's4effortbars', info.me, beliefSwitch2, info.beliefs.e1)
+    // console.log('we are inside update2?');
+    updateS4Pie(info.e1, info.e2, info.e3, info.e4, 's4pie', info.me, beliefSwitch2, info.beliefs.e1, info.beliefs.e2, info.beliefs.e3)
+    updateS4EffortBar(info.e1, info.e2, info.e3, info.e4, 's4effortbars', info.me, beliefSwitch2, info.beliefs.e1, info.beliefs.e2, info.beliefs.e3)
     updateS4EfficiencyBar('s4efficiencybar', beliefSwitch2, info.me);
+
 }
 
 
@@ -1732,45 +1849,36 @@ var updatePayoffs = function() {
     var s2c = document.getElementById('stage2cost');
     var s4c = document.getElementById('stage4cost');
     var tc = document.getElementById('totalcost');
-    s2c.innerHTML = info.sarray[d.me] + info.harray[d.me];
-    s4c.innerHTML = info.earray[d.me];
-    tc.innerHTML = info.sarray[d.me] + info.harray[d.me] + info.earray[d.me];
+    s2c.innerHTML = -(info.sarray[d.me] + info.harray[d.me]);
+    s4c.innerHTML = -(info.earray[d.me]);
+    tc.innerHTML = -(info.sarray[d.me] + info.harray[d.me] + info.earray[d.me]);
 }
 
 var showResults2 = function() {
     var resultIndex2 = d.s4.hasWon.indexOf(true) + 1;
     var display = document.getElementById('s4shortresult');
     var largeDisplay = document.getElementById('resulttext2');
-    // console.log(info.me);
-    // console.log(d.s4.hasWon.indexOf(true));
+
     if(info.me === d.s4.hasWon.indexOf(true)) {
         var shortResultText = 'You won!';
-        var resultText = 'You are the new leader of your group! <br>'
+        var resultText = '<strong>You are the new leader</strong> of your group. <br><br>'
         + 'Other followers and your former leader will proceed to Stage 5 '
         + 'to determine how much to help or sabotage you.  <br>'
         + 'You will proceed to Stage 6 for the second Leaders\' Contest '
         + 'and wait for Stage 5 decisions to be made. <br> <br> <br>';
     } else {
         shortResultText = 'Follower ' + resultIndex2 + ' won.';
-        resultText = 'Follower ' + resultIndex2 + ' '
-        + 'is the new leader of your group. <br>'
+        resultText = '<strong>Follower ' + resultIndex2 + ' '
+        + 'is the new leader</strong> of your group. <br><br>'
         + 'Your former leader, you and the other followers will proceed to Stage 5 '
         + 'to determine how much to help or sabotage your new leader.  <br>'
         + 'Your new leader (' + 'Follower ' + resultIndex2 + ') will proceed to '
         + 'Stage 6 for the second Leaders\' Contest '
         + 'and wait for Stage 5 decisions to be made. <br> <br> <br>';
     }
+
     display.innerHTML = shortResultText;
     largeDisplay.innerHTML = resultText;
-    // $(document).scrollTop($('.resulttext2').scrollTop());
-    // $(document).scrollTop($('.s4static').height());
-    // $('html, body').animate({
-    //     scrollTop: $('.resulttext2').get(0).scrollHeight()
-    // }, 1000);
-
-    // $('html, body').animate("$(document).scrollTop($('.resulttext2').height())", 1000);
-
-
     $('html, body').animate({
         scrollTop: $(document).height()
     }, 2000);
@@ -1785,6 +1893,6 @@ update(false);
 
 
 // FOR DEBUGGING
-setTimeout('showResults()', 250);
-setTimeout('displayStage4()', 500);
-setTimeout('showResults2()', 750);
+// setTimeout('showResults()', 250);
+// setTimeout('displayStage4()', 500);
+// setTimeout('showResults2()', 750);

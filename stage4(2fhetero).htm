@@ -16,7 +16,7 @@
     <div class='upperbar'>
         <button class=multibutton id=multibutton3>Go to <span id='buttonname'></span></button>
     </div>
-    <div class = 'wrap'>
+    <div class = 'wrap noselect'>
         <div class = 'all'>
             <div class = 'sinfo'>
 
@@ -27,7 +27,7 @@
                 <div class = 'sinfotext hidewrap' id='hidewrap' >
                     <p style='font-size: 22px; margin-bottom: 20px;'> You are <span id='maintagdisplay'></span></p>
                     <p>
-                        Below is the graphical summary of your group's followers' sabotage and help decisions from Stage 2.
+                        Below is the graphical summary of followers' sabotage and help decisions in Stage 2.
                     </p>
                 </div>
 
@@ -89,27 +89,11 @@
                 <div class = sinfotext>
 
                     <p>
-                        Please make an investment decision to compete against the other followers for the new leadership position of your Group.
+                        Make an investment decision to compete against the other followers for the new leadership position of your Group.
                     </p>
                 </div>
 
 
-
-                <!-- <div class = sinfotext>
-                    <p>
-                        You can use the graphical calculator to consider a possible investment level for you and the opposing followers,
-                        and observe your probability to win
-                    </p>
-                    <p>
-                        Your decision slider, your investment cost and a reminder of the possible outcomes are located underneat the calculator.
-                    </p>
-                    <p>
-                        Your decision slider and your decision on the calculator are synchronized: any changes you make to one will immediately affect the other.
-                    </p>
-                    <p>
-                        If you do not submit a decision before the time runs out. The final position and value of your decision slider will be considered as your decision.
-                    </p>
-                </div> -->
 
 
             </div>
@@ -131,7 +115,7 @@
                                 <div id = 'mybar' class = 'lbar'></div>
                             </div>
                         </div>
-                        <h6 class='yourdecisiontext'>YOUR DECISION</h6>
+                        <h6 class='yourdecisiontext2'>YOUR DECISION</h6>
                         <div class=col1>
                             <div class=title1>
                                 <p>If You Win</p>
@@ -153,29 +137,32 @@
                         </div>
                     </div>
                     <div class='otherfollowers'>
-                        <div class='rightmaintitle'>
-                            <h6 class='rightmaintitletext'>OTHER FOLLOWER</h6>
+                            <div class='rightmaintitle'>
+                                <h6 class='rightmaintitletext'>OTHER FOLLOWER</h6>
+
+                            </div>
+                            <div class = 'followersgroupright firstone'>
+                                <h6  class = 'right_title'><span id='otherfollower1'></span></h6>
+                                <p><span class = 'advantagetext' id = 'advtxt2f1'></span></p>
+                                <div id = 'efficiencyColorf1' class = 'efficiencyColorRight'></div>
+                                <div class = 'sliderbarleader lright'>
+                                    <input type='range' min = '0' max = '400' class = 'lslider' value = '1' id = 'ofSlider1' />
+                                    <div id = 'barf1' class = 'lbar'></div>
+                                </div>
+                            </div>
                             <h13 class='rightsubtitletext'>HYPOTHETICAL</h13>
-                        </div>
-                        <div class = 'followersgroupright firstone'>
-                            <h6  class = 'right_title'><span id='otherfollower1'></span></h6>
-                            <p><span class = 'advantagetext' id = 'advtxt2f1'></span></p>
-                            <div id = 'efficiencyColorf1' class = 'efficiencyColorRight'></div>
-                            <div class = 'sliderbarleader lright'>
-                                <input type='range' min = '0' max = '400' class = 'lslider' value = '1' id = 'ofSlider1' />
-                                <div id = 'barf1' class = 'lbar'></div>
+                            <div class=col2>
+                                <div class=title2>
+                                    <p>If You Lose</p>
+                                </div>
+                                <div class='text2'>
+                                    <p><strong>Continue as a follower</strong> in your Group</p>
+                                    <p style='margin-top:-12px;'>Proceed to Stage 5</p>
+                                </div>
                             </div>
                         </div>
-                        <div class=col2>
-                            <div class=title2>
-                                <p>If You Lose</p>
-                            </div>
-                            <div class='text2'>
-                                <p><strong>Continue as a follower</strong> in your Group</p>
-                                <p style='margin-top:-12px;'>Proceed to Stage 5</p>
-                            </div>
-                        </div>
-                    </div>
+
+
 
 
                 </div>

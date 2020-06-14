@@ -12,10 +12,6 @@ var onezero = function() {
     return (Math.random() >= 0.5) ? 1 : 0;
 }
 
-var generateMeStrong = function() {
-    return (Math.random() > 0.5) ? true : false;
-}
-
 var generateS4winner = function() {
     var temp = [false, false, false, false];
     var index = Math.ceil(Math.random() * 2) - 1;
@@ -34,7 +30,6 @@ var bsw = [onezero(), onezero()];
 var bosw = [onezero(), onezero()];
 
 var d = {
-    meStrong: generateMeStrong(),
     me: tempMe,
     s2:
     {
@@ -73,7 +68,7 @@ var d = {
     {
         efo: parseFloat((Math.random()*500).toFixed(0)),
         oefo:  parseFloat((Math.random()*500).toFixed(0)),
-        yourLeaderWon: false, //(Math.random() > 0.5) ? true : false,
+        yourLeaderWon: (Math.random() > 0.5) ? true : false,
     },
     s4:
     {
@@ -135,7 +130,6 @@ var info = {};
 info.beliefs = {};
 
 var data2Info = function() {
-    info.meStrong = d.meStrong,
     info.me = d.me;
     info.s1 = d.s2.ourGroup.sabo.f1;
     info.s2 = d.s2.ourGroup.sabo.f2;
@@ -283,18 +277,9 @@ let theWheel = new Winwheel({
 });
 
 var pf1, pf2;
-var ee1, ee2;
-var eeArray = [];
-eeArray[info.me]= info.meStrong ? (3 * info.earray[info.me]) : (info.earray[info.me] / 3);
-var oIndex = (info.me === 1) ? 0 : 1;
-eeArray[oIndex] = info.earray[oIndex];
-
-ee2 = eeArray[1];
-ee1 = eeArray[0];
-
-var tot = ee1 + ee2;
-pf1 = 100 * ee1 / tot;
-pf2 = 100 * ee2 / tot;
+var tot = info.e1 + info.e2;
+pf1 = 100 * info.e1 / tot;
+pf2 = 100 * info.e2 / tot;
 
 
 let theWheel2 = new Winwheel({
@@ -810,7 +795,7 @@ var updatePie = function(a, barId, showBeliefs, ba) {
         automargin: true,
         opacity:actualOpacity,
         marker:{
-            colors: ['rgb(225, 225, 225)', 'rgb(160, 160, 160)'],
+            colors: ['rgb(225, 225, 225)', 'rgb(120, 120, 120)'],
             line: {
                 color: 'black',
                 width: 1,
@@ -889,6 +874,8 @@ var logistic2 = function(val , k) {
     return result;
 }
 
+
+
 var updateEfficiencyBar = function(efi1, efi2, barId, beliefSwitch, befi1, befi2) {
 
     var val1 = efi1 / (efi1 + efi2);
@@ -944,7 +931,7 @@ var updateEfficiencyBar = function(efi1, efi2, barId, beliefSwitch, befi1, befi2
         fixedrange: true,
         cliponaxis: false,
         marker: {
-            color: 'rgb(160, 160, 160)',
+            color: 'rgb(120, 120, 120)',
         },
         text: myText,
         textposition: 'inside',
@@ -1094,7 +1081,7 @@ var updateEffortBar = function(efo, oefo, barId, beliefSwitch, befo, boefo) {
         automargin: true,
         showlegend: false,
         marker:{
-            color: ['rgb(160, 160, 160)', 'rgb(225, 225, 225)'],
+            color: ['rgb(120, 120, 120)', 'rgb(225, 225, 225)'],
         },
         text: myText,
         textposition: 'outside',
@@ -1183,17 +1170,14 @@ var move2Last = function(array, me) {
     return array;
 }
 
-var updateS4Pie = function(a, b, barId, me, showBeliefs, ba, meStrong) {
-    console.log('You are follower' + (me+1));
+var updateS4Pie = function(a, b, barId, me, showBeliefs, ba) {
+
     var x = a;
     var y = b;
     var actualOpacity = 1;
 
-
     var actualData = [x, y];
-    actualData[me] = meStrong ? (actualData[me] * 3) : (actualData[me] / 3)
-
-    var actualColors = ['rgb(225, 225, 225)', 'rgb(140, 140, 140)'];
+    var actualColors = ['rgb(225, 225, 225)', 'rgb(120, 120, 120)'];
     var beliefColors = ['rgb(255, 255, 0)', 'rgb(160, 160, 0)'];
     var labelArray = ['Follower 1', 'Follower 2'];
     var beliefTextColor = (me===0) ? ['black', 'white'] : ['white', 'black'];
@@ -1312,7 +1296,7 @@ var updateS4EffortBar = function(a, b, barId, me, showBeliefs, ba) {
     var myOpacity = 1;
 
 
-    var actualColors = ['rgb(225, 225, 225)', 'rgb(140, 140, 140)'];
+    var actualColors = ['rgb(225, 225, 225)', 'rgb(120, 120, 120)'];
     var beliefColors = ['rgb(255, 255, 0)', 'rgb(160, 160, 0)'];
     var actualXPosition = [1, 2];
     var beliefXPosition = [1.15, 2.15];
@@ -1452,27 +1436,23 @@ var updateS4EffortBar = function(a, b, barId, me, showBeliefs, ba) {
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
 
-var updateS4EfficiencyBar = function(barId, beliefSwitch, me, meStrong) {
-    console.log('yoyoyoyoy->' + meStrong);
-    var myx, ox;
-    myx = meStrong ? 3 : 1;
-    ox = meStrong ? 1 : 3;
+var updateS4EfficiencyBar = function(barId, beliefSwitch, me) {
 
-    var actualColors, beliefColors, textColors, strength;
+    var actualColors, beliefColors, textColors;
 
     if(me===1) {
-        actualColors = ['rgb(140, 140, 140)', 'rgb(225, 225, 225)'];
-        beliefColors = ['rgb(140, 140, 140)', 'rgb(255, 255, 0)'];
+        actualColors = ['rgb(120, 120, 120)', 'rgb(225, 225, 225)'];
+        beliefColors = ['rgb(120, 120, 120)', 'rgb(255, 255, 0)'];
         textColors = ['white', 'black'];
     } else {
-        actualColors = ['rgb(225, 225, 225)', 'rgb(140, 140, 140)'];
+        actualColors = ['rgb(225, 225, 225)', 'rgb(120, 120, 120)'];
         beliefColors = ['rgb(225, 225, 225)', 'rgb(160, 160, 0)'];
         textColors = ['black', 'white'];
     }
 
     var f1 = {
         y: ['group 1'],
-        x: [myx],
+        x: [1],
         type: 'bar',
         orientation: 'h',
         sort: false,
@@ -1484,7 +1464,7 @@ var updateS4EfficiencyBar = function(barId, beliefSwitch, me, meStrong) {
         marker: {
             color: actualColors[0],
         },
-        text: myx,
+        text: 1,
         textposition: 'inside',
         insidetextanchor: 'middle',
         textfont: {
@@ -1496,7 +1476,7 @@ var updateS4EfficiencyBar = function(barId, beliefSwitch, me, meStrong) {
 
     var f4 = {
         y: ['group 1'],
-        x: [ox],
+        x: [1],
         type: 'bar',
         orientation: 'h',
         sort: false,
@@ -1508,7 +1488,7 @@ var updateS4EfficiencyBar = function(barId, beliefSwitch, me, meStrong) {
         marker: {
             color: actualColors[1],
         },
-        text: ox,
+        text: 1,
         textposition: 'inside',
         insidetextanchor: 'middle',
         textfont: {
@@ -1520,7 +1500,7 @@ var updateS4EfficiencyBar = function(barId, beliefSwitch, me, meStrong) {
     if(beliefSwitch) {
         var bf1 = {
             y: ['group 2'],
-            x: [myx],
+            x: [1],
             type: 'bar',
             orientation: 'h',
             sort: false,
@@ -1532,7 +1512,7 @@ var updateS4EfficiencyBar = function(barId, beliefSwitch, me, meStrong) {
             marker: {
                 color: beliefColors[0],
             },
-            text: myx,
+            text: 1,
             textposition: 'inside',
             insidetextanchor: 'middle',
             textfont: {
@@ -1543,7 +1523,7 @@ var updateS4EfficiencyBar = function(barId, beliefSwitch, me, meStrong) {
 
         var bf4 = {
             y: ['group 2'],
-            x: [ox],
+            x: [1],
             type: 'bar',
             orientation: 'h',
             sort: false,
@@ -1555,7 +1535,7 @@ var updateS4EfficiencyBar = function(barId, beliefSwitch, me, meStrong) {
             marker: {
                 color: beliefColors[1],
             },
-            text: ox,
+            text: 1,
             textposition: 'inside',
             insidetextanchor: 'middle',
             textfont: {
@@ -1592,7 +1572,7 @@ var updateS4EfficiencyBar = function(barId, beliefSwitch, me, meStrong) {
         xaxis: {
             fixedrange: true,
             autorange: false,
-            range: [0,4],
+            range: [0,2],
             showline: false,
             showgrid: false,
             showticklabels: false,
@@ -1658,12 +1638,13 @@ var bbSwitch = 1;
 beliefButton.onclick = function() {
     var showBeliefs3 = bbSwitch ? true : false;
     var o = showBeliefs3 ? 1 : 0;
-    var h = showBeliefs3 ? '100%' : '0px';
+    var o2 = showBeliefs3 ? 0 : 1;
+
     update(showBeliefs3);
     update2(showBeliefs3);
 
     document.getElementById("belieflegend").style.opacity = o;
-    document.getElementById('belieflegend').style.maxHeight = h;
+    document.getElementById("belieflegend3").style.opacity = o2;
     document.getElementById('hidewrap').style.opacity = o;
     bbSwitch = 1 - bbSwitch;
 }
@@ -1687,18 +1668,21 @@ var showResults = function() {
     var display = document.getElementById('s3shortresult');
     var shortResult = d.s3.yourLeaderWon ? 'Your Leader Won.' : 'Your Leader Lost.';
     display.innerHTML = shortResult;
+    if(!d.s3.yourLeaderWon) {
+        $('.s3resulttext').css({'flex-grow':'1'});
+    }
     setTimeout('showResultsDelayed1()', 1000);
 }
 
 var showResultsDelayed1 = function() {
         var largeDisplay = document.getElementById('resulttext');
-        var winScenario = 'Your leader maintains her '
-        + 'leadership position. <br> You and other followers continue their role as '
+        var winScenario = 'Your leader <strong>maintains</strong> her '
+        + 'leadership position. <br><br> You and other followers <strong>continue your role</strong> as '
         + 'followers and proceed to Stage 5.';
 
-        var loseScenario = 'Your Leader lost her '
-        + 'leadership position. <br> Proceeding to Stage 4 Followers\' Contest '
-        + 'to determine the new leader of your group.';
+        var loseScenario = 'Your Leader <strong>lost her '
+        + 'leadership</strong> position. <br><br> <strong>Proceeding to Stage 4</strong> Followers\' Contest '
+        + '<strong>to determine the new leader</strong> of your group.';
         largeDisplay.innerHTML = d.s3.yourLeaderWon ? winScenario : loseScenario;
 
         if(d.s3.yourLeaderWon) {
@@ -1711,9 +1695,9 @@ var showResultsDelayed2 = function() {
     displayPayoff.style.opacity = 1;
     displayPayoff.style.position = 'static';
     var s2Payoff = document.getElementById('stage2cost2');
-    var totalPayoff = document.getElementById('totalcost2');
-    s2Payoff.innerHTML = info.sarray[d.me] + info.harray[d.me];
-    totalPayoff.innerHTML = info.sarray[d.me] + info.harray[d.me];
+
+    s2Payoff.innerHTML = -(info.sarray[d.me] + info.harray[d.me]);
+
 }
 
 var displayStage4 = function() {
@@ -1742,9 +1726,9 @@ var displayStage4 = function() {
 }
 
 var update2= function(beliefSwitch2) {
-    updateS4Pie(info.e1, info.e2, 's4pie', info.me, beliefSwitch2, info.beliefs.e1, info.meStrong)
+    updateS4Pie(info.e1, info.e2, 's4pie', info.me, beliefSwitch2, info.beliefs.e1)
     updateS4EffortBar(info.e1, info.e2, 's4effortbars', info.me, beliefSwitch2, info.beliefs.e1)
-    updateS4EfficiencyBar('s4efficiencybar', beliefSwitch2, info.me, info.meStrong);
+    updateS4EfficiencyBar('s4efficiencybar', beliefSwitch2, info.me);
 }
 
 
@@ -1752,45 +1736,36 @@ var updatePayoffs = function() {
     var s2c = document.getElementById('stage2cost');
     var s4c = document.getElementById('stage4cost');
     var tc = document.getElementById('totalcost');
-    s2c.innerHTML = info.sarray[d.me] + info.harray[d.me];
-    s4c.innerHTML = info.earray[d.me];
-    tc.innerHTML = info.sarray[d.me] + info.harray[d.me] + info.earray[d.me];
+    s2c.innerHTML = -(info.sarray[d.me] + info.harray[d.me]);
+    s4c.innerHTML = -(info.earray[d.me]);
+    tc.innerHTML = -(info.sarray[d.me] + info.harray[d.me] + info.earray[d.me]);
 }
 
 var showResults2 = function() {
     var resultIndex2 = d.s4.hasWon.indexOf(true) + 1;
     var display = document.getElementById('s4shortresult');
     var largeDisplay = document.getElementById('resulttext2');
-    // console.log(info.me);
-    // console.log(d.s4.hasWon.indexOf(true));
+
     if(info.me === d.s4.hasWon.indexOf(true)) {
         var shortResultText = 'You won!';
-        var resultText = 'You are the new leader of your group! <br>'
+        var resultText = '<strong>You are the new leader</strong> of your group. <br><br>'
         + 'Other followers and your former leader will proceed to Stage 5 '
         + 'to determine how much to help or sabotage you.  <br>'
         + 'You will proceed to Stage 6 for the second Leaders\' Contest '
         + 'and wait for Stage 5 decisions to be made. <br> <br> <br>';
     } else {
         shortResultText = 'Follower ' + resultIndex2 + ' won.';
-        resultText = 'Follower ' + resultIndex2 + ' '
-        + 'is the new leader of your group. <br>'
+        resultText = '<strong>Follower ' + resultIndex2 + ' '
+        + 'is the new leader</strong> of your group. <br><br>'
         + 'Your former leader, you and the other followers will proceed to Stage 5 '
         + 'to determine how much to help or sabotage your new leader.  <br>'
         + 'Your new leader (' + 'Follower ' + resultIndex2 + ') will proceed to '
         + 'Stage 6 for the second Leaders\' Contest '
         + 'and wait for Stage 5 decisions to be made. <br> <br> <br>';
     }
+
     display.innerHTML = shortResultText;
     largeDisplay.innerHTML = resultText;
-    // $(document).scrollTop($('.resulttext2').scrollTop());
-    // $(document).scrollTop($('.s4static').height());
-    // $('html, body').animate({
-    //     scrollTop: $('.resulttext2').get(0).scrollHeight()
-    // }, 1000);
-
-    // $('html, body').animate("$(document).scrollTop($('.resulttext2').height())", 1000);
-
-
     $('html, body').animate({
         scrollTop: $(document).height()
     }, 2000);
@@ -1805,6 +1780,6 @@ update(false);
 
 
 // FOR DEBUGGING
-setTimeout('showResults()', 250);
-setTimeout('displayStage4()', 500);
-setTimeout('showResults2()', 750);
+// setTimeout('showResults()', 250);
+// setTimeout('displayStage4()', 500);
+// setTimeout('showResults2()', 750);

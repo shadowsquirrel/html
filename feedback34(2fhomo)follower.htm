@@ -3,7 +3,7 @@
 <head>
 
 
-    <link rel="stylesheet" href="css/feedback34(2fhetero).css">
+    <link rel="stylesheet" href="css/feedback34(2fhomo)follower.css">
     <script src='js/Winwheel.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -37,7 +37,7 @@
                                 </div>
                             </div>
                         </div>
-                        <h5>
+                        <h5 class=s3shortresult>
                             <span id='s3shortresult' class='s3shortresult'></span>
                         </h5>
                     </div>
@@ -73,6 +73,16 @@
                                 <p style='font-size:14px;'>Your Belief on Opposing Group</p>
                             </div>
                         </div>
+                        <div class='belieflegend3' id='belieflegend3'>
+                            <div class='boxtext' id='boxtext'>
+                                <div class='yourleaderbox'></div>
+                                <p style='font-size:14px;'>Your Leader</p>
+                            </div>
+                            <div class='boxtext' id='boxtext'>
+                                <div class='otherleaderbox'></div>
+                                <p style='font-size:14px;'>Opposing Leader</p>
+                            </div>
+                        </div>
                     </div>
                     <div class='s2feedback'>
                         <div class = s2maintitle>
@@ -102,40 +112,57 @@
                                     <div id = 'sabobarg2'></div>
                                 </div>
                             </div>
-                            <div class='s2boxtext'>
-                                <div class='youbox'></div>
-                                <p style='font-size:14px;'>Your Decision</p>
+                            <div class = s2boxtextwrap>
+                                <div class='s2boxtext'>
+                                    <div class='youbox'></div>
+                                    <p style='font-size:14px;'>Your Decision</p>
+                                </div>
+                                <div class='s2boxtext'>
+                                    <div class='sabobox'></div>
+                                    <p style='font-size:12px;'>Sabotage</p>
+                                </div>
+                                <div class='s2boxtext'>
+                                    <div class='helpbox'></div>
+                                    <p style='font-size:12px;'>Help</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class='s3resulttext'>
-                <span id=resulttext></span>
-            </div>
 
-            <div class='s3s4payoffinfohwrap2' id='s3s4payoffinfohwrap2'>
-                <div class='s3s4payoffinfo2'>
-                    <div class='investcosttitle2'>
-                        <h5>Your Investment</h5>
-                        <h5>Cost</h5>
-                    </div>
 
-                    <div class='payoffresults2'>
-                        <div class='stagecolumn2'>
-                            <h6 style='margin-bottom: 30px;'>Stage 2</h6>
-                            <!-- <hr class='hline2'/> -->
-                            <h6>TOTAL</h6>
+            <div class='winnerleaderresultwrap'>
+                <div class='s3resulttext'>
+                    <span id=resulttext></span>
+                </div>
+
+                <div class='s3s4payoffinfohwrap2' id='s3s4payoffinfohwrap2'>
+                    <div class='s3s4payoffinfo2'>
+                        <div class='investcosttitle2'>
+                            <p style='margin-bottom:-7px;'>Your</p>
+                            <p>Net Payoff</p>
+                            <!-- <p style='margin-top: -23px;'>Cost</p> -->
                         </div>
-                        <div class='numbercolumn2'>
-                            <h7 style='margin-bottom: 20px;'><span id='stage2cost2'></span></h7>
-                            <!-- <hr class='hline2' /> -->
-                            <h7><span id='totalcost2'></span></h7>
-                        </div>
-                    </div>
 
+                        <div class='payoffresults2'>
+                            <!-- <div class='stagecolumn2'>
+                                <p style='margin-bottom: 10px;'>Stage 3</p>
+                                <hr class='hline2'/>
+                                <p>TOTAL</p>
+                            </div> -->
+                            <div class='numbercolumn2'>
+                                <p style='margin-bottom: 10px;'><span id='stage2cost2'></span></p>
+                                <!-- <hr class='hline2' /> -->
+                                <!-- <h7><span id='totalcost2'></span></h7> -->
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
+
+
 
             <div class='secondpartwrap' id='secondpartwrap'>
                 <div class='secondpart' id='secondpart'>
@@ -154,7 +181,7 @@
                                 </div>
                             </div>
                         </div>
-                        <h5><span id='s4shortresult' class='s4shortresult'></span></h5>
+                        <p><span id='s4shortresult' class='s4shortresult'></span></p>
                     </div>
                     <div class='s4feedback'>
                         <div class='s4feedbacktitle'>
@@ -185,21 +212,22 @@
                                     <div class='s3s4payoffinfohwrap'>
                                         <div class='s3s4payoffinfo'>
                                             <div class='investcosttitle'>
-                                                <h6>Your Investment Costs</h6>
+                                                <p style='margin-bottom:-7px;'>Your</p>
+                                                <p>Net Payoff</p>
                                             </div>
 
                                             <div class='payoffresults'>
                                                 <div class='stagecolumn'>
-                                                    <h6>Stage 2</h6>
-                                                    <h6>Stage 4</h6>
+                                                    <p>Stage 2</p>
+                                                    <p>Stage 4</p>
                                                     <hr class='hline'/>
-                                                    <h6>TOTAL</h6>
+                                                    <p>TOTAL</p>
                                                 </div>
                                                 <div class='numbercolumn'>
-                                                    <h7><span id='stage2cost'></span></h7>
-                                                    <h7><span id='stage4cost'></span></h7>
+                                                    <p><span id='stage2cost'></span></p>
+                                                    <p><span id='stage4cost'></span></p>
                                                     <hr class='hline' />
-                                                    <h7><span id='totalcost'></span></h7>
+                                                    <p><span id='totalcost'></span></p>
                                                 </div>
                                             </div>
 
@@ -237,7 +265,7 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="js/feedback34(2fhetero).js"></script>
+    <script src="js/feedback34(2fhomo)follower.js"></script>
 
 </body>
 </html>

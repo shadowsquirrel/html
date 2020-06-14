@@ -776,9 +776,8 @@
     appearance: none;
     opacity: 0;
 
-    width: 991px;
+    width: 1020px;
     margin-top: 13px;
-    margin-left:-1px;
     background: black;
     height: 2px;
 }
@@ -791,7 +790,7 @@
     -webkit-appearance: none;
     appearance: none;
     width: 3px;
-    height: 40px;
+    height: 80px;
     background: black;
     cursor: pointer;
     margin-top: 0px;
@@ -803,7 +802,7 @@
     -webkit-appearance: none;
     appearance: none;
     width: 3px;
-    height: 40px;
+    height: 80px;
     background: black;
     cursor: pointer;
     margin-top: 0px;
@@ -821,13 +820,13 @@
 .efislider:hover::-webkit-slider-thumb
 {
     opacity: 0;
-    height: 55px;
+    height: 80px;
     margin-top: 0px;
 }
 .efislider:hover::-moz-range-thumb
 {
     opacity: 0;
-    height: 55px;
+    height: 80px;
     margin-top: 0px;
 }
 
@@ -1177,4 +1176,13 @@ input:checked + .checkslider:before {
     display:flex;
     flex-direction: column;
 
+}
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }

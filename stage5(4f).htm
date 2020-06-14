@@ -14,7 +14,7 @@
         <button class=multibutton id=multibutton>Decision Mode</button>
         <button class=multibutton id=multibutton2>Go to <span id='buttonname'></span></button>
     </div>
-    <div class = 'wrap'>
+    <div class = 'wrap noselect'>
 
         <div class = 'all'>
 
@@ -57,14 +57,35 @@
                                 </div>
                             </div>
                             <div class='borderlegend'>
-                                <span class = newleader>New Leader</span>
-                                <span class = youare>You</span>
+                                <div class='boxtext rolehide'>
+                                    <div class='youbox1'></div>
+                                    <p style='font-size:12px;'>You</p>
+                                </div>
+                                <div class='boxtext ournewleader'>
+                                    <div class='newleaderbox1'></div>
+                                    <p style='font-size:12px;'>New Leader</p>
+                                </div>
+                                <div class='boxtext'>
+                                    <div class='sabobox'></div>
+                                    <p style='font-size:12px;'>Sabotage</p>
+                                </div>
+                                <div class='boxtext'>
+                                    <div class='helpbox'></div>
+                                    <p style='font-size:12px;'>Help</p>
+                                </div>
+                                <div class='boxtext theirnewleader'>
+                                    <div class='newleaderbox1' ></div>
+                                    <div class='newleadertextwrap'>
+                                        <p style='font-size:12px;'>Opposing Group's</p>
+                                        <p style='font-size:12px; margin-left:-32px; margin-top:-15px;'>New Leader</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <div class = s3infographics>
                             <h6 class = 's3infotitle'>STAGE 3</h6>
-                            <h10 class = 's3infotitle' style='margin-top: -45px;'>(Your leader lost)</h10>
+                            <h10 class = 's3infotitle' style='margin-top: -50px;'><span id=wholost></span></h10>
                             <div class = 's3graphics'>
                                 <div id = 's3pie' class = 's3pie'></div>
                                 <div class='efiefo'>
@@ -72,17 +93,32 @@
                                     <div id = 's3efibar' class = 's3efibar'></div>
                                 </div>
                             </div>
-
+                            <div class='borderlegend leaderwonextratop'>
+                                <div class='boxtext extraboxtext1'>
+                                    <div class='yourleaderbox'></div>
+                                    <p style='font-size:12px;'><span id='roledependenttext'></span></p>
+                                </div>
+                                <div class='boxtext extraboxtext1'>
+                                    <div class='opposingleaderbox'></div>
+                                    <p style='font-size:12px;'>Opposing Leader</p>
+                                </div>
+                            </div>
 
                         </div>
 
                         <div class = s4infographics>
                             <h6>STAGE 4</h6>
-                            <h10 style='margin-top: -50px;'>(You lost)</h10>
+                            <h10 class='rolehide' style='margin-top: -38px;'>(You lost)</h10>
                             <div id = 's4pie' class = 's4pie'></div>
                             <div class='borderlegend'>
-                                <span class = newleader2>New Leader</span>
-                                <span class = youare2>You</span>
+                                <div class='boxtext  extraboxtext2'>
+                                    <div class='newleaderbox2'></div>
+                                    <p style='font-size:12px;'>New Leader</p>
+                                </div>
+                                <div class='boxtext extraboxtext2 rolehide'>
+                                    <div class='youbox2'></div>
+                                    <p style='font-size:12px;'>You</p>
+                                </div>
                             </div>
                         </div>
 
@@ -92,7 +128,7 @@
 
                 <div class ='sinfotext limited'>
                     <p>
-                        Please make your sabotage or help decision to affect your leader's stage 6 outcome.
+                        Please make your sabotage or help decision to affect your <strong><span id='newleadertag'></span></strong> leader's stage 6 outcome.
                     </p>
                     <p>
                         You can use the below graphical tool to make your decision
@@ -117,13 +153,14 @@
                         <br />
                         <br /> -->
                         <h6 class = 'left_ltitle'>Your Leader</h6>
+                        <h6 class='ldecisiontext1'>HYPOTHETICAL</h6>
                         <p><span class = 'advantagetext' id = 'advtxt1'></span></p>
                         <div id = 'efficiencyBar1' class = 'efficiencyBar1'></div>
-
                         <div class = 'sliderbarleader left'>
-                            <input type='range' min = '0' max = '500' class = 'lslider' value = '1' id = 'lSlider1' />
-                            <div id = 'barl' class = 'lbar'></div>
-                        </div>
+                                <input type='range' min = '0' max = '500' class = 'lslider' value = '1' id = 'lSlider1' />
+                                <div id = 'barl' class = 'lbar'></div>
+                            </div>
+
                     </div>
 
 
@@ -142,6 +179,7 @@
                         <br />
                         <br /> -->
                         <h6  class = 'right_title'>Opposing Leader</h6>
+                        <h6 class='ldecisiontext2'>HYPOTHETICAL</h6>
                         <p><span class = 'advantagetext' id = 'advtxt2'></span></p>
                         <div id = 'efficiencyBar2' class = 'efficiencyBar2'></div>
                         <div class = 'sliderbarleader lright'>
@@ -154,11 +192,10 @@
 
 
                 <div class = 'middlesection'>
-                    <h6 style = 'z-index:1;'>Leaders' Relative Power Bar</h6>
                     <div class = 'efficiencyBarWrap'>
                         <div id = 'efficiencyBar' class = 'efficiencyBar'></div>
                     </div>
-
+                    <h6 style = 'z-index:1;'>Relative Power</h6>
                 </div>
 
 
@@ -176,8 +213,13 @@
                                 </div>
                             </div>
                         </div>
+                        <div class='yourdecisiontext2wrap'>
+                            <h6 class='yourdecisiontext21'>YOUR DECISION</h6>
+                            <h6 class='yourdecisiontext22'>HYPOTHETICAL</h6>
+                            <h6 class='yourdecisiontext23'>HYPOTHETICAL</h6>
+                            <h6 class='yourdecisiontext24'>HYPOTHETICAL</h6>
+                        </div>
 
-                        <h6 class='yourdecisiontext2'>YOUR DECISION</h6>
 
                         <div class = 'slidebargroup left'>
                             <div class = 'sliderbar'>
@@ -230,7 +272,12 @@
                             </div>
                         </div>
 
-
+                        <div class='yourdecisiontext3wrap'>
+                            <h6 class='yourdecisiontext31'>HYPOTHETICAL</h6>
+                            <h6 class='yourdecisiontext32'>HYPOTHETICAL</h6>
+                            <h6 class='yourdecisiontext33'>HYPOTHETICAL</h6>
+                            <h6 class='yourdecisiontext34'>HYPOTHETICAL</h6>
+                        </div>
                         <div class = 'slidebargroup right'>
                             <div class = 'sliderbar'>
                                 <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider1' />
@@ -267,9 +314,9 @@
                         <div class=mytablewrap>
                             <div class=mytableleft>
                                 <div class=sidecolumn>
-                                    <p class=columnclass>Your Prize</p>
+                                    <p class=columnclass>Your Receive</p>
                                     <p class=columnclass>Net Payoff</p>
-                                    <p class=columnclass>Your Role</p>
+                                    <!-- <p class=columnclass>Your Role</p> -->
                                 </div>
                                 <div class=maincolumnleft>
                                     <div class=titlerow>
@@ -281,20 +328,20 @@
                                     <div class=row>
                                         <p><span id=winnetpayoff class='outcomes'></span></p>
                                     </div>
-                                    <div class=row>
+                                    <!-- <div class=row>
                                         <p><strong>Continue as a follower</strong> in your group</p>
                                     </div>
                                     <div class=roww2>
                                         <p>Proceed to Stage 6</p>
-                                    </div>
+                                    </div> -->
                                 </div>
 
                             </div>
                             <div class=mytableright>
                                 <div class=sidecolumn>
-                                    <p class=columnclass>Your Prize</p>
+                                    <p class=columnclass>Your Receive</p>
                                     <p class=columnclass>Net Payoff</p>
-                                    <p class=columnclass>Your Role</p>
+                                    <!-- <p class=columnclass>Your Role</p> -->
                                 </div>
                                 <div class=maincolumnright>
                                     <div class=titlerow>
@@ -306,12 +353,12 @@
                                     <div class=row>
                                         <p><span id=losenetpayoff class='outcomes'></span></p>
                                     </div>
-                                    <div class=row>
+                                    <!-- <div class=row>
                                         <p><strong>Chance to become the new Leader</strong></p>
                                     </div>
                                     <div class=roww2>
                                         <p>Proceed to Stage 5</p>
-                                    </div>
+                                    </div> -->
                                 </div>
 
                             </div>

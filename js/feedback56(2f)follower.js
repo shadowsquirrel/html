@@ -220,8 +220,8 @@ d.s3.cost = {
     myNet: d.s3.yourLeaderWon ? (1000 - d.s3.efo) : (-d.s3.efo),
     oNet: -d.s3.oefo + (d.s3.yourLeaderWon ? 0 : 1000)
 }
-console.log(d.s3.cost.myNet);
-console.log(d.s3.cost.oNet);
+// console.log(d.s3.cost.myNet);
+// console.log(d.s3.cost.oNet);
 
 d.s5.ourGroup.cost = {
     f1: d.s5.ourGroup.help.f1 + d.s5.ourGroup.sabo.f1,
@@ -243,8 +243,8 @@ d.s6.cost = {
     myNet: d.s6.yourLeaderWon ? (1000 - d.s6.efo) : (-d.s6.efo),
     oNet: -d.s6.oefo + (d.s6.yourLeaderWon ? 0 : 1000)
 }
-console.log(d.s6.cost.myNet);
-console.log(d.s6.cost.oNet);
+// console.log(d.s6.cost.myNet);
+// console.log(d.s6.cost.oNet);
 
 
 var info = {};
@@ -484,17 +484,17 @@ for(k = 0; k < 2; k++) {
 
 }
 
-console.log(typeof(info.myNet));
-console.log('followers:');
-for(var j = 0; j<2; j++){
-    console.log(ftotal[j]);
-}
-console.log('other followers:');
-for(j = 0; j<2; j++){
-    console.log(oftotal[j]);
-}
-console.log('our initial leader: ' + ltotal[0]);
-console.log('opposing initial leader: ' + ltotal[1]);
+// console.log(typeof(info.myNet));
+// console.log('followers:');
+// for(var j = 0; j<2; j++){
+//     console.log(ftotal[j]);
+// }
+// console.log('other followers:');
+// for(j = 0; j<2; j++){
+//     console.log(oftotal[j]);
+// }
+// console.log('our initial leader: ' + ltotal[0]);
+// console.log('opposing initial leader: ' + ltotal[1]);
 
 console.log('my index: ' + (tempMe + 1) + ', my role: ' + (myRole ? 'leader' : 'follower') + ', s4 winner: ' + (info.s4winner + 1));
 console.log('our team won in s3? ' + info.s3won);
@@ -509,7 +509,7 @@ console.log('our team won in s6?' + info.s6won);
 
 
 
-var a = 100*info.pwin();
+var a = 100*info.pwin_2();
 var b = 100-a;
 
 let theWheel = new Winwheel({
@@ -1020,7 +1020,7 @@ var updatePie = function(a, barId, showBeliefs, ba) {
         automargin: true,
         opacity:actualOpacity,
         marker:{
-            colors: ['rgb(225, 225, 225)', 'rgb(160, 160, 160)'],
+            colors: ['rgb(225, 225, 225)', 'rgb(120, 120, 120)'],
             line: {
                 color: 'black',
                 width: 1,
@@ -1144,7 +1144,7 @@ var updateEfficiencyBar = function(efi1, efi2, barId, beliefSwitch, befi1, befi2
         fixedrange: true,
         cliponaxis: false,
         marker: {
-            color: 'rgb(160, 160, 160)',
+            color: 'rgb(120, 120, 120)',
         },
         text: myText,
         textposition: 'inside',
@@ -1294,7 +1294,7 @@ var updateEffortBar = function(efo, oefo, barId, beliefSwitch, befo, boefo) {
         automargin: true,
         showlegend: false,
         marker:{
-            color: ['rgb(160, 160, 160)', 'rgb(225, 225, 225)'],
+            color: ['rgb(120, 120, 120)', 'rgb(225, 225, 225)'],
         },
         text: myText,
         textposition: 'outside',
@@ -1520,7 +1520,8 @@ var updateS3CostBarTotal = function(a, b, barId, myFirstRole) {
 
     var colorArray = [purple, lightpurple];
     if(myFirstRole===1) {
-        colorArray[0] = 'turquoise';
+        // colorArray[0] = 'turquoise';
+        colorArray[0] = 'darkblue';
     }
 
     var actual =  {
@@ -2006,6 +2007,9 @@ updateS6CostBarTotal(info.myNet_2, info.oNet_2, 's6payofftotal', info.s3won);
 // updateTotalCostBar = function(a, b, c, d, l, barId, ourGroup, me, myFirstRole, s3Won, winner)
 updateTotalCostBar(ftotal[0], ftotal[1], ltotal[0], 'totalpayoffg1', true, info.me, info.role, info.s3won, info.s4winner);
 updateTotalCostBar(oftotal[0], oftotal[1], ltotal[1], 'totalpayoffg2', false, info.me, info.role, !info.s3won, info.os4winner);
+
+var yousubtexttype = document.getElementById('yousubtexttype');
+yousubtexttype.innerHTML = info.role ? 'LEADER' : 'FOLLOWER';
 }
 
 
@@ -2016,14 +2020,22 @@ var bbSwitch = 1;
 beliefButton.onclick = function() {
     var showBeliefs3 = bbSwitch ? true : false;
     var o = showBeliefs3 ? 1 : 0;
-    var h = showBeliefs3 ? '100%' : '0px';
+    var o2 = showBeliefs3 ? 0 : 1;
+
     update(showBeliefs3);
+    update2(showBeliefs3);
 
     document.getElementById("belieflegend").style.opacity = o;
-    document.getElementById('belieflegend').style.maxHeight = h;
+    document.getElementById("belieflegend3").style.opacity = o2;
     // document.getElementById('hidewrap').style.opacity = o;
     bbSwitch = 1 - bbSwitch;
 }
+
+
+
+
+
+
 
 // INFO BUTTON
 var infoButton = document.getElementById('stageinfobutton');
@@ -2035,14 +2047,14 @@ infoButton.onclick = function() {
     if(showInfo) {
         update2();
         $('html, body').animate({
-            scrollTop: ($('.secondpartwrap').height())*1.75
+            scrollTop: ($('.secondpartwrap').height())*1.3
         }, 500);
     } else {
         // $('html, body').animate({
         //     scrollTop: ($('.firstpartwrap').height())*0.65
         // }, 500);
         $('html, body').animate({
-            scrollTop: ($('.secondpartwrap').height())/2
+            scrollTop: ($('.secondpartwrap').height())*0.25
         }, 500);
     }
 
@@ -2097,9 +2109,9 @@ var displayAllPayoffs = function() {
     document.getElementById('secondpartwrap').style.position = 'static';
     document.getElementById('stageinfobutton').style.opacity = 1;
     document.getElementById('stageinfobutton').style.zIndex = 0;
-    $('html, body').animate({
-        scrollTop: ($('.secondpartwrap').height())/5
-    }, 1000);
+    // $('html, body').animate({
+    //     scrollTop: ($('.secondpartwrap').height())/5
+    // }, 1000);
 
 }
 
@@ -2112,7 +2124,7 @@ var displayAllPayoffs = function() {
 // can be turned on by the beliefs button defined below
 update(false);
 update2();
-
+$('.cursor-pointer').css({'cursor':'default'});
 // FOR DEBUGGING
 
 // setTimeout('showResults()', 250);

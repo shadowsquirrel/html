@@ -665,7 +665,7 @@ var updateStrengthBar = function(efi1, efi2) {
         barmode: 'group',
         height: 10,
         width: 350,
-        margin: {"t": 0, "b": 0, "l": 0, "r": 0},
+        margin: {"t": 7, "b": 0, "l": 0, "r": 0},
         xaxis: {
             fixedrange: true,
             autorange: false,
@@ -782,6 +782,9 @@ var updateEfficiencyBar = function(efi1, efi2) {
     val2 = 1 - val1;
 
     var gapSize = 0.1;
+    var gp1, gp2, gp3;
+    gp1 = gp3 = gapSize*0.45;
+    gp2 = gapSize*0.1;
     val1 = val1 - gapSize/2;
     val2 = val2 - gapSize/2;
 
@@ -816,7 +819,6 @@ var updateEfficiencyBar = function(efi1, efi2) {
         },
     };
 
-
     var gap = {
         y: ['group 1'],
         x: [gapSize],
@@ -829,7 +831,68 @@ var updateEfficiencyBar = function(efi1, efi2) {
         marker: {
             color: 'white',
         },
-        text: 'Relative Power',
+        text: '',
+        textposition: 'inside',
+        insidetextanchor: 'middle',
+        textfont: {
+            color: 'black',
+            size: '14'
+        },
+    };
+
+    var gap1 = {
+        y: ['group 1'],
+        x: [gp1],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker: {
+            color: 'white',
+        },
+        text: '',
+        textposition: 'inside',
+        insidetextanchor: 'middle',
+        textfont: {
+            color: 'black',
+            size: '14'
+        },
+    };
+    var gap2 = {
+        y: ['group 1'],
+        x: [gp2],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker: {
+            color: 'black',
+        },
+        text: '',
+        textposition: 'inside',
+        insidetextanchor: 'middle',
+        textfont: {
+            color: 'black',
+            size: '14'
+        },
+    };
+    var gap3 = {
+        y: ['group 1'],
+        x: [gp3],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker: {
+            color: 'white',
+        },
+        text: '',
         textposition: 'inside',
         insidetextanchor: 'middle',
         textfont: {
@@ -859,12 +922,12 @@ var updateEfficiencyBar = function(efi1, efi2) {
         },
     };
 
-    var data = [leader1, gap, leader2];
+    var data = [leader1, gap1, gap2, gap3, leader2];
 
     var layout = {
         barmode: 'stack',
         height: 30,
-        width: 1000,
+        width: 1020,
         // width: 200,
         margin: {"t": 0, "b": 0, "l": 0, "r": 0},
         xaxis: {
@@ -1005,7 +1068,6 @@ var updateAll = function() {
     whoamIDisplay.innerHTML = (info.me + 1);
 
 }
-
 
 
 var hideWheel = function() {

@@ -13,10 +13,10 @@
     <title>Page Title</title>
 </head>
 <body>
-    <div class='upperbar'>
+    <div class='upperbar noselect'>
         <button class=multibutton id=multibutton3>Go to <span id='buttonname'></span></button>
     </div>
-    <div class = 'wrap'>
+    <div class = 'wrap noselect'>
 
         <div class = 'all'>
 
@@ -117,6 +117,7 @@
                                 <div id = 'mybar' class = 'lbar'></div>
                             </div>
                         </div>
+                        <h6 class='yourdecisiontext2'>YOUR DECISION</h6>
                         <div class=col1>
                             <div class=title1>
                                 <p>If You Win</p>
@@ -146,7 +147,7 @@
 
                     <div class='otherfollowers'>
                         <div class='rightmaintitle'>
-                            <h5>OTHER FOLLOWER</h5>
+                            <h6 class='rightmaintitletext'>OTHER FOLLOWER</h6>
                         </div>
                         <div class = 'followersgroupright firstone'>
                             <h6  class = 'right_title'><span id='otherfollower1'></span></h6>
@@ -157,6 +158,7 @@
                                 <div id = 'barf1' class = 'lbar'></div>
                             </div>
                         </div>
+                        <h13 class='rightsubtitletext'>HYPOTHETICAL</h13>
                         <div class=col2>
                             <div class=title2>
                                 <p>If You Lose</p>
@@ -173,7 +175,7 @@
 
                 <div class = decision>
                     <div class = input>
-                        <h5 class = 'decisiontitle'>Your Decision</h5>
+                        <!-- <h5 class = 'decisiontitle'>Your Decision</h5> -->
                         <div class = 'sliderbard'>
                             <input type='range' min = '0' max = '400' class = 'dslider' value = '0' id = 'dSlider' />
                             <div id = 'bard' class = 'dbar'></div>
@@ -183,10 +185,8 @@
                         <p>
                             Your Investment cost is <span id=payoff class='outcomes'>0 token</span>.
                         </p>
-                        <div class=mytable>
+                        <h6 class='yourdecisiontext closertotop'>YOUR DECISION</h6>
 
-
-                        </div>
                     </div>
                 </div>
 

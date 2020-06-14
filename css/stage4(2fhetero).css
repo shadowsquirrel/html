@@ -316,8 +316,8 @@
 {
     /* margin-left: -135px; */
     padding-bottom: 20px;
-    font-weight: 200;
-    font-size: 17px;
+    font-weight: 700;
+    font-size: 19px;
     transition: font-weight .2s ease-in-out;
     /* text-shadow: 0px 0px 0px black; */
 
@@ -339,8 +339,8 @@
 .rightmaintitletext
 {
     color: black;
-    font-weight: 200;
-    font-size: 18px;
+    font-weight: 700;
+    font-size: 19px;
     transition: font-weight .2s ease-in-out;
     /* text-shadow: 0px 0px 0px black; */
 
@@ -349,13 +349,14 @@
 .rightsubtitletext
 {
     font-size: 14px;
-    opacity: 0.2;
+    opacity: 0.3;
     transition-property: opacity, font-weight;
     transition-duration: 0.35s, 0.2s;
     transition-timing-function: ease-in-out, ease-in-out;
     /* transition: opacity.2s ease-in-out; */
     /* transition: font-weight 1s ease-in-out, opacity .2s ease-in-out; */
-    font-weight: normal;
+    font-weight: 100;
+    margin-left: 40px;
 }
 /************************************************/
 /************************************************/
@@ -391,8 +392,10 @@
 }
 .efficiencyColorLeft
 {
+    margin-top: -23px;
+    padding-bottom: 15px;
     margin-left: 30px;
-    z-index:0;
+    z-index:-2;
     cursor: none;
 }
 /************************************************/
@@ -475,9 +478,10 @@
 /************************************************/
 .efficiencyColorRight
 {
-    /* margin-top: -20px; */
+    margin-top: -23px;
+    padding-bottom: 15px;
     padding-left: 30px;
-    z-index:0;
+    z-index:-2;
     cursor: none;
 }
 
@@ -511,6 +515,7 @@
 /************************************************/
 .lslider
 {
+    cursor: pointer;
     z-index: 1;
     position: absolute;
     -webkit-appearance: none;
@@ -589,6 +594,7 @@
 {
     /* position: sticky;
     top:3000px; */
+    padding-top: 30px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -633,6 +639,7 @@
 /************************************************/
 .dslider
 {
+    cursor: pointer;
     z-index: 1;
     position: absolute;
     -webkit-appearance: none;
@@ -754,9 +761,21 @@
 .yourdecisiontext
 {
     font-weight: 200;
-    font-size: 18px;
+    font-size: 19px;
     transition: font-weight .2s ease-in-out;
     margin-top: -2px;
+
+}
+.yourdecisiontext2
+{
+    /*  */
+    font-weight: 100;
+    font-size: 14px;
+    margin-top: -2px;
+    opacity: 0.3;
+    transition-property: opacity, font-weight;
+    transition-duration: 0.35s, 0.2s;
+    transition-timing-function: ease-in-out, ease-in-out;
 
 }
 .closertotop
@@ -799,11 +818,12 @@
 }
 .title1
 {
-    font-size: 17px;
-    font-weight: 600;
-    text-align: center;
+    /* font-size: 17px; */
+    font-weight: 800;
+    /* text-align: left; */
     /* padding-right: 10px; */
-    margin-left: -40px;
+    /* margin-left: -40px; */
+    padding-bottom: 10px;
 }
 .text1
 {
@@ -821,9 +841,10 @@
 .title2
 {
 
-    font-size: 17px;
-    font-weight: 600;
-    text-align: center;
+    /* font-size: 17px; */
+    font-weight: 800;
+    /* text-align: left; */
+    padding-bottom: 10px;
 }
 .text2
 {
@@ -903,4 +924,14 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }

@@ -331,7 +331,7 @@ var setStrengthBar = function(efi1, efi2) {
         barmode: 'group',
         height: 10,
         width: 350,
-        margin: {"t": 0, "b": 0, "l": 0, "r": 0},
+        margin: {"t": 7, "b": 0, "l": 0, "r": 0},
         xaxis: {
             fixedrange: true,
             autorange: false,
@@ -1128,7 +1128,7 @@ var updateEffortBar = function(a, b, c, d) {
             size: 14,
         },
         barmode: 'overlay',
-        height: 220,
+        height: 150,
         width: myWidth,
         margin: {"t": 40, "b": 0, "l": 30, "r": 30},
         yaxis: {
@@ -1255,6 +1255,7 @@ var initialize = function() {
 
     var payoffDisplay = document.getElementById('payoff');
     payoffDisplay.innerHTML = '<strong>' + (e1)  + '</strong>' + ((e1 > 1) ? ' tokens' : ' token');
+    $('.cursor-pointer').css({'cursor':'default'});
 }
 
 var updateAll = function() {
@@ -1394,11 +1395,15 @@ ofslider3.oninput = function() {
 $('#dSlider').hover(
     function() {
         setTimeout("updateBarXAxis('bard', true)", 250);
+        $('.yourdecisiontext2').css({'font-weight':'700', 'opacity':'1'});
+        $('.yourdecisiontext').css({'font-weight':'700', 'font-size':'19px'});
         $('#fSlider1, #dSlider').css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
         $('#fSlider1').addClass('newdSlider');
     },
     function() {
         setTimeout("updateBarXAxis('bard', false)", 1000);
+        $('.yourdecisiontext2').css({'font-weight':'100', 'opacity':'0.3'});
+        $('.yourdecisiontext').css({'font-weight':'200', 'font-size':'19px'});
         $('#fSlider1, #dSlider').css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
         $('#fSlider1').removeClass('newdSlider');
 
@@ -1409,11 +1414,15 @@ $('#dSlider').hover(
 $('#fSlider1').hover(
     function() {
         setTimeout("updateBarXAxis('mybar', true)", 250);
+        $('.yourdecisiontext2').css({'font-weight':'700', 'opacity':'1'});
+        $('.yourdecisiontext').css({'font-weight':'700', 'font-size':'19px'});
         $('#dSlider, #fSlider1').css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
         $('#dSlider').addClass('newdSlider');
     },
     function() {
         setTimeout("updateBarXAxis('mybar', false)", 500);
+        $('.yourdecisiontext2').css({'font-weight':'100', 'opacity':'0.3'});
+        $('.yourdecisiontext').css({'font-weight':'200', 'font-size':'19px'});
         $('#dSlider, #fSlider1').css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
         $('#dSlider').removeClass('newdSlider');
     }
@@ -1422,6 +1431,7 @@ $('#fSlider1').hover(
 
 $('#ofSlider1').hover(
     function() {
+        $('.yourdecisiontext3').css({'font-weight':'700', 'opacity':'1'});
         ofSync = document.getElementById('mycheck').checked;
         var myString;
         if(ofSync) {
@@ -1438,6 +1448,7 @@ $('#ofSlider1').hover(
 
     },
     function() {
+        $('.yourdecisiontext3').css({'font-weight':'100', 'opacity':'0.3'});
         ofSync = document.getElementById('mycheck').checked;
         var myString;
         if(ofSync) {
@@ -1457,6 +1468,7 @@ $('#ofSlider1').hover(
 );
 $('#ofSlider2').hover(
     function() {
+        $('.yourdecisiontext3').css({'font-weight':'700', 'opacity':'1'});
         ofSync = document.getElementById('mycheck').checked;
         var myString;
         if(ofSync) {
@@ -1472,6 +1484,7 @@ $('#ofSlider2').hover(
         }
     },
     function() {
+        $('.yourdecisiontext3').css({'font-weight':'100', 'opacity':'0.3'});
         ofSync = document.getElementById('mycheck').checked;
         var myString;
         if(ofSync) {
@@ -1489,6 +1502,7 @@ $('#ofSlider2').hover(
 );
 $('#ofSlider3').hover(
     function() {
+        $('.yourdecisiontext3').css({'font-weight':'700', 'opacity':'1'});
         ofSync = document.getElementById('mycheck').checked;
         var myString;
         if(ofSync) {
@@ -1504,6 +1518,7 @@ $('#ofSlider3').hover(
         }
     },
     function() {
+        $('.yourdecisiontext3').css({'font-weight':'100', 'opacity':'0.3'});
         ofSync = document.getElementById('mycheck').checked;
         var myString;
         if(ofSync) {

@@ -3,26 +3,31 @@ var nzt = function(val) {
     return (val != 0) ? val : '';
 }
 
-var updateBarHelpInfo = function(a, b, c, d, barId, ourGroup, me, newLeader) {
+var updateBarHelpInfo = function(a, b, c, d, barId, ourGroup, me, newLeader, wons3, myFirstRole) {
     var x = a;
     var y = b;
     var z = c;
     var w = d;
-    var myData = [x,y,z,w];
+
+    //var myData = [x,y,z,w];
     var lightblue = 'rgb(200,200,255)';
     var blue = 'rgb(140, 140, 255)';
-
-    var my
-
     var ourColor = ourGroup ? blue : lightblue;
 
     var colorArray = ['', '', '', ''];
     var colorWidth = [0, 0, 0, 0];
-    if (me!==-1) {
+
+    if(ourGroup) {
         colorArray[me] = 'green';
         colorWidth[me] = 3;
-    }
-    if(newLeader!==-1) {
+        if(!wons3) {
+            if(myFirstRole===1) {
+                colorWidth[me] = 0;
+            }
+            colorArray[newLeader] = 'indigo';
+            colorWidth[newLeader] = 3;
+        }
+    } else if(!ourGroup && wons3) {
         colorArray[newLeader] = 'indigo';
         colorWidth[newLeader] = 3;
     }
@@ -31,7 +36,6 @@ var updateBarHelpInfo = function(a, b, c, d, barId, ourGroup, me, newLeader) {
         {
             y: [x, y, z, w],
             x: [1, 2, 3, 4],
-            // name: ['Follower 1 \n(New Leader)', 'Follower 2 \n(You)', 'Follower 3', 'Follower 4'],
             type: 'bar',
             sort: false,
             hoverinfo: 'none',
@@ -79,7 +83,7 @@ var updateBarHelpInfo = function(a, b, c, d, barId, ourGroup, me, newLeader) {
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
 
-var updateBarSaboInfo = function(a, b, c, d, barId, ourGroup, me, newLeader) {
+var updateBarSaboInfo = function(a, b, c, d, barId, ourGroup, me, newLeader, wons3, myFirstRole) {
     var x = -a;
     var y = -b;
     var z = -c;
@@ -91,15 +95,21 @@ var updateBarSaboInfo = function(a, b, c, d, barId, ourGroup, me, newLeader) {
 
     var colorArray = ['', '', '', ''];
     var colorWidth = [0, 0, 0, 0];
-    if (me!==-1) {
+
+    if(ourGroup) {
         colorArray[me] = 'green';
         colorWidth[me] = 3;
-    }
-    if(newLeader!==-1) {
+        if(!wons3) {
+            if(myFirstRole===1) {
+                colorWidth[me] = 0;
+            }
+            colorArray[newLeader] = 'indigo';
+            colorWidth[newLeader] = 3;
+        }
+    } else if(!ourGroup && wons3) {
         colorArray[newLeader] = 'indigo';
         colorWidth[newLeader] = 3;
     }
-
 
     var data = [{
         y: [x, y, z, w],
@@ -267,9 +277,6 @@ var updatePieInfo = function(a, barId, ourLeaderWon) {
     var data = [{
         values: [y, x],
         labels: ['Opposing Leader', 'Your Leader'],
-        // textfont: {
-        //     color: ['black', 'white'],
-        // },
         textposition: "outside",
         text: ourText,
         type: 'pie',
@@ -277,7 +284,7 @@ var updatePieInfo = function(a, barId, ourLeaderWon) {
         hoverinfo: 'percent+label',
         automargin: true,
         marker:{
-            colors: ['rgb(225, 225, 225)', 'rgb(160, 160, 160)'],
+            colors: ['rgb(225, 225, 225)', 'rgb(80, 80, 80)'],
         }
     }];
 
@@ -288,7 +295,7 @@ var updatePieInfo = function(a, barId, ourLeaderWon) {
         font:{
             size: 14
         },
-        margin: {"t": 40, "b": 40, "l": 40, "r": 40},
+        margin: {"t": 40, "b": 40, "l": 60, "r": 60},
         showlegend: false,
     };
 
@@ -345,7 +352,7 @@ var updateEfficiencyBarInfo = function(efi1, efi2, barId) {
         fixedrange: true,
         cliponaxis: false,
         marker: {
-            color: 'rgb(160, 160, 160)',
+            color: 'rgb(80, 80, 80)',
         },
         text: myText,
         textposition: 'inside',
@@ -433,7 +440,7 @@ var updateBarEffortInfo = function(a, b, barId) {
             automargin: true,
             showlegend: false,
             marker:{
-                color: ['rgb(160, 160, 160)', 'rgb(225, 225, 225)'],
+                color: ['rgb(80, 80, 80)', 'rgb(225, 225, 225)'],
             },
             text: [x, y],
             textposition: 'outside',
@@ -483,7 +490,7 @@ var updateBarEffortInfo = function(a, b, barId) {
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
 
-var updateS4Info = function(a,b,c,d, barId, me, winner) {
+var updateS4Info = function(a,b,c,d, barId, me, winner, myFirstRole) {
 
     var x = a;
     var y = b;
@@ -503,13 +510,20 @@ var updateS4Info = function(a,b,c,d, barId, me, winner) {
     var labelArray = ['Follower 1', 'Follower 2', 'Follower 3', 'Follower 4'];
 
     textArray[winner] = 'Winner';
-    textArray[me] = 'You';
+    if(myFirstRole===0) {
+        textArray[me] = 'You';
+    }
 
     colorArray[winner] = 'violet';
-    colorArray[me] = 'lightgreen';
+    if(myFirstRole===0) {
+        colorArray[me] = 'lightgreen';
+    }
 
     colorWidth[winner] = 2;
-    colorWidth[me] = 2;
+    if(myFirstRole===0) {
+        colorWidth[me] = 2;
+    }
+
 
 
 
@@ -560,7 +574,11 @@ var onezero = function() {
 var generateMe = function() {
     return Math.ceil(Math.random() * 4) - 1;
 }
+var generateRole = function() {
+    return (Math.random() > 0.50) ? 1 : 0;
+}
 var tempMe = generateMe();
+var myRole = generateRole()
 var generateS4winner = function() {
 
     var winnerIndex = Math.ceil(Math.random() * 4) - 1;
@@ -574,6 +592,7 @@ var generateS4winner = function() {
 var sw = [onezero(), onezero(), onezero(), onezero()];
 var osw = [onezero(), onezero(), onezero(), onezero()];
 var d = {
+    role: myRole,
     me: tempMe,
     s2:
     {
@@ -615,7 +634,8 @@ var d = {
     s3:
     {
         efo: parseFloat((Math.random()*500).toFixed(0)),
-        oefo:  parseFloat((Math.random()*500).toFixed(0))
+        oefo:  parseFloat((Math.random()*500).toFixed(0)),
+        yourLeaderWon: (Math.random() > 0.5) ? true : false,
     },
     s4:
     {
@@ -624,6 +644,7 @@ var d = {
         f3: parseFloat((Math.random()*400).toFixed(0)),
         f4: parseFloat((Math.random()*400).toFixed(0)),
         hasWon: generateS4winner(), //will be an array!
+        ohasWon: generateS4winner(),
     }
 }
 
@@ -631,6 +652,8 @@ var info = {};
 
 var data2Info = function() {
     info.me = d.me;
+    info.role = d.role;
+
     info.s1 = d.s2.ourGroup.sabo.f1;
     info.s2 = d.s2.ourGroup.sabo.f2;
     info.s3 = d.s2.ourGroup.sabo.f3;
@@ -639,6 +662,7 @@ var data2Info = function() {
     info.h2 = d.s2.ourGroup.help.f2;
     info.h3 = d.s2.ourGroup.help.f3;
     info.h4 = d.s2.ourGroup.help.f4;
+
     info.os1 = d.s2.opposingGroup.sabo.f1;
     info.os2 = d.s2.opposingGroup.sabo.f2;
     info.os3 = d.s2.opposingGroup.sabo.f3;
@@ -647,13 +671,17 @@ var data2Info = function() {
     info.oh2 = d.s2.opposingGroup.help.f2;
     info.oh3 = d.s2.opposingGroup.help.f3;
     info.oh4 = d.s2.opposingGroup.help.f4;
+
     info.efo = d.s3.efo;
     info.oefo = d.s3.oefo;
+    info.s3won = d.s3.yourLeaderWon;
+
     info.e1 = d.s4.f1;
     info.e2 = d.s4.f2;
     info.e3 = d.s4.f3;
     info.e4 = d.s4.f4;
     info.winner = d.s4.hasWon.indexOf(true);
+    info.owinner = d.s4.ohasWon.indexOf(true);
 }
 
 info.ts = function() {
@@ -697,20 +725,20 @@ then it gets 2 again if there is no new leader in your group then
 it shoult be set to 1
 ourgroup is a boolean to determine the light or dark color scheme of the bars
 */
-updateBarHelpInfo(info.h1, info.h2, info.h3, info.h4, 's2helpbarg1', true, info.me, info.winner);
-updateBarSaboInfo(info.s1, info.s2, info.s3, info.s4, 's2sabobarg1', true, info.me, info.winner);
+updateBarHelpInfo(info.h1, info.h2, info.h3, info.h4, 's2helpbarg1', true, info.me, info.winner, info.s3won, info.role);
+updateBarSaboInfo(info.s1, info.s2, info.s3, info.s4, 's2sabobarg1', true, info.me, info.winner, info.s3won, info.role);
 
 updateBarTotalHelpInfo(info.th(), info.oth(), 's2totalhelpbar');
 updateBarTotalSaboInfo(info.ts(), info.ots(), 's2totalsabobar');
 
-updateBarHelpInfo(info.oh1, info.oh2, info.oh3, info.oh4, 's2helpbarg2', false, -1, -1);
-updateBarSaboInfo(info.os1, info.os2, info.os3, info.os4,'s2sabobarg2', false, -1, -1);
+updateBarHelpInfo(info.oh1, info.oh2, info.oh3, info.oh4, 's2helpbarg2', false, info.me, info.owinner, info.s3won);
+updateBarSaboInfo(info.os1, info.os2, info.os3, info.os4,'s2sabobarg2', false, info.me, info.owinner, info.s3won);
 
-updatePieInfo(info.pwin(), 's3pie', false);
+updatePieInfo(info.pwin(), 's3pie', info.s3won);
 updateBarEffortInfo(info.efo, info.oefo, 's3efobar')
 updateEfficiencyBarInfo(info.efi(), info.oefi(), 's3efibar');
 
-updateS4Info(info.e1, info.e2, info.e3, info.e4, 's4pie', info.me, info.winner);
+updateS4Info(info.e1, info.e2, info.e3, info.e4, 's4pie', info.me, info.winner, info.role);
 
 
 
@@ -747,7 +775,7 @@ var updatePie = function(a) {
         hoverinfo: 'percent+label',
         automargin: true,
         marker:{
-            colors: ['rgb(225, 225, 225)', 'rgb(160, 160, 160)']
+            colors: ['rgb(225, 225, 225)', 'rgb(80, 80, 80)']
             // colors: mColor,
             // line: {
             //     color: 'black',
@@ -963,7 +991,7 @@ var updateBarLeader = function(e, barId, ourSide, axisOn) {
     var y = e;
     if(typeof(x) === 'undefined') x = 0;
 
-    var mColor = ourSide ? 'rgb(160, 160, 160)' : 'rgb(225, 225, 225)';
+    var mColor = ourSide ? 'rgb(80, 80, 80)' : 'rgb(225, 225, 225)';
     // var mColor = ourSide ? myColor(logistic(val1)) : myColor(logistic(val2));
     // var myLabel = x > 0 ? x : -x;
     // var myTextPosition = (x >= 0 || x === -100) ? 'outside' : 'inside';
@@ -1173,7 +1201,7 @@ var updateStrengthBar = function(efi1, efi2) {
         barmode: 'group',
         height: 10,
         width: 350,
-        margin: {"t": 0, "b": 0, "l": 0, "r": 0},
+        margin: {"t": 6, "b": 0, "l": 0, "r": 0},
         xaxis: {
             fixedrange: true,
             autorange: false,
@@ -1229,8 +1257,8 @@ var updateStrengthText = function(efi1, efi2) {
 
 
     if(val1 < val2) {
-        position2 = 'advantage';
-        position1 = 'disadvantage';
+        position2 = 'advantaged';
+        position1 = 'disadvantaged';
         if(efi2/efi1 < 1.1) {
             degree1 = degree2 = ' has no significant ';
         }
@@ -1312,8 +1340,8 @@ var updateEfficiencyBar = function(efi1, efi2) {
         automargin: true,
         showlegend: false,
         marker: {
-            color: 'rgb(160, 160, 160)',
-            // color: 'rgb(80, 80, 80)',
+            // color: 'rgb(160, 160, 160)',
+            color: 'rgb(80, 80, 80)',
         },
         text: myText,
         textposition: 'inside',
@@ -1537,6 +1565,7 @@ var updateAll = function() {
     updateBarHelp(th, oth);
     updateBarSabo(ts, ots);
     updatePwin();
+    updatePie(1);
     updatePie(pwin);
 
     updateEfficiencyBar(efi, oefi);
@@ -1828,18 +1857,22 @@ oslider4.oninput = function() {
 $('#lSlider1').hover(
     function() {
         setTimeout("updateBarXAxis('barl', true)", 250);
+        $('.ldecisiontext1').css({'opacity':'0.7'});
     },
     function() {
         setTimeout("updateBarXAxis('barl', false)", 500);
+        $('.ldecisiontext1').css({'opacity':'0.1'});
     }
 );
 
 $('#olSlider1').hover(
     function() {
         setTimeout("updateBarXAxis('obarl', true)", 250);
+        $('.ldecisiontext2').css({'opacity':'0.7'});
     },
     function() {
         setTimeout("updateBarXAxis('obarl', false)", 500);
+        $('.ldecisiontext2').css({'opacity':'0.1'});
     }
 );
 
@@ -1847,7 +1880,7 @@ $('#dSlider').hover(
     function() {
         setTimeout("updateBarXAxis('bard', true)", 250);
         $('.yourdecisiontext').css({'font-weight':'700', 'font-size':'17px'});
-        $('.yourdecisiontext2').css({'font-weight':'700','opacity':'1'});
+        $('.yourdecisiontext21').css({'font-weight':'500','opacity':'1'});
         $('#dSlider').css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
         $('#vSlider1')
         .css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
@@ -1856,7 +1889,7 @@ $('#dSlider').hover(
     function() {
         setTimeout("updateBarXAxis('bard', false)", 1000);
         $('.yourdecisiontext').css({'font-weight':'200', 'font-size':'17px'});
-        $('.yourdecisiontext2').css({'font-weight':'200','opacity':'0.3'});
+        $('.yourdecisiontext21').css({'font-weight':'500','opacity':'0.1'});
         $('#dSlider').css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
         $('#vSlider1')
         .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-90px'});
@@ -1870,7 +1903,7 @@ $('#vSlider1').hover(
     function() {
         setTimeout("updateBarYAxis('bar1', true)", 250);
         $('.yourdecisiontext').css({'font-weight':'700', 'font-size':'17px'});
-        $('.yourdecisiontext2').css({'font-weight':'700','opacity':'1'});
+        $('.yourdecisiontext21').css({'font-weight':'500','opacity':'1'});
         $('#vSlider1').css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
         $('#dSlider').css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
         $('#dSlider').addClass('newdSlider');
@@ -1879,7 +1912,7 @@ $('#vSlider1').hover(
     function() {
         setTimeout("updateBarYAxis('bar1', false)", 500);
         $('.yourdecisiontext').css({'font-weight':'200', 'font-size':'17px'});
-        $('.yourdecisiontext2').css({'font-weight':'200','opacity':'0.3'});
+        $('.yourdecisiontext21').css({'font-weight':'500','opacity':'0.1'});
         $('#vSlider1').css({'background':'gray', 'opacity':'0.3', 'margin-left': '-90px'});
         $('#dSlider').css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
         $('#dSlider').removeClass('newdSlider');
@@ -1891,13 +1924,17 @@ $('#vSlider1').hover(
 $('#vSlider2').hover(
     function() {
         syncOurGroup = document.getElementById('mycheck').checked;
-        var myString;
+        var myString, myString2;
         if(syncOurGroup) {
+            myString2 = '.yourdecisiontext22, .yourdecisiontext23, .yourdecisiontext24';
             myString = '#vSlider2, #vSlider3, #vSlider4';
-        } else { myString = '#vSlider2';}
+        } else {
+            myString2 = '.yourdecisiontext22';
+            myString = '#vSlider2';
+        }
 
         setTimeout("updateBarYAxis('bar2', true)", 250);
-
+        $(myString2).css({'opacity':'0.7'});
         $(myString)
         .css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
         if(syncOurGroup) {
@@ -1907,12 +1944,17 @@ $('#vSlider2').hover(
     },
     function() {
         syncOurGroup = document.getElementById('mycheck').checked;
-        var myString;
+        var myString, myString2;
         if(syncOurGroup) {
+            myString2 = '.yourdecisiontext22, .yourdecisiontext23, .yourdecisiontext24';
             myString = '#vSlider2, #vSlider3, #vSlider4';
-        } else { myString = '#vSlider2';}
+        } else {
+            myString2 = '.yourdecisiontext22';
+            myString = '#vSlider2';
+        }
 
         setTimeout("updateBarYAxis('bar2', false)", 500);
+        $(myString2).css({'opacity':'0.1'});
         $(myString)
         .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-90px'});
         if(syncOurGroup) {
@@ -1924,12 +1966,17 @@ $('#vSlider2').hover(
 $('#vSlider3').hover(
     function() {
         syncOurGroup = document.getElementById('mycheck').checked;
-        var myString;
+        var myString, myString2;
         if(syncOurGroup) {
+            myString2 = '.yourdecisiontext22, .yourdecisiontext23, .yourdecisiontext24';
             myString = '#vSlider2, #vSlider3, #vSlider4';
-        } else { myString = '#vSlider3';}
+        } else {
+            myString2 = '.yourdecisiontext23';
+            myString = '#vSlider3';
+        }
 
         setTimeout("updateBarYAxis('bar3', true)", 250);
+        $(myString2).css({'opacity':'0.7'});
         $(myString)
         .css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
         if(syncOurGroup) {
@@ -1939,12 +1986,17 @@ $('#vSlider3').hover(
     },
     function() {
         syncOurGroup = document.getElementById('mycheck').checked;
-        var myString;
+        var myString, myString2;
         if(syncOurGroup) {
+            myString2 = '.yourdecisiontext22, .yourdecisiontext23, .yourdecisiontext24';
             myString = '#vSlider2, #vSlider3, #vSlider4';
-        } else { myString = '#vSlider3';}
+        } else {
+            myString2 = '.yourdecisiontext23';
+            myString = '#vSlider3';
+        }
 
         setTimeout("updateBarYAxis('bar3', false)", 500);
+        $(myString2).css({'opacity':'0.1'});
         $(myString)
         .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-90px'});
         if(syncOurGroup) {
@@ -1956,12 +2008,17 @@ $('#vSlider3').hover(
 $('#vSlider4').hover(
     function() {
         syncOurGroup = document.getElementById('mycheck').checked;
-        var myString;
+        var myString, myString2;
         if(syncOurGroup) {
+            myString2 = '.yourdecisiontext22, .yourdecisiontext23, .yourdecisiontext24';
             myString = '#vSlider2, #vSlider3, #vSlider4';
-        } else { myString = '#vSlider4';}
+        } else {
+            myString2 = '.yourdecisiontext24';
+            myString = '#vSlider4';
+        }
 
         setTimeout("updateBarYAxis('bar4', true)", 250);
+        $(myString2).css({'opacity':'0.7'});
         $(myString)
         .css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
         if(syncOurGroup) {
@@ -1971,12 +2028,17 @@ $('#vSlider4').hover(
     },
     function() {
         syncOurGroup = document.getElementById('mycheck').checked;
-        var myString;
+        var myString, myString2;
         if(syncOurGroup) {
+            myString2 = '.yourdecisiontext22, .yourdecisiontext23, .yourdecisiontext24';
             myString = '#vSlider2, #vSlider3, #vSlider4';
-        } else { myString = '#vSlider4';}
+        } else {
+            myString2 = '.yourdecisiontext24';
+            myString = '#vSlider4';
+        }
 
         setTimeout("updateBarYAxis('bar4', false)", 500);
+        $(myString2).css({'opacity':'0.1'});
         $(myString)
         .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-90px'});
         if(syncOurGroup) {
@@ -1989,12 +2051,17 @@ $('#vSlider4').hover(
 $('#ovSlider1').hover(
     function() {
         syncOtherGroup = document.getElementById('mycheck2').checked;
-        var myString;
+        var myString, myString2;
         if(syncOtherGroup) {
+            myString2 = '.yourdecisiontext31, .yourdecisiontext32, .yourdecisiontext33, .yourdecisiontext34';
             myString = '#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4';
-        } else { myString = '#ovSlider1';}
+        } else {
+            myString2 = '.yourdecisiontext31';
+            myString = '#ovSlider1';
+        }
 
         setTimeout("updateBarYAxis('obar1', true)", 250);
+        $(myString2).css({'opacity':'0.7'});
         $(myString)
         .css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
 
@@ -2004,12 +2071,17 @@ $('#ovSlider1').hover(
     },
     function() {
         syncOtherGroup = document.getElementById('mycheck2').checked;
-        var myString;
+        var myString, myString2;
         if(syncOtherGroup) {
+            myString2 = '.yourdecisiontext31, .yourdecisiontext32, .yourdecisiontext33, .yourdecisiontext34';
             myString = '#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4';
-        } else { myString = '#ovSlider1';}
+        } else {
+            myString2 = '.yourdecisiontext31';
+            myString = '#ovSlider1';
+        }
 
         setTimeout("updateBarYAxis('obar1', false)", 500);
+        $(myString2).css({'opacity':'0.1'});
         $(myString)
         .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-90px'});
         if(syncOtherGroup) {
@@ -2020,12 +2092,17 @@ $('#ovSlider1').hover(
 $('#ovSlider2').hover(
     function() {
         syncOtherGroup = document.getElementById('mycheck2').checked;
-        var myString;
+        var myString, myString2;
         if(syncOtherGroup) {
+            myString2 = '.yourdecisiontext31, .yourdecisiontext32, .yourdecisiontext33, .yourdecisiontext34';
             myString = '#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4';
-        } else { myString = '#ovSlider2';}
+        } else {
+            myString2 = '.yourdecisiontext32';
+            myString = '#ovSlider2';
+        }
 
         setTimeout("updateBarYAxis('obar2', true)", 250);
+        $(myString2).css({'opacity':'0.7'});
         $(myString)
         .css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
         if(syncOtherGroup) {
@@ -2034,12 +2111,17 @@ $('#ovSlider2').hover(
     },
     function() {
         syncOtherGroup = document.getElementById('mycheck2').checked;
-        var myString;
+        var myString, myString2;
         if(syncOtherGroup) {
+            myString2 = '.yourdecisiontext31, .yourdecisiontext32, .yourdecisiontext33, .yourdecisiontext34';
             myString = '#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4';
-        } else { myString = '#ovSlider2';}
+        } else {
+            myString2 = '.yourdecisiontext32';
+            myString = '#ovSlider2';
+        }
 
         setTimeout("updateBarYAxis('obar2', false)", 500);
+        $(myString2).css({'opacity':'0.1'});
         $(myString)
         .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-90px'});
         if(syncOtherGroup) {
@@ -2050,12 +2132,17 @@ $('#ovSlider2').hover(
 $('#ovSlider3').hover(
     function() {
         syncOtherGroup = document.getElementById('mycheck2').checked;
-        var myString;
+        var myString, myString2;
         if(syncOtherGroup) {
+            myString2 = '.yourdecisiontext31, .yourdecisiontext32, .yourdecisiontext33, .yourdecisiontext34';
             myString = '#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4';
-        } else { myString = '#ovSlider3';}
+        } else {
+            myString2 = '.yourdecisiontext33';
+            myString = '#ovSlider3';
+        }
 
         setTimeout("updateBarYAxis('obar3', true)", 250);
+        $(myString2).css({'opacity':'0.7'});
         $(myString)
         .css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
         if(syncOtherGroup) {
@@ -2063,12 +2150,17 @@ $('#ovSlider3').hover(
         }
     },
     function() {
-        var myString;
+        var myString, myString2;
         if(syncOtherGroup) {
+            myString2 = '.yourdecisiontext31, .yourdecisiontext32, .yourdecisiontext33, .yourdecisiontext34';
             myString = '#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4';
-        } else { myString = '#ovSlider3';}
+        } else {
+            myString2 = '.yourdecisiontext33';
+            myString = '#ovSlider3';
+        }
 
         setTimeout("updateBarYAxis('obar3', false)", 500);
+        $(myString2).css({'opacity':'0.1'});
         $(myString)
         .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-90px'});
         if(syncOtherGroup) {
@@ -2079,12 +2171,17 @@ $('#ovSlider3').hover(
 $('#ovSlider4').hover(
     function() {
         syncOtherGroup = document.getElementById('mycheck2').checked;
-        var myString;
+        var myString, myString2;
         if(syncOtherGroup) {
+            myString2 = '.yourdecisiontext31, .yourdecisiontext32, .yourdecisiontext33, .yourdecisiontext34';
             myString = '#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4';
-        } else { myString = '#ovSlider4';}
+        } else {
+            myString2 = '.yourdecisiontext34';
+            myString = '#ovSlider4';
+        }
 
         setTimeout("updateBarYAxis('obar4', true)", 250);
+        $(myString2).css({'opacity':'0.7'});
         $(myString)
         .css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
         if(syncOtherGroup) {
@@ -2094,12 +2191,17 @@ $('#ovSlider4').hover(
     },
     function() {
         syncOtherGroup = document.getElementById('mycheck2').checked;
-        var myString;
+        var myString, myString2;
         if(syncOtherGroup) {
+            myString2 = '.yourdecisiontext31, .yourdecisiontext32, .yourdecisiontext33, .yourdecisiontext34';
             myString = '#ovSlider1, #ovSlider2, #ovSlider3, #ovSlider4';
-        } else { myString = '#ovSlider4';}
+        } else {
+            myString2 = '.yourdecisiontext34';
+            myString = '#ovSlider4';
+        }
 
         setTimeout("updateBarYAxis('obar4', false)", 500);
+        $(myString2).css({'opacity':'0.1'});
         $(myString)
         .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-90px'});
         if(syncOtherGroup) {
@@ -2109,5 +2211,44 @@ $('#ovSlider4').hover(
 );
 
 
+var initialize = function() {
+    console.log('INSIDE INTIALIZE');
+    console.log(info.role);
+    console.log(info.s3won);
+    $('html, body').animate({scrollTop: 0}, 0);
+    $('.cursor-pointer').css({'cursor':'default'});
+    var wholostDisplay = document.getElementById('wholost');
+    var wlString = info.s3won ? '(Your leader won)' : '(Your leader lost)';
+    wholostDisplay.innerHTML = wlString;
+    if(info.s3won) {
+        $('.s3pie').css({'margin-left' : '44px'});
+        $('.sinfographics').css({'margin-left' : '0px'});
+        $('.s4infographics').css({'display':'none'});
+        $('.s3infographics').css({'margin-left' : '-180px'});
+    }
 
-$('html, body').animate({scrollTop: 0}, 0);
+    var roledependenttextDisplay = document.getElementById('roledependenttext');
+    var newleadertagDisplay = document.getElementById('newleadertag');
+
+    if(info.s3won) {
+        roledependenttextDisplay.innerHTML = 'Your Leader';
+        $('.ournewleader').css({'display':'none'});
+        $('.leaderwonextratop').css({'padding-bottom':'20px'});
+
+    }
+    if(!info.s3won && info.role===0) {
+        roledependenttextDisplay.innerHTML = 'Your Leader';
+        $('.theirnewleader').css({'display':'none'});
+        newleadertagDisplay.innerHTML = 'new';
+    }
+    if(!info.s3won && info.role===1) {
+        roledependenttextDisplay.innerHTML = 'You';
+        wholostDisplay.innerHTML = '(You lost)'
+        $('.rolehide').css({'display':'none'});
+        $('.s4pie').css({'padding-top':'30px'});
+        $('.theirnewleader').css({'display':'none'});
+        newleadertagDisplay.innerHTML = 'new';
+    }
+}
+
+initialize();

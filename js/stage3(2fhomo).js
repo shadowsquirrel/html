@@ -685,7 +685,7 @@ var setStrengthBar = function(efi1, efi2) {
         barmode: 'group',
         height: 10,
         width: 350,
-        margin: {"t": 0, "b": 0, "l": 0, "r": 0},
+        margin: {"t": 6, "b": 0, "l": 0, "r": 0},
         xaxis: {
             fixedrange: true,
             autorange: false,
@@ -978,7 +978,9 @@ var winnetpayoff = document.getElementById('winnetpayoff');
 var losenetpayoff = document.getElementById('losenetpayoff');
 
 var initialize = function() {
+
     updatePwin();
+    updatePie(1);
     updatePie(pwin);
     updateEffortBar(efo, oefo);
     setEfficiencyBar(efi, oefi);
@@ -987,6 +989,7 @@ var initialize = function() {
     payoffDisplay.innerHTML = '<strong>' + (efo)  + '</strong>' + ((efo > 1) ? ' tokens' : ' token');
     winnetpayoff.innerHTML = '<strong>' + (1000 - efo)  + '</strong>' + ' tokens';
     losenetpayoff.innerHTML = '<strong>' +  -efo  + '</strong>' + ((efo > 1) ? ' tokens' : ' token');
+    $('.cursor-pointer').css({'cursor':'default'});
 }
 
 var updateAll = function() {
@@ -1049,9 +1052,9 @@ lslider1.oninput = function() {
     syncBars(lvalue);
     updateBarXAxis('barl', true);
     updateAll();
-    payoffDisplay.innerHTML = (efo) + ((efo > 1) ? ' tokens' : ' token');
-    winnetpayoff.innerHTML = (1000 - efo) + ' tokens';
-    losenetpayoff.innerHTML = -efo + ' tokens';
+    payoffDisplay.innerHTML = '<strong>' + (efo)  + '</strong>' + ((efo > 1) ? ' tokens' : ' token');
+    winnetpayoff.innerHTML = '<strong>' + (1000 - efo) + '</strong>' + ' tokens';
+    losenetpayoff.innerHTML = '<strong>' + -efo  + '</strong>' + ((efo > 1) ? ' tokens' : ' token');
     //synching sliders
     $('#dSlider').prop('value', lvalue);
     $('#dSlider').change();
@@ -1073,12 +1076,16 @@ $('#dSlider').hover(
     function() {
         lvalue = parseFloat(lslider1.value);
         setTimeout("updateBarXAxis('bard', true)", 250);
+        $('.yourdecisiontext2').css({'font-weight':'700', 'opacity':'1'});
+        $('.yourdecisiontext').css({'font-weight':'700', 'font-size':'19px'});
         $('#lSlider1, #dSlider').css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
         $('#lSlider1').addClass('newdSlider');
     },
     function() {
         lvalue = parseFloat(lslider1.value);
         setTimeout("updateBarXAxis('bard', false)", 1000);
+        $('.yourdecisiontext2').css({'font-weight':'100', 'opacity':'0.3'});
+        $('.yourdecisiontext').css({'font-weight':'200', 'font-size':'19px'});
         $('#lSlider1, #dSlider').css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
         $('#lSlider1').removeClass('newdSlider');
 
@@ -1089,12 +1096,16 @@ $('#lSlider1').hover(
     function() {
         lvalue = parseFloat(lslider1.value);
         setTimeout("updateBarXAxis('barl', true)", 250);
+        $('.yourdecisiontext2').css({'font-weight':'700', 'opacity':'1'});
+        $('.yourdecisiontext').css({'font-weight':'700', 'font-size':'19px'});
         $('#dSlider, #lSlider1').css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
         $('#dSlider').addClass('newdSlider');
     },
     function() {
         lvalue = parseFloat(lslider1.value);
         setTimeout("updateBarXAxis('barl', false)", 500);
+        $('.yourdecisiontext2').css({'font-weight':'100', 'opacity':'0.3'});
+        $('.yourdecisiontext').css({'font-weight':'200', 'font-size':'19px'});
         $('#dSlider, #lSlider1').css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
         $('#dSlider').removeClass('newdSlider');
     }
@@ -1104,10 +1115,12 @@ $('#olSlider1').hover(
     function() {
         olvalue = parseFloat(olslider1.value);
         setTimeout("updateBarXAxis('obarl', true)", 250);
+        $('.yourdecisiontext3').css({'font-weight':'700', 'opacity':'1'});
     },
     function() {
         olvalue = parseFloat(olslider1.value);
         setTimeout("updateBarXAxis('obarl', false)", 500);
+        $('.yourdecisiontext3').css({'font-weight':'100', 'opacity':'0.3'});
     }
 );
 

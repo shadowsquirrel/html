@@ -16,7 +16,7 @@
     <div class='upperbar'>
         <button class=multibutton id=multibutton3>Go to <span id='buttonname'></span></button>
     </div>
-    <div class = 'wrap'>
+    <div class = 'wrap noselect'>
 
         <div class = 'all'>
 
@@ -30,16 +30,16 @@
                     <p style='font-size: 22px; margin-bottom: 20px;'> You are the Leader of your Group</p>
                 </div>
 
-                <div class = sinfotext>
+                <div class = 'sinfotext limited'>
 
                     <p>
-                        Below is the graphical summary of both groups' followers' sabotage and help decisions
+                        Below is the graphical summary for followers' sabotage and help decisions in Stage 2.
                     </p>
                     <p>
-                        Based on these decisions, relative power and advantage/disadvantage of the leaders are calculated and graphically presented underneat.
+                        Based on these decisions, relative power of the leaders are calculated and displayed on the graphical decision calculator below.
                     </p>
                     <p>
-                        Please make an investment decision to compete against the opposing leader.
+                        Use the graphical calculator and make an investment decision to compete against the opposing leader.
                     </p>
                 </div>
 
@@ -120,6 +120,7 @@
                             <input type='range' min = '0' max = '500' class = 'lslider' value = '1' id = 'lSlider1' />
                             <div id = 'barl' class = 'lbar'></div>
                         </div>
+                        <h6 class='yourdecisiontext2'>YOUR DECISION</h6>
                         <div class=mytableleft>
                             <div class=sidecolumn>
                                 <p>Prize</p>
@@ -147,7 +148,7 @@
                         </div>
                     </div>
 
-                    <div class = 'piegraphics'>
+                    <div class = 'pieefiwrap'>
                         <div class = 'piewrap'>
                             <h6>Probability to Win</h6>
                             <div class = 'pie' id = 'pie'></div>
@@ -166,6 +167,7 @@
                             <input type='range' min = '0' max = '500' class = 'lslider' value = '1' id = 'olSlider1' />
                             <div id = 'obarl' class = 'lbar'></div>
                         </div>
+                        <h6 class='yourdecisiontext3'>HYPOTHETICAL</h6>
                         <div class=mytableright>
                             <div class=sidecolumn>
                                 <p>Prize</p>
@@ -199,7 +201,7 @@
 
                 <div class = decision>
                     <div class = input>
-                        <h5 class = 'decisiontitle'>Your Decision</h5>
+                        <!-- <h5 class = 'decisiontitle'>Your Decision</h5> -->
                         <div class = 'sliderbard'>
                             <input type='range' min = '0' max = '500' class = 'dslider' value = '0' id = 'dSlider' />
                             <div id = 'bard' class = 'dbar'></div>
@@ -209,7 +211,7 @@
                         <p>
                             Your Investment cost is <span id=payoff class='outcomes'>0 token</span>.
                         </p>
-
+                        <h6 class='yourdecisiontext closertotop'>YOUR DECISION</h6>
                         <!-- <div class=mytable>
                             <div class=sidecolumn>
                                 <p>Prize</p>
