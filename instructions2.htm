@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="css/wheelpie2.css">
+    <link rel="stylesheet" href="css/instructions1.css">
     <script src='js/Winwheel.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -23,23 +23,25 @@
             <div class = 'sinfo' id='sinfo'>
 
                 <div class = sinfotitle>
-                    <h3>STAGE 5</h3>
+                    <h3>INSTRUCTIONS</h3>
                 </div>
 
                 <div class = sinfotext>
-                    <p style='font-size: 22px; margin-bottom: 10px;'> You are Follower  <span id='whoamI'></span></p>
+                    <p style='font-size: 22px; margin-bottom: 10px;'> INVESTING TOKENS  </span></p>
 
 
                 </div>
 
                 <div class ='sinfotext limited'>
                     <p>
-                        Please make your sabotage or help decision to affect your leader's stage 6 outcome.
+                        Start with leaders and explain how they compete by investing tokens and getting a bigger share of the wheel
                     </p>
                     <p>
-                        You can use the below graphical tool to make your decision
-                        or simply make your decision on the decision screen located
-                        at the bottom of this screen.
+                        Explain the below graphical tool: use   <span class='dottedred'></span>
+                          to consider investment levels for you and the opponent then press &#x25BC; to turn the wheel
+                    </p>
+                    <p>
+                        Try out different values for you and the opponent and turn the wheel to get a better understanding of the mechanics
                     </p>
                 </div>
 
@@ -47,17 +49,11 @@
             </div>
 
             <div class = 'calculator' id='calculator'>
-                <!-- <div class = 'titlesection'>
-                    <h5 class = leftmaintitle>YOUR GROUP</h5>
-                    <h5 class = 'rightmaintitle'>OPPOSING GROUP</h5>
-                </div> -->
+
 
                 <div class = 'topsection'>
 
                     <div class = 'leadergroupleft'>
-                        <!-- <h5>YOUR GROUP</h5>
-                        <br />
-                        <br /> -->
                         <h6 class = 'left_ltitle'>Leader (You)</h6>
                         <p><span class = 'advantagetext' id = 'advtxt1'></span></p>
                         <div id = 'efficiencyBar1' class = 'efficiencyBar1'></div>
@@ -71,6 +67,11 @@
 
 
                     <div class = 'leadergraphics'>
+                        <div class='wheelresult'>
+                            <p>
+                                <span class=wheelresulttext id=wheelresulttext></span>
+                            </p>
+                        </div>
                         <div class = 'arrowwrap'>
                             <div class='wheelpiewrap'>
                                 <img id="arrow" class='arrow' src="images/arrow.png" alt="V" />
@@ -278,7 +279,7 @@
     </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="js/wheelpie2.js"></script>
+<script src="js/instructions1.js"></script>
 
 </body>
 </html>

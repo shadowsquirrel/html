@@ -196,7 +196,7 @@ var createWheel = function(myPwin) {
             'type'     : 'spinToStop',
             'duration' : 2,
             'spins'    : 8,
-            'callbackFinished' : '',
+            'callbackFinished' : 'showResult()',
         }
     });
 }
@@ -1064,8 +1064,8 @@ var updateAll = function() {
     var winNetPayoff = document.getElementById('winnetpayoff');
     winNetPayoff.innerHTML = '<strong>' + -(h1 + s1) + '</strong>' + (((h1 + s1) !== 0) ? ' tokens' : ' token');
 
-    var whoamIDisplay = document.getElementById('whoamI');
-    whoamIDisplay.innerHTML = (info.me + 1);
+    // var whoamIDisplay = document.getElementById('whoamI');
+    // whoamIDisplay.innerHTML = (info.me + 1);
 
 }
 
@@ -1082,6 +1082,8 @@ var liftArrow = function() {
     $('.arrow').css({'marginTop':'30px'});
 }
 
+var resultIndex;
+
 var animateWheel = function() {
     createWheel(pwin);
     theWheel.stopAnimation(false);
@@ -1093,20 +1095,52 @@ var animateWheel = function() {
     $('.mywheel').css({'opacity':'1', 'zIndex':'0'});
     $('.arrow').css({'marginTop':'48px'});
 
-    var resultIndex = (Math.random() > 0.5) ? 1 : 2;
     var stopAt = theWheel.getRandomForSegment(resultIndex);
     theWheel.animation.stopAngle = stopAt;
     theWheel.startAnimation();
     activeWheelSwitch = true;
 }
 
+var xButton = document.getElementById('multibutton2');
+var xSwitch = 0;
+xButton.onclick = function() {
+    if(xSwitch===0) {
+        $('.middlesection').css({'display':'flex'});
+        $('.advantagetext').css({'opacity':'1'});
+        $('.efficiencyBar1').css({'opacity':'1'});
+        $('.efficiencyBar2').css({'opacity':'1'});
+    }
+    if(xSwitch===1) {
+        $('.middlesection').css({'display':'none'});
+        $('.advantagetext').css({'opacity':'0'});
+        $('.efficiencyBar1').css({'opacity':'0'});
+        $('.efficiencyBar2').css({'opacity':'0'});
+
+    }
+    xSwitch = 1 - xSwitch;
+}
 
 var arrowButton = document.getElementById('arrow');
 
 arrowButton.onclick = function() {
+    resultIndex = (Math.random() > 0.5) ? 1 : 2;
     animateWheel();
 }
 
+var showResult = function() {
+    $('.wheelresult').css({'opacity':'1'});
+    $('.arrowwrap').css({'margin-top':'-25px'});
+    setTimeout("liftArrow()", 1000);
+    var wheelresultDisplay = document.getElementById('wheelresulttext');
+    var youwon = 'You Won!';
+    var youlost = 'You Lost.';
+    var resultDisplay = (resultIndex===1) ? youwon : youlost;
+    wheelresultDisplay.innerHTML = resultDisplay;
+}
+
+var liftArrow = function() {
+    $('.arrow').css({'marginTop':'30px'});
+}
 
 updateAll();
 
@@ -1178,6 +1212,8 @@ efislider.oninput = function() {
     console.log(efi);
     console.log(oefi);
     updateAll();
+    $('.wheelresult').css({'opacity':'0'});
+    theWheel.stopAnimation(false);
 }
 
 
@@ -1214,6 +1250,9 @@ lslider1.oninput = function() {
     efo = lvalue;
     updateBarLeader(lvalue, 'barl', 1, true);
     updateAll();
+    $('.lbar').css({'border':'3px dotted white'});
+    $('.wheelresult').css({'opacity':'0'});
+    theWheel.stopAnimation(false);
 }
 
 //Followers
@@ -1258,6 +1297,9 @@ slider2.oninput = function() {
     updateAll();
     updateBarYAxis('bar2', true);
 
+    $('.wheelresult').css({'opacity':'0'});
+    theWheel.stopAnimation(false);
+
     //synching sliders
     if(syncOurGroup) {
         $('#vSlider3, #vSlider4').prop('value', value2);
@@ -1278,6 +1320,9 @@ slider3.oninput = function() {
 
     updateAll();
     updateBarYAxis('bar3', true);
+
+    $('.wheelresult').css({'opacity':'0'});
+    theWheel.stopAnimation(false);
 
     //synching sliders
     if(syncOurGroup) {
@@ -1314,6 +1359,9 @@ olslider1.oninput = function() {
     oefo = olvalue;
     updateBarLeader(olvalue, 'obarl', 0, true);
     updateAll();
+    $('.lbar').css({'border':'3px dotted white'});
+    $('.wheelresult').css({'opacity':'0'});
+    theWheel.stopAnimation(false);
 }
 
 //Followers
@@ -1323,6 +1371,9 @@ oslider1.oninput = function() {
     os1 = ovalue1 >= 0 ? 0 : -ovalue1;
     oh1 = ovalue1 >= 0 ? ovalue1 : 0;
     updateBar(ovalue1, 'obar1', 1, false);
+
+    $('.wheelresult').css({'opacity':'0'});
+    theWheel.stopAnimation(false);
 
     //synching values
     syncBars(ovalue1, 'opponent', syncOurGroup, syncOtherGroup);
@@ -1344,6 +1395,9 @@ oslider2.oninput = function() {
     oh2 = ovalue2 >= 0 ? ovalue2 : 0;
     updateBar(ovalue2, 'obar2', 1, false);
 
+    $('.wheelresult').css({'opacity':'0'});
+    theWheel.stopAnimation(false);
+
     //synching values
     syncBars(ovalue2, 'opponent', syncOurGroup, syncOtherGroup);
     syncValues(oh2, os2, 'opponent', syncOurGroup, syncOtherGroup);
@@ -1364,6 +1418,9 @@ oslider3.oninput = function() {
     oh3 = ovalue3 >= 0 ? ovalue3 : 0;
     updateBar(ovalue3, 'obar3', 1, false);
 
+    $('.wheelresult').css({'opacity':'0'});
+    theWheel.stopAnimation(false);
+
     //synching values
     syncBars(ovalue3, 'opponent', syncOurGroup, syncOtherGroup);
     syncValues(oh3, os3, 'opponent', syncOurGroup, syncOtherGroup);
@@ -1383,6 +1440,9 @@ oslider4.oninput = function() {
     os4 = ovalue4 >= 0 ? 0 : -ovalue4;
     oh4 = ovalue4 >= 0 ? ovalue4 : 0;
     updateBar(ovalue4, 'obar4', 1, false);
+
+    $('.wheelresult').css({'opacity':'0'});
+    theWheel.stopAnimation(false);
 
     //synching values
     syncBars(ovalue4, 'opponent', syncOurGroup, syncOtherGroup);
