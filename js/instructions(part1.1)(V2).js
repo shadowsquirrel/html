@@ -229,7 +229,7 @@ var syncValues = function() {
 
 var syncBars = function() {
     updateBarLeader(efo1, 'barl', true, false);
-    updateBarLeader(oefo1, 'obarl', true, false);
+    updateBarLeader(oefo1, 'obarl', false, false);
 }
 
 var activeWheelSwitch = true;
