@@ -781,8 +781,7 @@ var updateAll = function() {
 
 
     updateEfficiencyBar(efi, oefi);
-    updateStrengthBar(efi, oefi);
-    updateStrengthText(efi, oefi);
+
     if(activeWheelSwitch) {
         hideWheel();
         activeWheelSwitch = false;

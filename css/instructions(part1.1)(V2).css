@@ -264,6 +264,7 @@
 }
 .wheelresult3
 {
+    padding-bottom: 30px;
     transition:0.35s;
     font-size: 20px;
     /* font-weight:800; */
@@ -584,7 +585,7 @@
     background:gray;
 
     /*Setup Large*/
-    margin-top: 48px;
+    margin-top: 46px;
     background:black;
 }
 .lslider2:hover::-webkit-slider-thumb

@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-
     <link rel="stylesheet" href="css/instructions(part1.3).css">
+    <script src='js/Winwheel.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
-
-
     <title>Page Title</title>
 </head>
 <body>
+
     <div class='upperbar'>
-        <button class=multibutton id=multibutton3>Go to <span id='buttonname'></span></button>
+        <button class=multibutton id=multibutton>Y</button>
+        <button class=multibutton id=multibutton2>X<span id='buttonname'></span></button>
     </div>
     <div class = 'wrap noselect'>
 
@@ -27,165 +27,141 @@
                 </div>
 
                 <div class = sinfotext>
-                    <p style='font-size: 22px; margin-bottom: 20px;'> Decision Screen for Leader</p>
+                    <p style='font-size: 22px; margin-bottom: 10px;'> INVESTING TOKENS  </span></p>
+
+
                 </div>
 
                 <div class ='sinfotext limited'>
-
                     <p>
-                        As a leader, based on the relative powers determined by the followers, you will be asked to make an investment decision to compete against the opposing leader.
+                        Start with leaders and explain how they compete by investing tokens and getting a bigger share of the wheel
                     </p>
                     <p>
-                        Since both leaders will make an investment decision <strong>at the same time</strong>, you will have to consider an <strong>hypothetical value</strong> for the opponent's decision and
-                        make your investment decision accordingly.
+                        Explain the below graphical tool: use   <span class='dottedred'></span>
+                          to consider investment levels for you and the opponent then press &#x25BC; to turn the wheel
                     </p>
                     <p>
-                        To facilitate your decision process, we provide you with the below graphical tool. You can consider your decision either on the  <span class='dottedblue'></span> section or on  <span class='dottedgreen'></span> section.
-                        Changing value in one section will automatically change the value on the other. <span class='dottedblue'></span> section is provided to enable you to make a more precise decision.
-                    </p>
-
-                    <p>
-                        In the below example, we have provided you with a case where you are <strong>three times stronger</strong> than your opponent. You can observe this power difference on the
-                        relative power bar depicted underneat the wheel. You can think of your relative share of the wheel resulting from multiplying your invested tokens by your relative power.
-                    </p>
-
-                    <p>
-                        During the experiment, you will have a limited amount of time to make your decision. If you make your decision before the time limit is reached, you can click the <strong>Done</strong>
-                        button on the top right corner to submit your decision. If you do not click the <strong>Done</strong> button during the given decision period, your last entry on <strong>either</strong> of the decision sections will
-                        be considered as your final decision.
+                        Try out different values for you and the opponent and turn the wheel to get a better understanding of the mechanics
                     </p>
                 </div>
 
 
             </div>
 
-
-
-
             <div class = 'calculator' id='calculator'>
 
 
-                <div class = 'bottomsection'>
+                <div class = 'topsection'>
 
                     <div class = 'leadergroupleft'>
-                        <h6 class = 'left_title'>Leader (You)</h6>
+                        <h6 class = 'left_ltitle'>Your Leader</h6>
                         <div class = 'sliderbarleader left'>
-                            <input type='range' min = '0' max = '500' class = 'lslider lsliderextra' value = '1' id = 'lSlider1' />
-                            <div id = 'barl' class = 'lbar  barlextra'></div>
-                        </div>
-                        <h6 class='yourdecisiontext2'>YOUR DECISION</h6>
-                        <div class=mytableleft>
-                            <div class=sidecolumn>
-                                <p>Prize</p>
-                                <p>Net Payoff</p>
-                                <!-- <p>Role</p> -->
-                            </div>
-                            <div class=maincolumnleft>
-                                <div class=titlerow>
-                                    <p>If You Win</p>
-                                </div>
-                                <div class=row>
-                                    <p>1000 tokens</p>
-                                </div>
-                                <div class=row>
-                                    <p><span id=winnetpayoff class='outcomes'></span></p>
-                                </div>
-                                <!-- <div class=row>
-                                    <p>Maintain your Leadership Position</p>
-                                </div>
-                                <div class=roww2>
-                                    <p>Proceed to Stage 6</p>
-                                </div> -->
-                            </div>
-
+                            <input type='range' min = '0' max = '500' class = 'lslider' value = '1' id = 'lSlider1' />
+                            <div id = 'barl' class = 'lbar'></div>
                         </div>
                     </div>
 
-                    <div class = 'pieefiwrap'>
-                        <div class = 'piewrap'>
-                            <h6>Probability to Win</h6>
-                            <div class = 'pie' id = 'pie'></div>
-                        </div>
-                        <div class = 'efficiencyBarWrap'>
-                            <div class='effortbars' id='effortbars'></div>
-                            <div id = 'efficiencyBar' class = 'efficiencyBar'></div>
+
+
+                    <div class = 'leadergraphics'>
+                        <div class = 'arrowwrap'>
+                            <div class='wheelpiewrap'>
+                                <img id="arrow" class='arrow' src="images/arrow.png" alt="V" />
+                                <div id='wheelpie' class='wheelpie'>
+                                    <canvas id='mywheel' class='mywheel' width='250' height='250'>
+                                        Canvas not supported, use another browser.
+                                    </canvas>
+                                    <div class='piewrap'>
+                                        <div class='s3pie' id='pie'></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+
 
                     <div class = 'leadergroupright'>
                         <h6  class = 'right_title'>Opposing Leader</h6>
                         <div class = 'sliderbarleader lright'>
                             <input type='range' min = '0' max = '500' class = 'lslider' value = '1' id = 'olSlider1' />
-                            <div id = 'obarl' class = 'lbar'></div>
-                        </div>
-                        <h6 class='yourdecisiontext3'>HYPOTHETICAL</h6>
-                        <div class=mytableright>
-                            <div class=sidecolumn>
-                                <p>Prize</p>
-                                <p>Net Payoff</p>
-                                <!-- <p>Role</p> -->
-                            </div>
-                            <div class=maincolumnright>
-                                <div class=titlerow>
-                                    <p>If You Lose</p>
-                                </div>
-                                <div class=row>
-                                    <p>0 token</p>
-                                </div>
-                                <div class=row>
-                                    <p><span id=losenetpayoff class='outcomes'></span></p>
-                                </div>
-                                <!-- <div class=row>
-                                    <p>Lose your leadership, Become a Follower</p>
-                                </div>
-                                <div class=roww2>
-                                    <p>Proceed to Stage 5</p>
-                                </div> -->
-                            </div>
-
+                            <div id = 'obarl' class = 'lbar noselect'></div>
                         </div>
                     </div>
 
                 </div>
 
 
+                <div class = 'middlesection'>
+                    <div class = 'sliderbarefi'>
+                        <div id = 'efficiencyBar' class = 'efficiencyBar'></div>
+                    </div>
+                    <h6 style = 'z-index:1;'>Relative Power</h6>
+                </div>
 
-                <div class = decision>
-                    <div class = input>
-                        <div class = 'sliderbard'>
-                            <input type='range' min = '0' max = '500' class = 'dslider' value = '0' id = 'dSlider' />
-                            <div id = 'bard' class = 'dbar'></div>
+
+                <div class = 'bottomsection'>
+
+                    <div class = 'followergroupleft'>
+                        <div class='titlewrap'>
+                            <h6 class = 'left_title ftitle'>Follower (You)</h6>
+                        </div>
+
+                        <h6 class='yourdecisiontext2'>YOUR DECISION</h6>
+
+                        <div class = 'slidebargroup left'>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'vSlider1' />
+                                <div id = 'bar1' class = 'bar l'></div>
+                            </div>
                         </div>
                     </div>
-                    <div class = dinfo>
-                        <p>
-                            Your Investment cost is <span id=payoff class='outcomes'>0 token</span>.
-                        </p>
-                        <h6 class='yourdecisiontext closertotop'>YOUR DECISION</h6>
 
+
+
+                    <div class = 'followergraphics'>
+                        <div class='wheelresult'>
+                            <p>
+                                <span class=wheelresulttext id=wheelresulttext></span>
+                            </p>
+                        </div>
+                        <div class='wheelresult2'>
+                            <p>
+                                <span class=wheelresulttext2 id=wheelresulttext2></span>
+                            </p>
+                        </div>
+                        <div class='wheelresult3'>
+                            <p>
+                                <span class=wheelresulttext3 id=wheelresulttext3></span>
+                            </p>
+                        </div>
                     </div>
+
+
+
+                    <div class = 'followergroupright'>
+                        <div class='titlewrap'>
+                            <h6 class = 'right_title ftitle'>Follower</h6>
+                        </div>
+
+
+                        <div class = 'slidebargroup right'>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider1' />
+                                <div id = 'obar1' class = 'bar l'></div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+
+
 
             </div>
-
-
-
-
-
-
-
-
-
-
 
         </div>
 
     </div>
-
-
-
-
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="js/instructions(part1.3).js"></script>

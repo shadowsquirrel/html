@@ -27,22 +27,37 @@
                 </div>
 
                 <div class = sinfotext>
-                    <p style='font-size: 22px; margin-bottom: 10px;'> RELATIVE POWER  </span></p>
+                    <p style='font-size: 22px; margin-bottom: 10px;'> Relative Investment Power </span></p>
 
 
                 </div>
 
                 <div class ='sinfotext limited'>
                     <p>
-                        Start with leaders and explain how they compete by investing tokens and getting a bigger share of the wheel
+                        The effectiveness of tokens invested on the wheel of fortune may differ between the competitors. As a result, players may differ in their investment power .
                     </p>
                     <p>
-                        Explain the below graphical tool: <br /> 1. Use <span class='dottedblue'></span> by dragging &#9668; &#x25BA; <br /> 2. use   <span class='dottedred'></span>
-                          to consider investment levels for you and the opponent <br />3. press &#x25BC; to turn the wheel
+                        As a player's investment power increases, she can claim a larger share of the wheel for every token she invests on the wheel.
                     </p>
                     <p>
-                        Try out different values for you and the opponent and turn the wheel to get a better understanding of the mechanics
+                        The effectiveness of each player's tokens are determined <strong>before</strong> the investment decisions stage begins and declared to <strong>all</strong> involved parties at the beginning of the stage.
                     </p>
+                    <p>
+                        Leaders do not have the ability to increase the effectiveness of their tokens and can only make investment decisions based on their determined investment powers.
+                    </p>
+                    <p style='text-align:center;padding-top:25px;'>
+                        Use <span class='dottedblue'></span> by scrolling <span class='solidblack'>&#9668; &#x25BA;</span> to consider different relative investment power levels for you and your opponent.
+                    </p>
+                    <p style='text-align:center;'>
+                        You can increase your relative power by sliding <span class='solidblack'>&#9668; &#x25BA;</span> to right.
+                    </p>
+                    <p style='text-align:center;'>
+                        Values inside <span class='dottedblue2'> <span class='darkgray'></span> &#9668; &#x25BA; <span class='white'></span> </span> represent the relative investment power of each player's tokens.
+                    </p>
+                    <p style='text-align:center; padding-bottom:15px;'>
+                        For instance, <span class='dottedblue2'>  <span class='darkgray'>5</span> &#9668; &#x25BA; <span class='white2'>1</span> </span> means every token you invest can only be matched by 5 tokens invested by your opponent.
+                    </p>
+
                 </div>
 
 
@@ -50,13 +65,12 @@
 
             <div class = 'calculator' id='calculator'>
 
-
                 <div class = 'topsection'>
 
                     <div class = 'leadergroupleft'>
                         <h6 class = 'left_ltitle'>Leader (You)</h6>
                         <div class = 'sliderbarleader left'>
-                            <input type='range' min = '0' max = '500' class = 'lslider' value = '250' id = 'lSlider1' />
+                            <input type='range' min = '0' max = '500' class = 'lslider' value = '200' id = 'lSlider1' />
                             <div id = 'barl' class = 'lbar1'></div>
                         </div>
                     </div>
@@ -88,20 +102,19 @@
                     <div class = 'leadergroupright'>
                         <h6  class = 'right_title'>Opposing Leader</h6>
                         <div class = 'sliderbarleader lright'>
-                            <input type='range' min = '0' max = '500' class = 'lslider' value = '250' id = 'olSlider1' />
+                            <input type='range' min = '0' max = '500' class = 'lslider' value = '200' id = 'olSlider1' />
                             <div id = 'obarl' class = 'lbar2'></div>
                         </div>
                     </div>
 
                 </div>
 
-
                 <div class = 'middlesection'>
                     <div class = 'sliderbarefi'>
                         <input type='range' min = '-99' max = '99' class = 'efislider' value = '0' id = 'efiSlider' />
                         <div id = 'efficiencyBar' class = 'efficiencyBar'></div>
                     </div>
-                    <h6 style = 'z-index:1;'>Relative Power</h6>
+                    <h6 style = 'z-index:1;'>Relative Investment Power</h6>
                 </div>
 
                 <div class='wheelresult2'>

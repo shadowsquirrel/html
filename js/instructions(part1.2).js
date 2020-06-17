@@ -386,7 +386,8 @@ var updateEfficiencyBar = function(efi1, efi2) {
 
 // leader global variables
 var efo, efi, efefo, oefo, oefi, oefefo, pwin;
-efo = oefo = 250;
+efo = 200;
+oefo = 200;
 efi = oefi = 1;
 
 
@@ -491,6 +492,8 @@ var showResult = function() {
     var mypayoff = -efo + ((resultIndex===1) ? 1000 : 0);
     var mypayoffDisplay = 'Your Net Payoff: <strong>' + mypayoff + '</strong>';
     wheelresultDisplay3.innerHTML = mypayoffDisplay;
+
+    $('html, body').animate({scrollTop:  $(document).height()}, 2000);
 }
 
 updateAll();
