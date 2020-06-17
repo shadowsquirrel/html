@@ -47,8 +47,8 @@ var createWheel = function(myPwin) {
         'animation' :
         {
             'type'     : 'spinToStop',
-            'duration' : 2,
-            'spins'    : 8,
+            'duration' : 3,
+            'spins'    : 10,
             'callbackFinished' : 'showResult()',
         }
     });
@@ -188,7 +188,7 @@ var updateBarLeader = function(e, barId, ourSide, axisOn) {
 
 // leader global variables
 var efo, efi, efefo, oefo, oefi, oefefo, pwin;
-efo = oefo = 100;
+efo = oefo = 250;
 efi = oefi = 1;
 
 
@@ -224,7 +224,8 @@ var updateAll = function() {
         hideWheel();
         activeWheelSwitch = false;
     }
-    wheelresultDisplay2.innerHTML = 'Your investment cost: <strong>' + efo + '</strong>';
+    var mytoken = (efo > 1) ? 'tokens' : 'token';
+    wheelresultDisplay2.innerHTML = 'Your investment cost: <strong>' + efo + '</strong> ' + mytoken;
 }
 
 var hideWheel = function() {
@@ -235,9 +236,7 @@ var hideWheel = function() {
     liftArrow();
 }
 
-var liftArrow = function() {
-    $('.arrow').css({'marginTop':'30px'});
-}
+
 
 var resultIndex;
 
@@ -261,16 +260,32 @@ var animateWheel = function() {
 
 var arrowButton = document.getElementById('arrow');
 
+var canClickArrow = true;
 arrowButton.onclick = function() {
-    resultIndex = (Math.random() > 0.5) ? 1 : 2;
-    animateWheel();
+    console.log(canClickArrow);
+    if(canClickArrow) {
+        $('.arrow').css({'border':'0px'});
+        $('.wheelresult').css({'opacity':'0'});
+        $('.wheelresult3').css({'opacity':'0'});
+        resultIndex = (Math.random() < pwin) ? 1 : 2;
+        animateWheel();
+
+        canClickArrow = false;
+    }
+
+}
+
+var liftArrow = function() {
+    $('.arrow').css({'marginTop':'30px'});
 }
 
 var showResult = function() {
     $('.wheelresult').css({'opacity':'1'});
     $('.wheelresult3').css({'opacity':'1'});
     $('.arrowwrap').css({'margin-top':'-25px'});
-    setTimeout("liftArrow()", 1000);
+    canClickArrow = true;
+    liftArrow();
+    // setTimeout("liftArrow()", 500);
 
     var wheelresultDisplay = document.getElementById('wheelresulttext');
     var youwon = 'You Won!';
@@ -281,14 +296,11 @@ var showResult = function() {
     var wheelresultDisplay3 = document.getElementById('wheelresulttext3');
     var mycost = -efo;
     var mypayoff = -efo + ((resultIndex===1) ? 1000 : 0);
-    var mypayoffDisplay = 'Your Net Payoff: <strong>' + mypayoff + '</strong>';
+    var mytoken = (Math.abs(mypayoff) > 1) ? 'tokens' : 'token';
+    var mypayoffDisplay = 'Your Net Payoff: <strong>' + mypayoff + '</strong> ' + mytoken;
     wheelresultDisplay3.innerHTML = mypayoffDisplay;
+    $('html, body').animate({scrollTop:  $(document).height()}, 2000);
 
-
-}
-
-var liftArrow = function() {
-    $('.arrow').css({'marginTop':'30px'});
 }
 
 updateAll();
@@ -318,10 +330,11 @@ lslider1.oninput = function() {
     updateBarLeader(lvalue, 'barl', 1, true);
     updateAll();
 
-    $('.lbar').css({'border':'3px dotted white'});
+    $('.lbar1').css({'border':'3px dotted white'});
     $('.wheelresult').css({'opacity':'0'});
     $('.wheelresult3').css({'opacity':'0'});
     theWheel.stopAnimation(false);
+    canClickArrow = true;
 }
 
 // OPPOSING GROUP
@@ -333,10 +346,11 @@ olslider1.oninput = function() {
     updateBarLeader(olvalue, 'obarl', 0, true);
     updateAll();
 
-    $('.lbar').css({'border':'3px dotted white'});
+    $('.lbar2').css({'border':'3px dotted white'});
     $('.wheelresult').css({'opacity':'0'});
     $('.wheelresult3').css({'opacity':'0'});
     theWheel.stopAnimation(false);
+    canClickArrow = true;
 }
 
 // HOVER AND FOCUSOUT EFFECT FOR XAXIS SHOWING UP

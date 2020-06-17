@@ -1,0 +1,570 @@
+/************************************************/
+.upperbar
+{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    background-color: black;
+    position:sticky;
+    top:0;
+    z-index: 2;Fslider
+    height:40px;
+    transition:.5s;
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.wrap
+{
+    display: flex;
+/*
+    width: 100%;
+    height: 600px; */
+    justify-content: center;
+    /* margin-left: 90px; */
+    /* border: 5px solid black; */
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.all{
+    /* margin-top: 20%;
+    margin-bottom: 20%;
+
+    height:300px;
+    width: 300px; */
+
+    display:flex;
+    flex-direction: column;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: center;
+    /* justify-content:center; */
+    /* border: 5px solid black; */
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.sinfo{
+    flex-grow: 1;
+    /* justify-content: center; */
+    /* border: 5px solid black; */
+    /* width:900px; */
+    /* background-color: gray; */
+    /* margin-bottom: 90px; */
+}
+.sinfotitle
+{
+    margin-bottom: 10px;
+}
+.sinfotextandgraphics
+{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+
+}
+.sinfotext
+{
+    text-align: left;
+    /* font-weight:500; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    /* text-align: center; */
+    flex-grow: 1;
+    /* border: 5px solid black; */
+    /* max-width: 500px; */
+
+}
+.limited
+{
+    max-width: 1100px;
+}
+
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.calculator
+{
+    text-align: center;
+    /* position: sticky; */
+    /* top: -90px; */
+    display: flex;
+    flex-direction: column;
+    /* background-color: gray; */
+    flex-grow:5;
+     /* border: 5px solid black; */
+     /* position: sticky;
+     top: 0px; */
+}
+.leftmaintitle
+{
+    margin-left: -105px;
+}
+.rightmaintitle
+{
+    margin-right: -135px;
+}
+.titlesection
+{
+    /* margin-bottom: -20px; */
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.topsection
+{
+    /* margin-top: 20px; */
+    /* z-index: 2;*/
+    /* position: sticky;
+    top: 0; */
+    display:flex;
+    flex-direction: row;
+    /* border: 5px solid black; */
+}
+.left_ltitle
+{
+    /* margin-left: -50px; */
+
+}
+.leadergroupleft
+{
+    padding-top:85px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* margin-left: 5px; */
+    /* margin-top: 15px; */
+
+}
+.leadergraphics
+{
+    display: flex;
+    flex-direction: column;
+    /* margin-left: 25px; */
+}
+.leadergroupright
+{
+    padding-top:85px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* margin-left: 50px; */
+    /* margin-top: 15px; */
+}
+
+
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+.wheelresult
+{
+    transition:0.35s;
+    font-size: 20px;
+    font-weight:800;
+}
+.wheelresult2
+{
+    width:300px;
+    transition:0.35s;
+    font-size: 20px;
+    /* font-weight:800; */
+}
+.wheelresult3
+{
+    transition:0.35s;
+    font-size: 20px;
+    /* font-weight:800; */
+}
+.arrowwrap
+{
+    margin-top: 6px;
+    display: flex;
+    justify-content: center;
+    /* border: 5px solid black; */
+}
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+.wheelpiewrap
+{
+    text-align: center;
+}
+/************************************************/
+/************************************************/
+.arrow
+{
+    border: 0px dotted red;
+    z-index:2;
+    opacity:1;
+    transition:.15s;
+    transition-delay: .15s;
+    cursor: pointer;
+
+    width:30px;
+    height:30px;
+
+    position: absolute;
+    transform:rotate(180deg);
+    margin-left:-15.5px;
+    margin-top:30px;/*48*/
+}
+.wheelpie
+{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+}
+/************************************************/
+.mywheel
+{
+    z-index:-1;
+    opacity:0;
+    transition:0.15s;
+    display: none;
+
+    position: relative;
+}
+/************************************************/
+.piewrap
+{
+    opacity: 1;
+    z-index: 0;
+    transition:0.15s;
+
+    margin-left: 25px;
+    position:absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.s3pie
+{
+    /* border: 5px solid black; */
+}
+
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+/*-*-* wheel + pie *-*-* wheel + pie *-*-*/
+
+/************************************************/
+/************************************************/
+/************************************************/
+/* .group
+{
+    display:flex;
+    flex-direction: column;
+    flex-grow:1;
+    text-align: center;
+} */
+/************************************************/
+.titlewrap
+{
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    margin-bottom: -20px;
+}
+/* Simple text classes*/
+.right_title
+{
+    /* margin-right: 50px; */
+}
+
+/************************************************/
+/************************************************/
+/* Slider + bar classes for followers and leader*/
+/************************************************/
+/*class to containt slider + bar*/
+.sliderbarleader
+{
+    /* position: sticky; */
+    /* top: 0px; */
+    display:flex;
+    justify-content: center;
+    /* margin-top: 20px; */
+}
+/* adjustment for left side leader we didn't have one for right side leader*/
+/*subclass of sliderbarleader*/
+.lright
+{
+    /* margin-right: 40px; */
+}
+.lbar1
+{
+    transition: 1s;
+    border: 3px dotted red;
+    z-index:0;
+    position: relative;
+}
+.lbar2
+{
+    transition: 1s;
+    border: 3px dotted red;
+    z-index:0;
+    position: relative;
+}
+.dottedred
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 3px dotted red;
+    padding-left:20px;
+    /* height: 5px; */
+    /* width: 10px; */
+}
+/************************************************/
+.lslider
+{
+    z-index: 1;
+    position: absolute;
+    -webkit-appearance: none;
+    appearance: none;
+    background: gray;
+    opacity: 0.3;
+    transition: 0.35s;
+    /* transition-delay: 0.15s; */
+
+    /*Setup Large*/
+    width: 357px;
+    margin-top: 38px;
+    margin-left:-1px;
+    /* background: black; */
+    height: 2px;
+}
+/************************************************/
+.lslider::-webkit-slider-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 31px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.35s;
+    /* transition-delay: 0.15s; */
+    margin-top: -2px;
+}
+.lslider::-moz-range-thumb
+{
+    z-index:1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 30px;
+    background: black;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.35s;
+    /* transition-delay: 0.25s; */
+}
+.lslider:focus
+{
+    outline: none;
+}
+/************************************************/
+.lslider:hover
+{
+    opacity:1;
+    background:gray;
+
+    /*Setup Large*/
+    margin-top: 48px;
+    background:black;
+}
+.lslider:hover::-webkit-slider-thumb
+{
+    /*Setup Large*/
+    height: 47px;
+    margin-top: 0px;
+    /* width: 5px; */
+}
+.lslider:hover::-moz-range-thumb
+{
+    height: 47px;
+    /* width: 5px; */
+}
+
+
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/*************************************************/
+.sliderbarefi
+{
+    /* display: none; */
+    display:flex;
+    justify-content: center;
+    /* margin-left: -40px;
+    flex-grow: 1; */
+
+}
+/************************************************/
+.efficiencyBar
+{
+    z-index:0;
+    position: relative;
+    justify-content: center;
+}
+/************************************************/
+.efislider
+{
+    z-index: 3;
+    position: absolute;
+    -webkit-appearance: none;
+    appearance: none;
+    opacity: 0;
+
+    width: 1020px;
+    margin-top: 13px;
+    background: black;
+    height: 2px;
+}
+/************************************************/
+/************************************************/
+.efislider::-webkit-slider-thumb
+{
+    opacity: 0;
+    z-index:3;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 80px;
+    background: black;
+    cursor: pointer;
+    margin-top: 0px;
+}
+.efislider::-moz-range-thumb
+{
+    opacity: 0;
+    z-index:3;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 3px;
+    height: 80px;
+    background: black;
+    cursor: pointer;
+    margin-top: 0px;
+}
+.efislider:focus
+{
+    outline: none;
+}
+/************************************************/
+.efislider:hover
+{
+    opacity:0;
+    margin-top: 13px;
+}
+.efislider:hover::-webkit-slider-thumb
+{
+    opacity: 0;
+    height: 80px;
+    margin-top: 0px;
+}
+.efislider:hover::-moz-range-thumb
+{
+    opacity: 0;
+    height: 80px;
+    margin-top: 0px;
+}
+
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+/************************************************/
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}

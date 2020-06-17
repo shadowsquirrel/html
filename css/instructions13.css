@@ -168,6 +168,7 @@
 }
 .leadergroupleft
 {
+    margin-right: -20px;
     padding-top:85px;
     display: flex;
     flex-direction: column;
@@ -184,6 +185,7 @@
 }
 .leadergroupright
 {
+    margin-left: -20px;
     padding-top:85px;
     display: flex;
     flex-direction: column;
@@ -251,9 +253,11 @@
 /************************************************/
 .arrow
 {
+    border: 0px dotted red;
     z-index:2;
     opacity:1;
-    transition:.1s;
+    transition:.15s;
+    transition-delay: .15s;
     cursor: pointer;
 
     width:30px;
@@ -358,7 +362,14 @@
 {
     /* margin-right: 40px; */
 }
-.lbar
+.lbar1
+{
+    transition: 1s;
+    border: 3px dotted red;
+    z-index:0;
+    position: relative;
+}
+.lbar2
 {
     transition: 1s;
     border: 3px dotted red;
@@ -370,6 +381,15 @@
     margin-left: 10px;
     margin-right: 10px;
     border: 3px dotted red;
+    padding-left:20px;
+    /* height: 5px; */
+    /* width: 10px; */
+}
+.dottedblue
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 3px dotted blue;
     padding-left:20px;
     /* height: 5px; */
     /* width: 10px; */
@@ -447,7 +467,21 @@
     height: 47px;
     /* width: 5px; */
 }
+.middlesection
+{
 
+    margin-top: -62px;
+    padding-bottom: 12px;
+    z-index:3;
+
+    justify-content: center;
+    display:flex;
+    flex-direction: column;
+    /* position: relative; */
+    /* display:none; */
+
+    /* border: 5px solid black; */
+}
 
 /************************************************/
 /************************************************/
@@ -462,6 +496,7 @@
 .sliderbarefi
 {
     /* display: none; */
+    border: 3px dotted blue;
     display:flex;
     justify-content: center;
     /* margin-left: -40px;
