@@ -854,7 +854,7 @@ $('#vSlider1').hover(
         setTimeout("updateBarYAxis('bar1', true)", 250);
         $('.yourdecisiontext').css({'font-weight':'700', 'font-size':'17px'});
         $('.yourdecisiontext2').css({'font-weight':'600','opacity':'1'});
-        $('#vSlider1').css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
+        $('#vSlider1').css({'background':'black', 'opacity':'1', 'margin-left': '-75px'});
     },
     function() {
         setTimeout("updateBarYAxis('bar1', false)", 500);
@@ -867,7 +867,7 @@ $('#vSlider1').hover(
 $('#ovSlider1').hover(
     function() {
         setTimeout("updateBarYAxis('obar1', true)", 250);
-        $('#ovSlider1').css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
+        $('#ovSlider1').css({'background':'black', 'opacity':'1', 'margin-left': '-75px'});
         $('#ovSlider1').addClass('newnewSlider');
     },
     function() {

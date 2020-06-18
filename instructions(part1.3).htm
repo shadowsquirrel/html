@@ -13,8 +13,9 @@
 <body>
 
     <div class='upperbar'>
-        <button class=multibutton id=multibutton>Y</button>
-        <button class=multibutton id=multibutton2>X<span id='buttonname'></span></button>
+        <button class='continueButton' onclick="window.location.href='./Instructions(part1.4).htm'">Continue</button>
+        <!-- <button class=multibutton id=multibutton>Y</button>
+        <button class=multibutton id=multibutton2>X<span id='buttonname'></span></button> -->
     </div>
     <div class = 'wrap noselect'>
 
@@ -27,7 +28,7 @@
                 </div>
 
                 <div class = sinfotext>
-                    <p style='font-size: 22px; margin-bottom: 10px;'> Help and Sabotage  </span></p>
+                    <p style='font-size: 22px; margin-bottom: 20px;'> Help and Sabotage  </span></p>
 
 
                 </div>
@@ -49,7 +50,7 @@
                         As in the leaders' case, 1 token is worth half a penny.
                     </p>
                     <p>
-                        <strong>After</strong> followers make their sabotage or help decision, relative investment powers of leaders are determined and leaders proceed to compete with each other.
+                        <strong>After</strong> followers make their sabotage or help decision, relative investment powers of leaders are determined. <strong>Only then</strong>, leaders proceed to compete with each other.
                     </p>
                     <!-- <p>
                         When a leader wins the competition, her followers get <strong>0</strong> token.
@@ -60,9 +61,13 @@
                     <p>
                         Regardless of whether a leader loses or wins the competition, <strong>her</strong> followers receive <strong>0</strong> token.
                     </p>
+
                     <p>
                         <strong>But</strong>, when a leader loses, she also <strong>loses her leadership position</strong>,
-                        and her followers <strong>get the chance to become the new leader</strong> of their group and to compete for <strong>1000</strong> tokens <strong>If</strong> there is a new leaders competition.
+                        and one of her followers <strong>get the chance to become the new leader</strong> of their group and to compete for <strong>1000</strong> tokens <strong>If</strong> there is a new leaders competition.
+                    </p>
+                    <p>
+                        Below is simplified demonstration of the help/sabotage mechanism with a single follower per group. Note that in the actual game there will be 2 followers per group.
                     </p>
                     <p style='padding-top:20px; text-align: center;'>
                         use <span class='dottedgreen'></span> sections to consider help or sabotage levels for both leaders.
@@ -74,6 +79,9 @@
                                 Move the slider up to select an help level.
                             </div>
 
+                        </p>
+                        <p style='padding-top:56px; font-weight:800;'>
+                            OR
                         </p>
                         <p class='textimageclass'>
                             <img id="spic" class='spic' src="images/sabo.png" alt="V" />
