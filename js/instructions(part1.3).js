@@ -459,66 +459,66 @@ var updateEfficiencyBar = function(efi1, efi2) {
         },
     };
 
-    var gap1 = {
-        y: ['group 1'],
-        x: [gp1],
-        type: 'bar',
-        orientation: 'h',
-        sort: false,
-        hoverinfo: 'none',
-        automargin: true,
-        showlegend: false,
-        marker: {
-            color: 'white',
-        },
-        text: '',
-        textposition: 'inside',
-        insidetextanchor: 'middle',
-        textfont: {
-            color: 'black',
-            size: '14'
-        },
-    };
-    var gap2 = {
-        y: ['group 1'],
-        x: [gp2],
-        type: 'bar',
-        orientation: 'h',
-        sort: false,
-        hoverinfo: 'none',
-        automargin: true,
-        showlegend: false,
-        marker: {
-            color: 'black',
-        },
-        text: '',
-        textposition: 'inside',
-        insidetextanchor: 'middle',
-        textfont: {
-            color: 'black',
-            size: '14'
-        },
-    };
-    var gap3 = {
-        y: ['group 1'],
-        x: [gp3],
-        type: 'bar',
-        orientation: 'h',
-        sort: false,
-        hoverinfo: 'none',
-        automargin: true,
-        showlegend: false,
-        marker: {
-            color: 'white',
-        },
-        text: '',
-        textposition: 'inside',
-        insidetextanchor: 'middle',
-        textfont: {
-            color: 'black',
-            size: '14'
-        },
-    };
+    // var gap1 = {
+    //     y: ['group 1'],
+    //     x: [gp1],
+    //     type: 'bar',
+    //     orientation: 'h',
+    //     sort: false,
+    //     hoverinfo: 'none',
+    //     automargin: true,
+    //     showlegend: false,
+    //     marker: {
+    //         color: 'white',
+    //     },
+    //     text: '',
+    //     textposition: 'inside',
+    //     insidetextanchor: 'middle',
+    //     textfont: {
+    //         color: 'black',
+    //         size: '14'
+    //     },
+    // };
+    // var gap2 = {
+    //     y: ['group 1'],
+    //     x: [gp2],
+    //     type: 'bar',
+    //     orientation: 'h',
+    //     sort: false,
+    //     hoverinfo: 'none',
+    //     automargin: true,
+    //     showlegend: false,
+    //     marker: {
+    //         color: 'black',
+    //     },
+    //     text: '',
+    //     textposition: 'inside',
+    //     insidetextanchor: 'middle',
+    //     textfont: {
+    //         color: 'black',
+    //         size: '14'
+    //     },
+    // };
+    // var gap3 = {
+    //     y: ['group 1'],
+    //     x: [gp3],
+    //     type: 'bar',
+    //     orientation: 'h',
+    //     sort: false,
+    //     hoverinfo: 'none',
+    //     automargin: true,
+    //     showlegend: false,
+    //     marker: {
+    //         color: 'white',
+    //     },
+    //     text: '',
+    //     textposition: 'inside',
+    //     insidetextanchor: 'middle',
+    //     textfont: {
+    //         color: 'black',
+    //         size: '14'
+    //     },
+    // };
 
     var leader2 = {
         y: ['group 1'],
@@ -541,7 +541,9 @@ var updateEfficiencyBar = function(efi1, efi2) {
         },
     };
 
-    var data = [leader1, gap1, gap2, gap3, leader2];
+    // var data = [leader1, gap1, gap2, gap3, leader2];
+
+    var data = [leader1, gap, leader2];
 
     var layout = {
         barmode: 'stack',
@@ -582,7 +584,7 @@ os1 = oh1 = 0;
 
 // leader global variables
 var efo, efi, efefo, oefo, oefi, oefefo, pwin;
-efo = oefo = 1;
+efo = oefo = 100;
 efi = oefi = 1;
 
 
@@ -630,6 +632,31 @@ var updateAll = function() {
         hideWheel();
         activeWheelSwitch = false;
     }
+
+    var investCostDisplay = document.getElementById('investmentcostdisplay');
+    var mytokens = ((h1+s1)>1) ? 'tokens' : 'token';
+    var investmentCostText = '<strong>Your</strong> investment cost: <strong>' + (h1+s1) + '</strong> ' + mytokens;
+    investCostDisplay.innerHTML = investmentCostText;
+    $('.cursor-pointer').css({'cursor':'default'});
+
+
+    // var wheelresultDisplay = document.getElementById('wheelresulttext');
+    // var youwon = 'Your Leader Won.';
+    // var youlost = 'You Leader Lost.';
+    // var resultDisplay = (resultIndex===1) ? youwon : youlost;
+    // wheelresultDisplay.innerHTML = resultDisplay;
+    //
+    // var wheelresultDisplay2 = document.getElementById('wheelresulttext2');
+    // var yourrolelost = 'You have the chance to become the new Leader of your group.';
+    // var yourrolewon = 'You continue your role as follower.'
+    // var resultDisplay2 = (resultIndex===1) ? yourrolewon : yourrolelost;
+    // wheelresultDisplay2.innerHTML = resultDisplay2;
+    //
+    // var wheelresultDisplay3 = document.getElementById('wheelresulttext3');
+    // var followerPrize = 0;
+    // var mypayoff = -(s1 + h1) + ((resultIndex===1) ? followerPrize : 0);
+    // var mypayoffDisplay = 'Your Net Payoff: <strong>' + mypayoff + '</strong>';
+    // wheelresultDisplay3.innerHTML = mypayoffDisplay;
 }
 
 var hideWheel = function() {
@@ -665,6 +692,7 @@ arrowButton.onclick = function() {
     if(canClickArrow) {
         $('.arrow').css({'border':'0px'});
         $('.wheelresult').css({'opacity':'0'});
+        $('.wheelresult2').css({'opacity':'0'});
         $('.wheelresult3').css({'opacity':'0'});
         resultIndex = (Math.random() > 0.5) ? 1 : 2;
         animateWheel();
@@ -680,22 +708,30 @@ var liftArrow = function() {
 
 var showResult = function() {
     $('.wheelresult').css({'opacity':'1'});
+    $('.wheelresult2').css({'opacity':'1'});
     $('.wheelresult3').css({'opacity':'1'});
-    $('.arrowwrap').css({'margin-top':'-25px'});
+    // $('.arrowwrap').css({'margin-top':'-25px'});
+    // $('.middlesection').css({'margin-top':'-15px'});
     canClickArrow = true;
     liftArrow();
     // setTimeout("liftArrow()", 500);
 
     var wheelresultDisplay = document.getElementById('wheelresulttext');
-    var youwon = 'You Won!';
-    var youlost = 'You Lost.';
+    var youwon = 'Your Leader Won.';
+    var youlost = 'You Leader Lost.';
     var resultDisplay = (resultIndex===1) ? youwon : youlost;
     wheelresultDisplay.innerHTML = resultDisplay;
 
+    var wheelresultDisplay2 = document.getElementById('wheelresulttext2');
+    var yourrolelost = 'You have the chance to become the new Leader of your group.';
+    var yourrolewon = 'You continue your role as a follower.'
+    var resultDisplay2 = (resultIndex===1) ? yourrolewon : yourrolelost;
+    wheelresultDisplay2.innerHTML = resultDisplay2;
+
     var wheelresultDisplay3 = document.getElementById('wheelresulttext3');
-    var mycost = -efo;
-    var mypayoff = -efo + ((resultIndex===1) ? 1000 : 0);
-    var mypayoffDisplay = 'Your Net Payoff: <strong>' + mypayoff + '</strong>';
+    var followerPrize = 0;
+    var mypayoff = -(s1 + h1) + ((resultIndex===1) ? followerPrize : 0);
+    var mypayoffDisplay = '<strong>Your</strong> Net Payoff: <strong>' + mypayoff + '</strong>';
     wheelresultDisplay3.innerHTML = mypayoffDisplay;
 }
 
@@ -709,7 +745,7 @@ updateAll();
 // YOUR GROUP INITIATION
 // leader
 var lslider1 = document.getElementById('lSlider1');
-var lvalue = 1;
+var lvalue = 100;
 updateBarLeader(lvalue, 'barl', 1, false);
 // followers
 var slider1 = document.getElementById('vSlider1');
@@ -719,7 +755,7 @@ updateBar(value1, 'bar1', 0, false);
 // OPPOSING GROUP INITIATION
 // leader
 var olslider1 = document.getElementById('olSlider1');
-var olvalue = 1;
+var olvalue = 100;
 updateBarLeader(olvalue, 'obarl', 0, false);
 // followers
 var oslider1 = document.getElementById('ovSlider1');
@@ -737,6 +773,7 @@ lslider1.oninput = function() {
 
     $('.lbar1').css({'border':'3px dotted white'});
     $('.wheelresult').css({'opacity':'0'});
+    $('.wheelresult2').css({'opacity':'0'});
     $('.wheelresult3').css({'opacity':'0'});
     theWheel.stopAnimation(false);
     canClickArrow = true;
@@ -753,6 +790,7 @@ olslider1.oninput = function() {
 
     $('.lbar2').css({'border':'3px dotted white'});
     $('.wheelresult').css({'opacity':'0'});
+    $('.wheelresult2').css({'opacity':'0'});
     $('.wheelresult3').css({'opacity':'0'});
     theWheel.stopAnimation(false);
     canClickArrow = true;
@@ -783,9 +821,14 @@ slider1.oninput = function() {
     s1 = value1 >= 0 ? 0 : -value1;
     h1 = value1 >= 0 ? value1 : 0;
     updateBar(value1, 'bar1', 1, false);
-
+    $('.wheelresult').css({'opacity':'0'});
+    $('.wheelresult2').css({'opacity':'0'});
+    $('.wheelresult3').css({'opacity':'0'});
+    theWheel.stopAnimation(false);
+    canClickArrow = true;
     updateAll();
     updateBarYAxis('bar1', true);
+    $('.greendotted1').css({'border':'3px dotted white'});
 }
 
 //Followers
@@ -796,24 +839,28 @@ oslider1.oninput = function() {
     updateBar(ovalue1, 'obar1', 1, false);
 
     $('.wheelresult').css({'opacity':'0'});
+    $('.wheelresult2').css({'opacity':'0'});
+    $('.wheelresult3').css({'opacity':'0'});
     theWheel.stopAnimation(false);
+    canClickArrow = true;
 
     updateAll();
     updateBarYAxis('obar1', true);
+    $('.greendotted2').css({'border':'3px dotted white'});
 }
 
 $('#vSlider1').hover(
     function() {
         setTimeout("updateBarYAxis('bar1', true)", 250);
         $('.yourdecisiontext').css({'font-weight':'700', 'font-size':'17px'});
-        $('.yourdecisiontext2').css({'font-weight':'700','opacity':'1'});
+        $('.yourdecisiontext2').css({'font-weight':'600','opacity':'1'});
         $('#vSlider1').css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
     },
     function() {
         setTimeout("updateBarYAxis('bar1', false)", 500);
         $('.yourdecisiontext').css({'font-weight':'200', 'font-size':'17px'});
-        $('.yourdecisiontext2').css({'font-weight':'200','opacity':'0.3'});
-        $('#vSlider1').css({'background':'gray', 'opacity':'0.3', 'margin-left': '-90px'});
+        $('.yourdecisiontext2').css({'font-weight':'200','opacity':'1'});
+        $('#vSlider1').css({'background':'gray', 'opacity':'0.3', 'margin-left': '-87px'});
     }
 );
 
@@ -825,7 +872,7 @@ $('#ovSlider1').hover(
     },
     function() {
         setTimeout("updateBarYAxis('obar1', false)", 500);
-        $('#ovSlider1').css({'background':'gray', 'opacity':'0.3', 'margin-left': '-90px'});
+        $('#ovSlider1').css({'background':'gray', 'opacity':'0.3', 'margin-left': '-87px'});
         $('#ovSlider1').removeClass('newnewSlider');
     }
 );
