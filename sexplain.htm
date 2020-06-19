@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/sexplain.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <title>Page Title</title>
+</head>
+<body>
+
+    <div class='upperbar'>
+        <button class=multibutton id=multibutton>Decision Mode</button>
+        <button class=multibutton id=multibutton2>Go to <span id='buttonname'></span></button>
+    </div>
+    <div class = 'wrap noselect'>
+
+        <div class = 'all'>
+
+            <div class='sexplain'>
+
+                <div class=allboxwrap>
+
+                    <div class='sboxwrap'>
+                        <div class='sbox b1'>
+                            <div class='stageboxtext'>
+                                <p>
+                                    Stage 1
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class='aboxwrap'>
+                        <div class='abox'>
+                            <svg height="50" width="50">
+
+                                <defs>
+
+                                    <marker id="markerArrow" markerWidth="13" markerHeight="13" refX="2" refY="6" orient="auto">
+                                        <path d="M2,2 L2,11 L10,6 L2,2"  style="fill: black;"/>
+                                    </marker>
+
+                                    <marker id="markerArrow2" markerWidth="13" markerHeight="13" refX="2" refY="6" orient="auto">
+                                        <path d="M2,2 L2,11 L10,6 L2,2"  style="fill: yellow;"/>
+                                    </marker>
+
+                                    <marker id="markerArrow3" markerWidth="13" markerHeight="13" refX="2" refY="6" orient="auto">
+                                        <path d="M2,2 L2,11 L10,6 L2,2"  style="fill: green;"/>
+                                    </marker>
+
+                                </defs>
+
+                                <line x1="10" y1="25" x2="30" y2="25" class="arrow 1a2" id ='arrow' />
+                            </svg>
+                        </div>
+                    </div>
+
+
+                    <div class='sboxwrap'>
+                        <div class='sbox b2'>
+                            <div class='stageboxtext'>
+                                <p>
+                                    Stage 2
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class='aboxwrap'>
+                        <div class='abox'>
+                            <svg height="50" width="50">
+                                <line x1="10" y1="25" x2="30" y2="25" class="arrow 2a3" id ='arrow' />
+                            </svg>
+                        </div>
+                    </div>
+
+
+                    <div class='sboxwrap'>
+                        <div class='sbox b3'>
+                            <div class='stageboxtext'>
+                                <p>
+                                    Stage 3
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class='aboxdoublewrap'>
+                        <div class='aboxdouble'>
+                            <svg height="120" width="50">
+                                <line x1="10" y1="55" x2="35" y2="35" class="arrow 3al" id ='arrow' />
+                                <line x1="10" y1="65" x2="35" y2="85" class="arrow 3aw" id ='arrow' />
+                            </svg>
+                        </div>
+                    </div>
+
+
+                    <div class='sboxwrap'>
+                        <div class='sbox w34 somespacedown'>
+                            <div class='stageboxtextlong'>
+                                <p>
+                                    Leader Lost
+                                </p>
+                            </div>
+                        </div>
+                        <div class='sbox l34 somespaceup'>
+                            <div class='stageboxtextlong'>
+                                <p>
+                                    Leader Won
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class='aboxdoublewrap'>
+                        <div class='aboxdouble ontop'>
+                            <svg height="120" width="500">
+                                <line x1="10" y1="25" x2="35" y2="25" class="arrow la4" id ='arrow' />
+                                <line x1="10" y1="95" x2="158" y2="68" class="arrow wa5" id ='arrow' />
+                            </svg>
+                        </div>
+                    </div>
+
+
+                    <div class='sboxwrap'>
+                        <div class='sbox w34 somespacedowndown'>
+                            <div class='stageboxtext'>
+                                <p>
+                                    Stage 4
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class='aboxdoublewrap'>
+                        <div class='aboxdouble'>
+                            <svg height="120" width="50">
+                                <line x1="10" y1="25" x2="35" y2="50" class="arrow 4a5" id ='arrow' />
+                            </svg>
+                        </div>
+                    </div>
+
+
+                    <div class='sboxwrap'>
+                        <div class='sbox b3'>
+                            <div class='stageboxtext'>
+                                <p>
+                                    Stage 5
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class='aboxwrap'>
+                        <div class='abox'>
+                            <svg height="50" width="50">
+                                <line x1="10" y1="25" x2="30" y2="25" class="arrow 5a6" id ='arrow' />
+                            </svg>
+                        </div>
+                    </div>
+
+
+                    <div class='sboxwrap'>
+                        <div class='sbox b3'>
+                            <div class='stageboxtext'>
+                                <p>
+                                    Stage 6
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class='sexplain2'>
+
+                <div class=allboxwrap2>
+
+                    <div class='sboxwrap2'>
+                        <div class='sbox2 b1'>
+                        </div>
+                    </div>
+
+
+                    <div class='aboxwrap2'>
+                        <div class='abox2'>
+                            <svg height="50" width="50">
+
+                                <defs>
+
+                                    <marker id="markerArrow22" markerWidth="13" markerHeight="13" refX="2" refY="6" orient="auto">
+                                        <path d="M2,2 L2,11 L10,6 L2,2"  style="fill: black;"/>
+                                    </marker>
+
+
+                                </defs>
+
+                                <line x1="5" y1="25" x2="15" y2="25" class="arrow2 1a2" id ='arrow' />
+                            </svg>
+                        </div>
+                    </div>
+
+
+                    <div class='sboxwrap2'>
+                        <div class='sbox2 b2'>
+                        </div>
+                    </div>
+
+
+                    <div class='aboxwrap2'>
+                        <div class='abox2'>
+                            <svg height="50" width="50">
+                                <line x1="5" y1="25" x2="15" y2="25" class="arrow2 2a3" id ='arrow' />
+                            </svg>
+                        </div>
+                    </div>
+
+
+                    <div class='sboxwrap2'>
+                        <div class='sbox2 b3'>
+                        </div>
+                    </div>
+
+
+                    <div class='aboxdoublewrap2'>
+                        <div class='aboxdouble2'>
+                            <svg height="120" width="50">
+                                <line x1="5" y1="55" x2="17" y2="48" class="arrow2 3al" id ='arrow' />
+                                <line x1="5" y1="65" x2="17" y2="72" class="arrow2 3aw" id ='arrow' />
+                            </svg>
+                        </div>
+                    </div>
+
+
+                    <div class='sboxwrap2'>
+                        <div class='sbox2 w34 somespacedown2'>
+                        </div>
+                        <div class='sbox2 l34 somespaceup2'>
+                        </div>
+                    </div>
+
+
+                    <div class='aboxdoublewrap2'>
+                        <div class='aboxdouble2 ontop2'>
+                            <svg height="120" width="500">
+                                <line x1="5" y1="42" x2="17" y2="42" class="arrow2 la4" id ='arrow' />
+                                <line x1="5" y1="78" x2="60" y2="65" class="arrow2 wa5" id ='arrow' />
+                            </svg>
+                        </div>
+                    </div>
+
+
+                    <div class='sboxwrap2'>
+                        <div class='sbox2 w34 somespacedowndown2'>
+                        </div>
+                    </div>
+
+
+                    <div class='aboxdoublewrap2'>
+                        <div class='aboxdouble2'>
+                            <svg height="120" width="50">
+                                <line x1="5" y1="42" x2="18" y2="52" class="arrow2 4a5" id ='arrow' />
+                            </svg>
+                        </div>
+                    </div>
+
+
+                    <div class='sboxwrap2'>
+                        <div class='sbox2 b3'>
+                        </div>
+                    </div>
+
+
+                    <div class='aboxwrap2'>
+                        <div class='abox2'>
+                            <svg height="50" width="50">
+                                <line x1="5" y1="25" x2="15" y2="25" class="arrow2 5a6" id ='arrow' />
+                            </svg>
+                        </div>
+                    </div>
+
+
+                    <div class='sboxwrap2'>
+                        <div class='sbox2 b3'>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class = 'sinfo' id='sinfo'>
+
+                <div class = sinfotitle>
+                    <h3 style='margin-left:26px;'>STAGE 5</h3>
+                    <button class=explainstage id=explainstage>?</button>
+                </div>
+
+                <div class = sinfotext>
+                    <p style='font-size: 22px; margin-bottom: 10px;'> You are Follower  <span id='whoamI'></span></p>
+
+
+                </div>
+
+                <div class = sinfotextandgraphics>
+                    <h5 style='margin-bottom: 30px;'>Previous Stages</h5>
+                    <!-- <button class = sinfographicsbutton id = sinfographicsbutton></button> -->
+                    <div class = sinfographics id = sinfographics>
+
+                        <div class = s2infographics>
+                            <h6 class = s2infotitle>STAGE 2</h6>
+                            <div class = s2graphics>
+                                <div class = 's2g1'>
+                                    <h7>Your Group</h7>
+                                    <div id = 's2helpbarg1'></div>
+                                    <div id = 's2sabobarg1'></div>
+                                </div>
+                                <pre>   </pre>
+                                <div id = 's2barmain'>
+                                    <h7>Total</h7>
+                                    <div id = 's2totalhelpbar'></div>
+                                    <div id = 's2totalsabobar'></div>
+                                </div>
+                                <pre>    </pre>
+                                <div class = 's2g1'>
+                                    <h7 style='margin-left:-10px;'>Other Group</h7>
+                                    <div id = 's2helpbarg2'></div>
+                                    <div id = 's2sabobarg2'></div>
+                                </div>
+                            </div>
+                            <div class='borderlegend'>
+                                <div class='boxtext rolehide'>
+                                    <div class='youbox1'></div>
+                                    <p style='font-size:12px;'>You</p>
+                                </div>
+                                <div class='boxtext ournewleader'>
+                                    <div class='newleaderbox1'></div>
+                                    <p style='font-size:12px;'>New Leader</p>
+                                </div>
+                                <div class='boxtext'>
+                                    <div class='sabobox'></div>
+                                    <p style='font-size:12px;'>Sabotage</p>
+                                </div>
+                                <div class='boxtext'>
+                                    <div class='helpbox'></div>
+                                    <p style='font-size:12px;'>Help</p>
+                                </div>
+                                <div class='boxtext theirnewleader'>
+                                    <div class='newleaderbox1' ></div>
+                                    <div class='newleadertextwrap'>
+                                        <p style='font-size:12px;'>Opposing Group's</p>
+                                        <p style='font-size:12px; margin-left:-32px; margin-top:-15px;'>New Leader</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class = s3infographics>
+                            <h6 class = 's3infotitle'>STAGE 3</h6>
+                            <h10 class = 's3infotitle' style='margin-top: -50px;'><span id=wholost></span></h10>
+                            <div class = 's3graphics'>
+                                <div id = 's3pie' class = 's3pie'></div>
+                                <div class='efiefo'>
+                                    <div id = 's3efobar' class = 's3efobar'></div>
+                                    <div id = 's3efibar' class = 's3efibar'></div>
+                                </div>
+                            </div>
+                            <div class='borderlegend leaderwonextratop'>
+                                <div class='boxtext extraboxtext1'>
+                                    <div class='yourleaderbox'></div>
+                                    <p style='font-size:12px;'><span id='roledependenttext'></span></p>
+                                </div>
+                                <div class='boxtext extraboxtext1'>
+                                    <div class='opposingleaderbox'></div>
+                                    <p style='font-size:12px;'>Opposing Leader</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class = s4infographics>
+                            <h6>STAGE 4</h6>
+                            <h10 class='rolehide' style='margin-top: -38px;'>(You lost)</h10>
+                            <div id = 's4pie' class = 's4pie'></div>
+                            <div class='borderlegend'>
+                                <div class='boxtext  extraboxtext2'>
+                                    <div class='newleaderbox2'></div>
+                                    <p style='font-size:12px;'>New Leader</p>
+                                </div>
+                                <div class='boxtext extraboxtext2 rolehide'>
+                                    <div class='youbox2'></div>
+                                    <p style='font-size:12px;'>You</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class ='sinfotext limited'>
+                    <p>
+                        Please make your sabotage or help decision to affect your <strong><span id='newleadertag'></span></strong> leader's stage 6 outcome.
+                    </p>
+                    <p>
+                        You can use the below graphical tool to make your decision
+                        or simply make your decision on the decision screen located
+                        at the bottom of this screen.
+                    </p>
+                </div>
+
+
+            </div>
+
+            <div class = 'calculator' id='calculator'>
+                <div class = 'titlesection'>
+                    <h5 class = leftmaintitle>YOUR GROUP</h5>
+                    <h5 class = 'rightmaintitle'>OPPOSING GROUP</h5>
+                </div>
+
+                <div class = 'topsection'>
+
+                    <div class = 'leadergroupleft'>
+                        <!-- <h5>YOUR GROUP</h5>
+                        <br />
+                        <br /> -->
+                        <h6 class = 'left_ltitle'>Your Leader</h6>
+                        <h6 class='ldecisiontext1'>HYPOTHETICAL</h6>
+                        <p><span class = 'advantagetext' id = 'advtxt1'></span></p>
+                        <div id = 'efficiencyBar1' class = 'efficiencyBar1'></div>
+                        <div class = 'sliderbarleader left'>
+                                <input type='range' min = '0' max = '500' class = 'lslider' value = '1' id = 'lSlider1' />
+                                <div id = 'barl' class = 'lbar'></div>
+                            </div>
+
+                    </div>
+
+
+
+                    <div class = 'leadergraphics'>
+                        <div class = 'piewrap'>
+                            <h6>Probability to Win</h6>
+                            <div class = 'pie' id = 'pie'></div>
+                        </div>
+                    </div>
+
+
+
+                    <div class = 'leadergroupright'>
+                        <!-- <h5>OPPOSING GROUP</h5>
+                        <br />
+                        <br /> -->
+                        <h6  class = 'right_title'>Opposing Leader</h6>
+                        <h6 class='ldecisiontext2'>HYPOTHETICAL</h6>
+                        <p><span class = 'advantagetext' id = 'advtxt2'></span></p>
+                        <div id = 'efficiencyBar2' class = 'efficiencyBar2'></div>
+                        <div class = 'sliderbarleader lright'>
+                            <input type='range' min = '0' max = '500' class = 'lslider' value = '1' id = 'olSlider1' />
+                            <div id = 'obarl' class = 'lbar'></div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class = 'middlesection'>
+                    <div class = 'efficiencyBarWrap'>
+                        <div id = 'efficiencyBar' class = 'efficiencyBar'></div>
+                    </div>
+                    <h6 style = 'z-index:1;'>Relative Power</h6>
+                </div>
+
+
+                <div class = 'bottomsection'>
+
+                    <div class = 'followergroupleft'>
+                        <div class='titlewrap'>
+                            <h6 class = 'left_title ftitle'>Followers</h6>
+                            <div class='switchwrap'>
+                                <div class='switchwrap2'>
+                                    <label class="switch">
+                                      <input type="checkbox" id='mycheck' checked>
+                                      <span class="checkslider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='yourdecisiontext2wrap'>
+                            <h6 class='yourdecisiontext21'>YOUR DECISION</h6>
+                            <h6 class='yourdecisiontext22'>HYPOTHETICAL</h6>
+                            <h6 class='yourdecisiontext23'>HYPOTHETICAL</h6>
+                            <h6 class='yourdecisiontext24'>HYPOTHETICAL</h6>
+                        </div>
+
+
+                        <div class = 'slidebargroup left'>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'vSlider1' />
+                                <div id = 'bar1' class = 'bar l'></div>
+                            </div>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'vSlider2' />
+                                <div id = 'bar2' class = 'bar l'></div>
+                            </div>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'vSlider3' />
+                                <div id = 'bar3' class = 'bar l'></div>
+                            </div>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'vSlider4' />
+                                <div id = 'bar4' class = 'bar'></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class = 'followergraphics'>
+
+                        <div class = 'graphics'>
+
+                            <div class = 'helpsabobars'>
+                                <h6>Total</h6>
+                                <!-- <h6>Total Help </h6> -->
+                                <div id = 'helpBar' class = 'helpbar'></div>
+                                <div id = 'saboBar' class = 'sabobar'></div>
+                                <!-- <h6>Total Sabotage </h6> -->
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class = 'followergroupright'>
+                        <div class='titlewrap'>
+                            <h6 class = 'right_title ftitle'>Followers</h6>
+                            <div class='switchwrap'>
+                                <div class='switchwrap2'>
+                                    <label class="switch">
+                                      <input type="checkbox" id='mycheck2' checked>
+                                      <span class="checkslider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='yourdecisiontext3wrap'>
+                            <h6 class='yourdecisiontext31'>HYPOTHETICAL</h6>
+                            <h6 class='yourdecisiontext32'>HYPOTHETICAL</h6>
+                            <h6 class='yourdecisiontext33'>HYPOTHETICAL</h6>
+                            <h6 class='yourdecisiontext34'>HYPOTHETICAL</h6>
+                        </div>
+                        <div class = 'slidebargroup right'>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider1' />
+                                <div id = 'obar1' class = 'bar l'></div>
+                            </div>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider2' />
+                                <div id = 'obar2' class = 'bar l'></div>
+                            </div>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider3' />
+                                <div id = 'obar3' class = 'bar l'></div>
+                            </div>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider4' />
+                                <div id = 'obar4' class = 'bar'></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class = decision>
+                    <div class = input>
+                        <h6 class='yourdecisiontext closertotop'>YOUR DECISION</h6>
+                        <!-- <h5 class = 'decisiontitle'>Your Decision</h5> -->
+                        <div class = 'sliderbard'>
+                            <input type='range' min = '-100' max = '100' class = 'dslider' value = '0' id = 'dSlider' />
+                            <div id = 'bard' class = 'dbar'></div>
+                        </div>
+                    </div>
+                    <div class = dinfo>
+                        <p>Your Investment cost is <span id=payoff>0 token</span>.</p>
+                        <div class=mytablewrap>
+                            <div class=mytableleft>
+                                <div class=sidecolumn>
+                                    <p class=columnclass>Your Receive</p>
+                                    <p class=columnclass>Net Payoff</p>
+                                    <!-- <p class=columnclass>Your Role</p> -->
+                                </div>
+                                <div class=maincolumnleft>
+                                    <div class=titlerow>
+                                        <p>If Your Leader Wins</p>
+                                    </div>
+                                    <div class=row>
+                                        <p><strong>0</strong> token</p>
+                                    </div>
+                                    <div class=row>
+                                        <p><span id=winnetpayoff class='outcomes'></span></p>
+                                    </div>
+                                    <!-- <div class=row>
+                                        <p><strong>Continue as a follower</strong> in your group</p>
+                                    </div>
+                                    <div class=roww2>
+                                        <p>Proceed to Stage 6</p>
+                                    </div> -->
+                                </div>
+
+                            </div>
+                            <div class=mytableright>
+                                <div class=sidecolumn>
+                                    <p class=columnclass>Your Receive</p>
+                                    <p class=columnclass>Net Payoff</p>
+                                    <!-- <p class=columnclass>Your Role</p> -->
+                                </div>
+                                <div class=maincolumnright>
+                                    <div class=titlerow>
+                                        <p>If Your Leader Loses</p>
+                                    </div>
+                                    <div class=row>
+                                        <p><strong>0</strong> token</p>
+                                    </div>
+                                    <div class=row>
+                                        <p><span id=losenetpayoff class='outcomes'></span></p>
+                                    </div>
+                                    <!-- <div class=row>
+                                        <p><strong>Chance to become the new Leader</strong></p>
+                                    </div>
+                                    <div class=roww2>
+                                        <p>Proceed to Stage 5</p>
+                                    </div> -->
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="js/sexplain.js"></script>
+
+</body>
+</html>
