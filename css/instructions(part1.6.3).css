@@ -158,7 +158,7 @@
     background-color: rgb(80, 80, 80);
     border: 3px solid rgb(160, 160, 160);
     opacity: 0.5;
-    transition: 0.35s
+    transition: 2s  ease-in-out;
 }
 
 .stageboxtext
@@ -195,7 +195,7 @@
     stroke-width:1;
     marker-end:url(#markerArrow);
     opacity: 1;
-    transition: 0.35s;
+    transition: 2s  ease-in-out;
 }
 
 .somespacedown

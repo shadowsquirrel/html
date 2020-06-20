@@ -158,7 +158,7 @@
     background-color: rgb(80, 80, 80);
     border: 3px solid rgb(160, 160, 160);
     opacity: 0.5;
-    transition: 0.35s
+    transition: 2s
 }
 
 .stageboxtext
@@ -195,7 +195,7 @@
     stroke-width:1;
     marker-end:url(#markerArrow);
     opacity: 1;
-    transition: 0.35s;
+    transition: 2s;
 }
 .bluearrow
 {
@@ -204,7 +204,7 @@
     stroke-width:1.5;
     marker-end:url(#markerArrowblue);
     opacity: 1;
-    transition: 0.35s;
+    transition: 2s;
 }
 .redarrow
 {
@@ -213,7 +213,7 @@
     stroke-width:1.5;
     marker-end:url(#markerArrowred);
     opacity: 1;
-    transition: 0.35s;
+    transition: 2s;
 }
 
 .somespacedown
@@ -239,7 +239,7 @@
     background-color: black;
     color: white;
     opacity:0.2;
-    transition: 0.35s;
+    transition: 2s;
 
 }
 

@@ -31,8 +31,8 @@
 .all{
     display:flex;
     flex-direction: column;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 10%;
+    margin-right: 10%;
     /* text-align: left; */
     text-align: center;
 }
@@ -54,7 +54,7 @@
 /************************************************/
 /************************************************/
 .sinfo{
-    transition: 0.35s;
+    /* transition: 0.35s; */
     flex-grow: 1;
     padding-bottom: 10px;
     opacity:1;
@@ -158,7 +158,7 @@
     background-color: rgb(80, 80, 80);
     border: 3px solid rgb(160, 160, 160);
     opacity: 0.5;
-    transition: 0.35s
+    transition: 2s  ease-in-out;
 }
 
 .stageboxtext
@@ -195,7 +195,7 @@
     stroke-width:1;
     marker-end:url(#markerArrow);
     opacity: 1;
-    transition: 0.35s;
+    transition: 2s  ease-in-out;
 }
 
 .somespacedown
@@ -221,7 +221,7 @@
     background-color: black;
     color: white;
     opacity:0.2;
-    transition: 0.35s;
+    /* transition: 0.35s; */
 
 }
 
