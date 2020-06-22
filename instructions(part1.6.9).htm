@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="css/instructions(part1.6.6).css">
+    <link rel="stylesheet" href="css/instructions(part1.6.9).css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -11,29 +11,28 @@
 <body>
 
     <div class='upperbar'>
-        <button class='continueButton' onclick="window.location.href='./Instructions(part1.6.7).htm'">NEXT</button>
+        <button id='previousstage'>Previous Stage</button>
+        <button id='nextstage'>Next Stage</button>
+        <button class='continueButton' onclick="window.location.href='./Instructions(part1.1)(V2).htm'">NEXT</button>
     </div>
+
     <div class = 'wrap noselect'>
 
         <div class = 'all'>
 
+            <div class='sinfotext limited'>
+                <p style='padding-top: 30px;'>
+                    During the experiment, you will have a small layout graphically indicating at which stage you are in as in below.
+                </p>
+                <p style='text-align:center; padding-top: 30px;'>
+                    You can click <img class='sbutton' src="images/sbutton.png" alt="V" /> to enlarge the layout.
+                </p>
+                <p style='text-align:center;'>
+                    You can click <strong>Next Stage</strong> and <strong>Previous Stage</strong> buttons to observe differet stages' layout.
+                </p>
+            </div>
+
             <div class='sexplain'>
-
-
-
-                <div class='stagetextwrap'>
-
-                    <div class='sinfotitle'>
-                        <h3>STAGE 5</h3>
-                    </div>
-
-                    <div class =sinfotext>
-                        <p style='font-size: 22px; margin-bottom: 20px;'>Followers' leadership competition</p>
-                    </div>
-
-
-                </div>
-
 
                 <div class=allboxwrap>
 
@@ -53,6 +52,7 @@
                             <svg height="50" width="50">
 
                                 <defs>
+
 
                                     <marker id="markerArrow" markerWidth="13" markerHeight="13" refX="2" refY="6" orient="auto">
                                         <path d="M2,2 L2,11 L10,6 L2,2"  style="fill: black;"/>
@@ -154,11 +154,10 @@
                     </div>
 
 
-                    <div class='aboxdoublewrap'>
+                    <div class='aboxdoublewrap my4to56'>
                         <div class='aboxdouble'>
-                            <svg height="120" width="500">
-                                <line x1="10" y1="30" x2="35" y2="50" class="redarrow 4a5" id ='arrow' />
-                                <line x1="10" y1="25" x2="158" y2="58" class="bluearrow 4a6" id ='arrow' />
+                            <svg height="120" width="200">
+                                <line x1="10" y1="25" x2="35" y2="50" class="arrow 4a5" id ='arrow' />
                             </svg>
                         </div>
                     </div>
@@ -175,8 +174,8 @@
                     </div>
 
 
-                    <div class='aboxwrap'>
-                        <div class='abox' style='z-index:-1;'>
+                    <div class='aboxwrap my5to6'>
+                        <div class='abox'>
                             <svg height="50" width="50">
                                 <line x1="10" y1="25" x2="30" y2="25" class="arrow 5a6" id ='arrow' />
                             </svg>
@@ -195,74 +194,156 @@
                     </div>
 
                 </div>
+                <div class='sinfotext limited'>
+                    <p style='text-align:center;'>
+                        <span id='stageshortexplanation'></span>
+                    </p>
+                </div>
+            </div>
 
+            <div class='sexplain2'>
 
-                <div class='stagetextwrap'>
+                <div class=allboxwrap2>
 
-
-                    <div class='sinfotext limited'>
-                        <p>
-                            Followers have <strong>equal</strong> investment power
-                        </p>
-                        <!-- <p>
-                            Strong follower' investment power is <strong>5 times stronger</strong> then the weak follower investment power.
-                        </p> -->
-                        <div class='sinfotext limited'>
-                            <div class='straighttextwrap'>
-                                <div class='straighttext'>
-                                    <div class='straighttexttitlef redtext'>
-                                        <p>
-                                            Lost Follower(s)
-                                        </p>
-                                    </div>
-                                    <p>
-                                        &#x25A0; Pays his investment cost
-                                    </p>
-                                    <p>
-                                        &#x25A0; Receives 0 token
-                                    </p>
-                                    <p>
-                                        &#x25A0; Continues his role as follower
-                                    </p>
-                                    <p class='redtext'>
-                                        &#x25A0; Proceeds to Stage 5
-                                    </p>
-                                </div>
-                                <div style='padding-left:81px;' class='straighttext'>
-                                    <div class='straighttexttitlel bluetext'>
-                                        <p>
-                                            Winner Follower
-                                        </p>
-                                    </div>
-                                    <p>
-                                        &#x25A0; Pays her investment cost
-                                    </p>
-                                    <p>
-                                        &#x25A0; Receives 0 tokens
-                                    </p>
-                                    <p>
-                                        &#x25A0; Becomes the new leader of her group
-                                    </p>
-                                    <p class='bluetext'>
-                                        &#x25A0; Proceeds to Stage 6
-                                    </p>
-                                </div>
-                            </div>
+                    <div class='sboxwrap2'>
+                        <div class='sbox2 b1'>
                         </div>
-
-                        <p style='padding-top:20px;'>
-                            Please click <strong>NEXT</strong> to continue
-                        </p>
                     </div>
 
+
+                    <div class='aboxwrap2'>
+                        <div class='abox2'>
+                            <svg height="50" width="50">
+
+                                <defs>
+
+                                    <marker id="markerArrow22" markerWidth="13" markerHeight="13" refX="2" refY="6" orient="auto">
+                                        <path d="M2,2 L2,11 L10,6 L2,2"  style="fill: black;"/>
+                                    </marker>
+
+
+                                </defs>
+
+                                <line x1="5" y1="25" x2="15" y2="25" class="arrow2 1a2" id ='arrow' />
+                            </svg>
+                        </div>
+                    </div>
+
+
+                    <div class='sboxwrap2'>
+                        <div class='sbox2 b2'>
+                        </div>
+                    </div>
+
+
+                    <div class='aboxwrap2'>
+                        <div class='abox2'>
+                            <svg height="50" width="50">
+                                <line x1="5" y1="25" x2="15" y2="25" class="arrow2 2a3" id ='arrow' />
+                            </svg>
+                        </div>
+                    </div>
+
+
+                    <div class='sboxwrap2'>
+                        <div class='sbox2 b3'>
+                        </div>
+                    </div>
+
+
+                    <div class='aboxdoublewrap2'>
+                        <div class='aboxdouble2'>
+                            <svg height="120" width="50">
+                                <line x1="5" y1="55" x2="17" y2="48" class="arrow2 3al" id ='arrow' />
+                                <line x1="5" y1="65" x2="17" y2="72" class="arrow2 3aw" id ='arrow' />
+                            </svg>
+                        </div>
+                    </div>
+
+
+                    <div class='sboxwrap2'>
+                        <div class='sbox2 l34 somespacedown2'>
+                        </div>
+                        <div class='sbox2 w34 somespaceup2'>
+                        </div>
+                    </div>
+
+
+                    <div class='aboxdoublewrap2'>
+                        <div class='aboxdouble2 ontop2'>
+                            <svg height="120" width="500">
+                                <line x1="5" y1="42" x2="17" y2="42" class="arrow2 la4" id ='arrow' />
+                                <line x1="5" y1="78" x2="60" y2="65" class="arrow2 wa5" id ='arrow' />
+                            </svg>
+                        </div>
+                    </div>
+
+
+                    <div class='sboxwrap2'>
+                        <div class='sbox2 b4 somespacedowndown2'>
+                        </div>
+                    </div>
+
+
+                    <div class='aboxdoublewrap2'>
+                        <div class='aboxdouble2'>
+                            <svg height="120" width="50">
+                                <line x1="5" y1="42" x2="18" y2="52" class="arrow2 4a5" id ='arrow' />
+                            </svg>
+                        </div>
+                    </div>
+
+
+                    <div class='sboxwrap2'>
+                        <div class='sbox2 b5'>
+                        </div>
+                    </div>
+
+
+                    <div class='aboxwrap2'>
+                        <div class='abox2'>
+                            <svg height="50" width="50">
+                                <line x1="5" y1="25" x2="15" y2="25" class="arrow2 5a6" id ='arrow' />
+                            </svg>
+                        </div>
+                    </div>
+
+
+                    <div class='sboxwrap2'>
+                        <div class='sbox2 b6'>
+                        </div>
+                    </div>
+
+                </div>
+
+
             </div>
+
+
+
+            <div class = 'sinfo' id='sinfo'>
+
+                <div class = sinfotitle>
+                    <h3 style='margin-left:26px;'>STAGE <span id='stagenumber'></span></h3>
+                    <button class=explainstage id=explainstage>?</button>
+                </div>
+
+            </div>
+
+            <div class='sinfotext limited'>
+                <p style='text-align: center; padding-top: 20px;'>
+                    Click <strong>Next</strong> to continue
+                </p>
+
+            </div>
+
 
         </div>
 
     </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="js/instructions(part1.6.6).js"></script>
+<script src="js/instructions(part1.6.9).js"></script>
 
 </body>
 </html>

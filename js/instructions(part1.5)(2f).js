@@ -1,6 +1,369 @@
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+////////////////////////    Data Gemeratoion  //////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+// Temporary data generation for testing
+// Random switch
+var onezero, sw, osw, d, info;
+var generateRandomVariables = function() {
+onezero = function() {
+    return (Math.random() >= 0.5) ? 1 : 0;
+}
+
+
+sw = [onezero(), onezero()];
+osw = [onezero(), onezero()];
+
+
+d = {
+    s2:
+    {
+        ourGroup:
+        {
+            help:
+            {
+                f1: sw[0] ? 0 : parseFloat((Math.random()*50).toFixed(0)),
+                f2: sw[1] ? 0 : parseFloat((Math.random()*50).toFixed(0)),
+            },
+            sabo:
+            {
+                f1: sw[0] ? parseFloat((Math.random()*50).toFixed(0)) : 0,
+                f2: sw[1] ? parseFloat((Math.random()*50).toFixed(0)) : 0,
+            }
+        },
+        opposingGroup:
+        {
+            help:
+            {
+                f1: osw[0] ? 0 : parseFloat((Math.random()*50).toFixed(0)),
+                f2: osw[1] ? 0 : parseFloat((Math.random()*50).toFixed(0)),
+            },
+            sabo:
+            {
+                f1: osw[0] ? parseFloat((Math.random()*50).toFixed(0)) : 0,
+                f2: osw[1] ? parseFloat((Math.random()*50).toFixed(0)) : 0,
+            }
+        }
+    },
+}
+
+info = {};
+}
+
+generateRandomVariables();
+var data2Info = function() {
+
+    info.s1 = d.s2.ourGroup.sabo.f1;
+    info.s2 = d.s2.ourGroup.sabo.f2;
+
+    info.h1 = d.s2.ourGroup.help.f1;
+    info.h2 = d.s2.ourGroup.help.f2;
+
+    info.sarray = [info.s1, info.s2];
+    info.harray = [info.h1, info.h2];
+    info.os1 = d.s2.opposingGroup.sabo.f1;
+    info.os2 = d.s2.opposingGroup.sabo.f2;
+
+    info.oh1 = d.s2.opposingGroup.help.f1;
+    info.oh2 = d.s2.opposingGroup.help.f2;
+}
+
+var rndvar = function() {
+    info.ts = function() {
+        return (info.s1 + info.s2);
+    }
+    info.th = function() {
+        return (info.h1 + info.h2);
+    }
+    info.ots = function() {
+        return (info.os1 + info.os2);
+    }
+    info.oth = function() {
+        return (info.oh1 + info.oh2);
+    }
+    info.efi = function() {
+        return (1 + info.th()) / (1 + info.ts());
+    }
+    info.oefi = function() {
+        return (1 + info.oth()) / (1 + info.ots());
+    }
+}
+
+
+info.ts = function() {
+    return (info.s1 + info.s2);
+}
+info.th = function() {
+    return (info.h1 + info.h2);
+}
+info.ots = function() {
+    return (info.os1 + info.os2);
+}
+info.oth = function() {
+    return (info.oh1 + info.oh2);
+}
+info.efi = function() {
+    return (1 + info.th()) / (1 + info.ts());
+}
+info.oefi = function() {
+    return (1 + info.oth()) / (1 + info.ots());
+}
+
+
+data2Info();
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////   GRAPHICS   ///////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+var nzt = function(val) {
+    return (val != 0) ? val : '';
+}
+var updateBarHelpInfo = function(a, b, barId, ourGroup) {
+    var x = a;
+    var y = b;
+    var lightblue = 'rgb(200,200,255)';
+    var blue = 'rgb(140, 140, 255)';
+
+    var ourColor = ourGroup ? blue : lightblue;
+
+    var data = [
+        {
+            y: [x, y],
+            x: [1, 2],
+            // name: ['Follower 1 \n(New Leader)', 'Follower 2 \n(You)', 'Follower 3', 'Follower 4'],
+            type: 'bar',
+            sort: false,
+            hoverinfo: 'none',
+            automargin: true,
+            showlegend: false,
+            marker:{
+                color: ourColor,
+                    },
+            text: [nzt(x), nzt(y)],
+            textposition: 'outside',
+            textfont: {
+                size: '14',
+            },
+            cliponaxis: false,
+            opacity: 1,
+        }
+    ];
+
+    var layout = {
+        barmode: 'group',
+        height: 60,
+        width: 75,
+        margin: {"t": 20, "b": 0, "l": 0, "r": 0},
+        yaxis: {
+            fixedrange: true,
+            autorange: false,
+            range: [0,50]
+        },
+        xaxis: {
+            fixedrange: true,
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+            // tickangle: -90,
+        },
+        bargap: 0.25,
+    };
+
+    Plotly.react(barId, data, layout, {displayModeBar: false});
+}
+var updateBarSaboInfo = function(a, b, barId, ourGroup) {
+    var x = -a;
+    var y = -b;
+    var lightred = 'rgb(255,200,200)';
+    var red = 'rgb(255 140, 140)';
+    var ourColor = ourGroup ? red : lightred;
+
+    var data = [{
+        y: [x, y],
+        name: ['Follower 1', 'Follower 2'],
+        type: 'bar',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker:{
+            color: ourColor,
+            },
+        text: [nzt(a), nzt(b)],
+        textfont: {
+            size: '14',
+
+        },
+        textposition: 'outside',
+        cliponaxis: false,
+    }];
+
+    var layout = {
+        barmode: 'group',
+        height: 60,
+        width: 75,
+        margin: {"t": 0, "b": 20, "l": 0, "r": 0},
+        yaxis: {
+            fixedrange: true,
+            autorange: false,
+            range: [-50,0]
+        },
+        xaxis: {
+            fixedrange: true,
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+        },
+        bargap: 0.25,
+    };
+
+    Plotly.react(barId, data, layout, {displayModeBar: false});
+}
+var updateBarTotalHelpInfo = function(a, b, barId) {
+    var x = a;
+    var y = b;
+
+    var lightblue = 'rgb(200,200,255)';
+    var blue = 'rgb(140, 140, 255)';
+
+    var data = [
+        {
+            y: [x, y],
+            name: ['Group 1', 'Group 2'],
+            type: 'bar',
+            sort: false,
+            hoverinfo: 'none',
+            automargin: true,
+            showlegend: false,
+            marker:{
+                color: [blue, lightblue],
+            },
+            text: [nzt(x), nzt(y)],
+            textposition: 'outside',
+            textfont: {
+                size: '14'
+            },
+            cliponaxis: false,
+            opacity: 1,
+        }
+    ];
+
+    var layout = {
+        barmode: 'group',
+        height: 60,
+        width: 180,
+        margin: {"t": 20, "b": 0, "l": 0, "r": 0},
+        yaxis: {
+            fixedrange: true,
+            autorange: false,
+            range: [0,100]
+        },
+        xaxis: {
+            fixedrange: true,
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+        },
+        bargap: 0.25,
+    };
+
+    Plotly.react(barId, data, layout, {displayModeBar: false});
+}
+var updateBarTotalSaboInfo = function(a, b, barId) {
+    var x = -a;
+    var y = -b;
+
+    var lightred = 'rgb(255,200,200)';
+    var red = 'rgb(255 140, 140)';
+
+
+
+    var data = [{
+        y: [x, y],
+        name: ['Group 1', 'Group 2'],
+        type: 'bar',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker:{
+            color: [red, lightred],
+            },
+        text: [nzt(a), nzt(b)],
+        textfont: {
+            size: '14',
+        },
+        textposition: 'outside',
+        cliponaxis: false,
+    }];
+
+    var layout = {
+        barmode: 'group',
+        height: 60,
+        width: 180,
+        margin: {"t": 0, "b": 20, "l": 0, "r": 0},
+        yaxis: {
+            fixedrange: true,
+            autorange: false,
+            range: [-100,0]
+        },
+        xaxis: {
+            fixedrange: true,
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+        },
+        bargap: 0.25,
+    };
+
+    Plotly.react(barId, data, layout, {displayModeBar: false});
+}
+
+var logistic2 = function(val , k) {
+    var L = 1;
+    var m = 0.5;
+    var result;
+    result= L / (1 + Math.exp(-k * (val - m)));
+    return result;
+}
+
+updateBarHelpInfo(info.h1, info.h2, 'helpbarg1', true);
+updateBarSaboInfo(info.s1, info.s2, 'sabobarg1', true);
+// updateBarSaboInfo(100,100,100,100, 's2sabobarg1', true, 2, 0);
+
+updateBarTotalHelpInfo(info.th(), info.oth(), 'helpbartotal');
+updateBarTotalSaboInfo(info.ts(), info.ots(), 'sabobartotal');
+// updateBarTotalSaboInfo(400, 400, 's2totalsabobar');
+
+updateBarHelpInfo(info.oh1, info.oh2, 'helpbarg2', false);
+updateBarSaboInfo(info.os1, info.os2, 'sabobarg2', false);
+
+
+var regraphinfo = function() {
+    updateBarHelpInfo(info.h1, info.h2, 'helpbarg1', true);
+    updateBarSaboInfo(info.s1, info.s2, 'sabobarg1', true);
+    // updateBarSaboInfo(100,100,100,100, 's2sabobarg1', true, 2, 0);
+
+    updateBarTotalHelpInfo(info.th(), info.oth(), 'helpbartotal');
+    updateBarTotalSaboInfo(info.ts(), info.ots(), 'sabobartotal');
+    // updateBarTotalSaboInfo(400, 400, 's2totalsabobar');
+
+    updateBarHelpInfo(info.oh1, info.oh2, 'helpbarg2', false);
+    updateBarSaboInfo(info.os1, info.os2, 'sabobarg2', false);
+}
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 /////////////////////////     CALCULATOR      //////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -292,13 +655,13 @@ var setEfficiencyBar = function(efi1, efi2) {
 
 
     if((efi1 / efi2) > 1){
-        var myText = (val1 >= 0.99) ? '100+' : (efi1 / efi2).toFixed(0);
+        var myText = (val1 >= 0.99) ? '100+' : (efi1 / efi2).toFixed(2);
     } else {
         myText = 1;
     }
 
     if((efi1 / efi2) < 1){
-        var myText2 = (val2 >= 0.99) ? '100+' : (efi2 / efi1).toFixed(0);
+        var myText2 = (val2 >= 0.99) ? '100+' : (efi2 / efi1).toFixed(2);
     } else {
         myText2 = 1;
     }
@@ -424,10 +787,10 @@ var setEfficiencyBar = function(efi1, efi2) {
 
 // leader global variables
 var efo, oefo, efi, oefi, pwin;
-efo = oefo = 0;
+efo = oefo = 100;
 efi = oefi = 0;
-efi = 3;
-oefi = 1;
+efi = info.efi();
+oefi = info.oefi();
 
 var updatePwin = function() {
     var efefo = efo * efi;
@@ -478,20 +841,31 @@ var updateAll = function() {
 
 initialize();
 
+var myDice = document.getElementById('dice');
+myDice.onclick = function() {
+    generateRandomVariables();
+    data2Info();
+    rndvar();
+    efi = info.efi();
+    oefi = info.oefi();
+    regraphinfo();
+    initialize();
+    updateAll();
+}
 
 
 //////// Slider-bar initiations ///////
 
 // DECISION SLIDER - BAR
 var dslider = document.getElementById('dSlider');
-var dvalue = 0;
-updateBarDecision(0, 'bard', false);
+var dvalue = 100;
+updateBarDecision(dvalue, 'bard', false);
 
 
 // YOUR GROUP INITIATION
 // leader
 var lslider1 = document.getElementById('lSlider1');
-var lvalue = 0;
+var lvalue = 100;
 updateBarLeader(lvalue, 'barl', 1, false);
 // followers
 
@@ -499,7 +873,7 @@ updateBarLeader(lvalue, 'barl', 1, false);
 // OPPOSING GROUP INITIATION
 // leader
 var olslider1 = document.getElementById('olSlider1');
-var olvalue = 0;
+var olvalue = 100;
 updateBarLeader(olvalue, 'obarl', 0, false);
 
 
@@ -557,7 +931,7 @@ $('#dSlider').hover(
         lvalue = parseFloat(lslider1.value);
         setTimeout("updateBarXAxis('bard', true)", 250);
         $('.yourdecisiontext2').css({'font-weight':'700', 'opacity':'1'});
-        $('.yourdecisiontext').css({'font-weight':'700', 'font-size':'19px'});
+        $('.yourdecisiontext').css({'font-weight':'700', 'font-size':'22px'});
         $('#dSlider').css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
         $('#lSlider1').css({'background':'black', 'opacity':'1', 'margin-top': '48px'});
         $('#lSlider1').addClass('newdSlider');
@@ -566,7 +940,7 @@ $('#dSlider').hover(
         lvalue = parseFloat(lslider1.value);
         setTimeout("updateBarXAxis('bard', false)", 1000);
         $('.yourdecisiontext2').css({'font-weight':'100', 'opacity':'0.3'});
-        $('.yourdecisiontext').css({'font-weight':'200', 'font-size':'19px'});
+        $('.yourdecisiontext').css({'font-weight':'200', 'font-size':'22px'});
         $('#dSlider').css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
         $('#lSlider1').css({'background':'gray', 'opacity':'0.3', 'margin-top': '38px'});
         $('#lSlider1').removeClass('newdSlider');
@@ -579,7 +953,7 @@ $('#lSlider1').hover(
         lvalue = parseFloat(lslider1.value);
         setTimeout("updateBarXAxis('barl', true)", 250);
         $('.yourdecisiontext2').css({'font-weight':'700', 'opacity':'1'});
-        $('.yourdecisiontext').css({'font-weight':'700', 'font-size':'19px'});
+        $('.yourdecisiontext').css({'font-weight':'700', 'font-size':'22px'});
         $('#dSlider').css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
         $('#lSlider1').css({'background':'black', 'opacity':'1', 'margin-top': '48px'});
         $('#dSlider').addClass('newdSlider');
@@ -588,7 +962,7 @@ $('#lSlider1').hover(
         lvalue = parseFloat(lslider1.value);
         setTimeout("updateBarXAxis('barl', false)", 500);
         $('.yourdecisiontext2').css({'font-weight':'100', 'opacity':'0.3'});
-        $('.yourdecisiontext').css({'font-weight':'200', 'font-size':'19px'});
+        $('.yourdecisiontext').css({'font-weight':'200', 'font-size':'22px'});
         $('#dSlider').css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
         $('#lSlider1').css({'background':'gray', 'opacity':'0.3', 'margin-top': '38px'});
         $('#dSlider').removeClass('newdSlider');

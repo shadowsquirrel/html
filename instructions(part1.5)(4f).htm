@@ -3,7 +3,7 @@
 <head>
 
 
-    <link rel="stylesheet" href="css/instructions(part1.5).css">
+    <link rel="stylesheet" href="css/instructions(part1.5)(4f).css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -33,18 +33,20 @@
                 <div class ='sinfotext limited'>
 
                     <p>
-                        Since both leaders will make an investment decision <strong>at the same time</strong>, you will have to consider an <strong>hypothetical value</strong> for the opponent's decision and
+                        Since both leaders make an investment decision <strong>at the same time</strong>, you need to consider an <strong>hypothetical value</strong> for the opponent's decision and
                         make your investment decision accordingly.
                     </p>
                     <p>
-                        To facilitate your decision process, we provide you with the below graphical tool. You can consider your decision either on <span class='dottedblue'></span> section or on  <span class='dottedgreen'></span> section.
-                        Changing the value in one section will automatically change the value on the other. <span class='dottedblue'></span> section is provided to enable you to make a more precise decision.
+                        As on the follower's decision screen, to facilitate your decision process, we provide you with the below graphical tool. You can consider your decision either on <span class='dottedred'></span> section or on  <span class='dottedgreen'></span> section.
+                        Changing the value in one section will automatically change the value on the other. If you do not click the <strong>Done</strong> button before the decision period ends, your last entry on <strong>either</strong> of the decision sections will
+                        be considered as your <strong>final</strong> decision.
                     </p>
 
                     <p>
-                        During the experiment, you will have a limited amount of time to make your decision. If you make your decision before the time limit is reached, you can click the <strong>Done</strong>
-                        button on the top right corner to submit your decision. If you do not click the <strong>Done</strong> button before the decision period ends, your last entry on <strong>either</strong> of the decision sections will
-                        be considered as your <strong>final</strong> decision.
+                        Since leaders' decisions are made <strong>after</strong> the followers' help or sabotage decision.
+                         Leaders will also have a graphical display as
+                         in <span class='dottedbluetext'></span> where <strong>all</strong> followers' decisions are shown. Again note that based on these decision,
+                        relative investment power of leaders are determined.
                     </p>
                 </div>
 
@@ -52,6 +54,69 @@
             </div>
 
 
+            <div class='s2feedback hidewrap'  id='hidewrap2'>
+                <div class='s2boxtext'>
+                    <div class='belieflegend' id='belieflegend'>
+                        <div class='boxtext'>
+                            <div class='helplegbox'></div>
+                            <p style='font-size:12px;'>Help</p>
+                        </div>
+                        <div class='boxtext'>
+                            <div class='sabolegbox'></div>
+                            <p style='font-size:12px;'>Sabotage</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class = s2maintitle>
+                    <h6>STAGE 2</h6>
+                </div> -->
+                <div class = s2subtitle>
+                    <h7>FOLLOWERS' HELP/SABOTAGE DECISION</h7>
+                </div>
+                <div class=s2wrap2>
+                    <div class=s2wrap>
+                        <div class = s2subsubtitle>
+                            <!-- <h8 style='margin-left:40px;'>Your Group</h8>
+                            <h8 style='margin-left:80px;'>Opposing Group</h8> -->
+                        </div>
+                        <div class='s2decision'>
+                            <div class = s2feedbackgraphics>
+                                <div class = 'g1'>
+                                    <h8>Your Group</h8>
+                                    <div id = 'helpbarg1'></div>
+                                    <div id = 'sabobarg1'></div>
+                                </div>
+                                <!-- <pre>  </pre> -->
+                                <div id = 'totalbars' class='totalbars'>
+                                    <h8>Total</h8>
+                                    <div id = 'helpbartotal'></div>
+                                    <div id = 'sabobartotal'></div>
+                                </div>
+                                <!-- <pre>  </pre> -->
+                                <div class = 'g2'>
+                                    <h8 style='margin-left:-20px;'>Opposing Group</h8>
+                                    <div id = 'helpbarg2'></div>
+                                    <div id = 'sabobarg2'></div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class ='sinfotext limited'>
+
+                <p style='text-align: center;'>
+                    You can click <img id="dice2" class='dice2' src="images/dice.png" alt="V" /> to generate a different set of help and sabotage decisions made by followers in the <strong>previous</strong> stage.
+                </p>
+            </div>
+
+            <div class='dicewrap'>
+                <img id="dice" class='dice' src="images/dice.png" alt="V" />
+            </div>
 
 
             <div class = 'calculator' id='calculator'>
@@ -62,7 +127,7 @@
                     <div class = 'leadergroupleft'>
                         <h6 class = 'left_title'>Leader (You)</h6>
                         <div class = 'sliderbarleader left'>
-                            <input type='range' min = '0' max = '500' class = 'lslider lsliderextra' value = '1' id = 'lSlider1' />
+                            <input type='range' min = '0' max = '500' class = 'lslider lsliderextra' value = '100' id = 'lSlider1' />
                             <div id = 'barl' class = 'lbar  barlextra'></div>
                         </div>
                         <h6 class='yourdecisiontext2'>YOUR DECISION</h6>
@@ -100,14 +165,14 @@
                         </div>
                         <div class = 'efficiencyBarWrap'>
                             <div class='effortbars' id='effortbars'></div>
-                            <div id = 'efficiencyBar' class = 'efficiencyBar'></div>
+                            <div id = 'efficiencyBar' class = 'efficiencyBar dottedblue'></div>
                         </div>
                     </div>
 
                     <div class = 'leadergroupright'>
                         <h6  class = 'right_title'>Opposing Leader</h6>
                         <div class = 'sliderbarleader lright'>
-                            <input type='range' min = '0' max = '500' class = 'lslider' value = '1' id = 'olSlider1' />
+                            <input type='range' min = '0' max = '500' class = 'lslider' value = '100' id = 'olSlider1' />
                             <div id = 'obarl' class = 'lbar'></div>
                         </div>
                         <h6 class='yourdecisiontext3'>HYPOTHETICAL</h6>
@@ -140,12 +205,16 @@
 
                 </div>
 
-
+                <div class ='sinfotext limited'>
+                    <p style='text-align: center; padding-top: 10px; font-size:14px;'>
+                        Notice that followers' decision in turn  <strong>changes the relative (investment) power</strong> of leaders in <strong>this</strong> stage and therefore potentially affects the leaders' investment decision and their probability to win.
+                    </p>
+                </div>
 
                 <div class = decision>
                     <div class = input>
                         <div class = 'sliderbard'>
-                            <input type='range' min = '0' max = '500' class = 'dslider' value = '0' id = 'dSlider' />
+                            <input type='range' min = '0' max = '500' class = 'dslider' value = '100' id = 'dSlider' />
                             <div id = 'bard' class = 'dbar'></div>
                         </div>
                     </div>
@@ -180,7 +249,7 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="js/instructions(part1.5).js"></script>
+<script src="js/instructions(part1.5)(4f).js"></script>
 
 </body>
 </html>

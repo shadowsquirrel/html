@@ -1726,7 +1726,7 @@ oslider1.oninput = function() {
 
     //synching sliders
     if(syncOtherGroup) {
-        console.log('are we inside?');
+        // console.log('are we inside?');
         $('#ovSlider2').prop('value', ovalue1);
         $('#ovSlider2').change();
     }

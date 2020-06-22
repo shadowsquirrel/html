@@ -20,7 +20,7 @@
 .wrap
 {
     display: flex;
-    /*
+/*
     width: 100%;
     height: 600px; */
     justify-content: center;
@@ -186,12 +186,6 @@
     display: flex;
     flex-direction: column;
 }
-.newleadertextwrap2
-{
-    /* text-align: center; */
-    display: flex;
-    flex-direction: column;
-}
 .youbox1
 {
     margin-top: 3px;
@@ -332,6 +326,9 @@
     justify-content: center;
     /* margin-top: 15px; */
 }
+
+
+
 .s4pie
 {
     display: flex;
@@ -339,6 +336,7 @@
     /* border: 5px solid black; */
     padding-top: 25px;
 }
+
 /************************************************/
 /************************************************/
 /************************************************/
@@ -394,9 +392,9 @@
     /* z-index: 2;*/
     /* position: sticky;
     top: 0; */
-    justify-content: center;
     display:flex;
     flex-direction: row;
+    justify-content: center;
     /* border: 5px solid black; */
 }
 .middlesection
@@ -420,7 +418,6 @@
     top: 200px; */
     display:flex;
     flex-direction: row;
-    justify-content: space-evenly;
     /* border: 5px solid black; */
 }
 .decision
@@ -549,7 +546,6 @@
     /* top: 150px; */
     /* border: 5px solid black; */
 }
-
 .helpbar
 {
     display: flex;
@@ -600,7 +596,7 @@
 
 .ftitle
 {
-    margin-top: 20px;
+    margin-top: -15px;
 }
 .you
 {
@@ -639,7 +635,6 @@
 /************************************************/
 .lslider
 {
-    cursor: pointer;
     z-index: 1;
     position: absolute;
     -webkit-appearance: none;
@@ -659,7 +654,7 @@
 /************************************************/
 .lslider::-webkit-slider-thumb
 {
-    z-index:1;
+    z-index:3;
     -webkit-appearance: none;
     appearance: none;
     width: 3px;
@@ -677,12 +672,12 @@
     -webkit-appearance: none;
     appearance: none;
     width: 3px;
-    height: 31px;
+    height: 30px;
     background: black;
     cursor: pointer;
     opacity: 1;
     transition: 0.35s;
-    /* transition-delay: 0.15s; */
+    /* transition-delay: 0.25s; */
     margin-top: -1px;
 }
 .lslider:focus
@@ -692,6 +687,7 @@
 /************************************************/
 .lslider:hover
 {
+    z-index:1;
     opacity:1;
     background:gray;
 
@@ -701,6 +697,7 @@
 }
 .lslider:hover::-webkit-slider-thumb
 {
+    z-index:1;
     /*Setup Large*/
     height: 47px;
     margin-top: 0px;
@@ -708,9 +705,7 @@
 }
 .lslider:hover::-moz-range-thumb
 {
-    /*Setup Large*/
     height: 47px;
-    margin-top: 0px;
     /* width: 5px; */
 }
 /************************************************/
@@ -745,8 +740,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-right: 20px;
-    padding-left: 30px;
 }
 /************************************************/
 .bar
@@ -800,7 +793,6 @@
 }
 .slider
 {
-    cursor: pointer;
     -webkit-appearance: none;
     appearance: none;
     background: gray;
@@ -900,7 +892,7 @@
     -webkit-appearance: none;
     appearance: none;
     width: 3px;
-    height: 25px;
+    height: 30px;
     background: black;
     cursor: pointer;
     opacity: 1;
@@ -908,10 +900,10 @@
     /* transition-delay: 0.25s; */
 
     /*Setup Compact*/
-    margin-top: -25px;
+    margin-top: -20px;
 
     /*Setup Large*/
-    /* margin-top: -26px;
+    /* margin-top: -22px;
     height: 25px; */
 
     /*Setup Super Large*/
@@ -959,6 +951,7 @@
     transition: 1s;
     border: 9px dotted red;
     margin-top: -3px;
+    /* margin-top: -10px; */
     display:flex;
     justify-content: center;
     margin-left: -40px;
@@ -1096,6 +1089,15 @@
     padding-right: 30px;
     /* border: 5px solid black; */
 }
+.yourdecisiontext
+{
+    margin-left: -40px;
+    font-weight: 200;
+    font-size: 22px;
+    transition: font-weight .35s ease-in-out;
+    margin-top: -2px;
+
+}
 
 .ldecisiontext1
 {
@@ -1119,76 +1121,80 @@
     font-size: 10px;
     transition: .35s ease-in-out;
 }
-.yourdecisiontext
-{
-    margin-left: -40px;
-    font-weight: 200;
-    font-size: 22px;
-    transition: font-weight .35s ease-in-out;
-    margin-top: -2px;
-
-}
 .yourdecisiontext2wrap
 {
+    justify-content: space-between;
     display: flex;
     flex-direction: row;
 }
 .yourdecisiontext21
 {
-    padding-left:35px;
-    padding-right:50px;
     opacity:0.1;
-    padding-top: 15px;
-    /* margin-left: -160px; */
+    padding-left: 5px;
     margin-top: -2px;
-    margin-bottom: -2px;
     font-weight: 500;
     font-size: 10px;
     transition: .35s ease-in-out;
 }
 .yourdecisiontext22
 {
-    padding-left:35px;
-    padding-right:50px;
     opacity:0.1;
-    padding-top: 15px;
-    /* margin-left: -160px; */
     margin-top: -2px;
-    margin-bottom: -2px;
     font-weight: 500;
     font-size: 10px;
     transition: .35s ease-in-out;
 }
-.yourdecisiontext4wrap
+.yourdecisiontext23
 {
+    opacity:0.1;
+    margin-top: -2px;
+    font-weight: 500;
+    font-size: 10px;
+    transition: .35s ease-in-out;
+}
+.yourdecisiontext24
+{
+    opacity:0.1;
+    margin-top: -2px;
+    font-weight: 500;
+    font-size: 10px;
+    transition: .35s ease-in-out;
+}
+.yourdecisiontext3wrap
+{
+    justify-content: space-between;
     display: flex;
     flex-direction: row;
-    z-index:-1;
-    padding-bottom:20px;
-    margin-top:-37px;
 }
-.yourdecisiontext41
+.yourdecisiontext31
 {
-    padding-left:36px;
-    padding-right:49px;
     opacity:0.1;
-    padding-top: 15px;
-    /* margin-left: -160px; */
+    padding-left: 5px;
     margin-top: -2px;
-    margin-bottom: -2px;
     font-weight: 500;
     font-size: 10px;
     transition: .35s ease-in-out;
 }
-.yourdecisiontext42
+.yourdecisiontext32
 {
-    padding-left:35px;
-    padding-right:50px;
     opacity:0.1;
-    padding-top: 15px;
-    /* margin-left: -160px; */
     margin-top: -2px;
-    margin-bottom: -2px;
+    font-weight: 500;
+    font-size: 10px;
+    transition: .35s ease-in-out;
+}
+.yourdecisiontext33
+{
+    opacity:0.1;
+    margin-top: -2px;
+    font-weight: 500;
+    font-size: 10px;
+    transition: .35s ease-in-out;
+}
+.yourdecisiontext34
+{
+    opacity:0.1;
+    margin-top: -2px;
     font-weight: 500;
     font-size: 10px;
     transition: .35s ease-in-out;
@@ -1198,6 +1204,7 @@
 /************************************************/
 .switchwrap
 {
+    padding-bottom:20px;
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -1267,6 +1274,8 @@ input:checked + .checkslider:before {
 .checkslider.round:before {
   border-radius: 50%;
 }
+
+
 /***************************************/
 .mytablewrap
 {
@@ -1287,6 +1296,10 @@ input:checked + .checkslider:before {
     font-weight: 800;
 
 }
+.columnclass
+{
+    margin-top:-17px;
+}
 .titlerow
 {
     display: flex;
@@ -1295,11 +1308,6 @@ input:checked + .checkslider:before {
     /* padding-left: 10px; */
     font-weight: 800;
     margin-left: -12px;
-    /* margin-bottom: -10px; */
-}
-.columnclass
-{
-    margin-top:-17px;
 }
 .row
 {
@@ -1363,7 +1371,6 @@ input:checked + .checkslider:before {
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
 }
-
 .dottedblue
 {
     margin-left: 10px;
@@ -1391,64 +1398,6 @@ input:checked + .checkslider:before {
     padding-left:20px;
     /* height: 5px; */
     /* width: 10px; */
-}
-
-
-.checkslider2 {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .25s;
-    transition: .25s;
-}
-
-.checkslider2:before {
-    position: absolute;
-    content: "";
-    height: 13px;
-    width: 13px;
-    left: 2px;
-    bottom: 2px;
-    background-color: white;
-    -webkit-transition: .1s;
-    transition: .1s;
-}
-
-input:checked + .checkslider2 {
-    background-color: black;
-}
-
-input:focus + .checkslider2 {
-    box-shadow: 0 0 1px black;
-}
-
-input:checked + .checkslider2:before {
-    -webkit-transform: translateX(13px);
-    -ms-transform: translateX(13px);
-    transform: translateX(13px);
-}
-
-
-.checkslider2.round2 {
-    border-radius: 20px;
-}
-
-.checkslider2.round2:before {
-    border-radius: 50%;
-}
-.sometextclass
-{
-    margin-top: -12px;
-    margin-bottom: -20px;
-}
-.textswitchwrap
-{
-    /* display: flex; */
-    /* flex-direction: row; */
 }
 img.switch2
 {

@@ -1864,7 +1864,6 @@ $('#lSlider1').hover(
         $('.ldecisiontext1').css({'opacity':'0.1'});
     }
 );
-
 $('#olSlider1').hover(
     function() {
         setTimeout("updateBarXAxis('obarl', true)", 250);
@@ -1896,9 +1895,6 @@ $('#dSlider').hover(
         $('#vSlider1').removeClass('newnewSlider');
     }
 );
-
-
-
 $('#vSlider1').hover(
     function() {
         setTimeout("updateBarYAxis('bar1', true)", 250);

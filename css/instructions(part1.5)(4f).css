@@ -70,7 +70,6 @@
     padding-bottom: 10px;
     opacity:1;
     height:100%;
-
 }
 /************************************************/
 /************************************************/
@@ -86,7 +85,8 @@
 /************************************************/
 .sinfotext
 {
-    font-weight:500;
+    text-align: left;
+    /* font-weight:500; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -99,7 +99,7 @@
 }
 .limited
 {
-    max-width: 1370px;
+    max-width: 1100px;
     /* padding-top: 30px; */
 }
 /************** STAGE 2 *************/
@@ -116,8 +116,8 @@
 }
 .s2feedback
 {
-    /* border: 3px solid blue; */
-    margin-left: 20px;
+    border: 3px dotted blue;
+    /* margin-left: 20px; */
     display:flex;
     flex-direction: column;
     margin-top: 10px;
@@ -409,8 +409,8 @@ margin-right: -135px;
 }
 .mytableleft
 {
-    padding-top: 25px;
-    margin-left: -60px;
+    padding-top: 75px;
+    margin-left: -155px;
     font-size: 15px;
     display: flex;
     flex-direction: row;
@@ -425,16 +425,15 @@ margin-right: -135px;
     flex-direction: column;
 
 }
-.tit
-/************************************************/
-/************************************************/
-/************************************************/
 
-.pieefiwrap
+/************************************************/
+/************************************************/
+/************************************************/
+.piegraphics
 {
     display: flex;
     flex-direction: column;
-    padding-top: 20px;
+    /* margin-left: 25px; */
 }
 /************************************************/
 /************************************************/
@@ -474,12 +473,12 @@ margin-right: -135px;
 }
 .mytableright
 {
-    padding-top: 25px;
+    padding-top: 75px;
     font-size: 15px;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    /* padding-right: 50px; */
+    padding-right: 75px;
 }
 .maincolumnright
 {
@@ -517,6 +516,11 @@ margin-right: -135px;
     z-index:0;
     position: relative;
 }
+.barlextra
+{
+    transition: 0.35s;
+    border: 3px dotted green;
+}
 /************************************************/
 .lslider
 {
@@ -536,6 +540,10 @@ margin-right: -135px;
     margin-left: -1px;
     /* background: black; */
     height: 2px;
+}
+.lsliderextra
+{
+    margin-top: 38px;
 }
 /************************************************/
 .lslider::-webkit-slider-thumb
@@ -630,6 +638,8 @@ margin-right: -135px;
 /*leader*/
 .sliderbard
 {
+    transition: 1s;
+    border: 9px dotted red;
     display:flex;
     justify-content: center;
     margin-left: -40px;
@@ -765,7 +775,7 @@ margin-right: -135px;
 .yourdecisiontext
 {
     font-weight: 200;
-    font-size: 19px;
+    font-size: 22px;
     margin-top: -2px;
     transition-property: font-weight;
     transition-duration: 0.2s;
@@ -859,4 +869,80 @@ margin-right: -135px;
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+}
+.dottedred
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 3px dotted blue;
+    padding-left:20px;
+    /* height: 5px; */
+    /* width: 10px; */
+}
+.dottedbluetext
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 3px dotted blue;
+    padding-left:20px;
+    /* height: 5px; */
+    /* width: 10px; */
+}
+.dottedblue
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 3px dotted blue;
+    /* padding-left:20px; */
+    /* height: 5px; */
+    /* width: 10px; */
+}
+.dottedgreen
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 3px dotted green;
+    padding-left:20px;
+    /* height: 5px; */
+    /* width: 10px; */
+}
+.dicewrap
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+img.dice2
+{
+    margin-left: 5px;
+    margin-right:5px;
+    width: 30px;
+    height: 30px;
+}
+img.dice
+{
+    padding: 5px;
+    border-collapse: separate;
+    border-spacing: 15px;
+    opacity: 0.7;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    outline: none;
+    /* color: #fff; */
+    background-color: white;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 6px black;
+    transition: 0.15s;
+}
+.dice:hover
+{
+    opacity: 1;
+}
+.dice:active {
+  /* background-color: #3e8e41; */
+  box-shadow: 0 2px black;
+  transform: translateY(2px);
 }

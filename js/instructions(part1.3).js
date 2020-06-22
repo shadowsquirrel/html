@@ -740,6 +740,40 @@ updateAll();
 
 
 
+var myDice = document.getElementById('dice');
+myDice.onclick = function() {
+    $('.wheelresult').css({'opacity':'0'});
+    $('.wheelresult2').css({'opacity':'0'});
+    $('.wheelresult3').css({'opacity':'0'});
+    theWheel.stopAnimation(false);
+    canClickArrow = true;
+
+    var isHelp = (Math.random() >= 0.5) ? true : false;
+    var oshValue = parseFloat((Math.random()*50).toFixed(0));
+    oh1  = isHelp ? oshValue : 0;
+    os1 = isHelp ? 0 : oshValue
+    var oshBarValue = isHelp ? oshValue : -oshValue;
+    $('.greendotted2').css({'border':'3px dotted white'});
+
+    efo = parseFloat((Math.random()*250).toFixed(0));
+    oefo = parseFloat((Math.random()*250).toFixed(0));
+
+    updateAll();
+
+    updateBar(oshBarValue, 'obar1', 1, false);
+    $('#ovSlider1').prop('value', oshBarValue);
+    $('#ovSlider1').change();
+
+    updateBarLeader(efo, 'barl', 1, false);
+    $('#lSlider1').prop('value', efo);
+    $('#lSlider1').change();
+
+    updateBarLeader(oefo, 'obarl', 0, false);
+    $('#olSlider1').prop('value', oefo);
+    $('#olSlider1').change();
+
+}
+
 // Slider-bar initiations
 
 // YOUR GROUP INITIATION
@@ -820,7 +854,7 @@ slider1.oninput = function() {
     value1 = parseFloat(slider1.value);
     s1 = value1 >= 0 ? 0 : -value1;
     h1 = value1 >= 0 ? value1 : 0;
-    updateBar(value1, 'bar1', 1, false);
+    updateBar(value1, 'bar1', 0, false);
     $('.wheelresult').css({'opacity':'0'});
     $('.wheelresult2').css({'opacity':'0'});
     $('.wheelresult3').css({'opacity':'0'});
