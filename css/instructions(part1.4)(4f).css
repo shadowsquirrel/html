@@ -503,13 +503,13 @@
 {
     display: flex;
     flex-direction: column;
-    margin-left: 70px;
+    /* margin-left: 70px; */
 }
 .followergroupright
 {
     display: flex;
     flex-direction: column;
-    margin-left: 70px;
+    /* margin-left: 70px; */
 }
 /************************************************/
 /************************************************/
@@ -614,9 +614,10 @@
 /*class to containt slider + bar*/
 .sliderbarleader
 {
+    cursor: pointer;
     transition:1s;
-    position: sticky;
-    top: 0px;
+    /* position: sticky; */
+    /* top: 0px; */
     display:flex;
     justify-content: center;
     margin-top: 20px;
@@ -629,6 +630,8 @@
 }
 .lbar
 {
+    transition: 1s;
+    cursor: pointer;
     z-index:0;
     position: relative;
 }
@@ -640,13 +643,14 @@
 /************************************************/
 .lslider
 {
+    cursor: pointer;
     z-index: 1;
     position: absolute;
     -webkit-appearance: none;
     appearance: none;
     background: gray;
     opacity: 0.3;
-    transition: 0.35s;
+    transition: 1s;
     /* transition-delay: 0.15s; */
 
     /*Setup Large*/
@@ -742,6 +746,7 @@
 /************************************************/
 /* class to contain the bar and the slider for followers*/
 .sliderbar{
+    cursor: pointer;
     transition:1s;
     display: flex;
     flex-direction: column;
@@ -750,6 +755,7 @@
 /************************************************/
 .bar
 {
+    cursor: pointer;
     z-index:0;
     position: relative;
     transition: 5s; /* Does it even have an effect??? */
@@ -799,6 +805,7 @@
 }
 .slider
 {
+    cursor: pointer;
     -webkit-appearance: none;
     appearance: none;
     background: gray;
@@ -954,17 +961,19 @@
 /*leader*/
 .sliderbard
 {
+    cursor: pointer;
     transition: 1s;
     /* border: 9px dotted red; */
     margin-top: -3px;
     /* margin-top: -10px; */
     display:flex;
     justify-content: center;
-    margin-left: -40px;
+    /* margin-left: -40px; */
     /* border: 5px solid black; */
 }
 .dbar
 {
+    cursor: pointer;
     z-index:0;
     position: relative;
 }
@@ -1097,7 +1106,7 @@
 }
 .yourdecisiontext
 {
-    margin-left: -40px;
+    /* margin-left: -40px; */
     font-weight: 200;
     font-size: 22px;
     transition: font-weight .35s ease-in-out;
@@ -1513,23 +1522,23 @@ img.switch2
 .mc0
 {
     /* height:100%; */
-    transition:0.35s;
+    transition:0.5s;
 }
 .mc1
 {
     position:absolute;
     opacity: 0;
     /* height:100%; */
-    transition:0.35s;
-    transition-delay:0.35s;
+    transition:0.5s;
+    transition-delay:0.25s;
 }
 .mc2
 {
     position:absolute;
     opacity: 0;
     /* height:100%; */
-    transition:0.35s;
-    transition-delay:0.35s;
+    transition:0.5s;
+    transition-delay:0.25s;
     margin-bottom: 20px;
 }
 .lockedmc2
@@ -1545,8 +1554,8 @@ img.switch2
     position:absolute;
     opacity: 0;
     /* height:100%; */
-    transition:0.35s;
-    transition-delay:0.35s;
+    transition:0.5s;
+    transition-delay:0.25s;
 }
 
 .mc3
@@ -1554,8 +1563,8 @@ img.switch2
     position:absolute;
     opacity: 0;
     /* height:100%; */
-    transition:0.35s;
-    transition-delay:0.35s;
+    transition:0.5s;
+    transition-delay:0.25s;
 }
 .lockedmc3
 {
@@ -1568,16 +1577,16 @@ img.switch2
     position:absolute;
     opacity: 0;
     /* height:100%; */
-    transition:0.35s;
-    transition-delay:0.35s;
+    transition:0.5s;
+    transition-delay:0.25s;
 }
 .mc5
 {
     position:absolute;
     opacity: 0;
     /* height:100%; */
-    transition:0.35s;
-    transition-delay:0.35s;
+    transition:0.5s;
+    transition-delay:0.25s;
 }
 .continueButton
 {

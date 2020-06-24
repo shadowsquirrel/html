@@ -711,7 +711,7 @@ dslider.oninput = function() {
     h1 = dvalue >= 0 ? dvalue : 0;
 
     dexp = true;
-    $('.dottedblue2').css({'border':'0px dotted white'})
+    $('.dottedblue2').css({'border':'2px dotted white'})
     $('.lockedmc3').css({'z-index':'1', 'opacity':'1'});
     // $('.sliderbard').css({'border':'9px dotted white'});
 
@@ -756,7 +756,7 @@ slider1.oninput = function() {
     s1 = value1 >= 0 ? 0 : -value1;
     h1 = value1 >= 0 ? value1 : 0;
 
-    $('.bluebar').css({'border':'0px dotted white'});
+    $('.bluebar').css({'border':'2px dotted white'});
 
     //synching values
     syncBars(value1, 'decision', syncOurGroup, syncOtherGroup);
@@ -782,7 +782,7 @@ slider1.oninput = function() {
 var s2exp = false;
 slider2.oninput = function() {
     s2exp = true;
-    $('.hfl').css({'border':'0px dotted white'});
+    $('.hfl').css({'border':'2px dotted white'});
     syncOurGroup = document.getElementById('mycheck').checked;
     value2 = parseFloat(slider2.value);
     s2 = value2 >= 0 ? 0 : -value2;
@@ -806,7 +806,7 @@ slider2.oninput = function() {
 }
 slider3.oninput = function() {
     s2exp = true;
-    $('.hfl').css({'border':'0px dotted white'});
+    $('.hfl').css({'border':'2px dotted white'});
     syncOurGroup = document.getElementById('mycheck').checked;
     value3 = parseFloat(slider3.value);
     s3 = value3 >= 0 ? 0 : -value3;
@@ -828,7 +828,7 @@ slider3.oninput = function() {
 }
 slider4.oninput = function() {
     s2exp = true;
-    $('.hfl').css({'border':'0px dotted white'});
+    $('.hfl').css({'border':'2px dotted white'});
     syncOurGroup = document.getElementById('mycheck').checked;
     value4 = parseFloat(slider4.value);
     s4 = value4 >= 0 ? 0 : -value4;
@@ -859,7 +859,7 @@ olslider1.oninput = function() {
     oefo = olvalue;
     updateBarLeader(olvalue, 'obarl', 0, true);
     updateAll();
-    $('.hlr').css({'border':'0px dotted white'});
+    $('.hlr').css({'border':'2px dotted white'});
 }
 
 //Followers
@@ -868,7 +868,7 @@ var os2exp = false;
 oslider1.oninput = function() {
     os1exp = true;
     os2exp = true;
-    $('.hfr').css({'border':'0px dotted white'});
+    $('.hfr').css({'border':'2px dotted white'});
     syncOtherGroup = document.getElementById('mycheck2').checked;
     ovalue1 = parseFloat(oslider1.value);
     os1 = ovalue1 >= 0 ? 0 : -ovalue1;
@@ -891,7 +891,7 @@ oslider1.oninput = function() {
 oslider2.oninput = function() {
     os1exp = true;
     os2exp = true;
-    $('.hfr').css({'border':'0px dotted white'});
+    $('.hfr').css({'border':'2px dotted white'});
     syncOtherGroup = document.getElementById('mycheck2').checked;
     ovalue2 = parseFloat(oslider2.value);
     os2 = ovalue2 >= 0 ? 0 : -ovalue2;
@@ -914,7 +914,7 @@ oslider2.oninput = function() {
 oslider3.oninput = function() {
     os1exp = true;
     os2exp = true;
-    $('.hfr').css({'border':'0px dotted white'});
+    $('.hfr').css({'border':'2px dotted white'});
     syncOtherGroup = document.getElementById('mycheck2').checked;
     ovalue3 = parseFloat(oslider3.value);
     os3 = ovalue3 >= 0 ? 0 : -ovalue3;
@@ -937,7 +937,7 @@ oslider3.oninput = function() {
 oslider4.oninput = function() {
     os1exp = true;
     os2exp = true;
-    $('.hfr').css({'border':'0px dotted white'});
+    $('.hfr').css({'border':'2px dotted white'});
     syncOtherGroup = document.getElementById('mycheck2').checked;
     ovalue4 = parseFloat(oslider4.value);
     os4 = ovalue4 >= 0 ? 0 : -ovalue4;
@@ -1370,9 +1370,9 @@ b2.onclick = function() {
     var myString = -myheight + 'px';
     $('.mc2').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
     $('.mc25').css({'position':'static', 'opacity':'1', 'background-color':'lavender'});
-    $('.dottedred').css({'border':'0px dotted white'});
+    $('.dottedred').css({'border':'2px dotted white'});
     $('.dottedred3').css({'border':'2px dotted red'});
-    $('.dottedblue2').css({'border':'0px dotted white'});
+    $('.dottedblue2').css({'border':'2px dotted white'});
     $('.switchwrap').css({'opacity':'1'});
 }
 
@@ -1384,7 +1384,7 @@ b25.onclick = function() {
     var myString = -myheight + 'px';
     $('.mc25').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
     $('.mc3').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush'});
-    $('.dottedred3').css({'border':'0px dotted white'});
+    $('.dottedred3').css({'border':'2px dotted white'});
     $('.dottedblue2').css({'border':'2px dotted blue'});
     $('html, body').animate({
         scrollTop: $(document).height()
