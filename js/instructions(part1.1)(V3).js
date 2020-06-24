@@ -295,11 +295,13 @@ arrowButton.onclick = function() {
 var liftArrow = function() {
     $('.arrow').css({'marginTop':'30px'});
 }
-
+var firsttime = true;
 var showResult = function() {
     $('.wheelresult').css({'opacity':'1'});
+    $('.wheelresult2').css({'opacity':'1'});
     $('.wheelresult3').css({'opacity':'1'});
-    $('.arrowwrap').css({'margin-top':'-25px'});
+
+    $('.arrowwrap').css({'margin-top':'20px'});
     canClickArrow = true;
     liftArrow();
     // setTimeout("liftArrow()", 500);
@@ -316,9 +318,28 @@ var showResult = function() {
     var mytoken = (Math.abs(mypayoff) > 1) ? 'tokens' : 'token';
     var mypayoffDisplay = 'Your Net Payoff: <strong>' + mypayoff + '</strong> ' + mytoken;
     wheelresultDisplay3.innerHTML = mypayoffDisplay;
-    $('html, body').animate({scrollTop:  $(document).height()}, 2000);
+
+        if(firsttime){
+            $('html, body').animate({
+                scrollTop: $(document).height()*0.375
+            }, 1000);
+
+            $('.thirdhiddenpart').css({'opacity':'1'});
+
+            setTimeout('showMoreText()', 12000);
+
+            firsttime = false;
+        }
+
 }
 
+
+var showMoreText = function() {
+    $('.showmore').css({'opacity':'1'});
+    $('html, body').animate({
+        scrollTop: $(document).height()
+    }, 3000);
+}
 updateAll();
 
 // Slider-bar initiations
@@ -341,7 +362,7 @@ updateBarLeader(olvalue1, 'obarl1', 0, false);
 
 // YOUR GROUP
 //Leader
-
+var firsttime2 = true;
 lslider11.oninput = function() {
     lvalue1 = parseFloat(lslider11.value);
     efo1 = lvalue1;
@@ -355,8 +376,11 @@ lslider11.oninput = function() {
 
     $('.lbar11').css({'border':'3px dotted white'});
 
-    if(lslider11Checked && olslider11Checked) {
+    if(lslider11Checked && olslider11Checked && firsttime2) {
         $('.secondhiddenpart').css({'opacity':'1'});
+        setTimeout('goDown()', 10000);
+        firsttime2 = false;
+        $('.yoket').css({'opacity':'0', 'transition-delay':'1s', 'padding-top':'0px'});
     }
 }
 
@@ -375,11 +399,17 @@ olslider11.oninput = function() {
 
     $('.lbar21').css({'border':'3px dotted white'});
 
-    if(lslider11Checked && olslider11Checked) {
+    if(lslider11Checked && olslider11Checked && firsttime2) {
         $('.secondhiddenpart').css({'opacity':'1'});
+        setTimeout('goDown()', 10000);
+        firsttime2 = false;
+        $('.yoket').css({'opacity':'0', 'transition-delay':'0s'});
     }
 }
 
+var goDown = function() {
+    $('html, body').animate({scrollTop: $('.othercalculator').height()*0.8}, 1000);
+}
 
 
 
@@ -451,3 +481,4 @@ $('#olSlider1').hover(
 
 
 $('html, body').animate({scrollTop: 0}, 0);
+$('.firstfadein').css({'opacity':'1'});

@@ -7,7 +7,7 @@
     background-color: black;
     position:sticky;
     top:0;
-    z-index: 2;
+    z-index: 20;
     height:40px;
     transition:.5s;
 }
@@ -394,6 +394,7 @@
     /* z-index: 2;*/
     /* position: sticky;
     top: 0; */
+    z-index:10;
     justify-content: center;
     display:flex;
     flex-direction: row;
@@ -401,6 +402,7 @@
 }
 .middlesection
 {
+    z-index:11;
     margin-top: -5px;
     /* z-index:1;
     position: sticky;
@@ -415,7 +417,7 @@
 }
 .bottomsection
 {
-
+    z-index:10;
     /* position: sticky;
     top: 200px; */
     display:flex;
@@ -572,7 +574,7 @@
 .totalbarwrap
 {
     transition: 1s;
-    border: 3px dotted green;
+    /* border: 3px dotted green; */
 }
 /************************************************/
 /************************************************/
@@ -631,11 +633,7 @@
     z-index:0;
     position: relative;
 }
-.bluebar
-{
-    transition: 1s;
-    border: 3px dotted blue;
-}
+
 /************************************************/
 .lslider
 {
@@ -937,7 +935,7 @@
 .input
 {
 
-    margin-top: -20px;
+    /* margin-top: -20px; */
     /* margin-left: 39px; */
     text-align: center;
     /* height: 100px; */
@@ -957,7 +955,6 @@
 .sliderbard
 {
     transition: 1s;
-    border: 9px dotted red;
     margin-top: -3px;
     display:flex;
     justify-content: center;
@@ -1368,16 +1365,27 @@ input:checked + .checkslider:before {
 {
     margin-left: 10px;
     margin-right: 10px;
-    border: 3px dotted blue;
+    border: 2px dotted blue;
     padding-left:20px;
+    /* height: 5px; */
+    /* width: 10px; */
+}
+.dottedblue2
+{
+    transition: 0.35s;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 2px dotted white;
+    /* padding-left:20px; */
     /* height: 5px; */
     /* width: 10px; */
 }
 .dottedred
 {
+    transition:0.35s;
     margin-left: 10px;
     margin-right: 10px;
-    border: 3px dotted red;
+    border: 2px dotted red;
     padding-left:20px;
     /* height: 5px; */
     /* width: 10px; */
@@ -1457,3 +1465,189 @@ img.switch2
     width: 45px;
     height: 28px;
 }
+
+/****************************************/
+/****************************************/
+/****************************************/
+/************* INFO BOXES ***************/
+/****************************************/
+/****************************************/
+/****************************************/
+/************* INFO BOXES ***************/
+/****************************************/
+/****************************************/
+/****************************************/
+/************* INFO BOXES ***************/
+/****************************************/
+/****************************************/
+/****************************************/
+/************* INFO BOXES ***************/
+/****************************************/
+/****************************************/
+/****************************************/
+/****************************************/
+.dottedred3
+{
+    transition:0.35s;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 2px dotted white;
+    /* padding-left:20px; */
+    /* height: 5px; */
+    /* width: 10px; */
+}
+.dottedred4
+{
+    transition:0.35s;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 2px dotted red;
+    padding-left:20px;
+    /* height: 5px; */
+    /* width: 10px; */
+}
+.calculator
+{
+    opacity:0;
+    transition:2s;
+}
+
+.explanationtext
+{
+    font-size: 15px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    padding:25px;
+    background-color: lavender;
+    border:1px solid;
+
+}
+.bwrap
+{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: -25px;
+    margin-bottom: -25px;
+    margin-top: -25px;
+}
+.cb
+{
+    background-color: black;
+    color: white;
+    width:35px;
+    opacity: 0.7;
+}
+.cb:hover
+{
+    opacity:1;
+}
+.mc0
+{
+    /* height:100%; */
+    transition:0.35s;
+}
+.mc1
+{
+    position:absolute;
+    opacity: 0;
+    /* height:100%; */
+    transition:0.35s;
+    transition-delay:0.35s;
+}
+.mc2
+{
+    position:absolute;
+    opacity: 0;
+    /* height:100%; */
+    transition:0.35s;
+    transition-delay:0.35s;
+}
+.lockedmc2
+{
+    z-index:-10;
+    opacity:0;
+    transition:1s;
+}
+.mc25
+{
+    position:absolute;
+    opacity: 0;
+    /* height:100%; */
+    transition:0.35s;
+    transition-delay:0.35s;
+}
+
+.mc3
+{
+    position:absolute;
+    opacity: 0;
+    /* height:100%; */
+    transition:0.35s;
+    transition-delay:0.35s;
+}
+.lockedmc3
+{
+    z-index:-10;
+    opacity:0;
+    transition:1s;
+}
+.mc4
+{
+    position:absolute;
+    opacity: 0;
+    /* height:100%; */
+    transition:0.35s;
+    transition-delay:0.35s;
+}
+.mc5
+{
+    position:absolute;
+    opacity: 0;
+    /* height:100%; */
+    transition:0.35s;
+    transition-delay:0.35s;
+}
+.continueButton
+{
+    transition: 0.35s;
+    opacity:0;
+}
+.switchwrap
+{
+    opacity:0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/****************************************/
+/****************************************/
+/****************************************/
+/************* INFO BOXES ***************/
+/****************************************/
+/****************************************/
+/****************************************/
+/************* INFO BOXES ***************/
+/****************************************/
+/****************************************/
+/****************************************/
+/************* INFO BOXES ***************/
+/****************************************/
+/****************************************/
+/****************************************/
+/************* INFO BOXES ***************/
+/****************************************/
+/****************************************/
+/****************************************/
+/****************************************/

@@ -64,7 +64,7 @@ createWheel(0.99);
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-var updatePie = function(a, myID) {
+var updatePie = function(a) {
 
 
     var x = a;
@@ -109,7 +109,7 @@ var updatePie = function(a, myID) {
         showlegend: false,
     };
 
-    Plotly.react(myID, data, layout, {displayModeBar: false});
+    Plotly.react('pie', data, layout, {displayModeBar: false});
 }
 
 var updateBarLeader = function(e, barId, ourSide, axisOn) {
@@ -184,16 +184,211 @@ var updateBarLeader = function(e, barId, ourSide, axisOn) {
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
 
+var logistic2 = function(val , k) {
+    var L = 1;
+    var m = 0.5;
+    var result;
+    result= L / (1 + Math.exp(-k * (val - m)));
+    return result;
+}
+
+var updateEfficiencyBar = function(efi1, efi2) {
+
+    var val1 = efi1 / (efi1 + efi2);
+    var val2 = efi2 / (efi1 + efi2);
+
+
+
+    if((efi1 / efi2) > 1){
+        var myText = (val1 >= 0.99) ? '100+' : (efi1 / efi2).toFixed(2);
+    } else {
+        myText = 1;
+    }
+
+    if((efi1 / efi2) < 1){
+        var myText2 = (val2 >= 0.99) ? '100+' : (efi2 / efi1).toFixed(2);
+    } else {
+        myText2 = 1;
+    }
+
+
+    val1 = logistic2(val1, 5);
+    val2 = 1 - val1;
+
+    var gapSize = 0.1;
+    var gp1, gp2, gp3;
+    gp1 = gp3 = gapSize*0.35;
+    gp2 = gapSize*0.3;
+    val1 = val1 - gapSize/2;
+    val2 = val2 - gapSize/2;
+
+
+    // val1 = upperBound(val1, 0.98);
+    // val2 = upperBound(val2, 0.98);
+    // val1 = lowerBound(val1, 0.02);
+    // val2 = lowerBound(val2, 0.02);
+    // console.log('before: ' + val1 + ', ' + val2);
+    // console.log('after: ' + val1 + ', ' + val2);
+
+
+    var leader1 = {
+        y: ['group 1'],
+        x: [val1],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker: {
+            // color: 'rgb(160, 160, 160)',
+            color: 'rgb(80, 80, 80)',
+        },
+        text: myText,
+        textposition: 'inside',
+        insidetextanchor: 'middle',
+        textfont: {
+            color: 'white',
+            size: '10'
+        },
+    };
+
+    var gap = {
+        y: ['group 1'],
+        x: [gapSize],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker: {
+            color: 'white',
+        },
+        text: '&#x25C0; &#x25BA;',
+        textposition: 'inside',
+        insidetextanchor: 'middle',
+        textfont: {
+            color: 'black',
+            size: '14'
+        },
+    };
+
+    var gap1 = {
+        y: ['group 1'],
+        x: [gp1],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker: {
+            color: 'white',
+        },
+        text: '&#x25C0;',
+        textposition: 'inside',
+        insidetextanchor: 'middle',
+        textfont: {
+            color: 'black',
+            size: '14'
+        },
+    };
+    var gap2 = {
+        y: ['group 1'],
+        x: [gp2],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker: {
+            color: 'black',
+        },
+        text: '<>',
+        textposition: 'inside',
+        insidetextanchor: 'middle',
+        textfont: {
+            color: 'white',
+            size: '12'
+        },
+    };
+    var gap3 = {
+        y: ['group 1'],
+        x: [gp3],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker: {
+            color: 'white',
+        },
+        text: '',
+        textposition: 'inside',
+        insidetextanchor: 'middle',
+        textfont: {
+            color: 'black',
+            size: '14'
+        },
+    };
+
+    var leader2 = {
+        y: ['group 1'],
+        x: [val2],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker: {
+            color: 'rgb(225, 225, 225)',
+             // color: 'rgb(160, 160, 160)',
+        },
+        text: myText2,
+        textposition: 'inside',
+        insidetextanchor: 'middle',
+        textfont: {
+            size: '10'
+        },
+    };
+
+    // var data = [leader1, gap1, gap2, gap3, leader2];
+    var data = [leader1, gap, leader2];
+
+    var layout = {
+        barmode: 'stack',
+        height: 30,
+        width: 1020,
+        // width: 200,
+        margin: {"t": 0, "b": 0, "l": 0, "r": 0},
+        xaxis: {
+            fixedrange: true,
+            autorange: false,
+            range: [0,1],
+            showline: false,
+            showgrid: false,
+            showticklabels: false,
+        },
+        yaxis: {
+            fixedrange: true,
+        }
+
+    };
+
+    Plotly.react('efficiencyBar', data, layout, {displayModeBar: false});
+}
+
 //VARIABLES AND GRAPHICS INITIATIONS
 
 // leader global variables
 var efo, efi, efefo, oefo, oefi, oefefo, pwin;
-efo = oefo = 250;
+efo = 200;
+oefo = 200;
 efi = oefi = 1;
-
-var efo1, efi1, efefo1, oefo1, oefi1, oefefo1, pwin1;
-efo1 = oefo1 = 250;
-// efi = oefi = 1;
 
 
 var updateBarYAxis = function(barId, axisSwitch) {
@@ -216,36 +411,20 @@ var updatePwin = function() {
     efefo = efi * efo;
     oefefo = oefi * oefo;
     pwin = ((efo + oefo) === 0) ? 0.5 : (efefo / (efefo + oefefo));
-
-    efefo1 = efi * efo1;
-    oefefo1 = oefi * oefo1;
-    pwin1 = ((efo1 + oefo1) === 0) ? 0.5 : (efefo1 / (efefo1 + oefefo1));
-}
-
-var syncValues = function() {
-    efo = efo1;
-    oefo = oefo1;
-}
-
-var syncBars = function() {
-    updateBarLeader(efo1, 'barl', true, false);
-    updateBarLeader(oefo1, 'obarl', false, false);
 }
 
 var activeWheelSwitch = true;
 
-var wheelresultDisplay2 = document.getElementById('wheelresulttext2');
-
+// var wheelresultDisplay2 = document.getElementById('wheelresulttext2');
 var updateAll = function() {
     updatePwin();
-    updatePie(pwin1, 'pie1')
-    updatePie(pwin, 'pie');
+    updatePie(pwin);
+    updateEfficiencyBar(efi, oefi);
     if(activeWheelSwitch) {
         hideWheel();
         activeWheelSwitch = false;
     }
-    var mytoken = (efo > 1) ? 'tokens' : 'token';
-    wheelresultDisplay2.innerHTML = 'Your investment cost: <strong>' + efo + '</strong> ' + mytoken;
+    // wheelresultDisplay2.innerHTML = 'Your investment cost: <strong>' + efo + '</strong>';
 }
 
 var hideWheel = function() {
@@ -274,9 +453,7 @@ var animateWheel = function() {
     activeWheelSwitch = true;
 }
 
-
 var arrowButton = document.getElementById('arrow');
-
 var canClickArrow = true;
 arrowButton.onclick = function() {
     console.log(canClickArrow);
@@ -313,73 +490,60 @@ var showResult = function() {
     var wheelresultDisplay3 = document.getElementById('wheelresulttext3');
     var mycost = -efo;
     var mypayoff = -efo + ((resultIndex===1) ? 1000 : 0);
-    var mytoken = (Math.abs(mypayoff) > 1) ? 'tokens' : 'token';
-    var mypayoffDisplay = 'Your Net Payoff: <strong>' + mypayoff + '</strong> ' + mytoken;
+    var mypayoffDisplay = 'Your Net Payoff: <strong>' + mypayoff + '</strong>';
     wheelresultDisplay3.innerHTML = mypayoffDisplay;
+
     $('html, body').animate({scrollTop:  $(document).height()}, 2000);
 }
 
 updateAll();
 
 // Slider-bar initiations
-// YOUR GROUP INITIATION
-// leader
-var lslider11Checked = false;
-var lslider11 = document.getElementById('lSlider11');
-var lvalue1 = efo1;
-updateBarLeader(lvalue1, 'barl1', 1, false);
 
+// EFFICIENCY SLIDER - BAR
+var efislider = document.getElementById('efiSlider');
+var efivalue;
+var firsttime = true;
+efislider.oninput = function() {
+    // $('.wheelresult2').css({'opacity':'1'});
+    $('.after2').css({'opacity':'0'});
 
-// OPPOSING GROUP INITIATION
-// leader
-var olslider11Checked = false;
-var olslider11 = document.getElementById('olSlider11');
-var olvalue1 = oefo1;
-updateBarLeader(olvalue1, 'obarl1', 0, false);
+    efivalue = parseFloat(efislider.value);
+    var t = Math.abs(efivalue);
+    var x = 101 - t;
+    var y = 101 + t;
 
+    efi = (efivalue > 0) ? y : x;
+    oefi = (efivalue > 0) ? x : y;
 
-
-// YOUR GROUP
-//Leader
-
-lslider11.oninput = function() {
-    lvalue1 = parseFloat(lslider11.value);
-    efo1 = lvalue1;
-    lslider11Checked = true
-    updateBarLeader(lvalue1, 'barl1', 1, true);
     updateAll();
-    syncValues();
-    syncBars();
-    $('#lSlider1').prop('value', lvalue1);
-    $('#lSlider1').change();
 
-    $('.lbar11').css({'border':'3px dotted white'});
-
-    if(lslider11Checked && olslider11Checked) {
-        $('.secondhiddenpart').css({'opacity':'1'});
+    $('.sliderbarefi').css({'border':'3px dotted white'});
+    $('.dottedblue2').css({'border':'1px solid black'});
+    $('.wheelresult').css({'opacity':'0'});
+    $('.wheelresult3').css({'opacity':'0'});
+    $('.wheelresult').css({'opacity':'0'});
+    theWheel.stopAnimation(false);
+    canClickArrow = true;
+    if(firsttime) {
+        setTimeout('goDown()', 20000);
     }
+
+
+
 }
 
-// OPPOSING GROUP
-//Leader
-olslider11.oninput = function() {
-    olvalue1 = parseFloat(olslider11.value);
-    oefo1 = olvalue1;
-    olslider11Checked = true
-    updateBarLeader(olvalue1, 'obarl1', 0, true);
-    updateAll();
-    syncValues();
-    syncBars();
-    $('#olSlider1').prop('value', olvalue1);
-    $('#olSlider1').change();
-
-    $('.lbar21').css({'border':'3px dotted white'});
-
-    if(lslider11Checked && olslider11Checked) {
-        $('.secondhiddenpart').css({'opacity':'1'});
+var goDown = function() {
+    if(firsttime) {
+        // $('.after2').css({'height':'1px'});
+        $('.fadeout').css({'opacity':'1'});
+        $('.showmore').css({'opacity':'1'});
+        $('html, body').animate({
+            scrollTop: $(document).height()
+        }, 3000);
+        firsttime = false;
     }
 }
-
 
 
 
@@ -406,7 +570,7 @@ lslider1.oninput = function() {
     updateBarLeader(lvalue, 'barl', 1, true);
     updateAll();
 
-    // $('.lbar1').css({'border':'3px dotted white'});
+    $('.lbar1').css({'border':'3px dotted white'});
     $('.wheelresult').css({'opacity':'0'});
     $('.wheelresult3').css({'opacity':'0'});
     theWheel.stopAnimation(false);
@@ -422,7 +586,7 @@ olslider1.oninput = function() {
     updateBarLeader(olvalue, 'obarl', 0, true);
     updateAll();
 
-    // $('.lbar2').css({'border':'3px dotted white'});
+    $('.lbar2').css({'border':'3px dotted white'});
     $('.wheelresult').css({'opacity':'0'});
     $('.wheelresult3').css({'opacity':'0'});
     theWheel.stopAnimation(false);
@@ -451,3 +615,5 @@ $('#olSlider1').hover(
 
 
 $('html, body').animate({scrollTop: 0}, 0);
+$('.firstfadein').css({'opacity':'1'});
+$('.evenlater').css({'opacity':'1'});

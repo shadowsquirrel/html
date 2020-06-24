@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/instructions(part1.2)(V2).css">
+    <script src='js/Winwheel.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <title>Page Title</title>
+</head>
+<body>
+
+    <div class='upperbar'>
+        <button class='continueButton' onclick="window.location.href='./Instructions(part1.3)(V2).htm'">Continue</button>
+        <!-- <button class='continueButton' onclick="window.location.href='./Instructions(part1.6.0).htm'">Continue(alternative path)</button> -->
+        <!-- <button class=multibutton id=multibutton>Y</button>
+        <button class=multibutton id=multibutton2>X<span id='buttonname'></span></button> -->
+    </div>
+    <div class = 'wrap noselect'>
+
+        <div class = 'all'>
+
+            <div class = 'sinfo' id='sinfo'>
+
+                <div class = 'sinfotitle'>
+                    <h3>INSTRUCTIONS</h3>
+                </div>
+
+                <div class = 'sinfotext firstfadein initial'>
+                    <p style='font-size: 22px;'> Relative Investment Power </span></p>
+
+
+                </div>
+
+                <div class ='sinfotext limited firstfadein after1'>
+                    <p>
+                        Players in a contest may have <strong>different investment power</strong>.
+                    </p>
+                    <p>
+                        A player with <strong>high relative investment power</strong> can occupy a <strong>larger share</strong> of the wheel <strong>for every unit of token</strong> she spends.
+                    </p>
+                    <p class='firstfadein after2' style='text-align:center;padding-top:25px;margin-bottom:-30px;z-index:4;'>
+                        Use <span class='dottedblue'></span> by moving <span class='solidblack'>&#9668; &#x25BA;</span> to consider different relative investment power levels for you and your opponent.
+                    </p>
+                </div>
+
+
+
+
+            </div>
+
+            <div class = 'calculator firstfadein' id='calculator'>
+
+                <div class = 'topsection'>
+
+                    <div class = 'leadergroupleft'>
+                        <h6 class = 'left_ltitle'>You</h6>
+                        <div class = 'sliderbarleader left'>
+                            <input type='range' min = '0' max = '500' class = 'lslider' value = '200' id = 'lSlider1' />
+                            <div id = 'barl' class = 'lbar1'></div>
+                        </div>
+                    </div>
+
+
+                    <div class = 'leadergraphics'>
+                        <div class='wheelresult'>
+                            <p>
+                                <span class=wheelresulttext id=wheelresulttext></span>
+                            </p>
+                        </div>
+                        <div class = 'arrowwrap'>
+                            <div class='wheelpiewrap'>
+                                <img id="arrow" class='arrow' src="images/arrow.png" alt="V" />
+                                <div id='wheelpie' class='wheelpie'>
+                                    <canvas id='mywheel' class='mywheel' width='250' height='250'>
+                                        Canvas not supported, use another browser.
+                                    </canvas>
+                                    <div class='piewrap'>
+                                        <div class='s3pie' id='pie'></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class = 'leadergroupright'>
+                        <h6  class = 'right_title'>Opponent</h6>
+                        <div class = 'sliderbarleader lright'>
+                            <input type='range' min = '0' max = '500' class = 'lslider' value = '200' id = 'olSlider1' />
+                            <div id = 'obarl' class = 'lbar2'></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class = 'middlesection'>
+                    <div class = 'sliderbarefi'>
+                        <input type='range' min = '-99' max = '99' class = 'efislider' value = '0' id = 'efiSlider' />
+                        <div id = 'efficiencyBar' class = 'efficiencyBar'></div>
+                    </div>
+                    <h6 style = 'z-index:1;'>Relative Investment Power</h6>
+                </div>
+                <div class ='sinfotext fadeout evenlater' style='margin-top:25px;'>
+                    <p style='text-align:center;'>
+                        Values inside <span class='dottedblue2'><span class='darkgray'></span> &#9668; &#x25BA; <span class='white'></span> </span>represent the per unit relative investment power of players.
+                    </p>
+                    <p style='text-align:center; padding-bottom:15px;'>
+                        For instance, <span class='dottedblue2'>  <span class='darkgray'>5</span> &#9668; &#x25BA; <span class='white2'>1</span> </span> implies that every token you invested is worth 5 tokens invested by the opponent.
+                    </p>
+                </div>
+                <!-- <div class='wheelresult2'>
+                    <p>
+                        <span class=wheelresulttext2 id=wheelresulttext2></span>
+                    </p>
+                    <p class='fadeout' style='font-size:15px;margin-top:-15px;'>
+                        Notice that your investment power does <strong>NOT</strong> change your <strong>investment cost</strong>
+                    </p>
+                </div> -->
+                <div class='wheelresult3'>
+                    <p>
+                        <span class=wheelresulttext3 id=wheelresulttext3></span>
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class ='sinfotext showmore mytable'>
+                <p class='showmore experimentinfobox' style='font-weight:800; text-decoration: underline;text-align:center; font-size:18px;'>
+                    In the Experiment
+                </p>
+                <div class=bothside>
+                    <div class='rightside'>
+                        <p style='font-weight:700; text-align:center;'>
+                            FOLLOWERS
+                        </p>
+                        <p>
+                            Followers have <strong>equal investment power</strong> and it <strong>cannot</strong> be changed.
+                        </p>
+
+                        <!-- <p>
+                            There are <strong>2</strong> types of followers: <strong>Strong</strong> and <strong>Weak</strong>
+                        </p>
+                        <p>
+                            <strong>Strong Follower</strong> is assumed to have a <strong>5 times stronger</strong> relative investment power than the weak follower.
+                        </p> -->
+
+                    </div>
+
+
+                    <div  class='leftside'>
+                        <p style='font-weight:700; text-align:center;'>
+                            LEADERS
+                        </p>
+                        <p>
+                            Every leader's relative investment power  is <u>determined by <strong>her</strong> followers</u>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class ='sinfotext limited showmore'>
+                <p style='text-align: center;'>
+                    Please click <strong>NEXT</strong> to continue
+                </p>
+
+            </div>
+
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="js/instructions(part1.2)(V2).js"></script>
+
+</body>
+</html>

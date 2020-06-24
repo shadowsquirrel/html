@@ -628,7 +628,7 @@ var updateAll = function() {
 
     var experimented = ((th>0 && (oth > 0 || ots > 0)) || (ts>0 && (oth > 0 || ots > 0)));
     if(experimented) {
-        $('.totalbarwrap').css({'border':'3px dotted white'});
+        // $('.totalbarwrap').css({'border':'3px dotted white'});
     }
 
     var payoffDisplay = document.getElementById('payoff');
@@ -639,6 +639,15 @@ var updateAll = function() {
 
     var winNetPayoff = document.getElementById('winnetpayoff');
     winNetPayoff.innerHTML = '<strong>' + -(h1 + s1) + '</strong>' + (((h1 + s1) !== 0) ? ' tokens' : ' token');
+
+    // console.log(ls1exp);
+    // console.log(s2exp);
+    // console.log(ols1exp);
+    // console.log(os1exp);
+    // console.log(os2exp);
+    if(ls1exp && s2exp  && ols1exp && os1exp && os2exp) {
+        $('.lockedmc2').css({'z-index':'1', 'opacity':'1'});
+    }
 }
 
 
@@ -687,12 +696,16 @@ updateBar(ovalue2, 'obar2', 1, false);
 
 
 //DECISION
+var dexp = false;
 dslider.oninput = function() {
     dvalue = parseFloat(dslider.value);
     s1 = dvalue >= 0 ? 0 : -dvalue;
     h1 = dvalue >= 0 ? dvalue : 0;
 
-    $('.sliderbard').css({'border':'9px dotted white'});
+    dexp = true;
+    $('.dottedblue2').css({'border':'2px dotted white'})
+    $('.lockedmc3').css({'z-index':'1', 'opacity':'1'});
+    // $('.sliderbard').css({'border':'9px dotted white'});
 
     //synching values
     syncBars(dvalue, 'decision', syncOurGroup, syncOtherGroup);
@@ -716,11 +729,14 @@ dslider.oninput = function() {
 
 // YOUR GROUP
 //Leader
+var ls1exp = false;
 lslider1.oninput = function() {
+    ls1exp = true;
     lvalue = parseFloat(lslider1.value);
     efo = lvalue;
     updateBarLeader(lvalue, 'barl', 1, true);
     updateAll();
+    $('.hll').css({'border':'2px dotted white'});
 }
 
 //Followers
@@ -730,7 +746,7 @@ slider1.oninput = function() {
     s1 = value1 >= 0 ? 0 : -value1;
     h1 = value1 >= 0 ? value1 : 0;
 
-    $('.bluebar').css({'border':'3px dotted white'});
+    // $('.bluebar').css({'border':'3px dotted white'});
 
     //synching values
     syncBars(value1, 'decision', syncOurGroup, syncOtherGroup);
@@ -753,7 +769,9 @@ slider1.oninput = function() {
 }
 
 // Other Followers in your Group
+var s2exp = false;
 slider2.oninput = function() {
+    s2exp = true;
     value2 = parseFloat(slider2.value);
     s2 = value2 >= 0 ? 0 : -value2;
     h2 = value2 >= 0 ? value2 : 0;
@@ -765,7 +783,7 @@ slider2.oninput = function() {
 
     updateAll();
     updateBarYAxis('bar2', true);
-
+    $('.hfl').css({'border':'2px dotted white'});
     //synching sliders
 
 }
@@ -774,15 +792,21 @@ slider2.oninput = function() {
 // OPPOSING GROUP
 
 //Leader
+var ols1exp = false;
 olslider1.oninput = function() {
+    ols1exp = true;
     olvalue = parseFloat(olslider1.value);
     oefo = olvalue;
     updateBarLeader(olvalue, 'obarl', 0, true);
     updateAll();
+    $('.hlr').css({'border':'2px dotted white'});
 }
 
 //Followers
+var os1exp = false;
 oslider1.oninput = function() {
+    os1exp = true;
+    os2exp = true;
     syncOtherGroup = document.getElementById('mycheck2').checked;
     ovalue1 = parseFloat(oslider1.value);
     os1 = ovalue1 >= 0 ? 0 : -ovalue1;
@@ -795,6 +819,7 @@ oslider1.oninput = function() {
 
     updateAll();
     updateBarYAxis('obar1', true);
+    $('.hfr').css({'border':'2px dotted white'});
 
     //synching sliders
     if(syncOtherGroup) {
@@ -803,7 +828,10 @@ oslider1.oninput = function() {
         $('#ovSlider2').change();
     }
 }
+var os2exp = false;
 oslider2.oninput = function() {
+    os1exp = true;
+    os2exp = true;
     syncOtherGroup = document.getElementById('mycheck2').checked;
     ovalue2 = parseFloat(oslider2.value);
     os2 = ovalue2 >= 0 ? 0 : -ovalue2;
@@ -817,6 +845,7 @@ oslider2.oninput = function() {
     updateAll();
     updateBarYAxis('obar2', true);
 
+    $('.hfr').css({'border':'2px dotted white'});
     //synching sliders
     if(syncOtherGroup) {
         $('#ovSlider1').prop('value', ovalue2);
@@ -998,3 +1027,102 @@ var initialize = function() {
 }
 
 initialize();
+
+
+
+
+
+
+
+/****************************************/
+/****************************************/
+/****************************************/
+/************* INFO BOXES ***************/
+/****************************************/
+/****************************************/
+/****************************************/
+/************* INFO BOXES ***************/
+/****************************************/
+/****************************************/
+/****************************************/
+/************* INFO BOXES ***************/
+/****************************************/
+/****************************************/
+/****************************************/
+/************* INFO BOXES ***************/
+/****************************************/
+/****************************************/
+/****************************************/
+/****************************************/
+
+
+var b0 = document.getElementById('b0');
+b0.onclick = function() {
+    var myheight = $('.mc0').height();
+    var myString = -myheight + 'px';
+    $('.mc0').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
+    $('.mc1').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush'});
+    // $('.mc1').css({'transition-delay':'0s'});
+}
+
+var b1 = document.getElementById('b1');
+b1.onclick = function() {
+    var myheight = $('.mc1').height();
+    var myString = -myheight + 'px';
+    $('.mc1').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
+    $('.mc2').css({'position':'static', 'opacity':'1', 'background-color':'lavender'});
+    $('.calculator').css({'opacity':'1'});
+    $('html, body').animate({
+        scrollTop: $('.mc2').height()*1.1
+    }, 1000);
+}
+var b2 = document.getElementById('b2');
+b2.onclick = function() {
+    var myheight = $('.mc2').height();
+    var myString = -myheight + 'px';
+    $('.mc2').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
+    $('.mc25').css({'position':'static', 'opacity':'1', 'background-color':'lavender'});
+    $('.dottedred').css({'border':'2px dotted white'});
+    $('.dottedred3').css({'border':'2px dotted red'});
+    $('.dottedblue2').css({'border':'2px dotted white'});
+    $('.switchwrap').css({'opacity':'1'});
+}
+
+
+
+var b25 = document.getElementById('b25');
+b25.onclick = function() {
+    var myheight = $('.mc25').height();
+    var myString = -myheight + 'px';
+    $('.mc25').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
+    $('.mc3').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush'});
+    $('.dottedred3').css({'border':'2px dotted white'});
+    $('.dottedblue2').css({'border':'2px dotted blue'});
+    $('html, body').animate({
+        scrollTop: $(document).height()
+    }, 1000);
+}
+
+
+
+
+var b3 = document.getElementById('b3');
+b3.onclick = function() {
+    var myheight = $('.mc3').height();
+    var myString = -myheight + 'px';
+    $('.mc3').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
+    $('.mc4').css({'position':'static', 'opacity':'1', 'background-color':'lavender'});
+}
+
+var b4 = document.getElementById('b4');
+b4.onclick = function() {
+    var myheight = $('.mc4').height();
+    var myString = -myheight + 'px';
+    $('.mc4').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
+    $('.mc5').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush'});
+    $('.continueButton').css({'opacity':'1'});
+    $('html, body').animate({
+        scrollTop: 0
+    }, 1000);
+    // console.log('button pressed');
+}

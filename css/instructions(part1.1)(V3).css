@@ -136,6 +136,7 @@
      /* border: 5px solid black; */
      /* position: sticky;
      top: 0px; */
+
 }
 .leftmaintitle
 {
@@ -243,9 +244,12 @@
     /* margin-left: 50px; */
     /* margin-top: 15px; */
 }
-.secondhiddenpart
+
+.thirdhiddenpart
 {
+    margin-top: -100px;
     opacity:0;
+    transition: 0.5s;
 }
 /*-*-* wheel + pie *-*-* wheel + pie *-*-*/
 /*-*-* wheel + pie *-*-* wheel + pie *-*-*/
@@ -263,22 +267,24 @@
 /*-*-* wheel + pie *-*-* wheel + pie *-*-*/
 .wheelresult
 {
+    margin-top: -60px;
     transition:0.35s;
     font-size: 20px;
     font-weight:800;
 }
 .wheelresult2
 {
+    opacity: 0;
     width:300px;
     transition:0.35s;
-    font-size: 20px;
+    /* font-size: 20px; */
     /* font-weight:800; */
 }
 .wheelresult3
 {
     padding-bottom: 30px;
     transition:0.35s;
-    font-size: 20px;
+    /* font-size: 20px; */
     /* font-weight:800; */
 }
 .arrowwrap
@@ -720,4 +726,87 @@
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+}
+.colored
+{
+    margin-top: -80px;
+    padding-bottom: 20px;
+    background-color: lavender;
+    border: 1px solid black;
+    transition:3s;
+    transition-delay:2s;
+}
+.showmore
+{
+
+    transition:2s;
+    opacity: 0;
+}
+.wraptext
+{
+    font-size: 17px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.winnerleaderwrap
+{
+    padding-left:75px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.leftcolumn
+{
+    padding-right:115px;
+}
+.rightcolumn
+{
+    padding-left:150px;
+}
+.firstfadein
+{
+    opacity:0;
+    transition:3s;
+    transition-delay:10.5s;
+}
+.after0
+{
+    transition-delay:0s;
+}
+.after1
+{
+    transition-delay: 1.5s;
+}
+.after2
+{
+        transition-delay: 9s;
+}
+.yoket
+{
+
+}
+.secondhiddenpart
+{
+    opacity:0;
+    transition: 3s;
+    transition-delay:18s;
+}
+.secondafter0
+{
+    transition-delay:10s;
+}
+.secondafter1
+{
+    transition-delay:17s
+}
+.othercalculator
+{
+    /* transition-delay: 10s;
+    transition: 3s; */
+}
+.thirdhiddenpart
+{
+    transition:2s;
+    transition-delay:1s;
 }

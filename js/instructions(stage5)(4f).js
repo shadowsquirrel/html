@@ -1,4 +1,747 @@
 
+var nzt = function(val) {
+    return (val != 0) ? val : '';
+}
+
+var updateBarHelpInfo = function(a, b, c, d, barId, ourGroup, me, newLeader, wons3, myFirstRole) {
+    var x = a;
+    var y = b;
+    var z = c;
+    var w = d;
+
+    //var myData = [x,y,z,w];
+    var lightblue = 'rgb(200,200,255)';
+    var blue = 'rgb(140, 140, 255)';
+    var ourColor = ourGroup ? blue : lightblue;
+
+    var colorArray = ['', '', '', ''];
+    var colorWidth = [0, 0, 0, 0];
+
+    if(ourGroup) {
+        colorArray[me] = 'green';
+        colorWidth[me] = 3;
+        if(!wons3) {
+            if(myFirstRole===1) {
+                colorWidth[me] = 0;
+            }
+            colorArray[newLeader] = 'indigo';
+            colorWidth[newLeader] = 3;
+        }
+    } else if(!ourGroup && wons3) {
+        colorArray[newLeader] = 'indigo';
+        colorWidth[newLeader] = 3;
+    }
+
+    var data = [
+        {
+            y: [x, y, z, w],
+            x: [1, 2, 3, 4],
+            type: 'bar',
+            sort: false,
+            hoverinfo: 'none',
+            automargin: true,
+            showlegend: false,
+            marker:{
+                color: ourColor,
+                line: {
+                    color: colorArray,
+                    width: colorWidth,
+                }
+            },
+            text: [nzt(x), nzt(y), nzt(z), nzt(w)],
+            textposition: 'outside',
+            textfont: {
+                size: '14',
+                color: colorArray,
+            },
+            cliponaxis: false,
+            opacity: 1,
+        }
+    ];
+
+    var layout = {
+        barmode: 'group',
+        height: 120,
+        width: 100,
+        margin: {"t": 20, "b": 0, "l": 0, "r": 0},
+        yaxis: {
+            fixedrange: true,
+            autorange: false,
+            range: [0,100]
+        },
+        xaxis: {
+            fixedrange: true,
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+            // tickangle: -90,
+        },
+        bargap: 0.25,
+    };
+
+    Plotly.react(barId, data, layout, {displayModeBar: false});
+}
+
+var updateBarSaboInfo = function(a, b, c, d, barId, ourGroup, me, newLeader, wons3, myFirstRole) {
+    var x = -a;
+    var y = -b;
+    var z = -c;
+    var w = -d;
+
+    var lightred = 'rgb(255,200,200)';
+    var red = 'rgb(255 140, 140)';
+    var ourColor = ourGroup ? red : lightred;
+
+    var colorArray = ['', '', '', ''];
+    var colorWidth = [0, 0, 0, 0];
+
+    if(ourGroup) {
+        colorArray[me] = 'green';
+        colorWidth[me] = 3;
+        if(!wons3) {
+            if(myFirstRole===1) {
+                colorWidth[me] = 0;
+            }
+            colorArray[newLeader] = 'indigo';
+            colorWidth[newLeader] = 3;
+        }
+    } else if(!ourGroup && wons3) {
+        colorArray[newLeader] = 'indigo';
+        colorWidth[newLeader] = 3;
+    }
+
+    var data = [{
+        y: [x, y, z, w],
+        name: ['Follower 1', 'Follower 2', 'Follower 3', 'Follower 4'],
+        type: 'bar',
+        sort: false,
+        hoverinfo: 'none',
+        // hovertemplate: ['New Leader', '', 'You', ''],
+        automargin: true,
+        showlegend: false,
+        marker:{
+            color: ourColor,
+            line: {
+                color: colorArray,
+                width: colorWidth,
+            }
+        },
+        text: [a, b, c, d],
+        textfont: {
+            size: '14',
+            color: colorArray,
+        },
+        textposition: 'outside',
+        cliponaxis: false,
+    }];
+
+    var layout = {
+        barmode: 'group',
+        height: 120,
+        width: 100,
+        margin: {"t": 0, "b": 20, "l": 0, "r": 0},
+        yaxis: {
+            fixedrange: true,
+            autorange: false,
+            range: [-100,0]
+        },
+        xaxis: {
+            fixedrange: true,
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+        },
+        bargap: 0.25,
+    };
+
+    Plotly.react(barId, data, layout, {displayModeBar: false});
+}
+
+var updateBarTotalHelpInfo = function(a, b, barId) {
+    var x = a;
+    var y = b;
+
+    var lightblue = 'rgb(200,200,255)';
+    var blue = 'rgb(140, 140, 255)';
+
+    var data = [
+        {
+            y: [x, y],
+            name: ['Group 1', 'Group 2'],
+            type: 'bar',
+            sort: false,
+            hoverinfo: 'none',
+            automargin: true,
+            showlegend: false,
+            marker:{
+                color: [blue, lightblue],
+            },
+            text: [nzt(x), nzt(y)],
+            textposition: 'outside',
+            textfont: {
+                size: '14'
+            },
+            cliponaxis: false,
+            opacity: 1,
+        }
+    ];
+
+    var layout = {
+        barmode: 'group',
+        height: 120,
+        width: 100,
+        margin: {"t": 20, "b": 0, "l": 0, "r": 0},
+        yaxis: {
+            fixedrange: true,
+            autorange: false,
+            range: [0,400]
+        },
+        xaxis: {
+            fixedrange: true,
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+        },
+        bargap: 0.25,
+    };
+
+    Plotly.react(barId, data, layout, {displayModeBar: false});
+}
+
+var updateBarTotalSaboInfo = function(a, b, barId) {
+    var x = -a;
+    var y = -b;
+
+    var lightred = 'rgb(255,200,200)';
+    var red = 'rgb(255 140, 140)';
+
+
+
+    var data = [{
+        y: [x, y],
+        name: ['Group 1', 'Group 2'],
+        type: 'bar',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker:{
+            color: [red, lightred],
+            },
+        text: [a, b],
+        textfont: {
+            size: '14',
+        },
+        textposition: 'outside',
+        cliponaxis: false,
+    }];
+
+    var layout = {
+        barmode: 'group',
+        height: 120,
+        width: 100,
+        margin: {"t": 0, "b": 20, "l": 0, "r": 0},
+        yaxis: {
+            fixedrange: true,
+            autorange: false,
+            range: [-400,0]
+        },
+        xaxis: {
+            fixedrange: true,
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+        },
+        bargap: 0.25,
+    };
+
+    Plotly.react(barId, data, layout, {displayModeBar: false});
+}
+
+var updatePieInfo = function(a, barId, ourLeaderWon) {
+
+    var x = a;
+    var y = 1-a;
+
+    if((x + y) === 0) {
+        x = 1;
+        y = 1;
+    }
+
+    var ourText = ourLeaderWon ? ['Lost', 'Won'] : ['Won', 'Lost'];
+
+    var data = [{
+        values: [y, x],
+        labels: ['Opposing Leader', 'Your Leader'],
+        textposition: "outside",
+        text: ourText,
+        type: 'pie',
+        sort: false,
+        hoverinfo: 'percent+label',
+        automargin: true,
+        marker:{
+            colors: ['rgb(225, 225, 225)', 'rgb(80, 80, 80)'],
+        }
+    }];
+
+    var layout = {
+        autosize: false,
+        height: 200,
+        width: 200,
+        font:{
+            size: 14
+        },
+        margin: {"t": 40, "b": 40, "l": 60, "r": 60},
+        showlegend: false,
+    };
+
+    Plotly.react(barId, data, layout, {displayModeBar: false});
+}
+
+var upperBound = function(val, upperBound) {
+    val = (val >= upperBound) ? upperBound : val;
+    return val;
+}
+
+var lowerBound = function(val, lowerBound) {
+    val = (val <= lowerBound) ? lowerBound : val;
+    return val;
+}
+
+var logistic2 = function(val , k) {
+    var L = 1;
+    var m = 0.5;
+    var result;
+    result= L / (1 + Math.exp(-k * (val - m)));
+    return result;
+}
+
+var updateEfficiencyBarInfo = function(efi1, efi2, barId) {
+
+    var val1 = efi1 / (efi1 + efi2);
+    var val2 = efi2 / (efi1 + efi2);
+
+    if((efi1 / efi2) > 1){
+        var myText = (val1 >= 0.99) ? '100+' : (efi1 / efi2).toFixed(2);
+    } else {
+        myText = 1;
+    }
+
+    if((efi1 / efi2) < 1){
+        var myText2 = (val2 >= 0.99) ? '100+' : (efi2 / efi1).toFixed(2);
+    } else {
+        myText2 = 1;
+    }
+
+    val1 = logistic2(val1, 5);
+    val2 = 1 - val1;
+
+    var leader1 = {
+        y: ['group 1'],
+        x: [val1],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        fixedrange: true,
+        cliponaxis: false,
+        marker: {
+            color: 'rgb(80, 80, 80)',
+        },
+        text: myText,
+        textposition: 'inside',
+        insidetextanchor: 'middle',
+        textfont: {
+            color: 'white',
+            size: '14'
+        },
+    };
+
+    var leader2 = {
+        y: ['group 1'],
+        x: [val2],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        fixedrange: true,
+        cliponaxis: false,
+        marker: {
+            color: 'rgb(225, 225, 225)',
+        },
+        text: myText2,
+        textposition: 'inside',
+        insidetextanchor: 'middle',
+        textfont: {
+            size: '14'
+        },
+    };
+
+    var data = [leader1, leader2];
+
+    var layout = {
+        // title: "Relative Power",
+        // titlefont: {
+        //     size: 12,
+        // },
+        title:{
+            text:  "Relative Power",
+            size: 2,
+            yref: 'paper',
+            y: 0,
+            yanchor: 'top',
+        },
+        barmode: 'stack',
+        height: 60,
+        width: 200,
+        margin: {"t": 0, "b": 20, "l": 0, "r": 0},
+        xaxis: {
+            fixedrange: true,
+            autorange: false,
+            range: [0,1],
+            showline: false,
+            showgrid: false,
+            showticklabels: false,
+        },
+        yaxis: {
+            fixedrange: true,
+            showline: false,
+            showgrid: false,
+            showticklabels: false,
+        }
+
+    };
+
+    Plotly.react(barId, data, layout, {displayModeBar: false});
+}
+
+var updateBarEffortInfo = function(a, b, barId) {
+    var x = a;
+    var y = b;
+
+    var lightblue = 'rgb(200,200,255)';
+    var blue = 'rgb(140, 140, 255)';
+
+    var data = [
+        {
+            y: [x, y],
+            name: ['Your Leader', 'Opposing Leader'],
+            type: 'bar',
+            sort: false,
+            hoverinfo: 'none',
+            automargin: true,
+            showlegend: false,
+            marker:{
+                color: ['rgb(80, 80, 80)', 'rgb(225, 225, 225)'],
+            },
+            text: [x, y],
+            textposition: 'outside',
+            textfont: {
+                size: '14'
+            },
+            cliponaxis: false,
+            opacity: 1,
+        }
+    ];
+
+    var layout = {
+        title: "Token's Invested",
+        titlefont: {
+            size: 16,
+        },
+        // title:{
+        //     text:  "Token's Invested",
+        //     size: 2,
+        //     yref: 'paper',
+        //     y: 1,
+        //     yanchor: 'bottom',
+        // },
+        barmode: 'group',
+        height: 120,
+        width: 160,
+        margin: {"t": 40, "b": 0, "l": 30, "r": 30},
+        yaxis: {
+            fixedrange: true,
+            autorange: false,
+            range: [0,500],
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+        },
+        xaxis: {
+            fixedrange: true,
+            showline: false,
+            showgrid: false,
+            ticks: '',
+            showticklabels: false,
+        },
+        bargap: 0.1,
+    };
+
+    Plotly.react(barId, data, layout, {displayModeBar: false});
+}
+
+var updateS4Info = function(a,b,c,d, barId, me, winner, myFirstRole) {
+
+    var x = a;
+    var y = b;
+    var z = c;
+    var w = d;
+
+    if((x + y + z + w) === 0) {
+        x = 1;
+        y = 1;
+        z = 1;
+        w = 1;
+    }
+
+    var textArray = ['', '', '', '']
+    var colorArray = ['', '', '', ''];
+    var colorWidth = [0, 0, 0, 0];
+    var labelArray = ['Follower 1', 'Follower 2', 'Follower 3', 'Follower 4'];
+
+    textArray[winner] = 'Winner';
+    if(myFirstRole===0) {
+        textArray[me] = 'You';
+    }
+
+    colorArray[winner] = 'violet';
+    if(myFirstRole===0) {
+        colorArray[me] = 'lightgreen';
+    }
+
+    colorWidth[winner] = 2;
+    if(myFirstRole===0) {
+        colorWidth[me] = 2;
+    }
+
+
+
+
+    var data = [{
+        values: [x, y, z, w],
+        labels: labelArray,
+        text: textArray,
+        textposition: 'outside',
+        type: 'pie',
+        sort: false,
+        hoverinfo: 'percent+label',
+        automargin: true,
+        marker:{
+            colors: ['rgb(225, 225, 225)', 'rgb(160, 160, 160)', 'rgb(100, 100, 100)', 'rgb(40, 40, 40)'],
+            // colors: ['rgb(220, 220, 0)', 'rgb(80, 160, 160)', 'rgb(100, 0, 100)', 'rgb(80, 120, 40)'],
+            line: {
+                color: colorArray,
+                width: colorWidth,
+            }
+        }
+    }];
+
+    var layout = {
+        height: 200,
+        width: 200,
+        autosize:false,
+        font:{
+            size: 14
+        },
+        margin: {"t": 40, "b": 40, "l": 40, "r": 40},
+        showlegend: false,
+    };
+
+    Plotly.react(barId, data, layout, {displayModeBar: false});
+}
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////    Data Gemeratoion  //////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+var onezero = function() {
+    return (Math.random() >= 0.5) ? 1 : 0;
+}
+var generateMe = function() {
+    return Math.ceil(Math.random() * 4) - 1;
+}
+var generateRole = function() {
+    return (Math.random() > 0.50) ? 1 : 0;
+}
+var tempMe = generateMe();
+var myRole = generateRole()
+var generateS4winner = function() {
+
+    var winnerIndex = Math.ceil(Math.random() * 4) - 1;
+    while(winnerIndex === tempMe) {
+        winnerIndex = Math.ceil(Math.random() * 4) - 1;
+    }
+    var temp = [false, false, false, false];
+    temp[winnerIndex] = true;
+    return temp;
+}
+var sw = [onezero(), onezero(), onezero(), onezero()];
+var osw = [onezero(), onezero(), onezero(), onezero()];
+var d = {
+    role: myRole,
+    me: tempMe,
+    s2:
+    {
+        ourGroup:
+        {
+            help:
+            {
+                f1: sw[0] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                f2: sw[1] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                f3: sw[2] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                f4: sw[3] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+            },
+            sabo:
+            {
+                f1: sw[0] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                f2: sw[1] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                f3: sw[2] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                f4: sw[3] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+            }
+        },
+        opposingGroup:
+        {
+            help:
+            {
+                f1: osw[0] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                f2: osw[1] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                f3: osw[2] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+                f4: osw[3] ? 0 : parseFloat((Math.random()*100).toFixed(0)),
+            },
+            sabo:
+            {
+                f1: osw[0] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                f2: osw[1] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                f3: osw[2] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+                f4: osw[3] ? parseFloat((Math.random()*100).toFixed(0)) : 0,
+            }
+        }
+    },
+    s3:
+    {
+        efo: parseFloat((Math.random()*500).toFixed(0)),
+        oefo:  parseFloat((Math.random()*500).toFixed(0)),
+        yourLeaderWon: (Math.random() > 0.5) ? true : false,
+    },
+    s4:
+    {
+        f1: parseFloat((Math.random()*400).toFixed(0)),
+        f2: parseFloat((Math.random()*400).toFixed(0)),
+        f3: parseFloat((Math.random()*400).toFixed(0)),
+        f4: parseFloat((Math.random()*400).toFixed(0)),
+        hasWon: generateS4winner(), //will be an array!
+        ohasWon: generateS4winner(),
+    }
+}
+
+var info = {};
+
+var data2Info = function() {
+    info.me = d.me;
+    info.role = d.role;
+
+    info.s1 = d.s2.ourGroup.sabo.f1;
+    info.s2 = d.s2.ourGroup.sabo.f2;
+    info.s3 = d.s2.ourGroup.sabo.f3;
+    info.s4 = d.s2.ourGroup.sabo.f4;
+    info.h1 = d.s2.ourGroup.help.f1;
+    info.h2 = d.s2.ourGroup.help.f2;
+    info.h3 = d.s2.ourGroup.help.f3;
+    info.h4 = d.s2.ourGroup.help.f4;
+
+    info.os1 = d.s2.opposingGroup.sabo.f1;
+    info.os2 = d.s2.opposingGroup.sabo.f2;
+    info.os3 = d.s2.opposingGroup.sabo.f3;
+    info.os4 = d.s2.opposingGroup.sabo.f4;
+    info.oh1 = d.s2.opposingGroup.help.f1;
+    info.oh2 = d.s2.opposingGroup.help.f2;
+    info.oh3 = d.s2.opposingGroup.help.f3;
+    info.oh4 = d.s2.opposingGroup.help.f4;
+
+    info.efo = d.s3.efo;
+    info.oefo = d.s3.oefo;
+    info.s3won = d.s3.yourLeaderWon;
+
+    info.e1 = d.s4.f1;
+    info.e2 = d.s4.f2;
+    info.e3 = d.s4.f3;
+    info.e4 = d.s4.f4;
+    info.winner = d.s4.hasWon.indexOf(true);
+    info.owinner = d.s4.ohasWon.indexOf(true);
+}
+
+info.ts = function() {
+    return (info.s1 + info.s2 + info.s3 + info.s4);
+}
+info.th = function() {
+    return (info.h1 + info.h2 + info.h3 + info.h4);
+}
+info.ots = function() {
+    return (info.os1 + info.os2 + info.os3 + info.os4);
+}
+info.oth = function() {
+    return (info.oh1 + info.oh2 + info.oh3 + info.oh4);
+}
+info.efi = function() {
+    return (1 + info.th()) / (1 + info.ts());
+}
+info.oefi = function() {
+    return (1 + info.oth()) / (1 + info.ots());
+}
+info.pwin = function() {
+    return (info.efo * info.efi()) / ((info.efo * info.efi()) + (info.oefo * info.oefi()) );
+}
+
+
+data2Info();
+
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////     Info Section     //////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+/*
+me gets a number if you are follower 1 it gets follower 1 for instance
+if we are drawing the opposing group then it should be set to -1
+similarly newLeader gets a number if the new leader is follower 2
+then it gets 2 again if there is no new leader in your group then
+it shoult be set to 1
+ourgroup is a boolean to determine the light or dark color scheme of the bars
+*/
+updateBarHelpInfo(info.h1, info.h2, info.h3, info.h4, 's2helpbarg1', true, info.me, info.winner, info.s3won, info.role);
+updateBarSaboInfo(info.s1, info.s2, info.s3, info.s4, 's2sabobarg1', true, info.me, info.winner, info.s3won, info.role);
+
+updateBarTotalHelpInfo(info.th(), info.oth(), 's2totalhelpbar');
+updateBarTotalSaboInfo(info.ts(), info.ots(), 's2totalsabobar');
+
+updateBarHelpInfo(info.oh1, info.oh2, info.oh3, info.oh4, 's2helpbarg2', false, info.me, info.owinner, info.s3won);
+updateBarSaboInfo(info.os1, info.os2, info.os3, info.os4,'s2sabobarg2', false, info.me, info.owinner, info.s3won);
+
+updatePieInfo(info.pwin(), 's3pie', info.s3won);
+updateBarEffortInfo(info.efo, info.oefo, 's3efobar')
+updateEfficiencyBarInfo(info.efi(), info.oefi(), 's3efibar');
+
+updateS4Info(info.e1, info.e2, info.e3, info.e4, 's4pie', info.me, info.winner, info.role);
+
+
+
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -6,9 +749,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-var nzt = function(val) {
-    return (val != 0) ? val : '';
-}
 
 var updatePie = function(a) {
 
@@ -402,14 +1142,6 @@ var updateBarDecision = function(a, barId, axisOn) {
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
 
-var logistic2 = function(val , k) {
-    var L = 1;
-    var m = 0.5;
-    var result;
-    result= L / (1 + Math.exp(-k * (val - m)));
-    return result;
-}
-
 var updateEfficiencyBar = function(efi1, efi2) {
 
     var val1 = efi1 / (efi1 + efi2);
@@ -536,6 +1268,58 @@ var updateEfficiencyBar = function(efi1, efi2) {
     Plotly.react('efficiencyBar', data, layout, {displayModeBar: false});
 }
 
+//BUTTON1
+var multiButton = document.getElementById('multibutton');
+var bbSwitch = 0;
+multiButton.onclick = function() {
+
+
+    var show = bbSwitch ? true : false;
+    var o = show ? 1 : 0;
+    var p = show ? '30px' : '0';
+    var h = show ? '100%' : '0';
+
+    var m = show ? '0' : '-80px';
+
+
+    document.getElementById('sinfo').style.position = p;
+    document.getElementById('sinfo').style.opacity = o;
+    document.getElementById('sinfo').style.height = h;
+
+    document.getElementById('calculator').style.marginTop = m
+
+    // if(!show) {
+    //     $('html, body').animate({
+    //         scrollTop: $(document).height()
+    //     }, 1000);
+    // }
+    bbSwitch = 1 - bbSwitch;
+}
+
+var bName = document.getElementById('buttonname');
+bName.innerHTML = 'Decision Section';
+
+
+//BUTTON1
+var multiButton2 = document.getElementById('multibutton2');
+var bbSwitch2 = 0;
+multiButton2.onclick = function() {
+    var bName = document.getElementById('buttonname')
+
+
+    if(bbSwitch2===0) {
+        bName.innerHTML = 'Info Section';
+        var myScroll = $(document).height() - 805;
+        $('html, body').animate({scrollTop: myScroll}, 1000);
+    }
+
+    if(bbSwitch2===1) {
+        bName.innerHTML = 'Decision Section';
+        $('html, body').animate({scrollTop: 0}, 500);
+    }
+
+    bbSwitch2 = 1 - bbSwitch2;
+}
 
 
 //VARIABLES AND GRAPHICS INITIATIONS
@@ -634,10 +1418,6 @@ var updateAll = function() {
 
     updateEfficiencyBar(efi, oefi);
 
-    var experimented = ((th>0 && (oth > 0 || ots > 0)) || (ts>0 && (oth > 0 || ots > 0)));
-    if(experimented) {
-        // $('.totalbarwrap').css({'border':'3px dotted white'});
-    }
 
     var payoffDisplay = document.getElementById('payoff');
     payoffDisplay.innerHTML = '<strong>' + (h1 + s1) + '</strong>' + (((h1 + s1) !== 0) ? ' tokens' : ' token');
@@ -648,9 +1428,8 @@ var updateAll = function() {
     var winNetPayoff = document.getElementById('winnetpayoff');
     winNetPayoff.innerHTML = '<strong>' + -(h1 + s1) + '</strong>' + (((h1 + s1) !== 0) ? ' tokens' : ' token');
 
-    if(ls1exp && s2exp  && ols1exp && os1exp && os2exp) {
-        $('.lockedmc2').css({'z-index':'1', 'opacity':'1'});
-    }
+    var whoamIDisplay = document.getElementById('whoamI');
+    whoamIDisplay.innerHTML = (info.me + 1);
 }
 
 updateAll();
@@ -704,16 +1483,10 @@ updateBar(ovalue4, 'obar4', 1, false);
 
 
 //DECISION
-var dexp = false;
 dslider.oninput = function() {
     dvalue = parseFloat(dslider.value);
     s1 = dvalue >= 0 ? 0 : -dvalue;
     h1 = dvalue >= 0 ? dvalue : 0;
-
-    dexp = true;
-    $('.dottedblue2').css({'border':'0px dotted white'})
-    $('.lockedmc3').css({'z-index':'1', 'opacity':'1'});
-    // $('.sliderbard').css({'border':'9px dotted white'});
 
     //synching values
     syncBars(dvalue, 'decision', syncOurGroup, syncOtherGroup);
@@ -737,16 +1510,11 @@ dslider.oninput = function() {
 
 // YOUR GROUP
 //Leader
-var ls1exp = false;
 lslider1.oninput = function() {
-    ls1exp = true;
     lvalue = parseFloat(lslider1.value);
     efo = lvalue;
     updateBarLeader(lvalue, 'barl', 1, true);
     updateAll();
-    console.log('are we asdijaosidjaosidjao');
-    $('.hll').css({'border':'2px dotted white'});
-    $('.wtf').css({'border':'2px white'});
 }
 
 //Followers
@@ -755,8 +1523,6 @@ slider1.oninput = function() {
     value1 = parseFloat(slider1.value);
     s1 = value1 >= 0 ? 0 : -value1;
     h1 = value1 >= 0 ? value1 : 0;
-
-    $('.bluebar').css({'border':'0px dotted white'});
 
     //synching values
     syncBars(value1, 'decision', syncOurGroup, syncOtherGroup);
@@ -779,10 +1545,7 @@ slider1.oninput = function() {
 }
 
 // Other Followers in your Group
-var s2exp = false;
 slider2.oninput = function() {
-    s2exp = true;
-    $('.hfl').css({'border':'0px dotted white'});
     syncOurGroup = document.getElementById('mycheck').checked;
     value2 = parseFloat(slider2.value);
     s2 = value2 >= 0 ? 0 : -value2;
@@ -796,7 +1559,6 @@ slider2.oninput = function() {
     updateAll();
     updateBarYAxis('bar2', true);
 
-
     //synching sliders
     if(syncOurGroup) {
         $('#vSlider3, #vSlider4').prop('value', value2);
@@ -805,8 +1567,6 @@ slider2.oninput = function() {
 
 }
 slider3.oninput = function() {
-    s2exp = true;
-    $('.hfl').css({'border':'0px dotted white'});
     syncOurGroup = document.getElementById('mycheck').checked;
     value3 = parseFloat(slider3.value);
     s3 = value3 >= 0 ? 0 : -value3;
@@ -827,8 +1587,6 @@ slider3.oninput = function() {
     }
 }
 slider4.oninput = function() {
-    s2exp = true;
-    $('.hfl').css({'border':'0px dotted white'});
     syncOurGroup = document.getElementById('mycheck').checked;
     value4 = parseFloat(slider4.value);
     s4 = value4 >= 0 ? 0 : -value4;
@@ -852,23 +1610,15 @@ slider4.oninput = function() {
 // OPPOSING GROUP
 
 //Leader
-var ols1exp = false;
 olslider1.oninput = function() {
-    ols1exp = true;
     olvalue = parseFloat(olslider1.value);
     oefo = olvalue;
     updateBarLeader(olvalue, 'obarl', 0, true);
     updateAll();
-    $('.hlr').css({'border':'0px dotted white'});
 }
 
 //Followers
-var os1exp = false;
-var os2exp = false;
 oslider1.oninput = function() {
-    os1exp = true;
-    os2exp = true;
-    $('.hfr').css({'border':'0px dotted white'});
     syncOtherGroup = document.getElementById('mycheck2').checked;
     ovalue1 = parseFloat(oslider1.value);
     os1 = ovalue1 >= 0 ? 0 : -ovalue1;
@@ -889,9 +1639,6 @@ oslider1.oninput = function() {
     }
 }
 oslider2.oninput = function() {
-    os1exp = true;
-    os2exp = true;
-    $('.hfr').css({'border':'0px dotted white'});
     syncOtherGroup = document.getElementById('mycheck2').checked;
     ovalue2 = parseFloat(oslider2.value);
     os2 = ovalue2 >= 0 ? 0 : -ovalue2;
@@ -912,9 +1659,6 @@ oslider2.oninput = function() {
     }
 }
 oslider3.oninput = function() {
-    os1exp = true;
-    os2exp = true;
-    $('.hfr').css({'border':'0px dotted white'});
     syncOtherGroup = document.getElementById('mycheck2').checked;
     ovalue3 = parseFloat(oslider3.value);
     os3 = ovalue3 >= 0 ? 0 : -ovalue3;
@@ -935,9 +1679,6 @@ oslider3.oninput = function() {
     }
 }
 oslider4.oninput = function() {
-    os1exp = true;
-    os2exp = true;
-    $('.hfr').css({'border':'0px dotted white'});
     syncOtherGroup = document.getElementById('mycheck2').checked;
     ovalue4 = parseFloat(oslider4.value);
     os4 = ovalue4 >= 0 ? 0 : -ovalue4;
@@ -1314,13 +2055,47 @@ $('#ovSlider4').hover(
 
 
 var initialize = function() {
+    $('html, body').animate({scrollTop: 0}, 0);
     $('.cursor-pointer').css({'cursor':'default'});
+    var wholostDisplay = document.getElementById('wholost');
+    var wlString = info.s3won ? '(Your leader won)' : '(Your leader lost)';
+    wholostDisplay.innerHTML = wlString;
+    if(info.s3won) {
+        $('.s3pie').css({'margin-left' : '44px'});
+        $('.sinfographics').css({'margin-left' : '0px'});
+        $('.s4infographics').css({'display':'none'});
+        $('.s3infographics').css({'margin-left' : '-180px'});
+    }
+
+    var roledependenttextDisplay = document.getElementById('roledependenttext');
+    var newleadertagDisplay = document.getElementById('newleadertag');
+
+    if(info.s3won) {
+        roledependenttextDisplay.innerHTML = 'Your Leader';
+        $('.ournewleader').css({'display':'none'});
+        $('.leaderwonextratop').css({'padding-bottom':'20px'});
+
+    }
+    if(!info.s3won && info.role===0) {
+        roledependenttextDisplay.innerHTML = 'Your Leader';
+        $('.theirnewleader').css({'display':'none'});
+        newleadertagDisplay.innerHTML = 'new';
+    }
+    if(!info.s3won && info.role===1) {
+        roledependenttextDisplay.innerHTML = 'You';
+        wholostDisplay.innerHTML = '(You lost)'
+        $('.rolehide').css({'display':'none'});
+        $('.s4pie').css({'padding-top':'30px'});
+        $('.theirnewleader').css({'display':'none'});
+        newleadertagDisplay.innerHTML = 'new';
+    }
 }
 
 initialize();
 
 
 
+
 /****************************************/
 /****************************************/
 /****************************************/
@@ -1343,74 +2118,10 @@ initialize();
 /****************************************/
 
 
-var b0 = document.getElementById('b0');
-b0.onclick = function() {
-    console.log('pressing the button');
-    var myheight = $('.mc0').height();
+var mc = document.getElementById('mc');
+mc.onclick = function() {
+    var myheight = $('.mycollapse').height();
     var myString = -myheight + 'px';
-    $('.mc0').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
-    $('.mc1').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush'});
-    // $('.mc1').css({'transition-delay':'0s'});
-}
-
-var b1 = document.getElementById('b1');
-b1.onclick = function() {
-    var myheight = $('.mc1').height();
-    var myString = -myheight + 'px';
-    $('.mc1').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
-    $('.mc2').css({'position':'static', 'opacity':'1', 'background-color':'lavender'});
-    $('.calculator').css({'opacity':'1'});
-    $('html, body').animate({
-        scrollTop: $('.mc2').height()*1.1
-    }, 1000);
-}
-var b2 = document.getElementById('b2');
-b2.onclick = function() {
-    var myheight = $('.mc2').height();
-    var myString = -myheight + 'px';
-    $('.mc2').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
-    $('.mc25').css({'position':'static', 'opacity':'1', 'background-color':'lavender'});
-    $('.dottedred').css({'border':'0px dotted white'});
-    $('.dottedred3').css({'border':'2px dotted red'});
-    $('.dottedblue2').css({'border':'0px dotted white'});
-    $('.switchwrap').css({'opacity':'1'});
-}
-
-
-
-var b25 = document.getElementById('b25');
-b25.onclick = function() {
-    var myheight = $('.mc25').height();
-    var myString = -myheight + 'px';
-    $('.mc25').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
-    $('.mc3').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush'});
-    $('.dottedred3').css({'border':'0px dotted white'});
-    $('.dottedblue2').css({'border':'2px dotted blue'});
-    $('html, body').animate({
-        scrollTop: $(document).height()
-    }, 1000);
-}
-
-
-
-
-var b3 = document.getElementById('b3');
-b3.onclick = function() {
-    var myheight = $('.mc3').height();
-    var myString = -myheight + 'px';
-    $('.mc3').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
-    $('.mc4').css({'position':'static', 'opacity':'1', 'background-color':'lavender'});
-}
-
-var b4 = document.getElementById('b4');
-b4.onclick = function() {
-    var myheight = $('.mc4').height();
-    var myString = -myheight + 'px';
-    $('.mc4').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
-    $('.mc5').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush'});
-    $('.continueButton').css({'opacity':'1'});
-    $('html, body').animate({
-        scrollTop: 0
-    }, 1000);
-    // console.log('button pressed');
+    console.log(myString);
+    $('.mycollapse').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
 }

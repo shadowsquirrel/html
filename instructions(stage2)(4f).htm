@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="css/instructions(part1.4)(4f).css">
+    <link rel="stylesheet" href="css/instructions(stage5)(4f).css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -11,9 +11,8 @@
 <body>
 
     <div class='upperbar'>
-        <button class='continueButton' onclick="window.location.href='./Instructions(part1.5).htm'">Continue</button>
-        <!-- <button class=multibutton id=multibutton>Decision Mode</button>
-        <button class=multibutton id=multibutton2>Go to <span id='buttonname'></span></button> -->
+        <button class=multibutton id=multibutton>Decision Mode</button>
+        <button class=multibutton id=multibutton2>Go to <span id='buttonname'></span></button>
     </div>
     <div class = 'wrap noselect'>
 
@@ -22,62 +21,129 @@
             <div class = 'sinfo' id='sinfo'>
 
                 <div class = sinfotitle>
-                    <h3>INSTRUCTIONS</h3>
+                    <h3>STAGE 5</h3>
                 </div>
 
                 <div class = sinfotext>
-                    <p style='font-size: 22px; margin-bottom: 20px;'> Decision Screen for Followers</p>
-                </div>
+                    <p style='font-size: 22px; margin-bottom: 10px;'> You are Follower  <span id='whoamI'></span></p>
 
-                <div class ='explanationtext mc5'>
-                    <p>
-                        Click <strong>Continue</strong> to proceed
-                    </p>
 
                 </div>
 
-                <div class ='explanationtext mc0'>
+                <div class = sinfotextandgraphics>
+                    <h5 style='margin-bottom: 30px;'>Previous Stages</h5>
+                    <!-- <button class = sinfographicsbutton id = sinfographicsbutton></button> -->
+                    <div class = sinfographics id = sinfographics>
 
-                    <p>
-                        In this section, you will be introduced to the various features of the layout you will be using during the experiment.
-                    </p>
+                        <div class = s2infographics>
+                            <h6 class = s2infotitle>STAGE 2</h6>
+                            <div class = s2graphics>
+                                <div class = 's2g1'>
+                                    <h7>Your Group</h7>
+                                    <div id = 's2helpbarg1'></div>
+                                    <div id = 's2sabobarg1'></div>
+                                </div>
+                                <pre>   </pre>
+                                <div id = 's2barmain'>
+                                    <h7>Total</h7>
+                                    <div id = 's2totalhelpbar'></div>
+                                    <div id = 's2totalsabobar'></div>
+                                </div>
+                                <pre>    </pre>
+                                <div class = 's2g1'>
+                                    <h7 style='margin-left:-10px;'>Other Group</h7>
+                                    <div id = 's2helpbarg2'></div>
+                                    <div id = 's2sabobarg2'></div>
+                                </div>
+                            </div>
+                            <div class='borderlegend'>
+                                <div class='boxtext rolehide'>
+                                    <div class='youbox1'></div>
+                                    <p style='font-size:12px;'>You</p>
+                                </div>
+                                <div class='boxtext ournewleader'>
+                                    <div class='newleaderbox1'></div>
+                                    <p style='font-size:12px;'>New Leader</p>
+                                </div>
+                                <div class='boxtext'>
+                                    <div class='sabobox'></div>
+                                    <p style='font-size:12px;'>Sabotage</p>
+                                </div>
+                                <div class='boxtext'>
+                                    <div class='helpbox'></div>
+                                    <p style='font-size:12px;'>Help</p>
+                                </div>
+                                <div class='boxtext theirnewleader'>
+                                    <div class='newleaderbox1' ></div>
+                                    <div class='newleadertextwrap'>
+                                        <p style='font-size:12px;'>Opposing Group's</p>
+                                        <p style='font-size:12px; margin-left:-32px; margin-top:-15px;'>New Leader</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                    <p>
-                        You will be guided through a sequence of information windows like this one and be asked to perform simple tasks.
-                    </p>
-                    <p>
-                        <strong>In order to proceed</strong>, you need to <u>perform the required tasks</u> and <u>click the <strong>OK</strong> button</u> located on the bottom right corner of this window.
-                    </p>
-                    <p>
-                        Please click the <strong>OK</strong> button to proceed.
-                    </p>
+                        <div class = s3infographics>
+                            <h6 class = 's3infotitle'>STAGE 3</h6>
+                            <h10 class = 's3infotitle' style='margin-top: -50px;'><span id=wholost></span></h10>
+                            <div class = 's3graphics'>
+                                <div id = 's3pie' class = 's3pie'></div>
+                                <div class='efiefo'>
+                                    <div id = 's3efobar' class = 's3efobar'></div>
+                                    <div id = 's3efibar' class = 's3efibar'></div>
+                                </div>
+                            </div>
+                            <div class='borderlegend leaderwonextratop'>
+                                <div class='boxtext extraboxtext1'>
+                                    <div class='yourleaderbox'></div>
+                                    <p style='font-size:12px;'><span id='roledependenttext'></span></p>
+                                </div>
+                                <div class='boxtext extraboxtext1'>
+                                    <div class='opposingleaderbox'></div>
+                                    <p style='font-size:12px;'>Opposing Leader</p>
+                                </div>
+                            </div>
 
-                    <div class=bwrap>
-                        <button class=cb id=b0>OK</button>
+                        </div>
+
+                        <div class = s4infographics>
+                            <h6>STAGE 4</h6>
+                            <h10 class='rolehide' style='margin-top: -38px;'>(You lost)</h10>
+                            <div id = 's4pie' class = 's4pie'></div>
+                            <div class='borderlegend'>
+                                <div class='boxtext  extraboxtext2'>
+                                    <div class='newleaderbox2'></div>
+                                    <p style='font-size:12px;'>New Leader</p>
+                                </div>
+                                <div class='boxtext extraboxtext2 rolehide'>
+                                    <div class='youbox2'></div>
+                                    <p style='font-size:12px;'>You</p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
 
-                <div class ='explanationtext mc1'>
+                <div class ='explanationtext mycollapse'>
 
                     <p>
-                        In Stage 2 and Stage 5,
-                        followers make an help or sabotage decision <strong>simultaneously</strong> and <strong>before</strong>
-                        leaders make their decisions.
+                        Please make your sabotage or help decision to affect your <strong><span id='newleadertag'></span></strong> leader's stage 6 outcome.
                     </p>
                     <p>
-                        Thus, as a follower, you need to <strong>guess all the other players' decisions</strong> and
-                        make your decision accordingly.
-                    </p>
-                    <p>
-                        Click the <strong>OK</strong> to proceed.
+                        You can use the below graphical tool to make your decision
+                        or simply make your decision on the decision screen located
+                        at the bottom of this screen.
                     </p>
 
                     <div class=bwrap>
-                        <button class=cb id=b1>OK</button>
+                        <button class=mc id=mc>Ok</button>
                     </div>
 
                 </div>
+
+
             </div>
 
             <div class = 'calculator' id='calculator'>
@@ -94,7 +160,7 @@
                         <br /> -->
                         <h6 class = 'left_ltitle'>Your Leader</h6>
                         <h6 class='ldecisiontext1'>HYPOTHETICAL</h6>
-                        <div class = 'sliderbarleader left dottedred h1l wtf'>
+                        <div class = 'sliderbarleader left'>
                                 <input type='range' min = '0' max = '500' class = 'lslider' value = '1' id = 'lSlider1' />
                                 <div id = 'barl' class = 'lbar'></div>
                             </div>
@@ -118,7 +184,7 @@
                         <br /> -->
                         <h6  class = 'right_title'>Opposing Leader</h6>
                         <h6 class='ldecisiontext2'>HYPOTHETICAL</h6>
-                        <div class = 'sliderbarleader lright dottedred hlr'>
+                        <div class = 'sliderbarleader lright'>
                             <input type='range' min = '0' max = '500' class = 'lslider' value = '1' id = 'olSlider1' />
                             <div id = 'obarl' class = 'lbar'></div>
                         </div>
@@ -134,47 +200,6 @@
                     <h6 style = 'z-index:1;'>Relative Power</h6>
                 </div>
 
-                <div class ='explanationtext mc2'>
-                    <p>
-                        To help with your decision, we provide you with this graphical tool.
-                    </p>
-                    <p>
-                        <strong>Left</strong> side represents <strong>your group</strong> and the <strong>right</strong> side represents the <strong>opposing group</strong>.
-                    </p>
-                    <p>
-                        All the <span class='dottedredt'></span> sections are for you to consider <strong>hypothetical values</strong> for <strong>other</strong> players.
-                    </p>
-                    <p>
-                        Please chose a value for every hypothetical section indicated by <span class='dottedredt'></span>
-                    </p>
-
-                    <p  class='lockedmc2'>
-                        Click the <strong>OK</strong> to proceed.
-                    </p>
-
-                    <div class='bwrap lockedmc2'>
-                        <button class=cb id=b2>OK</button>
-                    </div>
-
-                </div>
-
-                <div class ='explanationtext mc25'>
-                    <p>
-                        The <span class='dottedredt'></span> section titled <strong>Total</strong> shows the total help and sabotage for the groups.
-                    </p>
-                    <p>
-                        If you wish, you can consider each follower's hypothetical decision separately by switching off <img id="switch2" class='switch2' src="images/switch.png" alt="V" />
-                    </p>
-
-                    <p>
-                        Click the <strong>OK</strong> to proceed.
-                    </p>
-
-                    <div class='bwrap' >
-                        <button class=cb id=b25>OK</button>
-                    </div>
-
-                </div>
 
                 <div class = 'bottomsection'>
 
@@ -199,19 +224,19 @@
 
 
                         <div class = 'slidebargroup left'>
-                            <div class = 'sliderbar dottedblue2'>
+                            <div class = 'sliderbar'>
                                 <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'vSlider1' />
                                 <div id = 'bar1' class = 'bar l'></div>
                             </div>
-                            <div class = 'sliderbar dottedred hfl'>
+                            <div class = 'sliderbar'>
                                 <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'vSlider2' />
                                 <div id = 'bar2' class = 'bar l'></div>
                             </div>
-                            <div class = 'sliderbar dottedred hfl'>
+                            <div class = 'sliderbar'>
                                 <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'vSlider3' />
                                 <div id = 'bar3' class = 'bar l'></div>
                             </div>
-                            <div class = 'sliderbar dottedred hfl'>
+                            <div class = 'sliderbar'>
                                 <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'vSlider4' />
                                 <div id = 'bar4' class = 'bar'></div>
                             </div>
@@ -227,10 +252,8 @@
                             <div class = 'helpsabobars'>
                                 <h6>Total</h6>
                                 <!-- <h6>Total Help </h6> -->
-                                <div class='totalbarwrap dottedred3'>
-                                    <div id = 'helpBar' class = 'helpbar'></div>
-                                    <div id = 'saboBar' class = 'sabobar'></div>
-                                </div>
+                                <div id = 'helpBar' class = 'helpbar'></div>
+                                <div id = 'saboBar' class = 'sabobar'></div>
                                 <!-- <h6>Total Sabotage </h6> -->
                             </div>
                         </div>
@@ -258,19 +281,19 @@
                             <h6 class='yourdecisiontext34'>HYPOTHETICAL</h6>
                         </div>
                         <div class = 'slidebargroup right'>
-                            <div class = 'sliderbar dottedred hfr'>
+                            <div class = 'sliderbar'>
                                 <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider1' />
                                 <div id = 'obar1' class = 'bar l'></div>
                             </div>
-                            <div class = 'sliderbar dottedred hfr'>
+                            <div class = 'sliderbar'>
                                 <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider2' />
                                 <div id = 'obar2' class = 'bar l'></div>
                             </div>
-                            <div class = 'sliderbar dottedred hfr'>
+                            <div class = 'sliderbar'>
                                 <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider3' />
                                 <div id = 'obar3' class = 'bar l'></div>
                             </div>
-                            <div class = 'sliderbar dottedred hfr'>
+                            <div class = 'sliderbar'>
                                 <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider4' />
                                 <div id = 'obar4' class = 'bar'></div>
                             </div>
@@ -284,52 +307,10 @@
                     <div class = input>
                         <h6 class='yourdecisiontext closertotop'>YOUR DECISION</h6>
                         <!-- <h5 class = 'decisiontitle'>Your Decision</h5> -->
-                        <div class = 'sliderbard dottedblue2'>
+                        <div class = 'sliderbard'>
                             <input type='range' min = '-100' max = '100' class = 'dslider' value = '0' id = 'dSlider' />
                             <div id = 'bard' class = 'dbar'></div>
                         </div>
-                    </div>
-                    <div class ='explanationtext mc3' style='margin-bottom:15px;'>
-                        <p>
-                            The two <span class='dottedblue'></span> sections are your <strong>decision sections</strong>.
-                        </p>
-                        <p>
-                            <u>You can consider your decision on either one of them.</u>
-                        </p>
-                        <p>
-                            Changing the value in one will automatically change the value on the other.
-                        </p>
-                        <p>
-                            Please chose a value on the larger section
-                        </p>
-                        <p  class='lockedmc3'>
-                            Click the <strong>OK</strong> to proceed.
-                        </p>
-
-                        <div class='bwrap lockedmc3'>
-                            <button class=cb id=b3>OK</button>
-                        </div>
-
-                    </div>
-                    <div class ='explanationtext mc4' style='margin-bottom:15px;'>
-                        <p>
-                            You will have a <strong>limited time</strong> to make your decision.
-                        </p>
-                        <p>
-                            You can click the <strong>Done</strong> button on the top right corner to submit your decision.
-                        </p>
-                        <p>
-                            If you <strong>fail to submit</strong> wihtin the time limit, your <strong>current entry</strong> on <strong>either</strong> of the decision sections will
-                            be considered as your <strong>final</strong> decision.
-                        </p>
-                        <p>
-                            Click the <strong>OK</strong> to proceed.
-                        </p>
-
-                        <div class=bwrap>
-                            <button class=cb id=b4>OK</button>
-                        </div>
-
                     </div>
                     <div class = dinfo>
                         <p>Your Investment cost is <span id=payoff>0 token</span>.</p>
@@ -396,7 +377,7 @@
     </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="js/instructions(part1.4)(4f).js"></script>
+<script src="js/instructions(stage5)(4f).js"></script>
 
 </body>
 </html>
