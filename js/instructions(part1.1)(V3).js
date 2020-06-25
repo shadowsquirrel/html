@@ -244,8 +244,8 @@ var updateAll = function() {
         hideWheel();
         activeWheelSwitch = false;
     }
-    var mytoken = (efo > 1) ? 'tokens' : 'token';
-    wheelresultDisplay2.innerHTML = 'Your investment cost: <strong>' + efo + '</strong> ' + mytoken;
+    var mytoken = (efo1 > 1) ? 'tokens' : 'token';
+    wheelresultDisplay2.innerHTML = 'Your investment cost: <strong>' + efo1 + '</strong> ' + mytoken;
 }
 
 var hideWheel = function() {
@@ -326,7 +326,7 @@ var showResult = function() {
 
             $('.thirdhiddenpart').css({'opacity':'1'});
 
-            setTimeout('showMoreText()', 12000);
+            setTimeout('showMoreText()', 15000);
 
             firsttime = false;
         }
@@ -378,7 +378,7 @@ lslider11.oninput = function() {
 
     if(lslider11Checked && olslider11Checked && firsttime2) {
         $('.secondhiddenpart').css({'opacity':'1'});
-        setTimeout('goDown()', 10000);
+        setTimeout('goDown()', 15000);
         firsttime2 = false;
         $('.yoket').css({'opacity':'0', 'transition-delay':'1s', 'padding-top':'0px'});
     }
@@ -401,7 +401,7 @@ olslider11.oninput = function() {
 
     if(lslider11Checked && olslider11Checked && firsttime2) {
         $('.secondhiddenpart').css({'opacity':'1'});
-        setTimeout('goDown()', 10000);
+        setTimeout('goDown()', 15000);
         firsttime2 = false;
         $('.yoket').css({'opacity':'0', 'transition-delay':'0s'});
     }
@@ -432,6 +432,7 @@ updateBarLeader(olvalue, 'obarl', 0, false);
 lslider1.oninput = function() {
     lvalue = parseFloat(lslider1.value);
     efo = lvalue;
+    efo1 = efo;
 
     updateBarLeader(lvalue, 'barl', 1, true);
     updateAll();

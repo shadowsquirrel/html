@@ -651,6 +651,11 @@ var updateAll = function() {
     if(ls1exp && s2exp  && ols1exp && os1exp && os2exp) {
         $('.lockedmc2').css({'z-index':'1', 'opacity':'1'});
     }
+
+    if((!syncOurGroup || !syncOtherGroup) && sexperimented)
+    {
+        $('.lockedmc25').css({'z-index':'1', 'opacity':'1'});
+    }
 }
 
 updateAll();
@@ -780,7 +785,11 @@ slider1.oninput = function() {
 
 // Other Followers in your Group
 var s2exp = false;
+var sexperimented = false;
 slider2.oninput = function() {
+    if(!syncOurGroup) {
+        sexperimented = true;
+    }
     s2exp = true;
     $('.hfl').css({'border':'2px dotted white'});
     syncOurGroup = document.getElementById('mycheck').checked;
@@ -805,6 +814,9 @@ slider2.oninput = function() {
 
 }
 slider3.oninput = function() {
+    if(!syncOurGroup) {
+        sexperimented = true;
+    }
     s2exp = true;
     $('.hfl').css({'border':'2px dotted white'});
     syncOurGroup = document.getElementById('mycheck').checked;
@@ -827,6 +839,9 @@ slider3.oninput = function() {
     }
 }
 slider4.oninput = function() {
+    if(!syncOurGroup) {
+        sexperimented = true;
+    }
     s2exp = true;
     $('.hfl').css({'border':'2px dotted white'});
     syncOurGroup = document.getElementById('mycheck').checked;
@@ -866,6 +881,9 @@ olslider1.oninput = function() {
 var os1exp = false;
 var os2exp = false;
 oslider1.oninput = function() {
+    if(!syncOtherGroup) {
+        sexperimented = true;
+    }
     os1exp = true;
     os2exp = true;
     $('.hfr').css({'border':'2px dotted white'});
@@ -889,6 +907,9 @@ oslider1.oninput = function() {
     }
 }
 oslider2.oninput = function() {
+    if(!syncOtherGroup) {
+        sexperimented = true;
+    }
     os1exp = true;
     os2exp = true;
     $('.hfr').css({'border':'2px dotted white'});
@@ -912,6 +933,9 @@ oslider2.oninput = function() {
     }
 }
 oslider3.oninput = function() {
+    if(!syncOtherGroup) {
+        sexperimented = true;
+    }
     os1exp = true;
     os2exp = true;
     $('.hfr').css({'border':'2px dotted white'});
@@ -935,6 +959,9 @@ oslider3.oninput = function() {
     }
 }
 oslider4.oninput = function() {
+    if(!syncOtherGroup) {
+        sexperimented = true;
+    }
     os1exp = true;
     os2exp = true;
     $('.hfr').css({'border':'2px dotted white'});

@@ -648,6 +648,11 @@ var updateAll = function() {
     if(ls1exp && s2exp  && ols1exp && os1exp && os2exp) {
         $('.lockedmc2').css({'z-index':'1', 'opacity':'1'});
     }
+
+    if((!syncOurGroup || !syncOtherGroup) && sexperimented)
+    {
+        $('.lockedmc25').css({'z-index':'1', 'opacity':'1'});
+    }
 }
 
 
@@ -803,8 +808,12 @@ olslider1.oninput = function() {
 }
 
 //Followers
+var sexperimented = false;
 var os1exp = false;
 oslider1.oninput = function() {
+    if(!syncOtherGroup) {
+        sexperimented = true;
+    }
     os1exp = true;
     os2exp = true;
     syncOtherGroup = document.getElementById('mycheck2').checked;
@@ -830,6 +839,9 @@ oslider1.oninput = function() {
 }
 var os2exp = false;
 oslider2.oninput = function() {
+    if(!syncOtherGroup) {
+        sexperimented = true;
+    }
     os1exp = true;
     os2exp = true;
     syncOtherGroup = document.getElementById('mycheck2').checked;

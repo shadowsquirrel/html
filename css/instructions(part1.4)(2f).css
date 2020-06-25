@@ -1578,7 +1578,12 @@ img.switch2
     transition:0.35s;
     transition-delay:0.35s;
 }
-
+.lockedmc25
+{
+    z-index:-10;
+    opacity:0;
+    transition:1s;
+}
 .mc3
 {
     position:absolute;

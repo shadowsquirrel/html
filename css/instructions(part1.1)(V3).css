@@ -736,12 +736,7 @@
     transition:3s;
     transition-delay:2s;
 }
-.showmore
-{
 
-    transition:2s;
-    opacity: 0;
-}
 .wraptext
 {
     font-size: 17px;
@@ -790,15 +785,15 @@
 {
     opacity:0;
     transition: 3s;
-    transition-delay:18s;
+    transition-delay:23s;
 }
 .secondafter0
 {
-    transition-delay:10s;
+    transition-delay:15s;
 }
 .secondafter1
 {
-    transition-delay:17s
+    transition-delay:22s
 }
 .othercalculator
 {
@@ -809,4 +804,18 @@
 {
     transition:2s;
     transition-delay:1s;
+}
+.somedelay
+{
+    transition-delay:5s;
+}
+.somemoredelay
+{
+    transition-delay:8s;
+}
+.showmore
+{
+
+    transition:2s;
+    opacity: 0;
 }
