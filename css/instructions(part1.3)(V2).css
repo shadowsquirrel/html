@@ -127,6 +127,7 @@
 /************************************************/
 .calculator
 {
+    margin-top:-95px;
     text-align: center;
     /* position: sticky; */
     /* top: -90px; */
@@ -176,7 +177,7 @@
 }
 .bottomsection
 {
-    margin-bottom:30px;
+    margin-bottom:10px;
     justify-content: center;
     /* position: sticky;
     top: 200px; */
@@ -234,7 +235,7 @@
 }
 .followergraphics
 {
-    margin-top:-35px;
+    margin-top:-16px;
     justify-content: center;
     display: flex;
     flex-direction: column;
@@ -329,7 +330,7 @@
 /************************************************/
 .arrow
 {
-    z-index:2;
+    z-index:-10;
     opacity:1;
     transition:.1s;
     cursor: pointer;
@@ -442,11 +443,12 @@
 }
 .titlewrapextraleft
 {
-    padding-right: 19px;
+    padding-right: 20px;
+    padding-bottom:20px;
 }
 .titlewrapextraright
 {
-    padding-bottom:35px;
+    padding-bottom:20px;
     padding-right: 20px;
 
 }
@@ -482,11 +484,14 @@
     display:flex;
     justify-content: center;
     margin-top: 20px;
+    padding-top: 5px;
+    margin-bottom:-89px;
 }
 /* adjustment for left side leader we didn't have one for right side leader*/
 /*subclass of sliderbarleader*/
 .lright
 {
+    padding-top:3px;
     /* margin-right: 40px; */
 }
 .lbar
@@ -500,7 +505,7 @@
 {
     margin-left: 10px;
     margin-right: 10px;
-    border: 3px dotted lightgreen;
+    border: 2px dotted red;
     padding-left:20px;
     /* height: 5px; */
     /* width: 10px; */
@@ -508,6 +513,7 @@
 /************************************************/
 .lslider
 {
+    cursor:pointer;
     z-index: 1;
     position: absolute;
     -webkit-appearance: none;
@@ -633,11 +639,11 @@
 }
 .greendotted1
 {
-    border: 3px dotted lightgreen;
+    border: 2px dotted red;
 }
 .greendotted2
 {
-    border: 3px dotted lightgreen;
+    border: 2px dotted red;
 }
 /*Some left space for the axis for the slider+bar setup*/
 .l
@@ -671,6 +677,7 @@
 }
 .slider
 {
+    cursor: pointer;
     -webkit-appearance: none;
     appearance: none;
     background: gray;
@@ -1249,31 +1256,111 @@ img.spic
 }
 .textimagewrap
 {
+    transition: 1s;
+    margin-top:-25px;
     display:flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
 }
 .textimageclass
 {
     display:flex;
+    flex-direction: row;
+}
+.noticewrap
+{
+    position:absolute;
+}
+.notice
+{
+    transition: 1s;
+    opacity:0;
+    padding-top: 90px;
+    text-align: center;
+    margin-top:-95px;
+}
+.notice2
+{
+    position:absolute;
+    z-index:-10;
+    transition: 1s;
+    opacity:0;
+    padding-top: 90px;
+    text-align: center;
+    margin-top:-95px;
+}
+.notice3
+{
+    position:absolute;
+    z-index:-10;
+    transition: 1s;
+    opacity:0;
+    padding-top: 90px;
+    text-align: center;
+    margin-top:-95px;
+}
+.notice4
+{
+    position:absolute;
+    z-index:-10;
+    transition: 1s;
+    opacity:0;
+    padding-top: 90px;
+    text-align: center;
+    margin-top:-95px;
+}
+.notice5
+{
+    position:absolute;
+    z-index:-10;
+    transition: 1s;
+    opacity:0;
+    padding-top: 90px;
+    text-align: center;
+    margin-top:-95px;
+}
+.notice6
+{
+    position:absolute;
+    z-index:-10;
+    transition: 1s;
+    opacity:0;
+    padding-top: 90px;
+    text-align: center;
+    margin-top:-95px;
 }
 .tinytextclass
 {
     padding-top: 57px;
-    display:flex;
-    flex-direction: column;
+    /* display:flex; */
+    /* flex-direction: column; */
     /* justify-content: center; */
 }
 .yourinvestmentcost
 {
+    width: 200px;
     transition: .35s;
     padding-bottom: 15px;
 }
 .dicewrap
 {
+    position: absolute;
+    opacity:0;
+    transition: 1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.extradicewrap
+{
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+.dice
+{
+    transition-delay:1s;
+    transition:3s;
 }
 img.dice2
 {
@@ -1307,4 +1394,57 @@ img.dice
   /* background-color: #3e8e41; */
   box-shadow: 0 2px black;
   transform: translateY(2px);
+}
+
+.leftgrouptitle
+{
+    margin-left:-109px;
+    margin-bottom:-38px;
+    font-weight:800;
+    font-size:22px;
+    padding-bottom:10px;
+    padding-top:10px;
+    text-align:left;
+    padding-left:22px;
+    background-color: rgb(80, 80, 80);
+    color:white;
+}
+.rightgrouptitle
+{
+    font-weight:800;
+    font-size:22px;
+    padding-bottom:10px;
+    padding-top: 10px;
+    text-align:right;
+    padding-right:35px;
+    margin-bottom:-37px;
+    margin-right:-109px;
+    background-color: rgb(225, 225, 225);
+}
+.continueButton
+{
+    transition:1s;
+    opacity:0;
+}
+.fadein
+{
+    opacity:0;
+    transition:1s;
+    transition-delay:15s;
+}
+.rank0
+{
+    transition-delay:0s;
+}
+.rank1
+{
+    transition-delay:1.5s;
+}
+.rank2
+{
+    transition-delay:12s;
+}
+.rank3
+{
+    transitional-delay:13.5s;
 }

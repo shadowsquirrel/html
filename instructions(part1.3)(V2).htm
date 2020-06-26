@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="css/instructions(part1.3).css">
+    <link rel="stylesheet" href="css/instructions(part1.3)(V2).css">
     <script src='js/Winwheel.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -27,92 +27,43 @@
                     <h3>INSTRUCTIONS</h3>
                 </div>
 
-                <div class = sinfotext>
+                <div class ='sinfotext fadein rank0'>
                     <p style='font-size: 22px; margin-bottom: 20px;'> Help and Sabotage  </span></p>
 
 
                 </div>
 
-                <div class ='sinfotext limited'>
+                <div class ='sinfotext limited fadein rank1'>
                     <p>
-                        Each leader's relatve effectiveness of their tokens is determined by <strong>her</strong> followers.
+                        <strong>Before leaders compete</strong>, followers invest tokens in <strong>sabotaging or helping <u>their own</u> leader</strong>.
                     </p>
                     <p>
-                        <strong>Prior</strong> to leaders' competition, followers of each leader affect the effectiveness of her leader's relative investment power by helping or sabotaging her leader.
+                        A follower can <strong>increase <u>his</u> leader's <u>investment power</u></strong> by <strong>helping</strong> or can <strong>decrease</strong> it by <strong>sabotaging</strong>
                     </p>
-                    <p>
-                        Each follower <strong>separately</strong> decides on how many tokens to invest in <strong>either</strong> helping <strong>or</strong> sabotaging her leader.
+                    <p style='padding-top:20px; text-align: center;' class='fadein rank2 yoket'>
+                        Consider two groups each with one leader and one follower.
                     </p>
-                    <p>
-                        A follower can <strong>increase</strong> her leader's <strong>relative investment power</strong> by investing tokens in <strong>help</strong> or <strong>decrease</strong> it by investing tokens in <strong>sabotage</strong>.
-                    </p>
-                    <p>
-                        As in the leaders' case, 1 token is worth half a penny.
-                    </p>
-                    <p>
-                        <strong>After</strong> followers make their sabotage or help decision, relative investment powers of leaders are determined. <strong>Only then</strong>, leaders proceed to compete with each other.
-                    </p>
-                    <!-- <p>
-                        When a leader wins the competition, her followers get <strong>0</strong> token.
-                    </p>
-                    <p>
-                        When a leader loses the competition, her followers get <strong>0</strong> token.
-                    </p> -->
-                    <p>
-                        Regardless of whether a leader loses or wins the competition, <strong>her</strong> followers receive <strong>0</strong> token.
+                    <p style='padding-top:20px; text-align: center;' class='fadein rank3 yoket2'>
+                        use <span class='dottedgreen'></span> sections to chose help or sabotage levels for both followerss.
                     </p>
 
-                    <p>
-                        <strong>But</strong>, when a leader loses, she also <strong>loses her leadership position</strong>,
-                        and one of her followers <strong>get the chance to become the new leader</strong> of their group and to compete for <strong>1000</strong> tokens <strong>If</strong> there is a new leaders competition.
-                    </p>
-                    <p>
-                        Below is <strong>simplified demonstration</strong> of the help/sabotage mechanism with a single follower per group. Note that in the actual game there will be 2 followers per group.
-                    </p>
-                    <p style='padding-top:20px; text-align: center;'>
-                        use <span class='dottedgreen'></span> sections to consider help or sabotage levels for both leaders.
-                    </p>
-                    <p style='padding-top:20px; text-align: center;'>
-                        As a first step, you can also click <img id="dice2" class='dice2' src="images/dice.png" alt="V" /> to generate <strong>random</strong> values for all players <strong>except you</strong>.
-                    </p>
-                    <div class='textimagewrap'>
-                        <p class='textimageclass'>
-                            <img id="hpic" class='hpic' src="images/help.png" alt="V" />
-                            <div class='tinytextclass'>
-                                Move the slider up to select an help level.
-                            </div>
 
-                        </p>
-                        <p style='padding-top:56px; font-weight:800;'>
-                            OR
-                        </p>
-                        <p class='textimageclass'>
-                            <img id="spic" class='spic' src="images/sabo.png" alt="V" />
-                            <div class='tinytextclass'>
-                                Move the slider down to select a  sabotage level.
-                            </div>
-
-                        </p>
-                    </div>
-                    <p style='padding-top: 20px; text-align: center;'>
-                        Notice how the relative investment powers change based on the relative help and sabotage levels received by each leader.
-                    </p>
 
                 </div>
 
 
             </div>
 
-            <div class = 'calculator' id='calculator'>
+            <div class = 'calculator fadein ranklater' id='calculator'>
 
 
                 <div class = 'topsection'>
 
                     <div class = 'leadergroupleft'>
-                        <p style='font-weight:800; font-size:22px; padding-bottom:15px;'>
-                            Your Group
+                        <p class='leftgrouptitle'>
+                            Group A
                         </p>
-                        <h6 class = 'left_ltitle'>Your Leader</h6>
+                        <h6 class = 'left_ltitle' style='color:white;'>Leader A</h6>
                         <div class = 'sliderbarleader left'>
                             <input type='range' min = '0' max = '500' class = 'lslider' value = '100' id = 'lSlider1' />
                             <div id = 'barl' class = 'lbar'></div>
@@ -140,10 +91,10 @@
 
 
                     <div class = 'leadergroupright'>
-                        <p style='font-weight:800; font-size:22px; padding-bottom:15px;'>
-                            Opposing Group
+                        <p class='rightgrouptitle'>
+                            Group B
                         </p>
-                        <h6  class = 'right_title'>Opposing Leader</h6>
+                        <h6  class = 'right_title'>Leader B</h6>
                         <div class = 'sliderbarleader lright'>
                             <input type='range' min = '0' max = '500' class = 'lslider' value = '100' id = 'olSlider1' />
                             <div id = 'obarl' class = 'lbar noselect'></div>
@@ -165,10 +116,9 @@
 
                     <div class = 'followergroupleft'>
                         <div class='titlewrap titlewrapextraleft'>
-                            <h6 class = 'left_title ftitle'>Follower</h6>
+                            <h6 class = 'left_title ftitle'>Follower A</h6>
                         </div>
 
-                        <h6 class='yourdecisiontext2'>YOUR DECISION</h6>
 
                         <div class = 'slidebargroup left'>
                             <div class = 'sliderbar'>
@@ -176,41 +126,85 @@
                                 <div id = 'bar1' class = 'bar l greendotted1'></div>
                             </div>
                         </div>
+
+                        <div class='yourinvestmentcost'>
+                            <span class=investmentcostdisplay id=investmentcostdisplay></span>
+                        </div>
+
                     </div>
 
 
 
                     <div class = 'followergraphics'>
 
-                        <div class='wheelresult'>
-                            <p>
-                                <span class=wheelresulttext id=wheelresulttext></span>
+                        <div class='textimagewrap'>
+                            <div class='textimageclass' style='margin-bottom:-18px;'>
+                                <img id="hpic" class='hpic' src="images/help.png" alt="V" />
+                                <p class='tinytextclass'>
+                                    Move the slider <strong>up</strong> to select an help level.
+                                </p>
+                            </div>
+
+                            <p style='font-weight:800;'>
+                                OR
                             </p>
+
+                            <div class='textimageclass' style='padding-left:60px; margin-top:-40px'>
+
+                                <p class='tinytextclass'>
+                                    Move the slider <strong>down</strong> to select a sabotage level.
+                                </p>
+                                <img id="spic" class='spic' src="images/sabo.png" alt="V" />
+                            </div>
+
                         </div>
-                        <div class='wheelresult2'>
-                            <p>
-                                <span class=wheelresulttext2 id=wheelresulttext2></span>
+                        <div class=noticewrap>
+                            <p class='notice'>
+                                Notice how the relative investment power changes based on the <strong><u>relative</u></strong> help and sabotage levels.
                             </p>
-                        </div>
-                        <div class='yourinvestmentcost'>
-                            <span class=investmentcostdisplay id=investmentcostdisplay></span>
-                        </div>
-                        <div class='wheelresult3'>
-                            <p>
-                                <span class=wheelresulttext3 id=wheelresulttext3></span>
+                            <p class='notice2'>
+                                <u>Given both leaders invests 100 tokens</u>, <br /><br />
+                                when follower <strong>B</strong> does <strong>not</strong> sabotage <strong>her</strong> leader, <br /><br />
+                                a <strong>small amount of sabotage</strong> by follower <strong>A</strong> <br /><br />
+                                <u>severly</u> affects leader <strong>A</strong>'s share of the wheel
                             </p>
-                        </div>
-                        <div class='dicewrap'>
-                            <img id="dice" class='dice' src="images/dice.png" alt="V" />
+                            <p class='notice3'>
+                                When follower <strong>B also sabotages</strong> <u>her</u> leader, the <strong>higher sabotage level</strong> by follower <strong>A</strong> is <strong>less effective</strong>.
+                            </p>
+
+                            <p class='notice4'>
+                                A <strong>similar</strong> argument can be made for <strong>help</strong>: a <u>small amount of help</u> by follower <strong>A</strong> has a <strong>big impact</strong> when follower B does <strong>not</strong> help her leader.
+                            </p>
+
+                            <p class='notice5'>
+                                When <strong>both</strong> followers help their leaders, the <strong>higher help</strong> level by follower A is <strong>less effective</strong>.
+                            </p>
+
+                            <p class='notice6'>
+                                Click <strong>Continue</strong> to proceed
+                            </p>
                         </div>
 
+
+                        <div class='dicewrap'>
+                            <p style='margin-bottom:4px;' class='hideclick'>
+                                Click <img id="dice2" class='dice2' src="images/next.png" alt="V" />
+                            </p>
+                            <div class='extradicewrap'>
+                                <img id="dice" class='dice' src="images/next.png" alt="V" />
+                            </div>
+                        </div>
+
+                        <!-- <p style='padding-top:20px; text-align: center;'>
+                            As a first step, you can also click <img id="dice2" class='dice2' src="images/dice.png" alt="V" /> to generate <strong>random</strong> values for all players <strong>except you</strong>.
+                        </p> -->
                     </div>
 
 
 
                     <div class = 'followergroupright'>
                         <div class='titlewrap titlewrapextraright'>
-                            <h6 class = 'right_title ftitle'>Follower</h6>
+                            <h6 class = 'right_title ftitle'>Follower B</h6>
                         </div>
 
 
@@ -220,6 +214,11 @@
                                 <div id = 'obar1' class = 'bar l greendotted2'></div>
                             </div>
                         </div>
+
+                        <div class='yourinvestmentcost'>
+                            <span class=investmentcostdisplay id=investmentcostdisplay2></span>
+                        </div>
+
                     </div>
 
                 </div>
@@ -233,7 +232,7 @@
     </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="js/instructions(part1.3).js"></script>
+<script src="js/instructions(part1.3)(V2).js"></script>
 
 </body>
 </html>

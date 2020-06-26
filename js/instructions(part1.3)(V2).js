@@ -621,7 +621,7 @@ var updatePwin = function() {
 }
 
 var activeWheelSwitch = true;
-
+var firsttimerevealed = true
 var updateAll = function() {
     updateTotal();
     updatePwin();
@@ -629,34 +629,39 @@ var updateAll = function() {
     updateEfficiencyBar(efi, oefi);
 
     if(activeWheelSwitch) {
-        hideWheel();
+        // hideWheel();
         activeWheelSwitch = false;
     }
 
     var investCostDisplay = document.getElementById('investmentcostdisplay');
     var mytokens = ((h1+s1)>1) ? 'tokens' : 'token';
-    var investmentCostText = '<strong>Your</strong> investment cost: <strong>' + (h1+s1) + '</strong> ' + mytokens;
+    var investmentCostText = 'Investment cost: <strong>' + (h1+s1) + '</strong> ' + mytokens;
     investCostDisplay.innerHTML = investmentCostText;
+
+    var investCostDisplay2 = document.getElementById('investmentcostdisplay2');
+    var mytokens2 = ((oh1+os1)>1) ? 'tokens' : 'token';
+    var investmentCostText2 = 'Investment cost: <strong>' + (oh1+os1) + '</strong> ' + mytokens;
+    investCostDisplay2.innerHTML = investmentCostText2;
+
     $('.cursor-pointer').css({'cursor':'default'});
 
+    if(exp1 && exp2) {
+        if(clickCount === 0) {
+            $('.textimagewrap').css({'opacity':'0', 'margin-top':'-331px','z-index':'-10'})
+            $('.notice').css({'opacity':'1', 'margin-top':'0px', 'position':'static'})
+            $('.noticewrap').css({'position':'static'});
+            if(firsttimerevealed) {
+                setTimeout('revealButton()', 12000);
+                firsttimerevealed = false;
+            }
 
-    // var wheelresultDisplay = document.getElementById('wheelresulttext');
-    // var youwon = 'Your Leader Won.';
-    // var youlost = 'You Leader Lost.';
-    // var resultDisplay = (resultIndex===1) ? youwon : youlost;
-    // wheelresultDisplay.innerHTML = resultDisplay;
-    //
-    // var wheelresultDisplay2 = document.getElementById('wheelresulttext2');
-    // var yourrolelost = 'You have the chance to become the new Leader of your group.';
-    // var yourrolewon = 'You continue your role as follower.'
-    // var resultDisplay2 = (resultIndex===1) ? yourrolewon : yourrolelost;
-    // wheelresultDisplay2.innerHTML = resultDisplay2;
-    //
-    // var wheelresultDisplay3 = document.getElementById('wheelresulttext3');
-    // var followerPrize = 0;
-    // var mypayoff = -(s1 + h1) + ((resultIndex===1) ? followerPrize : 0);
-    // var mypayoffDisplay = 'Your Net Payoff: <strong>' + mypayoff + '</strong>';
-    // wheelresultDisplay3.innerHTML = mypayoffDisplay;
+            $('.yoket').css({'transition':'2s','transition-delay':'0s','opacity':'0','margin-top':'-130px'});
+            $('.yoket2').css({'transition':'2s','transition-delay':'0s','opacity':'0'});
+        }
+
+
+    }
+
 }
 
 var hideWheel = function() {
@@ -741,24 +746,35 @@ updateAll();
 
 
 var myDice = document.getElementById('dice');
+var clickCount = 0;
 myDice.onclick = function() {
-    $('.wheelresult').css({'opacity':'0'});
-    $('.wheelresult2').css({'opacity':'0'});
-    $('.wheelresult3').css({'opacity':'0'});
-    theWheel.stopAnimation(false);
-    canClickArrow = true;
 
-    var isHelp = (Math.random() >= 0.5) ? true : false;
-    var oshValue = parseFloat((Math.random()*50).toFixed(0));
-    oh1  = isHelp ? oshValue : 0;
-    os1 = isHelp ? 0 : oshValue
-    var oshBarValue = isHelp ? oshValue : -oshValue;
-    $('.greendotted2').css({'border':'3px dotted white'});
+    var shArray = [8, 68, 8];
+    var isHelp1Array = [false, false, true];
+    var isHelp1 = isHelp1Array[clickCount];
+    var shValue = shArray[clickCount];
+    h1  = isHelp1 ? shValue : 0;
+    s1 = isHelp1 ? 0 : shValue
+    var shBarValue = isHelp1 ? shValue : -shValue;
 
-    efo = parseFloat((Math.random()*250).toFixed(0));
-    oefo = parseFloat((Math.random()*250).toFixed(0));
+    var oshArray = [0, 60, 0];
+    var isHelp2Array = [false, false, true];
+    var isHelp2 = isHelp2Array[clickCount];
+    var oshValue = oshArray[clickCount];
+    oh1  = isHelp2 ? oshValue : 0;
+    os1 = isHelp2 ? 0 : oshValue
+    var oshBarValue = isHelp2 ? oshValue : -oshValue;
+
+    var efoArray = [100, 100, 100];
+    var oefoArray = [100, 100, 100];
+    efo = efoArray[clickCount];
+    oefo = oefoArray[clickCount];
 
     updateAll();
+
+    updateBar(shBarValue, 'bar1', 1, false);
+    $('#vSlider1').prop('value', shBarValue);
+    $('#vSlider1').change();
 
     updateBar(oshBarValue, 'obar1', 1, false);
     $('#ovSlider1').prop('value', oshBarValue);
@@ -772,6 +788,92 @@ myDice.onclick = function() {
     $('#olSlider1').prop('value', oefo);
     $('#olSlider1').change();
 
+    if(clickCount === 0) {
+        $('.notice').css({'opacity':'0', 'margin-top':'-100px', 'z-index':'-10'});
+        $('.notice2').css({'opacity':'1', 'position':'static', 'z-index':'0', 'margin-top':'20px',
+    'padding-top':'4px','padding-bottom':'4px'});
+        $('.dicewrap').css({'opacity':'0', 'margin-top':'5px'});
+        setTimeout('revealButton()', 9000);
+
+    }
+    if(clickCount === 1) {
+        $('.notice2').css({'opacity':'0', 'margin-top':'-100px', 'z-index':'-10'});
+        $('.notice3').css({'opacity':'1', 'position':'static', 'z-index':'0', 'margin-top':'-182px',
+    'padding-bottom':'63px'});
+        $('.dicewrap').css({'opacity':'0'});
+        setTimeout('revealButton()', 9000);
+    }
+
+    if(clickCount === 2) {
+        $('.notice3').css({'opacity':'0', 'margin-top':'-100px', 'z-index':'-10'});
+        $('.notice4').css({'opacity':'1', 'position':'static', 'z-index':'0', 'margin-top':'-182px',
+    'padding-bottom':'63px'});
+        $('.dicewrap').css({'opacity':'0'});
+        $('.hideclick').css({'opacity':'0'});
+        setTimeout('moreResult()', 11000);
+    }
+
+    clickCount = clickCount + 1;
+
+}
+
+
+
+var revealButton = function() {
+    if(clickCount === 0) {
+        $('.notice').css({'padding-bottom':'41px', 'padding-top':'90px','margin-top':'39px', 'z-index':'-10'});
+    }
+    if(clickCount < 3) {
+        $('.dicewrap').css({'opacity':'1', 'position':'static'});
+    }
+
+}
+
+var moreResult = function() {
+        h1  = 68;
+        s1 = 0;
+        var shBarValue = 68;
+
+
+        oh1  = 60;
+        os1 = 0;
+        var oshBarValue = 60;
+
+        efo = 100;
+        oefo = 100;
+
+        updateAll();
+
+        updateBar(shBarValue, 'bar1', 1, false);
+        $('#vSlider1').prop('value', shBarValue);
+        $('#vSlider1').change();
+
+        updateBar(oshBarValue, 'obar1', 1, false);
+        $('#ovSlider1').prop('value', oshBarValue);
+        $('#ovSlider1').change();
+
+        updateBarLeader(efo, 'barl', 1, false);
+        $('#lSlider1').prop('value', efo);
+        $('#lSlider1').change();
+
+        updateBarLeader(oefo, 'obarl', 0, false);
+        $('#olSlider1').prop('value', oefo);
+        $('#olSlider1').change();
+
+        $('.notice4').css({'opacity':'0', 'margin-top':'-230px', 'z-index':'-10'});
+        $('.notice5').css({'opacity':'1', 'position':'static', 'z-index':'0', 'margin-top':'-182px',
+    'padding-bottom':'63px'});
+
+        $('.dice').css({'opacity':'0', 'z-index':'-5'});
+        $('.hideclick').css({'opacity':'0'});
+        setTimeout('evenMoreResult()', 10000);
+}
+
+var evenMoreResult = function() {
+    $('.notice5').css({'opacity':'0', 'margin-top':'-100px', 'z-index':'-10'});
+    $('.notice6').css({'opacity':'1', 'position':'static', 'z-index':'0', 'margin-top':'-287px',
+'padding-bottom':'63px'});
+    $('.continueButton').css({'opacity':'1'});
 }
 
 // Slider-bar initiations
@@ -805,7 +907,7 @@ lslider1.oninput = function() {
     updateBarLeader(lvalue, 'barl', 1, true);
     updateAll();
 
-    $('.lbar1').css({'border':'3px dotted white'});
+    // $('.lbar1').css({'border':'3px dotted white'});
     $('.wheelresult').css({'opacity':'0'});
     $('.wheelresult2').css({'opacity':'0'});
     $('.wheelresult3').css({'opacity':'0'});
@@ -822,7 +924,7 @@ olslider1.oninput = function() {
     updateBarLeader(olvalue, 'obarl', 0, true);
     updateAll();
 
-    $('.lbar2').css({'border':'3px dotted white'});
+    // $('.lbar2').css({'border':'3px dotted white'});
     $('.wheelresult').css({'opacity':'0'});
     $('.wheelresult2').css({'opacity':'0'});
     $('.wheelresult3').css({'opacity':'0'});
@@ -850,23 +952,27 @@ $('#olSlider1').hover(
 );
 
 //Followers in your Group
+var exp1 = false;
 slider1.oninput = function() {
+    exp1 = true;
     value1 = parseFloat(slider1.value);
     s1 = value1 >= 0 ? 0 : -value1;
     h1 = value1 >= 0 ? value1 : 0;
     updateBar(value1, 'bar1', 0, false);
-    $('.wheelresult').css({'opacity':'0'});
-    $('.wheelresult2').css({'opacity':'0'});
-    $('.wheelresult3').css({'opacity':'0'});
+    // $('.wheelresult').css({'opacity':'0'});
+    // $('.wheelresult2').css({'opacity':'0'});
+    // $('.wheelresult3').css({'opacity':'0'});
     theWheel.stopAnimation(false);
     canClickArrow = true;
     updateAll();
     updateBarYAxis('bar1', true);
-    $('.greendotted1').css({'border':'3px dotted white'});
+    $('.greendotted1').css({'border':'2px dotted white'});
 }
 
 //Followers
+var exp2 = false;
 oslider1.oninput = function() {
+    exp2 = true;
     ovalue1 = parseFloat(oslider1.value);
     os1 = ovalue1 >= 0 ? 0 : -ovalue1;
     oh1 = ovalue1 >= 0 ? ovalue1 : 0;
@@ -880,7 +986,7 @@ oslider1.oninput = function() {
 
     updateAll();
     updateBarYAxis('obar1', true);
-    $('.greendotted2').css({'border':'3px dotted white'});
+    $('.greendotted2').css({'border':'2px dotted white'});
 }
 
 $('#vSlider1').hover(
@@ -911,7 +1017,17 @@ $('#ovSlider1').hover(
     }
 );
 
+$('.fadein').css({'opacity':'1'});
+setTimeout('showCalculator()', 15000);
+setTimeout('removeChild()', 16000);
 
+var showCalculator = function() {
+    $('html, body').animate({
+        scrollTop: $(document).height()
+    }, 4000);
 
+}
 
+var removeChild = function() {
+    $('.calculator').removeClass('fadein');
 }
