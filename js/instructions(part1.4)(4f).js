@@ -1388,7 +1388,7 @@ b1.onclick = function() {
     $('.mc2').css({'position':'static', 'opacity':'1', 'background-color':'lavender'});
     $('.calculator').css({'opacity':'1'});
     $('html, body').animate({
-        scrollTop: $('.mc2').height()*1.1
+        scrollTop: $('.mc2').height()*1.5
     }, 1000);
 }
 var b2 = document.getElementById('b2');
@@ -1401,6 +1401,9 @@ b2.onclick = function() {
     $('.dottedred3').css({'border':'2px dotted red'});
     $('.dottedblue2').css({'border':'2px dotted white'});
     $('.switchwrap').css({'opacity':'1'});
+    $('html, body').animate({
+        scrollTop: $('.totalbarwrap').height()*1.6
+    }, 1000);
 }
 
 
@@ -1414,7 +1417,7 @@ b25.onclick = function() {
     $('.dottedred3').css({'border':'2px dotted white'});
     $('.dottedblue2').css({'border':'2px dotted blue'});
     $('html, body').animate({
-        scrollTop: $(document).height()
+        scrollTop: $('.decision').height()*1.25
     }, 1000);
 }
 
@@ -1427,6 +1430,9 @@ b3.onclick = function() {
     var myString = -myheight + 'px';
     $('.mc3').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
     $('.mc4').css({'position':'static', 'opacity':'1', 'background-color':'lavender'});
+    $('html, body').animate({
+        scrollTop: $(document).height()
+    }, 1000);
 }
 
 var b4 = document.getElementById('b4');
@@ -1439,5 +1445,5 @@ b4.onclick = function() {
     $('html, body').animate({
         scrollTop: 0
     }, 1000);
-    // console.log('button pressed');
+    console.log('button pressed');
 }

@@ -1236,7 +1236,7 @@ b4.onclick = function() {
     var myString = -myheight + 'px';
     $('.mc4').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
     $('.mc45').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush', 'z-index':'0'});
-    $('.continueButton').css({'opacity':'1'});
+    // $('.continueButton').css({'opacity':'1'});
     inmc4 = false;
     $('.dottedred4').css({'border':'2px dotted red'});
     $('.dottedblue2').css({'border':'2px dotted blue'});
