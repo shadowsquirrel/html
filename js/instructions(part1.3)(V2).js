@@ -765,8 +765,8 @@ myDice.onclick = function() {
     os1 = isHelp2 ? 0 : oshValue
     var oshBarValue = isHelp2 ? oshValue : -oshValue;
 
-    var efoArray = [100, 100, 100];
-    var oefoArray = [100, 100, 100];
+    var efoArray = [250, 250, 250];
+    var oefoArray = [250, 250, 250];
     efo = efoArray[clickCount];
     oefo = oefoArray[clickCount];
 
@@ -1018,8 +1018,8 @@ $('#ovSlider1').hover(
 );
 
 $('.fadein').css({'opacity':'1'});
-setTimeout('showCalculator()', 15000);
-setTimeout('removeChild()', 16000);
+setTimeout('showCalculator()', 16000);
+setTimeout('removeChild()', 17000);
 
 var showCalculator = function() {
     $('html, body').animate({

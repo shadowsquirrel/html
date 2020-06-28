@@ -508,6 +508,7 @@ efislider.oninput = function() {
     // $('.wheelresult2').css({'opacity':'1'});
     $('.after2').css({'opacity':'0'});
 
+
     efivalue = parseFloat(efislider.value);
     var t = Math.abs(efivalue);
     var x = 101 - t;
@@ -526,7 +527,7 @@ efislider.oninput = function() {
     theWheel.stopAnimation(false);
     canClickArrow = true;
     if(firsttime) {
-        setTimeout('goDown()', 20000);
+        setTimeout('goDown()', 30000);
     }
 
 
@@ -540,7 +541,8 @@ var goDown = function() {
         $('.showmore').css({'opacity':'1'});
         $('html, body').animate({
             scrollTop: $(document).height()
-        }, 3000);
+        }, 4000);
+        $('.sinfo').css({'margin-bottom':'-80px', 'transition':'3s', 'z-index':'5'});
         firsttime = false;
     }
 }

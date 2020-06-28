@@ -779,6 +779,137 @@ var setEfficiencyBar = function(efi1, efi2) {
     Plotly.react('efficiencyBar', data, layout, {displayModeBar: false});
 }
 
+var setEfficiencyBar2 = function(efi1, efi2) {
+
+    var val1 = efi1 / (efi1 + efi2);
+    var val2 = efi2 / (efi1 + efi2);
+
+
+
+    if((efi1 / efi2) > 1){
+        var myText = (val1 >= 0.99) ? '100+' : (efi1 / efi2).toFixed(2);
+    } else {
+        myText = 1;
+    }
+
+    if((efi1 / efi2) < 1){
+        var myText2 = (val2 >= 0.99) ? '100+' : (efi2 / efi1).toFixed(2);
+    } else {
+        myText2 = 1;
+    }
+
+
+    val1 = logistic2(val1, 5);
+    val2 = 1 - val1;
+
+
+    var gapSize = 0.01;
+    val1 = val1 - gapSize/2;
+    val2 = val2 - gapSize/2;
+
+
+
+
+    var leader1 = {
+        y: ['group 1'],
+        x: [val1],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker: {
+            // color: 'rgb(160, 160, 160)',
+            color: 'rgb(80, 80, 80)',
+        },
+        text: myText,
+        textposition: 'inside',
+        insidetextanchor: 'middle',
+        textfont: {
+            color: 'white',
+            size: '10'
+        },
+    };
+
+
+    var gap = {
+        y: ['group 1'],
+        x: [gapSize],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        marker: {
+            color: 'white',
+        },
+        text: myText,
+        textposition: 'inside',
+        insidetextanchor: 'middle',
+        textfont: {
+            color: 'white',
+            size: '10'
+        },
+    };
+
+
+
+    var leader2 = {
+        y: ['group 1'],
+        x: [val2],
+        type: 'bar',
+        orientation: 'h',
+        sort: false,
+        hoverinfo: 'none',
+        automargin: true,
+        showlegend: false,
+        fixedrange: true,
+        marker: {
+            color: 'rgb(225, 225, 225)',
+             // color: 'rgb(160, 160, 160)',
+        },
+        text: myText2,
+        textposition: 'inside',
+        insidetextanchor: 'middle',
+        textfont: {
+            size: '10'
+        },
+    };
+
+
+    var data = [leader1, gap, leader2];
+
+
+    var layout = {
+        title:{
+            text:  "Relative Power",
+            size: 1,
+            yref: 'container',
+            y: 0.15,
+            yanchor: 'bottom',
+        },
+        barmode: 'stack',
+        height: 60,
+        width: 200,
+        margin: {"t": 0, "b": 20, "l": 0, "r": 0},
+        xaxis: {
+            fixedrange: true,
+            autorange: false,
+            range: [0,1],
+            showline: false,
+            showgrid: false,
+            showticklabels: false,
+        },
+        yaxis: {
+            fixedrange: true,
+        }
+
+    };
+
+    Plotly.react('efficiencyBar2', data, layout, {displayModeBar: false});
+}
 
 //VARIABLES AND GRAPHICS INITIATIONS
 
@@ -826,6 +957,7 @@ var initialize = function() {
     updatePie(pwin);
     updateEffortBar(efo, oefo);
     setEfficiencyBar(efi, oefi);
+    setEfficiencyBar2(efi, oefi);
 
     payoffDisplay.innerHTML = '<strong>' + (efo)  + '</strong>' + ((efo > 1) ? ' tokens' : ' token');
     winnetpayoff.innerHTML = '<strong>' + (1000 - efo)  + '</strong>' + ' tokens';
@@ -837,6 +969,9 @@ var updateAll = function() {
     updateEffortBar(efo, oefo);
     updatePwin();
     updatePie(pwin);
+    if(exp1 && exp2) {
+        $('.lockedmc4').css({'opacity':'1', 'z-index':'0'});
+    }
 }
 
 initialize();
@@ -851,6 +986,7 @@ myDice.onclick = function() {
     regraphinfo();
     initialize();
     updateAll();
+    $('.lockedmc2').css({'z-index':'0','opacity':'1'});
 }
 
 
@@ -879,7 +1015,13 @@ updateBarLeader(olvalue, 'obarl', 0, false);
 
 
 //DECISION
+var inmc4 = false;
+var exp1 = false;
 dslider.oninput = function() {
+    if(inmc4) {
+        $('.dottedred2').css({'border':'2px dotted white'});
+        exp1 = true;
+    }
     dvalue = parseFloat(dslider.value);
     efo = dvalue
     syncBars(dvalue);
@@ -900,6 +1042,10 @@ dslider.oninput = function() {
 
 //Leader
 lslider1.oninput = function() {
+    if(inmc4) {
+        $('.dottedred2').css({'border':'2px dotted white'});
+        exp1 = true;
+    }
     lvalue = parseFloat(lslider1.value);
     efo = lvalue;
     syncBars(lvalue);
@@ -908,7 +1054,7 @@ lslider1.oninput = function() {
     payoffDisplay.innerHTML = '<strong>' + (efo)  + '</strong>' + ((efo > 1) ? ' tokens' : ' token');
     winnetpayoff.innerHTML = '<strong>' + (1000 - efo) + '</strong>' + ' tokens';
     losenetpayoff.innerHTML = '<strong>' + -efo  + '</strong>' + ((efo > 1) ? ' tokens' : ' token');
-    $('.barlextra').css({'border':'3px dotted white'});
+
     //synching sliders
     $('#dSlider').prop('value', lvalue);
     $('#dSlider').change();
@@ -917,7 +1063,12 @@ lslider1.oninput = function() {
 // OPPOSING GROUP
 
 //Leader
+var exp2 = false;
 olslider1.oninput = function() {
+    if(inmc4) {
+        $('.dottedblue').css({'border':'2px dotted white'});
+        exp2 = true;
+    }
     olvalue = parseFloat(olslider1.value);
     oefo = olvalue;
     updateBarLeader(olvalue, 'obarl', 0, true);
@@ -926,6 +1077,7 @@ olslider1.oninput = function() {
 
 
 // HOVER AND FOCUSOUT EFFECT FOR XAXIS SHOWING UP
+
 $('#dSlider').hover(
     function() {
         lvalue = parseFloat(lslider1.value);
@@ -969,6 +1121,7 @@ $('#lSlider1').hover(
     }
 );
 
+
 $('#olSlider1').hover(
     function() {
         olvalue = parseFloat(olslider1.value);
@@ -984,3 +1137,127 @@ $('#olSlider1').hover(
 
 
 $('html, body').animate({scrollTop: 0}, 0);
+
+
+/****************************************/
+/****************************************/
+/****************************************/
+/************* INFO BOXES ***************/
+/****************************************/
+/****************************************/
+/****************************************/
+/************* INFO BOXES ***************/
+/****************************************/
+/****************************************/
+/****************************************/
+/************* INFO BOXES ***************/
+/****************************************/
+/****************************************/
+/****************************************/
+/************* INFO BOXES ***************/
+/****************************************/
+/****************************************/
+/****************************************/
+/****************************************/
+
+
+var b0 = document.getElementById('b0');
+b0.onclick = function() {
+    var myheight = $('.mc0').height();
+    var myString = -myheight + 'px';
+    $('.mc0').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
+    $('.mc1').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush', 'z-index':'0'});
+    // $('.mc1').css({'transition-delay':'0s'});
+    $('html, body').animate({scrollTop: $(document).height()}, 1000);
+}
+var b1 = document.getElementById('b1');
+b1.onclick = function() {
+    var myheight = $('.mc1').height();
+    var myString = -myheight + 'px';
+    $('.mc1').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
+    $('.mc2').css({'position':'static', 'opacity':'1', 'background-color':'lavender', 'z-index':'0'});
+    $('.dicewrap').css({'opacity':'1', 'z-index':'0', 'margin-top':'-20px'});
+    $('.efficiencyBarWrap2').css({'opacity':'1', 'z-index':'0', 'margin-top':'-20px'});
+    $('html, body').animate({scrollTop: 50}, 1000);
+    $('.s2feedback').css({'margin-top':'-20px'});
+}
+var b2 = document.getElementById('b2');
+b2.onclick = function() {
+    var myheight = $('.mc2').height();
+    var myString = -myheight + 'px';
+    $('.dicewrap').css({'opacity':'0', 'z-index':'-10', 'margin-top':'-132px'});
+    $('.efficiencyBarWrap2').css({'opacity':'0', 'z-index':'-10'});
+    $('.mc2').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
+    $('.mc25').css({'position':'static', 'opacity':'1', 'background-color':'lavender', 'z-index':'0'});
+    $('html, body').animate({scrollTop: $('.leadergroupleft').height()*0.8}, 1000);
+    $('.yourdecisiontext3').css({'font-weight':'700', 'opacity':'1', 'margin-top':'3px'});
+    $('.dottedred3').css({'border':'2px dotted red'});
+    $('.dottedred').css({'border':'2px dotted white'});
+    $('.s2feedback').css({'margin-bottom':'45px'});
+    // $('.dottedred3').css({'border':'2px dotted red'});
+    // $('.dottedblue2').css({'border':'2px dotted white'});
+    // $('.switchwrap').css({'opacity':'1'});
+}
+
+var b25 = document.getElementById('b25');
+b25.onclick = function() {
+    var myheight = $('.mc25').height();
+    var myString = -myheight + 'px';
+    $('.mc25').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
+    $('.mc3').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush', 'z-index':'0'});
+    $('html, body').animate({scrollTop: $('.leadergroupleft').height()*0.8}, 1000);
+    $('.dottedred').css({'border':'2px dotted white'});
+    $('.yourdecisiontext3').css({'font-weight':'700', 'opacity':'1', 'margin-top':'-2px'});
+$('.yourdecisiontext2').css({'font-weight':'700', 'opacity':'1'});
+    $('.dottedred3').css({'border':'2px dotted white'});
+
+    $('.dottedred2').css({'border':'2px dotted red'});
+    $('.dottedblue').css({'border':'2px dotted blue'});
+
+}
+
+var b3 = document.getElementById('b3');
+b3.onclick = function() {
+    var myheight = $('.mc3').height();
+    var myString = -myheight + 'px';
+    $('.mc3').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
+    $('.mc4').css({'position':'static', 'opacity':'1', 'background-color':'lavender', 'z-index':'0'});
+    $('.input').css({'margin-top':'-45px', 'transition':'1s'});
+    $('.piewrap').css({'margin-top':'-45px', 'transition':'1s'});
+    $('.decision').css({'padding-top':'35px'});
+    $('html, body').animate({scrollTop: $('.leadergroupleft').height()*0.975}, 1000);
+    $('.dottedred2').css({'border':'5px dotted red'});
+    inmc4 = true;
+}
+
+var b4 = document.getElementById('b4');
+b4.onclick = function() {
+    var myheight = $('.mc4').height();
+    var myString = -myheight + 'px';
+    $('.mc4').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
+    $('.mc45').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush', 'z-index':'0'});
+    $('.continueButton').css({'opacity':'1'});
+    inmc4 = false;
+    $('.dottedred4').css({'border':'2px dotted red'});
+    $('.dottedblue2').css({'border':'2px dotted blue'});
+    // $('html, body').animate({
+    //     scrollTop: 0
+    // }, 1000);
+    // console.log('button pressed');
+}
+
+var b45 = document.getElementById('b45');
+b45.onclick = function() {
+    var myheight = $('.mc45').height();
+    var myString = -myheight + 'px';
+    $('.mc45').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
+    $('.mc5').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush', 'z-index':'0'});
+    $('.continueButton').css({'opacity':'1'});
+    // inmc4 = false;
+    $('html, body').animate({
+        scrollTop: 0
+    }, 1000);
+    $('.dottedred4').css({'border':'2px dotted white'});
+    $('.dottedblue2').css({'border':'2px dotted white'});
+    // console.log('button pressed');
+}

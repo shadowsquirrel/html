@@ -245,7 +245,7 @@ var updateAll = function() {
         activeWheelSwitch = false;
     }
     var mytoken = (efo1 > 1) ? 'tokens' : 'token';
-    wheelresultDisplay2.innerHTML = 'Your investment cost: <strong>' + efo1 + '</strong> ' + mytoken;
+    wheelresultDisplay2.innerHTML = 'Your investment cost: <strong>' + efo + '</strong> ' + mytoken;
 }
 
 var hideWheel = function() {
@@ -408,7 +408,8 @@ olslider11.oninput = function() {
 }
 
 var goDown = function() {
-    $('html, body').animate({scrollTop: $('.othercalculator').height()*0.8}, 1000);
+    $('html, body').animate({scrollTop: $('.othercalculator').height()*0.8}, 2000);
+    $('.firstsection').css({'margin-bottom':'-75px', 'transition':'1s'});
 }
 
 
@@ -432,7 +433,7 @@ updateBarLeader(olvalue, 'obarl', 0, false);
 lslider1.oninput = function() {
     lvalue = parseFloat(lslider1.value);
     efo = lvalue;
-    efo1 = efo;
+    // efo1 = efo;
 
     updateBarLeader(lvalue, 'barl', 1, true);
     updateAll();
@@ -449,6 +450,7 @@ lslider1.oninput = function() {
 olslider1.oninput = function() {
     olvalue = parseFloat(olslider1.value);
     oefo = olvalue;
+    // oefo1 = oefo;
 
     updateBarLeader(olvalue, 'obarl', 0, true);
     updateAll();

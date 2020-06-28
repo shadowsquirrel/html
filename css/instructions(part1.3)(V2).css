@@ -602,11 +602,13 @@
 .left
 {
     /* margin-right: 50px; */
+    background-color: rgb(80, 80, 80);
 }
 .right
 {
     /* margin-right: 50px; */
     /* margin-top: 25px; */
+    background-color: rgb(225, 225, 225);
 }
 
 
@@ -648,7 +650,7 @@
 /*Some left space for the axis for the slider+bar setup*/
 .l
 {
-    margin-right: 22px;
+    /* margin-right: 22px; */
 }
 /************************************************/
 /* VERTICAL AND SLIDER ARE BOTH FOR SLIDER*/
@@ -1430,7 +1432,7 @@ img.dice
 {
     opacity:0;
     transition:1s;
-    transition-delay:15s;
+    transition-delay:16s;
 }
 .rank0
 {
@@ -1439,6 +1441,12 @@ img.dice
 .rank1
 {
     transition-delay:1.5s;
+}
+.rank15
+{
+    transition-delay:9s;
+    margin-left:484px;
+    margin-top: -39px;
 }
 .rank2
 {

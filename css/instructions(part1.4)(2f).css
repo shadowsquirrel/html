@@ -1390,7 +1390,16 @@ input:checked + .checkslider:before {
     /* height: 5px; */
     /* width: 10px; */
 }
-
+.dottedred5
+{
+    transition:0.35s;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 2px dotted red;
+    padding-left:20px;
+    /* height: 5px; */
+    /* width: 10px; */
+}
 .dottedgreen
 {
     /* margin-left: 10px; */

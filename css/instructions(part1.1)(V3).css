@@ -475,6 +475,7 @@
 /************************************************/
 .lslider
 {
+    cursor: pointer;
     z-index: 1;
     position: absolute;
     -webkit-appearance: none;
@@ -548,6 +549,7 @@
 /************************************************/
 .lslider2
 {
+    cursor: pointer;
     z-index: 1;
     position: absolute;
     -webkit-appearance: none;

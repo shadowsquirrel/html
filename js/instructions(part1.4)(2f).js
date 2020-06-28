@@ -1088,6 +1088,7 @@ b1.onclick = function() {
         scrollTop: $('.mc2').height()*1.1
     }, 1000);
 }
+
 var b2 = document.getElementById('b2');
 b2.onclick = function() {
     var myheight = $('.mc2').height();
@@ -1099,8 +1100,6 @@ b2.onclick = function() {
     $('.dottedblue2').css({'border':'2px dotted white'});
     $('.switchwrap').css({'opacity':'1'});
 }
-
-
 
 var b25 = document.getElementById('b25');
 b25.onclick = function() {
@@ -1114,9 +1113,6 @@ b25.onclick = function() {
         scrollTop: $(document).height()
     }, 1000);
 }
-
-
-
 
 var b3 = document.getElementById('b3');
 b3.onclick = function() {
