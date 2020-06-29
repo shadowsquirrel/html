@@ -1456,3 +1456,8 @@ img.dice
 {
     transitional-delay:13.5s;
 }
+.myline
+{
+    border-bottom: 2px solid;
+    text-decoration: none;
+}

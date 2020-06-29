@@ -201,8 +201,8 @@
 {
     z-index:1;
     stroke:blue;
-    stroke-width:1.5;
-    stroke-dasharray: 5,5;
+    stroke-width:2;
+    /* stroke-dasharray: 5,5; */
     marker-end:url(#markerArrowblue);
     opacity: 0.05;
     transition: 3s  ease-in-out;
@@ -211,8 +211,8 @@
 {
     z-index:1;
     stroke:red;
-    stroke-width:1.5;
-    stroke-dasharray: 5,5;
+    stroke-width:2;
+    stroke-dasharray: 5,3;
     marker-end:url(#markerArrowred);
     opacity: 0.05;
     transition: 3s  ease-in-out;
@@ -296,15 +296,25 @@
     font-size:18px;
     /* transition: 3s  ease-in-out; */
 }
+.dottedl
+{
+    border-bottom: 2px dashed;
+    text-decoration: none;
+}
+.myline
+{
+    border-bottom: 2px solid;
+    text-decoration: none;
+}
 .redtext
 {
-    opacity: 0.7;
+    opacity: 0.9;
     color: black;
     transition: 3s  ease-in-out;
 }
 .bluetext
 {
-    opacity: 0.7;
+    opacity: 0.9;
     color: black;
     transition: 3s  ease-in-out;
 }

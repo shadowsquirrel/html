@@ -211,6 +211,7 @@
     z-index:1;
     stroke:red;
     stroke-width:1;
+    stroke-dasharray: 5,3;
     marker-end:url(#markerArrowred);
     opacity: 1;
     transition: 2s;
@@ -259,7 +260,7 @@
 }
 .straighttext
 {
-    /* padding-top:30px; */
+    /* padding-top:10px; */
     text-align: left;
 }
 .straighttext2
@@ -295,6 +296,16 @@
     font-size:18px;
     /* transition: 3s  ease-in-out; */
 }
+.dottedl
+{
+    border-bottom: 2px dashed;
+    text-decoration: none;
+}
+.myline
+{
+    border-bottom: 2px solid;
+    text-decoration: none;
+}
 .redtext
 {
     font-weight: 500;
@@ -308,4 +319,17 @@
     opacity: 1;
     color: black;
     transition: 1s  ease-in-out;
+}
+.rows1
+{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-top:10px;
+    padding-bottom:15px;
+}
+.columns1
+{
+    dislay: flex;
+    flex-direction: column;
 }

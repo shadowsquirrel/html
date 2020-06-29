@@ -74,6 +74,7 @@
 .limited
 {
     max-width: 1370px;
+    /* text-align:left; */
     /* padding-top: 30px; */
 }
 

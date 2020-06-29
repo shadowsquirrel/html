@@ -20,7 +20,12 @@
 .wrap
 {
     display: flex;
+/*
+    width: 100%;
+    height: 600px; */
     justify-content: center;
+    /* margin-left: 90px; */
+    /* border: 5px solid black; */
 }
 /************************************************/
 /************************************************/
@@ -29,12 +34,19 @@
 /************************************************/
 /************************************************/
 .all{
+    /* margin-top: 20%;
+    margin-bottom: 20%;
+
+    height:300px;
+    width: 300px; */
+
     display:flex;
     flex-direction: column;
-    margin-left: 10%;
-    margin-right: 10%;
-    /* text-align: left; */
+    margin-left: 15%;
+    margin-right: 15%;
     text-align: center;
+    /* justify-content:center; */
+    /* border: 5px solid black; */
 }
 /************************************************/
 /************************************************/
@@ -54,27 +66,40 @@
 /************************************************/
 /************************************************/
 .sinfo{
-    transition: 0.35s;
     flex-grow: 1;
-    padding-bottom: 10px;
-    opacity:1;
-    height:100%;
+    /* justify-content: center; */
+    /* border: 5px solid black; */
+    /* width:900px; */
+    /* background-color: gray; */
+    margin-bottom: 35px;
 }
-.sinfotitle
+
+.sinfotextandgraphics
 {
-    margin-bottom: 20px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+
 }
 .sinfotext
 {
+    /* font-weight:500; */
+    text-align: left;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    /* text-align: center; */
+    flex-grow: 1;
+    /* border: 5px solid black; */
+    /* max-width: 500px; */
+
 }
 .limited
 {
-    max-width: 1370px;
-    /* padding-top: 30px; */
+    padding-top:30px;
+    max-width: 1100px;
 }
 
 .noselect {
@@ -103,18 +128,19 @@
 .sexplain
 {
     /* height:0px; */
-    /* opacity:0; */
-    /* z-index:-2; */
-    /* margin-top: 20px; */
+    position: absolute;
+    opacity:0;
+    z-index:-2;
+    margin-top: 20px;
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* transition: 0.15s ease-in-out; */
+    /* transition: 0.1s ease-in-out; */
 }
 .stagetextwrap
 {
-    /* padding-top:20px; */
+    padding-top:20px;
     padding-bottom:20px;
 }
 .ontop
@@ -123,11 +149,9 @@
 }
 .allboxwrap
 {
-    margin-bottom:30px;
     display:flex;
     flex-direction: row;
     justify-content: center;
-    /* transition: 0.15s ease-in-out; */
 }
 .sboxwrap
 {
@@ -156,9 +180,9 @@
     height: 50px;
     width: 75px;
     background-color: rgb(80, 80, 80);
-    border: 3px solid rgb(160, 160, 160);
+    border: solid rgb(160, 160, 160)3px;
     opacity: 0.5;
-    transition: 2s  ease-in-out;
+    transition: 0.5s
 }
 
 .stageboxtext
@@ -189,47 +213,13 @@
     background-color: white;
     opacity: 1;
 }
-.wa5
-{
-    opacity:0;
-}
 .arrow
 {
     stroke:black;
     stroke-width:1;
     marker-end:url(#markerArrow);
     opacity: 1;
-    transition: 1s  ease-in-out;
-}
-.bluearrow
-{
-    z-index:1;
-    stroke:blue;
-    stroke-width:2;
-    /* stroke-dasharray: 5,5; */
-    marker-end:url(#markerArrowblue);
-    opacity: 0.05;
-    transition: 1s  ease-in-out;
-}
-.redarrow
-{
-    z-index:1;
-    stroke:red;
-    stroke-width:2;
-    stroke-dasharray: 5,3;
-    marker-end:url(#markerArrowred);
-    opacity: 0.05;
-    transition: 1s  ease-in-out;
-}
-.b5
-{
-
-    transition: 1s  ease-in-out;
-}
-.b4
-{
-
-    transition: 1s  ease-in-out;
+    transition: 0.5s;
 }
 .somespacedown
 {
@@ -254,7 +244,7 @@
     background-color: black;
     color: white;
     opacity:0.2;
-    /* transition: 0.35s; */
+    transition: 0.35s;
 
 }
 
@@ -272,53 +262,186 @@
     display: flex;
     justify-content: center;
 }
-.straighttext
+
+/***************************************/
+/***************************************/
+/***************************************/
+/***************************************/
+/***************************************/
+/***************************************/
+/*************   SEXPLAIN MINI *********/
+/***************************************/
+/***************************************/
+/***************************************/
+/***************************************/
+/***************************************/
+/***************************************/
+.sexplain2
 {
-    padding-top:30px;
-    text-align: left;
-}
-.straighttextwrap
-{
-    padding-left: 83px;
+    /* height:0px; */
+    /* opacity:0; */
+    /* z-index:-2; */
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
+    /* transition: 0.1s ease-in-out; */
 }
-.straighttexttitlef
+.stagetextwrap2
 {
-    /* opacity: 0.7; */
-    /* color: red; */
-    font-weight:700;
-    font-size:18px;
-    /* transition: 3s  ease-in-out; */
+    padding-top:20px;
+    padding-bottom:20px;
 }
-.straighttexttitlel
+.ontop2
+{
+    z-index:1;
+}
+.allboxwrap2
+{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.sboxwrap2
+{
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+}
+.aboxwrap2
+{
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.aboxdoublewrap2
+{
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+}
+.sbox2
+{
+    height: 14px;
+    width: 17px;
+    background-color: rgb(80, 80, 80);
+    border: solid rgb(160, 160, 160)3px;
+    opacity: 0.5;
+    transition: 0.5s
+}
+.abox2
+{
+    height: 48px;
+    width: 26px;
+    background-color: white;
+    opacity: 1;
+}
+.aboxdouble2
+{
+    height: 120px;
+    width: 27px;
+    background-color: white;
+    opacity: 1;
+}
+.arrow2
+{
+    stroke:black;
+    stroke-width:1;
+    marker-end:url(#markerArrow);
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.somespacedown2
+{
+    margin-bottom:10px;
+}
+.somespacedowndown2
+{
+    margin-bottom:38px;
+}
+.somespaceup2
+{
+    margin-top:10px;
+}
+.only4
+{
+    /* opacity: 0;
+    z-index:-10; */
+}
+.my4to56
 {
 
-    /* color: blue; */
-    font-weight:700;
-    font-size:18px;
-    /* transition: 3s  ease-in-out; */
 }
-.dottedl
+.my5to6
 {
-    border-bottom: 2px dashed;
-    text-decoration: none;
+
 }
-.myline
+/************************************/
+img.sbutton
 {
-    border-bottom: 2px solid;
-    text-decoration: none;
+    margin-left: 5px;
+    margin-right:5px;
+    width: 20px;
+    height: 20px;
 }
-.redtext
+
+
+.dicewrap
 {
-    opacity: 0.9;
-    color: black;
-    transition: 1s  ease-in-out;
+    /* position: absolute; */
+    opacity:1;
+    transition: 1s;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
-.bluetext
+.extradicewrap
 {
-    opacity: 0.9;
-    color: black;
-    transition: 1s  ease-in-out;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.dice
+{
+    transition-delay:1s;
+    transition:3s;
+}
+img.dice2
+{
+    margin-left: 5px;
+    margin-right:5px;
+    width: 30px;
+    height: 30px;
+}
+img.dice
+{
+    padding: 5px;
+    border-collapse: separate;
+    border-spacing: 15px;
+    opacity: 0.7;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    outline: none;
+    /* color: #fff; */
+    background-color: white;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 6px black;
+    transition: 0.15s;
+}
+.dice:hover
+{
+    opacity: 1;
+}
+.dice:active {
+  /* background-color: #3e8e41; */
+  box-shadow: 0 2px black;
+  transform: translateY(2px);
 }

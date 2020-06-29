@@ -680,7 +680,8 @@
 }
 .after2
 {
-    transition-delay: 9s
+    transition:1s;
+    transition-delay: 8s;
 }
 .evenlater
 {
@@ -753,5 +754,11 @@
 .dontshow
 {
     position:absolute;
+    opacity:0;
+}
+.continueButton
+{
+    transition:1s;
+    transition-delay:5s;
     opacity:0;
 }

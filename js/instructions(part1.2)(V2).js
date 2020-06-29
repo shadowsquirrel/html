@@ -506,7 +506,7 @@ var efivalue;
 var firsttime = true;
 efislider.oninput = function() {
     // $('.wheelresult2').css({'opacity':'1'});
-    $('.after2').css({'opacity':'0'});
+
 
 
     efivalue = parseFloat(efislider.value);
@@ -526,8 +526,9 @@ efislider.oninput = function() {
     $('.wheelresult').css({'opacity':'0'});
     theWheel.stopAnimation(false);
     canClickArrow = true;
+
     if(firsttime) {
-        setTimeout('goDown()', 30000);
+        setTimeout('goDown()', 40000);
     }
 
 
@@ -537,12 +538,13 @@ efislider.oninput = function() {
 var goDown = function() {
     if(firsttime) {
         // $('.after2').css({'height':'1px'});
+        $('.evenlater').css({'transition-delay':'0s', 'transition':'1s', 'margin-top':'-114px', 'opacity':'0', 'z-index':'-2'});
         $('.fadeout').css({'opacity':'1'});
         $('.showmore').css({'opacity':'1'});
         $('html, body').animate({
             scrollTop: $(document).height()
         }, 4000);
-        $('.sinfo').css({'margin-bottom':'-80px', 'transition':'3s', 'z-index':'5'});
+        $('.continueButton').css({'opacity':'1'});
         firsttime = false;
     }
 }
@@ -619,3 +621,12 @@ $('#olSlider1').hover(
 $('html, body').animate({scrollTop: 0}, 0);
 $('.firstfadein').css({'opacity':'1'});
 $('.evenlater').css({'opacity':'1'});
+$('.evenlater2').css({'opacity':'1'});
+setTimeout('goDown2()', 25000);
+
+var goDown2 = function() {
+    $('.after2').css({'transition-delay':'0s', 'opacity':'0'});
+    $('html, body').animate({scrollTop: $(document).height()*0.05}, 2000);
+    $('.sinfo').css({'margin-bottom':'-80px', 'transition':'3s', 'z-index':'5'});
+    console.log('testing testing testing');
+}
