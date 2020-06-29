@@ -129,7 +129,7 @@
 {
     /* height:0px; */
     /* position: absolute; */
-    opacity:0;
+    /* opacity:0; */
     transition:2s;
 
     /* z-index:-2; */
@@ -293,35 +293,35 @@
 .fadein
 {
 
-    transition-delay:20s
+    /* transition-delay:20s */
 }
 .f1
 {
-    opacity:0;
+    /* opacity:0; */
     transition:2s;
-    transition-delay: 0s;
+    /* transition-delay: 0s; */
 }
 .f2
 {
-    opacity:0;
+    /* opacity:0; */
     transition:2s;
-    transition-delay: 15s;
+    /* transition-delay: 15s; */
 }
 .f3
 {
-    opacity:0;
+    /* opacity:0; */
     transition:2s;
-    transition-delay:20s;
+    /* transition-delay:20s; */
 }
 .f4
 {
-    opacity:0;
+    /* opacity:0; */
     transition:1s;
-    transition-delay: 29s;
+    /* transition-delay: 29s; */
 }
 .continueButton
 {
-    opacity:0;
+    /* opacity:0; */
     transition:1s;
-    transition-delay: 33s;
+    /* transition-delay: 33s; */
 }
