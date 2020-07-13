@@ -457,6 +457,7 @@
 }
 .left_ltitle
 {
+    font-weight:800;
     /* margin-left: -50px; */
 
 }
@@ -597,12 +598,14 @@
 /* Simple text classes*/
 .right_title
 {
+    font-weight:800;
     /* margin-right: 50px; */
 }
 
 .ftitle
 {
     margin-top: 20px;
+    font-weight:800;
 }
 .you
 {
@@ -1098,28 +1101,28 @@
 {
 
     z-index:0;
-    opacity:0.1;
-    padding-left: 190px;
+    opacity:1;
+    padding-left: 227px;
     margin-top: -22px;
     font-weight: 500;
-    font-size: 10px;
+    font-size: 12px;
     transition: .35s ease-in-out;
 }
 .ldecisiontext2
 {
 
     z-index:0;
-    opacity:0.1;
-    padding-left: 225px;
-    margin-top: -22px;
+    opacity:1;
+    padding-left: 259px;
+    margin-top: -24px;
     font-weight: 500;
-    font-size: 10px;
+    font-size: 12px;
     transition: .35s ease-in-out;
 }
 .yourdecisiontext
 {
-    margin-left: -40px;
-    font-weight: 200;
+    /* margin-left: -40px; */
+    font-weight: 700;
     font-size: 22px;
     transition: font-weight .35s ease-in-out;
     margin-top: -2px;
@@ -1134,26 +1137,26 @@
 {
     padding-left:35px;
     padding-right:50px;
-    opacity:0.1;
+    opacity:1;
     padding-top: 15px;
     /* margin-left: -160px; */
     margin-top: -2px;
     margin-bottom: -2px;
     font-weight: 500;
-    font-size: 10px;
+    font-size: 12px;
     transition: .35s ease-in-out;
 }
 .yourdecisiontext22
 {
     padding-left:35px;
     padding-right:50px;
-    opacity:0.1;
+    opacity:1;
     padding-top: 15px;
     /* margin-left: -160px; */
     margin-top: -2px;
     margin-bottom: -2px;
     font-weight: 500;
-    font-size: 10px;
+    font-size: 12px;
     transition: .35s ease-in-out;
 }
 .yourdecisiontext4wrap
@@ -1168,26 +1171,26 @@
 {
     padding-left:36px;
     padding-right:49px;
-    opacity:0.1;
+    opacity:1;
     padding-top: 15px;
     /* margin-left: -160px; */
     margin-top: -2px;
     margin-bottom: -2px;
     font-weight: 500;
-    font-size: 10px;
+    font-size: 12px;
     transition: .35s ease-in-out;
 }
 .yourdecisiontext42
 {
     padding-left:35px;
     padding-right:50px;
-    opacity:0.1;
+    opacity:1;
     padding-top: 15px;
     /* margin-left: -160px; */
     margin-top: -2px;
     margin-bottom: -2px;
     font-weight: 500;
-    font-size: 10px;
+    font-size: 12px;
     transition: .35s ease-in-out;
 }
 /************************************************/
@@ -1365,7 +1368,7 @@ input:checked + .checkslider:before {
 {
     margin-left: 10px;
     margin-right: 10px;
-    border: 2px dotted blue;
+    border: 2px solid blue;
     padding-left:20px;
     /* height: 5px; */
     /* width: 10px; */
@@ -1375,7 +1378,7 @@ input:checked + .checkslider:before {
     transition: 0.35s;
     margin-left: 10px;
     margin-right: 10px;
-    border: 2px dotted white;
+    border: 2px solid white;
     /* padding-left:20px; */
     /* height: 5px; */
     /* width: 10px; */
@@ -1385,7 +1388,7 @@ input:checked + .checkslider:before {
     transition:0.35s;
     margin-left: 10px;
     margin-right: 10px;
-    border: 2px dotted red;
+    border: 2px solid red;
     padding-left:20px;
     /* height: 5px; */
     /* width: 10px; */
@@ -1395,7 +1398,7 @@ input:checked + .checkslider:before {
     transition:0.35s;
     margin-left: 10px;
     margin-right: 10px;
-    border: 2px dotted red;
+    border: 2px solid red;
     padding-left:20px;
     /* height: 5px; */
     /* width: 10px; */
@@ -1404,7 +1407,7 @@ input:checked + .checkslider:before {
 {
     /* margin-left: 10px; */
     margin-right: 10px;
-    border: 3px dotted green;
+    border: 3px solid green;
     padding-left:20px;
     /* height: 5px; */
     /* width: 10px; */
@@ -1635,9 +1638,17 @@ img.switch2
 
 
 
+.multibutton
+{
+    opacity:0;
+    transition:1s;
+}
 
-
-
+.son
+{
+    opacity:0;
+    transition:1s;
+}
 
 
 

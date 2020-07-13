@@ -74,6 +74,8 @@
 .limited
 {
     max-width: 1370px;
+    margin-top:-132px;
+
     /* padding-top: 30px; */
 }
 
@@ -126,6 +128,7 @@
     display:flex;
     flex-direction: row;
     justify-content: center;
+    margin-top:-10px;
 }
 .sboxwrap
 {
@@ -152,26 +155,29 @@
 .sbox
 {
     height: 50px;
-    width: 75px;
-    background-color: rgb(80, 80, 80);
-    border: solid rgb(160, 160, 160)3px;
-    opacity: 0.5;
+    width: 79px;
+    background-color: white;
+    border: 5px solid black;
+    opacity: 1;
     transition: 0.5s
 }
 
 .stageboxtext
 {
-    padding-top: 9px;
-    font-size: 16px;
+    font-weight:800;
+    padding-top: 1px;
+    font-size: 24px;
     text-align: center;
-    color: white;
+    color: black;
 }
 .stageboxtextlong
 {
-    padding-top: 13px;
-    font-size: 11px;
+    /* padding-top: 13px; */
+    font-size: 17px;
     text-align: center;
-    color: white;
+    color: black;
+    font-weight: 800;
+    margin-top:-5px;
 }
 .abox
 {
@@ -241,44 +247,91 @@
 .f1
 {
     opacity:0;
-    transition:0.75s;
-    transition-delay:0s;
+    transition:1.5s;
+    /* transition-delay:0s; */
 
 }
 
 .f2
 {
     opacity:0;
-    transition:0.75s;
-    transition-delay:5.5s;
+    transition:1.5s;
+    transition-delay:6s;
 }
 .f3
 {
     opacity:0;
-    transition:0.75s;
+    transition:1.5s;
     transition-delay:10s;
 }
 .f4
 {
+    text-align: right;
+    margin-left:600px;
+    margin-top:-120px;
     opacity:0;
-    transition:0.75s;
-    transition-delay:17s;
+    transition:1.5s;
+    transition-delay:14s;
+    width:300px;
 }
-.f5
+.f50
 {
+    /* padding-top:15px; */
+    text-align: right;
+    margin-left:600px;
     opacity:0;
-    transition:0.75s;
-    transition-delay:27s;
+    transition:1.5s;
+    transition-delay:20s;
+    width:300px;
+}
+.f51
+{
+    text-align: center;
+    padding-top:40px;
+    /* margin-left:600px; */
+    opacity:0;
+    transition:1.5s;
+    transition-delay:26s;
+    /* width:300px; */
+}
+.f52
+{
+    text-align: center;
+    padding-top:5px;
+    /* margin-left:600px; */
+    opacity:0;
+    transition:1.5s;
+    transition-delay:32s;
+    /* width:300px; */
 }
 .f6
 {
+    padding-top:100px;
     opacity:0;
-    transition:2s;
-    transition-delay:28.5s;
+    transition:1.5s;
+    transition-delay:38s;
 }
 .f7
 {
     opacity:0;
-    transition:2s;
-    transition-delay:31s;
+    transition:1.5s;
+    transition-delay:38s;
+}
+
+img.bracket
+{
+    width: 900px;
+    height: 138px;
+    margin-top:-57px
+}
+img.repeat
+{
+    width: 100px;
+    height: 100px;
+    margin-top:-20px;
+}
+.periodtext
+{
+    font-weight:800;
+    font-size:27px;
 }

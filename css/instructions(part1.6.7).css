@@ -123,6 +123,7 @@
 }
 .allboxwrap
 {
+
     margin-bottom:30px;
     display:flex;
     flex-direction: row;
@@ -154,26 +155,28 @@
 .sbox
 {
     height: 50px;
-    width: 75px;
-    background-color: rgb(80, 80, 80);
-    border: 3px solid rgb(160, 160, 160);
-    opacity: 0.5;
-    transition: 2s
+    width: 79px;
+    background-color: white;
+    border: 5px solid black;
+    opacity: 0;
+    transition: 1s
 }
 
 .stageboxtext
 {
-    padding-top: 9px;
-    font-size: 16px;
+    margin-top:-9px;
+    font-size: 38px;
     text-align: center;
-    color: white;
+    color: black;
+    font-weight:800;
 }
 .stageboxtextlong
 {
-    padding-top: 13px;
-    font-size: 11px;
+    /* padding-top: 13px; */
+    font-size: 14px;
     text-align: center;
-    color: white;
+    color: black;
+    font-weight:800;
 }
 .abox
 {
@@ -194,7 +197,7 @@
     stroke:black;
     stroke-width:1;
     marker-end:url(#markerArrow);
-    opacity: 1;
+    opacity: 0;
     transition: 2s;
 }
 .bluearrow
@@ -310,14 +313,14 @@
 {
     font-weight: 500;
     opacity: 1;
-    color: black;
+    color: red;
     transition: 1s  ease-in-out;
 }
 .bluetext
 {
     font-weight: 500;
     opacity: 1;
-    color: black;
+    color: blue;
     transition: 1s  ease-in-out;
 }
 .rows1
@@ -332,4 +335,296 @@
 {
     dislay: flex;
     flex-direction: column;
+}
+/*********************/
+.d1
+{
+    opacity:0;
+    transition:1s;
+    transition-delay:0s;
+}
+.d2
+{
+    opacity:0;
+    transition:1s;
+    transition-delay:0s;
+}
+.d3
+{
+    opacity:0;
+    transition:1s;
+    transition-delay:0s;
+}
+.d4
+{
+    opacity:0;
+    transition:1s;
+    transition-delay:0s;
+}
+.d5
+{
+    opacity:0;
+    transition:1s;
+    transition-delay:1.5s;
+}
+.d6
+{
+    opacity:0;
+    transition:1s;
+    transition-delay:2s;
+}
+.d7
+{
+    opacity:0;
+    transition:1s;
+    transition-delay:2.5s;
+}
+.d8
+{
+    opacity:0;
+    transition:1s;
+    transition-delay:3s;
+}
+.d9
+{
+    opacity:0;
+    transition:1s;
+    transition-delay:3.5s;
+}
+.d10
+{
+    opacity:0;
+    transition:1s;
+    transition-delay:4s;
+}
+.d11
+{
+    opacity:0;
+    transition:1s;
+    transition-delay:5.5s;
+}
+.d12
+{
+    opacity:0;
+    transition:1s;
+    transition-delay:10s;
+}
+.d13
+{
+    opacity:0;
+    transition:1s;
+    transition-delay:20s;
+}
+.d14
+{
+    opacity:0;
+    transition:1s;
+    transition-delay:13s;
+}
+/********************/
+.songoster
+{
+    opacity:0;
+    transition:1s;
+    transition-delay:27s;
+}
+
+/*stage classes*/
+.stagetextwraptext
+{
+    transition:1s;
+    /* transition-delay:0s; */
+}
+.stagetextwrap
+{
+    transition:0.5s;
+    transition-delay:0.15s;
+}
+.stagetextwrap1
+{
+    margin-top:-307px;
+    transition:0.5s;
+    transition-delay:0.15s;
+    opacity:0;
+    /* padding-top:20px; */
+    padding-bottom:20px;
+}
+
+.stagetextwrap2
+{
+    margin-top:-189px;
+    transition:0.5s;
+    transition-delay:0.15s;
+    opacity:0;
+    /* padding-top:20px; */
+    padding-bottom:20px;
+}
+.stagetextwrap3
+{
+    margin-top:-107px;
+    transition:0.5s;
+    transition-delay:0.15s;
+    opacity:0;
+    /* padding-top:20px; */
+    padding-bottom:20px;
+}
+.stagetextwrap4
+{
+    margin-top:-127px;
+    transition:0.5s;
+    transition-delay:0.15s;
+    opacity:0;
+    /* padding-top:20px; */
+    padding-bottom:20px;
+}
+.stagetextwrap5
+{
+    margin-top:-181px;
+    transition:0.5s;
+    transition-delay:0.15s;
+    opacity:0;
+    /* padding-top:20px; */
+    padding-bottom:20px;
+}
+.stagetextwrap6
+{
+    margin-top:-142px;
+    transition:0.5s;
+    transition-delay:0.15s;
+    opacity:0;
+    /* padding-top:20px; */
+    padding-bottom:20px;
+}
+
+
+/*stage 3 text classes*/
+.leftrightwrap
+{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.rightpart
+{
+    display:flex;
+    flex-direction:column;
+}
+.leftpart
+{
+    display:flex;
+    flex-direction:column;
+}
+
+.s3text1
+{
+
+    font-weight:800;
+    font-size:20px;
+
+}
+
+.s3text2
+{
+
+    font-size:13px;
+    margin-top:-20px;
+
+}
+.s3text3
+{
+
+        font-weight:800;
+        font-size:20px;
+}
+.stagetextwrap1
+{
+    margin-top:-350px;
+    transition:0.5s;
+    transition-delay:0.15s;
+    opacity:0;
+    /* padding-top:20px; */
+    padding-bottom:20px;
+}
+
+.stagetextwrap2
+{
+    margin-top:-203px;
+    transition:0.5s;
+    transition-delay:0.15s;
+    opacity:0;
+    /* padding-top:20px; */
+    padding-bottom:20px;
+}
+.stagetextwrap3
+{
+    margin-top:-160px;
+    transition:0.5s;
+    transition-delay:0.15s;
+    opacity:0;
+    /* padding-top:20px; */
+    padding-bottom:20px;
+}
+.stagetextwrap4
+{
+    margin-top:-172px;
+    margin-right:-102px;
+    transition:0.5s;
+    transition-delay:0.15s;
+    opacity:0;
+    /* padding-top:20px; */
+    padding-bottom:20px;
+}
+.stagetextwrap5
+{
+    margin-top:-259px;
+    transition:0.5s;
+    transition-delay:0.15s;
+    opacity:0;
+    /* padding-top:20px; */
+    padding-bottom:20px;
+}
+.stagetextwrap6
+{
+    margin-top:-220px;
+    transition:0.5s;
+    transition-delay:0.15s;
+    opacity:0;
+    /* padding-top:20px; */
+    padding-bottom:20px;
+}
+.stagetextwrap7
+{
+    margin-top:-255px;
+    transition:0.5s;
+    transition-delay:0.15s;
+    opacity:0;
+    /* padding-top:20px; */
+    padding-bottom:20px;
+}
+.stagetextwrap8
+{
+    margin-top:-172px;
+    transition:0.5s;
+    transition-delay:0.15s;
+    opacity:0;
+    /* padding-top:20px; */
+    padding-bottom:20px;
+}
+.someimagewrap
+{
+    display:flex;
+}
+img.hover
+{
+    z-index:-10;
+    opacity:0;
+    float:left;
+    margin-left:155px;
+    margin-top:-75px;
+    margin-bottom:-100px;
+    width: 40px;
+    height: 50px;
+    transition:2s;
+    /* background-color:orange; */
+    /* margin-top:-20px; */
 }

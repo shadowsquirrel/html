@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/instructions(part1.2)(V2)(2fhetero).css">
+    <script src='js/Winwheel.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <title>Page Title</title>
+</head>
+<body>
+
+    <div class='upperbar'>
+        <button class='continueButton' onclick="window.location.href='./Instructions(part1.3)(V3)(2f).htm'">Continue</button>
+        <!-- <button class='continueButton' onclick="window.location.href='./Instructions(part1.6.0).htm'">Continue(alternative path)</button> -->
+        <!-- <button class=multibutton id=multibutton>Y</button>
+        <button class=multibutton id=multibutton2>X<span id='buttonname'></span></button> -->
+    </div>
+    <div class = 'wrap noselect'>
+
+        <div class = 'all'>
+
+            <div class = 'sinfo' id='sinfo'>
+
+                <div class = 'sinfotitle' style='margin-bottom:-20px;'>
+                    <h3>INSTRUCTIONS</h3>
+                </div>
+
+                <div class = 'sinfotext firstfadein initial'>
+                    <p style='font-size: 22px;'> Relative Investment Power </span></p>
+
+
+                </div>
+
+                <div class ='sinfotext limited firstfadein after1'>
+                    <p class ='later1'>
+                        Players may have <strong>different investment power</strong>.
+                    </p>
+                    <p class ='later15'>
+                        A player with <strong>relatively high</strong> investment power can have a <strong>larger share</strong> of the wheel <strong>for every token</strong> spent.
+                    </p>
+                    <p class ='later175'>
+                        Investment <strong>power</strong> does <strong>not depend</strong> on the investment <strong>level</strong>.
+                    </p>
+                </div>
+
+                <div class=anotherwrap>
+                    <p class='firstfadein after2 usesection1' style='z-index:4;margin-bottom:12px; margin-left:-6px;'>
+                        Move
+                    </p>
+                    <p class='firstfadein after2 usesection1' style='z-index:4; margin-left: -7px;'>
+                        <img id="someid" class='efiimage' style='margin-right:5px;' src="images/efi.png" alt="V" />
+                    </p>
+
+                    <div class=anotherwrap2>
+                        <p class='firstfadein after2 movesection1' style='text-align:left;z-index:4;'>
+
+                             <strong>left</strong>   to   <strong>decrease</strong>
+                        </p>
+
+                        <p class='firstfadein after2 usesection2' style='z-index:4;'>
+                            <span class='dottedbluespecial'></span>
+                        </p>
+
+                        <p class='firstfadein after2 movesection1' style='z-index:4;'>
+                             <strong>right</strong>   to   <strong>increase</strong>
+
+                        </p>
+
+                    </div>
+                    <p class='firstfadein after2 usesection1' style='z-index:4;'>
+                        <strong>your</strong> power
+                    </p>
+
+                </div>
+
+
+
+
+            </div>
+
+            <div class = 'calculator firstfadein' id='calculator'>
+
+                <div class = 'topsection kaybet'>
+
+                    <div class = 'leadergroupleft'>
+                        <h6 class = 'left_ltitle'>Tokens invested by <strong>You</strong></h6>
+                        <div class = 'sliderbarleader left'>
+                            <input type='range' min = '0' max = '700' class = 'lslider' value = '200' id = 'lSlider1' />
+                            <div id = 'barl' class = 'lbar1'></div>
+                        </div>
+                    </div>
+
+
+                    <div class = 'leadergraphics'>
+                        <div class='wheelresult'>
+                            <p>
+                                <span class=wheelresulttext id=wheelresulttext></span>
+                            </p>
+                        </div>
+                        <div class = 'arrowwrap'>
+                            <div class='wheelpiewrap'>
+                                <!-- <img id="arrow" class='arrow' src="images/arrow.png" alt="V" /> -->
+                                <div id='wheelpie' class='wheelpie'>
+                                    <!-- <canvas id='mywheel' class='mywheel' width='250' height='250'>
+                                        Canvas not supported, use another browser.
+                                    </canvas> -->
+                                    <div class='piewrap'>
+                                        <div class='s3pie' id='pie'></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class = 'leadergroupright'>
+                        <h6  class = 'right_title'>Tokens investede by <strong>Opponent</strong> - <strong>HYPOTHETICAL</strong></h6>
+                        <div class = 'sliderbarleader lright'>
+                            <input type='range' min = '0' max = '700' class = 'lslider' value = '200' id = 'olSlider1' />
+                            <div id = 'obarl' class = 'lbar2'></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class = 'middlesection kaybet'>
+                    <div class = 'sliderbarefi'>
+                        <input type='range' min = '-99' max = '99' class = 'efislider' value = '0' id = 'efiSlider' />
+                        <div id = 'efficiencyBar' class = 'efficiencyBar'></div>
+                    </div>
+                    <h6 style = 'z-index:1;'>Relative Investment Power</h6>
+                </div>
+
+
+                <div class=buttontextwrap>
+
+                    <div class ='sinfotext firstfadein3' style='margin-top:5px; flex-direction:column; flex-grow:2;'>
+                        <p style='text-align:left;'>
+                            Values inside <span class='dottedblue2'><span class='darkgray'></span> &#9668; &#x25BA; <span class='white'></span> </span>represent the per unit relative investment power of players.
+                        </p>
+                        <p style='text-align:left;'>
+                            For instance, <span class='dottedblue2'>  <span class='darkgray'>5</span> &#9668; &#x25BA; <span class='white2'>1</span> </span> implies that every token you invest is worth 5 tokens invested by the opponent.
+                        </p>
+
+                    </div>
+
+                    <div class='dicewrap abitlater'>
+                        <p>
+                            Click <img id="someid" class='eimage' src="images/example.png" alt="V" /> for examples.
+                        </p>
+                        <img id="exampleButton" class='dice' src="images/example.png" alt="V" />
+                    </div>
+
+                </div>
+
+
+
+                <div class ='sinfotext firstfadein2' style='margin-top:10px; margin-bottom:25px;'>
+
+                    <p style='padding-top:20px;;'>
+                        A player with <strong>high power</strong> can occupy a <u>significant portion of the wheel</u> with <strong>relatively low</strong> amount of tokens invested.
+                    </p>
+                    <p style='text-align:center; margin-left:102px;' class='somesmalladjustment'>
+                        A player with <strong>low power</strong> has a <strong>disadvantage</strong> in the contest.
+                        <img id="exampleButton2" class='dice3' src="images/example.png" alt="V" />
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class ='sinfotext showmore mytable'>
+                <div class='bothside2'>
+
+                    <div  class='leftside2'>
+                        <p style='text-align:center;padding-left:12px; text-decoration:underline;'>
+                            <strong>Power</strong> in the <strong>Leaders' Contest</strong>
+                        </p>
+                        <p style='text-align:right;'>
+                            <strong>Before leaders' contest</strong>, each group's <strong>followers</strong> determine <strong>their</strong> leader's <strong>power</strong>.
+                        </p>
+                        <p style='text-align:right; font-size:13px; margin-top:-16px;'>
+                            (To be explained in the next section)
+                        </p>
+                    </div>
+
+                    <div class='rightside2'>
+                        <p style='text-align:center; padding-right: 45px; text-decoration:underline;'>
+                            <strong>Power</strong> in the <strong>Followers' Contest</strong>
+                        </p>
+                        <p style='padding-left:37px;'>
+                            There are <strong>2</strong> types of followers: <strong>Strong</strong> and <strong>Weak</strong>
+                        </p>
+                        <p style='text-align:right;padding-right:35px;'>
+                            <strong>1</strong> token of the <strong>strong</strong> follower is worth <strong>5</strong> tokens of the <strong>weak</strong> follower.
+                        </p>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <div class=showmore2>
+                <div class=showmore2wrap>
+                    <p  style='text-align: center;'>
+                        Click <img id="someid" class='diceimage' style='margin-right:5px;' src="images/down.png" alt="V" /> to learn about the <strong>Followers' Contest</strong>
+                    </p>
+                </div>
+
+                <div class='dicewrap2'>
+                    <div class='extradicewrap2'>
+                        <img id="dice5" class='dice4' style='margin-right:-23px; border: 2px solid red;' src="images/down.png" alt="V" />
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class='f4explanationbox f4subsections1' style='padding-top:10px;'>
+                <div class=kapsayiciwrap>
+
+                    <p style='font-weight:800; text-decoration: underline;text-align:center; font-size:18px;'>
+                        Followers' Contest
+                    </p>
+                    <p style='text-align:center;'>
+                        <strong>Lost leader</strong> (of the leaders' contest) <strong>loses</strong> her leader role and <strong>becomes</strong> a follower.
+                    </p>
+                    <p style='text-align:center;'>
+                        <strong>Lost leader's followers</strong> proceed to the <strong>followers' contest</strong>
+                    </p>
+
+                    <div class=birbaskawrap2>
+
+                        <div class='f4explanationbox f4subsections11 soltaraf'>
+                            <p>
+                                <strong>Winner</strong>
+                            </p>
+                            <p>
+                                - <strong>Becomes the new leader </strong> of the group
+                            </p>
+                            <p>
+                                - Proceeds to the <strong><u>next</u> leaders' contest</strong> to compete against the winner of the former leaders' contest.
+                            </p>
+                        </div>
+
+                        <div class='f4explanationbox f4subsections12 sagtaraf'>
+                            <p>
+                                <strong>Loser</strong>
+                            </p>
+                            <p>
+                                - <strong>Continues</strong> as a <strong>follower</strong>.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class='f4explanationbox f4subsections2' style='text-align:center;'>
+                <p>
+                    <strong>Followers' contest</strong> is played <strong>only</strong> among the <strong>followers</strong> of the lost leader.
+                </p>
+                <p>
+                    The lost leader does <strong>not</strong> participate in the followers' contest.
+                </p>
+            </div>
+
+            <div class='birbaskawrap'>
+                <p style='padding-top:20px;'>
+                    Assume your leader lost and <strong>you</strong> are the <strong>weak</strong> follower.
+                </p>
+                <p style='margin-bottom:-15px;'>
+                    Chose values for you and the hypothetical opponent (the strong follower) then turn the wheel.
+                </p>
+            </div>
+
+
+            <div class = 'calculatorf' id='calculatorf'>
+
+                <div class = 'topsection'>
+
+                    <div class = 'leadergroupleft'>
+                        <h6 class = 'left_ltitle'><strong>Weak</strong> Follower - <strong>YOU</strong></h6>
+                        <div class = 'sliderbarleader left'>
+                            <input type='range' min = '0' max = '200' class = 'lslider' value = '200' id = 'lSlider1f' />
+                            <div id = 'barlf' class = 'lbar1'></div>
+                        </div>
+                    </div>
+
+
+                    <div class = 'leadergraphics'>
+                        <div class = 'arrowwrapf'>
+                            <div class='wheelpiewrapf'>
+                                <img id="arrowf" class='arrowf' src="images/arrow.png" alt="V" />
+                                <div id='wheelpie' class='wheelpief'>
+                                    <canvas id='mywheelf' class='mywheelf' width='250' height='250'>
+                                        Canvas not supported, use another browser.
+                                    </canvas>
+                                    <div class='piewrapf'>
+                                        <div class='s3pie' id='pief'></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class = 'leadergroupright'>
+                        <h6  class = 'right_title'><strong>Strong</strong> Follower - <strong>HYPOTHETICAL</strong></h6>
+                        <div class = 'sliderbarleader lright'>
+                            <input type='range' min = '0' max = '200' class = 'lslider' value = '200' id = 'olSlider1f' />
+                            <div id = 'obarlf' class = 'lbar2'></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class = 'middlesection'>
+                    <div class = 'sliderbarefif'>
+                        <div id = 'efficiencyBarf' class = 'efficiencyBarf'></div>
+                    </div>
+                    <h6 style = 'z-index:1;'>Relative Power</h6>
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+            <div class='wheelresult2f'>
+                <p>
+                    <span class=wheelresulttext2 id=wheelresulttext2f></span>
+                </p>
+            </div>
+            <div class='wheelresultf'>
+                <p>
+                    <span class=wheelresulttext id=wheelresulttextf></span>
+                </p>
+            </div>
+            <div class='wheelresult4f'>
+                <p>
+                    <span class=wheelresulttext4 id=wheelresulttext4f></span>
+                </p>
+            </div>
+            <div class='wheelresult3f'>
+                <p>
+                    <span class=wheelresulttext3 id=wheelresulttext3f></span>
+                </p>
+            </div>
+
+            <div class ='sinfotext limited ensongoster1'>
+                <p style='text-align: center; padding-top:10px;'>
+                    In the followers' contest, <br />
+                    <strong>weak follower</strong> is strongly <strong>disadvantaged</strong>
+                </p>
+                <p class='turnwheeltext'>
+                    Turn the wheel again
+                </p>
+
+            </div>
+
+            <div class ='sinfotext limited ensongoster2'>
+                <p style='text-align: center; padding-top:10px;'>
+                    When you are ready <br /> Please Review all the information boxes above <br /> Then click <strong>Continue</strong> to proceed
+                </p>
+
+            </div>
+
+
+
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="js/instructions(part1.2)(V2)(2fhetero).js"></script>
+
+</body>
+</html>

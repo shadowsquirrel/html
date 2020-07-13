@@ -150,29 +150,36 @@
     flex-direction: column;
     /* justify-content: center; */
 }
+.fadein
+{
+    opacity:0;
+}
 .sbox
 {
     height: 50px;
-    width: 75px;
-    background-color: rgb(80, 80, 80);
-    border: 3px solid rgb(160, 160, 160);
+    width: 79px;
+    background-color: white;
+    border: 5px solid black;
     opacity: 0.5;
-    transition: 0.5s
+    transition: 1s
 }
 
 .stageboxtext
 {
-    padding-top: 9px;
-    font-size: 16px;
+    /* padding-top: 1px; */
+    margin-top:-16px;
+    font-size: 45px;
     text-align: center;
-    color: white;
+    color: black;
+    font-weight:800;
 }
 .stageboxtextlong
 {
-    padding-top: 13px;
-    font-size: 11px;
+    /* padding-top: 13px; */
+    font-size: 14px;
     text-align: center;
-    color: white;
+    color: black;
+    font-weight:800;
 }
 .abox
 {
@@ -240,10 +247,58 @@
 }
 .straighttext
 {
+
     text-align: left;
 }
 .myline
 {
     border-bottom: 2px solid;
     text-decoration: none;
+}
+.f1
+{
+    transition:1s;
+    transition-delay:1s;
+}
+.f2
+{
+    transition:1s;
+    transition-delay:3s;
+}
+.f3
+{
+    transition:1s;
+    transition-delay:5s;
+}
+.f4
+{
+    transition:1s;
+    transition-delay:8s;
+}
+.f5
+{
+    transition:1s;
+    transition-delay:10s;
+}
+.f6
+{
+    transition:1s;
+    transition-delay:12s;
+}
+.f7
+{
+    transition:1s;
+    transition-delay:16s;
+}
+.somewrap
+{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+}
+.kolonla
+{
+    display:flex;
+    flex-direction: row;
+
 }

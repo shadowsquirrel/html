@@ -1019,7 +1019,7 @@ var inmc4 = false;
 var exp1 = false;
 dslider.oninput = function() {
     if(inmc4) {
-        $('.dottedred2').css({'border':'2px dotted white'});
+        $('.dottedred2').css({'border':'2px solid white'});
         exp1 = true;
     }
     dvalue = parseFloat(dslider.value);
@@ -1031,7 +1031,7 @@ dslider.oninput = function() {
     payoffDisplay.innerHTML = '<strong>' + (efo)  + '</strong>' + ((efo > 1) ? ' tokens' : ' token');
     winnetpayoff.innerHTML = '<strong>' + (1000 - efo) + '</strong>' + ' tokens';
     losenetpayoff.innerHTML = '<strong>' + -efo  + '</strong>' + ((efo > 1) ? ' tokens' : ' token');
-    $('.sliderbard').css({'border':'3px dotted white'});
+    $('.sliderbard').css({'border':'3px solid white'});
     //synching sliders
     $('#lSlider1').prop('value', dvalue);
     $('#lSlider1').change();
@@ -1043,7 +1043,7 @@ dslider.oninput = function() {
 //Leader
 lslider1.oninput = function() {
     if(inmc4) {
-        $('.dottedred2').css({'border':'2px dotted white'});
+        $('.dottedred2').css({'border':'2px solid white'});
         exp1 = true;
     }
     lvalue = parseFloat(lslider1.value);
@@ -1066,7 +1066,7 @@ lslider1.oninput = function() {
 var exp2 = false;
 olslider1.oninput = function() {
     if(inmc4) {
-        $('.dottedblue').css({'border':'2px dotted white'});
+        $('.dottedblue').css({'border':'2px solid white'});
         exp2 = true;
     }
     olvalue = parseFloat(olslider1.value);
@@ -1191,8 +1191,8 @@ b2.onclick = function() {
     $('.mc25').css({'position':'static', 'opacity':'1', 'background-color':'lavender', 'z-index':'0'});
     $('html, body').animate({scrollTop: $('.leadergroupleft').height()*0.8}, 1000);
     $('.yourdecisiontext3').css({'font-weight':'700', 'opacity':'1', 'margin-top':'3px'});
-    $('.dottedred3').css({'border':'2px dotted red'});
-    $('.dottedred').css({'border':'2px dotted white'});
+    $('.dottedred3').css({'border':'2px solid red'});
+    $('.dottedred').css({'border':'2px solid white'});
     $('.s2feedback').css({'margin-bottom':'45px'});
     // $('.dottedred3').css({'border':'2px dotted red'});
     // $('.dottedblue2').css({'border':'2px dotted white'});
@@ -1206,13 +1206,13 @@ b25.onclick = function() {
     $('.mc25').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
     $('.mc3').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush', 'z-index':'0'});
     $('html, body').animate({scrollTop: $('.leadergroupleft').height()*0.8}, 1000);
-    $('.dottedred').css({'border':'2px dotted white'});
+    $('.dottedred').css({'border':'2px solid white'});
     $('.yourdecisiontext3').css({'font-weight':'700', 'opacity':'1', 'margin-top':'-2px'});
 $('.yourdecisiontext2').css({'font-weight':'700', 'opacity':'1'});
-    $('.dottedred3').css({'border':'2px dotted white'});
+    $('.dottedred3').css({'border':'2px solid white'});
 
-    $('.dottedred2').css({'border':'2px dotted red'});
-    $('.dottedblue').css({'border':'2px dotted blue'});
+    $('.dottedred2').css({'border':'2px solid red'});
+    $('.dottedblue').css({'border':'2px solid blue'});
 
 }
 
@@ -1226,7 +1226,7 @@ b3.onclick = function() {
     $('.piewrap').css({'margin-top':'-45px', 'transition':'1s'});
     $('.decision').css({'padding-top':'35px'});
     $('html, body').animate({scrollTop: $('.leadergroupleft').height()*0.975}, 1000);
-    $('.dottedred2').css({'border':'5px dotted red'});
+    $('.dottedred2').css({'border':'5px solid red'});
     inmc4 = true;
 }
 
@@ -1238,8 +1238,8 @@ b4.onclick = function() {
     $('.mc45').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush', 'z-index':'0'});
     // $('.continueButton').css({'opacity':'1'});
     inmc4 = false;
-    $('.dottedred4').css({'border':'2px dotted red'});
-    $('.dottedblue2').css({'border':'2px dotted blue'});
+    $('.dottedred4').css({'border':'2px solid red'});
+    $('.dottedblue2').css({'border':'2px solid blue'});
     // $('html, body').animate({
     //     scrollTop: 0
     // }, 1000);
@@ -1257,7 +1257,33 @@ b45.onclick = function() {
     $('html, body').animate({
         scrollTop: 0
     }, 1000);
-    $('.dottedred4').css({'border':'2px dotted white'});
-    $('.dottedblue2').css({'border':'2px dotted white'});
+    $('.dottedred4').css({'border':'2px solid white'});
+    $('.dottedblue2').css({'border':'2px solid white'});
     // console.log('button pressed');
+}
+
+
+
+
+
+
+
+
+
+
+var calcOn = document.getElementById('multibutton');
+calcOnCounter = 0;
+calcOn.onclick = function() {
+    if(calcOnCounter===0) {
+        $('.titlesection, .topsection, .middlesection, .bottomsection').css({'transition':'1s', 'transition-delay':'0s'});
+        $('.titlesection, .topsection, .middlesection, .bottomsection').css({'opacity':'0', 'z-index':'-10'});
+        $('.topsection').css({'margin-top':'-650px'});
+    }
+    if(calcOnCounter===1) {
+        $('.titlesection, .topsection, .middlesection, .bottomsection').css({'transition':'1s', 'transition-delay':'0s'});
+        $('.titlesection, .topsection, .middlesection, .bottomsection').css({'opacity':'1', 'z-index':'0'});
+        $('.topsection').css({'margin-top':'0px'});
+    }
+    $('.son').css({'opacity':'1'});
+    calcOnCounter = 1 - calcOnCounter;
 }

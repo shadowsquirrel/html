@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/instructions(part1.3)(V3).css">
+    <script src='js/Winwheel.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <title>Page Title</title>
+</head>
+<body>
+
+    <div class='upperbar'>
+        <button class='continueButton' onclick="window.location.href='./Instructions(part1.6.0).htm'">Continue</button>
+        <!-- <button class=multibutton id=multibutton>Y</button>
+        <button class=multibutton id=multibutton2>X<span id='buttonname'></span></button> -->
+    </div>
+    <div class = 'wrap noselect'>
+
+        <div class = 'all'>
+
+            <div class = 'sinfo' id='sinfo'>
+
+                <div class = sinfotitle>
+                    <h3>INSTRUCTIONS</h3>
+                </div>
+
+                <div class ='sinfotext fadein rank0'>
+                    <p style='font-size: 22px; margin-bottom: 20px;'> Help and Sabotage  </span></p>
+
+
+                </div>
+
+                <div class ='sinfotext limited fadein rank1'>
+                    <p class='fadein minirank05'>
+                        <strong>Before</strong> a <u>leaders' contest</u>, followers <strong>help</strong> or <strong>sabotage</strong> their <u><strong>own</strong> leader</u>.
+                    </p>
+                    <p class='fadein minirank1'>
+                        Through <strong>help</strong> or <strong>sabotage</strong>, followers can make their leader <strong>advantageous</strong> or <strong>disadvantageous</strong> in the leaders' contest.
+                    </p>
+                    <div class='fadein simpletextwrap minirank2'>
+                        <p>
+                            <strong><span class=bluetextcolor>Help</span> increases</strong> <img id="a2" class='up' src="images/up.jpg" alt="" /> a leader's  <strong>investment power</strong>
+                        </p>
+                        <p class='fadein torighttop minirank25'>
+                             <strong><span class=redtextcolor>Sabotage</span> decreases</strong> <img id="a2" class='up' src="images/down.jpg" alt="" /> a leader's  <strong>investment power</strong>
+                        </p>
+                    </div>
+                    <p class='fadein minirank275'>
+                        It is <strong>costly</strong> to help or sabotage.
+                    </p>
+                    <p class='fadein minirank3'>
+                        <strong>One unit</strong> of help / sabotage costs <strong>1 token</strong>.
+                    </p>
+                </div>
+
+                <p style='padding-top:20px; text-align: center;' class='fadein yoket'>
+                    Consider <strong>2 groups</strong> each with <strong>1</strong> leader and <strong>1</strong> follower.
+                </p>
+                <p  style='text-align: center;' class='fadein yoket'>
+                    Click <img id="someid" class='down2' style='margin-right:5px;' src="images/down.png" alt="V" /> to continue
+                </p>
+                <div class='buttonwrapdown fadein yoket'>
+                    <div class='extrabuttonwrap'>
+                        <img id="down" class='down' style='border: 2px solid red;' src="images/down.png" alt="V" />
+                    </div>
+                </div>
+
+            </div>
+
+            <div class = 'calculator fadein2' id='calculator'>
+
+
+                <div class = 'topsection'>
+
+                    <div class = 'leadergroupleft'>
+                        <p class='leftgrouptitle'>
+                            Group A
+                        </p>
+                        <h6 class = 'left_ltitle' style='color:white;'>Leader A</h6>
+                        <div class = 'sliderbarleader lleft'>
+                            <input type='range' min = '0' max = '700' class = 'lslider' value = '100' id = 'lSlider1' />
+                            <div id = 'barl' class = 'lbar'></div>
+                        </div>
+                    </div>
+
+
+
+                    <div class = 'leadergraphics'>
+                        <div class = 'arrowwrap'>
+                            <div class='wheelpiewrap'>
+                                <img id="arrow" class='arrow' src="images/arrow.png" alt="V" />
+                                <div id='wheelpie' class='wheelpie'>
+                                    <canvas id='mywheel' class='mywheel' width='250' height='250'>
+                                        Canvas not supported, use another browser.
+                                    </canvas>
+                                    <div class='piewrap'>
+                                        <div class='s3pie' id='pie'></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class = 'leadergroupright'>
+                        <p class='rightgrouptitle'>
+                            Group B
+                        </p>
+                        <h6  class = 'right_title'>Leader B</h6>
+                        <div class = 'sliderbarleader lright'>
+                            <input type='range' min = '0' max = '700' class = 'lslider' value = '100' id = 'olSlider1' />
+                            <div id = 'obarl' class = 'lbar noselect'></div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class = 'middlesection'>
+                    <div class = 'sliderbarefi'>
+                        <div id = 'efficiencyBar' class = 'efficiencyBar'></div>
+                    </div>
+                    <h6 style = 'z-index:1;'>Relative Investment Power</h6>
+                </div>
+
+
+                <div class = 'bottomsection'>
+
+                    <div class = 'followergroupleft'>
+                        <div class='titlewrap titlewrapextraleft'>
+                            <h6 class = 'left_title ftitle'>Follower A</h6>
+                        </div>
+
+
+                        <div class = 'slidebargroup left'>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'vSlider1' />
+                                <div id = 'bar1' class = 'bar l greendotted1'></div>
+                            </div>
+                        </div>
+
+                        <div class='yourinvestmentcost'>
+                            <span class=investmentcostdisplay id=investmentcostdisplay></span>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class = 'followergraphics'>
+
+                        <p class='usetext'>
+                            use <span class='dottedgreen'></span> sections to chose help / sabotage levels for both followers.
+                        </p>
+
+                        <div class='textimagewrap'>
+                            <div class='textimageclass' style='margin-bottom:-18px;'>
+                                <img id="hpic" class='hpic' src="images/help.png" alt="V" />
+                                <p class='tinytextclass'>
+                                    Move the slider <strong>up</strong> to select an help level.
+                                </p>
+                            </div>
+
+                            <p style='font-weight:800;'>
+                                OR
+                            </p>
+
+                            <div class='textimageclass' style='padding-left:60px; margin-top:-40px'>
+
+                                <p class='tinytextclass'>
+                                    Move the slider <strong>down</strong> to select a sabotage level.
+                                </p>
+                                <img id="spic" class='spic' src="images/sabo.png" alt="V" />
+                            </div>
+
+                        </div>
+
+                        <div class=textbuttonwrap>
+                            <div class=textbuttonwrap2>
+                                <p class='zerotextsabo'>
+                                    When followers do <strong>not</strong> sabotage or help their <strong>own</strong> leader, Leaders have <strong>equal</strong> investment power.
+                                </p>
+                                <p class='firsttextsabo'>
+                                    <strong>Small amounts</strong> of help by Follower <strong>A</strong> has a <strong>significant impact</strong>
+                                    when Follower <strong>B</strong> is <strong>not</strong> helping.
+                                </p>
+                                <p class='secondtextsabo'>
+                                    <strong>Impact</strong> of help does <strong>not</strong> depend on the <strong>absolute levels</strong> of leaders' investments.
+                                </p>
+                                <p class='thirdtextsabo'>
+                                    The <strong>impact</strong> of Follower <strong>A</strong>'s help on his leader <strong>A</strong> <u>depends</u> on Follower <strong>B</strong>'s help on his leader <strong>B</strong>.
+                                </p>
+                                <p class='firsttexthelp'>
+                                    <strong>Small amounts</strong> of sabotage by Follower <strong>A</strong> has a <strong>significant impact</strong>
+                                    when Follower <strong>B</strong> is <strong>not</strong> sabotaging.
+                                </p>
+                                <p class='secondtexthelp'>
+                                    <strong>Impact</strong> of sabotage does <strong>not</strong> depend on the <strong>absolute levels</strong> of leaders' investments.
+                                </p>
+                                <p class='thirdtexthelp'>
+                                    The <strong>impact</strong> of Follower <strong>A</strong>'s sabotage on leader <strong>A</strong> <u>depends</u> on Follower <strong>B</strong>'s sabotage on leader <strong>B</strong>.
+                                </p>
+
+
+                                <div class='buttonwrap'>
+                                    <p style='margin-bottom:4px;' class='hideclick'>
+                                        Click <img id="previous2" class='previous2' src="images/previous.png" alt="V" /> / <img id="next2" class='next2' src="images/next.png" alt="V" />
+                                    </p>
+                                    <div class='extrabuttonwrap'>
+                                        <img id="previous" class='previous' src="images/previous.png" alt="V" />
+                                        <img id="next" class='next' src="images/next.png" alt="V" />
+                                    </div>
+                                </div>
+                                <p class=clickcontinue>
+                                    Click <strong>Continue</strong> when you are ready.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <!-- <p style='padding-top:20px; text-align: center;'>
+                            As a first step, you can also click <img id="dice2" class='dice2' src="images/dice.png" alt="V" /> to generate <strong>random</strong> values for all players <strong>except you</strong>.
+                        </p> -->
+                    </div>
+
+
+
+                    <div class = 'followergroupright'>
+                        <div class='titlewrap titlewrapextraright'>
+                            <h6 class = 'right_title ftitle'>Follower B</h6>
+                        </div>
+
+
+                        <div class = 'slidebargroup right'>
+                            <div class = 'sliderbar'>
+                                <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'ovSlider1' />
+                                <div id = 'obar1' class = 'bar l greendotted2'></div>
+                            </div>
+                        </div>
+
+                        <div class='yourinvestmentcost'>
+                            <span class=investmentcostdisplay id=investmentcostdisplay2></span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="js/instructions(part1.3)(V3).js"></script>
+
+</body>
+</html>

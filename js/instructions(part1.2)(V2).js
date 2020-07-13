@@ -47,8 +47,8 @@ var createWheel = function(myPwin) {
         'animation' :
         {
             'type'     : 'spinToStop',
-            'duration' : 3,
-            'spins'    : 10,
+            'duration' : 5,
+            'spins'    : 50,
             'callbackFinished' : 'showResult()',
         }
     });
@@ -77,7 +77,7 @@ var updatePie = function(a) {
     }
     var data = [{
         values: [y, x],
-        labels: ['Opposing Leader', 'Your Leader'],
+        labels: ['Opponent\'s share', 'Your share'],
         textfont: {
             color: ['black', 'white'],
         },
@@ -154,7 +154,7 @@ var updateBarLeader = function(e, barId, ourSide, axisOn) {
             side: 'top',
             fixedrange: true,
             autorange: false,
-            range: [0,500],
+            range: [0,700],
             layer: 'below traces',
             fixedrange: true,
 
@@ -162,8 +162,8 @@ var updateBarLeader = function(e, barId, ourSide, axisOn) {
                 size: 10,
             },
             tickmode: 'array',
-            tickvals: [0, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 300, 400, 500],
-            ticktext: [0, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 300, 400, 500],
+            tickvals: [0, 50, 100, 150, 200, 250, 300, 400, 500, 700],
+            ticktext: [0, 50, 100, 150, 200, 250, 300, 400, 500, 700],
             tickangle: -45,
             ticks:'',
             showline: false,
@@ -496,6 +496,8 @@ var showResult = function() {
     $('html, body').animate({scrollTop:  $(document).height()}, 2000);
 }
 
+
+
 updateAll();
 
 // Slider-bar initiations
@@ -505,9 +507,6 @@ var efislider = document.getElementById('efiSlider');
 var efivalue;
 var firsttime = true;
 efislider.oninput = function() {
-    // $('.wheelresult2').css({'opacity':'1'});
-
-
 
     efivalue = parseFloat(efislider.value);
     var t = Math.abs(efivalue);
@@ -519,36 +518,139 @@ efislider.oninput = function() {
 
     updateAll();
 
-    $('.sliderbarefi').css({'border':'3px dotted white'});
-    $('.dottedblue2').css({'border':'1px solid black'});
-    $('.wheelresult').css({'opacity':'0'});
-    $('.wheelresult3').css({'opacity':'0'});
-    $('.wheelresult').css({'opacity':'0'});
     theWheel.stopAnimation(false);
     canClickArrow = true;
 
     if(firsttime) {
-        setTimeout('goDown()', 40000);
-    }
-
-
-
-}
-
-var goDown = function() {
-    if(firsttime) {
-        // $('.after2').css({'height':'1px'});
-        $('.evenlater').css({'transition-delay':'0s', 'transition':'1s', 'margin-top':'-114px', 'opacity':'0', 'z-index':'-2'});
-        $('.fadeout').css({'opacity':'1'});
-        $('.showmore').css({'opacity':'1'});
-        $('html, body').animate({
-            scrollTop: $(document).height()
-        }, 4000);
-        $('.continueButton').css({'opacity':'1'});
+        $('.sliderbarefi').css({'border':'1px solid black'});
+        $('.dottedblue2').css({'border':'1px solid black'});
+        setTimeout('doLater()', 5000)
         firsttime = false;
+
+    }
+
+}
+
+var doLater = function() {
+    $('.after2').css({'transition-delay':'0s', 'opacity':'0'});
+    $('.anotherwrap').css({'margin-top':'-75px'});
+    $('.firstfadein3, .abitlater').css({'opacity':'1'});
+    $('.sinfo').css({'margin-bottom':'-50px', 'transition':'3s', 'z-index':'5'});
+    setTimeout('turnOffSliders()', 13000);
+}
+
+var turnOffSliders = function() {
+$('#lSlider1, #olSlider1, #efiSlider').css({'z-index':'-10'});
+$('.lslider').css({'opacity':'0'});
+}
+
+var turnOnSliders = function() {
+$('#lSlider1, #olSlider1, #efiSlider').css({'z-index':'1'});
+$('.lslider').css({'opacity':'0.2'});
+}
+
+var firsttime2 = true;
+var goDown = function() {
+    $('html, body').animate({
+        scrollTop: $(document).height()
+    }, 5000);
+    setTimeout('goDown2()', 7000);
+}
+var goDown2 = function() {
+    if(firsttime2) {
+
+
+        // $('.after2').css({'height':'1px'});
+        // $('.evenlater').css({'transition-delay':'0s', 'transition':'1s', 'margin-top':'-114px', 'opacity':'0', 'z-index':'-2'});
+        // $('.fadeout').css({'opacity':'1'});
+        // console.log('yoyoyoyoyo');
+        $('.showmore').css({'opacity':'1'});
+
+        $('.continueButton').css({'opacity':'1'});
+        firsttime2 = false;
     }
 }
 
+var eButton = document.getElementById('exampleButton');
+
+var bigCounter = 0;
+var eCounter = 0;
+eButton.onclick = function() {
+
+    $('.dicewrap').css({'transition-delay':'0s', 'border':'3px solid white'});
+    var efoArray = [100, 100, 500, 500, 500, 500,  500, 500, 500, 500, 500];
+    var oefoArray = [100, 100, 100, 200, 500, 100, 200, 500, 100, 200, 500];
+    var efiArray =  [1,1, 1,1,1,1,1,1,1,1,1];
+    var oefiArray = [1,3, 3,3,3,5,5,5,10,10,10]
+
+    efi = efiArray[eCounter];
+    oefi = oefiArray[eCounter];
+
+    efo = efoArray[eCounter];
+    $('#lSlider1').prop('value', efoArray[eCounter]);
+    $('#lSlider1').change();
+    updateBarLeader(efo, 'barl', 1, false);
+
+    oefo = oefoArray[eCounter];
+    $('#olSlider1').prop('value', oefoArray[eCounter]);
+    $('#olSlider1').change();
+    updateBarLeader(oefo, 'obarl', 0, false);
+
+    updateAll();
+    $('.lslider').css({'opacity':'0'});
+    if(eCounter < 10) {
+        eCounter = eCounter + 1;
+        bigCounter = bigCounter + 1;
+    } else {
+
+        // setTimeout('goDown()', 1000);
+        bigCounter = bigCounter +1;
+        eCounter = 0;
+    }
+    if(bigCounter === 12) {
+        setTimeout('goDown()', 1000);
+        setTimeout('turnOnSliders()', 7000);
+        $('.buttontextwrap').css({'opacity':'0', 'transition':'1s', 'transition-delay':'0s', 'margin-top':'-100px', 'z-index':'-30'});
+        $('.firstfadein2').css({'opacity':'1'})
+    }
+}
+
+
+var eButton2 = document.getElementById('exampleButton2');
+
+
+var eCounter2 = 0;
+eButton2.onclick = function() {
+
+    // $('.dicewrap').css({'border':'3px solid white'});
+    // $('.dicewrap').css({'transition-delay':'0s', 'border':'3px solid white'});
+    var efoArray = [100, 100, 500, 500, 500, 500,  500, 500, 500, 500, 500];
+    var oefoArray = [100, 100, 100, 200, 500, 100, 200, 500, 100, 200, 500];
+    var efiArray =  [1,1, 1,1,1,1,1,1,1,1,1];
+    var oefiArray = [1,3, 3,3,3,5,5,5,10,10,10]
+
+    efi = efiArray[eCounter];
+    oefi = oefiArray[eCounter];
+
+    efo = efoArray[eCounter];
+    $('#lSlider1').prop('value', efoArray[eCounter]);
+    $('#lSlider1').change();
+    updateBarLeader(efo, 'barl', 1, false);
+
+    oefo = oefoArray[eCounter];
+    $('#olSlider1').prop('value', oefoArray[eCounter]);
+    $('#olSlider1').change();
+    updateBarLeader(oefo, 'obarl', 0, false);
+
+    updateAll();
+
+    // $('.lslider').css({'opacity':'0'});
+    if(eCounter < 10) {
+        eCounter = eCounter + 1;
+    } else {
+        eCounter = 0;
+    }
+}
 
 
 // YOUR GROUP INITIATION
@@ -619,14 +721,5 @@ $('#olSlider1').hover(
 
 
 $('html, body').animate({scrollTop: 0}, 0);
-$('.firstfadein').css({'opacity':'1'});
+$('.firstfadein, .later1, .later15, .later175').css({'opacity':'1'});
 $('.evenlater').css({'opacity':'1'});
-$('.evenlater2').css({'opacity':'1'});
-setTimeout('goDown2()', 25000);
-
-var goDown2 = function() {
-    $('.after2').css({'transition-delay':'0s', 'opacity':'0'});
-    $('html, body').animate({scrollTop: $(document).height()*0.05}, 2000);
-    $('.sinfo').css({'margin-bottom':'-80px', 'transition':'3s', 'z-index':'5'});
-    console.log('testing testing testing');
-}

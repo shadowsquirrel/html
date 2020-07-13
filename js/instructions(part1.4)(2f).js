@@ -871,21 +871,21 @@ oslider2.oninput = function() {
 $('#lSlider1').hover(
     function() {
         setTimeout("updateBarXAxis('barl', true)", 250);
-        $('.ldecisiontext1').css({'opacity':'0.7'});
+        $('.ldecisiontext1').css({'color':'red'});
     },
     function() {
         setTimeout("updateBarXAxis('barl', false)", 500);
-        $('.ldecisiontext1').css({'opacity':'0.1'});
+        $('.ldecisiontext1').css({'color':'black'});
     }
 );
 $('#olSlider1').hover(
     function() {
         setTimeout("updateBarXAxis('obarl', true)", 250);
-        $('.ldecisiontext2').css({'opacity':'0.7'});
+        $('.ldecisiontext2').css({'color':'red'});
     },
     function() {
         setTimeout("updateBarXAxis('obarl', false)", 500);
-        $('.ldecisiontext2').css({'opacity':'0.1'});
+        $('.ldecisiontext2').css({'color':'black'});
     }
 );
 
@@ -893,8 +893,8 @@ $('#olSlider1').hover(
 $('#dSlider').hover(
     function() {
         setTimeout("updateBarXAxis('bard', true)", 250);
-        $('.yourdecisiontext').css({'font-weight':'700', 'font-size':'22px'});
-        $('.yourdecisiontext21').css({'font-weight':'500','opacity':'1'});
+        $('.yourdecisiontext').css({'font-weight':'700', 'font-size':'22px', 'color':'red'});
+        $('.yourdecisiontext21').css({'font-weight':'500','opacity':'1', 'color':'red'});
         $('#dSlider').css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
         $('#vSlider1')
         .css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
@@ -902,8 +902,8 @@ $('#dSlider').hover(
     },
     function() {
         setTimeout("updateBarXAxis('bard', false)", 1000);
-        $('.yourdecisiontext').css({'font-weight':'200', 'font-size':'22px'});
-        $('.yourdecisiontext21').css({'font-weight':'500','opacity':'0.1'});
+        $('.yourdecisiontext').css({'font-weight':'700', 'font-size':'22px', 'color':'black'});
+        $('.yourdecisiontext21').css({'font-weight':'500','opacity':'1', 'color':'black'});
         $('#dSlider').css({'background':'gray', 'opacity':'0.1', 'margin-top': '35px'});
         $('#vSlider1')
         .css({'background':'gray', 'opacity':'0.3', 'margin-left': '-90px'});
@@ -913,8 +913,8 @@ $('#dSlider').hover(
 $('#vSlider1').hover(
     function() {
         setTimeout("updateBarYAxis('bar1', true)", 250);
-        $('.yourdecisiontext').css({'font-weight':'700', 'font-size':'22px'});
-        $('.yourdecisiontext21').css({'font-weight':'500','opacity':'1'});
+        $('.yourdecisiontext').css({'font-weight':'700', 'font-size':'22px', 'color':'red'});
+        $('.yourdecisiontext21').css({'font-weight':'500','opacity':'1', 'color':'red'});
         $('#vSlider1').css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
         $('#dSlider').css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
         $('#dSlider').addClass('newdSlider');
@@ -922,8 +922,8 @@ $('#vSlider1').hover(
     },
     function() {
         setTimeout("updateBarYAxis('bar1', false)", 500);
-        $('.yourdecisiontext').css({'font-weight':'200', 'font-size':'22px'});
-        $('.yourdecisiontext21').css({'font-weight':'500','opacity':'0.1'});
+        $('.yourdecisiontext').css({'font-weight':'700', 'font-size':'22px', 'color':'black'});
+        $('.yourdecisiontext21').css({'font-weight':'500','opacity':'1', 'color':'black'});
         $('#vSlider1').css({'background':'gray', 'opacity':'0.1', 'margin-left': '-90px'});
         $('#dSlider').css({'background':'gray', 'opacity':'0.1', 'margin-top': '35px'});
         $('#dSlider').removeClass('newdSlider');
@@ -937,7 +937,7 @@ $('#vSlider2').hover(
         myString = '#vSlider2';
 
         setTimeout("updateBarYAxis('bar2', true)", 250);
-        $('.yourdecisiontext22').css({'font-weight':'500','opacity':'1'});
+        $('.yourdecisiontext22').css({'font-weight':'500','opacity':'1', 'color':'red'});
         $(myString)
         .css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
     },
@@ -946,7 +946,7 @@ $('#vSlider2').hover(
         myString = '#vSlider2';
 
         setTimeout("updateBarYAxis('bar2', false)", 500);
-        $('.yourdecisiontext22').css({'font-weight':'500','opacity':'0.1'});
+        $('.yourdecisiontext22').css({'font-weight':'500','opacity':'1', 'color':'black'});
         $(myString)
         .css({'background':'gray', 'opacity':'0.1', 'margin-left': '-90px'});
     }
@@ -965,7 +965,7 @@ $('#ovSlider1').hover(
         }
 
         setTimeout("updateBarYAxis('obar1', true)", 250);
-        $(myString2).css({'font-weight':'500','opacity':'1'});
+        $(myString2).css({'font-weight':'500','opacity':'1', 'color':'red'});
         $(myString)
         .css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
 
@@ -985,7 +985,7 @@ $('#ovSlider1').hover(
         }
 
         setTimeout("updateBarYAxis('obar1', false)", 500);
-        $(myString2).css({'font-weight':'500','opacity':'0.1'});
+        $(myString2).css({'font-weight':'500','opacity':'1', 'color':'black'});
         $(myString)
         .css({'background':'gray', 'opacity':'0.1', 'margin-left': '-90px'});
         if(syncOtherGroup) {
@@ -1006,7 +1006,7 @@ $('#ovSlider2').hover(
         }
 
         setTimeout("updateBarYAxis('obar2', true)", 250);
-        $(myString2).css({'font-weight':'500','opacity':'1'});
+        $(myString2).css({'font-weight':'500','opacity':'1', 'color':'red'});
         $(myString)
         .css({'background':'black', 'opacity':'1', 'margin-left': '-78px'});
         if(syncOtherGroup) {
@@ -1025,7 +1025,7 @@ $('#ovSlider2').hover(
         }
 
         setTimeout("updateBarYAxis('obar2', false)", 500);
-        $(myString2).css({'font-weight':'500','opacity':'0.1'});
+        $(myString2).css({'font-weight':'500','opacity':'1', 'color':'black'});
         $(myString)
         .css({'background':'gray', 'opacity':'0.1', 'margin-left': '-90px'});
         if(syncOtherGroup) {
@@ -1095,9 +1095,9 @@ b2.onclick = function() {
     var myString = -myheight + 'px';
     $('.mc2').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
     $('.mc25').css({'position':'static', 'opacity':'1', 'background-color':'lavender'});
-    $('.dottedred').css({'border':'2px dotted white'});
-    $('.dottedred3').css({'border':'2px dotted red'});
-    $('.dottedblue2').css({'border':'2px dotted white'});
+    $('.dottedred').css({'border':'2px solid white'});
+    $('.dottedred3').css({'border':'2px solid red'});
+    $('.dottedblue2').css({'border':'2px solid white'});
     $('.switchwrap').css({'opacity':'1'});
     $('html, body').animate({
         scrollTop: $('.totalbarwrap').height()*1.6
@@ -1110,8 +1110,8 @@ b25.onclick = function() {
     var myString = -myheight + 'px';
     $('.mc25').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
     $('.mc3').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush'});
-    $('.dottedred3').css({'border':'2px dotted white'});
-    $('.dottedblue2').css({'border':'2px dotted blue'});
+    $('.dottedred3').css({'border':'2px solid white'});
+    $('.dottedblue2').css({'border':'2px solid blue'});
     // console.log($('.yourdecisiontext').height());
     // console.log($('.input').height());
     // console.log($('.decision').height());
@@ -1139,9 +1139,39 @@ b4.onclick = function() {
     var myString = -myheight + 'px';
     $('.mc4').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
     $('.mc5').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush'});
-    $('.continueButton').css({'opacity':'1'});
+    $('.multibutton').css({'opacity':'1'});
     $('html, body').animate({
         scrollTop: 0
     }, 1000);
+
     // console.log('button pressed');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+var calcOn = document.getElementById('multibutton');
+calcOnCounter = 0;
+calcOn.onclick = function() {
+    if(calcOnCounter===0) {
+        $('.titlesection, .topsection, .middlesection, .bottomsection').css({'transition':'1s', 'transition-delay':'0s'});
+        $('.titlesection, .topsection, .middlesection, .bottomsection').css({'opacity':'0', 'z-index':'-10'});
+        $('.topsection').css({'margin-top':'-650px'});
+    }
+    if(calcOnCounter===1) {
+        $('.titlesection, .topsection, .middlesection, .bottomsection').css({'transition':'1s', 'transition-delay':'0s'});
+        $('.titlesection, .topsection, .middlesection, .bottomsection').css({'opacity':'1', 'z-index':'0'});
+        $('.topsection').css({'margin-top':'0px'});
+    }
+    $('.son').css({'opacity':'1'});
+    calcOnCounter = 1 - calcOnCounter;
 }

@@ -966,7 +966,7 @@ slider1.oninput = function() {
     canClickArrow = true;
     updateAll();
     updateBarYAxis('bar1', true);
-    $('.greendotted1').css({'border':'2px dotted white'});
+    $('.greendotted1').css({'border':'4px solid white'});
 }
 
 //Followers
@@ -986,7 +986,7 @@ oslider1.oninput = function() {
 
     updateAll();
     updateBarYAxis('obar1', true);
-    $('.greendotted2').css({'border':'2px dotted white'});
+    $('.greendotted2').css({'border':'4px solid white'});
 }
 
 $('#vSlider1').hover(

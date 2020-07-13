@@ -889,7 +889,7 @@ margin-right: -135px;
 {
     margin-left: 10px;
     margin-right: 10px;
-    border: 2px dotted red;
+    border: 2px solid red;
     padding-left:20px;
     /* height: 5px; */
     /* width: 10px; */
@@ -898,7 +898,7 @@ margin-right: -135px;
 {
     margin-left: 10px;
     margin-right: 10px;
-    border: 2px dotted red;
+    border: 2px solid red;
     /* padding-left:20px; */
     /* height: 5px; */
     /* width: 10px; */
@@ -908,7 +908,7 @@ margin-right: -135px;
 {
     margin-left: 10px;
     margin-right: 10px;
-    border: 2px dotted white;
+    border: 2px solid white;
     transition:1s;
     /* padding-left:20px; */
     /* height: 5px; */
@@ -918,7 +918,7 @@ margin-right: -135px;
 {
     margin-left: 10px;
     margin-right: 10px;
-    border: 2px dotted white;
+    border: 2px solid white;
     transition:1s;
     /* padding-left:20px; */
     /* height: 5px; */
@@ -928,14 +928,14 @@ margin-right: -135px;
 {
     margin-left: 10px;
     margin-right: 10px;
-    border: 2px dotted white;
+    border: 2px solid white;
     transition:1s;
 }
 .dottedbluet
 {
     margin-left: 10px;
     margin-right: 10px;
-    border: 2px dotted blue;
+    border: 2px solid blue;
     padding-left:20px;
 
     /* height: 5px; */
@@ -945,7 +945,7 @@ margin-right: -135px;
 {
     margin-left: 10px;
     margin-right: 10px;
-    border: 2px dotted white;
+    border: 2px solid white;
     transition:1s;
     /* padding-left:20px; */
     /* height: 5px; */
@@ -955,7 +955,7 @@ margin-right: -135px;
 {
     margin-left: 10px;
     margin-right: 10px;
-    border: 2px dotted white;
+    border: 2px solid white;
     transition:1s;
     /* padding-left:20px; */
     /* height: 5px; */
@@ -1137,4 +1137,9 @@ img.dice
 {
     transition: 0.35s;
     opacity:0;
+}
+.multibutton
+{
+    opacity:0;
+    transition:1s;
 }

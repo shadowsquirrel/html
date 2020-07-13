@@ -734,3 +734,77 @@
     background-color:lavender;
     border:1px solid black;
 }
+
+
+.d1
+{
+    opacity:0;
+    transition:1s;
+    transition-delay:0s;
+}
+.d15
+{
+    opacity:0;
+    transition:1s;
+    transition-delay:1s;
+}
+.d2
+{
+    opacity:0;
+    transition:1s;
+    transition-delay: 7s;
+}
+.d25
+{
+    opacity:0;
+    transition:1s;
+    transition-delay: 10s;
+}
+.d3
+{
+    opacity:0;
+    transition:1s;
+    transition-delay: 16s;
+}
+.d33
+{
+    opacity:0;
+    transition:1s;
+    transition-delay: 20s;
+}
+.d36
+{
+    opacity:0;
+    transition:1s;
+    transition-delay: 26s;
+}
+.d39
+{
+    opacity:0;
+    transition:1s;
+    transition-delay: 30s;
+}
+.d4
+{
+    opacity:0;
+    transition:1s;
+    transition-delay: 36s;
+}
+.d43
+{
+    opacity:0;
+    transition:1s;
+    transition-delay: 41s;
+}
+.d46
+{
+    opacity:0;
+    transition:1s;
+    transition-delay: 45s;
+}
+.d5
+{
+    opacity:0;
+    transition:1s;
+    transition-delay: 51s;
+}

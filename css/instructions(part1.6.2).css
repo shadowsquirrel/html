@@ -112,8 +112,23 @@
     justify-content: center;
     /* transition: 0.15s ease-in-out; */
 }
+.stagetextwraptitle
+{
+    transition:0.75s;
+    /* padding-top:20px; */
+    padding-bottom:20px;
+}
 .stagetextwrap
 {
+    transition:0.75s;
+    /* padding-top:20px; */
+    padding-bottom:20px;
+}
+.stagetextwrap1
+{
+    margin-top:-373px;
+    transition:0.75s;
+    opacity:0;
     /* padding-top:20px; */
     padding-bottom:20px;
 }
@@ -151,29 +166,40 @@
     flex-direction: column;
     /* justify-content: center; */
 }
+.fadein
+{
+    opacity:0;
+}
 .sbox
 {
     height: 50px;
-    width: 75px;
-    background-color: rgb(80, 80, 80);
-    border: 3px solid rgb(160, 160, 160);
-    opacity: 0.5;
-    transition: 2s  ease-in-out;
+    width: 79px;
+    background-color: white;
+    border: 5px solid black;
+    opacity: 0;
+    transition: 1s
 }
 
 .stageboxtext
 {
-    padding-top: 9px;
-    font-size: 16px;
+    /* padding-top: 1px; */
+    margin-top:-9px;
+    font-size: 38px;
     text-align: center;
-    color: white;
+    color: black;
+    font-weight:800;
+}
+.y
+{
+    transition:0.35s;
 }
 .stageboxtextlong
 {
-    padding-top: 13px;
-    font-size: 11px;
+    /* padding-top: 13px; */
+    font-size: 14px;
     text-align: center;
-    color: white;
+    color: black;
+    font-weight:800;
 }
 .abox
 {
@@ -194,7 +220,7 @@
     stroke:black;
     stroke-width:1;
     marker-end:url(#markerArrow);
-    opacity: 1;
+    opacity: 0;
     transition: 2s  ease-in-out;
 }
 
@@ -243,4 +269,68 @@
 {
     padding-top:30px;
     text-align: left;
+}
+
+
+.f1
+{
+    transition:1s;
+    transition-delay:2.5s;
+}
+.f2
+{
+    transition:1s;
+    transition-delay:6s;
+}
+.f3
+{
+    transition:1s;
+    transition-delay:8s;
+}
+.f4
+{
+    transition:1s;
+    transition-delay:12s;
+}
+.f5
+{
+    transition:2s;
+    transition-delay:1s;
+}
+.fadein2
+{
+    opacity:0;
+}
+.additionalclass
+{
+    margin-top:-20px;
+    padding-bottom:25px;
+}
+.d1
+{
+    opacity:0;
+    transition:1s;
+    transition-delay:0s;
+}
+.d2
+{
+    opacity:0;
+    transition:1s;
+    transition-delay:0s;
+}
+.someboxclass
+{
+    /* transition:1s; */
+    opacity:0;
+    background-color:orange;
+    border:5px solid black;
+}
+img.hover
+{
+    float:right;
+    margin-right:55px;
+    margin-top:-69px;
+    width: 40px;
+    height: 50px;
+    /* margin-top:-20px; */
 }
