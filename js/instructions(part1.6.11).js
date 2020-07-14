@@ -46,13 +46,69 @@ var stageshortTextDisplay = document.getElementById('stageshortexplanation');
 var nbutton = document.getElementById('dice2');
 var pbutton = document.getElementById('dice1');
 
-var changeMap = function(mystageIndex) {
-
+var changeMap2 = function(mystageIndex) {
+    $('.b1, .1a2, .b2, .2a3, .b3, .3al, .3aw, .w34, .l34, .la4, .wa5, .b4, .4a5, .b5, .5a6, .b6')
+    .css({'background-color':'white'});
 
     if(mystageIndex===1) {
-        $('.b1').css({'border':'5px solid lime', 'opacity':'1'});
+
+        $('.b1').css({'border':'5px solid black', 'background-color':'yellow',  'opacity':'1'});
         $('.1a2, .b2, .2a3, .b3, .3al, .3aw, .w34, .l34, .la4, .wa5, .b4, .4a5, .b5, .5a6, .b6')
-        .css({'opacity':'0.1', 'border':'solid 3px rgb(160, 160, 160)'});
+        .css({'opacity':'0.1'});
+        stageshortTextDisplay.innerHTML = 'You are <strong>randomly</strong> assigned to a role, group and an opposing group';
+
+    }
+    if(mystageIndex===2) {
+
+        $('.b2').css({'border':'5px solid black', 'background-color':'yellow', 'opacity':'1'});
+        $('.1a2, .b1, .2a3, .b3, .3al, .3aw, .w34, .l34, .la4, .wa5, .b4, .4a5, .b5, .5a6, .b6')
+        .css({'opacity':'0.1'});
+        stageshortTextDisplay.innerHTML = '<strong>Help/Sabotage Decision I</strong> <br> <strong>Followers</strong> decide how much to <strong>help</strong> or <strong>sabotage</strong> <strong>their</strong> leader.';
+
+    }
+    if(mystageIndex===3) {
+
+        $('.b3').css({'border':'5px solid black', 'background-color':'yellow',  'opacity':'1'});
+        $('.1a2, .b1, .2a3, .b2, .3al, .3aw, .w34, .l34, .la4, .wa5, .b4, .4a5, .b5, .5a6, .b6')
+        .css({'opacity':'0.1'});
+        stageshortTextDisplay.innerHTML = '<strong>Leaders\' Contest I</strong> <br> <u>Winner</u> <strong>continues as leader</strong> and <strong>receives 1000</strong> tokens.';
+
+    }
+    if(mystageIndex===4) {
+
+        $('.b4').css({'border':'5px solid black', 'background-color':'yellow', 'opacity':'1'});
+        $('.1a2, .b1, .2a3, .b2, .3al, .3aw, .w34, .l34, .la4, .wa5, .b3, .4a5, .b5, .5a6, .b6')
+        .css({'opacity':'0.1'});
+        stageshortTextDisplay.innerHTML = '<strong>Followers\' Contest</strong> <br> Since the <strong>leader lost</strong> her leader role in Stage <strong>3</strong>, <br>her <strong>followers</strong> compete for the <strong>new</strong> leader role.';
+
+    }
+    if(mystageIndex===5) {
+
+        $('.b5').css({'border':'5px solid black', 'background-color':'yellow', 'opacity':'1'});
+        $('.1a2, .b1, .2a3, .b2, .3al, .3aw, .w34, .l34, .la4, .wa5, .b3, .4a5, .b4, .5a6, .b6')
+        .css({'opacity':'0.1'});
+        $('.5a6, .b6, .w34').css({'opacity':'0.1', 'border':'solid 3px rgb(160, 160, 160)'});
+        stageshortTextDisplay.innerHTML = '<strong>Help/Sabotage Decision II</strong> <br> <strong>Followers</strong> decide how much to <strong>help</strong> or <strong>sabotage</strong> <strong>their</strong> leader. <br> <strong>Lost leader of stage 3</strong> is now one of the followers.';
+
+    }
+    if(mystageIndex===6) {
+        $('.b6').css({'border':'5px solid black', 'background-color':'yellow', 'opacity':'1'});
+        $('.1a2, .b1, .2a3, .b2, .3al, .3aw, .w34, .l34, .la4, .wa5, .b3, .4a5, .b4, .5a6, .b5')
+        .css({'opacity':'0.1'});
+        stageshortTextDisplay.innerHTML = '<strong>Leaders\' Contest II</strong> <br> <u>Winner</u> <strong>receives 1000</strong> tokens. <br> Your group\'s leader is the <strong>winner</strong> of Stage <strong>4</strong>, Followers\' Contest.';
+
+    }
+
+}
+
+var changeMap = function(mystageIndex) {
+    $('.b1, .1a2, .b2, .2a3, .b3, .3al, .3aw, .w34, .l34, .la4, .wa5, .b4, .4a5, .b5, .5a6, .b6')
+    .css({'background-color':'white'});
+
+    if(mystageIndex===1) {
+        $('.b1').css({'border':'5px solid lime', 'opacity':'1', 'background-color':'white'});
+        $('.1a2, .b2, .2a3, .b3, .3al, .3aw, .w34, .l34, .la4, .wa5, .b4, .4a5, .b5, .5a6, .b6')
+        .css({'opacity':'0.1', 'border':'solid 3px rgb(160, 160, 160)', 'background-color':'white'});
         stageshortTextDisplay.innerHTML = 'You are <strong>randomly</strong> assigned to a role, group and an opposing group';
         stagenumberDisplay.innerHTML = mystageIndex;
     }
@@ -145,3 +201,66 @@ pbutton.onclick = function() {
         changeMap(stageIndex);
     }
 }
+
+
+
+
+$('.b1, .b2, .b3, .b4, .b5, .b6').css({'transition-delay':'0s', 'transition':'1s'});
+// $('.3aw, .w34').css({'opacity':'0.2'});
+$('.x1, .x2, .x3, .x4, .x5, .x6').css({'cursor':'pointer'});
+
+
+
+$('.x1').hover(
+    function() {
+        changeMap2(1);
+    },
+    function() {
+        changeMap(stageIndex);
+    }
+);
+
+$('.x2').hover(
+    function() {
+        changeMap2(2);
+    },
+    function() {
+        changeMap(stageIndex);
+    }
+);
+
+$('.x3').hover(
+    function() {
+        changeMap2(3);
+    },
+    function() {
+        changeMap(stageIndex);
+    }
+);
+
+$('.x4').hover(
+    function() {
+        changeMap2(4);
+    },
+    function() {
+        changeMap(stageIndex);
+    }
+);
+
+$('.x5').hover(
+    function() {
+        changeMap2(5);
+    },
+    function() {
+        changeMap(stageIndex);
+    }
+);
+
+$('.x6').hover(
+    function() {
+        changeMap2(6);
+    },
+    function() {
+        changeMap(stageIndex);
+    }
+);
