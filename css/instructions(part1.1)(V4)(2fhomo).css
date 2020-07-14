@@ -1139,7 +1139,8 @@ img.dice
 }
 .birbaskawrap2
 {
-    margin-top:-5px;
+    margin-left:-35px;
+    margin-top:10px;
     display:flex;
     flex-direction:row;
     /* justify-content: center; */
@@ -1150,7 +1151,10 @@ img.dice
     display:flex;
     flex-direction: column;
 }
-
+.sagtaraf
+{
+    padding-left:462px;
+}
 .finstructions
 {
     padding-top:20px;

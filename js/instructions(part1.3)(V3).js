@@ -827,28 +827,45 @@ myNext.onclick = function() {
         $('.zerotextsabo').css({'opacity':'1', 'z-index':'0'});
         $('.firsttextsabo').css({'opacity':'0', 'z-index':'0'});
         $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.second25textsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.thirdtextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
+        $('.second25texthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
     }
     if(clickCount < 5 && clickCount > 0 ) {
         $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.firsttextsabo').css({'opacity':'1', 'z-index':'0'});
         $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.second25textsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.thirdtextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
+        $('.second25texthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
     }
 
-    if(clickCount > 4 && clickCount < 10) {
+    if(clickCount > 4 && clickCount < 7) {
         $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.secondtextsabo').css({'opacity':'1', 'z-index':'0'});
+        $('.second25textsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.thirdtextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
+        $('.second25texthelp').css({'opacity':'0', 'z-index':'-20'});
+        $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
+    }
+    if(clickCount > 6 && clickCount < 10) {
+        $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.second25textsabo').css({'opacity':'1', 'z-index':'0'});
+        $('.thirdtextsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
+        $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
+        $('.second25texthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
     }
 
@@ -856,9 +873,11 @@ myNext.onclick = function() {
         $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.second25textsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.thirdtextsabo').css({'opacity':'1', 'z-index':'0'});
         $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
+        $('.second25texthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
     }
 
@@ -866,19 +885,34 @@ myNext.onclick = function() {
         $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.second25textsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.thirdtextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.firsttexthelp').css({'opacity':'1', 'z-index':'0'});
         $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
+        $('.second25texthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
     }
 
-    if(clickCount > 21 && clickCount < 27) {
+    if(clickCount > 21 && clickCount < 24) {
         $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.second25textsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.thirdtextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.secondtexthelp').css({'opacity':'1', 'z-index':'0'});
+        $('.second25texthelp').css({'opacity':'0', 'z-index':'-20'});
+        $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
+    }
+    if(clickCount > 23 && clickCount < 27) {
+        $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.second25textsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.thirdtextsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
+        $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
+        $('.second25texthelp').css({'opacity':'1', 'z-index':'0'});
         $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
     }
 
@@ -886,9 +920,11 @@ myNext.onclick = function() {
         $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.second25textsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.thirdtextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
+        $('.second25texthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.thirdtexthelp').css({'opacity':'1', 'z-index':'0'});
     }
 
@@ -1008,15 +1044,29 @@ myPrevious.onclick = function() {
         $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
     }
 
-    if(clickCount > 4 && clickCount < 10) {
+    if(clickCount > 4 && clickCount < 7) {
         $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.secondtextsabo').css({'opacity':'1', 'z-index':'0'});
+        $('.second25textsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.thirdtextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
+        $('.second25texthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
     }
+    if(clickCount > 6 && clickCount < 10) {
+        $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.second25textsabo').css({'opacity':'1', 'z-index':'0'});
+        $('.thirdtextsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
+        $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
+        $('.second25texthelp').css({'opacity':'0', 'z-index':'-20'});
+        $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
+    }
+
 
     if(clickCount > 9 && clickCount < 18) {
         $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
@@ -1038,13 +1088,27 @@ myPrevious.onclick = function() {
         $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
     }
 
-    if(clickCount > 21 && clickCount < 27) {
+    if(clickCount > 21 && clickCount < 24) {
         $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.second25textsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.thirdtextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.secondtexthelp').css({'opacity':'1', 'z-index':'0'});
+        $('.second25texthelp').css({'opacity':'0', 'z-index':'-20'});
+        $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
+    }
+
+    if(clickCount > 23 && clickCount < 27) {
+        $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.second25textsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.thirdtextsabo').css({'opacity':'0', 'z-index':'-20'});
+        $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
+        $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
+        $('.second25texthelp').css({'opacity':'1', 'z-index':'0'});
         $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
     }
 

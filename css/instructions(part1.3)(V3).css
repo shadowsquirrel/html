@@ -1356,6 +1356,17 @@ img.spic
     border:1px solid black;
     padding: 5px;
 }
+.second25textsabo
+{
+    background-color:  rgb(230, 231, 200);
+    transition:1s;
+    opacity:0;
+    margin-top:-75px;
+    border:1px solid black;
+    padding: 5px;
+    padding-bottom:15px;
+    padding-top:15px;
+}
 .thirdtextsabo
 {
     background-color: lavenderblush;
@@ -1382,6 +1393,17 @@ img.spic
     margin-top:-75px;
     border:1px solid black;
     padding: 5px;
+}
+.second25texthelp
+{
+    background-color:  rgb(230, 231, 200);
+    transition:1s;
+    opacity:0;
+    margin-top:-75px;
+    border:1px solid black;
+    padding: 5px;
+    padding-bottom:15px;
+    padding-top:15px;
 }
 .thirdtexthelp
 {
