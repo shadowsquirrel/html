@@ -17,25 +17,28 @@
         <!-- <button class=multibutton id=multibutton>Y</button>
         <button class=multibutton id=multibutton2>X<span id='buttonname'></span></button> -->
     </div>
-    <div class = 'wrap noselect'>
+    <div class = 'wrap'>
 
         <div class = 'all'>
 
             <div class = 'sinfo' id='sinfo'>
 
-                <div class = sinfotitle>
+                <!-- <div class = sinfotitle>
                     <h3>INSTRUCTIONS</h3>
-                </div>
+                </div> -->
 
                 <div class ='sinfotext fadein rank0'>
-                    <p style='font-size: 22px; margin-bottom: 20px;'> Help and Sabotage  </span></p>
+                    <p style='font-size: 22px; margin-bottom: 20px; font-weight:800'> Help and Sabotage  </span></p>
 
 
                 </div>
 
                 <div class ='sinfotext limited fadein rank1'>
                     <p class='fadein minirank05'>
-                        <strong>Before</strong> a <u>leaders' contest</u>, followers <strong>help</strong> or <strong>sabotage</strong> their <u><strong>own</strong> leader</u>.
+                        <strong>Before</strong> a leaders' contest, followers decide to <strong>help</strong> or <strong>sabotage</strong> their <u><strong>own</strong> leader</u>.
+                    </p>
+                    <p class='fadein minirank075'>
+                        These decisions determine the <strong>power</strong> of their leaders.
                     </p>
                     <p class='fadein minirank1'>
                         Through <strong>help</strong> or <strong>sabotage</strong>, followers can make their leader <strong>advantageous</strong> or <strong>disadvantageous</strong> in the leaders' contest.
@@ -73,7 +76,7 @@
             <div class = 'calculator fadein2' id='calculator'>
 
 
-                <div class = 'topsection'>
+                <div class = 'topsection noselect'>
 
                     <div class = 'leadergroupleft'>
                         <p class='leftgrouptitle'>
@@ -88,7 +91,7 @@
 
 
 
-                    <div class = 'leadergraphics'>
+                    <div class = 'leadergraphics  noselect'>
                         <div class = 'arrowwrap'>
                             <div class='wheelpiewrap'>
                                 <img id="arrow" class='arrow' src="images/arrow.png" alt="V" />
@@ -106,7 +109,7 @@
 
 
 
-                    <div class = 'leadergroupright'>
+                    <div class = 'leadergroupright noselect'>
                         <p class='rightgrouptitle'>
                             Group B
                         </p>
@@ -124,7 +127,7 @@
                     <div class = 'sliderbarefi'>
                         <div id = 'efficiencyBar' class = 'efficiencyBar'></div>
                     </div>
-                    <h6 style = 'z-index:1;'>Relative Investment Power</h6>
+                    <h6 style = 'z-index:1;'>Relative Power</h6>
                 </div>
 
 
@@ -136,7 +139,7 @@
                         </div>
 
 
-                        <div class = 'slidebargroup left'>
+                        <div class = 'slidebargroup left noselect'>
                             <div class = 'sliderbar'>
                                 <input type='range' min = '-100' max = '100' class = 'vertical slider' id = 'vSlider1' />
                                 <div id = 'bar1' class = 'bar l greendotted1'></div>
@@ -153,25 +156,26 @@
 
                     <div class = 'followergraphics'>
 
-                        <p class='usetext'>
+                        <p class='usetext noselect genins'>
                             use <span class='dottedgreen'></span> sections to chose help / sabotage levels for both followers.
                         </p>
 
-                        <div class='textimagewrap'>
-                            <div class='textimageclass' style='margin-bottom:-18px;'>
+                        <div class='textimagewrap noselect'>
+
+                            <div class='textimageclass helpins' style='margin-bottom:-18px;'>
                                 <img id="hpic" class='hpic' src="images/help.png" alt="V" />
                                 <p class='tinytextclass'>
                                     Move the slider <strong>up</strong> to select an help level.
                                 </p>
                             </div>
 
-                            <p style='font-weight:800;'>
+                            <p style='font-weight:800;' class=helpins>
                                 OR
                             </p>
 
-                            <div class='textimageclass' style='padding-left:60px; margin-top:-40px'>
+                            <div class='textimageclass saboins' style='padding-left:60px; margin-top:-40px'>
 
-                                <p class='tinytextclass'>
+                                <p class='tinytextclass noselect'>
                                     Move the slider <strong>down</strong> to select a sabotage level.
                                 </p>
                                 <img id="spic" class='spic' src="images/sabo.png" alt="V" />
@@ -191,6 +195,9 @@
                                 <p class='secondtextsabo'>
                                     <strong>Impact</strong> of help does <strong>not</strong> depend on the <strong>absolute levels</strong> of leaders' investments.
                                 </p>
+                                <p class='second25textsabo'>
+                                    <strong>Impact</strong> of help <strong>depends</strong> on the <strong>ratio</strong> of leaders' investments.
+                                </p>
                                 <p class='thirdtextsabo'>
                                     The <strong>impact</strong> of Follower <strong>A</strong>'s help on his leader <strong>A</strong> <u>depends</u> on Follower <strong>B</strong>'s help on his leader <strong>B</strong>.
                                 </p>
@@ -200,6 +207,9 @@
                                 </p>
                                 <p class='secondtexthelp'>
                                     <strong>Impact</strong> of sabotage does <strong>not</strong> depend on the <strong>absolute levels</strong> of leaders' investments.
+                                </p>
+                                <p class='second25texthelp'>
+                                    <strong>Impact</strong> of sabotage <strong>depends</strong> on the <strong>ratio</strong> of leaders' investments.
                                 </p>
                                 <p class='thirdtexthelp'>
                                     The <strong>impact</strong> of Follower <strong>A</strong>'s sabotage on leader <strong>A</strong> <u>depends</u> on Follower <strong>B</strong>'s sabotage on leader <strong>B</strong>.
@@ -230,7 +240,7 @@
 
 
 
-                    <div class = 'followergroupright'>
+                    <div class = 'followergroupright noselect'>
                         <div class='titlewrap titlewrapextraright'>
                             <h6 class = 'right_title ftitle'>Follower B</h6>
                         </div>

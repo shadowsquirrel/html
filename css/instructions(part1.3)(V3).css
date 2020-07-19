@@ -377,6 +377,7 @@
 }
 .s3pie
 {
+    cursor:pointer;
     /* border: 5px solid black; */
 }
 
@@ -1574,6 +1575,8 @@ img.previous
 
 .leftgrouptitle
 {
+    transition:2s;
+    /* transition-delay:1s; */
     margin-left:-109px;
     margin-bottom:-38px;
     font-weight:800;
@@ -1587,6 +1590,8 @@ img.previous
 }
 .rightgrouptitle
 {
+    transition:2s;
+    /* transition-delay:1s; */
     font-weight:800;
     font-size:22px;
     padding-bottom:10px;
@@ -1607,7 +1612,7 @@ img.previous
 {
     opacity:0;
     transition:1s;
-    transition-delay:25s;
+    transition-delay:29s;
 }
 .fadein2
 {
@@ -1632,20 +1637,25 @@ img.previous
     transition:1s;
     transition-delay:2s;
 }
+.minirank075
+{
+    transition:1s;
+    transition-delay:8s;
+}
 .minirank1
 {
     transition:1s;
-    transition-delay:7s;
+    transition-delay:11s;
 }
 .minirank2
 {
     transition:1s;
-    transition-delay:12s;
+    transition-delay:17s;
 }
 .minirank25
 {
     transition:1s;
-    transition-delay:16s;
+    transition-delay:21s;
 }
 .minirank275
 {
@@ -1653,13 +1663,13 @@ img.previous
     text-decoration:underline solid red;
     text-align: center;
     transition:1s;
-    transition-delay:20s;
+    transition-delay:25s;
 }
 .minirank3
 {
     text-align: center;
     transition:1s;
-    transition-delay:24s;
+    transition-delay:27s;
 }
 .simpletextwrap
 {
@@ -1694,4 +1704,13 @@ img.previous
 {
     border-bottom: 2px solid;
     text-decoration: none;
+}
+.helpins
+{
+    opacity:3s;
+}
+
+.saboins
+{
+    opacity:3s;
 }

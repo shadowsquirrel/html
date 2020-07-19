@@ -156,8 +156,6 @@ var updateBarLeader = function(e, barId, ourSide, axisOn) {
             autorange: false,
             range: [0,800],
             layer: 'below traces',
-            fixedrange: true,
-
             tickfont: {
                 size: 10,
             },
@@ -421,80 +419,80 @@ var updateAll = function() {
     updatePie(pwin);
     updateEfficiencyBar(efi, oefi);
     if(activeWheelSwitch) {
-        hideWheel();
+        // hideWheel();
         activeWheelSwitch = false;
     }
     // wheelresultDisplay2.innerHTML = 'Your investment cost: <strong>' + efo + '</strong>';
 }
 
-var hideWheel = function() {
-    $('.piewrap').css({'display':'flex'});
-    $('.piewrap').css({'opacity':'1', 'zIndex':'1'});
-    $('.mywheel').css({'display':'none'});
-    $('.mywheel').css({'opacity':'0', 'zIndex':'0'});
-    liftArrow();
-}
+// var hideWheel = function() {
+//     $('.piewrap').css({'display':'flex'});
+//     $('.piewrap').css({'opacity':'1', 'zIndex':'1'});
+//     $('.mywheel').css({'display':'none'});
+//     $('.mywheel').css({'opacity':'0', 'zIndex':'0'});
+//     liftArrow();
+// }
+//
+// var resultIndex;
+// var animateWheel = function() {
+//     createWheel(pwin);
+//     theWheel.stopAnimation(false);
+//     theWheel.rotationAngle = 0;
+//
+//     $('.piewrap').css({'display':'none'});
+//     $('.piewrap').css({'opacity':'0', 'zIndex':'-1'});
+//     $('.mywheel').css({'display':'flex'});
+//     $('.mywheel').css({'opacity':'1', 'zIndex':'0'});
+//     $('.arrow').css({'marginTop':'48px'});
+//
+//     var stopAt = theWheel.getRandomForSegment(resultIndex);
+//     theWheel.animation.stopAngle = stopAt;
+//     theWheel.startAnimation();
+//     activeWheelSwitch = true;
+// }
 
-var resultIndex;
-var animateWheel = function() {
-    createWheel(pwin);
-    theWheel.stopAnimation(false);
-    theWheel.rotationAngle = 0;
+// var arrowButton = document.getElementById('arrow');
+// var canClickArrow = true;
+// arrowButton.onclick = function() {
+//     console.log(canClickArrow);
+//     if(canClickArrow) {
+//         $('.arrow').css({'border':'0px'});
+//         $('.wheelresult').css({'opacity':'0'});
+//         $('.wheelresult3').css({'opacity':'0'});
+//         resultIndex = (Math.random() < pwin) ? 1 : 2;
+//         animateWheel();
+//
+//         canClickArrow = false;
+//     }
+//
+// }
 
-    $('.piewrap').css({'display':'none'});
-    $('.piewrap').css({'opacity':'0', 'zIndex':'-1'});
-    $('.mywheel').css({'display':'flex'});
-    $('.mywheel').css({'opacity':'1', 'zIndex':'0'});
-    $('.arrow').css({'marginTop':'48px'});
-
-    var stopAt = theWheel.getRandomForSegment(resultIndex);
-    theWheel.animation.stopAngle = stopAt;
-    theWheel.startAnimation();
-    activeWheelSwitch = true;
-}
-
-var arrowButton = document.getElementById('arrow');
-var canClickArrow = true;
-arrowButton.onclick = function() {
-    console.log(canClickArrow);
-    if(canClickArrow) {
-        $('.arrow').css({'border':'0px'});
-        $('.wheelresult').css({'opacity':'0'});
-        $('.wheelresult3').css({'opacity':'0'});
-        resultIndex = (Math.random() < pwin) ? 1 : 2;
-        animateWheel();
-
-        canClickArrow = false;
-    }
-
-}
-
-var liftArrow = function() {
-    $('.arrow').css({'marginTop':'30px'});
-}
-
-var showResult = function() {
-    $('.wheelresult').css({'opacity':'1'});
-    $('.wheelresult3').css({'opacity':'1'});
-    $('.arrowwrap').css({'margin-top':'-25px'});
-    canClickArrow = true;
-    liftArrow();
-    // setTimeout("liftArrow()", 500);
-
-    var wheelresultDisplay = document.getElementById('wheelresulttext');
-    var youwon = 'You Won!';
-    var youlost = 'You Lost.';
-    var resultDisplay = (resultIndex===1) ? youwon : youlost;
-    wheelresultDisplay.innerHTML = resultDisplay;
-
-    var wheelresultDisplay3 = document.getElementById('wheelresulttext3');
-    var mycost = -efo;
-    var mypayoff = -efo + ((resultIndex===1) ? 1000 : 0);
-    var mypayoffDisplay = 'Your Net Payoff: <strong>' + mypayoff + '</strong>';
-    wheelresultDisplay3.innerHTML = mypayoffDisplay;
-
-    $('html, body').animate({scrollTop:  $(document).height()}, 2000);
-}
+// var liftArrow = function() {
+//     $('.arrow').css({'marginTop':'30px'});
+// }
+//
+// var showResult = function() {
+//     $('.wheelresult').css({'opacity':'1'});
+//     $('.wheelresult3').css({'opacity':'1'});
+//     $('.arrowwrap').css({'margin-top':'-25px'});
+//     canClickArrow = true;
+//     liftArrow();
+//     // setTimeout("liftArrow()", 500);
+//
+//     var wheelresultDisplay = document.getElementById('wheelresulttext');
+//     var youwon = 'You Won!';
+//     var youlost = 'You Lost.';
+//     var resultDisplay = (resultIndex===1) ? youwon : youlost;
+//     wheelresultDisplay.innerHTML = resultDisplay;
+//
+//     var wheelresultDisplay3 = document.getElementById('wheelresulttext3');
+//     var mycost = -efo;
+//     var mypayoff = -efo + ((resultIndex===1) ? 1000 : 0);
+//     var mypayoffDisplay = 'Your Net Payoff: <strong>' + mypayoff + '</strong>';
+//     wheelresultDisplay3.innerHTML = mypayoffDisplay;
+//
+//     $('html, body').animate({scrollTop:  $(document).height()}, 2000);
+// }
 
 
 
@@ -565,10 +563,15 @@ var goDown2 = function() {
         // $('.fadeout').css({'opacity':'1'});
         // console.log('yoyoyoyoyo');
         $('.showmore').css({'opacity':'1'});
-
-        $('.continueButton').css({'opacity':'1'});
+        setTimeout('goDown3()', 5000);
         firsttime2 = false;
     }
+}
+
+var goDown3 = function() {
+    $('.showmore5').css({'opacity':'1'});
+
+    $('.continueButton').css({'opacity':'1'});
 }
 
 var eButton = document.getElementById('exampleButton');
@@ -578,10 +581,10 @@ var eCounter = 0;
 eButton.onclick = function() {
 
     $('.dicewrap').css({'transition-delay':'0s', 'border':'3px solid white'});
-    var efoArray = [100, 100, 500, 500, 500, 500,  500, 500, 500, 500, 500];
-    var oefoArray = [100, 100, 100, 200, 500, 100, 200, 500, 100, 200, 500];
-    var efiArray =  [1,1, 1,1,1,1,1,1,1,1,1];
-    var oefiArray = [1,3, 3,3,3,5,5,5,10,10,10]
+    var efoArray = [100, 100, 500, 500, 500, 500];
+    var oefoArray = [100, 100, 100, 500, 100, 500];
+    var efiArray =  [1,1,1,1,1,1];
+    var oefiArray = [1,3,3,3,5,5]
 
     efi = efiArray[eCounter];
     oefi = oefiArray[eCounter];
@@ -598,7 +601,7 @@ eButton.onclick = function() {
 
     updateAll();
     $('.lslider').css({'opacity':'0'});
-    if(eCounter < 10) {
+    if(eCounter < 5) {
         eCounter = eCounter + 1;
         bigCounter = bigCounter + 1;
     } else {
@@ -607,7 +610,7 @@ eButton.onclick = function() {
         bigCounter = bigCounter +1;
         eCounter = 0;
     }
-    if(bigCounter === 12) {
+    if(bigCounter === 7) {
         setTimeout('goDown()', 1000);
         setTimeout('turnOnSliders()', 7000);
         $('.buttontextwrap').css({'opacity':'0', 'transition':'1s', 'transition-delay':'0s', 'margin-top':'-100px', 'z-index':'-30'});
@@ -624,10 +627,14 @@ eButton2.onclick = function() {
 
     // $('.dicewrap').css({'border':'3px solid white'});
     // $('.dicewrap').css({'transition-delay':'0s', 'border':'3px solid white'});
-    var efoArray = [100, 100, 500, 500, 500, 500,  500, 500, 500, 500, 500];
-    var oefoArray = [100, 100, 100, 200, 500, 100, 200, 500, 100, 200, 500];
-    var efiArray =  [1,1, 1,1,1,1,1,1,1,1,1];
-    var oefiArray = [1,3, 3,3,3,5,5,5,10,10,10]
+    // var efoArray = [100, 100, 500, 500, 500, 500,  500, 500, 500, 500, 500];
+    // var oefoArray = [100, 100, 100, 200, 500, 100, 200, 500, 100, 200, 500];
+    // var efiArray =  [1,1, 1,1,1,1,1,1,1,1,1];
+    // var oefiArray = [1,3, 3,3,3,5,5,5,10,10,10]
+    var efoArray = [100, 100, 500, 500, 500, 500];
+    var oefoArray = [100, 100, 100, 500, 100, 500];
+    var efiArray =  [1,1,1,1,1,1];
+    var oefiArray = [1,3,3,3,5,5]
 
     efi = efiArray[eCounter];
     oefi = oefiArray[eCounter];
@@ -645,7 +652,7 @@ eButton2.onclick = function() {
     updateAll();
 
     // $('.lslider').css({'opacity':'0'});
-    if(eCounter < 10) {
+    if(eCounter < 5) {
         eCounter = eCounter + 1;
     } else {
         eCounter = 0;
@@ -723,3 +730,5 @@ $('#olSlider1').hover(
 $('html, body').animate({scrollTop: 0}, 0);
 $('.firstfadein, .later1, .later15, .later175').css({'opacity':'1'});
 $('.evenlater').css({'opacity':'1'});
+$('#lSlider1, #olSlider1').css({'z-index':'-10'});
+$('#efiSlider').css({'cursor':'pointer'});

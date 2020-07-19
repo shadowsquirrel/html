@@ -56,6 +56,90 @@ var createWheel = function(myPwin) {
 
 createWheel(0.99);
 
+
+
+var myMiniWheel
+var createMiniWheel = function(myPwin) {
+    var a = 100*myPwin;
+    var b = 100-a;
+
+    myMiniWheel = new Winwheel({
+        'canvasId': 'miniWheel',
+        'numSegments': 2,
+        'outerRadius': 35, // controls the size of the theWheel
+        'textOrientation' : 'vertical',    // Set orientation. horizontal, vertical, curved.
+        // 'textOrientation' : 'curved',
+        'textFontFamily'  : 'Courier',     // Monospace font best for vertical and curved.
+        // 'textFontSize'    : 10,
+        // 'textAlignment'  : 'Center',         // Set alignment: inner, outer, center.
+        // 'textMargin'     : 15,
+        // 'textDirection': 'reversed',
+        'rotationAngle':Math.random()*360,
+
+        'segments':
+        [
+            {
+                'fillStyle' : 'rgb(80, 80, 80)',
+                'textFillStyle': 'white',
+                'text'      : '',
+                'size'      : winwheelPercentToDegrees(a),
+            },
+            {
+                'fillStyle' : 'rgb(225, 225, 225)',
+                'textFillStyle': 'black',
+                'text'      : '',
+                'size'      : winwheelPercentToDegrees(b),
+            },
+        ],
+        // 'pointerGuide' :        // Turn pointer guide on.
+        // {
+        //     'display'     : true,
+        //     'strokeStyle' : 'red',
+        //     'lineWidth'   : 3
+        // },
+        'animation' :
+        {
+            'type'     : 'spinToStop',
+            'duration' : 4,
+            'spins'    : 20,
+            // 'callbackFinished' : 'miniWheelFinished()',
+
+        }
+    });
+}
+var myIndexMini;
+
+var miniWheelFinished = function() {
+    console.log('finished');
+    setTimeout('miniAnimate()', 2000);
+}
+updateMyIndex = function() {
+    if(Math.random()>0.5) {myIndexMini=1;}
+    else {
+        myIndexMini=2;
+    }
+}
+
+var miniAnimateCounter = 0;
+var miniAnimate = function() {
+    if(miniAnimateCounter<3) {
+        var pIndex = [0.25, 0.5, 0.75, 0.9, 0.6, 0.3, 0.1]
+        createMiniWheel(pIndex[miniAnimateCounter]);
+        myMiniWheel.stopAnimation(false);
+        myMiniWheel.rotationAngle = 0;
+        updateMyIndex();
+        var stopAt = myMiniWheel.getRandomForSegment(2);
+        myMiniWheel.animation.stopAngle = stopAt;
+        myMiniWheel.startAnimation();
+        miniAnimateCounter = 1 + miniAnimateCounter
+    }
+    if(miniAnimateCounter===3){
+        $('.firstfadein, .after05').css({'transition':'1s', 'transition-delay':'0s'});
+        $('.arrowwrapmini').css({'opacity':'0'});
+    }
+
+
+}
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -154,7 +238,7 @@ var updateBarLeader = function(e, barId, ourSide, axisOn) {
             side: 'top',
             fixedrange: true,
             autorange: false,
-            range: [0,700],
+            range: [0,800],
             layer: 'below traces',
             fixedrange: true,
 
@@ -162,8 +246,8 @@ var updateBarLeader = function(e, barId, ourSide, axisOn) {
                 size: 10,
             },
             tickmode: 'array',
-            tickvals: [0, 50, 100, 150, 200, 250, 300, 400, 500, 700],
-            ticktext: [0, 50, 100, 150, 200, 250, 300, 400, 500, 700],
+            tickvals: [0, 50, 100, 150, 200, 250, 300, 400, 500, 650, 800],
+            ticktext: [0, 50, 100, 150, 200, 250, 300, 400, 500, 650, 800],
             tickangle: -45,
             ticks:'',
             showline: false,
@@ -303,7 +387,7 @@ arrowButton.onclick = function() {
 
 
         if(clickCount===0){resultIndex=2;}
-        if(clickCount===1){resultIndex2=1;}
+        if(clickCount===1){resultIndex=1;}
 
         if(clickCount === 1) {
             $('.moreinstructions').css({'transition-delay':'2s', 'opacity':'0', 'margin-top':'-145px'});
@@ -348,22 +432,57 @@ var showResult = function() {
     wheelresultDisplay3.innerHTML = mypayoffDisplay;
     if(firsttime) {
         $('.thirdhiddenpart').css({'opacity':'1'});
+        $('.somedelay').css({'opacity':'0'});
+        $('.loserpayoff').css({'text-decoration':'none', 'border-bottom':'2px solid red'});
+        $('.netpayoffresult').css({'border':'2px solid red'});
         firsttime = false;
     }
     if(clickCount===2){
-        setTimeout('showMoreText()', 1000);
+        $('.loserpayoff').css({'text-decoration':'none', 'border-bottom':'2px solid white'});
+        $('.somedelay').css({'opacity':'1'});
+        $('.winnerpayoff').css({'text-decoration':'none', 'border-bottom':'2px solid blue'});
+        $('.netpayoffresult').css({'border':'2px solid blue'});
+        $('.colored').css({'margin-top':'-275px'});
+        $('.somedefinitions').css({'margin-top':'0px', 'padding-top':'8px', 'padding-bottom':'8px', 'border-top':'2px solid','border-bottom':'2px solid'});
+        setTimeout('introduceContests()', 9000);
     }
 
 }
 
+var introduceContests = function() {
+    $('.somedelay').css({'text-decoration':'underline solid white'});
+    $('.netpayoffresult').css({'border':'1px solid white'});
+    $('.winnerpayoff').css({'text-decoration':'none', 'border-bottom':'2px solid white'});
+
+    $('.somedefinitions, .somedefinitions2').css({'opacity':'1'});
+
+    $('html, body').animate({scrollTop: $(document).height()}, 3000);
+}
+
+
+var Nbutton3 = document.getElementById('dice4');
+
+Nbutton3.onclick = function() {
+    $('.somedefinitions').css({'margin-top':'-80px', 'z-index':'-10'});
+    $('.somedefinitions, .somedefinitions2').css({'transition-delay':'0s','opacity':'0'});
+    showMoreText();
+}
+
+
+
 var showMoreText = function() {
-    $('.colored').css({'margin-top':'10px'});
-    $('.showmore').css({'opacity':'1', 'margin-bottom':'10px'});
-    $('.dicewrap2').css({'margin-top':'-102px', 'margin-left':'-37px'});
-    $('.showmore2').css({'margin-top':'-132px', 'margin-left':'78px'});
+    $('.colored').css({'margin-top':'-20px', 'margin-bottom':'20px'});
+    $('.showmore').css({'opacity':'1'});
+    // $('.dicewrap2').css({'margin-top':'-102px', 'margin-left':'-37px'});
+    $('.showmore2').css({'margin-top':'-195px'});
     $('.leftcolumn, .rightcolumn, .bottomcolumn, .dugmegoster').css({'opacity':'1'});
+    setTimeout('altiniciz()', 11000);
     setTimeout('goDown()', 3000);
-    setTimeout('goDown3()', 9000);
+    setTimeout('goDown3()', 13000);
+}
+
+var altiniciz = function() {
+    $('.bottomcolumntext').css({'transition':'1s', 'text-decoration':'none', 'border-bottom':'2px solid red'});
 }
 
 var goDown = function() {
@@ -427,12 +546,24 @@ lslider11.oninput = function() {
 }
 
 var show1 = function() {
+    // $('.yoket').css({'opacity':'0', 'transition-delay':'1s', 'padding-top':'0px'});
+    $('.yoket').css({'opacity':'0', 'transition-delay':'1s'});
+    setTimeout('show15()', 2000);
+}
+
+
+var show15 = function() {
     $('.lbar11').css({'border':'3px solid white'});
-    $('.yoket').css({'opacity':'0', 'transition-delay':'1s', 'padding-top':'0px'});
-    $('.goster1').css({'opacity':'1', 'padding-top':'112px'});
-    $('#olSlider11').css({'z-index':'1'});
-    $('.lbar11').css({'border':'3px solid white'});
+    setTimeout('show175()', 5000);
+}
+
+var show175 = function() {
     $('.lbar21').css({'transition-delay':'1s', 'border':'3px solid blue'});
+    // $('.goster1').css({'opacity':'1', 'transition-delay':'1s', 'padding-top':'112px'});
+    $('.goster1').css({'opacity':'1', 'transition-delay':'1s'});
+    $('#olSlider11').css({'z-index':'1'});
+    $('#lSlider11').css({'z-index':'-10'});
+
 }
 
 
@@ -460,20 +591,32 @@ olslider11.oninput = function() {
 var show2 = function() {
     $('.lbar21').css({'border':'3px solid white'});
     $('.goster1').css({'opacity':'0'});
-    $('.goster2').css({'opacity':'1', 'padding-top':'40px'});
+    // $('.goster2').css({'opacity':'1', 'padding-top':'40px'});
+        $('.goster2').css({'opacity':'1'});
     $('.dicewrap').css({'opacity':'1'});
+    setTimeout('show25()', 2000);
 }
+var show25 = function() {
+    $('#lSlider11').css({'z-index':'1'});
+    setTimeout('show3()', 5000);
 
+}
+var show3 = function() {
+    $('#lSlider11').css({'z-index':'-5'});
+    $('#olSlider11').css({'z-index':'-5'});
+}
 
 var Nbutton = document.getElementById('dice1');
 
 Nbutton.onclick = function() {
+    $('#olSlider1').css({'z-index':'-10'});
+    $('#lSlider1').css({'z-index':'-10'});
     $('.dice').css({'opacity':'0'});
     $('.goster').css({'transition-delay':'0s',  'transition':'1s', 'margin-top':'-100px'});
-    $('.goster2').css({'transition-delay':'0s',  'transition':'1s', 'opacity':'0'});
+    $('.goster2, .after05').css({'transition-delay':'0s',  'transition':'1s', 'opacity':'0'});
     $('.dicewrap').css({'transition-delay':'0s',  'transition':'1s', 'opacity':'0', 'margin-top':'-240px'});
     $('.secondhiddenpart').css({'opacity':'1'});
-    $('.secondafter0').css({'margin-top':'-6px'});
+    $('.secondafter0').css({'margin-top':'10px'});
     $('.calcgider').css({'transition-delay':'0s', 'transition':'1s', 'opacity':'0', 'z-index':'-20', 'margin-top':'-175px'});
     // $('.after1').css({'transition-delay':'0s', 'margin-top':'-6px'});
 }
@@ -552,7 +695,7 @@ $('#olSlider1').hover(
 
 
 // $('html, body').animate({scrollTop: 0}, 0);
-$('.firstfadein').css({'opacity':'1'});
+$('.firstfadein, .after05').css({'opacity':'1'});
 $('.secondfadein').css({'opacity':'1'});
 
 
@@ -755,14 +898,14 @@ var updateBarFollower = function(e, barId, followerIndex, axisOn) {
             side: 'top',
             fixedrange: true,
             autorange: false,
-            range: [0,200],
+            range: [0,400],
             layer: 'below traces',
             tickfont: {
                 size: 10,
             },
             tickmode: 'array',
-            tickvals: [0, 15, 30, 50, 75, 100, 125, 150, 200],
-            ticktext: [0, 15, 30, 50, 75, 100, 125, 150, 200],
+            tickvals: [0, 15, 30, 50, 75, 100, 125, 150, 200, 400],
+            ticktext: [0, 15, 30, 50, 75, 100, 125, 150, 200, 400],
             tickangle: -45,
             ticks:'',
             showline: false,
@@ -784,8 +927,9 @@ var updateBarFollower = function(e, barId, followerIndex, axisOn) {
 }
 
 var e1, e2, e3, e4, pwin4f;
-e1 = e2 = e3 = e4 = 100;
-pwin4f = 0.25;
+e1 = 300;
+e2 = e3 = e4 = 100
+pwin4f = 0.5;
 
 var calculatePwin4f = function() {
     var total = e1+e2+e3+e4;
@@ -817,6 +961,7 @@ var initializef = function() {
     $('#ofSlider3').prop('value', e4);
     $('#ofSlider3').change();
 
+    $('#fSlider1, #ofSlider1, #ofSlider2, #ofSlider3').css({'z-index':'-10'});
     $('.cursor-pointer').css({'cursor':'default'});
     $('.fwheelresult2').css({'opacity':'1'});
     var mytoken = (e1 > 1) ? 'tokens' : 'token';
@@ -884,8 +1029,8 @@ arrowButton2.onclick = function() {
         $('.fwheelresult4').css({'opacity':'0'});
         $('.fwheelresult').css({'opacity':'0'});
         $('.fwheelresult3').css({'opacity':'0'});
-        if(clickCountf===0){resultIndex2=randomOther();}
-        if(clickCountf===1){resultIndex2=1;}
+        if(clickCountf===0){resultIndex2=1;}
+        if(clickCountf===1){resultIndex2=randomOther();}
 
         animateWheel2();
         canClickArrow2 = false;
@@ -918,6 +1063,16 @@ var showResults2 = function() {
     // $('.fwheelresult2').css({'opacity':'1'});
     $('.fwheelresult4').css({'opacity':'1'});
     $('.fwheelresult3').css({'opacity':'1'});
+    if(clickCountf===1){
+        $('.adbulamadim').css({'border-bottom':'2px solid blue'});
+        $('.sonsonuclar').css({'border':'2px solid blue'})
+    }
+    if(clickCountf===2){
+        $('.adbulamadim').css({'border-bottom':'2px solid white'});
+        $('.sonsonuclar').css({'border':'2px solid red'})
+    }
+
+
 
 
     canClickArrow2 = true;
@@ -938,7 +1093,7 @@ var showResults2 = function() {
 
     var wheelresultDisplay3 = document.getElementById('fwheelresulttext3');
     var mycost = -e1;
-    var mypayoff = mycost + ((resultIndex===1) ? 1000 : 0);
+    var mypayoff = mycost + ((resultIndex===1) ? 0 : 0);
     var mytoken = (Math.abs(mypayoff) > 1) ? 'tokens' : 'token';
     var mypayoffDisplay = 'Your Net Payoff: <strong>' + mypayoff + '</strong> ' + mytoken;
     wheelresultDisplay3.innerHTML = mypayoffDisplay;
@@ -1050,10 +1205,10 @@ Nbutton2.onclick = function() {
         $('.dicewrap2, .showmore2wrap').css({'opacity':'0', 'z-index':'-10'});
         $('.othercalculator').css({'transition':'1s', 'transition-delay':'0s','opacity':'0', 'margin-top':'-400px', 'z-index':'-10'});
 
-        $('.f4section').css({'margin-top':'125px', 'z-index':'0'});
+        $('.f4section').css({'margin-top':'90px', 'z-index':'0'});
         $('.calculator4').css({'margin-top':'-414px', 'z-index':'-10'})
 
-
+        $('.colored').css({'margin-top':'-30px'});
         $('.thirdhiddenpart').css({'transition':'1s', 'transition-delay':'0s','opacity':'1', 'margin-top':'40px'})
         $('.bunudayoket').css({'transition':'1s', 'transition-delay':'0s', 'opacity':'1', 'border':'1px solid black', 'background-color':'lavender', 'padding-left':'35px'});
         $('.secondhiddenpart').css({'transition':'1s', 'transition-delay':'0s'})
@@ -1062,7 +1217,7 @@ Nbutton2.onclick = function() {
         $('.moreinstructions, .somedelay').css({'transition':'1s', 'transition-delay':'0s', 'opacity':'0'});
         $('.somedelay').css({'transition':'1s', 'transition-delay':'0s', 'padding-bottom':'0px', 'margin-top':'-113px'});
         $('.somemarginfix').css({'margin-top':'-15px'});
-        $('.secondafter0').css({'margin-top':'-2px'});
+        $('.secondafter0').css({'margin-top':'10px'});
         $('html, body').animate({scrollTop: $(document).height()}, 3000);
         setTimeout('goDown5()', 1000);
     }
@@ -1170,3 +1325,13 @@ $('#ofSlider3').hover(
         .css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
     }
 );
+
+
+var bunlarigoster = function() {
+    createMiniWheel(0.25);
+    setTimeout('miniAnimate()', 9500);
+}
+
+
+bunlarigoster();
+$('.fwheelresult3').css({'opacity':'0'});

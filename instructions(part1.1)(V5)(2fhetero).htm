@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="css/instructions(part1.1)(V4)(2fhomo).css">
+    <link rel="stylesheet" href="css/instructions(part1.1)(V5)(2fhetero).css">
     <script src='js/Winwheel.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -12,8 +12,8 @@
 </head>
 <body>
 
-    <div class='upperbar butonuac'>
-        <button class='continueButton showlast' onclick="window.location.href='./Instructions(part1.2)(V2)(2fhomo).htm'">Continue</button>
+    <div class='upperbar butonuac' style='z-index:30;'>
+        <button class='continueButton' onclick="window.location.href='./Instructions(part1.2)(V2)(2fhetero).htm'">Continue</button>
         <!-- <button class=multibutton id=multibutton>Y</button> -->
         <!-- <button class=multibutton id=multibutton2>X<span id='buttonname'></span></button> -->
     </div>
@@ -33,8 +33,6 @@
 
                 </div>
 
-
-
                 <div class = 'arrowwrapmini after05'>
                     <p class=myminiwheeltext>
                         Wheel of Fortune
@@ -53,18 +51,12 @@
                     <p>
                         Two or more players compete in a <strong>contest</strong> by <strong>investing tokens</strong> on a <strong>wheel of fortune</strong>.
                     </p>
-                    <!-- <p>
-                        Each player's <strong>relative investment</strong> determines her <strong>share</strong> of the wheel.
-                    </p> -->
+
+
                     <p>
-                        The <strong>winner</strong> gets a <strong>payment</strong> or an <strong>opportunity</strong>.
+                          The <strong>winner</strong> gets a <strong>payment</strong> or an <strong>opportunity</strong>.
                     </p>
-                    <!-- <p>
-                        Players' <strong>ratio of investments</strong> determines their <strong>relative shares</strong> on the wheel.
-                    </p> -->
-                    <!-- <p>
-                        The <strong>more</strong> you invest <strong>relative</strong> to the opponent, the <strong>higher</strong> is your <strong>probability to win</strong>.
-                    </p> -->
+
                     <p class='firstfadein after15'>
                         The <strong>more</strong> you invest <strong>relative</strong> to the opponent, the <strong>bigger</strong> is your <strong>share</strong> on the wheel, the <strong>higher</strong> is your <strong>probability to win</strong>.
                     </p>
@@ -150,7 +142,7 @@
                 </div>
             </div>
 
-            <p class='secondhiddenpart secondafter1 firstturn noselect'style='text-align: center; padding-top:20px; margin-bottom: -12px; margin-left:25px;'>
+              <p class='secondhiddenpart secondafter1 firstturn noselect'style='text-align: center; padding-top:20px; margin-bottom: -12px; margin-left:25px;'>
                 Click &#x25BC; to turn the wheel
             </p>
 
@@ -222,17 +214,16 @@
 
         </div>
 
-        <div class = 'sinfo thirdhiddenpart' id='sinfo'>
-            <div class ='sinfotext limited bunudayoket'>
+        <div class = 'sinfo thirdhiddenpart' style='margin-bottom:-140px;' id='sinfo'>
+            <div class ='sinfotext limited bunudayoket somemarginfix'>
                 <p style='font-weight:800;'>
                     In <u>Any</u> Contest
                 </p>
                 <p>
-                    <strong>Every</strong> player <span class=alwayspayoff><strong>always loses</strong></span> her invested tokens.
+                      <strong>Every</strong> player <span class=alwayspayoff><strong>always loses</strong></span> her invested tokens.
                 </p>
 
                 <p>
-                    <!-- The <strong>winner</strong> gets a <strong>payment</strong> or an <strong>opportunity</strong>. -->
                     <span class=loserpayoff><strong>Loser</strong> receives <strong>0</strong> token.</span>
                 </p>
                 <p  class='thirdhiddenpart somedelay'>
@@ -242,24 +233,25 @@
                     Turn the wheel again <br />
                     (click &#x25BC; above the wheel)
                 </p>
-
                 <p class='somedefinitions'>
 
                     In the <strong>experiment</strong>, you will encounter <strong>2</strong> different types of contests:
                     <br /><strong>Leaders' Contest</strong> and <strong>Followers' Contest</strong>.
                 </p>
-
-
             </div>
 
             <div class='somedefinitions2'>
+                <div class='showmore2wrap'>
+                    <p  style='text-align: center;'>
+                        Click to learn about the Leaders' Contest
+                    </p>
+                </div>
                 <div class='dicewrap3'>
                     <div class='extradicewrap3'>
                         <img id="dice4" class='dice4' style='margin-right:-23px; border: 2px solid red;' src="images/down.png" alt="V" />
                     </div>
                 </div>
             </div>
-
 
             <div class='colored showmore' style='padding-bottom:10px;'>
                 <p class='showmore' style='font-weight:800; text-decoration: underline;text-align:center; font-size:18px;'>
@@ -270,7 +262,7 @@
                         <p style='text-align:center;'>
                             <strong>Leaders</strong> compete in the <strong>leaders' contest</strong>.
                         </p>
-                        <div class=winnerleaderwrap>
+                        <div class=winnerleaderwrap >
                             <div class ='sinfotext showmore leftcolumn'>
 
                                 <p>
@@ -305,25 +297,34 @@
                             </div>
                         </div>
                         <p style='text-align:center; padding-top:10px;' class='showmore bottomcolumn'>
-                            <!-- <span class=bottomcolumntext><strong>Regardless</strong> of the results, <strong>followers</strong> do <strong>not receive</strong> any payment.</span> -->
-                            <span class=bottomcolumntext>In the <strong>leaders' contest</strong>, regardless of the results, <strong>followers</strong> <strong> always receive 0</strong> token.</span>
+                            <span class=bottomcolumntext>In the <strong>leaders' contest</strong>, regardless of the results, <strong>followers</strong> <strong>always receive 0</strong> token.</span>
                         </p>
-
                     </div>
 
                 </div>
             </div>
         </div>
 
-        <div class='showmore2 dugmegoster noselect'>
-            <div class='showmore2wrap dugmegoster'>
+        <div class ='sinfotext limited showmore3'>
+            <p style='text-align: center;'>
+                Followers' Contest will be explained in the next section.
+            </p>
+
+            <p style='text-align: center;'>
+                Please click <strong>Continue</strong> to proceed.
+            </p>
+
+        </div>
+
+        <div class='showmore2 noselect'>
+            <div class='showmore2wrap'>
                 <p  style='text-align: center;'>
                     Click <img id="someid" class='diceimage' style='margin-right:5px;' src="images/down.png" alt="V" /> for followers' contest
                 </p>
             </div>
 
-            <div class='dicewrap2 dugmegoster'>
-                <div class='extradicewrap2 dugmegoster'>
+            <div class='dicewrap2'>
+                <div class='extradicewrap2'>
                     <img id="dice3" class='dice3' style='margin-right:-23px; border: 2px solid red;' src="images/down.png" alt="V" />
                 </div>
             </div>
@@ -338,7 +339,7 @@
                     Followers' Contest
                 </p>
                 <p style='text-align:center;'>
-                    <strong>Lost leader's followers</strong> compete in the <strong>followers' contest</strong>
+                    <strong>Lost leader's followers</strong> proceed to the <strong>followers' contest</strong>
                 </p>
 
                 <div class=birbaskawrap2>
@@ -357,10 +358,10 @@
 
                     <div class='f4explanationbox f4subsections1 sagtaraf'>
                         <p>
-                            <strong>Loser</strong>
+                            <strong>Losers</strong>
                         </p>
                         <p>
-                            - <strong>Continues</strong> as a <strong>follower</strong>.
+                            - <strong>Continue</strong> as <strong>followers</strong>.
                         </p>
                     </div>
 
@@ -412,7 +413,23 @@
                             </p>
                         </div>
 
+                        <div class='fwheelresult'>
+                            <p>
+                                <span class=wheelresulttext id=fwheelresulttext></span>
+                            </p>
+                        </div>
 
+                        <div class='fwheelresult4'>
+                            <p>
+                                <span class=wheelresulttext4 id=fwheelresulttext4></span>
+                            </p>
+                        </div>
+
+                        <div class='fwheelresult3'>
+                            <p style='border:2px solid red;'>
+                                <span class=wheelresulttext3 id=fwheelresulttext3></span>
+                            </p>
+                        </div>
 
 
                     </div>
@@ -434,23 +451,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class='fwheelresult'>
-                            <p class=sonsonuclar>
-                                <span class=wheelresulttext id=fwheelresulttext></span>
-                            </p>
-                        </div>
-
-                        <div class='fwheelresult4'>
-                            <p>
-                                <span class=wheelresulttext4 id=fwheelresulttext4></span>
-                            </p>
-                        </div>
-
-                        <div class='fwheelresult3'>
-                            <p class=sonsonuclar>
-                                <span class=wheelresulttext3 id=fwheelresulttext3></span>
-                            </p>
-                        </div>
                     </div>
 
 
@@ -462,6 +462,20 @@
                             <div class = 'sliderbarleader lright'>
                                 <input type='range' min = '0' max = '400' class = 'lsliderf' value = '1' id = 'ofSlider1' />
                                 <div id = 'barf1' class = 'lbar'></div>
+                            </div>
+                        </div>
+                        <div class = 'followersgroupright'>
+                            <h6  class = 'right_title'>Follower 3 - <strong>HYPOTHETICAL</strong></h6>
+                            <div class = 'sliderbarleader lright'>
+                                <input type='range' min = '0' max = '400' class = 'lsliderf' value = '1' id = 'ofSlider2' />
+                                <div id = 'barf2' class = 'lbar'></div>
+                            </div>
+                        </div>
+                        <div class = 'followersgroupright'>
+                            <h6  class = 'right_title'>Follower 4 - <strong>HYPOTHETICAL</strong></h6>
+                            <div class = 'sliderbarleader lright'>
+                                <input type='range' min = '0' max = '400' class = 'lsliderf' value = '1' id = 'ofSlider3' />
+                                <div id = 'barf3' class = 'lbar'></div>
                             </div>
                         </div>
                     </div>
@@ -493,7 +507,7 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="js/instructions(part1.1)(V4)(2fhomo).js"></script>
+    <script src="js/instructions(part1.1)(V5)(2fhetero).js"></script>
 
 </body>
 </html>

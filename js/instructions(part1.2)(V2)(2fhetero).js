@@ -496,7 +496,8 @@ var goDown2 = function() {
         // $('.fadeout').css({'opacity':'1'});
         // console.log('yoyoyoyoyo');
         $('.showmore').css({'opacity':'1'});
-        $('.showmore2').css({'opacity':'1', 'z-index':'10'});
+        setTimeout('goDown3()', 8000);
+        // $('.showmore2').css({'opacity':'1', 'z-index':'10'});
         // $('html, body').animate({
         //     scrollTop: $(document).height()
         // }, 5000);
@@ -506,6 +507,22 @@ var goDown2 = function() {
     }
 }
 
+var goDown3 = function() {
+    $('.showmore5').css({'opacity':'1'});
+    setTimeout('goDown4()', 0);
+    // $('.continueButton').css({'opacity':'1'});
+}
+
+var goDown4 = function() {
+     $('.showmore2').css({'opacity':'1', 'z-index':'10'});
+     $('html, body').animate({
+         scrollTop: $(document).height()
+     }, 5000);
+}
+
+
+
+
 var eButton = document.getElementById('exampleButton');
 
 var bigCounter = 0;
@@ -513,10 +530,10 @@ var eCounter = 0;
 eButton.onclick = function() {
 
     $('.dicewrap').css({'transition-delay':'0s', 'border':'3px solid white'});
-    var efoArray = [100, 100, 500, 500, 500, 500,  500, 500, 500, 500, 500];
-    var oefoArray = [100, 100, 100, 200, 500, 100, 200, 500, 100, 200, 500];
-    var efiArray =  [1,1, 1,1,1,1,1,1,1,1,1];
-    var oefiArray = [1,3, 3,3,3,5,5,5,10,10,10]
+    var efoArray = [100, 100, 500, 500, 500, 500];
+    var oefoArray = [100, 100, 100, 500, 100, 500];
+    var efiArray =  [1,1,1,1,1,1];
+    var oefiArray = [1,3,3,3,5,5]
 
     efi = efiArray[eCounter];
     oefi = oefiArray[eCounter];
@@ -533,7 +550,7 @@ eButton.onclick = function() {
 
     updateAll();
     // $('.lslider').css({'opacity':'0'});
-    if(eCounter < 10) {
+    if(eCounter < 5) {
         eCounter = eCounter + 1;
         bigCounter = bigCounter + 1;
     } else {
@@ -542,7 +559,7 @@ eButton.onclick = function() {
         bigCounter = bigCounter +1;
         eCounter = 0;
     }
-    if(bigCounter === 12) {
+    if(bigCounter === 7) {
         setTimeout('goDown()', 1000);
         setTimeout('turnOnSliders()', 7000);
         $('.buttontextwrap').css({'opacity':'0', 'transition':'1s', 'transition-delay':'0s', 'margin-top':'-100px', 'z-index':'-30'});
@@ -558,10 +575,10 @@ eButton2.onclick = function() {
 
     // $('.dicewrap').css({'border':'3px solid white'});
     // $('.dicewrap').css({'transition-delay':'0s', 'border':'3px solid white'});
-    var efoArray = [100, 100, 500, 500, 500, 500,  500, 500, 500, 500, 500];
-    var oefoArray = [100, 100, 100, 200, 500, 100, 200, 500, 100, 200, 500];
-    var efiArray =  [1,1, 1,1,1,1,1,1,1,1,1];
-    var oefiArray = [1,3, 3,3,3,5,5,5,10,10,10]
+    var efoArray = [100, 100, 500, 500, 500, 500];
+    var oefoArray = [100, 100, 100, 500, 100, 500];
+    var efiArray =  [1,1,1,1,1,1];
+    var oefiArray = [1,3,3,3,5,5]
 
     efi = efiArray[eCounter];
     oefi = oefiArray[eCounter];
@@ -579,7 +596,7 @@ eButton2.onclick = function() {
     updateAll();
 
     $('.lslider').css({'opacity':'0'});
-    if(eCounter < 10) {
+    if(eCounter < 5) {
         eCounter = eCounter + 1;
     } else {
         eCounter = 0;
@@ -657,6 +674,11 @@ $('#olSlider1').hover(
 $('html, body').animate({scrollTop: 0}, 0);
 $('.firstfadein, .later1, .later15, .later175').css({'opacity':'1'});
 $('.evenlater').css({'opacity':'1'});
+
+
+
+$('#lSlider1, #olSlider1').css({'z-index':'-10'});
+$('#efiSlider').css({'cursor':'pointer'});
 
 
 
@@ -909,6 +931,7 @@ var updateEfficiencyBarf = function(efi1, efi2) {
 
     Plotly.react('efficiencyBarf', data, layout, {displayModeBar: false});
 }
+$('#lSlider1f, #olSlider1f').css({'z-index':'-10'});
 var updateBarFollower = function(e, barId, ourSide, axisOn) {
     // var val1 = efi / (efi + oefi);
     // var val2 = oefi / (efi + oefi);
@@ -951,7 +974,7 @@ var updateBarFollower = function(e, barId, ourSide, axisOn) {
             side: 'top',
             fixedrange: true,
             autorange: false,
-            range: [0,200],
+            range: [0,400],
             layer: 'below traces',
             fixedrange: true,
 
@@ -959,8 +982,8 @@ var updateBarFollower = function(e, barId, ourSide, axisOn) {
                 size: 10,
             },
             tickmode: 'array',
-            tickvals: [0, 15, 30, 50, 75, 100, 125, 150, 200],
-            ticktext: [0, 15, 30, 50, 75, 100, 125, 150, 200],
+            tickvals: [0, 15, 30, 50, 75, 100, 125, 150, 200, 400],
+            ticktext: [0, 15, 30, 50, 75, 100, 125, 150, 200, 400],
             tickangle: -45,
             ticks:'',
             showline: false,
@@ -985,8 +1008,8 @@ var updateBarFollower = function(e, barId, ourSide, axisOn) {
 
 // leader global variables
 var e1, e2, efe1, efe2, e1efi, e2efi, pwinf;
-e1 = 50;
-e2 = 50;
+e1 = 300;
+e2 = 140;
 e1efi = 1;
 e2efi = 5;
 
@@ -1077,24 +1100,29 @@ arrowButtonf.onclick = function() {
         $('.wheelresult3f').css({'opacity':'0'});
         if(turnthewheelCounter===2) {
             $('.turnwheeltext').css({'opacity':'0', 'margin-top':'-28px'});
-        }
-        if(turnthewheelCounter===0){
             resultIndexf=2;
+            $('.sonradangit').css({'opacity':'0'});
+            $('.birbaskawrap3').css({'padding-bottom':'48px'});
+
+
         }
+
         if(turnthewheelCounter===1){
             resultIndexf=1
         }
-        resultIndexf = (Math.random() > 0.5 ? ((Math.random() < pwinf) ? 1 : 2) : 2);
+        // resultIndexf = (Math.random() > 0.5 ? ((Math.random() < pwinf) ? 1 : 2) : 2);
         animateWheelf();
         if(biriciksefer) {
-            $('.birbaskawrap').css({'opacity':'0', 'margin-top':'-69px'});
+            $('.birbaskawrap').css({'opacity':'0', 'margin-top':'0px'});
+            $('.birbaskawrap3').css({'margin-top':'-160px', 'padding-bottom':'76px'});
 
             biriciksefer = false;
         }
 
         canClickArrowf = false;
     }
-
+    console.log(turnthewheelCounter);
+    console.log(resultIndexf);
 }
 
 
@@ -1136,8 +1164,11 @@ var showResultf = function() {
     if(turnthewheelCounter===1) {
         // $('html, body').animate({scrollTop:  $(document).height()}, 2000);
         showingFirstTime = false;
+        $('.birbaskawrap3').css({'opacity':'1'});
+        $('.wheelresulttext').css({'border':'2px solid blue'});
+        $('.wheelresulttext3').css({'border':'2px solid blue'});
         $('.ensongoster1').css({'margin-top':'-115px', 'margin-right':'660px'});
-        setTimeout('songoster()', 2000)
+
     }
 
 
@@ -1145,17 +1176,23 @@ var showResultf = function() {
     if(turnthewheelCounter===2) {
         // $('html, body').animate({scrollTop:  $(document).height()}, 2000);
         showingFirstTime = false;
+        $('.adbulamadim').css({'border-bottom':'2px solid white'});
+        $('.wheelresulttext').css({'border':'2px solid red'});
+        $('.wheelresulttext3').css({'border':'2px solid red'});
         $('.ensongoster2').css({'margin-top':'-135px', 'margin-left':'660px'});
-        setTimeout('sonsongoster()', 2000)
+        setTimeout('songoster()', 0)
+        setTimeout('sonsongoster()', 6000)
     }
 
 }
 var songoster = function() {
+
     $('.ensongoster1').css({'opacity':'1'});
 }
 
 var sonsongoster = function() {
-    $('.ensongoster2').css({'opacity':'1'});
+    // $('.wheelresulttext3').css({'border':'2px solid white'});
+    $('.ensongoster2, .continueButton').css({'opacity':'1'});
 }
 
 var showResultfInitialize = function() {
@@ -1207,23 +1244,23 @@ updateAllf();
 var Dbutton5 = document.getElementById('dice5');
 
 Dbutton5.onclick = function() {
-    console.log('testing the new button!!!!');
-    $('.calculator').css({'transition-delay':'0s', 'transition':'1s', 'margin-top':'-204px'});
+    // console.log('testing the new button!!!!');
+    $('.calculator').css({'transition-delay':'0s', 'transition':'1s', 'margin-top':'-250px'});
     $('.kaybet').css({'opacity':'0', 'transition-delay':'0s', 'transition':'1s'});
     $('.showmore2wrap').css({'opacity':'0', 'margin-top':'-100px', 'transition-delay':'0s', 'transition':'1s'});
     $('.dicewrap2').css({'opacity':'0', 'transition-delay':'0s', 'transition':'1s'});
-    $('.f4subsections1').css({'margin-top':'0px', 'z-index':'10'});
+    $('.f4subsections1').css({'margin-top':'-15px', 'z-index':'10'});
     $('.f4subsections2').css({'z-index':'10'});
     $('.somesmalladjustment').css({'margin-top':'0px'});
-    $('.birbaskawrap').css({'margin-top':'-11px'});
+    $('.birbaskawrap').css({'margin-top':'1px'});
     setTimeout('oncebunugoster()', 0);
 }
 
 var oncebunugoster = function() {
     $('.f4subsections1').css({'opacity':'1'});
     $('.f4subsections11, .f4subsections12').css({'opacity':'1', 'z-index':'1'});
-    $('.f4subsections2').css({'margin-top':'15px', 'opacity':'1', 'z-index':'1'});
-    $('.birbaskawrap').css({'margin-top':'-11px'});
+    $('.f4subsections2').css({'margin-top':'3px', 'opacity':'1', 'z-index':'1'});
+    $('.birbaskawrap3').css({'margin-top':'-167px', 'padding-bottom':'52px'});
     // $('.calculatorf').css({'margin-top':'-168px'});
     $('html, body').animate({scrollTop:  $(document).height()}, 2000);
     setTimeout('indirbebegim()', 25000);

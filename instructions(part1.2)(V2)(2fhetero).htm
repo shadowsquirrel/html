@@ -24,26 +24,27 @@
 
             <div class = 'sinfo' id='sinfo'>
 
-                <div class = 'sinfotitle' style='margin-bottom:-20px;'>
+                <!-- <div class = 'sinfotitle' style='margin-bottom:-20px;'>
                     <h3>INSTRUCTIONS</h3>
-                </div>
+                </div> -->
 
                 <div class = 'sinfotext firstfadein initial'>
-                    <p style='font-size: 22px;'> Relative Investment Power </span></p>
+                    <p style='font-size: 22px; font-weight:800'> Purchasing Power </span></p>
 
 
                 </div>
 
                 <div class ='sinfotext limited firstfadein after1'>
                     <p class ='later1'>
-                        Players may have <strong>different investment power</strong>.
+                        Players may have <strong>different purchasing powers</strong>.
                     </p>
                     <p class ='later15'>
-                        A player with <strong>relatively high</strong> investment power can have a <strong>larger share</strong> of the wheel <strong>for every token</strong> spent.
+                        A player with <strong>relatively high</strong> purchasing <strong>power</strong> can get a <strong>larger share</strong> of the wheel <strong>for every token</strong> spent.
                     </p>
                     <p class ='later175'>
-                        Investment <strong>power</strong> does <strong>not depend</strong> on the investment <strong>level</strong>.
+                        <strong>Purchasing powers</strong> are determined <strong>always before</strong> a contest and do <strong>not</strong> change during the contest.
                     </p>
+
                 </div>
 
                 <div class=anotherwrap>
@@ -102,12 +103,12 @@
                         </div>
                         <div class = 'arrowwrap'>
                             <div class='wheelpiewrap'>
-                                <!-- <img id="arrow" class='arrow' src="images/arrow.png" alt="V" /> -->
+
                                 <div id='wheelpie' class='wheelpie'>
-                                    <!-- <canvas id='mywheel' class='mywheel' width='250' height='250'>
-                                        Canvas not supported, use another browser.
-                                    </canvas> -->
                                     <div class='piewrap'>
+                                        <p style='font-weight:800; z-index:50; margin-bottom:-28px;'>
+                                            Wheel of Fortune
+                                        </p>
                                         <div class='s3pie' id='pie'></div>
                                     </div>
                                 </div>
@@ -115,6 +116,7 @@
                         </div>
 
                     </div>
+
 
 
                     <div class = 'leadergroupright'>
@@ -132,7 +134,7 @@
                         <input type='range' min = '-99' max = '99' class = 'efislider' value = '0' id = 'efiSlider' />
                         <div id = 'efficiencyBar' class = 'efficiencyBar'></div>
                     </div>
-                    <h6 style = 'z-index:1;'>Relative Investment Power</h6>
+                    <h6 style = 'z-index:1;'>Relative Purchasing Power</h6>
                 </div>
 
 
@@ -140,7 +142,7 @@
 
                     <div class ='sinfotext firstfadein3' style='margin-top:5px; flex-direction:column; flex-grow:2;'>
                         <p style='text-align:left;'>
-                            Values inside <span class='dottedblue2'><span class='darkgray'></span> &#9668; &#x25BA; <span class='white'></span> </span>represent the per unit relative investment power of players.
+                            Values inside <span class='dottedblue2'><span class='darkgray'></span> &#9668; &#x25BA; <span class='white'></span> </span>represent the per token relative purchasing power of players.
                         </p>
                         <p style='text-align:left;'>
                             For instance, <span class='dottedblue2'>  <span class='darkgray'>5</span> &#9668; &#x25BA; <span class='white2'>1</span> </span> implies that every token you invest is worth 5 tokens invested by the opponent.
@@ -177,35 +179,29 @@
 
 
             <div class ='sinfotext showmore mytable'>
-                <div class='bothside2'>
-
-                    <div  class='leftside2'>
-                        <p style='text-align:center;padding-left:12px; text-decoration:underline;'>
-                            <strong>Power</strong> in the <strong>Leaders' Contest</strong>
-                        </p>
-                        <p style='text-align:right;'>
-                            <strong>Before leaders' contest</strong>, each group's <strong>followers</strong> determine <strong>their</strong> leader's <strong>power</strong>.
-                        </p>
-                        <p style='text-align:right; font-size:13px; margin-top:-16px;'>
-                            (To be explained in the next section)
+                <div class='bothside'>
+                    <p style='font-weight:800; text-align:center;'>
+                        Purchasing Power in Leaders' Contest
+                    </p>
+                    <div  class='leftside'>
+                        <p style='text-align:center;'>
+                            <strong>Before</strong> the <strong>leaders' contest</strong>, each group's <strong>followers</strong> determine <strong>their</strong> leader's <strong>power</strong> (see next section for details).
                         </p>
                     </div>
+                </div>
+            </div>
 
-                    <div class='rightside2'>
-                        <p style='text-align:center; padding-right: 45px; text-decoration:underline;'>
-                            <strong>Power</strong> in the <strong>Followers' Contest</strong>
-                        </p>
-                        <p style='padding-left:37px;'>
-                            There are <strong>2</strong> types of followers: <strong>Strong</strong> and <strong>Weak</strong>
-                        </p>
-                        <p style='text-align:right;padding-right:35px;'>
-                            <strong>1</strong> token of the <strong>strong</strong> follower is worth <strong>5</strong> tokens of the <strong>weak</strong> follower.
-                        </p>
+            <div class ='sinfotext showmore5 mytable myothertable'>
+                <div class='bothside'>
+                    <p style='font-weight:800; text-align:center;'>
+                        Purchasing Power in Followers' Contest
+                    </p>
 
+                    <div class='rightside'>
+                        <p style='text-align:center;'>
+                            Followers <strong>always</strong> compete with <strong>equal</strong> purchasing <strong>power</strong> In the <strong>followers' contest</strong>.
+                        </p>
                     </div>
-
-
-
                 </div>
             </div>
 
@@ -233,10 +229,10 @@
                         Followers' Contest
                     </p>
                     <p style='text-align:center;'>
-                        <strong>Lost leader</strong> (of the leaders' contest) <strong>loses</strong> her leader role and <strong>becomes</strong> a follower.
+                        <strong>Defeated leader</strong> (of the leaders' contest) <strong>loses</strong> her leader role and <strong>becomes</strong> a follower.
                     </p>
                     <p style='text-align:center;'>
-                        <strong>Lost leader's followers</strong> proceed to the <strong>followers' contest</strong>
+                        <strong>Her followers</strong> compete in the <strong>followers' contest</strong> to determine the new leader.
                     </p>
 
                     <div class=birbaskawrap2>
@@ -249,7 +245,7 @@
                                 - <strong>Becomes the new leader </strong> of the group
                             </p>
                             <p>
-                                - Proceeds to the <strong><u>next</u> leaders' contest</strong> to compete against the winner of the former leaders' contest.
+                                - Proceeds to the <strong><u>next</u> leaders' contest</strong>.
                             </p>
                         </div>
 
@@ -277,11 +273,18 @@
 
             <div class='birbaskawrap'>
                 <p style='padding-top:20px;'>
-                    Assume your leader lost and <strong>you</strong> are the <strong>weak</strong> follower.
+                    <u>Assume</u> your leader lost and <strong>you</strong> are Follower <strong>1</strong> in the <strong>followers' contest</strong>
                 </p>
                 <p style='margin-bottom:-15px;'>
-                    Chose values for you and the hypothetical opponent (the strong follower) then turn the wheel.
+                    <u>Assume</u> you invested <strong>300</strong> tokens and the opposing follower invested <strong>140</strong> tokens
+                    <br /><br />  <strong>Turn</strong> the wheel &#x25BC;
                 </p>
+            </div>
+
+            <div class='birbaskawrap3'>
+                <span class=adbulamadim>In the <strong>followers' contest</strong>, winner does <strong>not</strong> receive any payment, but only the <strong>opportunity</strong> to win <strong>1000</strong> tokens in the <strong>next leaders' contest</strong>.</span>
+                <br /><br /><br />
+                <spam class=sonradangit><strong>Turn the wheel again</strong></spam>
             </div>
 
 
@@ -292,7 +295,7 @@
                     <div class = 'leadergroupleft'>
                         <h6 class = 'left_ltitle'><strong>Weak</strong> Follower - <strong>YOU</strong></h6>
                         <div class = 'sliderbarleader left'>
-                            <input type='range' min = '0' max = '200' class = 'lslider' value = '200' id = 'lSlider1f' />
+                            <input type='range' min = '0' max = '400' class = 'lslider' value = '300' id = 'lSlider1f' />
                             <div id = 'barlf' class = 'lbar1'></div>
                         </div>
                     </div>
@@ -319,7 +322,7 @@
                     <div class = 'leadergroupright'>
                         <h6  class = 'right_title'><strong>Strong</strong> Follower - <strong>HYPOTHETICAL</strong></h6>
                         <div class = 'sliderbarleader lright'>
-                            <input type='range' min = '0' max = '200' class = 'lslider' value = '200' id = 'olSlider1f' />
+                            <input type='range' min = '0' max = '400' class = 'lslider' value = '140' id = 'olSlider1f' />
                             <div id = 'obarlf' class = 'lbar2'></div>
                         </div>
                     </div>
@@ -367,10 +370,6 @@
                     In the followers' contest, <br />
                     <strong>weak follower</strong> is strongly <strong>disadvantaged</strong>
                 </p>
-                <p class='turnwheeltext'>
-                    Turn the wheel again
-                </p>
-
             </div>
 
             <div class ='sinfotext limited ensongoster2'>

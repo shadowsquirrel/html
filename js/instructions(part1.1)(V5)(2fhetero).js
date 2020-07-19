@@ -58,8 +58,6 @@ createWheel(0.99);
 
 
 
-
-
 var myMiniWheel
 var createMiniWheel = function(myPwin) {
     var a = 100*myPwin;
@@ -142,8 +140,6 @@ var miniAnimate = function() {
 
 
 }
-
-
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -237,7 +233,7 @@ var updateBarLeader = function(e, barId, ourSide, axisOn) {
         barmode: 'group',
         height: 75,
         width: 405,
-        margin: {"t": 22, "b": 25, "l": 25, "r": 27},
+        margin: {"t": 20, "b": 25, "l": 25, "r": 27},
         xaxis: {
             side: 'top',
             fixedrange: true,
@@ -250,8 +246,8 @@ var updateBarLeader = function(e, barId, ourSide, axisOn) {
                 size: 10,
             },
             tickmode: 'array',
-            tickvals:  [0, 50, 100, 150, 200, 250, 300, 400, 500, 650, 800],
-            ticktext:  [0, 50, 100, 150, 200, 250, 300, 400, 500, 650, 800],
+            tickvals: [0, 50, 100, 150, 200, 250, 300, 400, 500, 650, 800],
+            ticktext: [0, 50, 100, 150, 200, 250, 300, 400, 500, 650, 800],
             tickangle: -45,
             ticks:'',
             showline: false,
@@ -448,10 +444,11 @@ var showResult = function() {
         $('.netpayoffresult').css({'border':'2px solid blue'});
         $('.colored').css({'margin-top':'-275px'});
         $('.somedefinitions').css({'margin-top':'0px', 'padding-top':'8px', 'padding-bottom':'8px', 'border-top':'2px solid','border-bottom':'2px solid'});
-        setTimeout('introduceContests()', 9000);
+        setTimeout('introduceContests()', 10000);
     }
 
 }
+
 var introduceContests = function() {
     $('.somedelay').css({'text-decoration':'underline solid white'});
     $('.netpayoffresult').css({'border':'1px solid white'});
@@ -474,14 +471,15 @@ Nbutton3.onclick = function() {
 
 
 var showMoreText = function() {
-    $('.colored').css({'margin-top':'-20px', 'margin-bottom':'20px'});
+    $('.colored').css({'margin-top':'-82px', 'margin-bottom':'20px'});
     $('.showmore').css({'opacity':'1'});
     // $('.dicewrap2').css({'margin-top':'-102px', 'margin-left':'-37px'});
     $('.showmore2').css({'margin-top':'-195px'});
+    $('.showmore3').css({'margin-top':'98px'});
     $('.leftcolumn, .rightcolumn, .bottomcolumn, .dugmegoster').css({'opacity':'1'});
     setTimeout('altiniciz()', 11000);
     setTimeout('goDown()', 3000);
-    setTimeout('goDown3()', 13000);
+    setTimeout('goDown3()', 16000);
 }
 
 var altiniciz = function() {
@@ -494,8 +492,8 @@ var goDown = function() {
 }
 var canClickSecondButton = false;
 var goDown3 = function() {
-    $('.dicewrap2').css({'opacity':'1'});
-    $('.showmore2').css({'opacity':'1'});
+    // $('.dicewrap2').css({'opacity':'1'});
+    $('.showmore3, .continueButton').css({'opacity':'1'});
     canClickSecondButton = true;
 
 
@@ -570,11 +568,6 @@ var show175 = function() {
 }
 
 
-
-
-
-
-
 // OPPOSING GROUP
 //Leader
 $('#olSlider11').css({'z-index':'-10'});
@@ -613,6 +606,7 @@ var show3 = function() {
     $('#lSlider11').css({'z-index':'-5'});
     $('#olSlider11').css({'z-index':'-5'});
 }
+
 var Nbutton = document.getElementById('dice1');
 
 Nbutton.onclick = function() {
@@ -722,16 +716,18 @@ $('.secondfadein').css({'opacity':'1'});
 
 
 var theWheel2;
-var createWheel2 = function(e1, e2) {
+var createWheel2 = function(e1, e2, e3, e4) {
 
-    var pf1, pf2;
-    var tot = e1 + e2;
+    var pf1, pf2, pf3, pf4;
+    var tot = e1 + e2 + e3 + e4;
     pf1 = 100 * e1 / tot;
     pf2 = 100 * e2 / tot;
+    pf3 = 100 * e3 / tot;
+    pf4 = 100 * e4 / tot;
 
     theWheel2 = new Winwheel({
         'canvasId': 'mywheelf',
-        'numSegments': 2,
+        'numSegments': 4,
         'outerRadius': 60, // controls the size of the theWheel
         'textOrientation' : 'vertical',    // Set orientation. horizontal, vertical, curved.
         // 'textOrientation' : 'curved',
@@ -756,6 +752,19 @@ var createWheel2 = function(e1, e2) {
                 'text'      : '',
                 'size'      : winwheelPercentToDegrees(pf2),
             },
+            {
+                'fillStyle' : 'rgb(160, 160, 160)',
+                'textFillStyle': 'white',
+                'text'      : '',
+                'size'      : winwheelPercentToDegrees(pf3),
+            },
+            {
+
+                'fillStyle' : 'rgb(100, 100, 100)',
+                'textFillStyle': 'white',
+                'text'      : '',
+                'size'      : winwheelPercentToDegrees(pf4),
+            },
         ],
         // 'pointerGuide' :        // Turn pointer guide on.
         // {
@@ -775,26 +784,29 @@ var createWheel2 = function(e1, e2) {
 
 
 // first argument is always the observant subject
-var updatePief = function(a, b, me) {
+var updatePief = function(a, b, c, d, me) {
 
     var x = a;
     var y = b;
-
-    var actualData = [x, y];
+    var z = c;
+    var w = d;
+    var actualData = [x, y, z, w];
     var actualOpacity = 1;
-    var actualColors = ['rgb(40, 40, 40)', 'rgb(225, 225, 225)'];
+    var actualColors = ['rgb(40, 40, 40)', 'rgb(225, 225, 225)', 'rgb(160, 160, 160)', 'rgb(100, 100, 100)'];
 
 
 
-    if((x + y) === 0) {
+    if((x + y + z + w) === 0) {
         x = 1;
         y = 1;
+        z = 1;
+        w = 1;
     }
 
-    var textArray = ['', '']
-    var colorArray = ['black', 'black'];
-    var colorWidth = [1, 1];
-    var labelArray = ['Follower 1', 'Follower 2'];
+    var textArray = ['', '', '', '']
+    var colorArray = ['black', 'black', 'black', 'black'];
+    var colorWidth = [1, 1, 1, 1];
+    var labelArray = ['Follower 1', 'Follower 2', 'Follower 3', 'Follower 4'];
     // rearrange the label array so that observent subject is the first one
 
     var myLabel = labelArray[me];
@@ -810,7 +822,7 @@ var updatePief = function(a, b, me) {
 
 
     var actual = {
-        values: [x, y],
+        values: [x, y, z, w],
         labels: labelArray,
         text: textArray,
         textposition: 'outside',
@@ -893,8 +905,8 @@ var updateBarFollower = function(e, barId, followerIndex, axisOn) {
                 size: 10,
             },
             tickmode: 'array',
-            tickvals: [0, 15, 30, 50, 75, 100, 125, 150, 200, 300, 400],
-            ticktext: [0, 15, 30, 50, 75, 100, 125, 150, 200, 300, 400],
+            tickvals: [0, 15, 30, 50, 75, 100, 125, 150, 200, 400],
+            ticktext: [0, 15, 30, 50, 75, 100, 125, 150, 200, 400],
             tickangle: -45,
             ticks:'',
             showline: false,
@@ -915,13 +927,13 @@ var updateBarFollower = function(e, barId, followerIndex, axisOn) {
     Plotly.react(barId, data, layout, {displayModeBar: false});
 }
 
-var e1, e2, pwin4f;
+var e1, e2, e3, e4, pwin4f;
 e1 = 300;
-e2 = 100
-pwin4f = 0.75;
+e2 = e3 = e4 = 100
+pwin4f = 0.5;
 
 var calculatePwin4f = function() {
-    var total = e1+e2;
+    var total = e1+e2+e3+e4;
     pwin4f = e1/total;
 }
 
@@ -929,12 +941,13 @@ var initializef = function() {
     // animateWheel();
     updateBarFollower(e1, 'mybar', 0, false);
     updateBarFollower(e2, 'barf1', 1, false);
-
+    updateBarFollower(e3, 'barf2', 2, false);
+    updateBarFollower(e4, 'barf3', 3, false);
     calculatePwin4f();
 
     //first element always the actual subject
-    updatePief(e1, e2, 0);
-    createWheel2(e1, e2);
+    updatePief(e1, e2, e3, e4, 0);
+    createWheel2(e1, e2, e3, e4);
     theWheel2.rotationAngle = 0;
 
     $('#fSlider1').prop('value', e1);
@@ -943,8 +956,13 @@ var initializef = function() {
     $('#ofSlider1').prop('value', e2);
     $('#ofSlider1').change();
 
-    $('#fSlider1, #ofSlider1').css({'z-index':'-10'});
+    $('#ofSlider2').prop('value', e3);
+    $('#ofSlider2').change();
 
+    $('#ofSlider3').prop('value', e4);
+    $('#ofSlider3').change();
+
+    $('#fSlider1, #ofSlider1, #ofSlider2, #ofSlider3').css({'z-index':'-10'});
     $('.cursor-pointer').css({'cursor':'default'});
     $('.fwheelresult2').css({'opacity':'1'});
     var mytoken = (e1 > 1) ? 'tokens' : 'token';
@@ -957,11 +975,12 @@ var fwheelresultDisplay2 = document.getElementById('fwheelresulttext2');
 
 var updateAllf = function() {
     calculatePwin4f();
-    updatePief(e1, e2, 0);
-
+    updatePief(e1, e2, e3, e4, 0);
+console.log(e1);
     updateBarFollower(e1, 'mybar', 0, false)
     updateBarFollower(e2, 'barf1', 1, false)
-
+    updateBarFollower(e3, 'barf2', 2, false)
+    updateBarFollower(e4, 'barf3', 3, false)
     $('.fwheelresult2').css({'opacity':'1'});
 
     if(activeWheelSwitchf) {
@@ -988,32 +1007,40 @@ var liftArrowf = function() {
 initializef();
 
 
+var randomOther = function() {
+    var opwin4f = e2 / (e2+e3+e4);
+    if(Math.random() < opwin4f) {
+        return 2;
+    } else {
+        var oopwin4f = e3 / (e3+e4);
+        if(Math.random() < oopwin4f) {
+            return 3;
+        } else { return 4;}
+    }
+}
 
 var arrowButton2 = document.getElementById('arrowf');
 var canClickArrow2 = true;
 var resultIndex2;
 var clickCountf = 0;
-var ilksefermi = true;
+
 arrowButton2.onclick = function() {
     if(canClickArrow2) {
         $('.arrowf').css({'border':'0px'});
         $('.fwheelresult4').css({'opacity':'0'});
         $('.fwheelresult').css({'opacity':'0'});
         $('.fwheelresult3').css({'opacity':'0'});
-        if(clickCountf===0){resultIndex2=1;}
-        if(clickCountf===1){resultIndex2=2;}
+        if(clickCountf===0){resultIndex2=randomOther();}
+        if(clickCountf===1){resultIndex2=1;}
 
         animateWheel2();
         canClickArrow2 = false;
         clickCountf = clickCountf + 1;
-
     }
-    // console.log(clickCountf);
-    // console.log(resultIndex2);
 }
 
 var animateWheel2 = function() {
-    createWheel2(e1, e2);
+    createWheel2(e1, e2, e3, e4);
     theWheel2.stopAnimation(false);
     theWheel2.rotationAngle = 0;
 
@@ -1037,14 +1064,6 @@ var showResults2 = function() {
     // $('.fwheelresult2').css({'opacity':'1'});
     $('.fwheelresult4').css({'opacity':'1'});
     $('.fwheelresult3').css({'opacity':'1'});
-    if(clickCountf===1){
-        $('.adbulamadim').css({'border-bottom':'2px solid blue'});
-        $('.sonsonuclar').css({'border':'2px solid blue'})
-    }
-    if(clickCountf===2){
-        $('.adbulamadim').css({'border-bottom':'2px solid white'});
-        $('.sonsonuclar').css({'border':'2px solid red'})
-    }
 
 
     canClickArrow2 = true;
@@ -1081,16 +1100,11 @@ var showResults2 = function() {
         $('.butonuac, .continueButton').css({'opacity':'1'});
     }
 
-
-
     $('.f4subsections25').css({ 'transition-delay':'0s', 'opacity':'0', 'z-index':'-1'});
     $('.finstructions').css({'opacity':'0'});
     // setTimeout('songoster()', 7000);
 
-    if(ilksefermi) {
-        $('html, body').animate({scrollTop: $(document).height()}, 3000);
-        ilksefermi = false;
-    }
+
 }
 
 
@@ -1104,6 +1118,14 @@ var fvalue = 0;
 
 var ofslider1 = document.getElementById('ofSlider1');
 var ofvalue1 = 0;
+
+
+var ofslider2 = document.getElementById('ofSlider2');
+var ofvalue2 = 0;
+
+
+var ofslider3 = document.getElementById('ofSlider3');
+var ofvalue3 = 0;
 
 
 
@@ -1135,19 +1157,46 @@ ofslider1.oninput = function() {
     canClickArrow2 = true;
 }
 
+//other follower 2
+ofslider2.oninput = function() {
+    ofvalue2 = parseFloat(ofslider2.value);
+    e3 = ofvalue2;
+    updateAllf();
+    updateBarXAxis('barf2', true);
+
+    $('.fwheelresult4').css({'opacity':'0'});
+        $('.fwheelresult').css({'opacity':'0'});
+        $('.fwheelresult3').css({'opacity':'0'});
+        theWheel2.stopAnimation(false);
+        canClickArrow2 = true;
+}
+
+//other follower 3
+ofslider3.oninput = function() {
+    ofvalue3 = parseFloat(ofslider3.value);
+    e4 = ofvalue3;
+    updateAllf();
+    updateBarXAxis('barf3', true);
+
+    $('.fwheelresult4').css({'opacity':'0'});
+    $('.fwheelresult').css({'opacity':'0'});
+    $('.fwheelresult3').css({'opacity':'0'});
+    theWheel2.stopAnimation(false);
+    canClickArrow2 = true;
+
+
+}
 
 var Nbutton2 = document.getElementById('dice3');
 
 Nbutton2.onclick = function() {
     if(canClickSecondButton)
     {
-        // $('.dugmegoster, ')
+        $('.dugmegoster, .leftcolumn, .rightcolumn, .bottomcolumn').css({'transition':'1s', 'transition-delay':'0s'});
         $('.dicewrap2, .showmore2wrap').css({'opacity':'0', 'z-index':'-10'});
-        $('.othercalculator').css({'transition':'1s', 'transition-delay':'0s','opacity':'0', 'margin-top':'-419px', 'z-index':'-10'});
+        $('.othercalculator').css({'transition':'1s', 'transition-delay':'0s','opacity':'0', 'margin-top':'-400px', 'z-index':'-10'});
 
         $('.f4section').css({'margin-top':'90px', 'z-index':'0'});
-        $('.f4subsections1').css({'margin-top':'-6px'});
-        $('.f4subsections2').css({'margin-top':'6px'});
         $('.calculator4').css({'margin-top':'-414px', 'z-index':'-10'})
 
         $('.colored').css({'margin-top':'-30px'});
@@ -1155,12 +1204,12 @@ Nbutton2.onclick = function() {
         $('.bunudayoket').css({'transition':'1s', 'transition-delay':'0s', 'opacity':'1', 'border':'1px solid black', 'background-color':'lavender', 'padding-left':'35px'});
         $('.secondhiddenpart').css({'transition':'1s', 'transition-delay':'0s'})
         $('.secondpartcosmetics').css({'transition':'1s', 'transition-delay':'0s', 'margin-top':'-18px'});
-        $('.secondafter0').css({'margin-top':'10px'});
+
         $('.moreinstructions, .somedelay').css({'transition':'1s', 'transition-delay':'0s', 'opacity':'0'});
         $('.somedelay').css({'transition':'1s', 'transition-delay':'0s', 'padding-bottom':'0px', 'margin-top':'-113px'});
-
+        $('.somemarginfix').css({'margin-top':'-15px'});
+        $('.secondafter0').css({'margin-top':'10px'});
         $('html, body').animate({scrollTop: $(document).height()}, 3000);
-
         setTimeout('goDown5()', 1000);
     }
 
@@ -1195,7 +1244,7 @@ var goDown7 = function() {
         console.log('we are in godown6');
     $('.calculator4').css({'opacity':'1'});
     $('.f4subsections3').css({ 'opacity':'1', 'z-index':'1'});
-    $('.calculator4').css({'z-index':'0', 'opacity':'0','margin-top':'-40px'});
+    $('.calculator4').css({'z-index':'0', 'opacity':'0','margin-top':'0px'});
     setTimeout('goDown8()', 9000);
 
 
@@ -1235,8 +1284,38 @@ $('#ofSlider1').hover(
         .css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
     }
 );
-
-
+$('#ofSlider2').hover(
+    function() {
+        var myString;
+        myString = '#ofSlider2';
+        setTimeout("updateBarXAxis('barf2', true)", 250);
+        $(myString)
+        .css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
+    },
+    function() {
+        var myString;
+        myString = '#ofSlider2';
+        setTimeout("updateBarXAxis('barf2', false)", 500);
+        $(myString)
+        .css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
+    }
+);
+$('#ofSlider3').hover(
+    function() {
+        var myString;
+        myString = '#ofSlider3';
+        setTimeout("updateBarXAxis('barf3', true)", 250);
+        $(myString)
+        .css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
+    },
+    function() {
+        var myString;
+        myString = '#ofSlider3';
+        setTimeout("updateBarXAxis('barf3', false)", 500);
+        $(myString)
+        .css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
+    }
+);
 
 
 var bunlarigoster = function() {
@@ -1246,3 +1325,4 @@ var bunlarigoster = function() {
 
 
 bunlarigoster();
+$('.fwheelresult3').css({'opacity':'0'});

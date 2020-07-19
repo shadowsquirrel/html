@@ -17,7 +17,7 @@
         <!-- <button class=multibutton id=multibutton>Y</button> -->
         <!-- <button class=multibutton id=multibutton2>X<span id='buttonname'></span></button> -->
     </div>
-    <div class = 'wrap noselect'>
+    <div class = 'wrap'>
 
         <div class = 'all'>
 
@@ -28,41 +28,61 @@
                 </div>
 
                 <div class = 'sinfotext firstfadein after0'>
-                    <p style='font-size: 22px;'> Contest </span></p>
+                    <p style='font-size: 22px; font-weight:800; margin-top:-20px;'>Contest</span></p>
 
 
+                </div>
+
+                <div class = 'arrowwrapmini after05'>
+                    <p class=myminiwheeltext>
+                        Wheel of Fortune
+                    </p>
+                    <div class='wheelpiewrapmini'>
+                        <img id="arrowmini" class='arrowmini' src="images/arrow.png" alt="V" />
+                        <div id='wheelpie' class='wheelpiemini'>
+                            <canvas id='miniWheel' class='mywheelmini' width='150' height='150'>
+                                Canvas not supported, use another browser.
+                            </canvas>
+                        </div>
+                    </div>
                 </div>
 
                 <div class ='sinfotext limited firstfadein after1 firstpartcosmetics'>
                     <p>
                         Two or more players compete in a <strong>contest</strong> by <strong>investing tokens</strong> on a <strong>wheel of fortune</strong>.
                     </p>
+
+
                     <p>
-                        Each player's <strong>relative investment</strong> determines her <strong>share</strong> of the wheel.
+                          The <strong>winner</strong> gets a <strong>payment</strong> or an <strong>opportunity</strong>.
+                    </p>
+
+                    <p class='firstfadein after15'>
+                        The <strong>more</strong> you invest <strong>relative</strong> to the opponent, the <strong>bigger</strong> is your <strong>share</strong> on the wheel, the <strong>higher</strong> is your <strong>probability to win</strong>.
                     </p>
                 </div>
             </div>
 
             <p  style='text-align:center; margin-bottom:-100px; padding-top:30px;' class='secondfadein yoket'>
                 <u>Assume</u> the <strong>opponent</strong> invested <strong>250</strong> tokens <br /><br />
-                Use <span class='dottedred'></span> section to consider investment levels for <strong>you</strong>.
+                Move the slider inside <span class='dottedred'></span> to consider investment levels for <strong>you</strong>.
             </p>
 
 
             <p  style='text-align: center; margin-left:13px; margin-bottom:-45px; padding-top:90px;' class='goster1'>
-                Use <span class='dottedblue'></span> section to <u>also</u> consider <strong>hypothetical</strong> investment levels for the opponent
+                Move the slider inside <span class='dottedblue'></span> to consider <strong>hypothetical</strong> investment levels for the opponent
             </p>
 
             <p  style='margin-left:20px; text-align: center; margin-bottom:-5px; padding-top:30px;' class='goster2'>
-                <u>Continue experimenting</u> with values for you and the opponent. <br /><br />
-                When you are ready
+                In the <strong>experiment</strong>, opponent will be an <strong>actual</strong> player and players will <strong>not</strong> know each others' investments. <br />
+                Yet, considering other players' <strong>hypothetical</strong> decisions will help you make a better decision.
             </p>
             <p  style='margin-left:20px; text-align: center; margin-bottom:-35px; padding-top:50px;' class='goster2'>
                 Click <img id="someid" class='diceimage kirmiziborder' style='margin-right:5px;' src="images/down.png" alt="V" /> below to continue
             </p>
 
 
-            <div class = 'calculator firstfadein calcgider' id='calculator'>
+            <div class = 'calculator firstfadein calcgider noselect' id='calculator'>
 
 
                 <div class = 'topsection1'>
@@ -70,7 +90,7 @@
                     <div class = 'leadergroupleft1'>
                         <h6 class = 'left_ltitle'>Tokens Invested by You</h6>
                         <div class = 'sliderbarleader left'>
-                            <input type='range' min = '0' max = '700' class = 'lslider' value = '250' id = 'lSlider11' />
+                            <input type='range' min = '0' max = '800' class = 'lslider' value = '250' id = 'lSlider11' />
                             <div id = 'barl1' class = 'lbar11'></div>
                         </div>
                     </div>
@@ -92,7 +112,7 @@
                     <div class = 'leadergroupright1'>
                         <h6  class = 'right_title'>Tokens Invested by Opponent - <strong>HYPOTHETICAL</strong></h6>
                         <div class = 'sliderbarleader lright'>
-                            <input type='range' min = '0' max = '700' class = 'lslider' value = '250' id = 'olSlider11' />
+                            <input type='range' min = '0' max = '800' class = 'lslider' value = '250' id = 'olSlider11' />
                             <div id = 'obarl1' class = 'lbar21'></div>
                         </div>
                     </div>
@@ -103,7 +123,7 @@
 
             </div>
 
-            <div class='dicewrap'>
+            <div class='dicewrap noselect'>
                 <div class='extradicewrap'>
                     <img id="dice1" class='dice' style='margin-right:-23px; border: 2px solid red;' src="images/down.png" alt="V" />
                 </div>
@@ -122,7 +142,7 @@
                 </div>
             </div>
 
-            <p class='secondhiddenpart secondafter1 firstturn'style='text-align: center; padding-top:20px; margin-bottom: -12px; margin-left:25px;'>
+              <p class='secondhiddenpart secondafter1 firstturn noselect'style='text-align: center; padding-top:20px; margin-bottom: -12px; margin-left:25px;'>
                 Click &#x25BC; to turn the wheel
             </p>
 
@@ -131,7 +151,7 @@
         </p> -->
 
 
-        <div class = 'calculator  othercalculator secondhiddenpart' id='calculator'>
+        <div class = 'calculator  othercalculator secondhiddenpart noselect' id='calculator'>
 
 
             <div class = 'topsection'>
@@ -139,7 +159,7 @@
                 <div class = 'leadergroupleft' style='padding-top:74px;'>
                     <h6 class = 'left_ltitle'>Tokens Invested by You</h6>
                     <div class = 'sliderbarleader left'>
-                        <input type='range' min = '0' max = '700' class = 'lslider2' value = '250' id = 'lSlider1' />
+                        <input type='range' min = '0' max = '800' class = 'lslider2' value = '250' id = 'lSlider1' />
                         <div id = 'barl' class = 'lbar1'></div>
                     </div>
                 </div>
@@ -162,7 +182,7 @@
                         </div>
                     </div>
                     <div class='wheelresult'>
-                        <p>
+                        <p class=netpayoffresult>
                             <span class=wheelresulttext id=wheelresulttext></span>
                         </p>
                     </div>
@@ -172,7 +192,7 @@
                         </p>
                     </div>
                     <div class='wheelresult3'>
-                        <p>
+                        <p class=netpayoffresult>
                             <span class=wheelresulttext3 id=wheelresulttext3></span>
                         </p>
                     </div>
@@ -183,7 +203,7 @@
                 <div class = 'leadergroupright' style='padding-top:74px;'>
                     <h6  class = 'right_title'>Tokens Invested by Opponent - <strong>HYPOTHETICAL</strong></h6>
                     <div class = 'sliderbarleader lright'>
-                        <input type='range' min = '0' max = '700' class = 'lslider2' value = '250' id = 'olSlider1' />
+                        <input type='range' min = '0' max = '800' class = 'lslider2' value = '250' id = 'olSlider1' />
                         <div id = 'obarl' class = 'lbar2'></div>
                     </div>
                 </div>
@@ -200,22 +220,34 @@
                     In <u>Any</u> Contest
                 </p>
                 <p>
-                    <strong>Every</strong> player <u><strong>always loses</strong></u> her invested tokens.
+                      <strong>Every</strong> player <span class=alwayspayoff><strong>always loses</strong></span> her invested tokens.
                 </p>
 
                 <p>
-                    The <strong>winner</strong> receives some <strong>reward</strong>.
-
+                    <span class=loserpayoff><strong>Loser</strong> receives <strong>0</strong> token.</span>
                 </p>
                 <p  class='thirdhiddenpart somedelay'>
-                    <strong>In the above example</strong>, the winner receives <strong>1000</strong> tokens.
+                    <span class=winnerpayoff><strong>In the above example</strong>, the winner receives <strong>1000</strong> tokens.</span>
                 </p>
-                <p  class='thirdhiddenpart moreinstructions'>
-                    Turn the wheel again
+                <p  class='thirdhiddenpart moreinstructions' style='font-weight:800'>
+                    Turn the wheel again <br />
+                    (click &#x25BC; above the wheel)
                 </p>
+                <p class='somedefinitions'>
 
-
+                    In the <strong>experiment</strong>, you will encounter <strong>2</strong> different types of contests:
+                    <br /><strong>Leaders' Contest</strong> and <strong>Followers' Contest</strong>.
+                </p>
             </div>
+
+            <div class='somedefinitions2'>
+                <div class='dicewrap3'>
+                    <div class='extradicewrap3'>
+                        <img id="dice4" class='dice4' style='margin-right:-23px; border: 2px solid red;' src="images/down.png" alt="V" />
+                    </div>
+                </div>
+            </div>
+
             <div class='colored showmore' style='padding-bottom:10px;'>
                 <p class='showmore' style='font-weight:800; text-decoration: underline;text-align:center; font-size:18px;'>
                     Leaders' Contest
@@ -237,6 +269,9 @@
                                 <p>
                                     - Proceeds to the <strong><u>next</u> leaders' contest</strong>
                                 </p>
+                                <p>
+                                    - <strong>Her followers</strong> continue as <strong>followers</strong>.
+                                </p>
 
                             </div>
                             <div class ='sinfotext showmore rightcolumn'>
@@ -249,11 +284,15 @@
                                 <p>
                                     - <strong>Becomes</strong> a <strong>follower</strong>.
                                 </p>
+                                <p>
+                                    - <strong>Her followers</strong> determine the new leader <br />
+                                    in the <strong>followers' contest</strong>.
+                                </p>
 
                             </div>
                         </div>
                         <p style='text-align:center; padding-top:10px;' class='showmore bottomcolumn'>
-                            <strong>Regardless</strong> of the results, <strong>followers</strong> do <strong>not receive</strong> any payment.
+                            <span class=bottomcolumntext>In the <strong>leaders' contest</strong>, regardless of the results, <strong>followers</strong> <strong>always receive 0</strong> token.</span>
                         </p>
                     </div>
 
@@ -261,10 +300,10 @@
             </div>
         </div>
 
-        <div class='showmore2 dugmegoster'>
+        <div class='showmore2 dugmegoster noselect'>
             <div class='showmore2wrap dugmegoster'>
                 <p  style='text-align: center;'>
-                    Click <img id="someid" class='diceimage' style='margin-right:5px;' src="images/down.png" alt="V" /> to continue
+                    Click <img id="someid" class='diceimage' style='margin-right:5px;' src="images/down.png" alt="V" /> for followers' contest
                 </p>
             </div>
 
@@ -284,7 +323,7 @@
                     Followers' Contest
                 </p>
                 <p style='text-align:center;'>
-                    <strong>Lost leader's followers</strong> proceed to the <strong>followers' contest</strong>
+                    <strong>Lost leader's followers</strong> compete in the <strong>followers' contest</strong>
                 </p>
 
                 <div class=birbaskawrap2>
@@ -297,7 +336,7 @@
                             - <strong>Becomes the new leader </strong> of the group
                         </p>
                         <p>
-                            - Proceeds to the <strong><u>next</u> leaders' contest</strong> to compete against the winner of the former leaders' contest.
+                            - Proceeds to the <strong><u>next</u> leaders' contest</strong>.
                         </p>
                     </div>
 
@@ -328,14 +367,15 @@
 
             <div class='finstructions f4subsections25'>
                 <p>
-                    Assume your leader lost and <strong>you</strong> are Follower <strong>1</strong> in the <u>followers' contest</u>
+                    <u>Assume</u> your leader lost and <strong>you</strong> are Follower <strong>1</strong> in the <strong>followers' contest</strong>
                 </p>
                 <p>
-                    <strong>Experiment</strong> with investment levels for followers and <strong>turn</strong> the wheel &#x25BC;
+                    <u>Assume</u> you invested <strong>300</strong> tokens and the opposing follower invested <strong>100</strong> tokens
+                    <br /><br />  <strong>Turn</strong> the wheel &#x25BC;
                 </p>
             </div>
 
-            <div class = 'calculator4 f4subsections3'>
+            <div class = 'calculator4 f4subsections3 noselect'>
 
 
 
@@ -345,7 +385,7 @@
                         <div class = 'followergroupleft'>
                             <h6 class = 'left_title'> Follower 1 - <strong>YOU</strong></h6>
                             <div class = 'sliderbarleader left'>
-                                <input type='range' min = '0' max = '200' class = 'lsliderf' value = '1' id = 'fSlider1' />
+                                <input type='range' min = '0' max = '400' class = 'lsliderf' value = '1' id = 'fSlider1' />
                                 <div id = 'mybar' class = 'lbar'></div>
                             </div>
                         </div>
@@ -358,7 +398,7 @@
                         </div>
 
                         <div class='fwheelresult'>
-                            <p>
+                            <p class=sonsonuclar>
                                 <span class=wheelresulttext id=fwheelresulttext></span>
                             </p>
                         </div>
@@ -370,7 +410,7 @@
                         </div>
 
                         <div class='fwheelresult3'>
-                            <p>
+                            <p class=sonsonuclar>
                                 <span class=wheelresulttext3 id=fwheelresulttext3></span>
                             </p>
                         </div>
@@ -404,21 +444,21 @@
                         <div class = 'followersgroupright firstone'>
                             <h6  class = 'right_title'>Follower 2 - <strong>HYPOTHETICAL</strong></h6>
                             <div class = 'sliderbarleader lright'>
-                                <input type='range' min = '0' max = '200' class = 'lsliderf' value = '1' id = 'ofSlider1' />
+                                <input type='range' min = '0' max = '400' class = 'lsliderf' value = '1' id = 'ofSlider1' />
                                 <div id = 'barf1' class = 'lbar'></div>
                             </div>
                         </div>
                         <div class = 'followersgroupright'>
                             <h6  class = 'right_title'>Follower 3 - <strong>HYPOTHETICAL</strong></h6>
                             <div class = 'sliderbarleader lright'>
-                                <input type='range' min = '0' max = '200' class = 'lsliderf' value = '1' id = 'ofSlider2' />
+                                <input type='range' min = '0' max = '400' class = 'lsliderf' value = '1' id = 'ofSlider2' />
                                 <div id = 'barf2' class = 'lbar'></div>
                             </div>
                         </div>
                         <div class = 'followersgroupright'>
                             <h6  class = 'right_title'>Follower 4 - <strong>HYPOTHETICAL</strong></h6>
                             <div class = 'sliderbarleader lright'>
-                                <input type='range' min = '0' max = '200' class = 'lsliderf' value = '1' id = 'ofSlider3' />
+                                <input type='range' min = '0' max = '400' class = 'lsliderf' value = '1' id = 'ofSlider3' />
                                 <div id = 'barf3' class = 'lbar'></div>
                             </div>
                         </div>
@@ -433,6 +473,8 @@
 
         <div class ='finaltext1 showlast1'>
             <p style='text-align: center;' class='sonbilgi2'>
+                <span class=adbulamadim>In the <strong>followers' contest</strong>, winner does <strong>not</strong> receive any payment, but only the <strong>opportunity</strong> to win <strong>1000</strong> tokens in the <strong>next leaders' contest</strong>.</span>
+                <br /><br /><br />
                 <strong>Turn the wheel again</strong>
             </p>
         </div>
