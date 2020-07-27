@@ -19,6 +19,7 @@
 /************************************************/
 .wrap
 {
+    font-size:18px;
     display: flex;
     justify-content: center;
 }
@@ -274,27 +275,27 @@
 
 .f1
 {
-    transition:1s;
-    transition-delay:2.5s;
+    transition:0.51s;
+    transition-delay:1s;
 }
 .f2
 {
-    transition:1s;
-    transition-delay:6s;
+    transition:0.51s;
+    transition-delay:3.5s;
 }
 .f3
 {
-    transition:1s;
-    transition-delay:8s;
+    transition:0.51s;
+    transition-delay:5.5s;
 }
 .f4
 {
-    transition:1s;
-    transition-delay:12s;
+    transition:0.51s;
+    transition-delay:7s;
 }
 .f5
 {
-    transition:2s;
+    transition:0.52s;
     transition-delay:1s;
 }
 .fadein2
@@ -309,18 +310,18 @@
 .d1
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:0s;
 }
 .d2
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:0s;
 }
 .someboxclass
 {
-    /* transition:1s; */
+    /* transition:0.51s; */
     opacity:0;
     background-color:orange;
     border:5px solid black;

@@ -735,7 +735,7 @@
     padding-bottom: 20px;
     background-color: lavender;
     border: 1px solid black;
-    transition:3s;
+    transition:0.53s;
     transition-delay:2s;
 }
 
@@ -763,19 +763,19 @@
 }
 .leftcolumn
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:3s;
     padding-right:466px;
 }
 .rightcolumn
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:8s;
     padding-right:18px;
 }
 .bottomcolumn
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:10s;
 }
 
@@ -784,7 +784,7 @@
 .firstfadein
 {
     opacity:0;
-    transition:3s;
+    transition:0.53s;
     transition-delay:10.5s;
 }
 .after0
@@ -806,25 +806,25 @@
 .secondfadein
 {
     opacity:0;
-    transition:2s;
+    transition:0.52s;
     transition-delay:9s;
 }
 .yoket
 {
     /* margin-bottom:-60px; */
-    /* transition:2s; */
+    /* transition:0.52s; */
 }
 .goster
 {
     opacity:0;
-    transition:2s;
+    transition:0.52s;
     transition-delay:1s;
     margin-top:-30px;
 }
 .goster2
 {
     opacity:0;
-    transition:2s;
+    transition:0.52s;
     transition-delay:2s;
     margin-top:-50px;
     display:flex;
@@ -833,7 +833,7 @@
 }
 .birazgecikme
 {
-    transition:2s;
+    transition:0.52s;
     transition-delay:3.5s;
 }
 .dahayukarda
@@ -852,7 +852,7 @@
 .afterfirstturn
 {
     opacity:0;
-    transition:4s;
+    transition:0.54s;
     transition-delay:5s;
     color: indianred;
 }
@@ -877,7 +877,7 @@
 }
 .thirdhiddenpart
 {
-    transition:2s;
+    transition:0.52s;
     transition-delay:2s;
 }
 .somedelay
@@ -896,7 +896,7 @@
 .showmore
 {
 
-    transition:2s;
+    transition:0.52s;
     transition-delay:2s;
     opacity: 0;
 }
@@ -931,7 +931,7 @@ img.diceimage
 .dice
 {
 
-    transition:3s;
+    transition:0.53s;
     transition-delay:1s;
     opacity :1;
 }
@@ -965,7 +965,7 @@ img.dice
 .moreinstructions
 {
     margin-left:18px;
-    transition:2s;
+    transition:0.52s;
     text-align:center;
     margin-top:-75px;
     /* color:indianred; */

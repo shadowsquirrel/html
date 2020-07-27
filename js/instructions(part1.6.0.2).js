@@ -3,4 +3,4 @@ var goDown = function() {
     $('html, body').animate({scrollTop: $(document).height()}, 3000);
 }
 
-setTimeout('goDown()', 21500);
+setTimeout('goDown()', 18500);

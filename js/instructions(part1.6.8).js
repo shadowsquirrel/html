@@ -19,7 +19,7 @@ var goDown = function() {
 
 
 
-setTimeout('unlockhover()', 15000);
+setTimeout('unlockhover()', 12000);
 var hoveron = false;
 unlockhover = function() {
     $('.hover').css({'opacity':'1'});

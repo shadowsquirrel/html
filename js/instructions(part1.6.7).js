@@ -31,7 +31,7 @@ showred = function() {
     $('.d13').css({'transition':'1s', 'transition-delay':'0s', 'opacity':'0.1'});
     $('.3al, .l34, .la4, .b4, .4a5').css({'transition':'1s', 'transition-delay':'0s', 'opacity':'1'});
     $('.3aw, .w34, .wa5').css({'transition':'1s', 'transition-delay':'0s', 'opacity':'0.1'})
-    setTimeout('showblue()', 7000);
+    setTimeout('showblue()', 6000);
 }
 
 showblue = function() {
@@ -39,17 +39,17 @@ showblue = function() {
     $('.d13').css({'transition':'1s', 'transition-delay':'0s', 'opacity':'1'});
     $('.3al, .l34, .la4, .b4, .4a5').css({'transition':'1s', 'transition-delay':'0s', 'opacity':'0.1'});
     $('.3aw, .w34, .wa5').css({'transition':'1s', 'transition-delay':'0s', 'opacity':'1'})
-    setTimeout('showred()', 7000);
+    setTimeout('showred()', 5000);
 }
 
 
-setTimeout('showred()', 13000);
+setTimeout('showred()', 9000);
 
 
 
 
 
-setTimeout('unlockhover()', 20000);
+setTimeout('unlockhover()', 18000);
 var hoveron = false;
 unlockhover = function() {
     $('.hover').css({'opacity':'1'});

@@ -3,4 +3,12 @@ goDown = function() {
         $('html, body').animate({scrollTop: $(document).height()}, 3000);
 }
 
-setTimeout('goDown()', 36000);
+setTimeout('goDown()', 26500);
+
+// var doneEnabled = true;
+//
+// var talk2node = function() {
+//     node.emit('DoneButton', doneEnabled);
+// }
+//
+// setTimeout('talk2node()', 35000);

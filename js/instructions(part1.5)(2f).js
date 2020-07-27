@@ -9,48 +9,49 @@
 // Random switch
 var onezero, sw, osw, d, info;
 var generateRandomVariables = function() {
-onezero = function() {
-    return (Math.random() >= 0.5) ? 1 : 0;
-}
+    onezero = function() {
+        return (Math.random() >= 0.5) ? 1 : 0;
+    }
+
+    var temp = onezero();
+    sw = [temp, temp];
+    osw = [temp, temp];
+    
 
 
-sw = [onezero(), onezero()];
-osw = [onezero(), onezero()];
-
-
-d = {
-    s2:
-    {
-        ourGroup:
+    d = {
+        s2:
         {
-            help:
+            ourGroup:
             {
-                f1: sw[0] ? 0 : parseFloat((Math.random()*50).toFixed(0)),
-                f2: sw[1] ? 0 : parseFloat((Math.random()*50).toFixed(0)),
+                help:
+                {
+                    f1: sw[0] ? 0 : parseFloat((Math.random()*25).toFixed(0)),
+                    f2: sw[1] ? 0 : parseFloat((Math.random()*25).toFixed(0)),
+                },
+                sabo:
+                {
+                    f1: sw[0] ? parseFloat((Math.random()*25).toFixed(0)) : 0,
+                    f2: sw[1] ? parseFloat((Math.random()*25).toFixed(0)) : 0,
+                }
             },
-            sabo:
+            opposingGroup:
             {
-                f1: sw[0] ? parseFloat((Math.random()*50).toFixed(0)) : 0,
-                f2: sw[1] ? parseFloat((Math.random()*50).toFixed(0)) : 0,
+                help:
+                {
+                    f1: osw[0] ? 0 : parseFloat((Math.random()*25).toFixed(0)),
+                    f2: osw[1] ? 0 : parseFloat((Math.random()*25).toFixed(0)),
+                },
+                sabo:
+                {
+                    f1: osw[0] ? parseFloat((Math.random()*25).toFixed(0)) : 0,
+                    f2: osw[1] ? parseFloat((Math.random()*25).toFixed(0)) : 0,
+                }
             }
         },
-        opposingGroup:
-        {
-            help:
-            {
-                f1: osw[0] ? 0 : parseFloat((Math.random()*50).toFixed(0)),
-                f2: osw[1] ? 0 : parseFloat((Math.random()*50).toFixed(0)),
-            },
-            sabo:
-            {
-                f1: osw[0] ? parseFloat((Math.random()*50).toFixed(0)) : 0,
-                f2: osw[1] ? parseFloat((Math.random()*50).toFixed(0)) : 0,
-            }
-        }
-    },
-}
+    }
 
-info = {};
+    info = {};
 }
 
 generateRandomVariables();
@@ -144,7 +145,7 @@ var updateBarHelpInfo = function(a, b, barId, ourGroup) {
             showlegend: false,
             marker:{
                 color: ourColor,
-                    },
+            },
             text: [nzt(x), nzt(y)],
             textposition: 'outside',
             textfont: {
@@ -195,7 +196,7 @@ var updateBarSaboInfo = function(a, b, barId, ourGroup) {
         showlegend: false,
         marker:{
             color: ourColor,
-            },
+        },
         text: [nzt(a), nzt(b)],
         textfont: {
             size: '14',
@@ -297,7 +298,7 @@ var updateBarTotalSaboInfo = function(a, b, barId) {
         showlegend: false,
         marker:{
             color: [red, lightred],
-            },
+        },
         text: [nzt(a), nzt(b)],
         textfont: {
             size: '14',
@@ -385,7 +386,7 @@ var updatePie = function(a) {
     var data = [{
         // hole: 0.6,
         values: [y, x],
-        labels: ['Opposing Leader', 'Your Leader'],
+        labels: ['Opposing Leader', 'You'],
         textfont: {
             color: ['black', 'white'],
         },
@@ -474,7 +475,7 @@ var updateEffortBar = function(a, b) {
         yaxis: {
             fixedrange: true,
             autorange: false,
-            range: [0,500],
+            range: [0,800],
             showline: false,
             showgrid: false,
             ticks: '',
@@ -538,14 +539,14 @@ var updateBarLeader = function(e, barId, ourSide, axisOn) {
             side: 'top',
             fixedrange: true,
             autorange: false,
-            range: [0,500],
+            range: [0,800],
             layer: 'below traces',
             tickfont: {
                 size: 10,
             },
             tickmode: 'array',
-            tickvals: [0, 25, 50, 75, 100, 125, 150, 175, 200, 250, 300, 400, 500],
-            ticktext: [0, 25, 50, 75, 100, 125, 150, 175, 200, 250, 300, 400, 500],
+            tickvals: [0, 50, 100, 150, 250, 350, 500, 650, 800],
+            ticktext: [0, 50, 100, 150, 250, 350, 500, 650, 800],
             tickangle: -45,
             ticks:'',
             showline: false,
@@ -594,7 +595,7 @@ var updateBarDecision = function(a, barId, axisOn) {
         textanchor: 'right',
         textposition: 'outside',
         cliponaxis: false,
-            }];
+    }];
 
     var layout = {
         barmode: 'group',
@@ -608,7 +609,7 @@ var updateBarDecision = function(a, barId, axisOn) {
             side: 'top',
             fixedrange: true,
             autorange: false,
-            range: [0,500],
+            range: [0,800],
             layer: 'below traces',
 
 
@@ -616,8 +617,8 @@ var updateBarDecision = function(a, barId, axisOn) {
                 size: 10,
             },
             tickmode: 'array',
-            tickvals: [0, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 300, 400, 500],
-            ticktext: [0, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 300, 400, 500],
+            tickvals: [0, 25, 50, 75, 100, 125, 150, 200, 250, 300, 350, 400, 500, 650, 800],
+            ticktext: [0, 25, 50, 75, 100, 125, 150, 200, 250, 300, 350, 400, 500, 650, 800],
             tickangle: -45,
             ticks:'',
             showline: false,
@@ -736,7 +737,7 @@ var setEfficiencyBar = function(efi1, efi2) {
         fixedrange: true,
         marker: {
             color: 'rgb(225, 225, 225)',
-             // color: 'rgb(160, 160, 160)',
+            // color: 'rgb(160, 160, 160)',
         },
         text: myText2,
         textposition: 'inside',
@@ -868,7 +869,7 @@ var setEfficiencyBar2 = function(efi1, efi2) {
         fixedrange: true,
         marker: {
             color: 'rgb(225, 225, 225)',
-             // color: 'rgb(160, 160, 160)',
+            // color: 'rgb(160, 160, 160)',
         },
         text: myText2,
         textposition: 'inside',
@@ -918,7 +919,8 @@ var setEfficiencyBar2 = function(efi1, efi2) {
 
 // leader global variables
 var efo, oefo, efi, oefi, pwin;
-efo = oefo = 100;
+efo = oefo = 1;
+oefo = 100;
 efi = oefi = 0;
 efi = info.efi();
 oefi = info.oefi();
@@ -986,7 +988,7 @@ myDice.onclick = function() {
     regraphinfo();
     initialize();
     updateAll();
-    $('.lockedmc2').css({'z-index':'0','opacity':'1'});
+    $('#b6').css({'transition-delay':'3s', 'z-index':'6','opacity':'0.7'});
 }
 
 
@@ -994,14 +996,14 @@ myDice.onclick = function() {
 
 // DECISION SLIDER - BAR
 var dslider = document.getElementById('dSlider');
-var dvalue = 100;
+var dvalue = 1;
 updateBarDecision(dvalue, 'bard', false);
 
 
 // YOUR GROUP INITIATION
 // leader
 var lslider1 = document.getElementById('lSlider1');
-var lvalue = 100;
+var lvalue = 1;
 updateBarLeader(lvalue, 'barl', 1, false);
 // followers
 
@@ -1085,7 +1087,7 @@ $('#dSlider').hover(
         $('.yourdecisiontext2').css({'font-weight':'700', 'opacity':'1'});
         $('.yourdecisiontext').css({'font-weight':'700', 'font-size':'22px'});
         $('#dSlider').css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
-        $('#lSlider1').css({'background':'black', 'opacity':'1', 'margin-top': '48px'});
+        $('#lSlider1').css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
         $('#lSlider1').addClass('newdSlider');
     },
     function() {
@@ -1094,7 +1096,7 @@ $('#dSlider').hover(
         $('.yourdecisiontext2').css({'font-weight':'100', 'opacity':'0.3'});
         $('.yourdecisiontext').css({'font-weight':'200', 'font-size':'22px'});
         $('#dSlider').css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
-        $('#lSlider1').css({'background':'gray', 'opacity':'0.3', 'margin-top': '38px'});
+        $('#lSlider1').css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
         $('#lSlider1').removeClass('newdSlider');
 
     }
@@ -1107,7 +1109,7 @@ $('#lSlider1').hover(
         $('.yourdecisiontext2').css({'font-weight':'700', 'opacity':'1'});
         $('.yourdecisiontext').css({'font-weight':'700', 'font-size':'22px'});
         $('#dSlider').css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
-        $('#lSlider1').css({'background':'black', 'opacity':'1', 'margin-top': '48px'});
+        $('#lSlider1').css({'background':'black', 'opacity':'1', 'margin-top': '45px'});
         $('#dSlider').addClass('newdSlider');
     },
     function() {
@@ -1116,7 +1118,7 @@ $('#lSlider1').hover(
         $('.yourdecisiontext2').css({'font-weight':'100', 'opacity':'0.3'});
         $('.yourdecisiontext').css({'font-weight':'200', 'font-size':'22px'});
         $('#dSlider').css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
-        $('#lSlider1').css({'background':'gray', 'opacity':'0.3', 'margin-top': '38px'});
+        $('#lSlider1').css({'background':'gray', 'opacity':'0.3', 'margin-top': '35px'});
         $('#dSlider').removeClass('newdSlider');
     }
 );
@@ -1160,130 +1162,127 @@ $('html, body').animate({scrollTop: 0}, 0);
 /****************************************/
 /****************************************/
 
-
+$('.cb').css({'z-index':'-10'});
+$('#b0').css({'z-index':'5'});
 var b0 = document.getElementById('b0');
 b0.onclick = function() {
+    $('.cb').css({'z-index':'-10'});
+    $('#b1').css({'z-index':'5'});
     var myheight = $('.mc0').height();
     var myString = -myheight + 'px';
     $('.mc0').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
-    $('.mc1').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush', 'z-index':'0'});
-    // $('.mc1').css({'transition-delay':'0s'});
-    $('html, body').animate({scrollTop: $(document).height()}, 1000);
+    $('.mc1').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush', 'z-index':'5'});
+    $('.dottedred2').css({'border':'0px'});
 }
+
 var b1 = document.getElementById('b1');
 b1.onclick = function() {
+    $('.cb').css({'z-index':'-10'});
+    $('#b2').css({'z-index':'6'});
     var myheight = $('.mc1').height();
     var myString = -myheight + 'px';
     $('.mc1').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
-    $('.mc2').css({'position':'static', 'opacity':'1', 'background-color':'lavender', 'z-index':'0'});
-    $('.dicewrap').css({'opacity':'1', 'z-index':'0', 'margin-top':'-20px'});
-    $('.efficiencyBarWrap2').css({'opacity':'1', 'z-index':'0', 'margin-top':'-20px'});
-    $('html, body').animate({scrollTop: 50}, 1000);
-    $('.s2feedback').css({'margin-top':'-20px'});
+    $('.mc2').css({'position':'static', 'opacity':'1', 'background-color':'lavender', 'z-index':'5'});
+    $('.calculator').css({'margin-top':'-447px', 'margin-bottom':'-66px', 'opacity':'1'});
+    $('.y').css({'opacity':'0'});
+    $('.x').css({'opacity':'1'});
 }
+
 var b2 = document.getElementById('b2');
 b2.onclick = function() {
     var myheight = $('.mc2').height();
     var myString = -myheight + 'px';
-    $('.dicewrap').css({'opacity':'0', 'z-index':'-10', 'margin-top':'-132px'});
-    $('.efficiencyBarWrap2').css({'opacity':'0', 'z-index':'-10'});
+    $('.cb').css({'z-index':'-10'});
+    $('#b3').css({'z-index':'6'});
     $('.mc2').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
-    $('.mc25').css({'position':'static', 'opacity':'1', 'background-color':'lavender', 'z-index':'0'});
-    $('html, body').animate({scrollTop: $('.leadergroupleft').height()*0.8}, 1000);
-    $('.yourdecisiontext3').css({'font-weight':'700', 'opacity':'1', 'margin-top':'3px'});
-    $('.dottedred3').css({'border':'2px solid red'});
-    $('.dottedred').css({'border':'2px solid white'});
-    $('.s2feedback').css({'margin-bottom':'45px'});
-    // $('.dottedred3').css({'border':'2px dotted red'});
-    // $('.dottedblue2').css({'border':'2px dotted white'});
-    // $('.switchwrap').css({'opacity':'1'});
-}
-
-var b25 = document.getElementById('b25');
-b25.onclick = function() {
-    var myheight = $('.mc25').height();
-    var myString = -myheight + 'px';
-    $('.mc25').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
-    $('.mc3').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush', 'z-index':'0'});
-    $('html, body').animate({scrollTop: $('.leadergroupleft').height()*0.8}, 1000);
-    $('.dottedred').css({'border':'2px solid white'});
-    $('.yourdecisiontext3').css({'font-weight':'700', 'opacity':'1', 'margin-top':'-2px'});
-$('.yourdecisiontext2').css({'font-weight':'700', 'opacity':'1'});
-    $('.dottedred3').css({'border':'2px solid white'});
-
-    $('.dottedred2').css({'border':'2px solid red'});
-    $('.dottedblue').css({'border':'2px solid blue'});
-
+    $('.mc3').css({'position':'static', 'opacity':'1', 'background-color':'lavender', 'z-index':'5'});
 }
 
 var b3 = document.getElementById('b3');
 b3.onclick = function() {
+    // $('.calculator').css({'margin-top':'-385px'});
+    $('.cb').css({'z-index':'-10'});
+    $('#b4').css({'z-index':'6'});
     var myheight = $('.mc3').height();
     var myString = -myheight + 'px';
     $('.mc3').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
-    $('.mc4').css({'position':'static', 'opacity':'1', 'background-color':'lavender', 'z-index':'0'});
-    $('.input').css({'margin-top':'-45px', 'transition':'1s'});
-    $('.piewrap').css({'margin-top':'-45px', 'transition':'1s'});
-    $('.decision').css({'padding-top':'35px'});
-    $('html, body').animate({scrollTop: $('.leadergroupleft').height()*0.975}, 1000);
-    $('.dottedred2').css({'border':'5px solid red'});
-    inmc4 = true;
+    $('.mc4').css({'position':'static', 'opacity':'1', 'background-color':'lavender', 'z-index':'5'});
+    $('.y').css({'opacity':'0'});
+    $('.x').css({'opacity':'0'});
+    $('.s2feedback').css({'opacity':'1'});
+    $('.decision').css({'opacity':'0'});
+    $('.calculator').css({'opacity':'0'});
 }
 
 var b4 = document.getElementById('b4');
 b4.onclick = function() {
+    $('.cb').css({'z-index':'-10'});
+    $('#b5').css({'z-index':'6'});
     var myheight = $('.mc4').height();
     var myString = -myheight + 'px';
     $('.mc4').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
-    $('.mc45').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush', 'z-index':'0'});
-    // $('.continueButton').css({'opacity':'1'});
-    inmc4 = false;
-    $('.dottedred4').css({'border':'2px solid red'});
-    $('.dottedblue2').css({'border':'2px solid blue'});
-    // $('html, body').animate({
-    //     scrollTop: 0
-    // }, 1000);
-    // console.log('button pressed');
+    $('.mc5').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush', 'z-index':'5'});
+    $('.efficiencyBarWrap2').css({'opacity':'1', 'margin-top':'-55px', 'z-index':'50'});
+    $('.efficiencyBar2').css({'border':'2px solid red'});
+    $('.dottedred').css({'border':'0px'});
+    // $('#b5').css({'opacity':'0'});
 }
 
-var b45 = document.getElementById('b45');
-b45.onclick = function() {
-    var myheight = $('.mc45').height();
+var b5 = document.getElementById('b5');
+b5.onclick = function() {
+    $('.sinfo').css({'display':'none'});
+    $('.cb').css({'z-index':'-10'});
+    $('#b5, #b6').css({'z-index':'-6', 'opacity':'0'});
+    var myheight = $('.mc5').height();
     var myString = -myheight + 'px';
-    $('.mc45').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
-    $('.mc5').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush', 'z-index':'0'});
-    $('.continueButton').css({'opacity':'1'});
-    // inmc4 = false;
-    $('html, body').animate({
-        scrollTop: 0
-    }, 1000);
-    $('.dottedred4').css({'border':'2px solid white'});
-    $('.dottedblue2').css({'border':'2px solid white'});
-    // console.log('button pressed');
+    $('.mc5').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
+    $('.mc6').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush', 'z-index':'5'});
+    $('.efficiencyBar2').css({'border':'0px solid red'});
+    $('.dicewrap').css({'opacity':'1', 'margin-top':'-23px', 'margin-bottom':'40px', 'z-index':'50'});
 }
 
 
+var b6 = document.getElementById('b6');
+b6.onclick = function() {
+    $('.sinfo').css({'display':'none'});
+    $('.cb').css({'z-index':'-10'});
+    $('#b6').css({'z-index':'-6', 'opacity':'0'});
+    $('#b7').css({'z-index':'6'});
+    var myheight = $('.mc6').height();
+    var myString = -myheight + 'px';
+    $('.mc6').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
+    $('.mc7').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush', 'z-index':'5'});
 
+    $('.dicewrap, .efficiencyBarWrap2, .s2feedback').css({'opacity':'0'});
+}
 
+var b7 = document.getElementById('b7');
+b7.onclick = function() {
+    // $('.sinfo').css({'display':'none'});
+    $('.cb').css({'z-index':'-10'});
+    $('#b7').css({'z-index':'-6', 'opacity':'0'});
+    $('#b8').css({'z-index':'6'});
+    var myheight = $('.mc6').height();
+    var myString = -myheight + 'px';
+    $('.mc7').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
+    $('.mc8').css({'margin-top':'-55px','position':'static', 'opacity':'1', 'background-color':'lavenderblush', 'z-index':'5'});
 
+    $('.dicewrap, .s2feedback, .calculator, .y, .x').css({'opacity':'1', 'z-index':'1'});
+    $('.dicewrap').css({'margin-bottom':'0px', 'z-index':'5'});
+    $('.efficiencyBarWrap2').css({'z-index':'-10'});
+    $('.calculator').css({'margin-top':'0px'});
+    $('.decision').css({'opacity':'1', 'margin-top':'40px','z-index':'1'});
+    $('.continueButton').css({'opacity':'1'});
+}
 
+var b8 = document.getElementById('b8');
+b8.onclick = function() {
+    // $('.sinfo').css({'display':'none'});
+    $('.cb').css({'z-index':'-10'});
 
+    var myheight = $('.mc8').height();
+    var myString = -myheight + 'px';
+    $('.mc8').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
 
-
-
-var calcOn = document.getElementById('multibutton');
-calcOnCounter = 0;
-calcOn.onclick = function() {
-    if(calcOnCounter===0) {
-        $('.titlesection, .topsection, .middlesection, .bottomsection').css({'transition':'1s', 'transition-delay':'0s'});
-        $('.titlesection, .topsection, .middlesection, .bottomsection').css({'opacity':'0', 'z-index':'-10'});
-        $('.topsection').css({'margin-top':'-650px'});
-    }
-    if(calcOnCounter===1) {
-        $('.titlesection, .topsection, .middlesection, .bottomsection').css({'transition':'1s', 'transition-delay':'0s'});
-        $('.titlesection, .topsection, .middlesection, .bottomsection').css({'opacity':'1', 'z-index':'0'});
-        $('.topsection').css({'margin-top':'0px'});
-    }
-    $('.son').css({'opacity':'1'});
-    calcOnCounter = 1 - calcOnCounter;
+    $('html, body').animate({scrollTop:  $(document).height()/2}, 3000);
 }

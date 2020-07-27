@@ -29,7 +29,7 @@
                 </div> -->
 
                 <div class = 'sinfotext firstfadein initial'>
-                    <p style='font-size: 22px; font-weight:800;'> Purchasing Power </span></p>
+                    <p style='font-size: 30px; margin-bottom:-5px; font-weight:800;'> Purchasing Power </span></p>
 
 
                 </div>
@@ -143,14 +143,17 @@
                         <p style='text-align:left;'>
                             Values inside <span class='dottedblue2'><span class='darkgray'></span> &#9668; &#x25BA; <span class='white'></span> </span>represent the per token relative purchasing power of players.
                         </p>
-                        <p style='text-align:left;'>
-                            For instance, <span class='dottedblue2'>  <span class='darkgray'>5</span> &#9668; &#x25BA; <span class='white2'>1</span> </span> implies that every token you invest is worth 5 tokens invested by the opponent.
+                        <p style='text-align:right;padding-right:80px;'>
+                            For instance, <span class='dottedblue2'>  <span class='darkgray'>1</span> &#9668; &#x25BA; <span class='white2'>5</span> </span> implies that the <strong>opponent</strong> is <strong>5 times stronger</strong> than you are.
+                        </p>
+                        <p style='padding-left:105px;'>
+                            Every <strong>5</strong> tokens <strong>you</strong> invest is equivalent to a <strong>single</strong> token invested by the opponent.
                         </p>
 
                     </div>
 
                     <div class='dicewrap abitlater'>
-                        <p>
+                        <p style='padding-top:20px;'>
                             Click <img id="someid" class='eimage' src="images/example.png" alt="V" /> for examples.
                         </p>
                         <img id="exampleButton" class='dice' src="images/example.png" alt="V" />
@@ -167,7 +170,7 @@
                     </p>
                     <p style='text-align:center; margin-left:102px;'>
                         A player with <strong>low power</strong> has a <strong>disadvantage</strong> in the contest.
-                        <img id="exampleButton2" class='dice3' src="images/example.png" alt="V" />
+                        <img id="exampleButton2" class='dice3' style='opacity:0;z-index:-2000;' src="images/example.png" alt="V" />
                     </p>
 
 
@@ -189,7 +192,21 @@
             </div>
 
 
-            <div class ='sinfotext showmore mytable'>
+            <div class='showfpower'>
+                <div class='fpowertext'>
+                    <p  style='text-align: center;'>
+                        Click <img id="someid" class='diceimage' style='margin-right:5px;' src="images/down.png" alt="V" /> to learn about the <strong>power</strong> structure in the <strong>followers' contest</strong>
+                    </p>
+                </div>
+                <div class='fpowerbutton'>
+                    <div class='extrawrapfbutton'>
+                        <img id="dice4" class='dice4' style='margin-right:-23px; border: 2px solid red;' src="images/down.png" alt="V" />
+                    </div>
+                </div>
+            </div>
+
+
+            <div class ='sinfotext showmore mytable fpower'>
                 <div class='bothside'>
                     <p style='font-weight:800; text-align:center;'>
                         Purchasing Power in Followers' Contest
@@ -203,21 +220,39 @@
                 </div>
             </div>
 
-            <div class ='sinfotext showmore5 mytable myothertable'>
+
+            <div class='showlpower'>
+                <div class='lpowertext'>
+                    <p  style='text-align: center;'>
+                        Click <img id="someid" class='diceimage' style='margin-right:5px;' src="images/down.png" alt="V" /> to learn about the <strong>power</strong> structure in the <strong>leaders' contest</strong>
+                    </p>
+                </div>
+                <div class='lpowerbutton'>
+                    <div class='extrawraplbutton'>
+                        <img id="dice5" class='dice5' style='margin-right:-23px; border: 2px solid red;' src="images/down.png" alt="V" />
+                    </div>
+                </div>
+            </div>
+
+            <div class ='sinfotext showmore5 mytable myothertable lpower'>
                 <div class='bothside'>
                     <p style='font-weight:800; text-align:center;'>
                         Purchasing Power in Leaders' Contest
                     </p>
                     <div  class='leftside'>
                         <p style='text-align:center;'>
-                            <strong>Before</strong> the <strong>leaders' contest</strong>, each group's <strong>followers</strong> determine <strong>their</strong> leader's <strong>power</strong> (see next section for details).
+                            <strong>Before</strong> the <strong>leaders' contest</strong>, each group's <strong>followers</strong> <u>determine</u> <strong>their</strong> leader's <strong>power</strong>.
+
+                        </p>
+                        <p class=enson2>
+                            (see next section for details)
                         </p>
                     </div>
                 </div>
             </div>
 
 
-            <div class ='sinfotext limited showmore gecikmeli'>
+            <div class ='sinfotext limited enson'>
                 <p style='text-align: center;'>
                     Please click <strong>Continue</strong> to proceed.
                 </p>

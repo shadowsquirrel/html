@@ -1362,7 +1362,7 @@ img.spic
 .dice
 {
     transition-delay:1s;
-    transition:3s;
+    transition:0.53s;
 }
 img.dice2
 {
@@ -1425,13 +1425,13 @@ img.dice
 }
 .continueButton
 {
-    transition:1s;
+    transition:0.51s;
     opacity:0;
 }
 .fadein
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:16s;
 }
 .rank0

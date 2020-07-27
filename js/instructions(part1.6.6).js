@@ -17,7 +17,7 @@ setTimeout('showBlue()', 14000);
 
 $('.songoster').css({'opacity':'1'});
 
-$(' .a0, .a1, .a2, .a3, .a4, .a5, .a6, .a7, .a8, .a9').css({'opacity':'1'});
+$(' .a0, .a1, .a2, .a3, .a4, .a5, .a6, .a7, .a8, .a9, .a10').css({'opacity':'1'});
 
 var showRed = function() {
     $('.a3, .a5').css({'transition':'1s', 'transition-delay':'0s'});

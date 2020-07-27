@@ -19,6 +19,7 @@
 /************************************************/
 .wrap
 {
+    font-size:18px;
     display: flex;
 /*
     width: 100%;
@@ -224,7 +225,7 @@
 .wheelresult2
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:3s;
     font-size: 20px;
     /* font-weight:800; */
@@ -674,7 +675,7 @@
 }
 .anotherwrap
 {
-    transition:3s;
+    transition:0.53s;
     display:flex;
     flex-direction:column;
     justify-content: center;
@@ -706,50 +707,50 @@
 {
     margin-top:-11px;
     opacity:0;
-    transition:2s;
+    transition:0.52s;
     transition-delay:0s;
 }
 .showmore5
 {
     margin-top:-11px;
     opacity:0;
-    transition:2s;
+    transition:0.52s;
     transition-delay:0s;
 }
 .firstfadein
 {
     z-index:10;
     opacity:0;
-    transition:3s;
+    transition:0.53s;
     transition-delay:17s;
 }
 .firstfadein3
 {
     opacity:0;
-    transition:3s;
+    transition:0.53s;
     transition-delay:5s;
 }
 .later1
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:1s;
 }
 .later15
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:4s;
 }
 .later175
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:10s;
 }
 .initial
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay: 0s;
 }
 .after1
@@ -762,18 +763,18 @@
 }
 .after2
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay: 15s;
 }
 .evenlater
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:20s;
 }
 
 .firstfadein2
 {
-    transition:1s;
+    transition:0.51s;
     opacity:0;
     background-color: lavenderblush;
     padding-bottom: 10px;
@@ -860,7 +861,7 @@
 }
 .continueButton
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:5s;
     opacity:0;
 }
@@ -900,7 +901,7 @@ img.eimage
     margin-top:-10px;
     border: 3px solid indianred;
     padding: 7px;
-    transition:1s;
+    transition:0.51s;
     /* display: flex;
     flex-direction: row;
     justify-content: center; */
@@ -909,7 +910,7 @@ img.eimage
 .abitlater
 {
     opacity:0;
-    transition:3s;
+    transition:0.53s;
     transition-delay:12s;
 }
 
@@ -974,7 +975,7 @@ img.dice3
 }
 .gecikmeli
 {
-    transition:2s;
+    transition:0.52s;
     transition-delay:5s;
 }
 
@@ -993,7 +994,7 @@ img.dice3
     z-index:-30;
     margin-top:-524px;
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     text-align: center;
     /* position: sticky; */
     /* top: -90px; */
@@ -1042,7 +1043,7 @@ img.dice3
 {
     opacity:0;
     margin-top:-37px;
-    transition:1s;
+    transition:0.51s;
     font-size: 20px;
     font-weight:800;
     /* margin-bottom:-25px; */
@@ -1050,7 +1051,7 @@ img.dice3
 .wheelresult2f
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:0s;
     font-size: 18px;
     text-align: left;
@@ -1061,7 +1062,7 @@ img.dice3
 .wheelresult4f
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     font-size: 20px;
     font-weight:800;
     /* margin-bottom:-25px; */
@@ -1069,7 +1070,7 @@ img.dice3
 .wheelresult3f
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     font-size: 18px;
     padding-bottom:30px;
     /* font-weight:800; */
@@ -1223,17 +1224,17 @@ img.dice3
     margin-top:-500px;
     opacity:0;
     z-index:-20;
-    transition:2s;
+    transition:0.52s;
     transition-delay:2s;
 }
 .f4subsections11{
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:12s;
 }
 .f4subsections12{
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:18s;
 
 }
@@ -1243,20 +1244,20 @@ img.dice3
 
     opacity:0;
     z-index:-20;
-    transition:2s;
+    transition:0.52s;
     transition-delay:25s;
 }
 .birbaskawrap
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     margin-top:-527px;
     padding-bottom:85px;
 }
 .birbaskawrap3
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     margin-top:-527px;
 }
 .adbulamadim
@@ -1273,7 +1274,7 @@ img.dice3
 
     padding-bottom:10px;
     margin-top:-7px;
-    transition:1s;
+    transition:0.51s;
     transition-delay:8s;
     opacity: 0;
     display:flex;
@@ -1307,7 +1308,7 @@ img.dice3
 .dice4
 {
 
-    transition:1s;
+    transition:0.51s;
     /* transition-delay:1s; */
     opacity :1;
 }
@@ -1348,11 +1349,11 @@ img.diceimage
 .birbaskawrap
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
 }
 .ensongoster2
 {
-    transition:3s;
+    transition:0.53s;
     transition-delay:2s;
     margin-top:-200px;
     opacity:0;
@@ -1365,7 +1366,7 @@ img.diceimage
 
 .ensongoster1
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:4s;
     margin-bottom:20px;
     margin-top:-200px;
@@ -1377,7 +1378,7 @@ img.diceimage
 }
 .sonradangit
 {
-    transition:1s;
+    transition:0.51s;
 }
 .somesmalladjustment
 {
@@ -1387,6 +1388,6 @@ img.diceimage
 {
     text-align:center;
     margin-bottom:0px;
-    transition:3s;
+    transition:0.53s;
     color:red;
 }

@@ -32,30 +32,111 @@
 
             </div>
 
-            <div class ='explanationtext mc5'>
-                <p>
-                    Please take your time getting accustomed with the graphical calculator.
-                </p>
-                <p>
-                    When you are ready, click <strong>Continue</strong> to proceed.
-                </p>
-            </div>
 
             <div class ='explanationtext mc0'>
-
                 <p>
-                    The leaders make a decision <strong><u>after</strong> the followers made their help or sabotage decisions</u>.
-                </p>
-
-                <p>
-                    Followers' decisions will be <u>displayed in the leaders' decision section</u> as in the below <span class='dottedredt'></span>
-                </p>
-                <p>
-                    Please click <strong>OK</strong> to proceed.
+                    A leader's <strong>main decision slider</strong> is as in the below <span class='dottedredt'></span> section.
                 </p>
 
                 <div class=bwrap>
                     <button class=cb id=b0>OK</button>
+                </div>
+
+            </div>
+
+            <div class ='explanationtext mc1'>
+
+                <p>
+                    <strong>Time limit</strong> and <strong>submission rules</strong> previously described applies.
+                </p>
+
+                <div class=bwrap>
+                    <button class=cb id=b1>OK</button>
+                </div>
+
+            </div>
+
+            <div class ='explanationtext mc2'>
+                <p>
+                    <strong>Net payoffs</strong> based on the possible results and your decision is displayed as in below.
+                </p>
+
+                <div class='bwrap'>
+                    <button class=cb id=b2>OK</button>
+                </div>
+
+            </div>
+
+            <div class ='explanationtext mc3'>
+                <p>
+                    <strong>Leaders</strong> compete in the leaders' contest <strong>after</strong> followers make their help/sabotage decision.
+                </p>
+
+                <div class='bwrap'>
+                    <button class=cb id=b3>OK</button>
+                </div>
+
+            </div>
+
+            <div class ='explanationtext mc4'>
+                <p>
+                    These help/sabotage decisions are displayed in <strong>both</strong> leaders' screen as in the below <span class='dottedredt'></span> section.
+                </p>
+
+                <div class='bwrap'>
+                    <button class=cb id=b4>OK</button>
+                </div>
+
+            </div>
+
+            <div class ='explanationtext mc5'>
+                <p>
+                    Based on followers' decisions, <strong>relative purchasing powers</strong> are calculated and displayed as in <span class='dottedredt'></span> section.
+                </p>
+
+                <div class='bwrap'>
+                    <button class=cb id=b5>OK</button>
+                </div>
+
+            </div>
+
+            <div class ='explanationtext mc6'>
+                <p>
+                    The help/sabotage decisions displayed below is <strong>randomly generated</strong> to provide an <strong>example</strong>.
+                </p>
+                <p>
+                    Click <img id="dice2" class='dice2' src="images/dice.png" alt="V" /> to generate new examples.
+                </p>
+
+                <div class='bwrap'>
+                    <button class=cb id=b6>OK</button>
+                </div>
+
+            </div>
+
+            <div class ='explanationtext mc7' style='margin-top:20px;'>
+                <p>
+                    Leader's <strong>graphical calculator</strong> provides the option to consider
+
+                    what the <strong>opposing</strong> leader <strong>will possibly</strong> do <u><strong>given</strong> the relative powers</u>.
+                </p>
+
+                <div class='bwrap' style='margin-top:7px; justify-content:center;'>
+                    <button class=cb id=b7 style='width:140px;height:85px;padding-bottom:40px;'>Show Calculator</button>
+                </div>
+
+            </div>
+
+            <div class ='explanationtext mc8'>
+                <p>
+                    <strong>Experiment</strong> with the calculator.
+                </p>
+                <p>
+                    You have <strong>30</strong> seconds.
+                </p>
+
+                <div class='bwrap'>
+                    <button class=cb id=b8>OK</button>
                 </div>
 
             </div>
@@ -114,7 +195,6 @@
 
             </div>
 
-
             <div class='dicewrap'>
                 <img id="dice" class='dice' src="images/dice.png" alt="V" />
             </div>
@@ -123,40 +203,19 @@
                 <div id = 'efficiencyBar2' class = 'efficiencyBar2 dottedred'></div>
             </div>
 
-            <div class ='explanationtext mc2'>
-                <p>
-                    Followers' decisions depicted here are randomly generated to provide you an example.
-                </p>
-                <p>
-                    Click <img id="dice2" class='dice2' src="images/dice.png" alt="V" /> to generate a new set of values and observe the change on the relative investment powers.
-                </p>
-                <p class='lockedmc2 lessdelay'>
-                    You can click multiple times to observe more examples.
-                </p>
-
-                <p  class='lockedmc2'>
-                    Click <strong>OK</strong> to proceed.
-                </p>
-
-                <div class='bwrap lockedmc2'>
-                    <button class=cb id=b2>OK</button>
-                </div>
-
-            </div>
 
             <div class = 'calculator' id='calculator'>
-
 
                 <div class = 'bottomsection'>
 
                     <div class = 'leadergroupleft'>
-                        <h6 class = 'left_title'>Leader (You)</h6>
-                        <div class = 'sliderbarleader left dottedred2'>
-                            <input type='range' min = '0' max = '500' class = 'lslider lsliderextra' value = '100' id = 'lSlider1' />
+                        <h6 class = 'left_title y'>Leader (You)</h6>
+                        <div class = 'sliderbarleader left dottedred2 y'>
+                            <input type='range' min = '0' max = '800' class = 'lslider lsliderextra' value = '1' id = 'lSlider1' />
                             <div id = 'barl' class = 'lbar'></div>
                         </div>
-                        <h6 class='yourdecisiontext2'>YOUR DECISION</h6>
-                        <div class=mytableleft>
+                        <h6 class='yourdecisiontext2 y'>YOUR DECISION</h6>
+                        <div class='mytableleft x'>
                             <div class=sidecolumn>
                                 <p>Prize</p>
                                 <p>Net Payoff</p>
@@ -183,7 +242,7 @@
                         </div>
                     </div>
 
-                    <div class = 'pieefiwrap'>
+                    <div class = 'pieefiwrap y'>
                         <div class = 'piewrap'>
                             <h6>Probability to Win</h6>
                             <div class = 'pie' id = 'pie'></div>
@@ -195,13 +254,13 @@
                     </div>
 
                     <div class = 'leadergroupright'>
-                        <h6  class = 'right_title'>Opposing Leader</h6>
-                        <div class = 'sliderbarleader lright dottedblue'>
-                            <input type='range' min = '0' max = '500' class = 'lslider' value = '100' id = 'olSlider1' />
+                        <h6  class = 'right_title y'>Opposing Leader</h6>
+                        <div class = 'sliderbarleader lright dottedblue y'>
+                            <input type='range' min = '0' max = '800' class = 'lslider' value = '100' id = 'olSlider1' />
                             <div id = 'obarl' class = 'lbar'></div>
                         </div>
-                        <h6 class='yourdecisiontext3'>HYPOTHETICAL</h6>
-                        <div class=mytableright>
+                        <h6 class='yourdecisiontext3 y'>HYPOTHETICAL</h6>
+                        <div class='mytableright x'>
                             <div class=sidecolumn>
                                 <p>Prize</p>
                                 <p>Net Payoff</p>
@@ -230,110 +289,23 @@
 
                 </div>
 
-                <div class ='explanationtext mc1'>
-
-                    <p>
-                        <strong>Based on the followers' decision</strong>, <u>relative investment powers are calculated</u> and displayed as in the above <span class='dottedredt'></span> section
-                    </p>
-                    <p>
-                        Click <strong>OK</strong> to proceed.
-                    </p>
-
-                    <div class=bwrap>
-                        <button class=cb id=b1>OK</button>
-                    </div>
-
-                </div>
-
-                <div class ='explanationtext mc25'>
-                    <p>
-                        Leaders make their decision <strong>at the same time</strong>.
-                    </p>
-                    <p>
-                        Thus, as a leader, to make your decision, you may need to <strong>guess the opposing leader's decision</strong>.
-                    </p>
-                    <p>
-                        Click <strong>OK</strong> to proceed.
-                    </p>
-
-                    <div class='bwrap' >
-                        <button class=cb id=b25>OK</button>
-                    </div>
-
-                </div>
-
-                <div class ='explanationtext mc3' style='margin-bottom:15px;'>
-                    <p>
-                        <span class='dottedbluet'></span> section represents the opposing leader's <u><strong>hypothetical</strong> decision</u>.
-                    </p>
-                    <p>
-                        <span class='dottedredt'></span> sections represent <u>your decision</u>.
-                    </p>
-                    <p>
-                            Click <strong>OK</strong> to proceed.
-                    </p>
-
-                    <div class='bwrap'>
-                        <button class=cb id=b3>OK</button>
-                    </div>
-
-                </div>
-
-                <div class ='explanationtext mc4' style='margin-bottom:15px;'>
-                    <p>
-                        <span class='dottedredt'></span> sections are <u>sychronized</u>. You can make your decision on <u>either</u> of these sections.
-                    </p>
-                    <p>
-                        The rules for decision submission and time limit are the same as explained in the follower's section.
-                    </p>
-                    <p>
-                        Please chose values for you and the opponent.
-                    </p>
-                    <p class='lockedmc4'>
-                        Click <strong>OK</strong> to proceed.
-                    </p>
-
-                    <div class='bwrap lockedmc4'>
-                        <button class=cb id=b4>OK</button>
-                    </div>
-
-                </div>
-
-                <div class ='explanationtext mc45' style='margin-bottom:15px;'>
-                    <p>
-                        <span class='dottedredt'></span> sections are updated as you change your decision.
-                    </p>
-                    <p>
-                        <span class='dottedbluet'></span> section provides a graphical indicator to compare your decision and the opponent's hypothetical decision.
-                    </p>
-                    <p>
-                        Click <strong>OK</strong> to proceed.
-                    </p>
-
-                    <div  class='bwrap' >
-                        <button class=cb id=b45>OK</button>
-                    </div>
-
-                </div>
-
-                <div class = decision>
-                    <div class = input>
-                        <div class = 'sliderbard dottedred2'>
-                            <input type='range' min = '0' max = '500' class = 'dslider' value = '100' id = 'dSlider' />
-                            <div id = 'bard' class = 'dbar'></div>
-                        </div>
-                    </div>
-                    <div class = dinfo>
-                        <p>
-                            Your Investment cost is <span id=payoff class='outcomes'>0 token</span>.
-                        </p>
-                        <h6 class='yourdecisiontext closertotop'>YOUR DECISION</h6>
-
-                    </div>
-                </div>
-
             </div>
 
+            <div class = decision>
+                <div class = input>
+                    <div class = 'sliderbard dottedred2'>
+                        <input type='range' min = '0' max = '800' class = 'dslider' value = '1' id = 'dSlider' />
+                        <div id = 'bard' class = 'dbar'></div>
+                    </div>
+                </div>
+                <div class = dinfo>
+                    <p>
+                        Your Investment cost is <span id=payoff class='outcomes'>0 token</span>.
+                    </p>
+                    <h6 class='yourdecisiontext closertotop'>YOUR DECISION</h6>
+
+                </div>
+            </div>
 
 
 

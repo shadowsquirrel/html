@@ -19,6 +19,7 @@
 /************************************************/
 .wrap
 {
+    font-size:18px;
     display: flex;
     justify-content: center;
 }
@@ -305,7 +306,7 @@
 /*stage classes*/
 .stagetextwraptext
 {
-    transition:1s;
+    transition:0.51s;
     /* transition-delay:0s; */
 }
 .stagetextwrap
@@ -422,44 +423,44 @@
 .p1
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:1s;
 }
 .p2
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:4s;
 }
 .p3
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:6s;
 }
 .p4
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:10s;
 }
 .p5
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:14s;
 }
 .p6
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:18s;
 }
 
 .p7
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:23s;
     padding-bottom:22px;
     background-color: lavender;
@@ -473,13 +474,13 @@
 .p8
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:29s;
 }
 .songoster
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:37s;
 }
 
@@ -518,7 +519,7 @@
 .locked
 {
     opacity:0;
-    transition:2s;
+    transition:0.52s;
 }
 .fadein
 {
@@ -526,7 +527,7 @@
 }
 .f1
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:7s;
     /* font-weight:800;
     font-size:18px; */
@@ -534,20 +535,20 @@
 }
 .f2
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:9s;
     margin-top:-10px;
 }
 .f3
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:10s;
     margin-top:-10px;
 }
 
 .f4
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:13s;
     margin-top:-15px;
 
@@ -557,7 +558,7 @@
 .f45
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:0s;
 /* font-weight:600; */
     /* margin-top:-15px; */
@@ -565,18 +566,18 @@
 
 .f6
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:2s;
 }
 
 .f7
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:4s;
 }
 .f8
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:15s;
     padding-bottom:22px;
     background-color: lavender;
@@ -589,7 +590,7 @@
 }
 .f9
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:19s;
 }
 .centeringwrap
@@ -706,7 +707,7 @@ img.hover
     margin-bottom:-100px;
     width: 40px;
     height: 50px;
-    transition:2s;
+    transition:0.52s;
     /* background-color:orange; */
     /* margin-top:-20px; */
 }

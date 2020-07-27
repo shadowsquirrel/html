@@ -19,6 +19,7 @@
 /************************************************/
 .wrap
 {
+    font-size:18px;
     display: flex;
     justify-content: center;
 }
@@ -326,92 +327,92 @@
 .d1
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:0.5s;
 }
 .d2
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:1s;
 }
 .d3
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:1.5s;
 }
 .d4
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:2s;
 }
 .d5
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:2.5s;
 }
 .d6
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:3s;
 }
 .d7
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:3.5s;
 }
 .d8
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:4s;
 }
 .d85
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:6s;
 }
 .d875
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:10s;
 }
 .d9t
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:16s;
 }
 .d9
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:21s;
 }
 .d10t
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:25s;
 }
 .d10
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:29s;
 }
 
 .songoster
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:33s;
 }
 

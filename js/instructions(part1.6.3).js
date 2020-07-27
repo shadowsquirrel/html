@@ -34,7 +34,7 @@ $('.leftpart').hover(
 
 
 
-setTimeout('unlockhover()', 17000);
+setTimeout('unlockhover()', 11000);
 var hoveron = false;
 unlockhover = function() {
     $('.hover').css({'opacity':'1'});

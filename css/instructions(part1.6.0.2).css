@@ -19,6 +19,7 @@
 /************************************************/
 .wrap
 {
+    font-size:18px;
     display: flex;
     justify-content: center;
 }
@@ -249,8 +250,8 @@
 {
     padding-top:15px;
     opacity:0;
-    transition:1s;
-    /* transition-delay:0s; */
+    transition:0.51s;
+    transition-delay:0s;
 
 }
 
@@ -258,15 +259,15 @@
 {
     padding-top:15px;
     opacity:0;
-    transition:1s;
-    transition-delay:6s;
+    transition:0.51s;
+    transition-delay:5s;
 }
 .f3
 {
     padding-top:15px;
     opacity:0;
-    transition:1s;
-    transition-delay:13s;
+    transition:0.51s;
+    transition-delay:10s;
 }
 .f4
 {
@@ -275,8 +276,8 @@
     /* margin-left:600px; */
     /* margin-top:-120px; */
     opacity:0;
-    transition:1s;
-    transition-delay:17s;
+    transition:0.51s;
+    transition-delay:14s;
     /* width:300px; */
 }
 .f50
@@ -285,8 +286,8 @@
     /* text-align: right; */
     /* margin-left:600px; */
     opacity:0;
-    transition:1s;
-    transition-delay:22s;
+    transition:0.51s;
+    transition-delay:19s;
     /* width:300px; */
 }
 .f51
@@ -296,8 +297,8 @@
     /* padding-top:40px; */
     /* margin-left:600px; */
     opacity:0;
-    transition:1s;
-    transition-delay:28s;
+    transition:0.51s;
+    transition-delay:21s;
     /* width:300px; */
 }
 
@@ -305,6 +306,6 @@
 {
     /* padding-top:100px; */
     opacity:0;
-    transition:1s;
-    transition-delay:35s;
+    transition:0.51s;
+    transition-delay:23s;
 }

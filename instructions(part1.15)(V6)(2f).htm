@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/instructions(part1.15)(V6).css">
+    <script src='js/Winwheel.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <title>Page Title</title>
+</head>
+<body>
+
+    <div class='upperbar'>
+        <button class='continueButton son' onclick="window.location.href='./Instructions(part1.2)(V4).htm'">Continue</button>
+    </div>
+    <div class = 'wrap'>
+
+        <div class = 'all'>
+
+            <div class = 'sinfo maintitle' id='sinfo'>
+                <div class = 'sinfotext'>
+                    <p style='font-size: 27px; font-weight:800; margin-bottom:-17px;'>Types of Contests</span></p>
+                </div>
+            </div>
+
+
+            <div class='blue introduction' style='text-align:center;'>
+                <p>
+                    In the <strong>experiment</strong>, you will encounter <strong>2</strong> different types of contests:
+                </p>
+                <p>
+                    <strong>Leaders' Contest</strong> and <strong>Followers' Contest</strong>
+                </p>
+            </div>
+
+            <div class=lbutton>
+                <div>
+                    <p  style='text-align: center;'>
+                        Click <img id="someid" class='diceimage' style='margin-right:5px;' src="images/down.png" alt="V" /> to learn about the leaders' contest
+                    </p>
+                </div>
+
+                <div class='dicewrap2'>
+                    <div class='extradicewrap2 dugmegoster'>
+                        <img id="dice1" class='dice3' style='margin-right:-23px; border: 2px solid red;' src="images/down.png" alt="V" />
+                    </div>
+                </div>
+            </div>
+
+
+            <div class='red lstructure lcontest'>
+                <p class='lcontest p1' style='font-weight:800; text-decoration: underline;text-align:center; font-size:22px;'>
+                    Leaders' Contest
+                </p>
+                <div>
+                    <div>
+
+                        <p class='lcontest p2' style='text-align:center; margin-bottom:30px;'>
+                            <strong>Leaders</strong> compete in the <strong>leaders' contest</strong>.
+                        </p>
+
+                        <div class='columns'>
+
+                            <div class='left1'>
+                                <p class='lcontest p3'>
+                                    <strong>Winner</strong>
+                                </p>
+                                <p class='lcontest p4'>
+                                    - Receives <strong>1000</strong> tokens
+                                </p>
+                                <p class='lcontest p5'>
+                                    - Proceeds to the <strong><u>next</u> leaders' contest</strong>
+                                </p>
+                                <p class='lcontest p6'>
+                                    - <strong>Her followers</strong> continue as <strong>followers</strong>.
+                                </p>
+                            </div>
+
+                            <div class='right1'>
+                                <p class='lcontest p7'>
+                                    <strong>Loser</strong>
+                                </p>
+                                <p class='lcontest p8'>
+                                    - <strong>Loses</strong> her <strong>leader role</strong>.
+                                </p>
+                                <p class='lcontest p9'>
+                                    - <strong>Becomes</strong> a <strong>follower</strong>.
+                                </p>
+                                <p class='lcontest p10'>
+                                    - <strong>Her followers</strong> determine the new leader <br />
+                                    in the <strong>followers' contest</strong>.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <p  class='lcontest p11' style='text-align:center; padding-top:30px; text-decoration: underline solid red'>
+                            <span>In the <strong>leaders' contest</strong>, regardless of the results, <strong>followers</strong> <strong> always receive 0</strong> token.</span>
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class='fbutton'>
+                <div>
+                    <p  style='text-align: center;'>
+                        Click <img id="someid" class='diceimage' style='margin-right:5px;' src="images/down.png" alt="V" /> to learn about the followers' contest
+                    </p>
+                </div>
+
+                <div class='dicewrap2'>
+                    <div class='extradicewrap2 dugmegoster'>
+                        <img id="dice2" class='dice3' style='margin-right:-23px; border: 2px solid red;' src="images/down.png" alt="V" />
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class='blue fcontest'>
+
+                <p class='show s1' style='font-weight:800; text-decoration: underline;text-align:center; font-size:22px;'>
+                    Followers' Contest
+                </p>
+                <p class='show s2'  style='text-align:center;'>
+                    <strong>Lost leader's followers</strong> compete in the <strong>followers' contest</strong>
+                </p>
+
+                <div class='columns'>
+                    <div class='left2'>
+                        <p class='show s3' >
+                            <strong>Winner</strong>
+                        </p>
+                        <p class='show s4' >
+                            - <strong>Becomes the new leader </strong> of the group
+                        </p>
+                        <p class='show s5' >
+                            - Proceeds to the <strong><u>next</u> leaders' contest</strong>.
+                        </p>
+                    </div>
+
+                    <div class='right2'>
+                        <p class='show s6' >
+                            <strong>Loser</strong>
+                        </p>
+                        <p class='show s7' >
+                            - <strong>Continues</strong> as a <strong>follower</strong>.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class='red fcontest2 show s8' style='text-align:center;'>
+                <p class='show s8' >
+                    <strong>Followers' contest</strong> is played among the <strong><u>2 followers</u></strong> of the <strong>defeated</strong> leader.
+                </p>
+                <p class='show s9' >
+                    The defeated leader does <strong>not</strong> participate in the followers' contest.
+                </p>
+            </div>
+
+            <div class='donebutton'>
+                <p class=son style='text-align: center; font-size:25px; margin-bottom:30px;'>
+                    Click <strong>Done</strong> to proceed
+                </p>
+            </div>
+
+
+            <div class='lbutton2 son'>
+                <div>
+                    <p  style='text-align: center; margin-bottom:-5px;'>
+                        Click <img id="someid" class='diceimage' style='margin-right:5px;' src="images/down.png" alt="V" /> to recall the leaders' contest (optional)
+                    </p>
+                </div>
+
+                <div class='dicewrap2'>
+                    <div class='extradicewrap2 dugmegoster'>
+                        <img id="dice3" class='dice3' style='margin-right:-23px; border: 2px solid red;' src="images/down.png" alt="V" />
+                    </div>
+                </div>
+            </div>
+
+            <div class='fbutton2'>
+                <div>
+                    <p  style='text-align: center; margin-bottom:-5px'>
+                        Click <img id="someid" class='diceimage' style='margin-right:5px;' src="images/down.png" alt="V" /> to recall the followers' contest (optional)
+                    </p>
+                </div>
+
+                <div class='dicewrap2'>
+                    <div class='extradicewrap2 dugmegoster'>
+                        <img id="dice4" class='dice3' style='margin-right:-23px; border: 2px solid red;' src="images/down.png" alt="V" />
+                    </div>
+                </div>
+            </div>
+
+
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+            <script src="js/instructions(part1.15)(V6).js"></script>
+
+        </body>
+        </html>

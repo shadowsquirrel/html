@@ -10,8 +10,8 @@ $('.w34').css({'border':'5px solid lime', 'opacity':'1'});
 
 $('.a0, .a1, .a2, .a3, .a4, .a5, .a6, .a7, .continueButton').css({'opacity':'1'});
 
-setTimeout('showBlue()', 9000);
-setTimeout('showRed()', 18000);
+setTimeout('showBlue()', 7000);
+setTimeout('showRed()', 12000);
 
 var showRed = function() {
     $('.redarrow').css({'opacity':'0.6'});
@@ -55,7 +55,7 @@ $('.straighttext, .lastthing').css({'opacity':'1'});
 
 
 
-setTimeout('unlockhover()', 19000);
+setTimeout('unlockhover()', 13000);
 var hoveron = false;
 unlockhover = function() {
     $('.hover').css({'opacity':'1'});

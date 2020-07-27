@@ -19,6 +19,7 @@
 /************************************************/
 .wrap
 {
+    font-size:18px;
     display: flex;
     justify-content: center;
 }
@@ -351,7 +352,7 @@
 }
 .delay1
 {
-    /* transition:2s  ease-in-out;; */
+    /* transition:0.52s  ease-in-out;; */
     /* transition-delay:11s; */
 }
 .gorunmezt
@@ -362,44 +363,44 @@
 .d1
 {
     /* opacity:0.2; */
-    /* transition:1s; */
+    /* transition:0.51s; */
     transition-delay:0s;
 }
 .d2
 {
     /* opacity:0.2; */
-    /* transition:1s; */
+    /* transition:0.51s; */
     transition-delay:0s;
 }
 .d3
 {
     /* opacity:0.2; */
-    /* transition:1s; */
+    /* transition:0.51s; */
     transition-delay:0s;
 }
 .d4
 {
     /* opacity:0.2; */
-    /* transition:1s; */
+    /* transition:0.51s; */
     transition-delay:0s;
 }
 .d5
 {
     /* opacity:0.2; */
-    /* transition:1s; */
+    /* transition:0.51s; */
     transition-delay:0s;
 }
 .d6
 {
     /* opacity:0.2; */
-    /* transition:1s; */
+    /* transition:0.51s; */
     transition-delay:0s;
 }
 .lastthing
 {
     opacity:0;
-    transition:1s;
-    transition-delay:22s;
+    transition:0.51s;
+    transition-delay:14s;
 }
 /*stage classes*/
 .stagetextwrap
@@ -482,51 +483,51 @@
 .a0
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:1s;
 }
 .a1
 {
 opacity:0;
-transition:1s;
-transition-delay:4s;
+transition:0.51s;
+transition-delay:2s;
 }
 .a2
 {
 opacity:0;
-transition:1s;
-transition-delay:5s;
+transition:0.51s;
+transition-delay:3s;
 }
 .a3
 {
 opacity:0;
-transition:1s;
-transition-delay:7s;
+transition:0.51s;
+transition-delay:5s;
 }
 .a4
 {
 opacity:0;
-transition:1s;
-transition-delay:9s;
+transition:0.51s;
+transition-delay:7s;
 }
 .a5
 {
 opacity:0;
-transition:1s;
-transition-delay:15s;
+transition:0.51s;
+transition-delay:10s;
 }
 .a6
 {
 opacity:0;
-transition:1s;
-transition-delay:16s;
+transition:0.51s;
+transition-delay:11s;
 }
 .a7
 {
 padding-top:10px;
 opacity:0;
-transition:1s;
-transition-delay:18s;
+transition:0.51s;
+transition-delay:12s;
 }
 .s3text2
 {
@@ -565,13 +566,13 @@ img.hover
     margin-bottom:-100px;
     width: 40px;
     height: 50px;
-    transition:2s;
+    transition:0.52s;
     /* background-color:orange; */
     /* margin-top:-20px; */
 }
 .continueButton
 {
     opacity:0;
-    transition:1s;
-    transition-delay:23s;
+    transition:0.51s;
+    transition-delay:15s;
 }

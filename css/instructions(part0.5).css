@@ -19,6 +19,7 @@
 /************************************************/
 .wrap
 {
+    font-size:18px;
     display: flex;
 /*
     width: 100%;
@@ -715,4 +716,58 @@
 {
     border-bottom: 2px solid;
     text-decoration: none;
+}
+
+
+
+.red
+{
+    border:1px solid black;
+    background-color: lavenderblush;
+    padding-left:20px;
+    padding-right:20px;
+    padding-bottom:10px;
+    padding-top:20px;
+    margin-bottom:10px;
+}
+
+.blue
+{
+    border:1px solid black;
+    background-color: lavender;
+    padding-left:20px;
+    padding-right:20px;
+    padding-bottom:10px;
+    padding-top:20px;
+        margin-bottom:10px;
+}
+.a1
+{
+    opacity:0;
+    transition:0.51s;
+    transition-delay:0s;
+}
+.a2
+{
+    opacity:0;
+    transition:0.51s;
+    transition-delay:7s;
+}
+.a3
+{
+    opacity:0;
+    transition:0.51s;
+    transition-delay:15s;
+}
+.a4
+{
+    opacity:0;
+    transition:0.51s;
+    transition-delay:26s;
+}
+.a5
+{
+    opacity:0;
+    transition:0.51s;
+    transition-delay:31s;
 }

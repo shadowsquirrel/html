@@ -19,6 +19,7 @@
 /************************************************/
 .wrap
 {
+    font-size:18px;
     display: flex;
     justify-content: center;
 }
@@ -340,99 +341,99 @@
 .d1
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:0s;
 }
 .d2
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:0s;
 }
 .d3
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:0s;
 }
 .d4
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:0s;
 }
 .d5
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:1.5s;
 }
 .d6
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:2s;
 }
 .d7
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:2.5s;
 }
 .d8
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:3s;
 }
 .d9
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:3.5s;
 }
 .d10
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:4s;
 }
 .d11
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:5.5s;
 }
 .d12
 {
     opacity:0;
-    transition:1s;
-    transition-delay:10s;
+    transition:0.51s;
+    transition-delay:8s;
 }
 .d13
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:20s;
 }
 .d14
 {
     opacity:0;
-    transition:1s;
-    transition-delay:13s;
+    transition:0.51s;
+    transition-delay:9s;
 }
 /********************/
 .songoster
 {
     opacity:0;
-    transition:1s;
-    transition-delay:27s;
+    transition:0.51s;
+    transition-delay:20s;
 }
 
 /*stage classes*/
 .stagetextwraptext
 {
-    transition:1s;
+    transition:0.51s;
     /* transition-delay:0s; */
 }
 .stagetextwrap
@@ -624,7 +625,7 @@ img.hover
     margin-bottom:-100px;
     width: 40px;
     height: 50px;
-    transition:2s;
+    transition:0.52s;
     /* background-color:orange; */
     /* margin-top:-20px; */
 }

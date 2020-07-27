@@ -32,8 +32,8 @@ $('.l34, .w34').css({'opacity':'0.2'});
 
 var lwon = function() {
     $('.5a6, .b5, .b6').css({'transition-delay':'0', 'transition':'1s'});
-    $('.t3').css({'transition-delay':'0', 'transition':'1s', 'opacity':'1'});
-    $('.t4').css({'transition-delay':'0', 'transition':'1s', 'opacity':'0.2'});
+    $('.t35').css({'transition-delay':'0', 'transition':'1s', 'opacity':'1'});
+    $('.t45').css({'transition-delay':'0', 'transition':'1s', 'opacity':'0'});
     $('.l34').css({'border':'5px solid black'});
     $('.w34').css({'border':'5px solid rosybrown'});
     $('.3al, .la4, .l34, .3aw, .wa5, .w34, .b5, .b4, .wa5, .wa6,.4a5, .4a6 ').css({'transition':'0.5s', 'transition-delay':'0s' });
@@ -43,12 +43,12 @@ var lwon = function() {
     $('.la5').css({'opacity':'0'});
     // $('.b5').css({'opacity':'0.6'});
     // $('.b5 ').css({'opacity':'0'});
-    setTimeout('llost()', 11000)
+    setTimeout('llost()', 10000)
 }
 var llost = function() {
     $('.5a6, .b5, .b6').css({'transition-delay':'0', 'transition':'1s'});
-    $('.t4').css({'transition-delay':'0', 'transition':'1s', 'opacity':'1'});
-    $('.t3').css({'transition-delay':'0', 'transition':'1s', 'opacity':'0.2'});
+    $('.t45').css({'transition-delay':'0', 'transition':'1s', 'opacity':'1'});
+    $('.t35').css({'transition-delay':'0', 'transition':'1s', 'opacity':'0'});
     $('.3al, .la4, .l34, .3aw, .wa5, .w34, .b5, .b4, .wa5, .wa6,.4a5, .4a6 ').css({'transition':'0.5s', 'transition-delay':'0s' });
     $('.w34').css({'border':'5px solid black'});
     $('.l34').css({'border':'5px solid rosybrown'});
@@ -57,7 +57,7 @@ var llost = function() {
     $('.3aw, .w34').css({'opacity':'0.1'});
     $('.wa5, .wa6').css({'opacity':'0'});
     $('.4a5, .4a6').css({'opacity':'0.8'});
-    setTimeout('lwon()', 11000)
+    setTimeout('lwon()', 12000)
 }
 
 setTimeout('lwon()', 15000);

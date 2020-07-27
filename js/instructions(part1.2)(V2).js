@@ -425,77 +425,6 @@ var updateAll = function() {
     // wheelresultDisplay2.innerHTML = 'Your investment cost: <strong>' + efo + '</strong>';
 }
 
-// var hideWheel = function() {
-//     $('.piewrap').css({'display':'flex'});
-//     $('.piewrap').css({'opacity':'1', 'zIndex':'1'});
-//     $('.mywheel').css({'display':'none'});
-//     $('.mywheel').css({'opacity':'0', 'zIndex':'0'});
-//     liftArrow();
-// }
-//
-// var resultIndex;
-// var animateWheel = function() {
-//     createWheel(pwin);
-//     theWheel.stopAnimation(false);
-//     theWheel.rotationAngle = 0;
-//
-//     $('.piewrap').css({'display':'none'});
-//     $('.piewrap').css({'opacity':'0', 'zIndex':'-1'});
-//     $('.mywheel').css({'display':'flex'});
-//     $('.mywheel').css({'opacity':'1', 'zIndex':'0'});
-//     $('.arrow').css({'marginTop':'48px'});
-//
-//     var stopAt = theWheel.getRandomForSegment(resultIndex);
-//     theWheel.animation.stopAngle = stopAt;
-//     theWheel.startAnimation();
-//     activeWheelSwitch = true;
-// }
-
-// var arrowButton = document.getElementById('arrow');
-// var canClickArrow = true;
-// arrowButton.onclick = function() {
-//     console.log(canClickArrow);
-//     if(canClickArrow) {
-//         $('.arrow').css({'border':'0px'});
-//         $('.wheelresult').css({'opacity':'0'});
-//         $('.wheelresult3').css({'opacity':'0'});
-//         resultIndex = (Math.random() < pwin) ? 1 : 2;
-//         animateWheel();
-//
-//         canClickArrow = false;
-//     }
-//
-// }
-
-// var liftArrow = function() {
-//     $('.arrow').css({'marginTop':'30px'});
-// }
-//
-// var showResult = function() {
-//     $('.wheelresult').css({'opacity':'1'});
-//     $('.wheelresult3').css({'opacity':'1'});
-//     $('.arrowwrap').css({'margin-top':'-25px'});
-//     canClickArrow = true;
-//     liftArrow();
-//     // setTimeout("liftArrow()", 500);
-//
-//     var wheelresultDisplay = document.getElementById('wheelresulttext');
-//     var youwon = 'You Won!';
-//     var youlost = 'You Lost.';
-//     var resultDisplay = (resultIndex===1) ? youwon : youlost;
-//     wheelresultDisplay.innerHTML = resultDisplay;
-//
-//     var wheelresultDisplay3 = document.getElementById('wheelresulttext3');
-//     var mycost = -efo;
-//     var mypayoff = -efo + ((resultIndex===1) ? 1000 : 0);
-//     var mypayoffDisplay = 'Your Net Payoff: <strong>' + mypayoff + '</strong>';
-//     wheelresultDisplay3.innerHTML = mypayoffDisplay;
-//
-//     $('html, body').animate({scrollTop:  $(document).height()}, 2000);
-// }
-
-
-
 updateAll();
 
 // Slider-bar initiations
@@ -522,7 +451,7 @@ efislider.oninput = function() {
     if(firsttime) {
         $('.sliderbarefi').css({'border':'1px solid black'});
         $('.dottedblue2').css({'border':'1px solid black'});
-        setTimeout('doLater()', 5000)
+        setTimeout('doLater()', 8000)
         firsttime = false;
 
     }
@@ -534,7 +463,7 @@ var doLater = function() {
     $('.anotherwrap').css({'margin-top':'-75px'});
     $('.firstfadein3, .abitlater').css({'opacity':'1'});
     $('.sinfo').css({'margin-bottom':'-50px', 'transition':'3s', 'z-index':'5'});
-    setTimeout('turnOffSliders()', 13000);
+    setTimeout('turnOffSliders()', 1);
 }
 
 var turnOffSliders = function() {
@@ -548,44 +477,30 @@ $('.lslider').css({'opacity':'0.2'});
 }
 
 var firsttime2 = true;
-var goDown = function() {
-    $('html, body').animate({
-        scrollTop: $(document).height()
-    }, 5000);
-    setTimeout('goDown2()', 7000);
-}
-var goDown2 = function() {
-    if(firsttime2) {
 
 
-        // $('.after2').css({'height':'1px'});
-        // $('.evenlater').css({'transition-delay':'0s', 'transition':'1s', 'margin-top':'-114px', 'opacity':'0', 'z-index':'-2'});
-        // $('.fadeout').css({'opacity':'1'});
-        // console.log('yoyoyoyoyo');
-        $('.showmore').css({'opacity':'1'});
-        setTimeout('goDown3()', 5000);
-        firsttime2 = false;
-    }
-}
-
-var goDown3 = function() {
-    $('.showmore5').css({'opacity':'1'});
-
-    $('.continueButton').css({'opacity':'1'});
-}
 
 var eButton = document.getElementById('exampleButton');
 
+var eButtonFirstTimeClick = true;
+eButton.onclick = function() {
+    if(eButtonFirstTimeClick) {
+        $('.dicewrap').css({'transition-delay':'0s', 'opacity':'0'});
+        rotateExamples();
+        eButtonFirstTimeClick = false;
+    }
+
+
+}
+
 var bigCounter = 0;
 var eCounter = 0;
-eButton.onclick = function() {
+var efoArray = [100, 100, 500, 500, 100];
+var oefoArray = [100, 100, 100, 500, 100];
+var efiArray =  [1,1,1,1,1];
+var oefiArray = [1,5,5,5,5]
 
-    $('.dicewrap').css({'transition-delay':'0s', 'border':'3px solid white'});
-    var efoArray = [100, 100, 500, 500, 500, 500];
-    var oefoArray = [100, 100, 100, 500, 100, 500];
-    var efiArray =  [1,1,1,1,1,1];
-    var oefiArray = [1,3,3,3,5,5]
-
+var rotateExamples = function() {
     efi = efiArray[eCounter];
     oefi = oefiArray[eCounter];
 
@@ -600,8 +515,10 @@ eButton.onclick = function() {
     updateBarLeader(oefo, 'obarl', 0, false);
 
     updateAll();
-    $('.lslider').css({'opacity':'0'});
-    if(eCounter < 5) {
+
+    // $('.lslider').css({'opacity':'0'});
+
+    if(eCounter < 4) {
         eCounter = eCounter + 1;
         bigCounter = bigCounter + 1;
     } else {
@@ -610,18 +527,94 @@ eButton.onclick = function() {
         bigCounter = bigCounter +1;
         eCounter = 0;
     }
-    if(bigCounter === 7) {
+    if(bigCounter === 6) {
         setTimeout('goDown()', 1000);
-        setTimeout('turnOnSliders()', 7000);
-        $('.buttontextwrap').css({'opacity':'0', 'transition':'1s', 'transition-delay':'0s', 'margin-top':'-100px', 'z-index':'-30'});
+        // setTimeout('turnOnSliders()', 7000);
+
         $('.firstfadein2').css({'opacity':'1'})
+    }
+    if(bigCounter < 12) {
+    setTimeout('rotateExamples()', 2500);
+    }
+    if(bigCounter < 30 && bigCounter > 11) {
+    setTimeout('rotateExamples()', 1000);
+    }
+    if(bigCounter === 30) {
+        turnOnSliders();
+    }
+}
+
+var goDown = function() {
+    $('html, body').animate({
+        scrollTop: $(document).height()
+    }, 5000);
+    setTimeout('goDown2()', 7000);
+}
+var goDown2 = function() {
+    if(firsttime2) {
+        // show show followers power button
+        $('.showfpower').css({'opacity':'1', 'z-index':'10'});
+        firsttime2 = false;
     }
 }
 
 
+var someExplanationVanishes = function() {
+    $('.buttontextwrap').css({'opacity':'0', 'transition':'1s', 'transition-delay':'0s', 'margin-top':'-100px', 'z-index':'-30'});
+}
+
+
+var fpowerbutton = document.getElementById('dice4');
+fpowerbutton.onclick = function() {
+
+    // button and its text disappears
+    $('.showfpower').css({'opacity':'0', 'margin-top':'-105px', 'z-index':'-10'});
+
+    // information box appears
+    $('.showmore').css({'opacity':'1'});
+
+    // information box is placed correctly
+    $('.fpower').css({'margin-top':'0px'});
+
+    // show show l power button
+    setTimeout('goDown25()', 5000);
+}
+
+var goDown25 = function() {
+    // show show l power button
+    $('.showlpower').css({'opacity':'1', 'margin-top':'0px', 'z-index':'10'});
+
+    $('html, body').animate({
+        scrollTop: $(document).height()
+    }, 5000);
+}
+
+var lpowerbutton = document.getElementById('dice5');
+lpowerbutton.onclick = function() {
+    // button and its text disappears
+    someExplanationVanishes();
+    $('.showlpower').css({'opacity':'0', 'margin-top':'-105px'});
+
+    // information box appears
+    $('.showmore5').css({'opacity':'1'});
+    // information box is placed correctly
+    $('.lpower').css({'margin-top':'0px'});
+    $('.enson').css({'margin-top':'0px'});
+    $('.continueButton, .enson, .enson2').css({'opacity':'1'});
+    setTimeout('downdown()', 6000);
+}
+var downdown = function() {
+    $('html, body').animate({
+        scrollTop: $(document).height()
+    }, 3000);
+}
+
+
+
+
+
+
 var eButton2 = document.getElementById('exampleButton2');
-
-
 var eCounter2 = 0;
 eButton2.onclick = function() {
 
@@ -731,4 +724,6 @@ $('html, body').animate({scrollTop: 0}, 0);
 $('.firstfadein, .later1, .later15, .later175').css({'opacity':'1'});
 $('.evenlater').css({'opacity':'1'});
 $('#lSlider1, #olSlider1').css({'z-index':'-10'});
+
+$('.cursor-pointer').css({'cursor':'default'});
 $('#efiSlider').css({'cursor':'pointer'});

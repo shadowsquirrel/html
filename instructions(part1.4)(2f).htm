@@ -12,7 +12,7 @@
 
     <div class='upperbar'>
 
-        <button class='continueButton son' onclick="window.location.href='./Instructions(part1.5)(2f).htm'">Continue</button>
+        <button class='continueButton' onclick="window.location.href='./Instructions(part1.5)(2f).htm'">Continue</button>
 
         <!-- <button class=multibutton id=multibutton>Decision Mode</button>
         <button class=multibutton id=multibutton2>Go to <span id='buttonname'></span></button> -->
@@ -30,31 +30,8 @@
                 <div class = sinfotext>
                     <p style='font-size: 22px; margin-bottom: 20px;'> Decision Screen for Followers</p>
                 </div>
-                <!-- <div class ='explanationtext mc5'>
-                    <p>
-                        The graphical calculator is provided to facilitate your decision process.
-                    </p>
-                    <p>
-                        You do <strong>not</strong> have to use it.
-                    </p>
-                    <p>
-                        At the end of a stage, the <strong>only</strong> thing that will affect your payoff is <strong>your decision</strong>
-                    </p>
-                    <p>
-                        If you do not wish to use the calculator, you can click the <strong>Calculator</strong> button located on top right to turn it on/off.
-                    </p>
-                    <p>
-                        Please click <strong>Calculator</strong> button
-                    </p>
-                    <p class=son>
-                        Please take your time getting accustomed with the graphical calculator.
-                    </p>
-                    <p class=son>
-                        When you are ready, click <strong>Continue</strong> to proceed.
-                    </p>
 
 
-                </div> -->
 
                 <div class ='explanationtext mc0'>
 
@@ -69,12 +46,35 @@
                         When you are done, click the <strong>Done</strong> button on the top right corner to submit your decision.
                     </p>
                     <p>
-                        If you <strong>fail to submit</strong> wihtin the time limit, your <strong>current entry</strong>
+                        If you <strong>fail to submit</strong> <u>within the time limit</u>, your <strong>current entry</strong>
                         will be considered as your <strong>final</strong> decision.
                     </p>
 
                     <div class=bwrap>
-                        <button class=cb id=b0>OK</button>
+                        <button class='cb b0' id=b0>OK</button>
+                    </div>
+
+                </div>
+
+                <div class ='explanationtext mc025'>
+                    <p>
+                        Move the slider <strong>left</strong> to <span class=redtext>sabotage</span>, <strong>right</strong> to <span class=bluetext>help</span>.
+                    </p>
+
+                    <div class=bwrap>
+                        <button class=cb id=b025>OK</button>
+                    </div>
+
+                </div>
+
+                <div class ='explanationtext mc075'>
+
+                    <p>
+                        Under the decision slider, <strong>net payoffs</strong> for possible contest results are displayed.
+                    </p>
+
+                    <div class=bwrap>
+                        <button class=cb id=b075>OK</button>
                     </div>
 
                 </div>
@@ -87,23 +87,26 @@
                     <p>
                         We provide you a <strong>graphical calculator</strong> to facilitate this decision process.
                     </p>
-                    <p>
-                        The calculator helps you consider <strong>potential scenarios</strong> likely to be played by the <strong>other</strong> players.
-                    </p>
+
                     <p style='padding-bottom:20px;padding-top:20px;text-align:center;'>
-                        <strong>Note:</strong> Sliders are disabled. We will provide you time at the end to play around with it on your own.
+                        <strong>Note:</strong> <br />
+                        Sliders will be <strong>disabled</strong>. <br />
+                        At the <strong>end</strong>, you will have time to get accustomed to the calculator on your own.
                     </p>
 
-                    <div class=bwrap style='margin-right:20px;margin-bottom:-25px;margin-right:5px;margin-top:-200px;padding-bottom:118px;padding-right:20px;'>
+                    <div class=bwrap style='margin-right:20px;margin-bottom:-25px;margin-right:5px;margin-top:-175px;padding-bottom:80px;padding-right:20px;'>
                         <button class=cb style='width:160px;height:85px;'id=b1>Show Calculator</button>
                     </div>
 
                 </div>
+
             </div>
+
+
 
             <div class ='explanationtext mc4' style='margin-bottom:15px;'>
                 <p>
-                    Leaders' <strong>hypothetical investment decisions</strong> and each leader's probability to win are presented on the below section.
+                     <strong>Leaders' hypothetical investment decisions</strong> and each leader's probability to win are displayed on the below section.
                 </p>
 
                 <div class=bwrap>
@@ -122,12 +125,19 @@
                 </div>
 
             </div>
-            <div class ='explanationtext mc5' style='margin-bottom:15px;margin-top:-50px;'>
+
+            <div class ='explanationtext mc5' style='margin-bottom:15px;margin-top:-50px; text-align:center;'>
                 <p>
                     <strong>Please experiment</strong> with the calculator.
                 </p>
                 <p>
                     You have <strong>30</strong> seconds.
+                </p>
+                <p style='font-weight:800;text-align:left;'>
+                    Tooltip
+                </p>
+                <p style='text-align:left;margin-top:-12px;'>
+                    Click on a slider, then use your left and right keyboard keys to make small adjustments.
                 </p>
 
                 <div class=bwrap>
@@ -136,15 +146,18 @@
 
             </div>
 
+
+
             <div class = 'calculator' id='calculator'>
+
                 <div class = 'titlesection'>
-                    <h5 class = leftmaintitle>YOUR GROUP</h5>
-                    <h5 class = 'rightmaintitle'>OPPOSING GROUP</h5>
+                    <h5 class = 'leftmaintitle xxx'>YOUR GROUP</h5>
+                    <h5 class = 'rightmaintitle yyy'>OPPOSING GROUP</h5>
                 </div>
 
                 <div class = 'topsection'>
 
-                    <div class = 'leadergroupleft'>
+                    <div class = 'leadergroupleft xxx'>
                         <!-- <h5>YOUR GROUP</h5>
                         <br />
                         <br /> -->
@@ -165,7 +178,7 @@
                     </div>
 
 
-                    <div class = 'leadergroupright'>
+                    <div class = 'leadergroupright yyy'>
                         <!-- <h5>OPPOSING GROUP</h5>
                         <br />
                         <br /> -->
@@ -179,17 +192,6 @@
 
                 </div>
 
-                <div class ='explanationtext mc35' style='margin-bottom:15px;'>
-                    <p>
-                        Observe how different help/sabotage scenarios change the hypothetical relative powers
-                    </p>
-
-                    <div class=bwrap>
-                        <button class=cb id=b35>OK</button>
-                    </div>
-
-                </div>
-
                 <div class = 'middlesection'>
                     <div class = 'efficiencyBarWrap'>
                         <div id = 'efficiencyBar' class = 'efficiencyBar'></div>
@@ -197,17 +199,41 @@
                     <h6 style = 'z-index:1;'>Relative Purchasing Power</h6>
                 </div>
 
+
+
                 <div class ='explanationtext mc2'>
-                    <p>
-                        You can explore <strong>hypothetical scenarios</strong> for help/sabotage decisions on the below section.
+                    <p style='margin-top:15px;margin-bottom:-14px;'>
+                        This calculator helps you consider <strong>potential scenarios</strong> likely to be played by the <strong>other</strong> players.
                     </p>
+                    <div class=bwrap style='margin-top:-43px;padding-bottom:11px;'>
+                        <button class=cb style='width:165px;height:85px;' id=b2>Show Example</button>
+                    </div>
+
+                </div>
+
+                <div class ='explanationtext mc21'>
                     <p>
-                        The <strong>left</strong> side represents <strong>your</strong> group's followers and the <strong>right</strong> side represents the <strong>opposing</strong> group's followers
+                        The <strong>left</strong> side represents <strong>your</strong> group and the <strong>right</strong> side represents the <strong>opposing</strong> group.
                     </p>
 
 
                     <div class=bwrap>
-                        <button class=cb id=b2>OK</button>
+                        <button class=cb id=b21>OK</button>
+                    </div>
+
+                </div>
+
+                <div class ='explanationtext mc22'>
+                    <!-- <p>
+                        You can explore <strong>hypothetical scenarios</strong> for help/sabotage decisions on the below section.
+                    </p> -->
+                    <p>
+                        <strong>Below</strong> section is for exploring <strong>hypothetical scenarios</strong> for <strong>followers' help/sabotage decisions</strong>.
+                    </p>
+
+
+                    <div class=bwrap>
+                        <button class=cb id=b22>OK</button>
                     </div>
 
                 </div>
@@ -225,7 +251,7 @@
 
                 <div class ='explanationtext mc275'>
                     <p>
-                         The other vertical sliders represent the other followers' <strong>hypothetical decisions</strong>.
+                         The other vertical sliders represent the <strong>other followers' hypothetical decisions</strong>.
                     </p>
 
                     <div class=bwrap>
@@ -235,19 +261,22 @@
                 </div>
 
                 <div class ='explanationtext mc3' style='margin-bottom:15px;'>
-                    <p>
-                        Leaders' <strong>hypothetical relative powers</strong> are displayed in <span class='dottedred2'></span>.
+                    <p style='margin-top:26px;'>
+                         <strong>Leaders' hypothetical purchasing powers</strong> are calculated based on the help/sabotage scenarios
+                         <br />and displayed in <span class='dottedred2'></span>.
                     </p>
 
-                    <div class=bwrap>
-                        <button class=cb id=b3>OK</button>
+                    <div class=bwrap style='margin-top:-107px;padding-bottom:17px;'>
+                        <button class=cb style='width:205px;height:122px;'id=b3>Generate Help/Sabotage Scenarios</button>
                     </div>
 
                 </div>
 
+
+
                 <div class = 'bottomsection'>
 
-                    <div class = 'followergroupleft'>
+                    <div class = 'followergroupleft xxx'>
                         <div class='titlewrap'>
                             <h6 class = 'left_title ftitle'>Followers</h6>
                         </div>
@@ -268,8 +297,6 @@
                         </div>
                     </div>
 
-
-
                     <div class = 'followergraphics'>
                         <div class = 'graphics'>
                             <div class = 'helpsabobars'>
@@ -285,9 +312,7 @@
                         </div>
                     </div>
 
-
-
-                    <div class = 'followergroupright'>
+                    <div class = 'followergroupright yyy'>
                         <div class='titlewrap'>
                             <h6 class = 'right_title ftitle'>Followers</h6>
                             <div class='switchwrap'>
@@ -320,12 +345,8 @@
 
                 </div>
 
-
-
-
-
-
                 <div class = decision>
+
                     <div class = input>
                         <h6 class='yourdecisiontext closertotop'>YOUR DECISION</h6>
                         <!-- <h5 class = 'decisiontitle'>Your Decision</h5> -->
@@ -334,7 +355,6 @@
                             <div id = 'bard' class = 'dbar'></div>
                         </div>
                     </div>
-
 
                     <div class = dinfo>
                         <p>
@@ -394,6 +414,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
 
             </div>

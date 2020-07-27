@@ -19,6 +19,7 @@
 /************************************************/
 .wrap
 {
+    font-size:18px;
     display: flex;
     justify-content: center;
 }
@@ -361,51 +362,51 @@
 .d1
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:0s;
 }
 .d2
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:0s;
 }
 .d3
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:0s;
 }
 .d4
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:0s;
 }
 .d5
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:1s;
 }
 
 .d6
 {
     opacity:0;
-    transition:2s;
+    transition:0.52s;
     transition-delay:2s;
 }
 .d65
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:3.5s;
 }
 
 .d7
 {
     opacity:0;
-    transition:2s;
+    transition:0.52s;
     transition-delay:5s;
 }
 
@@ -413,7 +414,7 @@
 .songoster
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:35s;
 }
 .questiontext
@@ -534,25 +535,37 @@
 .t1
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:7s;
 }
 .t2
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:12s;
 }
 .t3
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
+    transition-delay:15s;
+}
+.t35
+{
+    opacity:0;
+    transition:0.51s;
     transition-delay:15s;
 }
 .t4
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
+    transition-delay:26s;
+}
+.t45
+{
+    opacity:0;
+    transition:0.51s;
     transition-delay:26s;
 }
 .sometextwrap
@@ -656,7 +669,7 @@ img.hover
     margin-bottom:-100px;
     width: 40px;
     height: 50px;
-    transition:2s;
+    transition:0.52s;
     /* background-color:orange; */
     /* margin-top:-20px; */
 }

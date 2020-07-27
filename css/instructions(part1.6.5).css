@@ -19,6 +19,7 @@
 /************************************************/
 .wrap
 {
+    font-size:18px;
     display: flex;
     justify-content: center;
 }
@@ -221,55 +222,55 @@
 .a0
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     /* transition-delay:1s; */
 }
 .a1
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:9s;
 }
 .a15
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:9.5s;
 }
 .a2
 {
         opacity:0;
-        transition:1s;
+        transition:0.51s;
         transition-delay:10s;
 }
 .a3
 {
         opacity:0;
-        transition:1s;
+        transition:0.51s;
         transition-delay:3s;
 }
 .a35
 {
         opacity:0;
-        transition:1s;
+        transition:0.51s;
         transition-delay:4s;
 }
 .a4
 {
         opacity:0;
-        transition:1s;
+        transition:0.51s;
         transition-delay:6s;
 }
 .b5
 {
     border:3px solid black;
-    transition:1s;
+    transition:0.51s;
     opacity:0.2;
 }
 .b4
 {
     border:3px solid black;
-    transition:1s;
+    transition:0.51s;
     opacity:0.2;
 }
 .yoyol4
@@ -391,7 +392,7 @@
 .songoster
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:15s;
 }
 
@@ -521,13 +522,13 @@ img.hover
     margin-bottom:-100px;
     width: 40px;
     height: 50px;
-    transition:2s;
+    transition:0.52s;
     /* background-color:orange; */
     /* margin-top:-20px; */
 }
 .continueButton
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:15s;
 }

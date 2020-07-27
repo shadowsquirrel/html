@@ -500,7 +500,7 @@
 }
 .s3resulttext
 {
-    /* transition:1s; */
+    /* transition:0.51s; */
     /* flex-grow: 1; */
     font-size: 18px;
     /* font-weight: bolder; */

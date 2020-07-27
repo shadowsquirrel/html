@@ -756,7 +756,7 @@
     padding-bottom: 20px;
     background-color: lavenderblush;
     border: 1px solid black;
-    transition:3s;
+    transition:0.53s;
     transition-delay:2s;
 }
 
@@ -788,7 +788,7 @@
 .firstfadein
 {
     opacity:0;
-    transition:3s;
+    transition:0.53s;
     transition-delay:24s;
 }
 .after0
@@ -799,7 +799,7 @@
 {
     z-index:10;
     opacity:0;
-    transition:3s;
+    transition:0.53s;
     transition-delay:6s;
 }
 .after1
@@ -821,18 +821,18 @@
 .secondfadein
 {
     opacity:0;
-    transition:2s;
+    transition:0.52s;
     transition-delay:21s;
 }
 .yoket
 {
     /* margin-bottom:-60px; */
-    /* transition:2s; */
+    /* transition:0.52s; */
 }
 .goster1
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:1s;
     margin-top:-30px;
 }
@@ -841,20 +841,20 @@
     padding-bottom:26px;
     margin-top:-40px;
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:1s;
     margin-top:-50px;
 }
 .goster3
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:1s;
     margin-top:-50px;
 }
 .birazgecikme
 {
-    transition:2s;
+    transition:0.52s;
     transition-delay:3.5s;
 }
 
@@ -869,7 +869,7 @@
 .afterfirstturn
 {
     opacity:0;
-    transition:4s;
+    transition:0.54s;
     transition-delay:5s;
     color: indianred;
 }
@@ -894,7 +894,7 @@
 }
 .thirdhiddenpart
 {
-    transition:2s;
+    transition:0.52s;
     transition-delay:2s;
 }
 .somedelay
@@ -917,14 +917,14 @@
 .showmore
 {
 
-    transition:2s;
+    transition:0.52s;
     transition-delay:2s;
     opacity: 0;
 }
 .leftcolumn
 {
     opacity: 0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:6s;
     padding-right:425px;
 }
@@ -932,19 +932,19 @@
 {
     opacity: 0;
     padding-right:19px;
-    transition:1s;
+    transition:0.51s;
     transition-delay:10s;
 }
 .bottomcolumn
 {
     opacity: 0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:14s;
 }
 .dugmegoster
 {
     opacity: 0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:17s;
 }
 
@@ -978,7 +978,7 @@ img.diceimage
 .dice
 {
 
-    transition:3s;
+    transition:0.53s;
     transition-delay:1s;
     opacity :1;
 }
@@ -1012,7 +1012,7 @@ img.dice
 .moreinstructions
 {
     margin-left:18px;
-    transition:2s;
+    transition:0.52s;
     text-align:center;
     margin-top:-75px;
     /* color:indianred; */
@@ -1174,7 +1174,7 @@ img.dice
 .finstructions
 {
     padding-top:20px;
-    transition:1s;
+    transition:0.51s;
 }
 
 .lsliderf
@@ -1267,7 +1267,7 @@ img.dice
 {
     padding-bottom:10px;
     margin-top:-133px;
-    transition:1s;
+    transition:0.51s;
     opacity: 0;
     display:flex;
     flex-direction:column;
@@ -1282,7 +1282,7 @@ img.dice
 .f4section{
     z-index:-100;
     margin-top:-750px;
-    transition:1s;
+    transition:0.51s;
     transition-delay:0s;
     opacity:0;
 }
@@ -1306,7 +1306,7 @@ img.dice
 .dice3
 {
 
-    transition:1s;
+    transition:0.51s;
     /* transition-delay:1s; */
     opacity :1;
 }
@@ -1342,7 +1342,7 @@ img.dice3
     display:flex;
     flex-direction: row;
     justify-content: center;
-    transition:2s;
+    transition:0.52s;
     transition-delay:5s;
     opacity: 0;
 }
@@ -1351,13 +1351,13 @@ img.dice3
     display:flex;
     flex-direction: row;
     justify-content: center;
-    transition:2s;
+    transition:0.52s;
     transition-delay:1s;
     opacity: 0;
 }
 .butonuac
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay: 1s;
 }
 .finaltext1
@@ -1402,13 +1402,13 @@ img.dice3
 }
 .f4subsections1{
     opacity:0;
-    transition:2s;
+    transition:0.52s;
     transition-delay:0s;
 }
 .f4subsections2{
     padding-top:20px;
     opacity:0;
-    transition:2s;
+    transition:0.52s;
     transition-delay:3s;
     margin-top:13px;
     background-color: lavenderblush;
@@ -1418,12 +1418,12 @@ img.dice3
 
 .f4subsections25{
     opacity:0;
-    transition:2s;
+    transition:0.52s;
     transition-delay:12s;
 }
 .f4subsections3{
     opacity:0;
-    transition:2s;
+    transition:0.52s;
     transition-delay:0s;
 }
 
@@ -1448,7 +1448,7 @@ img.dice3
 .myminiwheeltext
 {
     z-index:30;
-    transition:1s;
+    transition:0.51s;
     transition-delay:1.5s;
     margin-top:2px;
     font-weight:800;
@@ -1496,7 +1496,7 @@ img.dice3
 .somedefinitions
 {
     opacity:0;
-    transition:3s;
+    transition:0.53s;
     margin-top:-205px;
     text-align:center;
 }
@@ -1504,7 +1504,7 @@ img.dice3
 .somedefinitions2
 {
     opacity:0;
-    transition:3s;
+    transition:0.53s;
     transition-delay:5s;
 }
 
@@ -1535,7 +1535,7 @@ img.dice3
 .dice4
 {
 
-    transition:1s;
+    transition:0.51s;
     /* transition-delay:1s; */
     opacity :1;
 }
@@ -1574,7 +1574,7 @@ img.dice4
 }
 .adbulamadim
 {
-    transition:1s;
+    transition:0.51s;
     text-decoration:none;
     border-bottom:2px solid red;
 }

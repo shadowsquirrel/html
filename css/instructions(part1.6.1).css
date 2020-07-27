@@ -19,6 +19,7 @@
 /************************************************/
 .wrap
 {
+    font-size:18px;
     display: flex;
     justify-content: center;
 }
@@ -257,37 +258,37 @@
 }
 .f1
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:1s;
 }
 .f2
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:3s;
 }
 .f3
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:5s;
 }
 .f4
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:8s;
 }
 .f5
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:10s;
 }
 .f6
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:12s;
 }
 .f7
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:16s;
 }
 .somewrap

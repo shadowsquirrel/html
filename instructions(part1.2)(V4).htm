@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/instructions(part1.2)(V4).css">
+    <script src='js/Winwheel.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <title>Page Title</title>
+</head>
+<body>
+
+    <div class='upperbar'>
+        <button class='continueButton' onclick="window.location.href='./Instructions(part1.25)(V6)(homo).htm'">Continue</button>
+        <!-- <button class='continueButton' onclick="window.location.href='./Instructions(part1.6.0).htm'">Continue(alternative path)</button> -->
+        <!-- <button class=multibutton id=multibutton>Y</button>
+        <button class=multibutton id=multibutton2>X<span id='buttonname'></span></button> -->
+    </div>
+    <div class = 'wrap noselect'>
+
+        <div class = 'all'>
+
+            <div class = 'sinfo' id='sinfo'>
+
+                <!-- <div class = 'sinfotitle' style='margin-bottom:-10px;'>
+                    <h3>INSTRUCTIONS</h3>
+                </div> -->
+
+                <div class = 'sinfotext firstfadein initial'>
+                    <p style='font-size: 30px; margin-bottom:-5px; font-weight:800;'> Purchasing Power </span></p>
+
+
+                </div>
+
+                <div class ='sinfotext limited firstfadein after1'>
+                    <p class ='later1'>
+                        Players may have <strong>different purchasing powers</strong>.
+                    </p>
+                    <p class ='later15'>
+                        A player with <strong>relatively high</strong> purchasing <strong>power</strong> can get a <strong>larger share</strong> of the wheel <strong>for every token</strong> spent.
+                    </p>
+                    <p class ='later175'>
+                        <strong>Purchasing powers</strong> are determined <strong>always before</strong> a contest and do <strong>not</strong> change during the contest.
+                    </p>
+
+                </div>
+
+                <div class=anotherwrap>
+                    <p class='firstfadein after2 usesection1' style='z-index:4;margin-bottom:12px; margin-left:-6px;'>
+                        Move
+                    </p>
+                    <p class='firstfadein after2 usesection1' style='z-index:4; margin-left: -7px;'>
+                        <img id="someid" class='efiimage' style='margin-right:5px;' src="images/efi.png" alt="V" />
+                    </p>
+
+                    <div class=anotherwrap2>
+                        <p class='firstfadein after2 movesection1' style='text-align:left;z-index:4;'>
+
+                             <strong>left</strong>   to   <strong>decrease</strong>
+                        </p>
+
+                        <p class='firstfadein after2 usesection2' style='z-index:4;'>
+                            <span class='dottedbluespecial'></span>
+                        </p>
+
+                        <p class='firstfadein after2 movesection1' style='z-index:4;'>
+                             <strong>right</strong>   to   <strong>increase</strong>
+
+                        </p>
+
+                    </div>
+                    <p class='firstfadein after2 usesection1' style='z-index:4;'>
+                        <strong>your</strong> power
+                    </p>
+
+                </div>
+
+
+
+
+            </div>
+
+            <div class = 'calculator firstfadein' id='calculator'>
+
+                <div class = 'topsection'>
+
+                    <div class = 'leadergroupleft'>
+                        <h6 class = 'left_ltitle'>Tokens invested by <strong>You</strong></h6>
+                        <div class = 'sliderbarleader left'>
+                            <input type='range' min = '0' max = '800' class = 'lslider' value = '200' id = 'lSlider1' />
+                            <div id = 'barl' class = 'lbar1'></div>
+                        </div>
+                    </div>
+
+
+                    <div class = 'leadergraphics'>
+                        <div class='wheelresult'>
+                            <p>
+                                <span class=wheelresulttext id=wheelresulttext></span>
+                            </p>
+                        </div>
+                        <div class = 'arrowwrap'>
+                            <div class='wheelpiewrap'>
+
+                                <div id='wheelpie' class='wheelpie'>
+                                    <div class='piewrap'>
+                                        <p style='font-weight:800; z-index:50; margin-bottom:-28px;'>
+                                            Wheel of Fortune
+                                        </p>
+                                        <div class='s3pie' id='pie'></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class = 'leadergroupright'>
+                        <h6  class = 'right_title'>Tokens invested by <strong>Opponent</strong> - <strong>HYPOTHETICAL</strong></h6>
+                        <div class = 'sliderbarleader lright'>
+                            <input type='range' min = '0' max = '800' class = 'lslider' value = '200' id = 'olSlider1' />
+                            <div id = 'obarl' class = 'lbar2'></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class = 'middlesection'>
+                    <div class = 'sliderbarefi'>
+                        <input type='range' min = '-99' max = '99' class = 'efislider' value = '0' id = 'efiSlider' />
+                        <div id = 'efficiencyBar' class = 'efficiencyBar'></div>
+                    </div>
+                    <h6 style = 'z-index:1;'>Relative Purchasing Power</h6>
+                </div>
+
+
+                <div class=buttontextwrap>
+
+                    <div class ='sinfotext firstfadein3' style='margin-top:5px; flex-direction:column; flex-grow:2;'>
+                        <p style='text-align:left;'>
+                            Values inside <span class='dottedblue2'><span class='darkgray'></span> &#9668; &#x25BA; <span class='white'></span> </span>represent the per token relative purchasing power of players.
+                        </p>
+                        <p style='text-align:right;padding-right:80px;'>
+                            For instance, <span class='dottedblue2'>  <span class='darkgray'>1</span> &#9668; &#x25BA; <span class='white2'>5</span> </span> implies that the <strong>opponent</strong> is <strong>5 times stronger</strong> than you are.
+                        </p>
+                        <p style='padding-left:105px;'>
+                            Every <strong>5</strong> tokens <strong>you</strong> invest is equivalent to a <strong>single</strong> token invested by the opponent.
+                        </p>
+
+                    </div>
+
+                    <div class='dicewrap abitlater'>
+                        <p style='padding-top:20px;'>
+                            Click <img id="someid" class='eimage' src="images/example.png" alt="V" /> for examples.
+                        </p>
+                        <img id="exampleButton" class='dice' src="images/example.png" alt="V" />
+                    </div>
+
+                </div>
+
+
+
+                <div class ='sinfotext firstfadein2' style='margin-top:10px;'>
+
+                    <p style='padding-top:20px;;'>
+                        A player with <strong>high power</strong> can occupy a <u>significant portion of the wheel</u> with <strong>relatively low</strong> amount of tokens invested.
+                    </p>
+                    <p style='text-align:center; margin-left:102px;'>
+                        A player with <strong>low power</strong> has a <strong>disadvantage</strong> in the contest.
+                        <img id="exampleButton2" class='dice3' style='opacity:0;z-index:-2000;' src="images/example.png" alt="V" />
+                    </p>
+
+
+                </div>
+                <!-- <div class='wheelresult2'>
+                    <p>
+                        <span class=wheelresulttext2 id=wheelresulttext2></span>
+                    </p>
+                    <p class='fadeout' style='font-size:15px;margin-top:-15px;'>
+                        Notice that your investment power does <strong>NOT</strong> change your <strong>investment cost</strong>
+                    </p>
+                </div> -->
+                <div class='wheelresult3'>
+                    <p>
+                        <span class=wheelresulttext3 id=wheelresulttext3></span>
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class='showfpower'>
+                <div style='font-size:25px;' class='fpowertext'>
+                    <p  style='text-align: center;'>
+                        Click <strong>Done</strong> to proceed
+                    </p>
+                </div>
+            </div>
+
+
+            <div class ='sinfotext showmore mytable fpower'>
+                <div class='bothside'>
+                    <p style='font-weight:800; text-align:center;'>
+                        Purchasing Power in Followers' Contest
+                    </p>
+
+                    <div class='rightside'>
+                        <p style='text-align:center;'>
+                            Followers <strong>always</strong> compete with <strong>equal</strong> purchasing <strong>power</strong> In the <strong>followers' contest</strong>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class='showlpower'>
+                <div class='lpowertext'>
+                    <p  style='text-align: center;'>
+                        Click <img id="someid" class='diceimage' style='margin-right:5px;' src="images/down.png" alt="V" /> to learn about the <strong>power</strong> structure in the <strong>leaders' contest</strong>
+                    </p>
+                </div>
+                <div class='lpowerbutton'>
+                    <div class='extrawraplbutton'>
+                        <img id="dice5" class='dice5' style='margin-right:-23px; border: 2px solid red;' src="images/down.png" alt="V" />
+                    </div>
+                </div>
+            </div>
+
+            <div class ='sinfotext showmore5 mytable myothertable lpower'>
+                <div class='bothside'>
+                    <p style='font-weight:800; text-align:center;'>
+                        Purchasing Power in Leaders' Contest
+                    </p>
+                    <div  class='leftside'>
+                        <p style='text-align:center;'>
+                            <strong>Before</strong> the <strong>leaders' contest</strong>, each group's <strong>followers</strong> <u>determine</u> <strong>their</strong> leader's <strong>power</strong>.
+
+                        </p>
+                        <p class=enson2>
+                            (see next section for details)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class ='sinfotext limited enson'>
+                <p style='text-align: center;'>
+                    Please click <strong>Continue</strong> to proceed.
+                </p>
+
+            </div>
+
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="js/instructions(part1.2)(V4).js"></script>
+
+</body>
+</html>

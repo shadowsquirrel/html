@@ -19,6 +19,7 @@
 /************************************************/
 .wrap
 {
+    font-size:18px;
     display: flex;
     /*
     width: 100%;
@@ -382,7 +383,7 @@
 }
 .titlesection
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:0s;
     opacity:0;
     z-index:-10;
@@ -394,7 +395,7 @@
 }
 .topsection
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:0s;
     opacity:0;
     z-index:-10;
@@ -412,7 +413,7 @@
 }
 .middlesection
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:0s;
     opacity:0;
     z-index:-10;
@@ -432,7 +433,7 @@
 }
 .bottomsection
 {
-    transition:1s;
+    transition:0.51s;
     transition-delay:0s;
     opacity:0;
     z-index:-10;
@@ -1573,7 +1574,7 @@ img.unlocked
 .calculator
 {
     opacity:1;
-    transition:2s;
+    transition:0.52s;
 }
 
 .explanationtext
@@ -1618,6 +1619,22 @@ img.unlocked
     /* height:100%; */
     transition:0.35s;
 }
+.mc025
+{
+    position:absolute;
+    opacity: 0;
+    /* height:100%; */
+    transition:0.35s;
+    transition-delay:0.35s;
+}
+.mc075
+{
+    position:absolute;
+    opacity: 0;
+    /* height:100%; */
+    transition:0.35s;
+    transition-delay:0.35s;
+}
 .mc1
 {
     position:absolute;
@@ -1634,11 +1651,27 @@ img.unlocked
     transition:0.35s;
     transition-delay:0.35s;
 }
+.mc21
+{
+    position:absolute;
+    opacity: 0;
+    /* height:100%; */
+    transition:0.35s;
+    transition-delay:0.35s;
+}
+.mc22
+{
+    position:absolute;
+    opacity: 0;
+    /* height:100%; */
+    transition:0.35s;
+    transition-delay:0.35s;
+}
 .lockedmc2
 {
     z-index:1;
     opacity:1;
-    transition:1s;
+    transition:0.51s;
 }
 .mc25
 {
@@ -1647,12 +1680,6 @@ img.unlocked
     /* height:100%; */
     transition:0.35s;
     transition-delay:0.35s;
-}
-.lockedmc25
-{
-    z-index:1;
-    opacity:1;
-    transition:1s;
 }
 .mc275
 {
@@ -1705,8 +1732,9 @@ img.unlocked
 }
 .continueButton
 {
-    transition-delay:35s;
     transition: 0.35s;
+    transition-delay:35s;
+
     opacity:0;
 }
 .switchwrap
@@ -1719,7 +1747,7 @@ img.unlocked
 .multibutton
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
     transition-delay:30s;
     z-index:-30;
 }
@@ -1727,14 +1755,29 @@ img.unlocked
 .son
 {
     opacity:0;
-    transition:1s;
+    transition:0.51s;
+}
+
+.bluetext
+{
+    font-weight:500;
+    color:blue;
+}
+.redtext
+{
+    font-weight:500;
+    color:red;
 }
 
 
-
-
-
-
+.xxx
+{
+    transition:0.5s;
+}
+.yyy
+{
+    transition:0.5s;
+}
 
 /****************************************/
 /****************************************/

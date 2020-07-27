@@ -735,7 +735,7 @@
     padding-bottom: 20px;
     background-color: lavender;
     border: 1px solid black;
-    transition:3s;
+    transition:0.53s;
     transition-delay:2s;
 }
 
@@ -764,7 +764,7 @@
 .firstfadein
 {
     opacity:0;
-    transition:3s;
+    transition:0.53s;
     transition-delay:10.5s;
 }
 .after0
@@ -804,7 +804,7 @@
 }
 .thirdhiddenpart
 {
-    transition:2s;
+    transition:0.52s;
     transition-delay:1s;
 }
 .somedelay
@@ -818,6 +818,6 @@
 .showmore
 {
 
-    transition:2s;
+    transition:0.52s;
     opacity: 0;
 }

@@ -254,7 +254,7 @@ var updateBarLeader = function(e, barId, ourSide, axisOn) {
             side: 'top',
             fixedrange: true,
             autorange: false,
-            range: [0,700],
+            range: [0,800],
             layer: 'below traces',
             fixedrange: true,
 
@@ -262,8 +262,8 @@ var updateBarLeader = function(e, barId, ourSide, axisOn) {
                 size: 10,
             },
             tickmode: 'array',
-            tickvals: [0, 50, 100, 150, 200, 250, 300, 400, 500, 700],
-            ticktext: [0, 50, 100, 150, 200, 250, 300, 400, 500, 700],
+            tickvals: [0, 50, 100, 150, 200, 250, 350, 500, 650, 800],
+            ticktext: [0, 50, 100, 150, 200, 250, 350, 500, 650, 800],
             tickangle: -45,
             ticks:'',
             showline: false,
@@ -624,6 +624,8 @@ var clickCount = 0;
 var shitHappened = false;
 var activeWheelSwitch = true;
 var firsttimerevealed = true
+var helpdone = false;
+var sabodone = false;
 var updateAll = function() {
     updateTotal();
     updatePwin();
@@ -634,22 +636,23 @@ var updateAll = function() {
         // hideWheel();
         activeWheelSwitch = false;
     }
-    var helpdone = false;
+
     if(h1>1 || oh1>1) {
-        console.log('helpdone');
+        // console.log('inside helpdone');
         helpdone = true;
         // $('.helpins').css({'opacity':'0'});
     }
 
-    var sabodone = false;
+
     if(s1>1 || os1>1) {
-        console.log('sabodone');
+        // console.log('inside sabodone');
         sabodone = true;
         // $('.saboins').css({'opacity':'0'});
     }
 
 
-
+    console.log(sabodone);
+    console.log(helpdone);
 
     var investCostDisplay = document.getElementById('investmentcostdisplay');
     var mytokens = ((h1+s1)>1) ? 'tokens' : 'token';
@@ -665,9 +668,9 @@ var updateAll = function() {
 
     if(helpdone && sabodone) {
         if(!shitHappened) {
-            console.log('help sabo both done');
+            // console.log('help sabo both done');
             shitHappened = true;
-            setTimeout('stopPlaying()', 5000);
+            setTimeout('stopPlaying()', 100);
 
         }
 
@@ -675,18 +678,26 @@ var updateAll = function() {
     }
 
 }
+
 var stopPlaying3 = function() {
+    $('.clickcontinue').css({'opacity':'1'});
+    $('.continueButton').css({'opacity':'1'});
+    $('.experiment').css({'opacity':'0'});
+
     $('.slider, .lslider').css({'z-index':'-10'});
     // setTimeout('stopPlaying2()', 250);
 }
 
 var stopPlaying = function() {
+    $('.greendotted1').css({'border':'4px solid white'});
+    $('.greendotted2').css({'border':'4px solid white'});
     $('.slider, .lslider').css({'z-index':'-10'});
     setTimeout('stopPlaying2()', 250);
+    setTimeout('shitHappens()', 250);
 }
 var stopPlaying2 = function() {
     $('.slider, .lslider').css({'z-index':'-10'});
-    setTimeout('shitHappens()', 250);
+    setTimeout('shitHappens()', 1500);
 }
 var shitHappens = function() {
     $('.usetext, .textimagewrap').css({'opacity':'0'})
@@ -730,88 +741,13 @@ var shitHappens = function() {
     // $('.slider, .lslider').css({'z-index':'-10'});
 }
 
-/*
-// var hideWheel = function() {
-    $('.piewrap').css({'display':'flex'});
-    $('.piewrap').css({'opacity':'1', 'zIndex':'1'});
-    $('.mywheel').css({'display':'none'});
-    $('.mywheel').css({'opacity':'0', 'zIndex':'0'});
-    liftArrow();
-}
 
-// var resultIndex;
-// var animateWheel = function() {
-    createWheel(pwin);
-    theWheel.stopAnimation(false);
-    theWheel.rotationAngle = 0;
-
-    $('.piewrap').css({'display':'none'});
-    $('.piewrap').css({'opacity':'0', 'zIndex':'-1'});
-    $('.mywheel').css({'display':'flex'});
-    $('.mywheel').css({'opacity':'1', 'zIndex':'0'});
-    $('.arrow').css({'marginTop':'48px'});
-
-    var stopAt = theWheel.getRandomForSegment(resultIndex);
-    theWheel.animation.stopAngle = stopAt;
-    theWheel.startAnimation();
-    activeWheelSwitch = true;
-}
-//
-// var canClickArrow = true;
-// var arrowButton = document.getElementById('arrow');
-// arrowButton.onclick = function() {
-//     console.log(canClickArrow);
-//     if(canClickArrow) {
-//         $('.arrow').css({'border':'0px'});
-//         $('.wheelresult').css({'opacity':'0'});
-//         $('.wheelresult2').css({'opacity':'0'});
-//         $('.wheelresult3').css({'opacity':'0'});
-//         resultIndex = (Math.random() > 0.5) ? 1 : 2;
-//         animateWheel();
-//
-//         canClickArrow = false;
-//     }
-//
-// }
-//
-// var liftArrow = function() {
-//     $('.arrow').css({'marginTop':'30px'});
-// }
-//
-// var showResult = function() {
-//     $('.wheelresult').css({'opacity':'1'});
-//     $('.wheelresult2').css({'opacity':'1'});
-//     $('.wheelresult3').css({'opacity':'1'});
-//     // $('.arrowwrap').css({'margin-top':'-25px'});
-//     // $('.middlesection').css({'margin-top':'-15px'});
-//     canClickArrow = true;
-//     liftArrow();
-//     // setTimeout("liftArrow()", 500);
-//
-//     var wheelresultDisplay = document.getElementById('wheelresulttext');
-//     var youwon = 'Your Leader Won.';
-//     var youlost = 'You Leader Lost.';
-//     var resultDisplay = (resultIndex===1) ? youwon : youlost;
-//     wheelresultDisplay.innerHTML = resultDisplay;
-//
-//     var wheelresultDisplay2 = document.getElementById('wheelresulttext2');
-//     var yourrolelost = 'You have the chance to become the new Leader of your group.';
-//     var yourrolewon = 'You continue your role as a follower.'
-//     var resultDisplay2 = (resultIndex===1) ? yourrolewon : yourrolelost;
-//     wheelresultDisplay2.innerHTML = resultDisplay2;
-//
-//     var wheelresultDisplay3 = document.getElementById('wheelresulttext3');
-//     var followerPrize = 0;
-//     var mypayoff = -(s1 + h1) + ((resultIndex===1) ? followerPrize : 0);
-//     var mypayoffDisplay = '<strong>Your</strong> Net Payoff: <strong>' + mypayoff + '</strong>';
-//     wheelresultDisplay3.innerHTML = mypayoffDisplay;
-// }
-*/
 updateAll();
 
 var myDown = document.getElementById('down');
 
 myDown.onclick = function() {
+    $('.sinfo').css({'transition-delay':'0s', 'transition':'1s', 'margin-top':'-255px', 'opacity':'0'})
     $('.sinfotitle, .rank0, .yoket').css({'transition-delay':'0s','opacity':'0', 'z-index':'-10'});
     $('.rank1').css({'transition-delay':'0s', 'margin-top':'-83px'});
     $('.calculator').css({'transition-delay':'0s','margin-top':'-294px'});
@@ -837,12 +773,12 @@ myDown.onclick = function() {
 }
 
 
-
+var firstTimeStopPlaying = true;
 var myNext = document.getElementById('next');
 
 
 myNext.onclick = function() {
-    if(clickCount < 22) {
+    if(clickCount < 8) {
         clickCount = clickCount + 1;
     }
     console.log('nex' + clickCount);
@@ -857,7 +793,7 @@ myNext.onclick = function() {
         $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
     }
-    if(clickCount < 4 && clickCount > 0 ) {
+    if(clickCount < 3 && clickCount > 0 ) {
         $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.firsttextsabo').css({'opacity':'1', 'z-index':'0'});
         $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
@@ -867,31 +803,7 @@ myNext.onclick = function() {
         $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
     }
 
-    if(clickCount > 3 && clickCount < 5) {
-        $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.secondtextsabo').css({'opacity':'1', 'z-index':'0'});
-        $('.second25textsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.thirdtextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.second25texthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
-    }
-    if(clickCount > 4 && clickCount < 8) {
-        $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.second25textsabo').css({'opacity':'1', 'z-index':'0'});
-        $('.thirdtextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.second25texthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
-    }
-
-
-    if(clickCount > 7 && clickCount < 12) {
+    if(clickCount > 2 && clickCount < 6) {
         $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
@@ -899,44 +811,10 @@ myNext.onclick = function() {
         $('.thirdtextsabo').css({'opacity':'1', 'z-index':'0'});
         $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
-    }
-
-    if(clickCount > 11 && clickCount < 15) {
-        $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.thirdtextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.firsttexthelp').css({'opacity':'1', 'z-index':'0'});
-        $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
-    }
-
-    if(clickCount > 14 && clickCount < 16) {
-        $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.second25textsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.thirdtextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.secondtexthelp').css({'opacity':'1', 'z-index':'0'});
         $('.second25texthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
     }
-
-    if(clickCount > 15 && clickCount < 19) {
-        $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.second25textsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.thirdtextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.second25texthelp').css({'opacity':'1', 'z-index':'0'});
-        $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
-    }
-
-    if(clickCount > 18 && clickCount < 23) {
+    if(clickCount > 5 && clickCount < 9) {
         $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
@@ -945,45 +823,50 @@ myNext.onclick = function() {
         $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.second25texthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.thirdtexthelp').css({'opacity':'1', 'z-index':'-20'});
+        $('.thirdtexthelp').css({'opacity':'1', 'z-index':'0'});
     }
 
-    if(clickCount === 22) {
+
+
+
+    if(clickCount === 8) {
         $('.slider, .lslider').css({'z-index':'1'});
         $('#lSlider1, #olSlider1').css({'z-index':'1'});
-        $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.clickcontinue').css({'opacity':'1'});
-        $('.continueButton').css({'opacity':'1'});
-        setTimeout('stopPlaying3()', 10000);
+        if(firstTimeStopPlaying) {
+            $('.experiment').css({'opacity':'1', 'margin-top':'-183px'});
+            $('.followergraphics').css({'margin-top':'-167px'});
+            firstTimeStopPlaying = false;
+            // $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
+
+            setTimeout('stopPlaying3()', 15000);
+        }
+
     }
 
 
 
-    var shArray = [0, 1,3,5, 5,5,5,5, 10,20,30,50,     1,3,5, 5,5,5,5, 10,20,30,50,];
-    var isHelp1Array =  [true,  true,true,true,     true,true,true,true,      true,true,true,true,
-                                false,false,false,  false,false,false,false,  false,false,false,false];
-                        // [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
-                        //                     true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true];
+
+
+    var shArray = [0, 5,5, 5,15,35, 5,15,35];
+    var isHelp1Array = [true, true,false, false,false,false, true,true,true];
+
     var isHelp1 = isHelp1Array[clickCount];
     var shValue = shArray[clickCount];
     h1  = isHelp1 ? shValue : 0;
     s1 = isHelp1 ? 0 : shValue;
     var shBarValue = isHelp1 ? shValue : -shValue;
 
-    var oshArray = [0, 0,0,0, 0,0,0,0, 10,10,20,40,      0,0,0, 0,0,0,0, 10,10,20,40,];
-    var isHelp2Array = [true,  true,true,true,     true,true,true,true,      true,true,true,true,
-                               false,false,false,  false,false,false,false,  false,false,false,false];
+    var oshArray = [0, 0,0, 5,5,25, 5,5,25];
+    var isHelp2Array = [true, true,false, false,false,false, true,true,true];
     var isHelp2 = isHelp2Array[clickCount];
     var oshValue = oshArray[clickCount];
     oh1  = isHelp2 ? oshValue : 0;
     os1 = isHelp2 ? 0 : oshValue;
     var oshBarValue = isHelp2 ? oshValue : -oshValue;
 
-    var efoArray = [ 100, 100,100,100, 400,200,100,50,  100,100,100,100,
-                          100,100,100, 400,400,200,100, 100,100,100,100 ];
+    var efoArray =  [100,100,100, 100,100,100, 100,100,100]
 
-    var oefoArray = [100, 100,100,100, 400,400,200,100,  100,100,100,100,
-                          100,100,100, 400,200,100,50,   100,100,100,100];
+    var oefoArray = [100,100,100, 100,100,100, 100,100,100]
     efo = efoArray[clickCount];
     oefo = oefoArray[clickCount];
 
@@ -1006,8 +889,8 @@ myNext.onclick = function() {
     $('#olSlider1').change();
 
 
-    console.log(clickCount);
-    console.log(shArray.length + '' + oshArray.length + '' + efoArray.length + '' + oefoArray.length + '' + isHelp1Array.length+ '' + isHelp2Array.length);
+    // console.log(clickCount);
+    // console.log(shArray.length + '' + oshArray.length + '' + efoArray.length + '' + oefoArray.length + '' + isHelp1Array.length+ '' + isHelp2Array.length);
 }
 
 var myPrevious = document.getElementById('previous');
@@ -1019,33 +902,28 @@ myPrevious.onclick = function() {
     $('.hideclick').css({'opacity':'0'});
     // $('.slider, .lslider').css({'opacity':'0'});
 
-    console.log('pre' + clickCount);
+    // console.log('pre' + clickCount);
 
-    var shArray = [0, 1,3,5, 5,5,5,5, 10,20,30,50,     1,3,5, 5,5,5,5, 10,20,30,50,];
-    var isHelp1Array =  [true,  true,true,true,     true,true,true,true,      true,true,true,true,
-                                false,false,false,  false,false,false,false,  false,false,false,false];
-                        // [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
-                        //                     true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true];
+    var shArray = [0, 5,5, 5,15,35, 5,15,35];
+    var isHelp1Array = [true, true,false, false,false,false, true,true,true];
+
     var isHelp1 = isHelp1Array[clickCount];
     var shValue = shArray[clickCount];
     h1  = isHelp1 ? shValue : 0;
     s1 = isHelp1 ? 0 : shValue;
     var shBarValue = isHelp1 ? shValue : -shValue;
 
-    var oshArray = [0, 0,0,0, 0,0,0,0, 10,10,20,40,      0,0,0, 0,0,0,0, 10,10,20,40,];
-    var isHelp2Array = [true,  true,true,true,     true,true,true,true,      true,true,true,true,
-                               false,false,false,  false,false,false,false,  false,false,false,false];
+    var oshArray = [0, 0,0, 5,5,25, 5,5,25];
+    var isHelp2Array = [true, true,false, false,false,false, true,true,true];
     var isHelp2 = isHelp2Array[clickCount];
     var oshValue = oshArray[clickCount];
     oh1  = isHelp2 ? oshValue : 0;
     os1 = isHelp2 ? 0 : oshValue;
     var oshBarValue = isHelp2 ? oshValue : -oshValue;
 
-    var efoArray = [ 100, 100,100,100, 400,200,100,50,  100,100,100,100,
-                          100,100,100, 400,400,200,100, 100,100,100,100 ];
+    var efoArray =  [100,100,100, 100,100,100, 100,100,100]
 
-    var oefoArray = [100, 100,100,100, 400,400,200,100,  100,100,100,100,
-                          100,100,100, 400,200,100,50,   100,100,100,100];
+    var oefoArray = [100,100,100, 100,100,100, 100,100,100]
     efo = efoArray[clickCount];
     oefo = oefoArray[clickCount];
 
@@ -1060,7 +938,7 @@ myPrevious.onclick = function() {
         $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
     }
-    if(clickCount < 4 && clickCount > 0 ) {
+    if(clickCount < 3 && clickCount > 0 ) {
         $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.firsttextsabo').css({'opacity':'1', 'z-index':'0'});
         $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
@@ -1070,31 +948,7 @@ myPrevious.onclick = function() {
         $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
     }
 
-    if(clickCount > 3 && clickCount < 5) {
-        $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.secondtextsabo').css({'opacity':'1', 'z-index':'0'});
-        $('.second25textsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.thirdtextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.second25texthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
-    }
-    if(clickCount > 4 && clickCount < 8) {
-        $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.second25textsabo').css({'opacity':'1', 'z-index':'0'});
-        $('.thirdtextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.second25texthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
-    }
-
-
-    if(clickCount > 7 && clickCount < 12) {
+    if(clickCount > 2 && clickCount < 6) {
         $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
@@ -1102,44 +956,10 @@ myPrevious.onclick = function() {
         $('.thirdtextsabo').css({'opacity':'1', 'z-index':'0'});
         $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
-    }
-
-    if(clickCount > 11 && clickCount < 15) {
-        $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.thirdtextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.firsttexthelp').css({'opacity':'1', 'z-index':'0'});
-        $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
-    }
-
-    if(clickCount > 14 && clickCount < 16) {
-        $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.second25textsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.thirdtextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.secondtexthelp').css({'opacity':'1', 'z-index':'0'});
         $('.second25texthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
     }
-
-    if(clickCount > 15 && clickCount < 19) {
-        $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.second25textsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.thirdtextsabo').css({'opacity':'0', 'z-index':'-20'});
-        $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.second25texthelp').css({'opacity':'1', 'z-index':'0'});
-        $('.thirdtexthelp').css({'opacity':'0', 'z-index':'-20'});
-    }
-
-    if(clickCount > 18 && clickCount < 23) {
+    if(clickCount > 5 && clickCount < 9) {
         $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.firsttextsabo').css({'opacity':'0', 'z-index':'-20'});
         $('.secondtextsabo').css({'opacity':'0', 'z-index':'-20'});
@@ -1148,11 +968,12 @@ myPrevious.onclick = function() {
         $('.firsttexthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.secondtexthelp').css({'opacity':'0', 'z-index':'-20'});
         $('.second25texthelp').css({'opacity':'0', 'z-index':'-20'});
-        $('.thirdtexthelp').css({'opacity':'1', 'z-index':'-20'});
+        $('.thirdtexthelp').css({'opacity':'1', 'z-index':'0'});
     }
 
-    if(clickCount === 22) {
-        $('.zerotextsabo').css({'opacity':'0', 'z-index':'-20'});
+
+
+    if(clickCount === 8) {
         $('.clickcontinue').css({'opacity':'1'});
         $('.continueButton').css({'opacity':'1'});
     }
@@ -1178,7 +999,7 @@ myPrevious.onclick = function() {
 
 
 
-    console.log(clickCount);
+
 }
 
 

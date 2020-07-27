@@ -1076,30 +1076,64 @@ checkButton.onclick = function() {
 /****************************************/
 /****************************************/
 /****************************************/
-
-
+$('.cb').css({'z-index':'-10'});
+$('#b0').css({'z-index':'1'});
 var b0 = document.getElementById('b0');
 b0.onclick = function() {
+    $('.cb').css({'z-index':'-10'});
+    $('#b025').css({'z-index':'1'});
+
     var myheight = $('.mc0').height();
     var myString = -myheight + 'px';
+
     $('.mc0').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
+    $('.mc025').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush'});
+    $('.sliderbard').css({'border':'0px'});
+    stopRotations();
+    setTimeout('startRotations()', 100);
+}
+
+var b025 = document.getElementById('b025');
+b025.onclick = function() {
+    $('.cb').css({'z-index':'-10'});
+    $('#b075').css({'z-index':'1'});
+    var myheight = $('.mc025').height();
+    var myString = -myheight + 'px';
+    $('.mc025').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
+    $('.mc075').css({'position':'static', 'opacity':'1', 'background-color':'lavender'});
+    $('.sliderbard').css({'border':'0px'});
+
+    stopRotations();
+    resetRotateMyValues12();
+}
+
+var b075 = document.getElementById('b075');
+b075.onclick = function() {
+    $('.cb').css({'z-index':'-10'});
+    $('#b1').css({'z-index':'1'});
+
+    var myheight = $('.mc075').height();
+    var myString = -myheight + 'px';
+    $('.mc075').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
     $('.mc1').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush'});
     $('.sliderbard').css({'border':'0px'});
-    // $('.mc1').css({'transition-delay':'0s'});
 
+    stopRotations();
 }
 
 var b1 = document.getElementById('b1');
 b1.onclick = function() {
+    $('.cb').css({'z-index':'-10'});
+    $('#b2').css({'z-index':'1'});
     var myheight = $('.mc1').height();
     var myString = -myheight + 'px';
     $('.mc1').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
     $('.mc2').css({'position':'static', 'opacity':'1', 'background-color':'lavender'});
     $('.calculator').css({'opacity':'1'});
+    stopRotations();
+    resetRotateMyValues12();
+    setTimeout('startRotations()', 100);
 
-    // $('html, body').animate({
-    //     scrollTop: $('.mc2').height()*1.5
-    // }, 1000);
     $('.titlesection, .topsection, .middlesection, .bottomsection').css({'transition':'1s', 'transition-delay':'0s'});
     $('.titlesection, .topsection, .middlesection, .bottomsection').css({'opacity':'1', 'z-index':'0'});
     $('.topsection').css({'margin-top':'0px'});
@@ -1107,12 +1141,15 @@ b1.onclick = function() {
         scrollTop: $(document).height()
     }, 1000);
     $('.dinfo').css({'display':'none'});
-    $('.topsection, .middlesection').css({'transition':'2s', 'opacity':'0.2'})
-    setTimeout('rotateMyLeaderAll2(202)',100);
-   setTimeout('rotateMe(-100, -70)', 3000);
-   $('.slider').css({'z-index':'-10'});
-   $('.lslider').css({'z-index':'-10'});
+
+
+   $('.slider, .lslider, .dslider').css({'z-index':'-10'});
+   $('.switchwrap').css({'opacity':'0'});
+
 /*
+
+
+
    // setTimeout('rotateMyLeaderAll2(702,43)',1000);
    // setTimeout('stopAnimations()', 3000);
    // setTimeout('resetLeaderRotations()', 3500);
@@ -1205,67 +1242,105 @@ b1.onclick = function() {
 
 var b2 = document.getElementById('b2');
 b2.onclick = function() {
+    $('.cb').css({'z-index':'-10'});
+    // $('#b1').css({'z-index':'1'});
     var myheight = $('.mc2').height();
     var myString = -myheight + 'px';
     $('.mc2').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
-    $('.mc25').css({'position':'static', 'opacity':'1', 'background-color':'lavender'});
-    $('.dottedred').css({'border':'2px solid white'});
-    $('.dottedred3').css({'border':'2px solid red'});
-    $('.dottedblue2').css({'border':'2px solid white'});
-    $('.switchwrap').css({'opacity':'1'});
-    $('html, body').animate({
-        scrollTop: $('.totalbarwrap').height()*1.6
-    }, 1000);
-    // $('.dsinfo').css({'display':'inline'});
+    setLeaders(100,100);
+    setTimeout('rotateMe(-72, -12)',2000);
+    // setTimeout('rotateMyLeaderAll(604,194, 2)',11000);
+        setTimeout('setLeaders(100,200);',11000);
+    setTimeout('goNext1()', 17000);
+}
+
+goNext1 = function() {
+    // $('.cb').css({'z-index':'-10'});
+    $('#b21').css({'z-index':'1'});
+    $('.mc21').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush'});
+    showleft();
+    stopAnimations();
+    resetLeaderRotations();
+}
+
+var dondursolsag = true;
+
+var showleft = function() {
+    if(dondursolsag) {
+        $('.xxx').css({'opacity':'1'});
+        $('.yyy').css({'opacity':'0'});
+        setTimeout('showright()', 2500);
+    }
+
+}
+
+var showright = function() {
+    if(dondursolsag) {
+        $('.xxx').css({'opacity':'0'});
+        $('.yyy').css({'opacity':'1'});
+        setTimeout('showleft()', 2500);
+    }
+
+}
+
+var b21 = document.getElementById('b21');
+b21.onclick = function() {
+    $('.cb').css({'z-index':'-10'});
+    $('#b22').css({'z-index':'1'});
+    var myheight = $('.mc21').height();
+    var myString = -myheight + 'px';
+    $('.mc21').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
+    $('.mc22').css({'position':'static', 'opacity':'1', 'background-color':'lavender'});
+
+    $('.topsection, .middlesection').css({'transition':'2s', 'opacity':'0'})
+    dondursolsag = false;
+    $('.xxx').css({'opacity':'1'});
+    $('.yyy').css({'opacity':'1'});
+
+
+}
+var b22 = document.getElementById('b22');
+b22.onclick = function() {
+    $('.cb').css({'z-index':'-10'});
+    $('#b25').css({'z-index':'1'});
+    var myheight = $('.mc22').height();
+    var myString = -myheight + 'px';
+    $('.mc22').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
+    $('.mc25').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush'});
+
     $('.topsection, .middlesection').css({'transition':'2s', 'opacity':'1'})
     stopRotations();
-    setTimeout('startRotations()', 100);
-    setTimeout('rotateMyLeaderAll(202)',110);
-    setTimeout('rotateMyValues(60,7)', 2000);
+    resetRotateMyValues12();
+    setLeaders(200,200);
+    setFollowers2(0,0,0,0, 1)
+    setTimeout('startRotations()', 1000);
+    setTimeout('rotateMyValues(30,5)', 2000);
 
-
-
-
-
-
-    // setTimeout('rotateMyLeaderAll(304,93)',500);
-    // setTimeout('rotateMyLeader(93, 93)', 5000)
-    // setTimeout('rotateMyLeader3(500, 100)', 8500)
-    // setTimeout('rotateMyLeaderAll2(93,93)',15000);
-
-
-    // stopRotations();
-    // setTimeout('startRotations()', 10);
-    // setTimeout('rotateMyValues2(50)', 1000);
-    // setTimeout('rotateMe(50, 50)', 1000);
-    // setTimeout('startRotations()', 1000)
-    // setTimeout('rotateMyValues()', 2000);
 
 }
 
 var b25 = document.getElementById('b25');
 b25.onclick = function() {
+    $('.cb').css({'z-index':'-10'});
+    $('#b275').css({'z-index':'1'});
     var myheight = $('.mc25').height();
     var myString = -myheight + 'px';
     $('.mc25').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
-    $('.mc275').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush'});
+    $('.mc275').css({'position':'static', 'opacity':'1', 'background-color':'lavender'});
 
 
     stopRotations();
-    setTimeout('startRotations()', 100);
-    setTimeout('rotateMyLeaderAll2(202)',110);
-    setTimeout('rotateMyValues2(60,5)', 2000);
+    resetRotateMyValues12();
+    setLeaders(200,200);
+    setTimeout('startRotations()', 1000);
+    setTimeout('rotateMyValues2(30,5)', 2000);
 
-    // setTimeout('startRotations()', 1000)
-    // setTimeout('rotateMe(50)',1000)
-    // stopRotations();
-    // setTimeout('startRotations()', 100);
-    // setTimeout('rotateMyValues(50)', 1000);
-    // setTimeout('rotateMe(0, 10)', 2000);
 }
 //make only efficiency bar visible
 var b275 = document.getElementById('b275');
 b275.onclick = function() {
+    $('.cb').css({'z-index':'-10'});
+    $('#b3').css({'z-index':'1'});
     var myheight = $('.mc275').height();
     var myString = -myheight + 'px';
     $('.mc275').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
@@ -1275,187 +1350,93 @@ b275.onclick = function() {
         scrollTop: 0
     }, 1000);
     stopRotations();
+    resetRotateMyValues12();
     setTimeout('startRotations()', 2000);
-    $('.topsection, .bottomsection').css({'transition':'2s', 'opacity':'0.2'})
-    $('.efficiencyBar').css({'transition':'1s', 'border':'3px solid red'});
-    // setTimeout('startRotations()', 100);
-    // setTimeout('rotateMyLeaderAll2(202)',110);
-    // setTimeout('rotateMe(60, 60)', 1500);
-    // setTimeout('stopRotations()', 12000);
-    // setTimeout('startRotations()', 12500);
-    // setTimeout('rotateMe(-60, -60)', 13000);
-    // setTimeout('rotateMyLeaderAll2(202)',110);
 
-    // setTimeout('startRotations()', 1000)
-    // setTimeout('rotateMe(50)',1000)
-    // stopRotations();
-    // setTimeout('startRotations()', 100);
-    // setTimeout('rotateMyValues(50)', 1000);
-    // setTimeout('rotateMe(0, 10)', 2000);
+    $('.efficiencyBar').css({'transition':'1s', 'border':'3px solid red'});
+    stopRotations();
+    resetRotateMyValues12();
+    setLeaders(200,200);
+    resetRotations();
 }
-// show help and sabotage sophisticated
+
+
 var b3 = document.getElementById('b3');
 b3.onclick = function() {
-    var myheight = $('.mc3').height();
-    var myString = -myheight + 'px';
-    $('.mc3').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
-    $('.mc35').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush'});
-    $('.bottomsection').css({'transition':'2s', 'opacity':'1'});
-    // $('html, body').animate({
-    //     scrollTop: $('.decision').height()*1.2
-    // }, 1000);
-    $('.decision').css({'transition':'1s','margin-top':'-140px', 'z-index':'-10', 'opacity':'0'});
-    $('.efficiencyBar').css({'border':'3px solid white'});
-    $('.bottomsection').css({'transition':'2s', 'opacity':'1'});
-    $('html, body').animate({
-        scrollTop: $(document).height()
-    }, 1000);
-    stopRotations();
-    setTimeout('startRotations()', 100);
-    setTimeout('rotateMyLeaderAll2(202)',1110);
-    setTimeout('rotateMe(60, 60)', 2500);
-    setTimeout('stopRotations()', 13000);
-    setTimeout('startRotations()', 13500);
-    setTimeout('rotateMe(-60, -60)', 14000);
+    $('.cb').css({'z-index':'-10'});
 
-
-
-    // setTimeout('startRotations()', 1000)
-    // setTimeout('rotateMe(50)',1000)
-    // stopRotations();
-    // setTimeout('startRotations()', 100);
-    // setTimeout('rotateMyValues(50)', 1000);
-    // setTimeout('rotateMe(0, 10)', 2000);
-}
-
-var b35 = document.getElementById('b35');
-b35.onclick = function() {
     $('.decision').css({'transition':'1s','margin-top':'0px', 'z-index':'1', 'opacity':'1'});
     $('.dsinfo').css({'display':'inline'});
 
-    var myheight = $('.mc35').height();
+    var myheight = $('.mc3').height();
     var myString = -myheight + 'px';
-    $('.mc35').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
+    $('.mc3').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
+
+    setTimeout('setFollowers2(19,28,12,3, 0)', 1000);
+    setTimeout('setFollowers2(7,7,2,3, 1)', 2000);
+    // setTimeout('setFollowers2(12,2,5,20, 0)', 5000);
+    // setTimeout('setFollowers2(14,7,28,13, 1)', 4000);
+    // setTimeout('setFollowers2(7,7,31,13, 0)', 3000);
+    // setTimeout('setFollowers2(19,28,12,3, 1)', 6000);
+    setTimeout('setFollowers()', 3000);
+    setTimeout('goNext2()', 3500)
+}
+
+var goNext2 = function() {
+    $('#b4').css({'z-index':'1'});
     $('.mc4').css({'position':'static', 'opacity':'1', 'background-color':'lavender'});
+
+    stopRotations();
+    setFollowers();
+    resetRotateMyValues12();
+    startLeaderRotations();
+
+    setTimeout('rotateMyLeaderAll3(723,138, 4)',1000)
+
+
     $('html, body').animate({
         scrollTop:0
     }, 1000);
+    $('.efficiencyBar').css({'transition':'1s', 'border':'3px solid white'});
     $('.topsection').css({'opacity':'1'});
     $('.bottomsection, .decision').css({'opacity':'0.2'});
-
-
 }
 
 var b4 = document.getElementById('b4');
 b4.onclick = function() {
+    $('.cb').css({'z-index':'-10'});
+    $('#b5').css({'z-index':'1'});
     var myheight = $('.mc4').height();
     var myString = -myheight + 'px';
     $('.mc4').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
-    $('.mc45').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush'});
-    // $('.multibutton').css({'opacity':'1'});
-
-    setTimeout('rotateMyLeaderAll(704,44, 6)',1000);
-    setTimeout('rotateMyLeader(55, 55)', 9500);
-    setTimeout('rotateMyLeader3(506, 43)', 19000);
-    setTimeout('rotateMyLeader32(193, 100)', 33000);
-    $('.bottomsection, .middlesection, .decision').css({'opacity':'1'});
-
-    // stopRotations();
-    // setTimeout('startRotations()', 100);
-    // LEADER SEQUENCE - 20 seconds
-    // setTimeout('rotateMyLeaderAll(704,44, 6)',1000);
-    // setTimeout('rotateMyLeader(55, 55)', 8500)
-    // setTimeout('rotateMyLeader3(506, 43)', 17000)
-    // setTimeout('rotateMyLeader32(193, 100)', 29000)
-
-}
-
-var b45 = document.getElementById('b45');
-b45.onclick = function() {
-    var myheight = $('.mc45').height();
-    var myString = -myheight + 'px';
-    $('.mc45').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
     $('.mc5').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush'});
-    $('.lslider').css({'z-index':'1'});
-    $('.slider').css({'z-index':'1'});
+
+    $('.efficiencyBar').css({'transition':'1s', 'border':'0px solid white'});
+    $('.switchwrap').css({'opacity':'1'});
+    $('.bottomsection, .middlesection, .decision').css({'opacity':'1'});
+    $('.lslider, .slider, .dslider').css({'z-index':'1'});
     $('.dinfo').css({'display':'inline'});
-    stopRotations();
-    setTimeout('startRotations()', 1000);
     $('.continueButton').css({'opacity':'1', 'z-index':'1000'});
-    // $('.multibutton').css({'opacity':'1'});
-    // $('html, body').animate({
-    //     scrollTop: 0
-    // }, 1000);
-    // setTimeout('rotateMyLeaderAll(704,44, 6)',1000);
-    // setTimeout('rotateMyLeader(55, 55)', 8500);
-    // setTimeout('rotateMyLeader3(506, 43)', 17000);
-    // setTimeout('rotateMyLeader32(193, 100)', 29000);
-    // stopRotations();
-    // setTimeout('startRotations()', 100);
-    // LEADER SEQUENCE - 20 seconds
-    // setTimeout('rotateMyLeaderAll(704,44, 6)',1000);
-    // setTimeout('rotateMyLeader(55, 55)', 8500)
-    // setTimeout('rotateMyLeader3(506, 43)', 17000)
-    // setTimeout('rotateMyLeader32(193, 100)', 29000)
+
+    stopAnimations();
+    stopRotations();
+    stopLeaderRotations();
 
 }
+
+
 
 var b5 = document.getElementById('b5');
 b5.onclick = function() {
     var myheight = $('.mc5').height();
     var myString = -myheight + 'px';
     $('.mc5').css({'padding':'0px','opacity':'0','margin-top':myString, 'z-index':'-10'});
-
-    // $('.mc5').css({'position':'static', 'opacity':'1', 'background-color':'lavenderblush'});
-    // $('.multibutton').css({'opacity':'1'});
-    // $('html, body').animate({
-    //     scrollTop: 0
-    // }, 1000);
-    // setTimeout('rotateMyLeaderAll(704,44, 6)',1000);
-    // setTimeout('rotateMyLeader(55, 55)', 8500);
-    // setTimeout('rotateMyLeader3(506, 43)', 17000);
-    // setTimeout('rotateMyLeader32(193, 100)', 29000);
-    // stopRotations();
-    // setTimeout('startRotations()', 100);
-    // LEADER SEQUENCE - 20 seconds
-    // setTimeout('rotateMyLeaderAll(704,44, 6)',1000);
-    // setTimeout('rotateMyLeader(55, 55)', 8500)
-    // setTimeout('rotateMyLeader3(506, 43)', 17000)
-    // setTimeout('rotateMyLeader32(193, 100)', 29000)
-
 }
 
 
 
 
 
-
-
-
-
-
-
-
-//
-// var calcOn = document.getElementById('multibutton');
-// calcOnCounter = 0;
-// calcOn.onclick = function() {
-//     if(calcOnCounter===0) {
-//         $('.titlesection, .topsection, .middlesection, .bottomsection').css({'transition':'1s', 'transition-delay':'0s'});
-//         $('.titlesection, .topsection, .middlesection, .bottomsection').css({'opacity':'0', 'z-index':'-10'});
-//         $('.topsection').css({'margin-top':'-650px'});
-//     }
-//     if(calcOnCounter===1) {
-//         $('.titlesection, .topsection, .middlesection, .bottomsection').css({'transition':'1s', 'transition-delay':'0s'});
-//         $('.titlesection, .topsection, .middlesection, .bottomsection').css({'opacity':'1', 'z-index':'0'});
-//         $('.topsection').css({'margin-top':'0px'});
-//         $('html, body').animate({
-//             scrollTop: 0
-//         }, 1000);
-//     }
-//     $('.son').css({'opacity':'1'});
-//     calcOnCounter = 1 - calcOnCounter;
-// }
 
 
 ///////////////////////////////////////////////////////////////////////
@@ -1465,6 +1446,107 @@ b5.onclick = function() {
 ///////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
+var setFollowers = function() {
+    console.log('FOLLOWERS FOLLOWERS FOLLOWERS');
+    h1 = h2 = 0;
+    s1 = 7;
+    s2 = 10;
+    updateBar(-7, 'bar1', 0, false);
+    updateBarDecision(-7, 'bard', false);
+    $('#vSlider1, #dSlider').prop('value', -7);
+    $('#vSlider1, #dSlider').change();
+
+    updateBar(-10, 'bar2', 0, false);
+    $('#vSlider2').prop('value', -10);
+    $('#vSlider2').change();
+
+    oh1 = oh2 = 0;
+    os1 = 3;
+    os2 = 2;
+    updateBar(-3, 'obar2', 0, false);
+    $('#ovSlider2').prop('value', -3);
+    $('#ovSlider2').change();
+
+    updateBar(-2, 'obar1', 0, false);
+    $('#ovSlider1').prop('value', -2);
+    $('#ovSlider1').change();
+
+
+    updateAll();
+}
+
+var setFollowers2 = function(a, b, c, d, helpcase) {
+
+    h1 = a*helpcase;
+    h2 = b*helpcase;
+    s1 = a*(1-helpcase);
+    s2 = b*(1-helpcase);
+    oh1 =  c*helpcase;
+    oh2 =  d*helpcase;
+    os1 = c*(1-helpcase);
+    os2 = d*(1-helpcase);
+
+    if(helpcase===1) {
+        updateBar(h1, 'bar1', 0, false);
+        updateBarDecision(h1, 'bard', false);
+        $('#vSlider1, #dSlider').prop('value', h1);
+        $('#vSlider1, #dSlider').change();
+
+        updateBar(h2, 'bar2', 0, false);
+        $('#vSlider2').prop('value', h2);
+        $('#vSlider2').change();
+
+
+        updateBar(oh2, 'obar2', 0, false);
+        $('#ovSlider2').prop('value', oh2);
+        $('#ovSlider2').change();
+
+        updateBar(oh1, 'obar1', 0, false);
+        $('#ovSlider1').prop('value', oh1);
+        $('#ovSlider1').change();
+    }
+    if(helpcase===0) {
+        updateBar(-s1, 'bar1', 0, false);
+        updateBarDecision(-s1, 'bard', false);
+        $('#vSlider1, #dSlider').prop('value', -s1);
+        $('#vSlider1, #dSlider').change();
+
+        updateBar(-s2, 'bar2', 0, false);
+        $('#vSlider2').prop('value', -s2);
+        $('#vSlider2').change();
+
+
+        updateBar(-os2, 'obar2', 0, false);
+        $('#ovSlider2').prop('value', -os2);
+        $('#ovSlider2').change();
+
+        updateBar(-os1, 'obar1', 0, false);
+        $('#ovSlider1').prop('value', -os1);
+        $('#ovSlider1').change();
+    }
+
+
+    updateAll();
+}
+var setLeaders = function(e1, e2) {
+
+    efo = e1;
+
+    updateBarLeader(e1, 'barl', true, false);
+
+    $('#lSlider1').prop('value', e1);
+    $('#lSlider1').change();
+
+    oefo = e2;
+
+    updateBarLeader(e2, 'obarl', false, false);
+
+    $('#olSlider1').prop('value', e2);
+    $('#olSlider1').change();
+    updateAll();
+
+}
+
 
 
 // updateBar = function(a, barId, lighter, axisOn)
@@ -1538,6 +1620,28 @@ var rotateMyValues = function(value, nr) {
 
 }
 
+var rotateMyValuesSlow = function(value, nr) {
+    if(startRotate) {
+        if(myrotation<nr){
+            rMySlider(value);
+            var mystring = 'rotateMyValuesSlow(' + value + ','+ nr +')';
+            setTimeout(mystring, 200);
+        }
+        if(myrotation===nr){
+            s1 = h1 = 0;
+            updateBar(0, 'bar1', 0, false);
+            updateBarDecision(0, 'bard', false);
+            $('#vSlider1, #dSlider').prop('value', 0);
+            $('#vSlider1, #dSlider').change();
+            updateAll();
+        }
+    }
+
+}
+
+var resetRotateMyValues12 = function() {
+    myrotation = myrotation2 = 0;
+}
 // rotateMyValues();
 
 var clickCountMyDecision2 = 0;
@@ -1635,7 +1739,7 @@ var rotateMyValues2 = function(value, nr) {
 ////////////////////////////
 var convergence = true;
 
-
+var cycleCount = 0;
 var anotherCount1 = 0;
 var rotateMe = function(value, value2){
     if(startRotate)
@@ -1643,8 +1747,12 @@ var rotateMe = function(value, value2){
         // console.log(anotherCount1);
         myGenericMove(value);
         if(anotherCount1 < (value+6) && anotherCount1 > (value-6)) {
-            var mystring2 = 'rotateOthers(' + value2 + ',' + value + ')';
-            setTimeout(mystring2, 500);
+            cycleCount = cycleCount + 1;
+            if(cycleCount<4){
+                var mystring2 = 'rotateOthers(' + value + ',' + value2 + ')';
+                setTimeout(mystring2, 500);
+            }
+
         } else {
             var mystring = 'rotateMe(' + value + ',' + value2 + ')';
             setTimeout(mystring, 1);
@@ -1686,7 +1794,7 @@ var myGenericMove = function(value) {
             goUp2 = false;
         }
 
-        var step =  Math.abs(Math.floor((value - anotherCount1)/3));
+        var step =  Math.abs(Math.floor((value - anotherCount1)/4));
         // var step = 5;
 
         if(goUp2) {
@@ -1706,10 +1814,11 @@ var rotateOthers = function(value, value3) {
         genericOthers(value);
 
         if(value > (anotherCount2 - 6) && value < (anotherCount2 + 6)){
-            value = Math.floor(value*0.5);
-            value3 = Math.floor(value3*0.25);
+            // value = Math.floor(value*0.5);
+            // value3 = Math.floor(value3*0.25);
+
             if(convergence){
-                var mystring4 = 'rotateMe(' + value3 + ',' + value + ')';
+                var mystring4 = 'rotateMe(' + value3 + ',' + value3 + ')';
                 setTimeout(mystring4, 500);
                 // setTimeout('rotateMe(1, 4)', 100);
                 // console.log(mystring4);
@@ -1762,6 +1871,19 @@ var genericOthers = function(value) {
         $('#ovSlider2').change();
 
         ///
+        ////
+
+        os1 = Math.ceil(os1 * 1.45);
+        oh1 = Math.ceil(oh1/2.5);
+
+        var temp = isHelp1 ? oh1 : -os1;
+
+        updateBar(temp, 'obar1', 0, false);
+        $('#ovSlider1').prop('value', temp);
+        $('#ovSlider1').change();
+
+        ///
+
         s2 = Math.ceil(s2 * 0.5);
         h2 = Math.ceil(h2/3);
 
@@ -1787,7 +1909,7 @@ var genericOthers = function(value) {
         }
 
         // var step =  Math.abs(Math.ceil(value/10));
-        var step =  Math.abs(Math.floor((value - anotherCount2)/3));
+        var step =  Math.abs(Math.floor((value - anotherCount2)/4));
         // var step = 5;
 
         if(goUp3) {
@@ -1805,10 +1927,10 @@ var genericOthers = function(value) {
 
 
 
-
+var startRotate2 = true;
 var leaderRotations = 0;
 var rotateMyLeader3 = function(value, value3) {
-    if(startRotate && leaderRotations < 5){
+    if(startRotate2 && leaderRotations < 5){
         myLeaderMove(value);
 
         if(value > (anotherCount3 - 6) && value < (anotherCount3 + 6)){
@@ -1823,7 +1945,7 @@ var rotateMyLeader3 = function(value, value3) {
     } else if(leaderRotations >= 5){
         // rotateMyLeader(350, 350);
         // rotateMyLeader4(500, 50);
-        setTimeout('rotateMyLeader4(506, 43)', 1000);
+        // setTimeout('rotateMyLeader4(506, 43)', 1000);
     }
 
 }
@@ -1849,10 +1971,10 @@ var rotateMyLeader32 = function(value, value3) {
 }
 
 var rotateMyLeader = function(value, value3) {
-    if(startRotate){
+    if(startRotate2){
         myLeaderMove(value);
         if(value < 600) {
-            if(value > (anotherCount3 - 5) && value < (anotherCount3 + 5)){
+            if(value > (anotherCount3 - 6) && value < (anotherCount3 + 6)){
                 var mystring = 'rotateMyLeader2(' + value + ',' + (value + 150) + ')';
                 setTimeout(mystring, 500);
 
@@ -1876,7 +1998,14 @@ var startAnimations = function() {
 }
 var resetLeaderRotations = function() {
     allLeaderRotation = leaderRotations = leaderRotations2 = 0;
-    startRotate = true;
+    startRotate2 = true;
+}
+var stopLeaderRotations = function() {
+    startRotate2 = false;
+}
+var startLeaderRotations = function() {
+    startRotate2 = true;
+    allLeaderRotation = 0
 }
 
 var rotateMyLeader5 = function(value, value3) {
@@ -1906,7 +2035,7 @@ var anotherCount3 = 0;
 var goUpl1;
 var myLeaderMove = function(value) {
 
-    if(startRotate && (anotherCount3!=value)) {
+    if(startRotate2 && (anotherCount3!=value)) {
 
 
 
@@ -1929,8 +2058,8 @@ var myLeaderMove = function(value) {
             goUpl1 = false;
         }
 
-        var step =  Math.abs(Math.floor((value - anotherCount3)/3));
-        // var step = 5;
+        var step =  Math.abs(Math.floor((value - anotherCount3)/4));
+        // var step = 10;
 
         if(goUpl1) {
             anotherCount3 = anotherCount3 + step;
@@ -1948,7 +2077,7 @@ var myLeaderMove = function(value) {
 var anotherCount4 = 0;
 var leaderRotations2 = 0;
 var rotateMyLeader4 = function(value, value3) {
-    if(startRotate && leaderRotations2 < 5){
+    if(startRotate2 && leaderRotations2 < 5){
         myLeaderMove2(value);
 
         if(value > (anotherCount4 - 6) && value < (anotherCount4 + 6)){
@@ -1968,7 +2097,7 @@ var rotateMyLeader4 = function(value, value3) {
 }
 
 var rotateMyLeader42 = function(value) {
-    if(startRotate && leaderRotations2 < 11){
+    if(startRotate2 && leaderRotations2 < 11){
         myLeaderMove2(value);
 
             mystring = 'rotateMyLeader42(' + value + ')';
@@ -1982,11 +2111,11 @@ var rotateMyLeader42 = function(value) {
 
 
 var rotateMyLeader2 = function(value, value3) {
-    if(startRotate){
+    if(startRotate2){
         myLeaderMove2(value);
-        if(value < 600) {
-            if(value > (anotherCount4 - 5) && value < (anotherCount4 + 5)){
-                var mystring = 'rotateMyLeader(' + (value + 150) + ',' + value3 + ')';
+        if(value < 300) {
+            if(value > (anotherCount4 - 6) && value < (anotherCount4 + 6)){
+                var mystring = 'rotateMyLeader(' + (value + 100) + ',' + value3 + ')';
                 setTimeout(mystring, 500);
 
             } else {
@@ -2018,8 +2147,7 @@ var rotateMyLeader7 = function(value, value3) {
 var goUpl2;
 var myLeaderMove2 = function(value) {
 
-    if(startRotate && (anotherCount3!=value)) {
-
+    if(startRotate2 && (anotherCount3!=value)) {
 
 
         oefo = anotherCount4;
@@ -2041,8 +2169,8 @@ var myLeaderMove2 = function(value) {
             goUpl2 = false;
         }
 
-        var step =  Math.abs(Math.floor((value - anotherCount4)/3));
-        // var step = 5;
+        var step =  Math.abs(Math.floor((value - anotherCount4)/4));
+        // var step = 10;
 
         if(goUpl2) {
             anotherCount4 = anotherCount4 + step;
@@ -2057,9 +2185,9 @@ var myLeaderMove2 = function(value) {
 
 var allLeaderRotation = 0;
 var rotateMyLeaderAll = function(value, value3, nr) {
-    if(startRotate && allLeaderRotation<nr){
-        myLeaderMove2(value);
-        myLeaderMove(value);
+    if(startRotate2 && allLeaderRotation<nr){
+        myLeaderMove2(Math.floor(value));
+        myLeaderMove((value/2)+1);
         if(value < 800) {
             if(value > (anotherCount4 - 6) && value < (anotherCount4 + 6)){
                 var mystring = 'rotateMyLeaderAll(' + value3 + ',' + value + ',' + nr + ')';
@@ -2077,12 +2205,12 @@ var rotateMyLeaderAll = function(value, value3, nr) {
 
 
 var rotateMyLeaderAll2 = function(value) {
-    if(startRotate){
-        anotherCount3 = anotherCount4;
+    if(startRotate2){
+        // anotherCount3 = anotherCount4;
         myLeaderMove2(value);
-        myLeaderMove(value);
+        myLeaderMove(Math.floor(value*(3/4)+1));
 
-            if(value < (anotherCount4 + 2)){
+            if(value < (anotherCount4 + 1)){
 
                 console.log('done it');
 
@@ -2096,9 +2224,26 @@ var rotateMyLeaderAll2 = function(value) {
     }
 }
 
+var rotateMyLeaderAll3 = function(value, value3, nr) {
+    if(startRotate2 && allLeaderRotation<nr){
+        myLeaderMove2(Math.floor(value/3)+2);
+        myLeaderMove((value));
+        if(value < 800) {
+            if(value > (anotherCount4 - 6) && value < (anotherCount4 + 6)){
+                var mystring = 'rotateMyLeaderAll3(' + value3 + ',' + value + ',' + nr + ')';
+                setTimeout(mystring, 1);
+                allLeaderRotation = 1 + allLeaderRotation;
 
-var stopRotations = function() {
-    startRotate = false;
+            } else {
+                mystring = 'rotateMyLeaderAll3(' + value + ',' + value3 + ',' + nr + ')';
+                setTimeout(mystring, 1);
+            }
+        }
+
+    }
+}
+
+var resetRotations = function() {
     updateBar(0, 'bar2', 0, false);
     updateBar(0, 'obar1', 0, false);
     updateBar(0, 'obar2', 0, false);
@@ -2117,24 +2262,13 @@ var stopRotations = function() {
     $('#vSlider1, #dSlider').change();
     updateAll();
 }
+var stopRotations = function() {
+    startRotate = false;
+
+}
 
 
 var startRotations = function() {
     anotherCount1 = anotherCount2 = anotherCount3 = 0;
     startRotate = true;
-    updateBar(0, 'bar2', 0, false);
-    updateBar(0, 'obar1', 0, false);
-    updateBar(0, 'obar2', 0, false);
-    $('#vSlider2, #ovSlider1, #ovSlider2').prop('value', 0);
-    $('#vSlider2, #ovSlider1, #ovSlider2').change();
-    updateBar(0, 'bar1', 0, false);
-    updateBarDecision(0, 'bard', false);
-    $('#vSlider1, #dSlider').prop('value', 0);
-    $('#vSlider1, #dSlider').change();
-    s1 = h1 = s2 = h2 = os1 = oh1 = os2 = oh2 = 0;
-    updateBar(0, 'bar1', 0, false);
-    updateBarDecision(0, 'bard', false);
-    $('#vSlider1, #dSlider').prop('value', 0);
-    $('#vSlider1, #dSlider').change();
-    updateAll();
 }
